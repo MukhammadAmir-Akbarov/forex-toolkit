@@ -1,0 +1,3 @@
+id,date,time,pair,timeframe,direction,setup,entry_price,stop_loss,take_profit,stop_pips,target_pips,rr_planned,lot_size,risk_usd,close_price,close_time,result_pips,result_usd,result_r,outcome,followed_rules,emotions,what_went_well,mistakes,lesson
+1,2026-05-13,14:30,EUR/USD,H1,Long,EMA50 pullback + bullish engulfing,1.0852,1.0827,1.0902,25,50,2.0,0.02,5.00,1.0902,16:45,50,10.00,2.0,Win,yes,calm,"followed checklist, patient entry","none","trust the plan, profitable when disciplined"
+2,2026-05-13,18:20,GBP/USD,H1,Short,Pin bar at resistance,1.2655,1.2680,1.2605,25,50,2.0,0.02,5.00,1.2680,20:10,-25,-5.00,-1.0,Loss,yes,frustrated,"correct setup recognition","none — clean loss by plan","losses by plan are part of the game"

@@ -1,0 +1,33 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Backtest outputs
+bot/equity-curve.png
+bot/trades.csv
+bot/*.png
+!docs/images/*.png
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Personal trading data (не пушить!)
+journal/personal-*.md
+journal/personal-*.csv
+data/
+*.csv
+!journal/trading-journal-template.csv
+
+# Brokers credentials
+.env
+config.local.*

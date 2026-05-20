@@ -1,0 +1,106 @@
+site_name: Forex Trading Toolkit
+site_description: Образовательный проект — учебник, инструменты, стратегии
+site_author: forex-trading project
+
+docs_dir: _mkdocs
+site_dir: site
+
+theme:
+  name: material
+  language: ru
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Тёмная тема
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Светлая тема
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - footnotes
+  - toc:
+      permalink: true
+
+nav:
+  - 🏠 Начало:
+      - Главная: index.md
+      - Как пользоваться: КАК-ПОЛЬЗОВАТЬСЯ.md
+      - Главный учебник: forex-guide.md
+  - 📚 Углублённо:
+      - Технический анализ: docs/technical-analysis.md
+      - Учебная стратегия: docs/strategy-details.md
+      - 📈 Реальный анализ EUR/USD: docs/real-analysis.md
+  - 🧠 Психология и дисциплина:
+      - Психология трейдинга: extras/psychology.md
+      - Anti-Tilt протокол: extras/anti-tilt-protocol.md
+      - Emergency card: extras/emergency-card.md
+      - Daily routine: extras/daily-routine.md
+  - 📋 Шаблоны:
+      - Trading Plan: extras/trading-plan-template.md
+      - First 100 Days: extras/first-100-days.md
+      - Чек-лист: extras/checklist-printable.md
+      - FAQ: extras/faq.md
+      - Глоссарий: extras/glossary.md
+      - Сравнение брокеров: extras/brokers-comparison.md
+      - Mind map: extras/mind-map.md
+  - 📝 Журнал:
+      - Шаблон: journal/trading-journal-template.md
+      - Расширенный: journal/journal-extended.md
+      - Demo vs Real: journal/demo-vs-real-comparison.md
+      - Mistakes log: journal/mistakes-log.md
+      - README: journal/README.md
+  - 🛠️ Инструменты:
+      - Tools README: tools/README.md
+      - Bot README: bot/README.md
+  - 🚀 Продвинутое:
+      - MT5 setup: advanced/SETUP-mt5.md
+      - Streamlit setup: advanced/SETUP-streamlit.md
+      - Telegram bot: advanced/SETUP-telegram.md
+      - VPS deployment: advanced/SETUP-vps-deployment.md
+  - 🌱 После года:
+      - Order Flow / Volume Profile: growth/order-flow-volume-profile.md
+      - Crypto trading: growth/crypto-trading-guide.md
+      - Stocks basics: growth/stocks-basics.md
+  - 🇺🇿 Узбекистан:
+      - Вывод денег: uz/withdrawal-guide.md
+      - Сообщества: uz/communities.md
+  - 🇬🇧 English:
+      - How to use: HOW-TO-USE.md
+      - Main guide: forex-guide-en.md
+      - Psychology: extras/psychology-en.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/
+
+copyright: |
+  &copy; Образовательный материал, не финансовый совет
