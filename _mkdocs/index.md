@@ -8,6 +8,44 @@
   130+ файлов · 25+ учебных гайдов · 30+ Python-инструментов · 6 стратегий · MT5/Telegram/Streamlit боты · 74 unit-теста
 </div>
 
+<p align="center" markdown="1">
+[![Tests](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml)
+[![Deploy](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml)
+[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
+[![GitHub](https://img.shields.io/badge/github-source-black?logo=github)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit)
+</p>
+
+## 📥 Скачать готовые материалы
+
+<div class="grid cards" markdown>
+
+-   📕 **PDF-учебник** (1.1 MB)
+
+    ---
+
+    Полный учебник в PDF для печати и офлайн-чтения.
+
+    [📥 Скачать PDF](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-handbook.pdf){ .md-button .md-button--primary }
+
+-   📄 **Word-версия** (962 KB)
+
+    ---
+
+    Тот же учебник в редактируемом формате `.docx`.
+
+    [📥 Скачать DOCX](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-guide-rus.docx){ .md-button }
+
+-   🛠️ **Исходный код**
+
+    ---
+
+    Полный репозиторий: Python-инструменты, стратегии, тесты, боты.
+
+    [⭐ GitHub](https://github.com/MukhammadAmir-Akbarov/forex-toolkit){ .md-button }
+
+</div>
+
 !!! warning "⚠️ ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ"
     Этот документ — **образовательный материал**, не финансовый совет.
     Forex — высокорисковая деятельность. По данным ESMA, **74–89%** розничных
@@ -69,10 +107,12 @@ graph TD
 
 ## 🧪 Качество кода
 
-- **74/74** unit-теста проходят
+- **74/74** unit-теста проходят на каждом push (CI matrix: Ubuntu/macOS × Python 3.10-3.12)
 - Тестировано на **8 валютных парах × 2 года** реальных данных
 - Walk-forward optimization для проверки робастности
 - Coverage отчёт встроен
+- **Risk Guardian** (anti-tilt): автоматический стоп торговли после N убытков подряд + дневной лимит потерь
+- **Live-цены** в калькуляторе позиции через yfinance — никаких устаревших табличных значений
 
 ## 📜 Дисклеймер
 
