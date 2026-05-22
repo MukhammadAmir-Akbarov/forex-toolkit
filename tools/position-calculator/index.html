@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="uz" class="no-js">
+<html lang="ru" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -12,37 +12,37 @@
         <meta name="author" content="forex-trading project">
       
       
-        <link rel="canonical" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/advanced/SETUP-mt5/">
+        <link rel="canonical" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/position-calculator/">
       
       
-        <link rel="prev" href="../../bot/">
+        <link rel="prev" href="../../journal/">
       
       
-        <link rel="next" href="../SETUP-streamlit/">
+        <link rel="next" href="../">
       
       
         
-          <link rel="alternate" href="../../../advanced/SETUP-mt5/" hreflang="ru">
+          <link rel="alternate" href="./" hreflang="ru">
         
-          <link rel="alternate" href="../../../en/advanced/SETUP-mt5/" hreflang="en">
+          <link rel="alternate" href="../../en/tools/position-calculator/" hreflang="en">
         
-          <link rel="alternate" href="./" hreflang="uz">
+          <link rel="alternate" href="../../uz/tools/position-calculator/" hreflang="uz">
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>MT5 setup - Forex Trading Toolkit (O'zbek)</title>
+        <title>📐 Калькулятор позиции - Forex Trading Toolkit</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -61,7 +61,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -86,8 +86,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#mt5-setup-guide-metatrader-5" class="md-skip">
-          Tarkibga o'tish
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
         </a>
       
     </div>
@@ -101,8 +101,8 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Sarlavha">
-    <a href="../../" title="Forex Trading Toolkit (O&#39;zbek)" class="md-header__button md-logo" aria-label="Forex Trading Toolkit (O'zbek)" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Forex Trading Toolkit" class="md-header__button md-logo" aria-label="Forex Trading Toolkit" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,13 +116,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Forex Trading Toolkit (O'zbek)
+            Forex Trading Toolkit
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MT5 setup
+              📐 Калькулятор позиции
             
           </span>
         </div>
@@ -162,26 +162,26 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Tilni tanlang">
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="../../../advanced/SETUP-mt5/" hreflang="ru" class="md-select__link">
+            <a href="./" hreflang="ru" class="md-select__link">
               🇷🇺 Русский
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../../en/advanced/SETUP-mt5/" hreflang="en" class="md-select__link">
+            <a href="../../en/tools/position-calculator/" hreflang="en" class="md-select__link">
               🇬🇧 English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="./" hreflang="uz" class="md-select__link">
+            <a href="../../uz/tools/position-calculator/" hreflang="uz" class="md-select__link">
               🇺🇿 O'zbek
             </a>
           </li>
@@ -202,16 +202,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Qidirish" placeholder="Qidirish" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Qidirish">
+      <nav class="md-search__options" aria-label="Поиск">
         
-        <button type="reset" class="md-search__icon md-icon" title="Tozalash" aria-label="Tozalash" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -222,7 +222,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Qidiruv ishga tushirilmoqda
+            Инициализация поиска
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -234,7 +234,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" title="Repozitoriyga o'tish" class="md-source" data-md-component="source">
+        <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -270,19 +270,19 @@
 
   
 
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigatsiya" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../" title="Forex Trading Toolkit (O&#39;zbek)" class="md-nav__button md-logo" aria-label="Forex Trading Toolkit (O'zbek)" data-md-component="logo">
+    <a href="../.." title="Forex Trading Toolkit" class="md-nav__button md-logo" aria-label="Forex Trading Toolkit" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Forex Trading Toolkit (O'zbek)
+    Forex Trading Toolkit
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" title="Repozitoriyga o'tish" class="md-source" data-md-component="source">
+      <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" title="Перейти к репозиторию" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -356,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -1220,8 +1220,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1232,13 +1234,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -1259,7 +1259,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1274,10 +1274,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../tools/position-calculator/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📐 Калькулятор позиции
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1293,6 +1320,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формула
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как пользоваться
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример расчёта
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Связь с Python-версией
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1305,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tools/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1365,8 +1467,6 @@
       
   
   
-    
-  
   
   
     
@@ -1379,11 +1479,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
@@ -1404,7 +1506,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1419,37 +1521,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MT5 setup
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../advanced/SETUP-mt5/" class="md-nav__link">
         
   
   
@@ -1465,358 +1540,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Mundarija">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Mundarija
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 1: Регистрация у брокера
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-mt5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 2: Скачивание MT5
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Шаг 2: Скачивание MT5">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#macos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        macOS
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Windows
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Linux
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 3: Первый вход
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 4: Настройка графика
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Шаг 4: Настройка графика">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Включить свечной график
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#h1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Переключить таймфрейм на H1
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ema-50" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Добавить EMA 50
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ema-200" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Добавить EMA 200
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rsi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Добавить RSI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Сохранить шаблон
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 5: Открытие сделки
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Шаг 5: Открытие сделки">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sltp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Правильный способ открытия (с SL/TP сразу)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Распространённые ошибки
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 6: Проверка сделки
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 7: Закрытие сделки
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-mt5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 8: Журнал сделок в MT5
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 9: Часто используемые горячие клавиши
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-expert-advisor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 10: Установка нашего Expert Advisor
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 11: Демо-счёт vs реал — главные отличия
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-mt5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Шаг 12: Стратегия первого месяца на MT5
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Дополнительные советы
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Дополнительные советы">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Если терминал зависает
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Если котировки не обновляются
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Резервная копия настроек
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-mt5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Чек-лист готовности к торговле на MT5
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1829,7 +1552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SETUP-streamlit/" class="md-nav__link">
+      <a href="../../advanced/SETUP-streamlit/" class="md-nav__link">
         
   
   
@@ -1857,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SETUP-telegram/" class="md-nav__link">
+      <a href="../../advanced/SETUP-telegram/" class="md-nav__link">
         
   
   
@@ -1885,7 +1608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../SETUP-vps-deployment/" class="md-nav__link">
+      <a href="../../advanced/SETUP-vps-deployment/" class="md-nav__link">
         
   
   
@@ -2195,256 +1918,421 @@
   
 
 
-<h1 id="mt5-setup-guide-metatrader-5">MT5 Setup Guide — пошаговая установка MetaTrader 5<a class="headerlink" href="#mt5-setup-guide-metatrader-5" title="Permanent link">&para;</a></h1>
-<h2 id="1">Шаг 1: Регистрация у брокера<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h1 id="_1">📐 Калькулятор размера позиции<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Зачем это нужно</p>
+<p>Размер позиции — главное, что определяет, <strong>выживешь ли ты на рынке</strong>. Если рискуешь 0.5% депозита на сделку, ты можешь проиграть 10 раз подряд и потерять только 5%. Если рискуешь 5%, та же серия 10 убытков <strong>обнулит счёт</strong>.</p>
+<p>Этот калькулятор гарантирует, что ты ставишь <strong>именно то</strong>, что запланировал — никаких импровизаций и эмоций.</p>
+</div>
+<h2 id="_2">Формула<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Размер риска ($)  =  Депозит × Риск% / 100
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Лотов            =  Размер риска / (Стоп в пипсах × Стоимость пипса)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Округление       ←  вниз до 0.01 (минимум брокера) — реальный риск никогда
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                     не больше планового
+</code></pre></div>
+<hr />
+<div class="pos-calc-widget" id="pos-calc">
+
+<style>
+.pos-calc-widget {
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+.pos-calc-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.2rem;
+}
+@media (max-width: 600px) {
+  .pos-calc-form { grid-template-columns: 1fr; }
+}
+.pos-calc-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+.pos-calc-form input[type=number],
+.pos-calc-form select {
+  margin-top: 0.3rem;
+  padding: 0.55rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-family: inherit;
+}
+.pos-calc-form input:focus,
+.pos-calc-form select:focus {
+  outline: 2px solid var(--md-primary-fg-color);
+  outline-offset: -1px;
+}
+.pos-calc-form .pc-row-wide { grid-column: 1 / -1; }
+.pos-calc-form .pc-checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.pos-calc-form .pc-checkbox input { margin: 0; }
+#pc-result {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  background: var(--md-default-bg-color);
+  border-radius: 8px;
+  border-left: 4px solid var(--md-primary-fg-color);
+}
+#pc-result.warn { border-left-color: #f59e0b; }
+#pc-result.danger { border-left-color: #dc2626; }
+.pc-result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 0.7rem;
+}
+@media (max-width: 600px) {
+  .pc-result-grid { grid-template-columns: 1fr; }
+}
+.pc-result-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px dashed var(--md-default-fg-color--lightest);
+}
+.pc-result-row span:first-child { color: var(--md-default-fg-color--light); }
+.pc-result-row span:last-child { font-weight: 600; font-family: var(--md-code-font-family); }
+.pc-headline {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+  font-family: var(--md-code-font-family);
+}
+#pc-result.warn .pc-headline { color: #d97706; }
+#pc-result.danger .pc-headline { color: #dc2626; }
+.pc-warnings {
+  margin-top: 0.8rem;
+  font-size: 0.88rem;
+}
+.pc-warnings .pc-warn {
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.4rem;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid #f59e0b;
+}
+.pc-warnings .pc-danger {
+  background: rgba(220, 38, 38, 0.1);
+  border-left-color: #dc2626;
+}
+.pc-warnings .pc-info {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid #3b82f6;
+}
+.pos-calc-form button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pos-calc-form button:hover { filter: brightness(1.1); }
+.pc-meta { font-size: 0.78rem; color: var(--md-default-fg-color--light); margin-top: 0.4rem; }
+</style>
+
+<form class="pos-calc-form" onsubmit="return false">
+  <label>
+    Депозит (USD)
+    <input type="number" id="pc-balance" value="1000" min="1" step="any" autocomplete="off">
+  </label>
+  <label>
+    Риск на сделку (%)
+    <input type="number" id="pc-risk" value="0.5" min="0.01" max="10" step="any" autocomplete="off">
+    <span class="pc-meta">Новичку рекомендуется 0.5%, опытному — до 2%.</span>
+  </label>
+  <label>
+    Стоп-лосс (пипсов)
+    <input type="number" id="pc-stop" value="25" min="1" step="any" autocomplete="off">
+    <span class="pc-meta">Расстояние от входа до стопа в пипсах.</span>
+  </label>
+  <label>
+    Валютная пара
+    <select id="pc-pair">
+      <option value="EURUSD">EUR / USD</option>
+      <option value="GBPUSD">GBP / USD</option>
+      <option value="AUDUSD">AUD / USD</option>
+      <option value="NZDUSD">NZD / USD</option>
+      <option value="USDJPY">USD / JPY</option>
+      <option value="USDCHF">USD / CHF</option>
+      <option value="USDCAD">USD / CAD</option>
+      <option value="EURJPY">EUR / JPY</option>
+      <option value="GBPJPY">GBP / JPY</option>
+      <option value="EURGBP">EUR / GBP</option>
+    </select>
+  </label>
+  <label class="pc-checkbox pc-row-wide">
+    <input type="checkbox" id="pc-live">
+    <span>Подтянуть актуальный курс (Frankfurter / ECB) — точнее для USDJPY, USDCHF, USDCAD, кросс-пар</span>
+  </label>
+  <button type="button" id="pc-calc-btn" class="pc-row-wide">Рассчитать</button>
+</form>
+
+<div id="pc-result" style="display: none;">
+  <div class="pc-headline" id="pc-headline">— лот</div>
+  <div class="pc-result-grid">
+    <div class="pc-result-row"><span>Депозит</span><span id="pc-out-balance">—</span></div>
+    <div class="pc-result-row"><span>План риска</span><span id="pc-out-risk-plan">—</span></div>
+    <div class="pc-result-row"><span>Стоп-лосс</span><span id="pc-out-stop">—</span></div>
+    <div class="pc-result-row"><span>Пара</span><span id="pc-out-pair">—</span></div>
+    <div class="pc-result-row"><span>Стоимость пипса</span><span id="pc-out-pip">—</span></div>
+    <div class="pc-result-row"><span>Размер (точный)</span><span id="pc-out-lots-exact">—</span></div>
+    <div class="pc-result-row"><span>Размер (округлён)</span><span id="pc-out-lots-rounded">—</span></div>
+    <div class="pc-result-row"><span>Реальный риск</span><span id="pc-out-actual">—</span></div>
+  </div>
+  <div class="pc-warnings" id="pc-warnings"></div>
+</div>
+
+<script>
+(function() {
+  // Статичные значения стоимости пипса для $1 USD-аккаунта, 1 стандартный лот.
+  // Для USD-quote пар (EURUSD...) это константа $10. Для пар, где USD — base,
+  // и кросс-пар — зависит от курса (см. live-режим).
+  const PIP_VALUES_STATIC = {
+    EURUSD: 10.00, GBPUSD: 10.00, AUDUSD: 10.00, NZDUSD: 10.00,
+    USDJPY: 6.70, USDCHF: 11.30, USDCAD: 7.30,
+    EURJPY: 6.70, GBPJPY: 6.70, EURGBP: 12.70,
+  };
+
+  // Пары, у которых стоимость пипса критично зависит от курса
+  const LIVE_SENSITIVE = new Set([
+    'USDJPY', 'USDCHF', 'USDCAD', 'EURJPY', 'GBPJPY', 'EURGBP',
+  ]);
+
+  // Получить курс через Frankfurter API (ECB rates, free, no API key)
+  // Возвращает Promise<number> — курс 1 USD в quote-валюте, или null
+  async function fetchRate(pair) {
+    const base = pair.slice(0, 3);
+    const quote = pair.slice(3, 6);
+    try {
+      const r = await fetch(`https://api.frankfurter.app/latest?from=${base}&to=${quote}`);
+      if (!r.ok) return null;
+      const d = await r.json();
+      return d.rates && d.rates[quote] ? d.rates[quote] : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Расчёт live pip value для конкретной пары
+  // Возвращает Promise<{value: number, source: string}>
+  async function livePipValue(pair) {
+    const base = pair.slice(0, 3);
+    const quote = pair.slice(3, 6);
+    const pipSize = quote === 'JPY' ? 0.01 : 0.0001;
+    const lot = 100000;
+
+    if (quote === 'USD') {
+      return { value: pipSize * lot, source: 'константа' };
+    }
+
+    if (base === 'USD') {
+      const rate = await fetchRate(pair);
+      if (!rate) return null;
+      return { value: pipSize * lot / rate, source: `ECB: 1 USD = ${rate.toFixed(4)} ${quote}` };
+    }
+
+    // Кросс: pip value в quote → конвертим в USD через quote/USD
+    const pipValueQuote = pipSize * lot;
+    const quoteToUsd = await fetchRate(`${quote}USD`);
+    if (!quoteToUsd) {
+      const usdToQuote = await fetchRate(`USD${quote}`);
+      if (!usdToQuote) return null;
+      return { value: pipValueQuote / usdToQuote, source: `ECB: USD/${quote} = ${usdToQuote.toFixed(4)}` };
+    }
+    return { value: pipValueQuote * quoteToUsd, source: `ECB: ${quote}/USD = ${quoteToUsd.toFixed(4)}` };
+  }
+
+  // Основной расчёт
+  function compute(balance, riskPct, stopPips, pipValue) {
+    const riskAmount = balance * riskPct / 100;
+    const lots = riskAmount / (stopPips * pipValue);
+    let lotsRounded = Math.floor(lots * 100 + 1e-9) / 100;
+    if (lotsRounded < 0.01) lotsRounded = 0.01;
+    const actualRisk = lotsRounded * stopPips * pipValue;
+    const actualRiskPct = actualRisk / balance * 100;
+    return { riskAmount, lots, lotsRounded, actualRisk, actualRiskPct };
+  }
+
+  const fmt$ = v => '$' + v.toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtPct = v => v.toFixed(2) + '%';
+  const fmtLots = v => v.toFixed(4);
+  const fmtLotsR = v => v.toFixed(2);
+
+  async function recalc() {
+    const balance = parseFloat(document.getElementById('pc-balance').value);
+    const riskPct = parseFloat(document.getElementById('pc-risk').value);
+    const stopPips = parseFloat(document.getElementById('pc-stop').value);
+    const pair = document.getElementById('pc-pair').value;
+    const live = document.getElementById('pc-live').checked;
+
+    const result = document.getElementById('pc-result');
+    const warnings = document.getElementById('pc-warnings');
+    warnings.innerHTML = '';
+
+    // Валидация
+    const errors = [];
+    if (!(balance > 0)) errors.push('Депозит должен быть больше 0.');
+    if (!(riskPct > 0 && riskPct <= 10)) errors.push('Риск должен быть в диапазоне 0 < x ≤ 10%.');
+    if (!(stopPips > 0)) errors.push('Стоп-лосс должен быть больше 0 пипсов.');
+    if (errors.length) {
+      result.style.display = 'block';
+      result.className = 'danger';
+      document.getElementById('pc-headline').textContent = '—';
+      warnings.innerHTML = errors.map(e => `<div class="pc-warn pc-danger">⛔ ${e}</div>`).join('');
+      return;
+    }
+
+    // Pip value: static или live
+    let pipValue = PIP_VALUES_STATIC[pair];
+    let pipSource = 'таблица';
+    if (live && LIVE_SENSITIVE.has(pair)) {
+      document.getElementById('pc-headline').textContent = 'Загрузка курса…';
+      result.style.display = 'block';
+      const live_pv = await livePipValue(pair);
+      if (live_pv && live_pv.value > 0) {
+        pipValue = live_pv.value;
+        pipSource = live_pv.source;
+      } else {
+        warnings.innerHTML += `<div class="pc-warn">⚠️ Не удалось получить актуальный курс — использую табличное значение.</div>`;
+      }
+    }
+
+    const r = compute(balance, riskPct, stopPips, pipValue);
+
+    // Заполняем результат
+    document.getElementById('pc-out-balance').textContent = fmt$(balance);
+    document.getElementById('pc-out-risk-plan').textContent = `${fmtPct(riskPct)} = ${fmt$(r.riskAmount)}`;
+    document.getElementById('pc-out-stop').textContent = stopPips + ' пипсов';
+    document.getElementById('pc-out-pair').textContent = pair;
+    document.getElementById('pc-out-pip').textContent = fmt$(pipValue) + '/пипс (' + pipSource + ')';
+    document.getElementById('pc-out-lots-exact').textContent = fmtLots(r.lots);
+    document.getElementById('pc-out-lots-rounded').textContent = fmtLotsR(r.lotsRounded);
+    document.getElementById('pc-out-actual').textContent = `${fmt$(r.actualRisk)} (${fmtPct(r.actualRiskPct)})`;
+    document.getElementById('pc-headline').textContent = `${fmtLotsR(r.lotsRounded)} лот`;
+    result.style.display = 'block';
+
+    // Уровни предупреждений
+    let cls = 'ok';
+    if (r.actualRiskPct > 5) {
+      cls = 'danger';
+      warnings.innerHTML += `<div class="pc-warn pc-danger">⛔ Риск ${fmtPct(r.actualRiskPct)} депозита — это очень много. По статистике, такие риски приводят к обнулению счёта в течение месяца.</div>`;
+    } else if (r.actualRiskPct > 2) {
+      cls = 'warn';
+      warnings.innerHTML += `<div class="pc-warn">⚠️ Риск ${fmtPct(r.actualRiskPct)} депозита — выше рекомендованного для новичка (≤ 2%). Подумай о меньшем риске или большем стопе.</div>`;
+    }
+    if (r.actualRisk > r.riskAmount * 1.05) {
+      cls = cls === 'ok' ? 'warn' : cls;
+      warnings.innerHTML += `<div class="pc-warn">⚠️ После округления реальный риск ${fmt$(r.actualRisk)} больше планового ${fmt$(r.riskAmount)} — уменьши лот вручную в терминале до 0.01.</div>`;
+    }
+    if (r.lotsRounded === 0.01 && r.lots < 0.005) {
+      warnings.innerHTML += `<div class="pc-warn pc-info">ℹ️ Расчёт даёт меньше 0.01 лота — установлен минимум брокера. Для соблюдения риска уменьши стоп-лосс или увеличь депозит.</div>`;
+    }
+    result.className = cls === 'ok' ? '' : cls;
+  }
+
+  // Auto-recalc на изменение любого поля
+  const inputs = ['pc-balance', 'pc-risk', 'pc-stop', 'pc-pair', 'pc-live'];
+  inputs.forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', recalc);
+    el.addEventListener('change', recalc);
+  });
+  document.getElementById('pc-calc-btn').addEventListener('click', recalc);
+
+  // Первый расчёт
+  recalc();
+})();
+</script>
+
+</div>
+
+<hr />
+<h2 id="_3">Как пользоваться<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Выбери регулируемого брокера (см. <a href="../../extras/brokers-comparison/">extras/brokers-comparison.md</a>)</li>
-<li>На сайте брокера → <strong>«Открыть демо-счёт»</strong> (не реальный!)</li>
-<li>Заполни форму: имя, email, телефон</li>
-<li>Получи на email <strong>3 значения</strong>:</li>
-<li><strong>Login</strong> (например 50123456)</li>
-<li><strong>Password</strong> (investor password — для просмотра, master password — для торговли)</li>
-<li><strong>Server</strong> (например <code>Exness-Demo</code> или <code>ICMarkets-Demo01</code>)</li>
+<li><strong>Депозит</strong> — текущий баланс счёта в USD (или эквивалент твоей валюты счёта в USD).</li>
+<li><strong>Риск на сделку</strong> — какой процент депозита ты готов потерять на одной сделке. Новичку: <strong>0.5%</strong>.</li>
+<li><strong>Стоп-лосс</strong> — расстояние от точки входа до стоп-лосса в пипсах. Это берётся из твоего анализа графика (ниже последнего минимума для long, выше максимума для short).</li>
+<li><strong>Пара</strong> — что торгуешь.</li>
+<li><strong>«Подтянуть актуальный курс»</strong> — для USDJPY и других пар, где стоимость пипса зависит от курса. Тянет рейты ECB через бесплатный API без регистрации.</li>
 </ol>
-<blockquote>
-<p>⚠️ Сохрани эти данные. Они нужны для входа в MT5.</p>
-</blockquote>
-<h2 id="2-mt5">Шаг 2: Скачивание MT5<a class="headerlink" href="#2-mt5" title="Permanent link">&para;</a></h2>
-<h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
-<p>MetaTrader 5 для Mac есть в двух вариантах:</p>
-<p><strong>Вариант А: нативный (рекомендую)</strong>
-1. Открой сайт твоего брокера → раздел <strong>«Скачать MT5»</strong> → <strong>Mac</strong>
-2. Скачается <code>.dmg</code> файл (~60 МБ)
-3. Открой → перетащи MT5 в Applications
-4. Запусти → разреши в Системных настройках если macOS заблокирует</p>
-<p><strong>Вариант Б: через WINE (если нативный не работает)</strong>
-1. Скачай <strong>MetaTrader 5</strong> с сайта metaquotes.net
-2. Установи Wine: <code>brew install --cask wine-stable</code>
-3. Открой .exe через Wine</p>
-<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Сайт брокера → Download → Windows</li>
-<li>Запусти .exe → установи</li>
-</ol>
-<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
-<ol>
-<li>WINE: <code>sudo apt install wine</code></li>
-<li>Скачай Windows .exe → запусти через Wine</li>
-</ol>
-<h2 id="3">Шаг 3: Первый вход<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Запусти MT5</li>
-<li>Меню: <strong>File → Login to Trade Account</strong></li>
-<li>Заполни:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Login:    [твой логин от брокера]
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Password: [пароль]
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Server:   [сервер из письма]
-</code></pre></div></li>
-<li>Поставь галочку <strong>«Save account info»</strong></li>
-<li>Нажми <strong>Login</strong></li>
-</ol>
-<p>✅ В нижнем правом углу увидишь зелёные цифры — баланс, equity, margin.</p>
-<h2 id="4">Шаг 4: Настройка графика<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<h3 id="_1">Включить свечной график<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Правая кнопка по графику → <strong>Candlesticks</strong></li>
-<li>Или нажать кнопку «свечи» в верхней панели</li>
-</ul>
-<h3 id="h1">Переключить таймфрейм на H1<a class="headerlink" href="#h1" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Верхняя панель: M1, M5, M15, M30, <strong>H1</strong>, H4, D1, W1</li>
-<li>Кликни <strong>H1</strong></li>
-</ul>
-<h3 id="ema-50">Добавить EMA 50<a class="headerlink" href="#ema-50" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Insert → Indicators → Trend → Moving Average</strong></li>
-<li>Параметры:</li>
-<li>Period: <strong>50</strong></li>
-<li>MA method: <strong>Exponential</strong></li>
-<li>Apply to: <strong>Close</strong></li>
-<li>Style: цвет — <strong>синий</strong>, толщина <strong>2</strong></li>
-<li>OK</li>
-</ol>
-<h3 id="ema-200">Добавить EMA 200<a class="headerlink" href="#ema-200" title="Permanent link">&para;</a></h3>
-<p>Повторить, но Period = <strong>200</strong>, цвет — <strong>красный</strong>.</p>
-<h3 id="rsi">Добавить RSI<a class="headerlink" href="#rsi" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Insert → Indicators → Oscillators → Relative Strength Index</strong></li>
-<li>Period: <strong>14</strong></li>
-<li>Apply to: <strong>Close</strong></li>
-<li>OK</li>
-</ol>
-<h3 id="_2">Сохранить шаблон<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>Чтобы не настраивать каждый раз:
-- Правая кнопка по графику → <strong>Templates → Save Template</strong> → имя «MyTemplate»
-- В следующий раз: правая кнопка → Templates → MyTemplate</p>
-<h2 id="5">Шаг 5: Открытие сделки<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="sltp">Правильный способ открытия (с SL/TP сразу)<a class="headerlink" href="#sltp" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Нажми <strong>F9</strong> (или кнопка «New Order» в верхней панели)</li>
-<li>Окно ордера:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Symbol:        EURUSD
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Volume:        0.01     ← рассчитай через position_calculator.py!
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Stop Loss:     1.0827   ← обязательно!
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Take Profit:   1.0902   ← обязательно!
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Type:          Market Execution
-</code></pre></div></li>
-<li>Нажми <strong>Buy by Market</strong> (long) или <strong>Sell by Market</strong> (short)</li>
-</ol>
-<h3 id="_3">Распространённые ошибки<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>❌ <strong>Открыть без SL</strong> → Никогда. Сначала введи SL.
-❌ <strong>Объём «на глаз»</strong> → используй калькулятор.
-❌ <strong>«Type: Pending»</strong> → это отложенный ордер, ты ждёшь, что цена дойдёт. Сейчас тебе не нужно.</p>
-<h2 id="6">Шаг 6: Проверка сделки<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<p>После открытия в нижней панели <strong>Trade</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Symbol  Type  Volume  Open Price  S/L      T/P      Profit
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>EURUSD  buy   0.01    1.08520    1.08270  1.09020  +$1.50
-</code></pre></div></p>
-<p>✓ S/L и T/P <strong>не пустые</strong> — значит, защита стоит.</p>
-<h2 id="7">Шаг 7: Закрытие сделки<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
-<p><strong>Лучший вариант:</strong> не закрывай руками. Жди, пока сработает SL или TP.</p>
-<p><strong>Если нужно закрыть досрочно</strong> (только в исключительных случаях):
-- Правая кнопка по сделке внизу → <strong>Close Order</strong></p>
-<h2 id="8-mt5">Шаг 8: Журнал сделок в MT5<a class="headerlink" href="#8-mt5" title="Permanent link">&para;</a></h2>
-<p>MT5 сам ведёт лог:
-- Нижняя панель → <strong>History</strong>
-- Видишь все закрытые сделки с результатами
-- Можно экспортировать: правая кнопка → <strong>Report → Save as Report (HTML)</strong></p>
-<p>Эту историю стоит <strong>параллельно</strong> копировать в свой Markdown/CSV журнал, потому что в MT5 нет полей «эмоции», «следовал правилам» и т.д.</p>
-<h2 id="9">Шаг 9: Часто используемые горячие клавиши<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<p>В результат пиши <strong>только округлённое значение лотов</strong> в терминал брокера — это то, что реально можно открыть.</p>
+<hr />
+<h2 id="_4">Пример расчёта<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Клавиша</th>
-<th>Что</th>
+<th>Параметр</th>
+<th>Значение</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>F9</strong></td>
-<td>Открыть New Order</td>
+<td>Депозит</td>
+<td>$1 000</td>
 </tr>
 <tr>
-<td><strong>F8</strong></td>
-<td>Свойства графика</td>
+<td>Риск</td>
+<td>0.5% = $5.00</td>
 </tr>
 <tr>
-<td><strong>F11</strong></td>
-<td>Полноэкранный режим</td>
+<td>Стоп-лосс</td>
+<td>25 пипсов</td>
 </tr>
 <tr>
-<td><strong>Ctrl+T</strong></td>
-<td>Терминал внизу</td>
+<td>Пара</td>
+<td>EUR/USD (стоимость пипса = $10)</td>
 </tr>
 <tr>
-<td><strong>Ctrl+N</strong></td>
-<td>Окно Navigator</td>
-</tr>
-<tr>
-<td><strong>+</strong> / <strong>−</strong></td>
-<td>Zoom in / out</td>
-</tr>
-<tr>
-<td><strong>PageDown</strong></td>
-<td>К последним свечам</td>
+<td><strong>Размер позиции</strong></td>
+<td><strong>0.02 лота</strong> (1/50 стандартного)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="10-expert-advisor">Шаг 10: Установка нашего Expert Advisor<a class="headerlink" href="#10-expert-advisor" title="Permanent link">&para;</a></h2>
-<p>Если хочешь запустить наш <a href="EMA50Pullback.mq5">EMA50Pullback.mq5</a> на демо:</p>
-<ol>
-<li>В MT5: <strong>File → Open Data Folder</strong></li>
-<li>Открой папку <code>MQL5/Experts/</code></li>
-<li>Скопируй туда файл <code>EMA50Pullback.mq5</code></li>
-<li>В MT5: <strong>View → Navigator</strong> (Ctrl+N)</li>
-<li>Раздел <strong>Expert Advisors</strong> → правая кнопка → <strong>Refresh</strong></li>
-<li>Увидишь <code>EMA50Pullback</code> → перетащи на график EUR/USD H1</li>
-<li>В окне настроек:</li>
-<li>✅ <strong>Allow live trading</strong> (только если хочешь, чтобы советник торговал)</li>
-<li>Установи параметры (Risk_Percent, Risk_Reward и т.д.)</li>
-<li><strong>OK</strong></li>
-<li>В верхнем правом углу графика увидишь смайлик 😀 (работает) или ❌ (не работает)</li>
-</ol>
-<p><strong>⚠️ ВАЖНО:</strong> EA защищён проверкой «только демо». На реальном счёте он откажется работать.</p>
-<h2 id="11-vs">Шаг 11: Демо-счёт vs реал — главные отличия<a class="headerlink" href="#11-vs" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Особенность</th>
-<th>Демо</th>
-<th>Реал</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Исполнение</td>
-<td>Идеальное</td>
-<td>С проскальзыванием</td>
-</tr>
-<tr>
-<td>Спред</td>
-<td>Часто меньше</td>
-<td>Реальный, может расширяться</td>
-</tr>
-<tr>
-<td>Эмоции</td>
-<td>Нет (виртуальные)</td>
-<td>Есть (твоя проблема)</td>
-</tr>
-<tr>
-<td>Свопы</td>
-<td>Иногда упрощены</td>
-<td>Реальные</td>
-</tr>
-<tr>
-<td>Реквоты</td>
-<td>Нет</td>
-<td>Возможны при сильной волатильности</td>
-</tr>
-</tbody>
-</table>
-<h2 id="12-mt5">Шаг 12: Стратегия первого месяца на MT5<a class="headerlink" href="#12-mt5" title="Permanent link">&para;</a></h2>
-<p>Неделя 1:
-- Установка, привыкание к интерфейсу
-- 5-10 пробных сделок с минимальным объёмом 0.01 лот
-- Тестировать SL/TP — убедиться, что работают</p>
-<p>Неделя 2-4:
-- Торговля по правилам стратегии (1-3 сделки в день)
-- Параллельно ведение журнала
-- Использование калькулятора перед каждой сделкой</p>
-<h2 id="_4">Дополнительные советы<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">Если терминал зависает<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Закрой все вкладки лишних графиков</li>
-<li>В правом нижнем углу: правая кнопка → <strong>Connect Status</strong> → должно быть «Connected»</li>
-<li>Если нет — переподключись через File → Login</li>
-</ul>
-<h3 id="_6">Если котировки не обновляются<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Возможно, твой брокер ограничивает квоты в выходные</li>
-<li>Проверь, что не суббота/воскресенье (рынок закрыт)</li>
-</ul>
-<h3 id="_7">Резервная копия настроек<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<ul>
-<li>File → Open Data Folder → скопируй папку <code>config/</code></li>
-<li>В будущем восстановишь нажав «Restore»</li>
-</ul>
+<p>При проигрыше: 25 пипсов × $10/пипс × 0.02 лот = <strong>$5</strong> = 0.5% депозита. Всё точно.</p>
 <hr />
-<h2 id="-mt5">Чек-лист готовности к торговле на MT5<a class="headerlink" href="#-mt5" title="Permanent link">&para;</a></h2>
-<ul>
-<li>[ ] MT5 установлен и подключён к демо</li>
-<li>[ ] Вижу баланс в правом нижнем углу</li>
-<li>[ ] График EUR/USD H1 настроен с EMA 50, EMA 200, RSI</li>
-<li>[ ] Шаблон сохранён</li>
-<li>[ ] Знаю, как открыть сделку с SL и TP</li>
-<li>[ ] Знаю, как посмотреть историю</li>
-<li>[ ] Параллельно открыт калькулятор позиции</li>
-<li>[ ] Открыт журнал сделок (Google Sheets или Markdown)</li>
-<li>[ ] На столе печатный <a href="../../extras/checklist-printable/">чек-лист</a></li>
-</ul>
-<p><strong>Все ☑ → готов к первой демо-сделке.</strong></p>
+<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Без стопа не считай</p>
+<p>Если ты не знаешь, <strong>где</strong> твой стоп, ты не можешь посчитать размер позиции. Это значит: ты не понимаешь свою сделку. Не открывай.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Не «увеличивай позицию, чтобы отыграться»</p>
+<p>Это <strong>тильт</strong>. После убытка размер позиции <strong>остаётся</strong> тем же или <strong>уменьшается</strong>. Никогда не увеличивается.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Меняй стоп, не лоты</p>
+<p>Если хочешь больше потенциальной прибыли — двигай не размер позиции, а <strong>тейк-профит</strong> или используй пирамидинг. Размер позиции — функция от риска, не от уверенности.</p>
+</div>
 <hr />
-<p><a href="../../forex-guide/">← К главному гайду</a></p>
+<h2 id="python-">Связь с Python-версией<a class="headerlink" href="#python-" title="Permanent link">&para;</a></h2>
+<p>Этот калькулятор — точная JS-копия <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/position_calculator.py"><code>tools/position_calculator.py</code></a> из репозитория. Та же формула, те же значения, те же предупреждения. Из терминала:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py<span class="w"> </span>--balance<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--risk<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>--stop<span class="w"> </span><span class="m">25</span><span class="w"> </span>--pair<span class="w"> </span>EURUSD
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># или с актуальным курсом:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py<span class="w"> </span>--balance<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--risk<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>--stop<span class="w"> </span><span class="m">25</span><span class="w"> </span>--pair<span class="w"> </span>USDJPY<span class="w"> </span>--live
+</code></pre></div>
+<p>Используй любой удобный вариант. Калькулятор на сайте полностью offline-friendly (после первой загрузки) и не отправляет твои цифры никуда — расчёт в браузере.</p>
 
 
 
@@ -2468,7 +2356,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Yuqoriga qaytish
+  К началу
 </button>
         
       </main>
@@ -2521,10 +2409,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Buferga nusxalandi", "clipboard.copy": "Buferga nusxalash", "search.result.more.one": "Ushbu sahifada yana 1 ta natija", "search.result.more.other": "Bu sahifada yana # ta natija", "search.result.none": "Mos natijalar yo\u0027q", "search.result.one": "1 ta mos natija", "search.result.other": "# ta mos keladigan natijalar", "search.result.placeholder": "Qidiruvni boshlash uchun kiriting", "search.result.term.missing": "To\u0027ldirilmagan", "select.version": "Versiyani tanlang"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
