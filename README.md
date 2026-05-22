@@ -1,8 +1,19 @@
 # Forex Trading — полный учебный проект
 
+[![Tests](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml)
+[![Deploy Docs](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml)
+[![Docs](https://img.shields.io/badge/docs-mkdocs-blue)](https://mukhammadamir-akbarov.github.io/forex-toolkit/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
+
 > Самодостаточный набор материалов: **80+ файлов**, 25 markdown-гайдов, 20+ учебных графиков, 25+ Python-инструментов, 6 стратегий, MT5 EA, Telegram-бот, Coach-бот, Streamlit-приложение, Word-документ и PDF-учебник.
 >
 > **⚠️ Образовательный материал. Не финансовый совет.** Forex — высокорисковая деятельность. 74–89% розничных трейдеров теряют деньги.
+
+**📥 Скачать готовые материалы:**
+- 📕 [PDF-учебник](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-handbook.pdf) (1.1 MB) — для печати
+- 📄 [Word-версия](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-guide-rus.docx) (962 KB)
+- 🌐 [Онлайн-сайт](https://mukhammadamir-akbarov.github.io/forex-toolkit/) — учебник в браузере с поиском и тёмной темой
 
 ## 🗂️ Полная структура
 
@@ -11,7 +22,7 @@ trading/
 ├── 📖 КАК-ПОЛЬЗОВАТЬСЯ.md             ← начать ОТСЮДА
 ├── 📖 README.md                       ← эта страница
 ├── 📖 forex-guide.md                  ← главный учебник (700 строк)
-├── 📄 forex-guide-полный.docx         ← Word-версия учебника
+├── 📄 forex-guide-полный.docx         ← Word-версия (распространяется через GitHub Releases)
 │
 ├── 📚 docs/                           ← углублённые материалы
 │   ├── technical-analysis.md          ← теханализ с 12 графиками
@@ -82,8 +93,8 @@ trading/
 │   ├── crypto-trading-guide.md        ← параллельный мир крипто
 │   └── stocks-basics.md               ← ETF, долгосрочное инвестирование
 │
-├── 📄 forex-guide-полный.docx         ← Word-документ учебника
-├── 📕 forex-handbook.pdf              ← PDF-учебник (для печати)
+├── 📄 forex-guide-полный.docx         ← Word-документ (см. GitHub Releases)
+├── 📕 forex-handbook.pdf              ← PDF-учебник (см. GitHub Releases)
 │
 ├── data/                              ← скачанные котировки (gitignored)
 └── .venv/                             ← Python окружение
