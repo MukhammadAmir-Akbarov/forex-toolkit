@@ -18,6 +18,9 @@ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.pdfmetrics import registerFontFamily
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle,
 )
@@ -26,6 +29,54 @@ from reportlab.platypus import (
 ROOT = Path(__file__).resolve().parent.parent
 IMG_DIR = ROOT / "docs" / "images"
 OUT = ROOT / "forex-handbook.pdf"
+
+# Имена зарегистрированных шрифтов с кириллицей
+FONT_REGULAR = "DejaVu"
+FONT_MONO = "DejaVuMono"
+
+
+def register_cyrillic_fonts() -> None:
+    """
+    Регистрирует DejaVu Sans (+ Mono) для reportlab.
+
+    Без этого reportlab использует Helvetica/Courier, в которых НЕТ кириллицы,
+    и весь русский текст в PDF превращается в чёрные квадраты (tofu).
+
+    Шрифты берутся из matplotlib (он уже в зависимостях) — никаких новых
+    пакетов или системных зависимостей.
+    """
+    import matplotlib.font_manager as fm
+
+    ttf_dir = Path(fm.findfont("DejaVu Sans")).parent
+    variants = {
+        FONT_REGULAR:           ttf_dir / "DejaVuSans.ttf",
+        f"{FONT_REGULAR}-Bold": ttf_dir / "DejaVuSans-Bold.ttf",
+        f"{FONT_REGULAR}-Italic": ttf_dir / "DejaVuSans-Oblique.ttf",
+        f"{FONT_REGULAR}-BoldItalic": ttf_dir / "DejaVuSans-BoldOblique.ttf",
+        FONT_MONO:              ttf_dir / "DejaVuSansMono.ttf",
+        f"{FONT_MONO}-Bold":    ttf_dir / "DejaVuSansMono-Bold.ttf",
+    }
+    for name, path in variants.items():
+        if not path.exists():
+            print(f"  ⚠️  Шрифт не найден: {path}", file=sys.stderr)
+            continue
+        pdfmetrics.registerFont(TTFont(name, str(path)))
+
+    # Связываем варианты в семейство, чтобы <b>, <i> работали в Paragraph
+    registerFontFamily(
+        FONT_REGULAR,
+        normal=FONT_REGULAR,
+        bold=f"{FONT_REGULAR}-Bold",
+        italic=f"{FONT_REGULAR}-Italic",
+        boldItalic=f"{FONT_REGULAR}-BoldItalic",
+    )
+    registerFontFamily(
+        FONT_MONO,
+        normal=FONT_MONO,
+        bold=f"{FONT_MONO}-Bold",
+        italic=FONT_MONO,
+        boldItalic=f"{FONT_MONO}-Bold",
+    )
 
 
 # Главы в нужном порядке
@@ -53,42 +104,42 @@ def make_styles():
     base = getSampleStyleSheet()
     styles = {
         "title": ParagraphStyle(
-            "title", parent=base["Title"],
+            "title", parent=base["Title"], fontName=f"{FONT_REGULAR}-Bold",
             fontSize=36, textColor=colors.HexColor("#1e40af"),
             spaceAfter=20, alignment=TA_CENTER,
         ),
         "subtitle": ParagraphStyle(
-            "subtitle", parent=base["Normal"],
+            "subtitle", parent=base["Normal"], fontName=FONT_REGULAR,
             fontSize=18, textColor=colors.HexColor("#374151"),
             spaceAfter=12, alignment=TA_CENTER,
         ),
         "h1": ParagraphStyle(
-            "h1", parent=base["Heading1"],
+            "h1", parent=base["Heading1"], fontName=f"{FONT_REGULAR}-Bold",
             fontSize=22, textColor=colors.HexColor("#1e40af"),
             spaceBefore=20, spaceAfter=12, keepWithNext=True,
         ),
         "h2": ParagraphStyle(
-            "h2", parent=base["Heading2"],
+            "h2", parent=base["Heading2"], fontName=f"{FONT_REGULAR}-Bold",
             fontSize=16, textColor=colors.HexColor("#1f2937"),
             spaceBefore=16, spaceAfter=8, keepWithNext=True,
         ),
         "h3": ParagraphStyle(
-            "h3", parent=base["Heading3"],
+            "h3", parent=base["Heading3"], fontName=f"{FONT_REGULAR}-Bold",
             fontSize=13, textColor=colors.HexColor("#374151"),
             spaceBefore=10, spaceAfter=6, keepWithNext=True,
         ),
         "body": ParagraphStyle(
-            "body", parent=base["BodyText"],
+            "body", parent=base["BodyText"], fontName=FONT_REGULAR,
             fontSize=10, leading=14,
             alignment=TA_JUSTIFY, spaceAfter=6,
         ),
         "bullet": ParagraphStyle(
-            "bullet", parent=base["BodyText"],
+            "bullet", parent=base["BodyText"], fontName=FONT_REGULAR,
             fontSize=10, leading=14, leftIndent=15,
             bulletIndent=5, spaceAfter=3,
         ),
         "code": ParagraphStyle(
-            "code", parent=base["Code"],
+            "code", parent=base["Code"], fontName=FONT_MONO,
             fontSize=8, leading=10,
             leftIndent=10, rightIndent=10,
             backColor=colors.HexColor("#f3f4f6"),
@@ -97,7 +148,7 @@ def make_styles():
             spaceAfter=10,
         ),
         "warning": ParagraphStyle(
-            "warning", parent=base["BodyText"],
+            "warning", parent=base["BodyText"], fontName=FONT_REGULAR,
             fontSize=10, leading=14,
             backColor=colors.HexColor("#fee2e2"),
             borderColor=colors.HexColor("#dc2626"),
@@ -220,8 +271,8 @@ def parse_inline(text: str) -> str:
     text = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", text)
     # Italic
     text = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<i>\1</i>", text)
-    # Inline code
-    text = re.sub(r"`([^`]+)`", r"<font name='Courier'>\1</font>", text)
+    # Inline code (DejaVuMono поддерживает кириллицу, Courier — нет)
+    text = re.sub(r"`([^`]+)`", rf"<font name='{FONT_MONO}'>\1</font>", text)
     # Strip markdown links — оставляем только текст
     text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
     return text
@@ -229,6 +280,7 @@ def parse_inline(text: str) -> str:
 
 def main() -> int:
     print("Сборка PDF учебника...")
+    register_cyrillic_fonts()
 
     doc = SimpleDocTemplate(
         str(OUT), pagesize=A4,
