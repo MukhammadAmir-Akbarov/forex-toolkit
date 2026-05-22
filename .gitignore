@@ -6,12 +6,35 @@ __pycache__/
 *.pyd
 .Python
 *.egg-info/
+*.egg
+dist/
+build/
+
+# Test / coverage
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
 
 # Backtest outputs
 bot/equity-curve.png
 bot/trades.csv
 bot/*.png
 !docs/images/*.png
+
+# Generated dashboards / reports
+journal-dashboard.html
+journal_dashboard.html
+journal/monthly_report_*.html
+
+# Generated large binaries (распространяются через GitHub Releases)
+forex-handbook.pdf
+forex-guide-полный.docx
+forex-guide-*.docx
+
+# MkDocs build output (деплоится автоматически в gh-pages через GitHub Actions)
+site/
 
 # OS
 .DS_Store
@@ -20,6 +43,7 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+*.swp
 
 # Personal trading data (не пушить!)
 journal/personal-*.md
@@ -30,4 +54,6 @@ data/
 
 # Brokers credentials
 .env
+.env.*
 config.local.*
+*.secret

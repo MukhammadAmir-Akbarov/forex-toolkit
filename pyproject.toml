@@ -28,34 +28,34 @@ classifiers = [
     "Topic :: Office/Business :: Financial :: Investment",
 ]
 dependencies = [
-    "matplotlib>=3.5",
-    "numpy>=1.20",
-    "pandas>=1.5",
-    "yfinance>=0.2",
-    "requests>=2.28",
-    "beautifulsoup4>=4.11",
-    "jinja2>=3.0",
+    "matplotlib>=3.5,<4",
+    "numpy>=1.20,<3",
+    "pandas>=1.5,<3",
+    "yfinance>=0.2,<1",
+    "requests>=2.28,<3",
+    "beautifulsoup4>=4.11,<5",
+    "jinja2>=3.0,<4",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-    "mkdocs>=1.5",
-    "mkdocs-material>=9.0",
+    "pytest>=7.0,<10",
+    "pytest-cov>=4.0,<8",
+    "mkdocs>=1.5,<2",
+    "mkdocs-material>=9.0,<10",
 ]
-docs = ["python-docx>=0.8", "reportlab>=3.6"]
-web = ["streamlit>=1.20", "plotly>=5.0"]
+docs = ["python-docx>=0.8,<2", "reportlab>=3.6,<5"]
+web = ["streamlit>=1.20,<2", "plotly>=5.0,<7"]
 mt5 = ["MetaTrader5; sys_platform == 'win32'"]
-crypto = ["python-binance>=1.0"]
+crypto = ["python-binance>=1.0,<2"]
 all = [
     "forex-toolkit[dev,docs,web,crypto]",
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/yourusername/forex-toolkit"
-"Bug Tracker" = "https://github.com/yourusername/forex-toolkit/issues"
-"Documentation" = "https://yourusername.github.io/forex-toolkit"
+"Homepage" = "https://github.com/MukhammadAmir-Akbarov/forex-toolkit"
+"Bug Tracker" = "https://github.com/MukhammadAmir-Akbarov/forex-toolkit/issues"
+"Documentation" = "https://MukhammadAmir-Akbarov.github.io/forex-toolkit"
 
 [project.scripts]
 forex-position = "forex_toolkit.cli:position_calculator"

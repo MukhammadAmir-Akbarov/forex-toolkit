@@ -17,7 +17,7 @@
 from __future__ import annotations
 
 import argparse
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -43,16 +43,91 @@ class Trade:
     bars_held: int
 
 
+# ---------- Risk Guardian (anti-tilt) ----------
+
+@dataclass
+class RiskGuardian:
+    """
+    Защита от тильта: блокирует новые сделки, если
+
+      • подряд проиграно `max_consecutive_losses` сделок, или
+      • дневной P&L опустился ниже `-daily_loss_limit_r` (в R).
+
+    После триггера дневного лимита торговля возобновляется на следующий день.
+    После триггера серии убытков — после первой выигрышной сделки счётчик
+    обнуляется (то есть нужно дождаться нового дня и одной хорошей сделки).
+    """
+    max_consecutive_losses: int = 3
+    daily_loss_limit_r: float = 2.0
+    consecutive_losses: int = 0
+    blocked_signals: int = 0
+    triggered_dates: list[pd.Timestamp] = field(default_factory=list)
+    _daily_pnl: dict = field(default_factory=dict)
+    _last_block_reason: str = ""
+
+    def should_block(self, ts: pd.Timestamp) -> bool:
+        """Проверка ДО открытия сделки. True = пропустить сигнал."""
+        date_key = pd.Timestamp(ts).normalize()
+        daily = self._daily_pnl.get(date_key, 0.0)
+
+        if self.consecutive_losses >= self.max_consecutive_losses:
+            self._last_block_reason = (
+                f"{self.consecutive_losses} убытков подряд — "
+                f"торговля на паузе до выигрыша"
+            )
+            self.blocked_signals += 1
+            self._record_trigger(date_key)
+            return True
+
+        if daily <= -abs(self.daily_loss_limit_r):
+            self._last_block_reason = (
+                f"дневной лимит -{self.daily_loss_limit_r}R исчерпан "
+                f"({daily:+.2f}R) — пауза до завтра"
+            )
+            self.blocked_signals += 1
+            self._record_trigger(date_key)
+            return True
+
+        return False
+
+    def record_trade(self, ts: pd.Timestamp, pnl_r: float, outcome: str) -> None:
+        """Регистрируем результат сделки ПОСЛЕ её закрытия."""
+        date_key = pd.Timestamp(ts).normalize()
+        self._daily_pnl[date_key] = self._daily_pnl.get(date_key, 0.0) + pnl_r
+
+        if outcome == "loss":
+            self.consecutive_losses += 1
+        elif outcome == "win":
+            self.consecutive_losses = 0
+        # timeout не сбрасывает и не наращивает счётчик
+
+    def _record_trigger(self, date_key: pd.Timestamp) -> None:
+        if not self.triggered_dates or self.triggered_dates[-1] != date_key:
+            self.triggered_dates.append(date_key)
+
+    @property
+    def last_block_reason(self) -> str:
+        return self._last_block_reason
+
+
 def simulate(
     df: pd.DataFrame,
     signals: list[Signal],
     max_bars_in_trade: int = 24,
     pip_size: float = 0.0001,
+    spread_pips: float = 0.0,
+    risk_guardian: RiskGuardian | None = None,
 ) -> list[Trade]:
     """
     Прогон сделок по сигналам.
     Правило: сделка закрывается по SL, TP, или после max_bars_in_trade свечей.
     Симулятор НЕ открывает новую сделку, пока есть открытая.
+
+    Аргументы реализма:
+      spread_pips   — суммарный спред (в пипсах), вычитается из PnL каждой
+                      сделки. 0 = идеальная цена (по умолчанию для совместимости).
+      risk_guardian — экземпляр RiskGuardian для anti-tilt защиты.
+                      None = ограничений нет (по умолчанию).
     """
     trades: list[Trade] = []
     open_until_idx = -1
@@ -60,6 +135,9 @@ def simulate(
     for sig in signals:
         if sig.bar_index <= open_until_idx:
             continue  # пропускаем — позиция ещё открыта
+
+        if risk_guardian is not None and risk_guardian.should_block(sig.timestamp):
+            continue  # anti-tilt: пропускаем сигнал
 
         risk_per_unit = abs(sig.entry - sig.stop)
         if risk_per_unit == 0:
@@ -102,15 +180,15 @@ def simulate(
                     exit_idx, exit_price, outcome = j, sig.take, "win"
                     break
 
-        # PnL
+        # PnL (с учётом спреда: вычитаем стоимость спреда из движения цены)
         if sig.direction == Direction.LONG:
-            pnl_pips = (exit_price - sig.entry) / pip_size
+            pnl_pips = (exit_price - sig.entry) / pip_size - spread_pips
         else:
-            pnl_pips = (sig.entry - exit_price) / pip_size
+            pnl_pips = (sig.entry - exit_price) / pip_size - spread_pips
 
         pnl_r = pnl_pips / (risk_per_unit / pip_size)
 
-        trades.append(Trade(
+        trade = Trade(
             entry_time=sig.timestamp,
             exit_time=df.index[exit_idx],
             direction=sig.direction.value,
@@ -123,8 +201,12 @@ def simulate(
             pnl_r=pnl_r,
             reason=sig.reason,
             bars_held=exit_idx - sig.bar_index,
-        ))
+        )
+        trades.append(trade)
         open_until_idx = exit_idx
+
+        if risk_guardian is not None:
+            risk_guardian.record_trade(trade.exit_time, pnl_r, outcome)
 
     return trades
 
@@ -301,6 +383,17 @@ def main() -> int:
                         help="Сколько синтетических свечей сгенерировать")
     parser.add_argument("--trades-csv", type=Path,
                         help="Сохранить список сделок в CSV")
+    parser.add_argument("--spread-pips", type=float, default=0.0,
+                        help="Спред брокера в пипсах (вычитается из PnL "
+                             "каждой сделки). Реалистично: 1-3 для EUR/USD "
+                             "на ECN, 2-5 на маркет-мейкере.")
+    parser.add_argument("--max-consecutive-losses", type=int, default=0,
+                        help="Anti-tilt: остановить торговлю после N "
+                             "убытков подряд. 0 = выкл. (по умолч.). "
+                             "Рекомендуется 3.")
+    parser.add_argument("--daily-loss-limit-r", type=float, default=0.0,
+                        help="Anti-tilt: дневной лимит потерь в R. "
+                             "0 = выкл. (по умолч.). Рекомендуется 2.")
     args = parser.parse_args()
 
     if args.csv:
@@ -317,9 +410,42 @@ def main() -> int:
     signals = detect_signals(df, rr=args.rr)
     print(f"  Найдено сигналов: {len(signals)}")
 
+    guardian: RiskGuardian | None = None
+    if args.max_consecutive_losses > 0 or args.daily_loss_limit_r > 0:
+        guardian = RiskGuardian(
+            max_consecutive_losses=(
+                args.max_consecutive_losses
+                if args.max_consecutive_losses > 0
+                else 10**9
+            ),
+            daily_loss_limit_r=(
+                args.daily_loss_limit_r
+                if args.daily_loss_limit_r > 0
+                else 10**9
+            ),
+        )
+        print(
+            f"  Risk Guardian активен: "
+            f"max_losses={args.max_consecutive_losses or '∞'}, "
+            f"daily_limit=-{args.daily_loss_limit_r or '∞'}R"
+        )
+
+    if args.spread_pips > 0:
+        print(f"  Спред: {args.spread_pips} пипс/сделку")
+
     print("Прогоняю сделки…")
-    trades = simulate(df, signals)
+    trades = simulate(
+        df,
+        signals,
+        spread_pips=args.spread_pips,
+        risk_guardian=guardian,
+    )
     print(f"  Реальных входов (без перекрытий): {len(trades)}")
+    if guardian is not None:
+        print(
+            f"  Сигналов заблокировано Guardian: {guardian.blocked_signals} "
+            f"(в {len(guardian.triggered_dates)} дн.)"
+        )
 
     s = stats(trades)
     print_report(s)

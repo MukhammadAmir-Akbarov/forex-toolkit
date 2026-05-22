@@ -29,7 +29,11 @@ from dataclasses import dataclass
 
 
 # Приблизительная стоимость 1 пипса на 1 стандартный лот (100 000 единиц)
-# при счёте в USD. Реальные значения зависят от текущего курса.
+# при счёте в USD. Для пар, где USD стоит первым (quote-валюта не USD), или
+# для кросс-пар (EURGBP, EURJPY...) реальная стоимость зависит от курса:
+# pip_value_usd = pip_size_in_quote * lot_size / quote_to_usd_rate
+# (или domestic-to-USD для кросс-пар).
+# Значения ниже — снимок на момент создания. Используй --live для актуальных.
 PIP_VALUE_USD_PER_LOT: dict[str, float] = {
     "EURUSD": 10.00,
     "GBPUSD": 10.00,
@@ -42,6 +46,66 @@ PIP_VALUE_USD_PER_LOT: dict[str, float] = {
     "GBPJPY": 6.70,
     "EURGBP": 12.70,
 }
+
+# Пары, у которых стоимость пипса в USD напрямую зависит от текущей котировки
+# (всё, где USD — base, и все кросс-пары). Для них рекомендуется --live.
+_LIVE_SENSITIVE_PAIRS = {
+    "USDJPY", "USDCHF", "USDCAD",
+    "EURJPY", "GBPJPY", "EURGBP",
+}
+
+
+def _live_pip_value(pair: str) -> float | None:
+    """
+    Получить актуальную стоимость 1 пипса (в USD) для 1 стандартного лота
+    через yfinance. Возвращает None, если yfinance недоступен или не удалось
+    скачать котировку.
+
+    Формула:
+      pip_size = 0.01 для JPY-пар, 0.0001 для остальных
+      lot     = 100_000 единиц base-валюты
+
+      Если quote = USD                → pip_value = pip_size * lot
+      Если base  = USD (USDJPY/CHF/…) → pip_value = pip_size * lot / quote_rate
+      Если кросс (EURJPY, EURGBP, …)  → берём котировку base/USD
+                                         pip_value = pip_size * lot * base_to_usd / pair_rate
+    """
+    try:
+        import yfinance as yf  # noqa: WPS433 — ленивый импорт, опц. зависимость
+    except ImportError:
+        return None
+
+    pair = pair.upper()
+    pip_size = 0.01 if "JPY" in pair else 0.0001
+    lot = 100_000
+    base, quote = pair[:3], pair[3:]
+
+    def _last(ticker: str) -> float | None:
+        try:
+            data = yf.Ticker(f"{ticker}=X").history(period="1d", interval="1h")
+            if data is None or data.empty:
+                return None
+            return float(data["Close"].iloc[-1])
+        except Exception:
+            return None
+
+    if quote == "USD":
+        return pip_size * lot  # ровно $10 на 4-знач, $1 на JPY — не наш случай
+
+    if base == "USD":
+        rate = _last(pair)
+        if rate is None or rate == 0:
+            return None
+        return pip_size * lot / rate
+
+    # Кросс-пара: нужны base/USD и сам курс пары
+    pair_rate = _last(pair)
+    base_to_usd = _last(f"{base}USD") or (
+        1.0 / _last(f"USD{base}") if _last(f"USD{base}") else None
+    )
+    if not pair_rate or not base_to_usd:
+        return None
+    return pip_size * lot * base_to_usd / pair_rate
 
 
 @dataclass
@@ -63,8 +127,15 @@ def calculate_position(
     risk_percent: float,
     stop_pips: float,
     pair: str,
+    live: bool = False,
 ) -> PositionResult:
-    """Считает размер позиции в лотах."""
+    """Считает размер позиции в лотах.
+
+    Если ``live=True``, для чувствительных к курсу пар (USDJPY, USDCHF, USDCAD,
+    кросс-пары) подтягиваем актуальную стоимость пипса через yfinance. Если
+    скачать не удалось — мягкий фолбэк на табличное значение с предупреждением
+    в stdout.
+    """
     if balance <= 0:
         raise ValueError("Депозит должен быть > 0")
     if risk_percent <= 0 or risk_percent > 10:
@@ -80,6 +151,22 @@ def calculate_position(
         )
 
     pip_value = PIP_VALUE_USD_PER_LOT[pair]
+    if live and pair in _LIVE_SENSITIVE_PAIRS:
+        live_value = _live_pip_value(pair)
+        if live_value is None:
+            print(
+                f"  ⚠️  --live: не удалось получить курс для {pair}, "
+                f"использую табличное ${pip_value:.2f}/пипс",
+                file=sys.stderr,
+            )
+        else:
+            drift = abs(live_value - pip_value) / pip_value * 100
+            print(
+                f"  📡 --live: актуальная стоимость пипса для {pair} = "
+                f"${live_value:.2f} (отклонение от таблицы: {drift:.1f}%)"
+            )
+            pip_value = live_value
+
     risk_amount = balance * risk_percent / 100
 
     # Размер в стандартных лотах
@@ -186,6 +273,10 @@ def main() -> int:
                         help="Валютная пара (по умолчанию EURUSD)")
     parser.add_argument("--list-pairs", action="store_true",
                         help="Показать список поддерживаемых пар")
+    parser.add_argument("--live", action="store_true",
+                        help="Подтянуть актуальную стоимость пипса через "
+                             "yfinance (для USDJPY, USDCHF, USDCAD, кросс-пар). "
+                             "Без yfinance — мягкий фолбэк на таблицу.")
     args = parser.parse_args()
 
     if args.list_pairs:
@@ -200,7 +291,8 @@ def main() -> int:
 
     try:
         result = calculate_position(args.balance, args.risk,
-                                     args.stop, args.pair)
+                                     args.stop, args.pair,
+                                     live=args.live)
     except ValueError as e:
         print(f"Ошибка: {e}", file=sys.stderr)
         return 1
