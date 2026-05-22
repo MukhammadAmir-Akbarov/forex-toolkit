@@ -25,6 +25,10 @@ plugins:
           name: 🇬🇧 English
           build: true
           site_name: "Forex Trading Toolkit (English)"
+        - locale: uz
+          name: 🇺🇿 O'zbek
+          build: true
+          site_name: "Forex Trading Toolkit (O'zbek)"
 
 theme:
   name: material
