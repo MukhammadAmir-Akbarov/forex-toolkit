@@ -1,9 +1,30 @@
 site_name: Forex Trading Toolkit
 site_description: Образовательный проект — учебник, инструменты, стратегии
 site_author: forex-trading project
+site_url: https://mukhammadamir-akbarov.github.io/forex-toolkit/
+
+repo_url: https://github.com/MukhammadAmir-Akbarov/forex-toolkit
+repo_name: MukhammadAmir-Akbarov/forex-toolkit
+edit_uri: edit/main/_mkdocs/
 
 docs_dir: _mkdocs
 site_dir: site
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: ru
+          default: true
+          name: 🇷🇺 Русский
+          build: true
+        - locale: en
+          name: 🇬🇧 English
+          build: true
+          site_name: "Forex Trading Toolkit (English)"
 
 theme:
   name: material
@@ -92,10 +113,6 @@ nav:
   - 🇺🇿 Узбекистан:
       - Вывод денег: uz/withdrawal-guide.md
       - Сообщества: uz/communities.md
-  - 🇬🇧 English:
-      - How to use: HOW-TO-USE.md
-      - Main guide: forex-guide-en.md
-      - Psychology: extras/psychology-en.md
 
 extra:
   social:
