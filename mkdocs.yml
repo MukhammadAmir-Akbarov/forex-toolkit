@@ -103,6 +103,7 @@ nav:
       - Mistakes log: journal/mistakes-log.md
       - README: journal/README.md
   - 🛠️ Инструменты:
+      - 📐 Калькулятор позиции: tools/position-calculator.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
   - 🚀 Продвинутое:
