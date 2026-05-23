@@ -98,6 +98,7 @@ nav:
       - FAQ: extras/faq.md
       - Глоссарий: extras/glossary.md
       - Сравнение брокеров: extras/brokers-comparison.md
+      - 📡 Источники данных и сигналов: extras/market-data-sources.md
       - Mind map: extras/mind-map.md
   - 📝 Журнал:
       - Шаблон: journal/trading-journal-template.md
