@@ -2335,21 +2335,20 @@
 <p>Nazorat nuqtalarini yopmaguningizcha <strong>keyingi darajaga o'tmang</strong>. Aks holda pulingizni behuda yo'qotasiz.</p>
 </div>
 <h2 id="umumiy-korinish">Umumiy ko'rinish<a class="headerlink" href="#umumiy-korinish" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph TD
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    A[🎬 Start: Forex o&#39;rganishni xohlayman] --&gt; B{0-bosqich: Tayyorgarlik&lt;br/&gt;1 hafta}
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    B --&gt; |✅| C{1-bosqich: Nazariya&lt;br/&gt;2-4 hafta}
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    C --&gt; |✅| D{2-bosqich: Psixologiya + Xavf&lt;br/&gt;1-2 hafta}
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    D --&gt; |✅| E{3-bosqich: Birinchi strategiya&lt;br/&gt;1-2 oy}
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    E --&gt; |✅| F{4-bosqich: Tahlil + Yaxshilash&lt;br/&gt;1 oy}
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    F --&gt; G{5-bosqich: Real hisobga tayyormisan?}
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    G --&gt; |❌ Yo&#39;q| F
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    G --&gt; |✅ Ha| H[💵 5-bosqich: Real hisob&lt;br/&gt;$100-300, 0.5% xavf]
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    H --&gt; I[📈 6-bosqich: Rivojlanish&lt;br/&gt;1 yildan keyin]
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    style A fill:#10b981,color:#fff
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    style H fill:#3b82f6,color:#fff
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    style I fill:#8b5cf6,color:#fff
-</code></pre></div>
+<pre class="mermaid"><code>graph TD
+    A[🎬 Start: Forex o'rganishni xohlayman] --&gt; B{0-bosqich: Tayyorgarlik&lt;br/&gt;1 hafta}
+    B --&gt; |✅| C{1-bosqich: Nazariya&lt;br/&gt;2-4 hafta}
+    C --&gt; |✅| D{2-bosqich: Psixologiya + Xavf&lt;br/&gt;1-2 hafta}
+    D --&gt; |✅| E{3-bosqich: Birinchi strategiya&lt;br/&gt;1-2 oy}
+    E --&gt; |✅| F{4-bosqich: Tahlil + Yaxshilash&lt;br/&gt;1 oy}
+    F --&gt; G{5-bosqich: Real hisobga tayyormisan?}
+    G --&gt; |❌ Yo'q| F
+    G --&gt; |✅ Ha| H[💵 5-bosqich: Real hisob&lt;br/&gt;$100-300, 0.5% xavf]
+    H --&gt; I[📈 6-bosqich: Rivojlanish&lt;br/&gt;1 yildan keyin]
+
+    style A fill:#10b981,color:#fff
+    style H fill:#3b82f6,color:#fff
+    style I fill:#8b5cf6,color:#fff</code></pre>
 <hr />
 <h2 id="0-bosqich-tayyorgarlik">0-bosqich — Tayyorgarlik<a class="headerlink" href="#0-bosqich-tayyorgarlik" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
@@ -2697,12 +2696,11 @@
 </div>
 <p>⏱️ <strong>Muddat</strong>: cheksiz.</p>
 <h3 id="mumkin-bolgan-yonalishlar">Mumkin bo'lgan yo'nalishlar<a class="headerlink" href="#mumkin-bolgan-yonalishlar" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>graph LR
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    A[📈 Real savdo ≥ 1 yil] --&gt; B[📊 Volume Profile / Order Flow]
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    A --&gt; C[💱 Crypto / Stocks]
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    A --&gt; D[🤖 Avtomatlashtirish]
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    A --&gt; E[👥 Mentorlik / kontent]
-</code></pre></div>
+<pre class="mermaid"><code>graph LR
+    A[📈 Real savdo ≥ 1 yil] --&gt; B[📊 Volume Profile / Order Flow]
+    A --&gt; C[💱 Crypto / Stocks]
+    A --&gt; D[🤖 Avtomatlashtirish]
+    A --&gt; E[👥 Mentorlik / kontent]</code></pre>
 <h3 id="bu-bosqichda-nima-qilmaslik-kerak">Bu bosqichda NIMA QILMASLIK kerak<a class="headerlink" href="#bu-bosqichda-nima-qilmaslik-kerak" title="Permanent link">&para;</a></h3>
 <ul>
 <li>❌ Xavfni keskin <strong>5-10% gacha oshirish</strong></li>
