@@ -79,8 +79,8 @@ def register_cyrillic_fonts() -> None:
     )
 
 
-# Главы в нужном порядке
-CHAPTERS = [
+# Главы в нужном порядке (RU)
+CHAPTERS_RU = [
     ("Введение", ROOT / "КАК-ПОЛЬЗОВАТЬСЯ.md"),
     ("Основной гайд", ROOT / "forex-guide.md"),
     ("Технический анализ", ROOT / "docs" / "technical-analysis.md"),
@@ -96,6 +96,43 @@ CHAPTERS = [
     ("Чек-лист", ROOT / "extras" / "checklist-printable.md"),
     ("Emergency Card", ROOT / "extras" / "emergency-card.md"),
 ]
+
+# Chapters in the right order (EN)
+CHAPTERS_EN = [
+    ("How to use", ROOT / "_mkdocs" / "КАК-ПОЛЬЗОВАТЬСЯ.en.md"),
+    ("Main guide", ROOT / "forex-guide-en.md"),
+    ("Psychology", ROOT / "extras" / "psychology-en.md"),
+]
+
+LANG_CONFIGS = {
+    "ru": {
+        "chapters": CHAPTERS_RU,
+        "out": ROOT / "forex-handbook.pdf",
+        "title": "Forex Trading Handbook",
+        "subtitle": "Полный учебный гайд для новичка",
+        "warning": (
+            "Этот документ — образовательный материал, а НЕ финансовый совет. "
+            "Forex — высокорисковая деятельность. По данным ESMA, 74-89% розничных "
+            "трейдеров теряют деньги. Никогда не торгуй на деньги, которые не "
+            "готов потерять. Минимум 3 месяца демо-счёта."
+        ),
+    },
+    "en": {
+        "chapters": CHAPTERS_EN,
+        "out": ROOT / "forex-handbook-en.pdf",
+        "title": "Forex Trading Handbook",
+        "subtitle": "A complete learning guide for beginners",
+        "warning": (
+            "This document is educational material, NOT financial advice. "
+            "Forex is a high-risk activity. According to ESMA data, 74-89% of "
+            "retail traders lose money. Never trade with money you cannot afford "
+            "to lose. Minimum 3 months on a demo account before going live."
+        ),
+    },
+}
+
+# Backwards-compatible alias for old code paths
+CHAPTERS = CHAPTERS_RU
 
 
 # ---------- Стили ----------
@@ -278,61 +315,80 @@ def parse_inline(text: str) -> str:
     return text
 
 
-def main() -> int:
-    print("Сборка PDF учебника...")
+def build(lang: str = "ru") -> int:
+    if lang not in LANG_CONFIGS:
+        print(f"Unknown lang: {lang!r}. Use one of: {list(LANG_CONFIGS)}", file=sys.stderr)
+        return 2
+
+    cfg = LANG_CONFIGS[lang]
+    out_path = cfg["out"]
+    print(f"Building {lang.upper()} PDF → {out_path.name}")
     register_cyrillic_fonts()
 
     doc = SimpleDocTemplate(
-        str(OUT), pagesize=A4,
+        str(out_path), pagesize=A4,
         leftMargin=2 * cm, rightMargin=2 * cm,
         topMargin=2 * cm, bottomMargin=2 * cm,
-        title="Forex Trading Handbook",
+        title=cfg["title"],
         author="forex-trading project",
     )
 
     styles = make_styles()
     story = []
 
-    # Титульный лист
+    # Title page
     story.append(Spacer(1, 3 * cm))
     story.append(Paragraph("📈 FOREX", styles["title"]))
-    story.append(Paragraph("Полный учебный гайд для новичка", styles["subtitle"]))
+    story.append(Paragraph(cfg["subtitle"], styles["subtitle"]))
     story.append(Spacer(1, 2 * cm))
-    story.append(Paragraph(
-        "Теория · Технический анализ · Стратегии<br/>"
-        "Психология · Шаблоны · Инструменты",
-        styles["body"],
-    ))
+    if lang == "ru":
+        tagline = "Теория · Технический анализ · Стратегии<br/>Психология · Шаблоны · Инструменты"
+        warning_label = "⚠️ ВНИМАНИЕ:"
+    else:
+        tagline = "Theory · Technical analysis · Strategies<br/>Psychology · Templates · Tools"
+        warning_label = "⚠️ WARNING:"
+    story.append(Paragraph(tagline, styles["body"]))
     story.append(Spacer(1, 4 * cm))
     story.append(Paragraph(
-        "<b>⚠️ ВНИМАНИЕ:</b><br/><br/>"
-        "Этот документ — образовательный материал, а НЕ финансовый совет. "
-        "Forex — высокорисковая деятельность. По данным ESMA, "
-        "74-89% розничных трейдеров теряют деньги. Никогда не торгуй "
-        "на деньги, которые не готов потерять. "
-        "Прежде чем рисковать — минимум 3 месяца на демо-счёте.",
+        f"<b>{warning_label}</b><br/><br/>{cfg['warning']}",
         styles["warning"],
     ))
     story.append(PageBreak())
 
-    # Главы
-    for title, path in CHAPTERS:
+    # Chapters
+    for title, path in cfg["chapters"]:
         if not path.exists():
-            print(f"  ⚠️  пропускаю (не найдено): {path}")
+            print(f"  ⚠️  skip (not found): {path}")
             continue
-
         print(f"  ✓ {title} ← {path.name}")
         text = path.read_text(encoding="utf-8")
         flowables = parse_markdown(text, styles)
         story.extend(flowables)
         story.append(PageBreak())
 
-    print(f"\nГенерирую PDF...")
+    print("\nGenerating PDF...")
     doc.build(story)
-    size_kb = OUT.stat().st_size // 1024
-    print(f"\n✓ Готово: {OUT}")
-    print(f"  Размер: {size_kb} KB")
+    size_kb = out_path.stat().st_size // 1024
+    print(f"\n✓ Done: {out_path}")
+    print(f"  Size: {size_kb} KB")
     return 0
+
+
+def main() -> int:
+    import argparse
+    parser = argparse.ArgumentParser(description="Build the Forex handbook PDF")
+    parser.add_argument(
+        "--lang", choices=["ru", "en", "all"], default="ru",
+        help="Language to build (default: ru). 'all' builds both.",
+    )
+    args = parser.parse_args()
+
+    if args.lang == "all":
+        rc = 0
+        for lang in ("ru", "en"):
+            rc |= build(lang)
+        return rc
+    return build(args.lang)
 
 
 if __name__ == "__main__":

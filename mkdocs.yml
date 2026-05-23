@@ -10,6 +10,9 @@ edit_uri: edit/main/_mkdocs/
 docs_dir: _mkdocs
 site_dir: site
 
+extra_css:
+  - stylesheets/calculators.css
+
 plugins:
   - search
   - i18n:
@@ -104,6 +107,8 @@ nav:
       - README: journal/README.md
   - 🛠️ Инструменты:
       - 📐 Калькулятор позиции: tools/position-calculator.md
+      - 💲 Калькулятор пипса: tools/pip-calculator.md
+      - 📈 Сложный процент: tools/compound-calculator.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
   - 🚀 Продвинутое:
@@ -116,13 +121,40 @@ nav:
       - Crypto trading: growth/crypto-trading-guide.md
       - Stocks basics: growth/stocks-basics.md
   - 🇺🇿 Узбекистан:
+      - Брокеры для УЗ: uz/brokers-uz.md
       - Вывод денег: uz/withdrawal-guide.md
       - Сообщества: uz/communities.md
 
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/
+      link: https://github.com/MukhammadAmir-Akbarov/forex-toolkit
+      name: GitHub
+    - icon: fontawesome/brands/telegram
+      link: https://github.com/MukhammadAmir-Akbarov/forex-toolkit/discussions
+      name: Discussions
+  # Analytics (optional). To enable:
+  #   1. Create a free Google Analytics 4 property at https://analytics.google.com
+  #   2. Replace G-XXXXXXXXXX below with your Measurement ID
+  #   3. Uncomment the analytics block
+  # analytics:
+  #   provider: google
+  #   property: G-XXXXXXXXXX
+  #   feedback:
+  #     title: Была ли страница полезна?
+  #     ratings:
+  #       - icon: material/emoticon-happy-outline
+  #         name: Эта страница помогла
+  #         data: 1
+  #         note: Спасибо за обратную связь!
+  #       - icon: material/emoticon-sad-outline
+  #         name: Эту страницу можно улучшить
+  #         data: 0
+  #         note: |
+  #           Спасибо! Помоги улучшить —
+  #           <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/discussions" target="_blank">опиши в Discussions</a>.
 
 copyright: |
-  &copy; Образовательный материал, не финансовый совет
+  &copy; 2026 <a href="https://github.com/MukhammadAmir-Akbarov" target="_blank">Mukhammad Amir Akbarov</a> &middot;
+  <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE" target="_blank">MIT License</a> &middot;
+  Образовательный материал, не финансовый совет

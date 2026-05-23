@@ -1,0 +1,54 @@
+name: 💡 Feature request
+description: Предложить новую функцию или улучшение / Suggest a new feature or improvement
+labels: [enhancement, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Перед отправкой:
+        - 💬 Для общих идей лучше открыть [Discussion](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/discussions/categories/ideas)
+        - Issue используй, когда фича уже формализована и готова к работе
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Какую проблему решаем?
+      description: Опиши боль трейдера / пользователя, которую сейчас не закрывает текущий тулкит
+      placeholder: Когда я считаю swap для overnight позиции, мне приходится...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Предлагаемое решение
+      description: Как должна работать новая функция? Покажи пример CLI / UI / API.
+      placeholder: |
+        Добавить `tools/swap_calculator.py --pair EURUSD --lots 0.1 --direction long --days 3`
+        Вывод: total swap = ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Альтернативы
+      description: Что ты уже пробовал? Почему не подошло?
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Приоритет (по твоему мнению)
+      options:
+        - 🔥 Критично (сейчас невозможно делать важное)
+        - 🟡 Полезно (есть workaround, но неудобно)
+        - 🟢 Nice-to-have
+
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Готов помочь?
+      options:
+        - label: Готов открыть PR с реализацией
+        - label: Готов написать тесты
+        - label: Готов написать документацию

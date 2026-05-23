@@ -30,6 +30,7 @@ journal/monthly_report_*.html
 
 # Generated large binaries (распространяются через GitHub Releases)
 forex-handbook.pdf
+forex-handbook-*.pdf
 forex-guide-полный.docx
 forex-guide-*.docx
 

@@ -1,0 +1,83 @@
+name: 🐛 Bug report
+description: Сообщить о баге в коде или сайте / Report a bug in code or site
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо за репорт! Перед отправкой:
+        - 🔒 Если это уязвимость безопасности — НЕ открывай issue, см. [SECURITY.md](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/SECURITY.md)
+        - 💬 Если это вопрос — открой [Discussion](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/discussions), не issue
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Что произошло?
+      description: Чёткое описание бага
+      placeholder: При запуске `python tools/position_calculator.py ...` получаю ошибку...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      description: Точные команды или клики, которые приводят к багу
+      placeholder: |
+        1. Запустить `.venv/bin/python tools/position_calculator.py --balance 1000 --risk 0.5 --stop 25 --pair USDJPY --live`
+        2. Увидеть ошибку...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемое поведение
+      placeholder: Должен показать размер позиции в лотах
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Версия / commit
+      description: Тэг релиза или хэш коммита
+      placeholder: v0.1.0 или 7158806
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: ОС
+      options:
+        - macOS
+        - Linux (Ubuntu/Debian)
+        - Linux (other)
+        - Windows
+        - Browser (для сайта)
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Версия Python (если применимо)
+      placeholder: 3.12.5
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Логи / traceback
+      description: Полный вывод ошибки. Будет автоматически отформатирован
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Чек-лист
+      options:
+        - label: Я искал в существующих issues и не нашёл дубликат
+          required: true
+        - label: Я указал точные шаги воспроизведения
+          required: true

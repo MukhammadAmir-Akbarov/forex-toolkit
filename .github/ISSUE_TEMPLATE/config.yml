@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Вопрос или обсуждение
+    url: https://github.com/MukhammadAmir-Akbarov/forex-toolkit/discussions
+    about: Открой Discussion вместо issue. Issues — только для багов и формализованных feature requests.
+  - name: 🔒 Уязвимость безопасности
+    url: https://github.com/MukhammadAmir-Akbarov/forex-toolkit/security/advisories/new
+    about: НЕ открывай публичный issue для уязвимостей. Используй приватный Security Advisory.
+  - name: 📖 Документация
+    url: https://mukhammadamir-akbarov.github.io/forex-toolkit/
+    about: Прочитай учебник перед тем, как открыть issue. 90% вопросов там уже разобраны.
