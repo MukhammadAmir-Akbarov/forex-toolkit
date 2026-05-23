@@ -58,3 +58,8 @@ data/
 .env.*
 config.local.*
 *.secret
+
+# Personal maintainer files (опционально оставляем локально)
+# LAUNCH.md можно оставить в репо как публичный playbook,
+# или вынести — раскомментируй ниже если хочешь:
+# LAUNCH.md
