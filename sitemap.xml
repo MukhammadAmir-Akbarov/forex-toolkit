@@ -153,6 +153,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/extras/glossary/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/extras/market-data-sources/</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/extras/market-data-sources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/extras/market-data-sources/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/extras/market-data-sources/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/extras/mind-map/</loc>
         <lastmod>2026-05-23</lastmod>
         <changefreq>daily</changefreq>
@@ -473,6 +481,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/extras/glossary/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/extras/market-data-sources/</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/extras/market-data-sources/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/extras/market-data-sources/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/extras/market-data-sources/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/extras/mind-map/</loc>
         <lastmod>2026-05-23</lastmod>
         <changefreq>daily</changefreq>
@@ -791,6 +807,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/extras/glossary/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/extras/glossary/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/extras/glossary/"/>
+    </url>
+    <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/extras/market-data-sources/</loc>
+        <lastmod>2026-05-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/extras/market-data-sources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/extras/market-data-sources/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/extras/market-data-sources/"/>
     </url>
     <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/extras/mind-map/</loc>
