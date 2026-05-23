@@ -91,6 +91,14 @@ nav:
       - Технический анализ: docs/technical-analysis.md
       - Учебная стратегия: docs/strategy-details.md
       - 📈 Реальный анализ EUR/USD: docs/real-analysis.md
+  - 🎯 Из практики (2 года):
+      - Обзор раздела: practice/README.md
+      - 🥇 Торговля золотом (XAUUSD): practice/gold-trading.md
+      - 🎯 ЛОТ - главное: practice/lot-discipline.md
+      - 🛡️ Сейф (Move to BE): practice/breakeven-protocol.md
+      - 📈 Доливка (Scaling-in): practice/scaling-in.md
+      - 🔁 Циклы рынка: practice/cycle-theory.md
+      - 🏛️ Структура рынка: practice/market-structure.md
   - 🧠 Психология и дисциплина:
       - Психология трейдинга: extras/psychology.md
       - Anti-Tilt протокол: extras/anti-tilt-protocol.md
@@ -108,6 +116,7 @@ nav:
   - 📝 Журнал:
       - Шаблон: journal/trading-journal-template.md
       - Расширенный: journal/journal-extended.md
+      - 📅 Еженедельный отчёт: journal/weekly-report-template.md
       - Demo vs Real: journal/demo-vs-real-comparison.md
       - Mistakes log: journal/mistakes-log.md
       - README: journal/README.md
@@ -115,6 +124,7 @@ nav:
       - 📐 Калькулятор позиции: tools/position-calculator.md
       - 💲 Калькулятор пипса: tools/pip-calculator.md
       - 📈 Сложный процент: tools/compound-calculator.md
+      - 📊 WinRate × RR: tools/winrate-rr-calculator.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
   - 🚀 Продвинутое:

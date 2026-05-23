@@ -1,0 +1,206 @@
+# 📊 Win Rate × Risk-Reward — калькулятор прибыльности
+
+!!! abstract "Главная математика трейдинга"
+    Из практики опытного трейдера: «Это самый частый вопрос — почему я не в плюсе?»
+
+    **Ответ:** твой Win Rate (% прибыльных сделок) и твой RR (Risk-Reward Ratio) — связаны жёсткой математикой. Если ты не соблюдаешь это соотношение — ты в минусе **по математике**, а не по «невезению».
+
+---
+
+## 🧮 Интерактивный калькулятор
+
+<div class="calc-widget">
+
+<div class="calc-row">
+  <label>Win Rate (% прибыльных сделок)</label>
+  <input type="number" id="wr-input" min="1" max="99" step="1" value="50">
+  <span>%</span>
+</div>
+
+<div class="calc-row">
+  <label>Risk-Reward Ratio (RR)</label>
+  <input type="number" id="rr-input" min="0.1" max="20" step="0.1" value="1.5">
+  <span>(1 риск : N награда)</span>
+</div>
+
+<div class="calc-row">
+  <label>Кол-во сделок (для прогноза)</label>
+  <input type="number" id="trades-input" min="10" max="1000" step="10" value="100">
+</div>
+
+<div class="calc-row">
+  <label>Риск на одну сделку (% депозита)</label>
+  <input type="number" id="risk-input" min="0.1" max="10" step="0.1" value="1">
+  <span>%</span>
+</div>
+
+<button class="calc-button" onclick="calcWRRR()">Рассчитать</button>
+
+<div id="wr-result" class="calc-result"></div>
+
+</div>
+
+<script>
+function calcWRRR() {
+  const wr = parseFloat(document.getElementById('wr-input').value) / 100;
+  const rr = parseFloat(document.getElementById('rr-input').value);
+  const trades = parseInt(document.getElementById('trades-input').value);
+  const risk = parseFloat(document.getElementById('risk-input').value);
+
+  if (!wr || !rr || !trades || !risk) {
+    document.getElementById('wr-result').innerHTML = '<div class="calc-warn">Заполни все поля</div>';
+    return;
+  }
+
+  const wins = Math.round(trades * wr);
+  const losses = trades - wins;
+  const winPnL = wins * rr * risk;
+  const lossPnL = losses * risk;
+  const netPnL = winPnL - lossPnL;
+
+  // Expected value per trade
+  const ev = (wr * rr - (1 - wr)) * risk;
+  const evSign = ev >= 0 ? '+' : '';
+
+  // Required RR for breakeven at this WR
+  const requiredRR = (1 - wr) / wr;
+
+  // Status
+  let status, statusClass;
+  if (ev > 0.5) {
+    status = '✅ Сильная стратегия — стабильный плюс';
+    statusClass = 'calc-ok';
+  } else if (ev > 0.1) {
+    status = '🟡 Стратегия в плюсе, но плюс слабый';
+    statusClass = 'calc-warn';
+  } else if (ev > -0.1) {
+    status = '🟠 Стратегия на грани — близко к нулю';
+    statusClass = 'calc-warn';
+  } else {
+    status = '🔴 Стратегия УБЫТОЧНА по математике';
+    statusClass = 'calc-error';
+  }
+
+  const html = `
+    <div class="${statusClass}">
+      <h4>${status}</h4>
+
+      <table class="calc-table">
+        <tr><td><strong>Прибыльных сделок</strong></td><td>${wins} (${(wr*100).toFixed(0)}%)</td></tr>
+        <tr><td><strong>Убыточных сделок</strong></td><td>${losses} (${((1-wr)*100).toFixed(0)}%)</td></tr>
+        <tr><td><strong>Прибыль с побед</strong></td><td>+${winPnL.toFixed(2)}% депозита</td></tr>
+        <tr><td><strong>Убыток с поражений</strong></td><td>-${lossPnL.toFixed(2)}% депозита</td></tr>
+        <tr><td><strong>Итог за ${trades} сделок</strong></td><td><strong>${netPnL >= 0 ? '+' : ''}${netPnL.toFixed(2)}% депозита</strong></td></tr>
+        <tr><td><strong>EV (на 1 сделку)</strong></td><td>${evSign}${ev.toFixed(3)}% депозита</td></tr>
+        <tr><td><strong>Минимальный RR для безубытка</strong></td><td>${requiredRR.toFixed(2)}</td></tr>
+      </table>
+
+      <p><strong>Расшифровка:</strong></p>
+      <ul>
+        <li>EV (Expected Value) = математическое ожидание одной сделки</li>
+        <li>Если EV > 0 — стратегия в долгосроке прибыльна</li>
+        <li>Если EV < 0 — даже миллион сделок не спасут</li>
+        <li>При твоём WR <strong>${(wr*100).toFixed(0)}%</strong> минимальный RR для нуля = <strong>${requiredRR.toFixed(2)}</strong>. Ты используешь RR=<strong>${rr.toFixed(1)}</strong>, что ${rr > requiredRR ? '✅ ВЫШЕ' : '❌ НИЖЕ'} требуемого.</li>
+      </ul>
+    </div>
+  `;
+
+  document.getElementById('wr-result').innerHTML = html;
+}
+
+window.addEventListener('DOMContentLoaded', calcWRRR);
+</script>
+
+---
+
+## 📋 Эталонная таблица «WR vs минимальный RR»
+
+| Win Rate | Минимальный RR для нуля | RR для +1% за сделку (риск 1%) | Реально для новичка? |
+|---|---|---|---|
+| 30% | 2.33 | 3.5+ | ❌ Сложно |
+| 40% | 1.50 | 2.5 | ⚠️ Реально |
+| **50%** | **1.00** | **2.0** | ✅ Реально |
+| 60% | 0.67 | 1.5 | ✅ Реально |
+| 70% | 0.43 | 1.0 | ✅ Очень реально |
+| 80% | 0.25 | 0.75 | ⚠️ Подозрительно высоко |
+| 90% | 0.11 | 0.5 | ❌ Скорее всего, обман |
+
+!!! warning "Win Rate выше 75% — красный флаг"
+    Если кто-то обещает Win Rate 85-90% — это **математически возможно**, но **только при крошечных TP и огромных SL** (RR < 0.5). В долгосроке такая стратегия **всё равно** убыточна, потому что 1 большой стоп съедает 5-10 маленьких профитов.
+
+    **Реальный честный Win Rate для прибыльной стратегии: 45-65%** при RR ≥ 1.5.
+
+---
+
+## 💡 Что это значит на практике
+
+### Пример 1: Новичок «думает, что прав часто»
+
+```
+WR = 70% (по его ощущениям)
+RR = 0.5 (он закрывает прибыль рано, держит убытки долго)
+
+100 сделок при риске 1%:
+- 70 побед × 0.5% = +35%
+- 30 проигрышей × 1% = -30%
+- Итого: +5% за 100 сделок
+
+⚠️ Прибыль есть, но микроскопическая. Один прокол правил → минус.
+```
+
+### Пример 2: Дисциплинированный
+
+```
+WR = 45% (он часто получает стопы)
+RR = 2.0 (но он терпит до больших TP)
+
+100 сделок при риске 1%:
+- 45 побед × 2% = +90%
+- 55 проигрышей × 1% = -55%
+- Итого: +35% за 100 сделок
+
+✅ Стратегия в плюсе даже с низким Win Rate.
+```
+
+### Пример 3: Жадный
+
+```
+WR = 50%
+RR = 0.8 (берёт прибыль рано, ждёт лучшую цену)
+
+100 сделок при риске 1%:
+- 50 побед × 0.8% = +40%
+- 50 проигрышей × 1% = -50%
+- Итого: -10% за 100 сделок
+
+❌ Стратегия в минусе. Жадность убивает.
+```
+
+---
+
+## 🎯 Главные выводы
+
+1. **Win Rate не главное** — главное связка WR + RR
+2. **RR 1:2 или выше** — золотой стандарт для новичка
+3. **Никогда не двигай TP ближе** «потому что цена замедлилась»
+4. **Никогда не двигай SL дальше** «потому что чуть-чуть не дойдёт»
+5. **Считай EV** до начала, а не «как-то выйдет»
+
+---
+
+## 💬 Цитата практика
+
+!!! quote
+    *«Nega daromadga chiqmayapman degan savolga javob bo'ladigan — oddiy, lekin barcha bilishi zarur bo'lgan balans jadvali. Daromadga chiqish uchun ushbu jadval orqali siz Win rate ga qarab Risk rewardni qancha ushlashingiz kerakligi ko'rsatilgan.»*
+
+    **Перевод:** «Ответ на вопрос "почему я не в плюсе?" — простая, но обязательная для всех таблица. Сколько Risk-Reward ты должен держать в зависимости от своего Win Rate.»
+
+---
+
+## 🔗 Что почитать дальше
+
+- [ЛОТ-дисциплина](../practice/lot-discipline.md) — без неё ни WR, ни RR не помогут
+- [Сейф (Move to BE)](../practice/breakeven-protocol.md) — защита достигнутого RR
+- [Калькулятор позиции](position-calculator.md) — рассчитай корректный лот
+- [Психология трейдинга](../extras/psychology.md) — почему хочется уменьшить RR
+- [Учебная стратегия](../docs/strategy-details.md) — EMA50 Pullback с фиксированным RR=2
