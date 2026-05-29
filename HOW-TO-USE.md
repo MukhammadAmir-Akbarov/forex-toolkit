@@ -54,15 +54,15 @@ trading/
 
 ### 🟢 Week 1: Read the theory
 
-**Step 1.** Open [forex-guide.md](forex-guide.md) — this is your main textbook.
+**Step 1.** Open [forex-guide.md](_mkdocs/forex-guide.md) — this is your main textbook.
 
 Inside there are 14 sections: what forex is, how to read quotes, how trades work, how to choose a broker, risk management, common mistakes, and a six-month roadmap. About 700 lines, takes 2–3 hours to read. **Read it twice.**
 
-**Step 2.** Open [docs/technical-analysis.md](docs/technical-analysis.md) — an extended guide on "how to read a chart."
+**Step 2.** Open [docs/technical-analysis.md](_mkdocs/docs/technical-analysis.md) — an extended guide on "how to read a chart."
 
 It contains **12 color charts**: what a candle is, reversal patterns, trends, indicators (EMA, RSI, MACD, Bollinger Bands), chart patterns (head and shoulders, triangles). It's the most "visual" document — examine the charts, don't just read.
 
-**Step 3.** Open [docs/strategy-details.md](docs/strategy-details.md) — a detailed breakdown of one trading strategy.
+**Step 3.** Open [docs/strategy-details.md](_mkdocs/docs/strategy-details.md) — a detailed breakdown of one trading strategy.
 
 This is your first concrete **strategy**. It's called "Pullback to EMA50 with the trend." It's described from start to finish: when to enter, where to place the stop, where to take profit, and when the strategy does NOT work.
 
@@ -312,12 +312,12 @@ You only need to run it again if you want to change the style of the charts.
 If you've just sat down at the computer right now:
 
 1. **0:00** — open VSCode, open the `trading/` folder
-2. **0:05** — open [forex-guide.md](forex-guide.md), turn on preview (Cmd+Shift+V)
+2. **0:05** — open [forex-guide.md](_mkdocs/forex-guide.md), turn on preview (Cmd+Shift+V)
 3. **0:10** — start reading. **Read sections 1–7** (the most important: what forex is, terminology, risk management). That's ~1.5 hours.
 4. **1:30** — take a **30-minute break**. Don't try to read everything in one go.
 5. **2:00** — continue with sections 8–14. Another ~1 hour.
-6. **3:00** — open [docs/technical-analysis.md](docs/technical-analysis.md). You don't need to understand everything on the first pass — **study the pictures**, read the captions.
-7. **4:00** — take a look at [docs/strategy-details.md](docs/strategy-details.md), without going deep yet.
+6. **3:00** — open [docs/technical-analysis.md](_mkdocs/docs/technical-analysis.md). You don't need to understand everything on the first pass — **study the pictures**, read the captions.
+7. **4:00** — take a look at [docs/strategy-details.md](_mkdocs/docs/strategy-details.md), without going deep yet.
 8. **4:30** — run the position calculator once — just to see how it works:
    ```bash
    .venv/bin/python tools/position_calculator.py
@@ -389,4 +389,4 @@ About 25 files total. It's a **self-sufficient course**: you can learn without b
 
 ---
 
-📖 Next step → open [forex-guide.md](forex-guide.md) and start reading.
+📖 Next step → open [forex-guide.md](_mkdocs/forex-guide.md) and start reading.
