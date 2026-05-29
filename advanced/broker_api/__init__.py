@@ -15,10 +15,12 @@
     broker.connect(login=..., password=..., server=...)
 
     candles = broker.get_candles("EURUSD", "H1", 100)
-    broker.place_order("EURUSD", "long", 0.01, sl=1.08, tp=1.09)
+    broker.place_order("EURUSD", "long", 0.01, stop=1.08, take=1.09)
 
-⚠️ Это СКЕЛЕТ. Реальные методы реализованы только для yfinance (read-only).
-Остальные требуют установки соответствующих пакетов и доступа к API.
+⚠️ Это СКЕЛЕТ-пример, НЕ входит в публикуемый пакет forex-toolkit.
+Реальные методы реализованы только для yfinance (read-only).
+MT5/Binance умеют ставить ордера, но авто-торговля на реальном счёте
+заблокирована: разрешена только на демо/testnet, либо при FX_ALLOW_LIVE=1.
 """
 from .base import Broker
 from .factory import get_broker

@@ -1,11 +1,14 @@
 # Forex Trading Toolkit
 
-<div style="text-align: center; font-size: 1.5em; color: #1e40af;">
-  📈 <strong>Полный учебный проект для изучения forex с нуля</strong>
-</div>
-
-<div style="text-align: center; margin: 1em 0; color: #6b7280;">
-  130+ файлов · 25+ учебных гайдов · 30+ Python-инструментов · 6 стратегий · MT5/Telegram/Streamlit боты · 95 unit-тестов · 5 браузерных виджетов
+<div class="fx-hero">
+  <p class="fx-hero__subtitle">Полный учебный проект для изучения forex с нуля — теория, инструменты и стратегии в одном месте.</p>
+  <div class="fx-hero__meta">
+    <span class="fx-hero__pill">📚 25+ гайдов</span>
+    <span class="fx-hero__pill">🛠️ 30+ инструментов</span>
+    <span class="fx-hero__pill">🎯 6 стратегий</span>
+    <span class="fx-hero__pill">🧪 95 тестов</span>
+    <span class="fx-hero__pill">🌍 RU · EN · UZ</span>
+  </div>
 </div>
 
 <p align="center" markdown="1">

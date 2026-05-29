@@ -148,7 +148,7 @@ Streamlit Cloud (бесплатно) или Render / Railway:
 
 ## Что внутри (для интересующихся)
 
-Файл [streamlit_app.py](streamlit_app.py) — это веб-приложение в ~150 строк Python:
+Файл [streamlit_app.py](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/advanced/streamlit_app.py) — это веб-приложение в ~150 строк Python:
 - `st.sidebar` — левая панель
 - `st.slider`, `st.selectbox` — элементы управления
 - `st.cache_data` — кэширование, чтобы при каждом изменении не пересчитывать всё

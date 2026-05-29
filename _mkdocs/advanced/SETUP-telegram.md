@@ -242,7 +242,7 @@ done
 Перед открытием сделки:
 1. ✅ Открой MT5 → проверь, действительно ли есть сетап (бот может ошибаться)
 2. ✅ Пройди по [printable чек-листу](../extras/checklist-printable.md)
-3. ✅ Запусти [position_calculator.py](../tools/position_calculator.py)
+3. ✅ Запусти [position_calculator.py](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/position_calculator.py)
 4. ✅ Запиши планируемые параметры в журнал ДО открытия
 5. ✅ Открой сделку с SL и TP
 

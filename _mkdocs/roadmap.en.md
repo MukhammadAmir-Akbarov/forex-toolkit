@@ -31,7 +31,7 @@ graph TD
 
 ---
 
-## Level 0 — Preparation
+## Level 0: Preparation
 
 !!! info "Goal"
     Understand **what forex is**, and check whether it suits you as an activity.
@@ -59,7 +59,7 @@ graph TD
 
 ---
 
-## Level 1 — Theory basics
+## Level 1: Theory basics
 
 !!! info "Goal"
     Master the **basic trader vocabulary**: trends, support/resistance, indicators, candle patterns.
@@ -87,7 +87,7 @@ graph TD
 
 ---
 
-## Level 2 — Psychology and risk management
+## Level 2: Psychology and risk management
 
 !!! info "Goal"
     Realize that **your biggest enemy is yourself**, and learn to manage it.
@@ -115,7 +115,7 @@ graph TD
 
 ---
 
-## Level 3 — First strategy
+## Level 3: First strategy
 
 !!! info "Goal"
     Master **one strategy thoroughly**, make 30+ demo trades, **keep a journal**.
@@ -143,7 +143,7 @@ graph TD
 
 ---
 
-## Level 4 — Review and refine
+## Level 4: Review and refine
 
 !!! info "Goal"
     Find **your own mistakes**, understand what works, and tweak the strategy.
@@ -171,7 +171,7 @@ graph TD
 
 ---
 
-## Level 5 — Going to a real account
+## Level 5: Going to a real account
 
 !!! info "Goal"
     Move to real money with a **minimum deposit**, without breaking risk rules.
@@ -203,7 +203,7 @@ graph TD
 
 ---
 
-## Level 6 — Growth (after a year)
+## Level 6: Growth (after a year)
 
 !!! info "Goal"
     Go deeper, expand the toolkit, possibly automate.

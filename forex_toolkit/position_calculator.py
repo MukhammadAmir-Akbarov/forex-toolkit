@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass
 
-from forex_toolkit.fx_math import PIP_VALUE_USD_PER_LOT
+from forex_toolkit.fx_math import MIN_LOT, PIP_VALUE_USD_PER_LOT, calc_lots
 
 
 @dataclass
@@ -20,6 +19,9 @@ class PositionResult:
     lots_rounded: float
     actual_risk: float
     actual_risk_percent: float
+    # True, когда лот пришлось поднять до минимального (MIN_LOT) и из-за этого
+    # фактический риск превысил плановый. Калькулятор/виджет должны предупредить.
+    risk_exceeds_plan: bool = False
 
 
 def calculate_position(
@@ -59,9 +61,14 @@ def calculate_position(
     pip_value = PIP_VALUE_USD_PER_LOT[pair]
     risk_amount = balance * risk_percent / 100
     lots = risk_amount / (stop_pips * pip_value)
-    lots_rounded = math.floor(lots * 100 + 1e-9) / 100
-    if lots_rounded < 0.01:
-        lots_rounded = 0.01
+
+    # Округление вниз — единый источник формулы в fx_math.calc_lots
+    # (не дублируем math.floor здесь; см. CLAUDE.md).
+    lots_rounded = calc_lots(risk_amount, stop_pips, pip_value)
+    # Брокер не примет лот меньше минимального шага. Поднимаем до MIN_LOT —
+    # но тогда фактический риск может превысить плановый, помечаем флагом.
+    if lots_rounded < MIN_LOT:
+        lots_rounded = MIN_LOT
     actual_risk = lots_rounded * stop_pips * pip_value
 
     return PositionResult(
@@ -75,4 +82,5 @@ def calculate_position(
         lots_rounded=lots_rounded,
         actual_risk=actual_risk,
         actual_risk_percent=actual_risk / balance * 100,
+        risk_exceeds_plan=actual_risk > risk_amount + 1e-9,
     )

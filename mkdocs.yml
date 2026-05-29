@@ -10,11 +10,29 @@ edit_uri: edit/main/_mkdocs/
 docs_dir: _mkdocs
 site_dir: site
 
+# Хук подставляет языковой словарь подсказок (includes/abbreviations.<lang>.md)
+# на каждую страницу по её локали — RU/EN/UZ получают термины на своём языке.
+hooks:
+  - hooks/glossary_tooltips.py
+
 extra_css:
+  - stylesheets/extra.css
   - stylesheets/calculators.css
+
+extra_javascript:
+  - javascripts/reading.js
+  - javascripts/progress.js
 
 plugins:
   - search
+  # Соц-превью карточки (Open Graph). Требуют graphics-зависимостей,
+  # поэтому по умолчанию выключены; включаются флагом MKDOCS_SOCIAL=true
+  # (в CI-деплое и при локальном просмотре карточек).
+  - social:
+      enabled: !ENV [MKDOCS_SOCIAL, false]
+      cards_layout_options:
+        background_color: "#0d1117"
+        color: "#e6edf3"
   - i18n:
       docs_structure: suffix
       reconfigure_material: true
@@ -32,31 +50,51 @@ plugins:
           name: 🇺🇿 O'zbek
           build: true
           site_name: "Forex Trading Toolkit (O'zbek)"
+  # Дата последнего обновления страницы (из git-истории).
+  # ВАЖНО: должен идти ПОСЛЕ i18n (i18n добавляет переменную locale).
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: false
+      fallback_to_build_date: true
+      locale: ru
 
 theme:
   name: material
   language: ru
+  font:
+    text: Inter
+    code: JetBrains Mono
   features:
+    # navigation.instant НЕ включаем: он ломает контекстный переключатель
+    # языков mkdocs-static-i18n (RU/EN/UZ должны переключаться постранично).
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
-    - navigation.expand
     - navigation.top
-    - toc.integrate
+    - navigation.footer
+    - toc.follow
     - search.highlight
+    - search.suggest
+    - search.share
+    - content.tooltips
     - content.code.copy
     - content.code.annotate
   palette:
-    - scheme: default
-      primary: indigo
-      accent: blue
-      toggle:
-        icon: material/brightness-7
-        name: Тёмная тема
+    # Премиум тёмная тема — по умолчанию для всех новых посетителей
     - scheme: slate
       primary: indigo
-      accent: blue
+      accent: cyan
       toggle:
-        icon: material/brightness-4
-        name: Светлая тема
+        icon: material/weather-sunny
+        name: Переключить на светлую тему
+    # Светлая тема — доступна по переключателю (выбор запоминается)
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Переключить на тёмную тему
   icon:
     repo: fontawesome/brands/github
 
@@ -72,6 +110,9 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  # abbr + content.tooltips → всплывающие подсказки терминов. Сам словарь
+  # подставляется по-язычно хуком hooks/glossary_tooltips.py (см. выше).
+  - abbr
   - pymdownx.tabbed:
       alternate_style: true
   - tables
@@ -80,6 +121,9 @@ markdown_extensions:
   - footnotes
   - toc:
       permalink: true
+      # Unicode-slugify: кириллические заголовки дают кириллические якоря,
+      # иначе оглавления (#что-такое-forex …) не совпадают с заголовками.
+      slugify: !!python/name:pymdownx.slugs.uslugify
 
 nav:
   - 🏠 Начало:
@@ -128,6 +172,7 @@ nav:
       - 📈 Сложный процент: tools/compound-calculator.md
       - 📊 WinRate × RR: tools/winrate-rr-calculator.md
       - 🎴 Тренажёр карточек: tools/flashcards.md
+      - "🎯 Квиз — готов к реалу?": tools/quiz.md
       - 🎲 Риск разорения: tools/risk-of-ruin.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md

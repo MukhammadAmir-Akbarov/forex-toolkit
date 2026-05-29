@@ -3,7 +3,7 @@
 Два формата шаблона:
 
 - [`trading-journal-template.md`](trading-journal-template.md) — для ведения в Markdown (Obsidian, Notion, VSCode). Удобно для подробных ревью.
-- [`trading-journal-template.csv`](trading-journal-template.csv) — для импорта в Google Sheets / Excel. Удобно для статистики и графиков.
+- [`trading-journal-template.csv`](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/journal/trading-journal-template.csv) — для импорта в Google Sheets / Excel. Удобно для статистики и графиков.
 
 ## Как начать
 

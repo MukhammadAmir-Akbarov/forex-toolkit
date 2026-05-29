@@ -13,8 +13,8 @@
 
 | Файл | Назначение |
 |---|---|
-| [`strategy.py`](strategy.py) | Логика стратегии: индикаторы, паттерны, детектор сигналов |
-| [`backtest.py`](backtest.py) | Загрузка данных, симуляция сделок, статистика, equity curve |
+| [`strategy.py`](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/bot/strategy.py) | Логика стратегии: индикаторы, паттерны, детектор сигналов |
+| [`backtest.py`](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/bot/backtest.py) | Загрузка данных, симуляция сделок, статистика, equity curve |
 
 ## Запуск
 
@@ -57,7 +57,7 @@ Expectancy:           +0.67R / сделку
 
 После запуска создаётся файл `equity-curve.png` с кумулятивным результатом:
 
-![Equity curve пример](equity-curve.png)
+![Equity curve пример](https://raw.githubusercontent.com/MukhammadAmir-Akbarov/forex-toolkit/main/bot/equity-curve.png)
 
 Хорошая equity curve **идёт слева вниз направо вверх с управляемыми просадками**. Резкие падения, нулевая или отрицательная динамика — сигнал, что стратегия не работает.
 

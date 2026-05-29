@@ -19,120 +19,48 @@
 
 ```
 trading/
-├── 📖 КАК-ПОЛЬЗОВАТЬСЯ.md             ← начать ОТСЮДА
-├── 📖 README.md                       ← эта страница
-├── 📖 forex-guide.md                  ← главный учебник (700 строк)
-├── 📄 forex-guide-полный.docx         ← Word-версия (распространяется через GitHub Releases)
+├── forex_toolkit/                 ← Python-пакет (публикуемый на PyPI)
+│   ├── fx_math.py                 ← ЕДИНЫЙ источник формул (pip-value, calc_lots)
+│   ├── indicators.py              ← EMA, SMA, RSI, ATR, Bollinger, MACD
+│   ├── candles.py                 ← свечные паттерны (молот, доджи, поглощение)
+│   ├── position_calculator.py     ← размер позиции по риск-менеджменту
+│   └── cli.py                     ← 8 CLI-команд (forex-position, …)
 │
-├── 📚 docs/                           ← углублённые материалы
-│   ├── technical-analysis.md          ← теханализ с 12 графиками
-│   ├── strategy-details.md            ← разбор стратегии
-│   └── images/                        ← 18 учебных графиков (PNG)
+├── _mkdocs/                       ← ★ ЕДИНСТВЕННЫЙ источник контента сайта
+│   │                                 (RU/EN/UZ → GitHub Pages, docs_dir)
+│   ├── forex-guide.md             ← главный учебник
+│   ├── roadmap.md                 ← дорожная карта обучения
+│   ├── docs/                      ← теханализ, стратегия, реальный анализ
+│   ├── extras/                    ← глоссарий, FAQ, психология, шаблоны, чек-листы
+│   ├── practice/                  ← «из практики»: золото, лот, BE, доливка, циклы
+│   ├── journal/                   ← шаблоны журнала сделок
+│   ├── tools/                     ← браузерные виджеты-калькуляторы (без Python)
+│   ├── growth/                    ← после года: order flow, crypto, stocks
+│   ├── uz/                        ← брокеры / вывод денег / сообщества (Узбекистан)
+│   ├── advanced/                  ← SETUP-инструкции (MT5, Streamlit, Telegram, VPS)
+│   └── stylesheets/, javascripts/ ← оформление и JS
 │
-├── 📚 extras/                         ← дополнения
-│   ├── glossary.md                    ← словарь 200+ терминов
-│   ├── checklist-printable.md         ← печатный чек-лист
-│   ├── faq.md                         ← 30 типичных вопросов
-│   ├── anki-cards.csv                 ← карточки для Anki
-│   ├── mind-map.md                    ← карта концепций
-│   ├── psychology.md                  ← психология трейдинга
-│   └── brokers-comparison.md          ← сравнение 12 брокеров
+├── tools/                         ← Python-утилиты (исходники)
+│   ├── position_calculator.py · pip_calculator.py · compound_calculator.py
+│   ├── monte_carlo.py · news_scraper.py · pattern_scanner.py · risk_profile.py
+│   ├── journal_cli.py · journal_dashboard.py · chart_generator*.py
+│   └── build_pdf.py · build_docx.py · check_docs_sync.py
 │
-├── 📝 journal/                        ← журнал сделок
-│   ├── trading-journal-template.md    ← базовый шаблон (Markdown)
-│   ├── trading-journal-template.csv   ← шаблон для Google Sheets
-│   ├── journal-extended.md            ← расширенный с psychology
-│   ├── mistakes-log.md                ← журнал ошибок
-│   ├── demo-vs-real-comparison.md     ← переход с демо на реал
-│   └── monthly_report.py              ← генератор месячного HTML-отчёта
-│
-├── 🛠️ tools/                          ← Python-инструменты
-│   ├── position_calculator.py         ← размер позиции
-│   ├── pip_calculator.py              ← стоимость пипса
-│   ├── compound_calculator.py         ← сложный процент
-│   ├── margin_calculator.py           ← калькулятор маржи
-│   ├── multi_position_sizer.py        ← несколько сделок
-│   ├── risk_exposure.py               ← общий риск с корреляциями
-│   ├── monte_carlo.py                 ← Монте-Карло симулятор
-│   ├── news_scraper.py                ← календарь Forex Factory
-│   ├── pattern_scanner.py             ← поиск свечных паттернов
-│   ├── journal_cli.py                 ← CLI для журнала
-│   ├── journal_dashboard.py           ← HTML-дашборд
-│   ├── chart_generator.py             ← базовые графики
-│   ├── chart_generator_extra.py       ← дополнительные графики
-│   └── build_docx.py                  ← сборка Word-документа
-│
-├── 📊 strategies/                     ← 5 учебных стратегий
-│   ├── common.py                      ← общие индикаторы
-│   ├── mean_reversion.py              ← возврат к среднему (BB)
-│   ├── breakout.py                    ← пробой N-периодных high/low
-│   ├── london_open.py                 ← пробой лондонского открытия
-│   ├── three_soldiers.py              ← 3 свечи подряд
-│   ├── carry_trade.md                 ← (только описание)
-│   └── compare.py                     ← сравнительный бэктест
-│
-├── 🤖 bot/                            ← основной бэктестер
-│   ├── strategy.py                    ← EMA50 pullback логика
-│   └── backtest.py                    ← симулятор + статистика
-│
-├── 🚀 advanced/                       ← продвинутые инструменты
-│   ├── EMA50Pullback.mq5              ← Expert Advisor для MT5
-│   ├── mt5_connector.py               ← Python ↔ MT5 (Windows)
-│   ├── telegram_alerts.py             ← Telegram-бот сигналов
-│   ├── streamlit_app.py               ← веб-приложение бэктеста
-│   ├── data_downloader.py             ← скачивание реальной истории
-│   └── walk_forward.py                ← walk-forward оптимизация
-│
-├── 🇺🇿 uz/                            ← локально для Узбекистана
-│   ├── tax-calculator.py              ← НДФЛ калькулятор
-│   ├── withdrawal-guide.md            ← вывод денег в РУз
-│   └── communities.md                 ← сообщества и ресурсы
-│
-├── 🌱 growth/                         ← продвинутые темы (после года)
-│   ├── order-flow-volume-profile.md   ← Volume Profile, ICT концепции
-│   ├── crypto-trading-guide.md        ← параллельный мир крипто
-│   └── stocks-basics.md               ← ETF, долгосрочное инвестирование
-│
-├── 📄 forex-guide-полный.docx         ← Word-документ (см. GitHub Releases)
-├── 📕 forex-handbook.pdf              ← PDF-учебник (см. GitHub Releases)
-│
-├── data/                              ← скачанные котировки (gitignored)
-└── .venv/                             ← Python окружение
-
-# Расширения после первых 100 дней:
-extras/
-├── trading-plan-template.md           ← контракт с собой
-├── first-100-days.md                  ← пошаговый план 100 дней
-├── anti-tilt-protocol.md              ← экстренная процедура
-├── daily-routine.md                   ← режим дня трейдера
-├── emergency-card.md                  ← карточка кризисных контактов
-└── video-scripts.md                   ← 10 видео-сценариев для самозаписи
-
-tools/ (дополнительно):
-├── broker_check.py                    ← проверка регулирования брокера
-├── risk_profile.py                    ← 30-вопросный тест готовности
-├── market_correlations.py             ← DXY, gold, SPY корреляции
-├── journal_analyzer.py                ← AI-инсайты по журналу
-├── build_pdf.py                       ← сборка PDF-учебника
-└── quiz.py                            ← spaced repetition тренажёр
-
-advanced/ (дополнительно):
-├── SETUP-mt5.md                       ← установка и настройка MT5
-├── SETUP-streamlit.md                 ← запуск Streamlit-приложения
-├── SETUP-telegram.md                  ← Telegram-бот пошагово
-├── SETUP-vps-deployment.md            ← запуск 24/7 на сервере
-├── parameter_sweep.py                 ← подбор параметров стратегии
-├── coach_bot.py                       ← ежедневный коуч в Telegram
-└── broker_api/                        ← унифицированный broker-API
-    ├── base.py                        ← интерфейс
-    ├── yfinance_broker.py             ← Yahoo (data only)
-    ├── mt5_broker.py                  ← MetaTrader 5
-    ├── binance_broker.py              ← Binance (crypto)
-    └── example.py                     ← пример использования
-
-strategies/ (дополнительно):
-└── breakout_v2.py                     ← Breakout с фильтрами
+├── bot/                           ← бэктестер: strategy.py, backtest.py
+├── strategies/                    ← учебные стратегии + сравнительный бэктест
+├── advanced/                      ← MT5, Telegram, Streamlit, walk-forward, broker_api/
+├── uz/                            ← tax-calculator.py (локальные скрипты)
+├── tests/                         ← 129 тестов (pytest)
+├── dist/                          ← собранный wheel
+├── mkdocs.yml · pyproject.toml · CLAUDE.md
+├── data/                          ← скачанные котировки (gitignored)
+└── .venv/                         ← Python-окружение (gitignored)
 ```
+
+> **Источник правды для контента — только `_mkdocs/`.** Корневых дублей `.md`
+> (`docs/`, `extras/`, `journal/`…) больше нет — они удалены, чтобы материал не
+> расходился. PDF/DOCX собираются из `_mkdocs/`. Переводы лежат рядом с RU-страницей
+> как `page.en.md` и `page.uz.md` (суффиксный режим `mkdocs-static-i18n`).
 
 ## 🚀 Быстрый старт
 
@@ -233,18 +161,19 @@ streamlit run advanced/streamlit_app.py
 
 ## 🛠️ Установка с нуля
 
-Если случайно удалил `.venv/`:
+Проект — устанавливаемый пакет, зависимости описаны в `pyproject.toml`:
 
 ```bash
-cd /Users/mukhammadamir/Sites/WORK/trading
 python3 -m venv .venv
-.venv/bin/pip install matplotlib numpy pandas python-docx jinja2 \
-    yfinance requests beautifulsoup4 reportlab
+.venv/bin/pip install -e ".[dev]"     # ядро + тесты/линт/mkdocs
+.venv/bin/pytest -q                    # должны пройти все 129 тестов
 ```
 
-Для Streamlit (опционально):
+Опциональные группы зависимостей (extras):
 ```bash
-.venv/bin/pip install streamlit plotly
+.venv/bin/pip install -e ".[docs]"     # сборка PDF/DOCX (reportlab, python-docx)
+.venv/bin/pip install -e ".[web]"      # Streamlit-приложение (streamlit, plotly)
+.venv/bin/pip install -e ".[all]"      # всё сразу
 ```
 
 Для Telegram-бота (опционально):

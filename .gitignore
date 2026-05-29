@@ -36,6 +36,8 @@ forex-guide-*.docx
 
 # MkDocs build output (деплоится автоматически в gh-pages через GitHub Actions)
 site/
+# Кэш плагина social (генерируемые OG-карточки)
+.cache/
 
 # OS
 .DS_Store

@@ -1,6 +1,8 @@
 """Binance broker — заглушка для crypto."""
 from __future__ import annotations
 
+import os
+
 from .base import Broker, Order, Position
 
 
@@ -92,6 +94,21 @@ class BinanceBroker(Broker):
     def place_order(self, symbol: str, direction: str, volume: float,
                     stop: float | None = None,
                     take: float | None = None) -> Order:
+        # SL/TP на Binance Spot — отдельный OCO-ордер; пока НЕ реализовано.
+        # Раньше стоп молча игнорировался (`if stop: pass`) — ордер уходил на
+        # рынок без защиты. Теперь падаем явно, чтобы новичок не торговал без SL.
+        if stop is not None or take is not None:
+            raise NotImplementedError(
+                "SL/TP на Binance Spot требует отдельного OCO-ордера — пока не "
+                "реализовано. Не отправляй рыночный ордер без защиты вручную."
+            )
+        # Защита от реального счёта: на mainnet (testnet=False) требуем явного
+        # подтверждения через FX_ALLOW_LIVE=1.
+        if not self.testnet and os.environ.get("FX_ALLOW_LIVE") != "1":
+            raise RuntimeError(
+                "Реальный счёт Binance заблокирован. Используй testnet=True "
+                "или установи FX_ALLOW_LIVE=1, если осознанно торгуешь вживую."
+            )
         side = "BUY" if direction == "long" else "SELL"
         order = self.client.create_order(
             symbol=symbol,
@@ -99,10 +116,6 @@ class BinanceBroker(Broker):
             type="MARKET",
             quantity=volume,
         )
-        # Stop/Take для spot — отдельные ордера (OCO):
-        if stop:
-            # См. binance OCO order — здесь упрощено
-            pass
         return Order(
             id=str(order["orderId"]),
             symbol=symbol,
