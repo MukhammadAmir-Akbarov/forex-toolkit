@@ -1,5 +1,9 @@
 # Реальный технический анализ EUR/USD
 
+!!! info "🌐 Перевод / Translation"
+    EN/UZ-версия в работе — страница пока доступна на русском.
+    *English / Oʻzbek version is in progress; this page is currently Russian-only.*
+
 > Все графики ниже построены на **настоящих исторических данных EUR/USD H1** (1-часовые свечи), скачанных через yfinance. Никакой синтетики.
 
 ---

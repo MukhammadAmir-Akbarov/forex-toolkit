@@ -146,7 +146,7 @@ MT5 сам ведёт лог:
 
 ## Шаг 10: Установка нашего Expert Advisor
 
-Если хочешь запустить наш [EMA50Pullback.mq5](EMA50Pullback.mq5) на демо:
+Если хочешь запустить наш [EMA50Pullback.mq5](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/advanced/EMA50Pullback.mq5) на демо:
 
 1. В MT5: **File → Open Data Folder**
 2. Открой папку `MQL5/Experts/`

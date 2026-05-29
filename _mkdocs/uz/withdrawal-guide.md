@@ -346,7 +346,7 @@
 
 ## Налоги — кратко
 
-См. [tax-calculator.py](tax-calculator.py) для расчёта.
+См. [tax-calculator.py](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/uz/tax-calculator.py) для расчёта.
 
 Основное:
 - Декларируется **чистый годовой доход** (прибыли − убытки)

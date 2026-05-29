@@ -31,7 +31,7 @@ graph TD
 
 ---
 
-## 0-bosqich — Tayyorgarlik
+## 0-bosqich: Tayyorgarlik
 
 !!! info "Maqsad"
     **Forex nima ekanligini** tushunish va u sizga mosligini tekshirish.
@@ -56,7 +56,7 @@ graph TD
 
 ---
 
-## 1-bosqich — Nazariya asoslari
+## 1-bosqich: Nazariya asoslari
 
 !!! info "Maqsad"
     Treyderning **asosiy lug'atini** o'rganish: trendlar, qo'llab-quvvatlash/qarshilik, indikatorlar, sham patternlari.
@@ -84,7 +84,7 @@ graph TD
 
 ---
 
-## 2-bosqich — Psixologiya va xavf-menejment
+## 2-bosqich: Psixologiya va xavf-menejment
 
 !!! info "Maqsad"
     **Asosiy raqibingiz — o'zingiz** ekanligini tushunish va buni boshqarishni o'rganish.
@@ -112,7 +112,7 @@ graph TD
 
 ---
 
-## 3-bosqich — Birinchi strategiya
+## 3-bosqich: Birinchi strategiya
 
 !!! info "Maqsad"
     **Bitta strategiyani chuqur** o'zlashtirish, demoda 30+ savdo qilish, **jurnal yuritish**.
@@ -140,7 +140,7 @@ graph TD
 
 ---
 
-## 4-bosqich — Tahlil va yaxshilash
+## 4-bosqich: Tahlil va yaxshilash
 
 !!! info "Maqsad"
     **O'z xatolarini** topish, nima ishlayotganini tushunish va strategiyani tuzatish.
@@ -168,7 +168,7 @@ graph TD
 
 ---
 
-## 5-bosqich — Real hisobga o'tish
+## 5-bosqich: Real hisobga o'tish
 
 !!! info "Maqsad"
     **Minimal depozit** bilan real pulga o'tish, xavf qoidalarini buzmasdan.
@@ -200,7 +200,7 @@ graph TD
 
 ---
 
-## 6-bosqich — Rivojlanish (1 yildan keyin)
+## 6-bosqich: Rivojlanish (1 yildan keyin)
 
 !!! info "Maqsad"
     Chuqurroq o'rganish, asboblarni kengaytirish, ehtimol avtomatlashtirish.
