@@ -5,7 +5,7 @@
 </div>
 
 <div style="text-align: center; margin: 1em 0; color: #6b7280;">
-  130+ файлов · 25+ учебных гайдов · 30+ Python-инструментов · 6 стратегий · MT5/Telegram/Streamlit боты · 74 unit-теста
+  130+ файлов · 25+ учебных гайдов · 30+ Python-инструментов · 6 стратегий · MT5/Telegram/Streamlit боты · 95 unit-тестов · 5 браузерных виджетов
 </div>
 
 <p align="center" markdown="1">

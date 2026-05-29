@@ -26,7 +26,20 @@
    - Markdown: одна пустая строка между секциями, заголовки в kebab-case для anchor
 6. **Коммит** с понятным сообщением (см. ниже)
 7. **Push + создай PR** в `main`. Заполни PR template, отметь связанный issue
-8. **Дождись CI** — `Required check: Python 3.12 on ubuntu-latest` должен пройти
+8. **Дождись CI** — джобы `test`, `lint`, `coverage`, `package`, `docs` должны пройти
+
+## Документация: где править
+
+**`_mkdocs/` — единственный источник правды** для контента сайта (учебник,
+гайды, шаблоны, журнал). Корневых копий больше нет.
+
+- Правь страницы только в `_mkdocs/`. CI-страж `tools/check_docs_sync.py` не даст
+  снова завести корневой `.md`, дублирующий путь из `_mkdocs/`.
+- Переводы: клади `page.en.md` / `page.uz.md` рядом с `page.md` внутри `_mkdocs/`.
+- PDF/DOCX-учебники собираются из `_mkdocs/` (`tools/build_pdf.py`,
+  `tools/build_docx.py`) — отдельно дублировать главы не нужно.
+- Перед коммитом прогони `/forex-check` (или вручную: `pytest`,
+  `python tools/check_docs_sync.py`, `mkdocs build`).
 
 ## Стиль коммитов
 

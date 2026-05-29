@@ -27,7 +27,8 @@ from reportlab.platypus import (
 
 
 ROOT = Path(__file__).resolve().parent.parent
-IMG_DIR = ROOT / "docs" / "images"
+SRC = ROOT / "_mkdocs"  # единственный источник правды для контента доков
+IMG_DIR = SRC / "docs" / "images"
 OUT = ROOT / "forex-handbook.pdf"
 
 # Имена зарегистрированных шрифтов с кириллицей
@@ -79,29 +80,29 @@ def register_cyrillic_fonts() -> None:
     )
 
 
-# Главы в нужном порядке (RU)
+# Главы в нужном порядке (RU). Источник — _mkdocs/ (единственный источник правды).
 CHAPTERS_RU = [
-    ("Введение", ROOT / "КАК-ПОЛЬЗОВАТЬСЯ.md"),
-    ("Основной гайд", ROOT / "forex-guide.md"),
-    ("Технический анализ", ROOT / "docs" / "technical-analysis.md"),
-    ("Учебная стратегия", ROOT / "docs" / "strategy-details.md"),
-    ("Психология трейдинга", ROOT / "extras" / "psychology.md"),
-    ("Глоссарий", ROOT / "extras" / "glossary.md"),
-    ("FAQ", ROOT / "extras" / "faq.md"),
-    ("Сравнение брокеров", ROOT / "extras" / "brokers-comparison.md"),
-    ("Личный торговый план", ROOT / "extras" / "trading-plan-template.md"),
-    ("Первые 100 дней", ROOT / "extras" / "first-100-days.md"),
-    ("Anti-Tilt протокол", ROOT / "extras" / "anti-tilt-protocol.md"),
-    ("Daily Routine", ROOT / "extras" / "daily-routine.md"),
-    ("Чек-лист", ROOT / "extras" / "checklist-printable.md"),
-    ("Emergency Card", ROOT / "extras" / "emergency-card.md"),
+    ("Введение", SRC / "КАК-ПОЛЬЗОВАТЬСЯ.md"),
+    ("Основной гайд", SRC / "forex-guide.md"),
+    ("Технический анализ", SRC / "docs" / "technical-analysis.md"),
+    ("Учебная стратегия", SRC / "docs" / "strategy-details.md"),
+    ("Психология трейдинга", SRC / "extras" / "psychology.md"),
+    ("Глоссарий", SRC / "extras" / "glossary.md"),
+    ("FAQ", SRC / "extras" / "faq.md"),
+    ("Сравнение брокеров", SRC / "extras" / "brokers-comparison.md"),
+    ("Личный торговый план", SRC / "extras" / "trading-plan-template.md"),
+    ("Первые 100 дней", SRC / "extras" / "first-100-days.md"),
+    ("Anti-Tilt протокол", SRC / "extras" / "anti-tilt-protocol.md"),
+    ("Daily Routine", SRC / "extras" / "daily-routine.md"),
+    ("Чек-лист", SRC / "extras" / "checklist-printable.md"),
+    ("Emergency Card", SRC / "extras" / "emergency-card.md"),
 ]
 
-# Chapters in the right order (EN)
+# Chapters in the right order (EN). Источник — _mkdocs/.
 CHAPTERS_EN = [
-    ("How to use", ROOT / "_mkdocs" / "КАК-ПОЛЬЗОВАТЬСЯ.en.md"),
-    ("Main guide", ROOT / "forex-guide-en.md"),
-    ("Psychology", ROOT / "extras" / "psychology-en.md"),
+    ("How to use", SRC / "КАК-ПОЛЬЗОВАТЬСЯ.en.md"),
+    ("Main guide", SRC / "forex-guide.en.md"),
+    ("Psychology", SRC / "extras" / "psychology.en.md"),
 ]
 
 LANG_CONFIGS = {

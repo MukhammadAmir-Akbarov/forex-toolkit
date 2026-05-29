@@ -7,9 +7,17 @@ Multi-position sizer — расчёт размеров для НЕСКОЛЬКИ
 from __future__ import annotations
 
 import argparse
-import math
 import sys
 from dataclasses import dataclass
+
+# Формула calc_lots — в едином модуле forex_toolkit.fx_math (фолбэк на sys.path,
+# чтобы скрипт работал и без установки пакета).
+try:
+    from forex_toolkit.fx_math import calc_lots
+except ModuleNotFoundError:  # запуск скрипта без установки пакета
+    from pathlib import Path as _Path
+    sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from forex_toolkit.fx_math import calc_lots
 
 
 @dataclass
@@ -17,13 +25,6 @@ class TradePlan:
     pair: str
     stop_pips: float
     pip_value: float = 10.0  # USD per pip per lot
-
-
-def calc_lots(risk_usd: float, stop_pips: float, pip_value: float) -> float:
-    if stop_pips <= 0 or pip_value <= 0:
-        return 0.0
-    raw = risk_usd / (stop_pips * pip_value)
-    return math.floor(raw * 100 + 1e-9) / 100
 
 
 def main() -> int:

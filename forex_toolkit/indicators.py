@@ -1,4 +1,5 @@
 """Технические индикаторы для forex-стратегий."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -35,8 +36,9 @@ def atr(df: pd.DataFrame, period: int = 14) -> pd.Series:
     return tr.rolling(period).mean()
 
 
-def bollinger(s: pd.Series, period: int = 20,
-              std_mult: float = 2.0) -> tuple[pd.Series, pd.Series, pd.Series]:
+def bollinger(
+    s: pd.Series, period: int = 20, std_mult: float = 2.0
+) -> tuple[pd.Series, pd.Series, pd.Series]:
     """Bollinger Bands → (upper, middle, lower)."""
     middle = sma(s, period)
     std = s.rolling(period).std()
@@ -45,8 +47,9 @@ def bollinger(s: pd.Series, period: int = 20,
     return upper, middle, lower
 
 
-def macd(s: pd.Series, fast: int = 12, slow: int = 26,
-         signal: int = 9) -> tuple[pd.Series, pd.Series, pd.Series]:
+def macd(
+    s: pd.Series, fast: int = 12, slow: int = 26, signal: int = 9
+) -> tuple[pd.Series, pd.Series, pd.Series]:
     """MACD → (macd_line, signal_line, histogram)."""
     macd_line = ema(s, fast) - ema(s, slow)
     signal_line = ema(macd_line, signal)

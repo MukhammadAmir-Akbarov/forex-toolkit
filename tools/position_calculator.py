@@ -28,31 +28,20 @@ import sys
 from dataclasses import dataclass
 
 
-# Приблизительная стоимость 1 пипса на 1 стандартный лот (100 000 единиц)
-# при счёте в USD. Для пар, где USD стоит первым (quote-валюта не USD), или
-# для кросс-пар (EURGBP, EURJPY...) реальная стоимость зависит от курса:
-# pip_value_usd = pip_size_in_quote * lot_size / quote_to_usd_rate
-# (или domestic-to-USD для кросс-пар).
-# Значения ниже — снимок на момент создания. Используй --live для актуальных.
-PIP_VALUE_USD_PER_LOT: dict[str, float] = {
-    "EURUSD": 10.00,
-    "GBPUSD": 10.00,
-    "AUDUSD": 10.00,
-    "NZDUSD": 10.00,
-    "USDJPY": 6.70,   # зависит от курса USD/JPY (~150)
-    "USDCHF": 11.30,  # зависит от курса USD/CHF (~0.88)
-    "USDCAD": 7.30,   # зависит от курса USD/CAD (~1.37)
-    "EURJPY": 6.70,
-    "GBPJPY": 6.70,
-    "EURGBP": 12.70,
-}
-
-# Пары, у которых стоимость пипса в USD напрямую зависит от текущей котировки
-# (всё, где USD — base, и все кросс-пары). Для них рекомендуется --live.
-_LIVE_SENSITIVE_PAIRS = {
-    "USDJPY", "USDCHF", "USDCAD",
-    "EURJPY", "GBPJPY", "EURGBP",
-}
+# Стоимость пипса и список «чувствительных к курсу» пар живут в одном месте —
+# forex_toolkit.fx_math (фолбэк на sys.path — чтобы скрипт работал и без установки).
+try:
+    from forex_toolkit.fx_math import (
+        LIVE_SENSITIVE_PAIRS as _LIVE_SENSITIVE_PAIRS,
+        PIP_VALUE_USD_PER_LOT,
+    )
+except ModuleNotFoundError:  # запуск скрипта без установки пакета
+    from pathlib import Path as _Path
+    sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from forex_toolkit.fx_math import (
+        LIVE_SENSITIVE_PAIRS as _LIVE_SENSITIVE_PAIRS,
+        PIP_VALUE_USD_PER_LOT,
+    )
 
 
 def _live_pip_value(pair: str) -> float | None:

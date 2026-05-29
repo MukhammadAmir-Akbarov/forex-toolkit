@@ -28,9 +28,12 @@ classifiers = [
     "Topic :: Office/Business :: Financial :: Investment",
 ]
 dependencies = [
+    # Протестировано на numpy 2.x / pandas 3.x / Python 3.12 (см. CI и CLAUDE.md).
+    # Нижние границы — минимально совместимые версии, верхние отсекают ещё не
+    # протестированные мажорные релизы, чтобы расчёты воспроизводились.
     "matplotlib>=3.5,<4",
-    "numpy>=1.20,<3",
-    "pandas>=1.5,<3",
+    "numpy>=1.24,<3",
+    "pandas>=2.0,<4",
     "yfinance>=0.2,<1",
     "requests>=2.28,<3",
     "beautifulsoup4>=4.11,<5",
@@ -71,8 +74,18 @@ forex-monte-carlo = "forex_toolkit.cli:monte_carlo"
 packages = ["forex_toolkit"]
 
 [tool.hatch.build.targets.wheel.force-include]
-"bot/strategy.py" = "forex_toolkit/_strategy.py"
-"bot/backtest.py" = "forex_toolkit/_backtest.py"
+# Скрипты инструментов вшиваются в wheel, чтобы CLI-команды работали из
+# установленного пакета (forex_toolkit/cli.py ищет их в forex_toolkit/_tools/).
+"tools/position_calculator.py" = "forex_toolkit/_tools/position_calculator.py"
+"tools/journal_cli.py" = "forex_toolkit/_tools/journal_cli.py"
+"tools/risk_profile.py" = "forex_toolkit/_tools/risk_profile.py"
+"tools/broker_check.py" = "forex_toolkit/_tools/broker_check.py"
+"tools/news_scraper.py" = "forex_toolkit/_tools/news_scraper.py"
+"tools/market_correlations.py" = "forex_toolkit/_tools/market_correlations.py"
+"tools/monte_carlo.py" = "forex_toolkit/_tools/monte_carlo.py"
+# backtest импортирует strategy как соседний модуль — кладём рядом.
+"bot/backtest.py" = "forex_toolkit/_tools/backtest.py"
+"bot/strategy.py" = "forex_toolkit/_tools/strategy.py"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -91,3 +104,18 @@ exclude_lines = [
     "if __name__ == .__main__.:",
     "raise NotImplementedError",
 ]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+extend-exclude = [".venv", "site", "dist", "_mkdocs", "материал"]
+
+[tool.ruff.lint]
+# Стартовый набор правил. Пакет forex_toolkit держим чистым — CI проверяет его
+# строго (ruff check + format). Исторический код в tools/ и advanced/ чистим
+# постепенно: `ruff check --fix . && ruff format .`.
+select = ["E", "F"]
+
+[tool.mypy]
+files = ["forex_toolkit"]
+ignore_missing_imports = true

@@ -1,4 +1,5 @@
 """Свечные паттерны."""
+
 from __future__ import annotations
 
 import pandas as pd
@@ -43,7 +44,8 @@ def is_shooting_star(row: pd.Series) -> bool:
 def is_bullish_engulfing(prev: pd.Series, curr: pd.Series) -> bool:
     """Бычье поглощение: красная → зелёная, накрывающая."""
     return bool(
-        is_bearish(prev) and is_bullish(curr)
+        is_bearish(prev)
+        and is_bullish(curr)
         and curr["close"] > prev["open"]
         and curr["open"] < prev["close"]
         and body(curr) > body(prev)
@@ -53,7 +55,8 @@ def is_bullish_engulfing(prev: pd.Series, curr: pd.Series) -> bool:
 def is_bearish_engulfing(prev: pd.Series, curr: pd.Series) -> bool:
     """Медвежье поглощение."""
     return bool(
-        is_bullish(prev) and is_bearish(curr)
+        is_bullish(prev)
+        and is_bearish(curr)
         and curr["close"] < prev["open"]
         and curr["open"] > prev["close"]
         and body(curr) > body(prev)

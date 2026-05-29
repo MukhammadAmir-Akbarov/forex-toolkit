@@ -138,10 +138,10 @@ strategies/ (дополнительно):
 
 ### Если хочешь читать (минимум)
 
-1. Открой [КАК-ПОЛЬЗОВАТЬСЯ.md](КАК-ПОЛЬЗОВАТЬСЯ.md) — экскурсия по проекту
-2. [forex-guide.md](forex-guide.md) — главный учебник
-3. [docs/technical-analysis.md](docs/technical-analysis.md) — теханализ с картинками
-4. [extras/psychology.md](extras/psychology.md) — психология
+1. Открой [КАК-ПОЛЬЗОВАТЬСЯ.md](_mkdocs/КАК-ПОЛЬЗОВАТЬСЯ.md) — экскурсия по проекту
+2. [forex-guide.md](_mkdocs/forex-guide.md) — главный учебник
+3. [docs/technical-analysis.md](_mkdocs/docs/technical-analysis.md) — теханализ с картинками
+4. [extras/psychology.md](_mkdocs/extras/psychology.md) — психология
 
 ### Если хочешь использовать инструменты
 
@@ -280,4 +280,4 @@ export TELEGRAM_CHAT_ID="your_chat_id"
 
 ---
 
-📖 **Начни с** → [КАК-ПОЛЬЗОВАТЬСЯ.md](КАК-ПОЛЬЗОВАТЬСЯ.md)
+📖 **Начни с** → [КАК-ПОЛЬЗОВАТЬСЯ.md](_mkdocs/КАК-ПОЛЬЗОВАТЬСЯ.md)

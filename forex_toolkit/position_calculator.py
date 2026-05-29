@@ -1,15 +1,11 @@
 """Position size calculator — рассчитывает размер позиции по риск-менеджменту."""
+
 from __future__ import annotations
 
 import math
 from dataclasses import dataclass
 
-
-PIP_VALUE_USD_PER_LOT: dict[str, float] = {
-    "EURUSD": 10.00, "GBPUSD": 10.00, "AUDUSD": 10.00, "NZDUSD": 10.00,
-    "USDJPY": 6.70, "USDCHF": 11.30, "USDCAD": 7.30,
-    "EURJPY": 6.70, "GBPJPY": 6.70, "EURGBP": 12.70,
-}
+from forex_toolkit.fx_math import PIP_VALUE_USD_PER_LOT
 
 
 @dataclass
@@ -27,8 +23,10 @@ class PositionResult:
 
 
 def calculate_position(
-    balance: float, risk_percent: float,
-    stop_pips: float, pair: str,
+    balance: float,
+    risk_percent: float,
+    stop_pips: float,
+    pair: str,
 ) -> PositionResult:
     """Считает размер позиции в лотах с округлением вниз.
 
@@ -67,10 +65,14 @@ def calculate_position(
     actual_risk = lots_rounded * stop_pips * pip_value
 
     return PositionResult(
-        balance=balance, risk_percent=risk_percent,
-        risk_amount=risk_amount, stop_pips=stop_pips,
-        pair=pair, pip_value=pip_value,
-        lots=lots, lots_rounded=lots_rounded,
+        balance=balance,
+        risk_percent=risk_percent,
+        risk_amount=risk_amount,
+        stop_pips=stop_pips,
+        pair=pair,
+        pip_value=pip_value,
+        lots=lots,
+        lots_rounded=lots_rounded,
         actual_risk=actual_risk,
         actual_risk_percent=actual_risk / balance * 100,
     )

@@ -34,10 +34,85 @@ jobs:
       - name: Run tests
         run: pytest --tb=short -q
 
-      - name: Upload coverage
-        if: matrix.python-version == '3.12' && matrix.os == 'ubuntu-latest'
-        uses: actions/upload-artifact@v4
+  coverage:
+    name: Coverage gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          name: coverage-report
-          path: .coverage
-          if-no-files-found: ignore
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: pytest with coverage threshold
+        # Порог можно только повышать — каждый новый тест поднимает планку.
+        run: pytest --cov --cov-report=term-missing --cov-fail-under=15 -q
+
+  lint:
+    name: Lint, format, types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install tools
+        run: |
+          python -m pip install --upgrade pip ruff mypy
+          pip install -e .
+      - name: ruff check (пакет forex_toolkit держим чистым)
+        run: ruff check forex_toolkit/
+      - name: ruff format --check (пакет)
+        run: ruff format --check forex_toolkit/
+      - name: mypy (информационно, не блокирует)
+        continue-on-error: true
+        run: mypy
+
+  package:
+    name: Wheel install + CLI smoke
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install build
+        run: python -m pip install --upgrade pip build
+      - name: Build wheel
+        run: python -m build --wheel
+      - name: Install wheel in a clean venv and run every CLI command
+        run: |
+          python -m venv /tmp/cli_test
+          /tmp/cli_test/bin/pip install dist/*.whl
+          set -e
+          for cmd in forex-position forex-backtest forex-journal \
+                     forex-risk-profile forex-broker-check forex-news \
+                     forex-correlations forex-monte-carlo; do
+            echo "→ $cmd --help"
+            /tmp/cli_test/bin/$cmd --help > /dev/null
+          done
+          echo "✅ все 8 CLI-команд работают из установленного wheel"
+
+  docs:
+    name: Docs build + duplication guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install MkDocs
+        run: |
+          python -m pip install --upgrade pip
+          pip install "mkdocs>=1.5,<2" "mkdocs-material>=9.0,<10" \
+                      "pymdown-extensions>=10" "mkdocs-static-i18n>=1.2,<2"
+      - name: No root↔_mkdocs duplicates
+        run: python tools/check_docs_sync.py
+      - name: mkdocs build (без --strict — есть унаследованные битые якоря)
+        run: mkdocs build
