@@ -58,9 +58,12 @@ python -m venv .venv && .venv/bin/pip install -e ".[dev]"
   это работает потому, что `tests/conftest.py` добавляет `tools/`, `bot/`,
   `strategies/`, `advanced/`, `journal/` в `sys.path`. Не переименовывай публичные
   функции инструментов без обновления тестов.
-- `mkdocs build --strict` сейчас падает на унаследованных битых якорях
-  (`docs/technical-analysis.md`, `extras/psychology.en.md`). CI использует обычный
-  `mkdocs build`. Якоря — отдельная задача на потом.
+- `mkdocs build --strict` проходит и **включён в CI** (джоб `docs`). Кириллические
+  якоря работают благодаря `toc.slugify: pymdownx.slugs.uslugify` в `mkdocs.yml` —
+  без него оглавления (`#что-такое-forex …`) не совпадают с заголовками. Заголовки
+  с разделителем в slug дают двойной дефис (` — ` → `--`); для одинарного дефиса в
+  якоре используй `:` в заголовке. Ссылки на исходники (`.py/.csv/.png`) из страниц
+  сайта веди на GitHub (`blob/main/…`), а не относительным путём — их нет в `site/`.
 
 ## Что НЕ коммитим
 

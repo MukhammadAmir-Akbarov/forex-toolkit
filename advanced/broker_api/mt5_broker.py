@@ -1,6 +1,7 @@
 """MetaTrader 5 broker (только Windows + MT5 терминал)."""
 from __future__ import annotations
 
+import os
 import sys
 
 from .base import Broker, Order, Position
@@ -43,6 +44,20 @@ class MT5Broker(Broker):
                 "  ⚠️ Работает только на Windows."
             )
         self.connected = False
+        self.is_demo = False
+
+    def _ensure_trading_allowed(self) -> None:
+        """Блокирует авто-торговлю на реальном счёте.
+
+        Реальные ордера разрешены только на демо, либо при осознанно
+        выставленной переменной окружения ``FX_ALLOW_LIVE=1``.
+        """
+        if not self.is_demo and os.environ.get("FX_ALLOW_LIVE") != "1":
+            raise RuntimeError(
+                "Реальный счёт MT5 заблокирован для авто-торговли. "
+                "Торгуй на демо, или установи FX_ALLOW_LIVE=1, если осознанно "
+                "торгуешь вживую и понимаешь риски."
+            )
 
     def connect(self, login: int = None, password: str = None,
                 server: str = None, **_) -> bool:
@@ -59,10 +74,12 @@ class MT5Broker(Broker):
             mt5.shutdown()
             return False
 
-        # Защита: предупредить о реальном счёте
-        if info.trade_mode != mt5.ACCOUNT_TRADE_MODE_DEMO:
+        # Защита: запомнить тип счёта и предупредить о реальном
+        self.is_demo = info.trade_mode == mt5.ACCOUNT_TRADE_MODE_DEMO
+        if not self.is_demo:
             print(f"⚠️  ВНИМАНИЕ: счёт #{info.login} — РЕАЛЬНЫЙ")
             print(f"   Баланс: {info.balance} {info.currency}")
+            print("   Авто-ордера заблокированы (нужен FX_ALLOW_LIVE=1).")
 
         self.connected = True
         return True
@@ -120,6 +137,7 @@ class MT5Broker(Broker):
     def place_order(self, symbol: str, direction: str, volume: float,
                     stop: float | None = None,
                     take: float | None = None) -> Order:
+        self._ensure_trading_allowed()
         tick = mt5.symbol_info_tick(symbol)
         if direction == "long":
             order_type = mt5.ORDER_TYPE_BUY
@@ -158,6 +176,7 @@ class MT5Broker(Broker):
         )
 
     def close_position(self, order_id: str) -> bool:
+        self._ensure_trading_allowed()
         positions = [p for p in (mt5.positions_get() or [])
                      if str(p.ticket) == order_id]
         if not positions:

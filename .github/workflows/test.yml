@@ -48,8 +48,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[dev]"
       - name: pytest with coverage threshold
-        # Порог можно только повышать — каждый новый тест поднимает планку.
-        run: pytest --cov --cov-report=term-missing --cov-fail-under=15 -q
+        # Покрытие меряется по пакету forex_toolkit (см. pyproject [tool.coverage]),
+        # фактически ~98%. Порог можно только повышать.
+        run: pytest --cov --cov-report=term-missing --cov-fail-under=90 -q
 
   lint:
     name: Lint, format, types
@@ -114,5 +115,5 @@ jobs:
                       "pymdown-extensions>=10" "mkdocs-static-i18n>=1.2,<2"
       - name: No root↔_mkdocs duplicates
         run: python tools/check_docs_sync.py
-      - name: mkdocs build (без --strict — есть унаследованные битые якоря)
-        run: mkdocs build
+      - name: mkdocs build --strict (битые ссылки и якоря валят сборку)
+        run: mkdocs build --strict
