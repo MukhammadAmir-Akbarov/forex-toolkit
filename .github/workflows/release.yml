@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install build + docs dependencies
+        run: |
+          python -m pip install --upgrade pip build
+          pip install -e ".[docs]"
+
+      - name: Build wheel
+        run: python -m build --wheel
+
+      - name: Build PDF and DOCX handbooks (из _mkdocs/)
+        run: |
+          python tools/build_pdf.py
+          python tools/build_docx.py
+          # имя под ссылку для скачивания в документации
+          cp -f "forex-guide-полный.docx" "forex-guide-rus.docx"
+
+      - name: Publish GitHub Release with assets
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            dist/*.whl \
+            forex-handbook.pdf \
+            forex-guide-rus.docx \
+            --title "${{ github.ref_name }}" \
+            --generate-notes
