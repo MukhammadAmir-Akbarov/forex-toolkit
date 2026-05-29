@@ -56,10 +56,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="../../stylesheets/calculators.css">
     
@@ -71,7 +73,20 @@
 
     
     
-  </head>
+  
+<meta property="og:type" content="website" />
+<meta property="og:title" content="VPS deployment - Forex Trading Toolkit" />
+<meta property="og:description" content="Образовательный проект — учебник, инструменты, стратегии" />
+<meta property="og:image" content="https://mukhammadamir-akbarov.github.io/forex-toolkit/assets/images/social/advanced/SETUP-vps-deployment.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://mukhammadamir-akbarov.github.io/forex-toolkit/advanced/SETUP-vps-deployment/" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="VPS deployment - Forex Trading Toolkit" />
+<meta property="twitter:description" content="Образовательный проект — учебник, инструменты, стратегии" />
+<meta property="twitter:image" content="https://mukhammadamir-akbarov.github.io/forex-toolkit/assets/images/social/advanced/SETUP-vps-deployment.png" />
+</head>
   
   
     
@@ -81,7 +96,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -90,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vps-deployment-guide-247" class="md-skip">
+        <a href="#vps-deployment-guide--запуск-ботов-247" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -104,7 +119,7 @@
 
   
 
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
     <a href="../.." title="Forex Trading Toolkit" class="md-header__button md-logo" aria-label="Forex Trading Toolkit" data-md-component="logo">
       
@@ -139,20 +154,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Тёмная тема"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="cyan"  aria-label="Переключить на светлую тему"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      <label class="md-header__button md-icon" title="Переключить на светлую тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Светлая тема"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Переключить на тёмную тему"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      <label class="md-header__button md-icon" title="Переключить на тёмную тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
       </label>
     
   
@@ -215,11 +230,18 @@
       </label>
       <nav class="md-search__options" aria-label="Поиск">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Поделиться" aria-label="Поделиться" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -251,13 +273,224 @@
     
   </nav>
   
+    
+      
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  🏠 Начало
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docs/technical-analysis/" class="md-tabs__link">
+          
+  
+  
+  📚 Углублённо
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../practice/" class="md-tabs__link">
+          
+  
+  
+  🎯 Из практики (2 года)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../extras/psychology/" class="md-tabs__link">
+          
+  
+  
+  🧠 Психология и дисциплина
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../extras/trading-plan-template/" class="md-tabs__link">
+          
+  
+  
+  📋 Шаблоны
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../journal/trading-journal-template/" class="md-tabs__link">
+          
+  
+  
+  📝 Журнал
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tools/position-calculator/" class="md-tabs__link">
+          
+  
+  
+  🛠️ Инструменты
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../SETUP-mt5/" class="md-tabs__link">
+          
+  
+  
+  🚀 Продвинутое
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../growth/order-flow-volume-profile/" class="md-tabs__link">
+          
+  
+  
+  🌱 После года
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../uz/brokers-uz/" class="md-tabs__link">
+          
+  
+  
+  🇺🇿 Узбекистан
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
-        
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -271,10 +504,10 @@
                     
 
 
-
   
 
-<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Навигация" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Forex Trading Toolkit" class="md-nav__button md-logo" aria-label="Forex Trading Toolkit" data-md-component="logo">
       
@@ -310,21 +543,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
             
   
   
@@ -483,21 +714,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -628,21 +857,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -885,21 +1112,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -1086,21 +1311,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -1399,21 +1622,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -1628,21 +1849,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -1818,6 +2037,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../tools/quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Квиз — готов к реалу?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../tools/risk-of-ruin/" class="md-nav__link">
         
   
@@ -1916,6 +2163,9 @@
     
       
         
+        
+      
+      
         
       
     
@@ -2107,7 +2357,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vps" class="md-nav__link">
+  <a href="#когда-нужен-vps" class="md-nav__link">
     <span class="md-ellipsis">
       
         Когда нужен VPS
@@ -2118,7 +2368,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#когда-не-нужен" class="md-nav__link">
     <span class="md-ellipsis">
       
         Когда НЕ нужен
@@ -2129,7 +2379,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#сколько-стоит" class="md-nav__link">
     <span class="md-ellipsis">
       
         Сколько стоит
@@ -2140,7 +2390,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-linux-vps-python-" class="md-nav__link">
+  <a href="#часть-1-linux-vps-для-python-ботов" class="md-nav__link">
     <span class="md-ellipsis">
       
         Часть 1: Linux VPS для Python-ботов
@@ -2152,7 +2402,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-vps" class="md-nav__link">
+  <a href="#шаг-1-регистрация-и-создание-vps" class="md-nav__link">
     <span class="md-ellipsis">
       
         Шаг 1: Регистрация и создание VPS
@@ -2164,7 +2414,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#hetzner" class="md-nav__link">
+  <a href="#hetzner-пример" class="md-nav__link">
     <span class="md-ellipsis">
       
         Hetzner (пример)
@@ -2175,7 +2425,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssh-mac" class="md-nav__link">
+  <a href="#генерация-ssh-ключа-на-твоём-mac" class="md-nav__link">
     <span class="md-ellipsis">
       
         Генерация SSH ключа (на твоём Mac)
@@ -2191,7 +2441,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#шаг-2-подключение-к-серверу" class="md-nav__link">
     <span class="md-ellipsis">
       
         Шаг 2: Подключение к серверу
@@ -2202,7 +2452,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#шаг-3-базовая-настройка-сервера" class="md-nav__link">
     <span class="md-ellipsis">
       
         Шаг 3: Базовая настройка сервера
@@ -2213,7 +2463,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#шаг-4-деплой-бота" class="md-nav__link">
     <span class="md-ellipsis">
       
         Шаг 4: Деплой бота
@@ -2224,7 +2474,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-telegram-" class="md-nav__link">
+  <a href="#шаг-5-запуск-telegram-бота-как-сервиса" class="md-nav__link">
     <span class="md-ellipsis">
       
         Шаг 5: Запуск Telegram-бота как сервиса
@@ -2235,7 +2485,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-streamlit" class="md-nav__link">
+  <a href="#шаг-6-streamlit-как-сервис" class="md-nav__link">
     <span class="md-ellipsis">
       
         Шаг 6: Streamlit как сервис
@@ -2251,7 +2501,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-vps-mt5-windows" class="md-nav__link">
+  <a href="#часть-2-vps-для-mt5-windows" class="md-nav__link">
     <span class="md-ellipsis">
       
         Часть 2: VPS для MT5 (Windows)
@@ -2263,7 +2513,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
+  <a href="#провайдеры-с-windows" class="md-nav__link">
     <span class="md-ellipsis">
       
         Провайдеры с Windows
@@ -2274,7 +2524,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#forex-vps" class="md-nav__link">
+  <a href="#forex-vps--главное-преимущество" class="md-nav__link">
     <span class="md-ellipsis">
       
         Forex VPS — главное преимущество
@@ -2285,7 +2535,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mt5-windows-vps" class="md-nav__link">
+  <a href="#установка-mt5-на-windows-vps" class="md-nav__link">
     <span class="md-ellipsis">
       
         Установка MT5 на Windows VPS
@@ -2296,7 +2546,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#windows-vps" class="md-nav__link">
+  <a href="#безопасность-windows-vps" class="md-nav__link">
     <span class="md-ellipsis">
       
         Безопасность Windows VPS
@@ -2312,7 +2562,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-backup" class="md-nav__link">
+  <a href="#часть-3-backup-и-мониторинг" class="md-nav__link">
     <span class="md-ellipsis">
       
         Часть 3: Backup и мониторинг
@@ -2324,7 +2574,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#бэкапы" class="md-nav__link">
     <span class="md-ellipsis">
       
         Бэкапы
@@ -2336,7 +2586,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cron-vps" class="md-nav__link">
+  <a href="#cron-бэкап-на-тот-же-vps" class="md-nav__link">
     <span class="md-ellipsis">
       
         Cron-бэкап на тот же VPS
@@ -2347,7 +2597,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#s3-backblaze-off-site" class="md-nav__link">
+  <a href="#бэкап-в-s3--backblaze-off-site" class="md-nav__link">
     <span class="md-ellipsis">
       
         Бэкап в S3 / Backblaze (off-site)
@@ -2363,7 +2613,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#uptime" class="md-nav__link">
+  <a href="#мониторинг-uptime" class="md-nav__link">
     <span class="md-ellipsis">
       
         Мониторинг uptime
@@ -2374,7 +2624,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#логи" class="md-nav__link">
     <span class="md-ellipsis">
       
         Логи
@@ -2390,7 +2640,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4_1" class="md-nav__link">
+  <a href="#часть-4-безопасность" class="md-nav__link">
     <span class="md-ellipsis">
       
         Часть 4: Безопасность
@@ -2402,7 +2652,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#главные-правила" class="md-nav__link">
     <span class="md-ellipsis">
       
         Главные правила
@@ -2413,7 +2663,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#что-не-делать" class="md-nav__link">
     <span class="md-ellipsis">
       
         Что НЕ делать
@@ -2429,7 +2679,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+  <a href="#часть-5-экономия" class="md-nav__link">
     <span class="md-ellipsis">
       
         Часть 5: Экономия
@@ -2441,7 +2691,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#как-платить-меньше" class="md-nav__link">
     <span class="md-ellipsis">
       
         Как платить меньше
@@ -2452,7 +2702,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#telegram-" class="md-nav__link">
+  <a href="#минимальная-конфигурация-для-telegram-бота" class="md-nav__link">
     <span class="md-ellipsis">
       
         Минимальная конфигурация для Telegram-бота
@@ -2468,7 +2718,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-vps" class="md-nav__link">
+  <a href="#часть-6-альтернативы-vps" class="md-nav__link">
     <span class="md-ellipsis">
       
         Часть 6: Альтернативы VPS
@@ -2480,7 +2730,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
+  <a href="#бесплатные--условно-бесплатные" class="md-nav__link">
     <span class="md-ellipsis">
       
         Бесплатные / условно-бесплатные
@@ -2491,7 +2741,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#telegram-_1" class="md-nav__link">
+  <a href="#если-только-telegram-бот" class="md-nav__link">
     <span class="md-ellipsis">
       
         Если только Telegram-бот
@@ -2507,7 +2757,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#-vps" class="md-nav__link">
+  <a href="#чек-лист-готовности-vps" class="md-nav__link">
     <span class="md-ellipsis">
       
         Чек-лист готовности VPS
@@ -2544,21 +2794,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -2689,21 +2937,19 @@
     
     
       
-        
+      
         
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   
@@ -2830,6 +3076,443 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#когда-нужен-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Когда нужен VPS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#когда-не-нужен" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Когда НЕ нужен
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#сколько-стоит" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Сколько стоит
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#часть-1-linux-vps-для-python-ботов" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Часть 1: Linux VPS для Python-ботов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часть 1: Linux VPS для Python-ботов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#шаг-1-регистрация-и-создание-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 1: Регистрация и создание VPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг 1: Регистрация и создание VPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hetzner-пример" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hetzner (пример)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#генерация-ssh-ключа-на-твоём-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Генерация SSH ключа (на твоём Mac)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-2-подключение-к-серверу" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 2: Подключение к серверу
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-3-базовая-настройка-сервера" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 3: Базовая настройка сервера
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-4-деплой-бота" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 4: Деплой бота
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-5-запуск-telegram-бота-как-сервиса" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 5: Запуск Telegram-бота как сервиса
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-6-streamlit-как-сервис" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 6: Streamlit как сервис
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#часть-2-vps-для-mt5-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Часть 2: VPS для MT5 (Windows)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часть 2: VPS для MT5 (Windows)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#провайдеры-с-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Провайдеры с Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forex-vps--главное-преимущество" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forex VPS — главное преимущество
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#установка-mt5-на-windows-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка MT5 на Windows VPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#безопасность-windows-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Безопасность Windows VPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#часть-3-backup-и-мониторинг" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Часть 3: Backup и мониторинг
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часть 3: Backup и мониторинг">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#бэкапы" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Бэкапы
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Бэкапы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cron-бэкап-на-тот-же-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron-бэкап на тот же VPS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#бэкап-в-s3--backblaze-off-site" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Бэкап в S3 / Backblaze (off-site)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#мониторинг-uptime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Мониторинг uptime
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#логи" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Логи
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#часть-4-безопасность" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Часть 4: Безопасность
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часть 4: Безопасность">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#главные-правила" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Главные правила
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#что-не-делать" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что НЕ делать
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#часть-5-экономия" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Часть 5: Экономия
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часть 5: Экономия">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#как-платить-меньше" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как платить меньше
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#минимальная-конфигурация-для-telegram-бота" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Минимальная конфигурация для Telegram-бота
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#часть-6-альтернативы-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Часть 6: Альтернативы VPS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Часть 6: Альтернативы VPS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#бесплатные--условно-бесплатные" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Бесплатные / условно-бесплатные
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#если-только-telegram-бот" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Если только Telegram-бот
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#чек-лист-готовности-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чек-лист готовности VPS
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -2843,24 +3526,24 @@
   
 
 
-<h1 id="vps-deployment-guide-247">VPS Deployment Guide — запуск ботов 24/7<a class="headerlink" href="#vps-deployment-guide-247" title="Permanent link">&para;</a></h1>
+<h1 id="vps-deployment-guide--запуск-ботов-247">VPS Deployment Guide — запуск ботов 24/7<a class="headerlink" href="#vps-deployment-guide--запуск-ботов-247" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Чтобы Telegram-бот, MT5 EA или Streamlit работали <strong>постоянно</strong>, нужен сервер. Этот гайд — как настроить <strong>VPS (Virtual Private Server)</strong> недорого.</p>
 </blockquote>
-<h2 id="vps">Когда нужен VPS<a class="headerlink" href="#vps" title="Permanent link">&para;</a></h2>
+<h2 id="когда-нужен-vps">Когда нужен VPS<a class="headerlink" href="#когда-нужен-vps" title="Permanent link">&para;</a></h2>
 <ul>
 <li>✅ Telegram-бот, который должен слать сигналы 24/7</li>
 <li>✅ MT5 EA, который должен торговать ночью когда ты спишь</li>
 <li>✅ Streamlit-приложение с публичным доступом</li>
-<li>✅ Cron-задачи (бэктест каждый день, отчёт каждую неделю)</li>
+<li>✅ Cron-задачи (<abbr title="Проверка стратегии на исторических данных.">бэктест</abbr> каждый день, отчёт каждую неделю)</li>
 </ul>
-<h2 id="_1">Когда НЕ нужен<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="когда-не-нужен">Когда НЕ нужен<a class="headerlink" href="#когда-не-нужен" title="Permanent link">&para;</a></h2>
 <ul>
 <li>❌ Только демо-обучение</li>
 <li>❌ Торгуешь руками (ноут всегда с тобой)</li>
 <li>❌ Менее 100 USD/мес готов тратить (VPS — это инфраструктурная статья)</li>
 </ul>
-<h2 id="_2">Сколько стоит<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="сколько-стоит">Сколько стоит<a class="headerlink" href="#сколько-стоит" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2899,9 +3582,9 @@
 </table>
 <p><strong>Рекомендую:</strong> Hetzner или DigitalOcean. Простые, надёжные.</p>
 <hr />
-<h2 id="1-linux-vps-python-">Часть 1: Linux VPS для Python-ботов<a class="headerlink" href="#1-linux-vps-python-" title="Permanent link">&para;</a></h2>
-<h3 id="1-vps">Шаг 1: Регистрация и создание VPS<a class="headerlink" href="#1-vps" title="Permanent link">&para;</a></h3>
-<h4 id="hetzner">Hetzner (пример)<a class="headerlink" href="#hetzner" title="Permanent link">&para;</a></h4>
+<h2 id="часть-1-linux-vps-для-python-ботов">Часть 1: Linux VPS для Python-ботов<a class="headerlink" href="#часть-1-linux-vps-для-python-ботов" title="Permanent link">&para;</a></h2>
+<h3 id="шаг-1-регистрация-и-создание-vps">Шаг 1: Регистрация и создание VPS<a class="headerlink" href="#шаг-1-регистрация-и-создание-vps" title="Permanent link">&para;</a></h3>
+<h4 id="hetzner-пример">Hetzner (пример)<a class="headerlink" href="#hetzner-пример" title="Permanent link">&para;</a></h4>
 <ol>
 <li>https://www.hetzner.com/cloud</li>
 <li>Регистрация → email подтверждение</li>
@@ -2913,18 +3596,18 @@
 <li>Name: <code>forex-bot-server</code></li>
 <li>Жми <strong>Create</strong> → через 30 сек сервер готов</li>
 </ol>
-<h4 id="ssh-mac">Генерация SSH ключа (на твоём Mac)<a class="headerlink" href="#ssh-mac" title="Permanent link">&para;</a></h4>
+<h4 id="генерация-ssh-ключа-на-твоём-mac">Генерация SSH ключа (на твоём Mac)<a class="headerlink" href="#генерация-ssh-ключа-на-твоём-mac" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Enter, Enter, Enter (пароль необязателен)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Скопируй вывод → вставь в Hetzner при создании сервера</span>
 </code></pre></div>
-<h3 id="2">Шаг 2: Подключение к серверу<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h3 id="шаг-2-подключение-к-серверу">Шаг 2: Подключение к серверу<a class="headerlink" href="#шаг-2-подключение-к-серверу" title="Permanent link">&para;</a></h3>
 <p>После создания получишь <strong>IP-адрес</strong>, например <code>116.203.45.67</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>root@116.203.45.67
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># первый раз спросит подтверждение, ответь yes</span>
 </code></pre></div>
-<h3 id="3">Шаг 3: Базовая настройка сервера<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h3 id="шаг-3-базовая-настройка-сервера">Шаг 3: Базовая настройка сервера<a class="headerlink" href="#шаг-3-базовая-настройка-сервера" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Обновить пакеты</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -2958,7 +3641,7 @@
 <p>С этого момента подключайся как <code>trader</code>:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>trader@116.203.45.67
 </code></pre></div></p>
-<h3 id="4">Шаг 4: Деплой бота<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h3 id="шаг-4-деплой-бота">Шаг 4: Деплой бота<a class="headerlink" href="#шаг-4-деплой-бота" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># На VPS</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>~
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/trading.git
@@ -2978,7 +3661,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>/Users/mukhammadamir/Sites/WORK/trading
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>.venv/bin/pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
 </code></pre></div>
-<h3 id="5-telegram-">Шаг 5: Запуск Telegram-бота как сервиса<a class="headerlink" href="#5-telegram-" title="Permanent link">&para;</a></h3>
+<h3 id="шаг-5-запуск-telegram-бота-как-сервиса">Шаг 5: Запуск Telegram-бота как сервиса<a class="headerlink" href="#шаг-5-запуск-telegram-бота-как-сервиса" title="Permanent link">&para;</a></h3>
 <p>Создай systemd-юнит — это сервис, который перезапускается при сбое и стартует при ребуте:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/telegram-alerts.service
 </code></pre></div>
@@ -3020,7 +3703,7 @@
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>systemctl<span class="w"> </span>status<span class="w"> </span>telegram-alerts.timer
 <a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>telegram-alerts.service<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span>
 </code></pre></div></p>
-<h3 id="6-streamlit">Шаг 6: Streamlit как сервис<a class="headerlink" href="#6-streamlit" title="Permanent link">&para;</a></h3>
+<h3 id="шаг-6-streamlit-как-сервис">Шаг 6: Streamlit как сервис<a class="headerlink" href="#шаг-6-streamlit-как-сервис" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/streamlit-forex.service
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">[Unit]</span>
@@ -3042,9 +3725,9 @@
 </code></pre></div>
 <p>Открой в браузере: <code>http://116.203.45.67:8501</code></p>
 <hr />
-<h2 id="2-vps-mt5-windows">Часть 2: VPS для MT5 (Windows)<a class="headerlink" href="#2-vps-mt5-windows" title="Permanent link">&para;</a></h2>
+<h2 id="часть-2-vps-для-mt5-windows">Часть 2: VPS для MT5 (Windows)<a class="headerlink" href="#часть-2-vps-для-mt5-windows" title="Permanent link">&para;</a></h2>
 <p>⚠️ MT5 — Windows-приложение. Для запуска нужен <strong>Windows VPS</strong>, не Linux.</p>
-<h3 id="windows">Провайдеры с Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<h3 id="провайдеры-с-windows">Провайдеры с Windows<a class="headerlink" href="#провайдеры-с-windows" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -3071,7 +3754,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="forex-vps">Forex VPS — главное преимущество<a class="headerlink" href="#forex-vps" title="Permanent link">&para;</a></h3>
+<h3 id="forex-vps--главное-преимущество">Forex VPS — главное преимущество<a class="headerlink" href="#forex-vps--главное-преимущество" title="Permanent link">&para;</a></h3>
 <p>Серверы близко к серверам брокеров → <strong>меньше latency</strong> (задержка). Особенно важно для скальпинга. Многие предлагают:
 - Готовая Windows 10
 - MT5 / MT4 предустановлены
@@ -3082,7 +3765,7 @@
 - <strong>ForexVPS.net</strong>
 - <strong>BeeksFX</strong>
 - <strong>CNS</strong> (Commercial Network Services)</p>
-<h3 id="mt5-windows-vps">Установка MT5 на Windows VPS<a class="headerlink" href="#mt5-windows-vps" title="Permanent link">&para;</a></h3>
+<h3 id="установка-mt5-на-windows-vps">Установка MT5 на Windows VPS<a class="headerlink" href="#установка-mt5-на-windows-vps" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Подключись через RDP (Remote Desktop, встроен в Windows)</li>
 <li>Скачай MT5 с сайта брокера</li>
@@ -3092,7 +3775,7 @@
 <li><strong>Минимизируй</strong> окно (не закрывай!) — MT5 продолжит работать</li>
 <li>Отключись от RDP — MT5 работает автономно</li>
 </ol>
-<h3 id="windows-vps">Безопасность Windows VPS<a class="headerlink" href="#windows-vps" title="Permanent link">&para;</a></h3>
+<h3 id="безопасность-windows-vps">Безопасность Windows VPS<a class="headerlink" href="#безопасность-windows-vps" title="Permanent link">&para;</a></h3>
 <ul>
 <li>✅ Установи антивирус</li>
 <li>✅ Включи <strong>Windows Firewall</strong></li>
@@ -3101,14 +3784,14 @@
 <li>✅ <strong>Не открывай сайты</strong> на этом сервере — он только для MT5</li>
 </ul>
 <hr />
-<h2 id="3-backup">Часть 3: Backup и мониторинг<a class="headerlink" href="#3-backup" title="Permanent link">&para;</a></h2>
-<h3 id="_3">Бэкапы<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h2 id="часть-3-backup-и-мониторинг">Часть 3: Backup и мониторинг<a class="headerlink" href="#часть-3-backup-и-мониторинг" title="Permanent link">&para;</a></h2>
+<h3 id="бэкапы">Бэкапы<a class="headerlink" href="#бэкапы" title="Permanent link">&para;</a></h3>
 <p>Конфигурации и журналы важно бэкапить.</p>
-<h4 id="cron-vps">Cron-бэкап на тот же VPS<a class="headerlink" href="#cron-vps" title="Permanent link">&para;</a></h4>
+<h4 id="cron-бэкап-на-тот-же-vps">Cron-бэкап на тот же VPS<a class="headerlink" href="#cron-бэкап-на-тот-же-vps" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># В crontab -e</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>~/backups/trading-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>~/trading
 </code></pre></div>
-<h4 id="s3-backblaze-off-site">Бэкап в S3 / Backblaze (off-site)<a class="headerlink" href="#s3-backblaze-off-site" title="Permanent link">&para;</a></h4>
+<h4 id="бэкап-в-s3--backblaze-off-site">Бэкап в S3 / Backblaze (off-site)<a class="headerlink" href="#бэкап-в-s3--backblaze-off-site" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Установка rclone</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>curl<span class="w"> </span>https://rclone.org/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>bash
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>rclone<span class="w"> </span>config<span class="w">  </span><span class="c1"># настройка Backblaze B2 / AWS S3</span>
@@ -3116,7 +3799,7 @@
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># В cron</span>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="m">0</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>rclone<span class="w"> </span>sync<span class="w"> </span>~/trading/journal/<span class="w"> </span>remote:forex-backup/journal/
 </code></pre></div>
-<h3 id="uptime">Мониторинг uptime<a class="headerlink" href="#uptime" title="Permanent link">&para;</a></h3>
+<h3 id="мониторинг-uptime">Мониторинг uptime<a class="headerlink" href="#мониторинг-uptime" title="Permanent link">&para;</a></h3>
 <p>Бесплатные сервисы, которые <strong>пингуют</strong> твой сервер и шлют алерт, если упал:</p>
 <ul>
 <li><strong>UptimeRobot</strong> — 50 мониторов бесплатно</li>
@@ -3129,7 +3812,7 @@
 3. URL: <code>http://YOUR_IP:8501</code> (Streamlit)
 4. Interval: 5 минут
 5. Alert: email / Telegram</p>
-<h3 id="_4">Логи<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="логи">Логи<a class="headerlink" href="#логи" title="Permanent link">&para;</a></h3>
 <p>Все логи системных сервисов:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Последние 100 строк</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>telegram-alerts.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span>
@@ -3141,8 +3824,8 @@
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>journalctl<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;24 hours ago&quot;</span><span class="w"> </span>-u<span class="w"> </span>telegram-alerts.service
 </code></pre></div></p>
 <hr />
-<h2 id="4_1">Часть 4: Безопасность<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
-<h3 id="_5">Главные правила<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h2 id="часть-4-безопасность">Часть 4: Безопасность<a class="headerlink" href="#часть-4-безопасность" title="Permanent link">&para;</a></h2>
+<h3 id="главные-правила">Главные правила<a class="headerlink" href="#главные-правила" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Никаких паролей в коде.</strong> Используй <code>.env</code>-файлы или systemd Environment.</li>
 <li><strong>SSH только по ключу.</strong> Отключи пароли:
@@ -3161,7 +3844,7 @@
 </code></pre></div></li>
 <li><strong>Не давай root-доступ</strong> никаким скриптам.</li>
 </ol>
-<h3 id="_6">Что НЕ делать<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="что-не-делать">Что НЕ делать<a class="headerlink" href="#что-не-делать" title="Permanent link">&para;</a></h3>
 <ul>
 <li>❌ Не размещай свои <strong>брокерские пароли</strong> на VPS открыто</li>
 <li>❌ Не давай <strong>публичный доступ</strong> к своему MT5</li>
@@ -3169,15 +3852,15 @@
 <li>❌ Не используй один сервер для нескольких клиентов / друзей</li>
 </ul>
 <hr />
-<h2 id="5">Часть 5: Экономия<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="_7">Как платить меньше<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h2 id="часть-5-экономия">Часть 5: Экономия<a class="headerlink" href="#часть-5-экономия" title="Permanent link">&para;</a></h2>
+<h3 id="как-платить-меньше">Как платить меньше<a class="headerlink" href="#как-платить-меньше" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Hetzner</strong>: оплата за час → выключаешь когда не нужно</li>
 <li><strong>DigitalOcean credits</strong> — есть промокоды на $100-200 для новых пользователей</li>
 <li><strong>AWS Free Tier</strong> — 1 год бесплатно (t2.micro)</li>
 <li><strong>Oracle Free Tier</strong> — ARM-сервер бесплатно навсегда (4 CPU, 24GB RAM!)</li>
 </ol>
-<h3 id="telegram-">Минимальная конфигурация для Telegram-бота<a class="headerlink" href="#telegram-" title="Permanent link">&para;</a></h3>
+<h3 id="минимальная-конфигурация-для-telegram-бота">Минимальная конфигурация для Telegram-бота<a class="headerlink" href="#минимальная-конфигурация-для-telegram-бота" title="Permanent link">&para;</a></h3>
 <ul>
 <li>1 vCPU</li>
 <li>512 MB RAM (хватает)</li>
@@ -3189,8 +3872,8 @@
 - 4 GB RAM
 - Windows = +$10-20/мес</p>
 <hr />
-<h2 id="6-vps">Часть 6: Альтернативы VPS<a class="headerlink" href="#6-vps" title="Permanent link">&para;</a></h2>
-<h3 id="-">Бесплатные / условно-бесплатные<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<h2 id="часть-6-альтернативы-vps">Часть 6: Альтернативы VPS<a class="headerlink" href="#часть-6-альтернативы-vps" title="Permanent link">&para;</a></h2>
+<h3 id="бесплатные--условно-бесплатные">Бесплатные / условно-бесплатные<a class="headerlink" href="#бесплатные--условно-бесплатные" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -3227,7 +3910,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="telegram-_1">Если только Telegram-бот<a class="headerlink" href="#telegram-_1" title="Permanent link">&para;</a></h3>
+<h3 id="если-только-telegram-бот">Если только Telegram-бот<a class="headerlink" href="#если-только-telegram-бот" title="Permanent link">&para;</a></h3>
 <p>Можешь даже не покупать VPS — используй <strong>GitHub Actions</strong>:</p>
 <p><code>.github/workflows/telegram-alerts.yml</code>:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Telegram Alerts</span>
@@ -3252,7 +3935,7 @@
 </code></pre></div></p>
 <p>Положи в GitHub → Settings → Secrets → добавь токены → готово, бесплатно.</p>
 <hr />
-<h2 id="-vps">Чек-лист готовности VPS<a class="headerlink" href="#-vps" title="Permanent link">&para;</a></h2>
+<h2 id="чек-лист-готовности-vps">Чек-лист готовности VPS<a class="headerlink" href="#чек-лист-готовности-vps" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>☐ VPS создан и SSH работает
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>☐ Не-root пользователь создан
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>☐ root SSH отключён
@@ -3269,6 +3952,8 @@
 <p><strong>Все ☑ → твой бот работает 24/7 без тебя.</strong></p>
 <hr />
 <p><a href="../SETUP-telegram/">← К Telegram setup</a> · <a href="../../forex-guide/">← К главному гайду</a></p>
+<!-- RU-словарь подсказок терминов. Подставляется хуком hooks/glossary_tooltips.py
+     на русские страницы. Ключи должны совпадать с тем, как слово написано в тексте. -->
 
 
 
@@ -3276,6 +3961,27 @@
 
 
 
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Последнее обновление">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="20 мая 2026 г. 12:48:20 UTC">20 мая 2026 г.</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
 
 
   
@@ -3353,6 +4059,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
+        
+          
+          <a href="../SETUP-telegram/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Telegram bot">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              <div class="md-ellipsis">
+                Telegram bot
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../growth/order-flow-volume-profile/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Order Flow / Volume Profile">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              <div class="md-ellipsis">
+                Order Flow / Volume Profile
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -3406,10 +4152,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "toc.integrate", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.tooltips", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/reading.js"></script>
+      
+        <script src="../../javascripts/progress.js"></script>
       
     
   </body>
