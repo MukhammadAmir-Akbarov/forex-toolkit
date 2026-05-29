@@ -2,6 +2,211 @@
 
 > ⚠️ Информация общая, на момент составления (2026). Конкретные комиссии и сроки меняются — уточняй перед операцией.
 
+---
+
+## Калькулятор комиссии вывода
+
+!!! info "Образовательный материал, не финансовый совет"
+    Расчёт ориентировочный: комиссии могут меняться в любой момент. Всегда проверяй актуальные условия на сайте брокера и платёжной системы перед реальным переводом.
+
+<style>
+.wd-calc-select {
+  flex: 1 1 200px;
+  padding: 0.45rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-family: inherit;
+}
+.wd-calc-select:focus {
+  outline: 2px solid var(--md-primary-fg-color);
+  outline-offset: -1px;
+}
+.wd-best-row {
+  margin-top: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 6px;
+  background: rgba(34, 197, 94, 0.1);
+  border-left: 3px solid #22c55e;
+  font-size: 0.92rem;
+}
+.wd-rate-hint {
+  font-size: 0.78rem;
+  color: var(--md-default-fg-color--light);
+  margin-top: 0.25rem;
+}
+</style>
+
+<div class="calc-widget">
+
+<div class="calc-row">
+  <label>Сумма вывода (USD)</label>
+  <input type="number" id="wd-amount" min="1" max="100000" step="1" value="500">
+  <span>USD</span>
+</div>
+
+<div class="calc-row">
+  <label>Метод вывода</label>
+  <select id="wd-method" class="wd-calc-select">
+    <option value="usdt">💰 USDT TRC-20</option>
+    <option value="visa">💳 Visa / Mastercard (USD)</option>
+    <option value="swift">🏦 SWIFT в банк Узбекистана</option>
+    <option value="wise">📲 Wise</option>
+    <option value="skrill">💵 Skrill / Neteller</option>
+  </select>
+</div>
+
+<div class="calc-row">
+  <label>Курс USD → UZS</label>
+  <input type="number" id="wd-rate" min="1000" max="99000" step="100" value="12600">
+  <span>сум</span>
+</div>
+<div class="wd-rate-hint" style="margin-left:0; padding: 0 0 0.5rem 0;">
+  Курс примерный — проверь сам на <a href="https://cbu.uz" target="_blank" rel="noopener">cbu.uz</a> или у своего банка
+</div>
+
+<button class="calc-button" onclick="calcWithdrawal()">Рассчитать</button>
+
+<div id="wd-result" class="calc-result"></div>
+
+</div>
+
+<script>
+(function() {
+  var METHODS = {
+    usdt: {
+      label: 'USDT TRC-20',
+      feeFixed: 4,
+      feePct: 0,
+      p2pSlippage: 0.02,
+      speed: '5–30 мин',
+      note: 'Комиссия брокера ~$3 + сеть TRC-20 ~$1. На P2P теряется ещё ~2% на курсе.'
+    },
+    visa: {
+      label: 'Visa / Mastercard',
+      feeFixed: 0,
+      feePct: 0.02,
+      p2pSlippage: 0,
+      speed: '1–5 дней',
+      note: 'Комиссия 1–3% от суммы. Взята середина 2%.'
+    },
+    swift: {
+      label: 'SWIFT в банк Узбекистана',
+      feeFixed: 52,
+      feePct: 0,
+      p2pSlippage: 0,
+      speed: '3–7 рабочих дней',
+      note: 'Фиксированная сумма: брокер $0–30 + банк-посредник $15–25 + твой банк $0–20. Взята середина $52.'
+    },
+    wise: {
+      label: 'Wise',
+      feeFixed: 3,
+      feePct: 0.0075,
+      p2pSlippage: 0,
+      speed: '1–3 дня',
+      note: 'Фиксированная ~$3 + 0.5–1% за конвертацию. Взята середина 0.75%.'
+    },
+    skrill: {
+      label: 'Skrill / Neteller',
+      feeFixed: 0,
+      feePct: 0.025,
+      p2pSlippage: 0,
+      speed: '1–2 дня',
+      note: 'Комиссия 2–3% от суммы. Взята середина 2.5%.'
+    }
+  };
+
+  function calcFee(amount, methodKey) {
+    var m = METHODS[methodKey];
+    var fee = m.feeFixed + amount * m.feePct + amount * m.p2pSlippage;
+    return fee;
+  }
+
+  function findCheapest(amount) {
+    var best = null;
+    var bestFee = Infinity;
+    Object.keys(METHODS).forEach(function(key) {
+      var fee = calcFee(amount, key);
+      if (fee < bestFee) {
+        bestFee = fee;
+        best = key;
+      }
+    });
+    return { key: best, fee: bestFee };
+  }
+
+  function fmt(n) {
+    return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+
+  function fmtUZS(n) {
+    return Math.round(n).toLocaleString('ru-RU');
+  }
+
+  window.calcWithdrawal = function() {
+    var amount = parseFloat(document.getElementById('wd-amount').value);
+    var methodKey = document.getElementById('wd-method').value;
+    var rate = parseFloat(document.getElementById('wd-rate').value);
+    var resultEl = document.getElementById('wd-result');
+
+    if (!amount || amount <= 0) {
+      resultEl.innerHTML = '<div class="calc-warn"><h4>Укажи сумму вывода</h4></div>';
+      return;
+    }
+    if (!rate || rate < 1000) {
+      resultEl.innerHTML = '<div class="calc-warn"><h4>Укажи курс USD → UZS</h4></div>';
+      return;
+    }
+
+    var m = METHODS[methodKey];
+    var fee = calcFee(amount, methodKey);
+    var net = Math.max(0, amount - fee);
+    var netUZS = net * rate;
+    var feePct = (fee / amount) * 100;
+
+    var statusClass = feePct <= 2 ? 'calc-ok' : feePct <= 4 ? 'calc-warn' : 'calc-error';
+    var statusLabel = feePct <= 2 ? 'Низкие комиссии' : feePct <= 4 ? 'Средние комиссии' : 'Высокие комиссии';
+
+    var cheapest = findCheapest(amount);
+    var cheapestLabel = METHODS[cheapest.key].label;
+    var isCheapestSelected = cheapest.key === methodKey;
+
+    var cheapestHtml;
+    if (isCheapestSelected) {
+      cheapestHtml = '<div class="wd-best-row">Самый дешёвый метод для <strong>$' + fmt(amount) + '</strong> — это <strong>' + cheapestLabel + '</strong> (уже выбран). Комиссия ~$' + fmt(cheapest.fee) + '.</div>';
+    } else {
+      cheapestHtml = '<div class="wd-best-row">Самый дешёвый метод для <strong>$' + fmt(amount) + '</strong> — <strong>' + cheapestLabel + '</strong> (~$' + fmt(cheapest.fee) + ' комиссии). Ты выбрал другой вариант — он обходится дороже на $' + fmt(fee - cheapest.fee) + '.</div>';
+    }
+
+    var html = '<div class="' + statusClass + '">'
+      + '<h4>' + statusLabel + ' — ' + m.label + '</h4>'
+      + '<table class="calc-table">'
+      + '<tr><td><strong>Сумма вывода</strong></td><td>$' + fmt(amount) + '</td></tr>'
+      + '<tr><td><strong>Ориентировочная комиссия</strong></td><td>−$' + fmt(fee) + ' (' + feePct.toFixed(1) + '%)</td></tr>'
+      + '<tr><td><strong>Получишь на руки (USD)</strong></td><td><strong>$' + fmt(net) + '</strong></td></tr>'
+      + '<tr><td><strong>Примерно в сумах</strong></td><td><strong>' + fmtUZS(netUZS) + ' сум</strong></td></tr>'
+      + '<tr><td><strong>Скорость</strong></td><td>' + m.speed + '</td></tr>'
+      + '</table>'
+      + '<p style="margin:0.7rem 0 0; font-size:0.85rem; color:var(--md-default-fg-color--light);">Примечание: ' + m.note + '</p>'
+      + '</div>'
+      + cheapestHtml;
+
+    resultEl.innerHTML = html;
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    window.calcWithdrawal();
+    document.getElementById('wd-amount').addEventListener('input', window.calcWithdrawal);
+    document.getElementById('wd-method').addEventListener('change', window.calcWithdrawal);
+    document.getElementById('wd-rate').addEventListener('input', window.calcWithdrawal);
+  });
+})();
+</script>
+
+---
+
 ## Главное правило
 
 **Никогда не выводи всё одним переводом.** Раздели на 2-3 части, проверь на маленькой сумме сначала.
