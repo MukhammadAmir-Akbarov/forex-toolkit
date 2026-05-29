@@ -10,55 +10,26 @@ from __future__ import annotations
 import argparse
 import sys
 
-PIP_SIZES = {
-    "JPY": 0.01,  # для пар с JPY
-}
-DEFAULT_PIP_SIZE = 0.0001
+# Финансовая математика живёт в одном месте — forex_toolkit.fx_math.
+# Импортируем оттуда (с фолбэком на sys.path, чтобы скрипт работал и без
+# установки пакета — просто `python tools/pip_calculator.py`).
+try:
+    from forex_toolkit.fx_math import (
+        pip_size,
+        pip_value_in_account_currency,
+        pip_value_in_quote,
+    )
+except ModuleNotFoundError:  # запуск скрипта без установки пакета
+    from pathlib import Path as _Path
+    sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from forex_toolkit.fx_math import (
+        pip_size,
+        pip_value_in_account_currency,
+        pip_value_in_quote,
+    )
 
-
-def pip_size(pair: str) -> float:
-    pair = pair.upper().replace("/", "")
-    if "JPY" in pair:
-        return PIP_SIZES["JPY"]
-    return DEFAULT_PIP_SIZE
-
-
-def pip_value_in_quote(lots: float, pair: str) -> float:
-    """Стоимость 1 пипса в КОТИРУЕМОЙ валюте (USD для EUR/USD)."""
-    return lots * 100_000 * pip_size(pair)
-
-
-def pip_value_in_account_currency(
-    lots: float, pair: str, account_ccy: str, current_price: float,
-) -> float:
-    """
-    Стоимость пипса в валюте счёта.
-
-    Args:
-        lots: размер позиции в лотах
-        pair: торгуемая пара (e.g., "EURUSD", "USDJPY")
-        account_ccy: валюта счёта (e.g., "USD", "EUR", "RUB")
-        current_price: текущая цена ТОРГУЕМОЙ ПАРЫ
-    """
-    pair = pair.upper().replace("/", "")
-    account_ccy = account_ccy.upper()
-    base = pair[:3]
-    quote = pair[3:]
-
-    pip_in_quote = pip_value_in_quote(lots, pair)
-
-    # Пипс выражен в quote валюте. Перевод в валюту счёта:
-    if account_ccy == quote:
-        return pip_in_quote
-    elif account_ccy == base:
-        return pip_in_quote / current_price
-    else:
-        # Кросс-конвертация: нужен курс quote → account_ccy
-        # Здесь упрощаем: пользователь должен ввести курс сам
-        raise ValueError(
-            f"Кросс-конвертация {quote}→{account_ccy} требует доп. курс. "
-            f"Используй точный расчёт через терминал брокера."
-        )
+# Реэкспорт публичного API (используется тестами и как библиотека).
+__all__ = ["pip_size", "pip_value_in_quote", "pip_value_in_account_currency"]
 
 
 def main() -> int:

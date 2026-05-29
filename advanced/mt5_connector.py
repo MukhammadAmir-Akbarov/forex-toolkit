@@ -130,14 +130,39 @@ def scan_signals(symbol: str = "EURUSD") -> None:
 
 def main() -> int:
     import argparse
+    import os
+
     parser = argparse.ArgumentParser(description="MT5 connector + signal scanner")
     parser.add_argument("--symbol", default="EURUSD")
-    parser.add_argument("--login", type=int, help="MT5 login (опц.)")
-    parser.add_argument("--password", help="MT5 password (опц.)")
-    parser.add_argument("--server", help="MT5 server (опц.)")
+    parser.add_argument(
+        "--login", type=int,
+        help="MT5 login. Лучше задать через переменную окружения MT5_LOGIN.",
+    )
+    parser.add_argument(
+        "--password",
+        help="MT5 password. НЕБЕЗОПАСНО в CLI (попадает в историю shell). "
+             "Используй переменную окружения MT5_PASSWORD.",
+    )
+    parser.add_argument(
+        "--server",
+        help="MT5 server. Лучше задать через переменную окружения MT5_SERVER.",
+    )
     args = parser.parse_args()
 
-    if not connect(args.login, args.password, args.server):
+    # Приоритет — переменные окружения; CLI-флаги только как override.
+    login = args.login or (
+        int(os.environ["MT5_LOGIN"]) if os.environ.get("MT5_LOGIN") else None
+    )
+    password = args.password or os.environ.get("MT5_PASSWORD")
+    server = args.server or os.environ.get("MT5_SERVER")
+
+    if args.password:
+        print(
+            "⚠️  Пароль передан через --password и теперь в истории shell. "
+            "Безопаснее: export MT5_PASSWORD=… (или храни в .env, см. .env.example)."
+        )
+
+    if not connect(login, password, server):
         return 1
 
     try:

@@ -14,12 +14,30 @@ from __future__ import annotations
 
 import argparse
 import csv
+import os
 import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-JOURNAL_PATH = Path(__file__).resolve().parent.parent / "journal" / "my-trades.csv"
+def _resolve_journal_path() -> Path:
+    """Где хранить журнал сделок.
+
+    Приоритет: переменная окружения ``FOREX_JOURNAL`` → каталог ``journal/`` в
+    репозитории (если он рядом со скриптом) → ``journal/`` в текущей рабочей
+    директории. Последний вариант важен для установленного wheel, чтобы не
+    писать в ``site-packages``.
+    """
+    env = os.environ.get("FOREX_JOURNAL")
+    if env:
+        return Path(env)
+    repo_journal = Path(__file__).resolve().parent.parent / "journal"
+    if repo_journal.is_dir():
+        return repo_journal / "my-trades.csv"
+    return Path.cwd() / "journal" / "my-trades.csv"
+
+
+JOURNAL_PATH = _resolve_journal_path()
 
 HEADERS = [
     "id", "date", "time", "pair", "direction", "entry", "stop", "take",
