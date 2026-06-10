@@ -168,6 +168,7 @@ nav:
       - README: journal/README.md
   - 🛠️ Инструменты:
       - 📐 Калькулятор позиции: tools/position-calculator.md
+      - 💰 Калькулятор маржи: tools/margin-calculator.md
       - 💲 Калькулятор пипса: tools/pip-calculator.md
       - 📈 Сложный процент: tools/compound-calculator.md
       - 📊 WinRate × RR: tools/winrate-rr-calculator.md
