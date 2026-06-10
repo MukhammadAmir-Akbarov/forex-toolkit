@@ -3,7 +3,8 @@
 [![Tests](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml)
 [![Deploy Docs](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml)
 [![Docs](https://img.shields.io/badge/docs-mkdocs-blue)](https://mukhammadamir-akbarov.github.io/forex-toolkit/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![License: code MIT](https://img.shields.io/badge/code-MIT-green)](LICENSE)
+[![License: content CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey)](LICENSE-CONTENT.md)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 
 > Самодостаточный набор материалов: **80+ файлов**, 25 markdown-гайдов, 20+ учебных графиков, 25+ Python-инструментов, 6 стратегий, MT5 EA, Telegram-бот, Coach-бот, Streamlit-приложение, Word-документ и PDF-учебник.
@@ -202,6 +203,14 @@ export TELEGRAM_CHAT_ID="your_chat_id"
 4. Риск ≤ 1% на сделку (новичку 0.5%)
 5. Веди журнал каждой сделки
 6. Не верь обещаниям лёгких денег
+
+## 📄 Лицензия
+
+Проект под **двумя лицензиями**: **код** (`forex_toolkit/`, `tools/`, `bot/`,
+`advanced/`) — [MIT](LICENSE); **учебный контент** (`_mkdocs/`, PDF/DOCX) —
+[CC BY 4.0](LICENSE-CONTENT.md). То есть материалы можно свободно переводить
+(в т. ч. на узбекский) и переиспользовать **с указанием авторства**.
+Подробности — в [LICENSE-CONTENT.md](LICENSE-CONTENT.md).
 
 ## 📜 Дисклеймер
 

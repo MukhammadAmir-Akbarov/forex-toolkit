@@ -32,6 +32,8 @@ ALLOWED_ROOT_MD = {
     "MAINTAINER-30D.md",
     "CLAUDE.md",
     "CHANGELOG.md",
+    "LICENSE-CONTENT.md",
+    "TODO.md",
 }
 
 
