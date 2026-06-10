@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/pip-calculator/">
       
       
-        <link rel="prev" href="../position-calculator/">
+        <link rel="prev" href="../margin-calculator/">
       
       
         <link rel="next" href="../compound-calculator/">
@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#-калькулятор-стоимости-пипса" class="md-skip">
+        <a href="#-pip-qiymati-kalkulyatori" class="md-skip">
           Tarkibga o'tish
         </a>
       
@@ -1927,6 +1927,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../margin-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💰 Калькулятор маржи
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1990,10 +2018,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#формула" class="md-nav__link">
+  <a href="#formula" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Формула
+        Formula
       
     </span>
   </a>
@@ -2001,10 +2029,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#примеры" class="md-nav__link">
+  <a href="#misollar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Примеры
+        Misollar
       
     </span>
   </a>
@@ -2012,10 +2040,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#зачем-это-знать" class="md-nav__link">
+  <a href="#nima-uchun-buni-bilish-kerak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Зачем это знать
+        Nima uchun buni bilish kerak
       
     </span>
   </a>
@@ -2023,10 +2051,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#связь-с-python-версией" class="md-nav__link">
+  <a href="#python-versiyasi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Связь с Python-версией
+        Python versiyasi
       
     </span>
   </a>
@@ -2729,10 +2757,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#формула" class="md-nav__link">
+  <a href="#formula" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Формула
+        Formula
       
     </span>
   </a>
@@ -2740,10 +2768,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#примеры" class="md-nav__link">
+  <a href="#misollar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Примеры
+        Misollar
       
     </span>
   </a>
@@ -2751,10 +2779,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#зачем-это-знать" class="md-nav__link">
+  <a href="#nima-uchun-buni-bilish-kerak" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Зачем это знать
+        Nima uchun buni bilish kerak
       
     </span>
   </a>
@@ -2762,10 +2790,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#связь-с-python-версией" class="md-nav__link">
+  <a href="#python-versiyasi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Связь с Python-версией
+        Python versiyasi
       
     </span>
   </a>
@@ -2792,22 +2820,22 @@
   
 
 
-<h1 id="-калькулятор-стоимости-пипса">💲 Калькулятор стоимости пипса<a class="headerlink" href="#-калькулятор-стоимости-пипса" title="Permanent link">&para;</a></h1>
+<h1 id="-pip-qiymati-kalkulyatori">💲 Pip qiymati kalkulyatori<a class="headerlink" href="#-pip-qiymati-kalkulyatori" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
-<p class="admonition-title">Зачем нужно</p>
-<p>1 пипс — это <strong>самая мелкая единица движения цены</strong>. Сколько денег ты выигрываешь или теряешь на каждом пипсе — зависит от <strong>размера позиции</strong> и <strong>пары</strong>. Без понимания стоимости пипса невозможно правильно посчитать риск.</p>
+<p class="admonition-title">Nima uchun bu kerak</p>
+<p>Pip — bu <strong>narx harakatining eng kichik birligi</strong>. Har bir pipda qancha pul yutish yoki yo'qotishingiz <strong>pozitsiya hajmi</strong> va <strong>juftlik</strong>ka bog'liq. Pip qiymatini tushunmasdan xavfni to'g'ri hisoblash mumkin emas.</p>
 </div>
-<h2 id="формула">Формула<a class="headerlink" href="#формула" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Размер 1 лота         =  100 000 единиц base-валюты
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Размер пипса          =  0.0001 для большинства пар, 0.01 для JPY-пар
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Стоимость пипса (USD) =  размер_пипса × лот / курс (если USD — quote или base)
+<h2 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1 lot hajmi           =  100 000 ta asosiy valyuta birligi
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Pip o&#39;lchami          =  Ko&#39;pchilik juftliklar uchun 0.0001, JPY-juftliklar uchun 0.01
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Pip qiymati (USD)     =  pip_o&#39;lchami × lot / kurs (agar USD — quote yoki base bo&#39;lsa)
 </code></pre></div>
 <hr />
 <div class="pos-calc-widget" id="pip-calc">
 
 <form class="pos-calc-form" onsubmit="return false">
   <label>
-    Валютная пара
+    Valyuta jufti
     <select id="pp-pair">
       <option value="EURUSD">EUR / USD</option>
       <option value="GBPUSD">GBP / USD</option>
@@ -2826,26 +2854,26 @@
     </select>
   </label>
   <label>
-    Размер позиции (лот)
+    Pozitsiya hajmi (lot)
     <input type="number" id="pp-lots" value="0.10" min="0.01" step="0.01" autocomplete="off">
-    <span class="pc-meta">0.01 = микро-лот, 0.1 = мини, 1.0 = стандартный.</span>
+    <span class="pc-meta">0.01 = mikro-lot, 0.1 = mini, 1.0 = standart.</span>
   </label>
   <label class="pc-checkbox pc-row-wide">
     <input type="checkbox" id="pp-live" checked>
-    <span>Использовать актуальный курс ECB (рекомендуется)</span>
+    <span>Joriy ECB kursidan foydalanish (tavsiya etiladi)</span>
   </label>
-  <button type="button" id="pp-calc-btn" class="pc-row-wide">Рассчитать</button>
+  <button type="button" id="pp-calc-btn" class="pc-row-wide">Hisoblash</button>
 </form>
 
 <div id="pp-result" class="pc-result" style="display: none;">
-  <div class="pc-headline" id="pp-headline">— $ / пипс</div>
+  <div class="pc-headline" id="pp-headline">— $ / pip</div>
   <div class="pc-result-grid">
-    <div class="pc-result-row"><span>Пара</span><span id="pp-out-pair">—</span></div>
-    <div class="pc-result-row"><span>Размер позиции</span><span id="pp-out-lots">—</span></div>
-    <div class="pc-result-row"><span>Размер пипса</span><span id="pp-out-pipsize">—</span></div>
-    <div class="pc-result-row"><span>Курс (для расчёта)</span><span id="pp-out-rate">—</span></div>
-    <div class="pc-result-row"><span>Стоимость 1 пипса</span><span id="pp-out-pip">—</span></div>
-    <div class="pc-result-row"><span>На 10 пипсах</span><span id="pp-out-10">—</span></div>
+    <div class="pc-result-row"><span>Juftlik</span><span id="pp-out-pair">—</span></div>
+    <div class="pc-result-row"><span>Pozitsiya hajmi</span><span id="pp-out-lots">—</span></div>
+    <div class="pc-result-row"><span>Pip o'lchami</span><span id="pp-out-pipsize">—</span></div>
+    <div class="pc-result-row"><span>Kurs (hisoblash uchun)</span><span id="pp-out-rate">—</span></div>
+    <div class="pc-result-row"><span>1 pip qiymati</span><span id="pp-out-pip">—</span></div>
+    <div class="pc-result-row"><span>10 pipda</span><span id="pp-out-10">—</span></div>
   </div>
   <div class="pc-warnings" id="pp-warnings"></div>
 </div>
@@ -2861,7 +2889,7 @@
     } catch (e) { return null; }
   }
 
-  // Статичные курсы как fallback
+  // Statik kurslar fallback sifatida
   const STATIC_RATES = {
     'USD-JPY': 150, 'USD-CHF': 0.88, 'USD-CAD': 1.37,
     'EUR-USD': 1.08, 'GBP-USD': 1.27, 'AUD-USD': 0.66,
@@ -2874,9 +2902,9 @@
       if (r) return { value: r, source: 'ECB live' };
     }
     const key = `${base}-${quote}`;
-    if (STATIC_RATES[key]) return { value: STATIC_RATES[key], source: 'таблица' };
+    if (STATIC_RATES[key]) return { value: STATIC_RATES[key], source: 'jadval' };
     const rev = `${quote}-${base}`;
-    if (STATIC_RATES[rev]) return { value: 1 / STATIC_RATES[rev], source: 'таблица (обратно)' };
+    if (STATIC_RATES[rev]) return { value: 1 / STATIC_RATES[rev], source: 'jadval (teskari)' };
     return null;
   }
 
@@ -2892,7 +2920,7 @@
       result.style.display = 'block';
       result.className = 'pc-result danger';
       document.getElementById('pp-headline').textContent = '—';
-      warnings.innerHTML = '<div class="pc-warn pc-danger">⛔ Размер позиции должен быть больше 0.</div>';
+      warnings.innerHTML = '<div class="pc-warn pc-danger">⛔ Pozitsiya hajmi 0 dan katta bo\'lishi kerak.</div>';
       return;
     }
 
@@ -2908,18 +2936,18 @@
       pipValueUSD = pipValueQuote;
       rateUsed = '— (USD — quote)';
     } else if (base === 'USD') {
-      document.getElementById('pp-headline').textContent = 'Загрузка курса…';
+      document.getElementById('pp-headline').textContent = 'Kurs yuklanmoqda…';
       result.style.display = 'block';
       const r = await getRate(base, quote, live);
       if (!r) {
-        warnings.innerHTML = '<div class="pc-warn">⚠️ Не удалось получить курс. Попробуй позже.</div>';
+        warnings.innerHTML = '<div class="pc-warn">⚠️ Kursni olib bo\'lmadi. Keyinroq urinib ko\'ring.</div>';
         return;
       }
       pipValueUSD = pipValueQuote / r.value;
       rateUsed = `1 USD = ${r.value.toFixed(4)} ${quote} (${r.source})`;
     } else {
-      // Кросс-пара: конвертируем quote → USD
-      document.getElementById('pp-headline').textContent = 'Загрузка курса…';
+      // Kross-juftlik: quote → USD ga o'giramiz
+      document.getElementById('pp-headline').textContent = 'Kurs yuklanmoqda…';
       result.style.display = 'block';
       let r = await getRate(quote, 'USD', live);
       if (r) {
@@ -2928,7 +2956,7 @@
       } else {
         r = await getRate('USD', quote, live);
         if (!r) {
-          warnings.innerHTML = '<div class="pc-warn">⚠️ Не удалось получить курс. Попробуй позже.</div>';
+          warnings.innerHTML = '<div class="pc-warn">⚠️ Kursni olib bo\'lmadi. Keyinroq urinib ko\'ring.</div>';
           return;
         }
         pipValueUSD = pipValueQuote / r.value;
@@ -2943,7 +2971,7 @@
     document.getElementById('pp-out-rate').textContent = rateUsed;
     document.getElementById('pp-out-pip').textContent = fmt$(pipValueUSD);
     document.getElementById('pp-out-10').textContent = fmt$(pipValueUSD * 10);
-    document.getElementById('pp-headline').textContent = fmt$(pipValueUSD) + ' / пипс';
+    document.getElementById('pp-headline').textContent = fmt$(pipValueUSD) + ' / pip';
     result.style.display = 'block';
     result.className = 'pc-result';
   }
@@ -2961,13 +2989,13 @@
 </div>
 
 <hr />
-<h2 id="примеры">Примеры<a class="headerlink" href="#примеры" title="Permanent link">&para;</a></h2>
+<h2 id="misollar">Misollar<a class="headerlink" href="#misollar" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Пара</th>
-<th>1 пипс на 0.1 лот</th>
-<th>1 пипс на 1 лот (стандарт)</th>
+<th>Juftlik</th>
+<th>0.1 <abbr title="Savdo hajmi birligi. 1 standart lot = 100 000 bazis valyuta birligi.">lot</abbr> uchun 1 <abbr title="Narx o'zgarishining standart birligi (odatda 4-xona; JPY juftlarida 2-xona).">pip</abbr></th>
+<th>1 <abbr title="Savdo hajmi birligi. 1 standart lot = 100 000 bazis valyuta birligi.">lot</abbr> (standart) uchun 1 <abbr title="Narx o'zgarishining standart birligi (odatda 4-xona; JPY juftlarida 2-xona).">pip</abbr></th>
 </tr>
 </thead>
 <tbody>
@@ -2982,35 +3010,35 @@
 <td>$10.00</td>
 </tr>
 <tr>
-<td>USD/JPY (курс ~150)</td>
+<td>USD/JPY (kurs ~150)</td>
 <td>$0.67</td>
 <td>$6.67</td>
 </tr>
 <tr>
-<td>USD/CHF (курс ~0.88)</td>
+<td>USD/CHF (kurs ~0.88)</td>
 <td>$1.14</td>
 <td>$11.36</td>
 </tr>
 <tr>
-<td>EUR/JPY (курс EUR/JPY ~162)</td>
+<td>EUR/JPY (kurs EUR/JPY ~162)</td>
 <td>$0.67</td>
 <td>$6.67</td>
 </tr>
 <tr>
-<td>EUR/GBP (курс GBP/USD ~1.27)</td>
+<td>EUR/GBP (kurs GBP/USD ~1.27)</td>
 <td>$1.27</td>
 <td>$12.70</td>
 </tr>
 </tbody>
 </table>
-<h2 id="зачем-это-знать">Зачем это знать<a class="headerlink" href="#зачем-это-знать" title="Permanent link">&para;</a></h2>
+<h2 id="nima-uchun-buni-bilish-kerak">Nima uchun buni bilish kerak<a class="headerlink" href="#nima-uchun-buni-bilish-kerak" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Проверка калькулятора брокера</strong> — на некоторых платформах указана неточная стоимость пипса</li>
-<li><strong>Сравнение пар</strong> — почему один и тот же 25-пипсовый стоп на USDJPY стоит меньше, чем на EURUSD</li>
-<li><strong>Конверсия валют счёта</strong> — если депозит не в USD, нужна доп. конверсия</li>
+<li><strong>Broker kalkulyatorini tekshirish</strong> — ba'zi platformalarda <abbr title="Narx o'zgarishining standart birligi (odatda 4-xona; JPY juftlarida 2-xona).">pip</abbr> qiymati noto'g'ri ko'rsatiladi</li>
+<li><strong>Juftliklarni taqqoslash</strong> — nima uchun USDJPY dagi xuddi shu 25-piplik stop EURUSD ga qaraganda arzonroq tushadi</li>
+<li><strong>Hisob valyutasini konvertatsiya qilish</strong> — agar <abbr title="Savdo hisobingizdagi pul miqdori.">depozit</abbr> USD da bo'lmasa, qo'shimcha konvertatsiya kerak bo'ladi</li>
 </ul>
-<h2 id="связь-с-python-версией">Связь с Python-версией<a class="headerlink" href="#связь-с-python-версией" title="Permanent link">&para;</a></h2>
-<p>См. <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/pip_calculator.py"><code>tools/pip_calculator.py</code></a>.</p>
+<h2 id="python-versiyasi">Python versiyasi<a class="headerlink" href="#python-versiyasi" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/pip_calculator.py"><code>tools/pip_calculator.py</code></a> ga qarang.</p>
 <!-- UZ lug'at (podskazkalar). hooks/glossary_tooltips.py uni o'zbekcha sahifalarga
      qo'shadi. Kalit so'zlar matndagi yozilishi bilan bir xil bo'lishi shart.
      Apostrof — oddiy ASCII (o', g') — kontentdagidek. -->
@@ -3034,7 +3062,7 @@
     <span class="md-icon" title="Oxirgi yangilanish">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 мая 2026 г. 05:31:27 UTC">23 мая 2026 г.</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10-iyun, 2026 18:06:21 UTC">10-iyun, 2026</span>
   </span>
 
     
@@ -3124,7 +3152,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Pastgi qism" >
         
           
-          <a href="../position-calculator/" class="md-footer__link md-footer__link--prev" aria-label="Oldingi sahifa: 📐 Калькулятор позиции">
+          <a href="../margin-calculator/" class="md-footer__link md-footer__link--prev" aria-label="Oldingi sahifa: 💰 Калькулятор маржи">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3134,7 +3162,7 @@
                 Oldingi sahifa
               </span>
               <div class="md-ellipsis">
-                📐 Калькулятор позиции
+                💰 Калькулятор маржи
               </div>
             </div>
           </a>
