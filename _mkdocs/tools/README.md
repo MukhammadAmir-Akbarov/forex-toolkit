@@ -3,6 +3,7 @@
 | Скрипт | Назначение |
 |---|---|
 | [`position_calculator.py`](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/position_calculator.py) | Калькулятор размера позиции (лоты) по риск-менеджменту |
+| [`margin_calculator.py`](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/margin_calculator.py) | Калькулятор маржи: сколько депозита заморозит открытая позиция |
 | [`chart_generator.py`](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/chart_generator.py) | Генерация учебных графиков для документации |
 
 ## position_calculator.py
