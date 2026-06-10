@@ -116,5 +116,8 @@ jobs:
                       "mkdocs-git-revision-date-localized-plugin>=1.2"
       - name: No root↔_mkdocs duplicates
         run: python tools/check_docs_sync.py
+      - name: Translation coverage (информационно, не блокирует)
+        continue-on-error: true
+        run: python tools/check_translation_coverage.py
       - name: mkdocs build --strict (битые ссылки и якоря валят сборку)
         run: mkdocs build --strict

@@ -564,3 +564,49 @@ button:focus-visible,
 
 /* Строка «Обновлено …» от git-revision-date — аккуратный приглушённый вид. */
 .md-source-file__fact { color: var(--md-default-fg-color--light); }
+
+/* --------------------------------------------------------------------------
+   18. Переключатель письма лотин ⇄ кирилл (только на узбекской локали).
+       Плавающий чип внизу справа; рендерится скриптом javascripts/translit.js.
+   -------------------------------------------------------------------------- */
+.fx-script-toggle {
+  position: fixed;
+  right: 0.9rem;
+  bottom: 0.9rem;
+  z-index: 6;
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lighter);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  font-size: 0.72rem;
+  line-height: 1;
+}
+.fx-script-toggle button {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.fx-script-toggle button:hover { color: var(--md-default-fg-color); }
+.fx-script-toggle button.fx-active {
+  background: var(--fx-accent, var(--md-primary-fg-color));
+  color: #fff;
+}
+.fx-script-toggle button:focus-visible {
+  outline: 2px solid var(--md-primary-fg-color);
+  outline-offset: 2px;
+}
+
+/* На узких экранах не перекрываем кнопку «наверх». */
+@media screen and (max-width: 76.1875em) {
+  .fx-script-toggle { bottom: 3.6rem; }
+}

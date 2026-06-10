@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+<!--
+  Локальные переопределения темы Material.
+
+  Приватная аналитика GoatCounter: лёгкий счётчик без cookie и без баннера
+  согласия (важно для медленного мобильного и для приватности аудитории).
+  Скрипт добавляется в <head> ТОЛЬКО когда в mkdocs.yml задан endpoint:
+
+      extra:
+        goatcounter: https://ВАШ-КОД.goatcounter.com/count
+
+  Если ключа нет — блок ничего не выводит, поведение сайта не меняется.
+-->
+{% block extrahead %}
+  {{ super() }}
+  {% if config.extra.goatcounter %}
+  <script
+    data-goatcounter="{{ config.extra.goatcounter }}"
+    async src="//gc.zgo.at/count.js"></script>
+  {% endif %}
+{% endblock %}

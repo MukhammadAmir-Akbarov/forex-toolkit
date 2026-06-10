@@ -22,6 +22,8 @@ extra_css:
 extra_javascript:
   - javascripts/reading.js
   - javascripts/progress.js
+  # Переключатель письма лотин ⇄ кирилл — активен только на узбекской локали.
+  - javascripts/translit.js
 
 plugins:
   - search
@@ -73,6 +75,7 @@ plugins:
             "🔁 Циклы рынка": "🔁 Market cycles"
             "🏛️ Структура рынка": "🏛️ Market structure"
             "Психология трейдинга": "Trading psychology"
+            "🆘 Ответственная торговля": "🆘 Responsible trading"
             "Anti-Tilt протокол": "Anti-Tilt protocol"
             "Emergency card": "Emergency card"
             "Daily routine": "Daily routine"
@@ -111,6 +114,7 @@ plugins:
             "Stocks basics": "Stocks basics"
             "Брокеры для УЗ": "Brokers for Uzbekistan"
             "Вывод денег": "Withdrawing money"
+            "🚨 Защита от скама": "🚨 Scam protection"
             "Сообщества": "Communities"
         - locale: uz
           name: 🇺🇿 O'zbek
@@ -143,6 +147,7 @@ plugins:
             "🔁 Циклы рынка": "🔁 Bozor sikllari"
             "🏛️ Структура рынка": "🏛️ Bozor tuzilmasi"
             "Психология трейдинга": "Treyding psixologiyasi"
+            "🆘 Ответственная торговля": "🆘 Mas'uliyatli savdo"
             "Anti-Tilt протокол": "Anti-Tilt protokoli"
             "Emergency card": "Favqulodda karta"
             "Daily routine": "Kunlik tartib"
@@ -181,6 +186,7 @@ plugins:
             "Stocks basics": "Aksiyalar asoslari"
             "Брокеры для УЗ": "O'zbekiston uchun brokerlar"
             "Вывод денег": "Pul yechib olish"
+            "🚨 Защита от скама": "🚨 Firibgarlikdan himoya"
             "Сообщества": "Hamjamiyatlar"
   # Дата последнего обновления страницы (из git-истории).
   # ВАЖНО: должен идти ПОСЛЕ i18n (i18n добавляет переменную locale).
@@ -192,6 +198,9 @@ plugins:
 
 theme:
   name: material
+  # Локальные шаблонные переопределения (overrides/main.html подключает
+  # приватную аналитику GoatCounter, когда задан extra.goatcounter).
+  custom_dir: overrides
   language: ru
   font:
     text: Inter
@@ -277,6 +286,7 @@ nav:
       - 🏛️ Структура рынка: practice/market-structure.md
   - 🧠 Психология и дисциплина:
       - Психология трейдинга: extras/psychology.md
+      - 🆘 Ответственная торговля: extras/responsible-trading.md
       - Anti-Tilt протокол: extras/anti-tilt-protocol.md
       - Emergency card: extras/emergency-card.md
       - Daily routine: extras/daily-routine.md
@@ -321,9 +331,15 @@ nav:
   - 🇺🇿 Узбекистан:
       - Брокеры для УЗ: uz/brokers-uz.md
       - Вывод денег: uz/withdrawal-guide.md
+      - 🚨 Защита от скама: uz/scam-protection.md
       - Сообщества: uz/communities.md
 
 extra:
+  # Приватная аналитика без cookie (GoatCounter) — лёгкая, без баннера согласия,
+  # дружелюбна к медленному мобильному. Скрипт подключается из overrides/main.html
+  # ТОЛЬКО когда здесь задан endpoint. Заведи бесплатный аккаунт на goatcounter.com
+  # и раскомментируй строку ниже со своим кодом:
+  # goatcounter: https://ВАШ-КОД.goatcounter.com/count
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/MukhammadAmir-Akbarov/forex-toolkit
@@ -351,5 +367,6 @@ extra:
 
 copyright: |
   &copy; 2026 <a href="https://github.com/MukhammadAmir-Akbarov" target="_blank">Mukhammad Amir Akbarov</a> &middot;
-  <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE" target="_blank">MIT License</a> &middot;
+  Код — <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE" target="_blank">MIT</a>,
+  контент — <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE-CONTENT.md" target="_blank">CC BY 4.0</a> &middot;
   Образовательный материал, не финансовый совет
