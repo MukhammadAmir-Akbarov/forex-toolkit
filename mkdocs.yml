@@ -22,6 +22,8 @@ extra_css:
 extra_javascript:
   - javascripts/reading.js
   - javascripts/progress.js
+  # Переключатель письма лотин ⇄ кирилл — активен только на узбекской локали.
+  - javascripts/translit.js
 
 plugins:
   - search
@@ -46,10 +48,146 @@ plugins:
           name: 🇬🇧 English
           build: true
           site_name: "Forex Trading Toolkit (English)"
+          # Перевод заголовков меню (ключ = русский заголовок из nav ниже).
+          nav_translations:
+            "🏠 Начало": "🏠 Start"
+            "📚 Углублённо": "📚 In depth"
+            "🎯 Из практики (2 года)": "🎯 From practice (2 years)"
+            "🧠 Психология и дисциплина": "🧠 Psychology & discipline"
+            "📋 Шаблоны": "📋 Templates"
+            "📝 Журнал": "📝 Journal"
+            "🛠️ Инструменты": "🛠️ Tools"
+            "🚀 Продвинутое": "🚀 Advanced"
+            "🌱 После года": "🌱 After a year"
+            "🇺🇿 Узбекистан": "🇺🇿 Uzbekistan"
+            "Главная": "Home"
+            "🗺️ Дорожная карта обучения": "🗺️ Learning roadmap"
+            "Как пользоваться": "How to use"
+            "Главный учебник": "Main handbook"
+            "Технический анализ": "Technical analysis"
+            "Учебная стратегия": "Sample strategy"
+            "📈 Реальный анализ EUR/USD": "📈 Real EUR/USD analysis"
+            "Обзор раздела": "Section overview"
+            "🥇 Торговля золотом (XAUUSD)": "🥇 Gold trading (XAUUSD)"
+            "🎯 ЛОТ - главное": "🎯 LOT — the main thing"
+            "🛡️ Сейф (Move to BE)": "🛡️ Safe (Move to BE)"
+            "📈 Доливка (Scaling-in)": "📈 Scaling-in"
+            "🔁 Циклы рынка": "🔁 Market cycles"
+            "🏛️ Структура рынка": "🏛️ Market structure"
+            "Психология трейдинга": "Trading psychology"
+            "🆘 Ответственная торговля": "🆘 Responsible trading"
+            "Anti-Tilt протокол": "Anti-Tilt protocol"
+            "Emergency card": "Emergency card"
+            "Daily routine": "Daily routine"
+            "🚦 Предторговый чек-лист": "🚦 Pre-trade checklist"
+            "Trading Plan": "Trading Plan"
+            "First 100 Days": "First 100 Days"
+            "🏆 Мой прогресс": "🏆 My progress"
+            "Чек-лист": "Checklist"
+            "FAQ": "FAQ"
+            "Глоссарий": "Glossary"
+            "Сравнение брокеров": "Broker comparison"
+            "📡 Источники данных и сигналов": "📡 Data & signal sources"
+            "Mind map": "Mind map"
+            "Шаблон": "Template"
+            "Расширенный": "Extended"
+            "📅 Еженедельный отчёт": "📅 Weekly report"
+            "Demo vs Real": "Demo vs Real"
+            "Mistakes log": "Mistakes log"
+            "README": "README"
+            "📐 Калькулятор позиции": "📐 Position calculator"
+            "💰 Калькулятор маржи": "💰 Margin calculator"
+            "💲 Калькулятор пипса": "💲 Pip calculator"
+            "📈 Сложный процент": "📈 Compound interest"
+            "📊 WinRate × RR": "📊 WinRate × RR"
+            "🎴 Тренажёр карточек": "🎴 Flashcards"
+            "🎯 Квиз — готов к реалу?": "🎯 Quiz — ready for real?"
+            "🎲 Риск разорения": "🎲 Risk of ruin"
+            "Tools README": "Tools README"
+            "Bot README": "Bot README"
+            "MT5 setup": "MT5 setup"
+            "Streamlit setup": "Streamlit setup"
+            "Telegram bot": "Telegram bot"
+            "VPS deployment": "VPS deployment"
+            "Order Flow / Volume Profile": "Order Flow / Volume Profile"
+            "Crypto trading": "Crypto trading"
+            "Stocks basics": "Stocks basics"
+            "Брокеры для УЗ": "Brokers for Uzbekistan"
+            "Вывод денег": "Withdrawing money"
+            "🚨 Защита от скама": "🚨 Scam protection"
+            "Сообщества": "Communities"
         - locale: uz
           name: 🇺🇿 O'zbek
           build: true
           site_name: "Forex Trading Toolkit (O'zbek)"
+          # Menyu sarlavhalari tarjimasi (kalit = pastdagi nav'dagi ruscha sarlavha).
+          nav_translations:
+            "🏠 Начало": "🏠 Boshlash"
+            "📚 Углублённо": "📚 Chuqurroq"
+            "🎯 Из практики (2 года)": "🎯 Amaliyotdan (2 yil)"
+            "🧠 Психология и дисциплина": "🧠 Psixologiya va intizom"
+            "📋 Шаблоны": "📋 Shablonlar"
+            "📝 Журнал": "📝 Jurnal"
+            "🛠️ Инструменты": "🛠️ Asboblar"
+            "🚀 Продвинутое": "🚀 Ilg'or"
+            "🌱 После года": "🌱 Bir yildan keyin"
+            "🇺🇿 Узбекистан": "🇺🇿 O'zbekiston"
+            "Главная": "Bosh sahifa"
+            "🗺️ Дорожная карта обучения": "🗺️ O'quv yo'l xaritasi"
+            "Как пользоваться": "Qanday foydalanish"
+            "Главный учебник": "Asosiy darslik"
+            "Технический анализ": "Texnik tahlil"
+            "Учебная стратегия": "O'quv strategiyasi"
+            "📈 Реальный анализ EUR/USD": "📈 Real tahlil EUR/USD"
+            "Обзор раздела": "Bo'lim sharhi"
+            "🥇 Торговля золотом (XAUUSD)": "🥇 Oltin savdosi (XAUUSD)"
+            "🎯 ЛОТ - главное": "🎯 LOT — eng muhimi"
+            "🛡️ Сейф (Move to BE)": "🛡️ Seyf (Move to BE)"
+            "📈 Доливка (Scaling-in)": "📈 Pozitsiyani oshirish (Scaling-in)"
+            "🔁 Циклы рынка": "🔁 Bozor sikllari"
+            "🏛️ Структура рынка": "🏛️ Bozor tuzilmasi"
+            "Психология трейдинга": "Treyding psixologiyasi"
+            "🆘 Ответственная торговля": "🆘 Mas'uliyatli savdo"
+            "Anti-Tilt протокол": "Anti-Tilt protokoli"
+            "Emergency card": "Favqulodda karta"
+            "Daily routine": "Kunlik tartib"
+            "🚦 Предторговый чек-лист": "🚦 Savdo oldidan checklist"
+            "Trading Plan": "Savdo rejasi"
+            "First 100 Days": "Birinchi 100 kun"
+            "🏆 Мой прогресс": "🏆 Mening progressim"
+            "Чек-лист": "Checklist"
+            "FAQ": "Savol-javob"
+            "Глоссарий": "Lug'at"
+            "Сравнение брокеров": "Brokerlarni taqqoslash"
+            "📡 Источники данных и сигналов": "📡 Ma'lumot va signal manbalari"
+            "Mind map": "Fikr xaritasi"
+            "Шаблон": "Shablon"
+            "Расширенный": "Kengaytirilgan"
+            "📅 Еженедельный отчёт": "📅 Haftalik hisobot"
+            "Demo vs Real": "Demo vs Real"
+            "Mistakes log": "Xatolar jurnali"
+            "README": "README"
+            "📐 Калькулятор позиции": "📐 Pozitsiya kalkulyatori"
+            "💰 Калькулятор маржи": "💰 Marja kalkulyatori"
+            "💲 Калькулятор пипса": "💲 Pip kalkulyatori"
+            "📈 Сложный процент": "📈 Murakkab foiz"
+            "📊 WinRate × RR": "📊 WinRate × RR"
+            "🎴 Тренажёр карточек": "🎴 Kartochka mashqi"
+            "🎯 Квиз — готов к реалу?": "🎯 Kviz — real hisobga tayyormisan?"
+            "🎲 Риск разорения": "🎲 Vayron bo'lish xavfi"
+            "Tools README": "Tools README"
+            "Bot README": "Bot README"
+            "MT5 setup": "MT5 sozlash"
+            "Streamlit setup": "Streamlit sozlash"
+            "Telegram bot": "Telegram bot"
+            "VPS deployment": "VPS deployment"
+            "Order Flow / Volume Profile": "Order Flow / Volume Profile"
+            "Crypto trading": "Kripto savdosi"
+            "Stocks basics": "Aksiyalar asoslari"
+            "Брокеры для УЗ": "O'zbekiston uchun brokerlar"
+            "Вывод денег": "Pul yechib olish"
+            "🚨 Защита от скама": "🚨 Firibgarlikdan himoya"
+            "Сообщества": "Hamjamiyatlar"
   # Дата последнего обновления страницы (из git-истории).
   # ВАЖНО: должен идти ПОСЛЕ i18n (i18n добавляет переменную locale).
   - git-revision-date-localized:
@@ -60,6 +198,9 @@ plugins:
 
 theme:
   name: material
+  # Локальные шаблонные переопределения (overrides/main.html подключает
+  # приватную аналитику GoatCounter, когда задан extra.goatcounter).
+  custom_dir: overrides
   language: ru
   font:
     text: Inter
@@ -145,6 +286,7 @@ nav:
       - 🏛️ Структура рынка: practice/market-structure.md
   - 🧠 Психология и дисциплина:
       - Психология трейдинга: extras/psychology.md
+      - 🆘 Ответственная торговля: extras/responsible-trading.md
       - Anti-Tilt протокол: extras/anti-tilt-protocol.md
       - Emergency card: extras/emergency-card.md
       - Daily routine: extras/daily-routine.md
@@ -189,9 +331,15 @@ nav:
   - 🇺🇿 Узбекистан:
       - Брокеры для УЗ: uz/brokers-uz.md
       - Вывод денег: uz/withdrawal-guide.md
+      - 🚨 Защита от скама: uz/scam-protection.md
       - Сообщества: uz/communities.md
 
 extra:
+  # Приватная аналитика без cookie (GoatCounter) — лёгкая, без баннера согласия,
+  # дружелюбна к медленному мобильному. Скрипт подключается из overrides/main.html
+  # ТОЛЬКО когда здесь задан endpoint. Заведи бесплатный аккаунт на goatcounter.com
+  # и раскомментируй строку ниже со своим кодом:
+  # goatcounter: https://ВАШ-КОД.goatcounter.com/count
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/MukhammadAmir-Akbarov/forex-toolkit
@@ -219,5 +367,6 @@ extra:
 
 copyright: |
   &copy; 2026 <a href="https://github.com/MukhammadAmir-Akbarov" target="_blank">Mukhammad Amir Akbarov</a> &middot;
-  <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE" target="_blank">MIT License</a> &middot;
+  Код — <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE" target="_blank">MIT</a>,
+  контент — <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE-CONTENT.md" target="_blank">CC BY 4.0</a> &middot;
   Образовательный материал, не финансовый совет

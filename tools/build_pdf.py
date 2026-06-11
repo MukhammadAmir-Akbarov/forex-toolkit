@@ -105,6 +105,16 @@ CHAPTERS_EN = [
     ("Psychology", SRC / "extras" / "psychology.en.md"),
 ]
 
+# Boblar to'g'ri tartibda (UZ). Manba — _mkdocs/ (.uz.md suffiksli tarjimalar).
+# Отсутствующие файлы build() пропустит автоматически (path.exists()).
+CHAPTERS_UZ = [
+    ("Qanday foydalanish", SRC / "КАК-ПОЛЬЗОВАТЬСЯ.uz.md"),
+    ("Asosiy qo'llanma", SRC / "forex-guide.uz.md"),
+    ("Treyding psixologiyasi", SRC / "extras" / "psychology.uz.md"),
+    ("Lug'at", SRC / "extras" / "glossary.uz.md"),
+    ("Savol-javob", SRC / "extras" / "faq.uz.md"),
+]
+
 LANG_CONFIGS = {
     "ru": {
         "chapters": CHAPTERS_RU,
@@ -128,6 +138,18 @@ LANG_CONFIGS = {
             "Forex is a high-risk activity. According to ESMA data, 74-89% of "
             "retail traders lose money. Never trade with money you cannot afford "
             "to lose. Minimum 3 months on a demo account before going live."
+        ),
+    },
+    "uz": {
+        "chapters": CHAPTERS_UZ,
+        "out": ROOT / "forex-handbook-uz.pdf",
+        "title": "Forex Treyding Qo'llanmasi",
+        "subtitle": "Yangi boshlovchilar uchun to'liq o'quv qo'llanma",
+        "warning": (
+            "Bu hujjat — o'quv materiali, moliyaviy maslahat EMAS. "
+            "Forex — yuqori xavfli faoliyat. ESMA ma'lumotlariga ko'ra, chakana "
+            "treyderlarning 74-89% pul yo'qotadi. Hech qachon yo'qotishga tayyor "
+            "bo'lmagan pulga savdo qilmang. Real hisobdan oldin kamida 3 oy demo."
         ),
     },
 }
@@ -345,6 +367,9 @@ def build(lang: str = "ru") -> int:
     if lang == "ru":
         tagline = "Теория · Технический анализ · Стратегии<br/>Психология · Шаблоны · Инструменты"
         warning_label = "⚠️ ВНИМАНИЕ:"
+    elif lang == "uz":
+        tagline = "Nazariya · Texnik tahlil · Strategiyalar<br/>Psixologiya · Shablonlar · Asboblar"
+        warning_label = "⚠️ DIQQAT:"
     else:
         tagline = "Theory · Technical analysis · Strategies<br/>Psychology · Templates · Tools"
         warning_label = "⚠️ WARNING:"
@@ -379,14 +404,14 @@ def main() -> int:
     import argparse
     parser = argparse.ArgumentParser(description="Build the Forex handbook PDF")
     parser.add_argument(
-        "--lang", choices=["ru", "en", "all"], default="ru",
-        help="Language to build (default: ru). 'all' builds both.",
+        "--lang", choices=["ru", "en", "uz", "all"], default="ru",
+        help="Language to build (default: ru). 'all' builds ru/en/uz.",
     )
     args = parser.parse_args()
 
     if args.lang == "all":
         rc = 0
-        for lang in ("ru", "en"):
+        for lang in ("ru", "en", "uz"):
             rc |= build(lang)
         return rc
     return build(args.lang)
