@@ -76,7 +76,8 @@ def main() -> int:
         missing = [s for s in ru_sources if not sibling(s, loc).exists()]
         pct = (len(have) / total * 100) if total else 0.0
         coverage[loc] = pct
-        print(f"🌐 {loc.upper()}: {len(have)}/{total} ({pct:.0f}%) — не хватает {len(missing)}")
+        head = f"🌐 {loc.upper()}: {len(have)}/{total} ({pct:.0f}%)"
+        print(f"{head} — не хватает {len(missing)}")
         for s in missing:
             print(f"     ✗ {s.relative_to(MKDOCS)}")
         print()
@@ -90,10 +91,12 @@ def main() -> int:
     if args.fail_under is not None:
         loc = args.locale or "uz"
         pct = coverage.get(loc, 0.0)
+        thr = f"{args.fail_under:.0f}%"
+        cur = f"{loc.upper()} {pct:.0f}%"
         if pct < args.fail_under:
-            print(f"❌ Покрытие {loc.upper()} {pct:.0f}% < порога {args.fail_under:.0f}%")
+            print(f"❌ Покрытие {cur} < порога {thr}")
             return 1
-        print(f"✅ Покрытие {loc.upper()} {pct:.0f}% ≥ порога {args.fail_under:.0f}%")
+        print(f"✅ Покрытие {cur} ≥ порога {thr}")
 
     return 0
 
