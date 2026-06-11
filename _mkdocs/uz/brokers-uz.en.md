@@ -1,3 +1,7 @@
+---
+verified: 2026-06-11
+---
+
 # 🏦 Brokers for Traders from Uzbekistan
 
 !!! warning "Educational material"

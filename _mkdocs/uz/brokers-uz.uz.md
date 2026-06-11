@@ -1,3 +1,7 @@
+---
+verified: 2026-06-11
+---
+
 # 🏦 O'zbekistonlik treyderlar uchun brokerlar
 
 !!! warning "O'quv materiali"
