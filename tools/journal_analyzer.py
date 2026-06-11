@@ -20,7 +20,6 @@ import sys
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Any
 
 JOURNAL = Path(__file__).resolve().parent.parent / "journal" / "my-trades.csv"
 
@@ -200,7 +199,6 @@ def insights(trades: list[dict]) -> list[str]:
     # 2. Day of week
     days = by_dayofweek(trades)
     if days:
-        best_day = max(days.items(), key=lambda x: x[1]["avg_r"])
         worst_day = min(days.items(), key=lambda x: x[1]["avg_r"])
         if worst_day[1]["n"] >= 5 and worst_day[1]["avg_r"] < -0.3:
             out.append(
@@ -219,8 +217,8 @@ def insights(trades: list[dict]) -> list[str]:
             )
         elif diff < -0.3:
             out.append(
-                f"🤔 Странность: «нарушения» правил приносят больше прибыли. "
-                f"Возможно, правила нужно пересмотреть, или это случайность."
+                "🤔 Странность: «нарушения» правил приносят больше прибыли. "
+                "Возможно, правила нужно пересмотреть, или это случайность."
             )
 
     # 4. Streaks
@@ -239,10 +237,10 @@ def insights(trades: list[dict]) -> list[str]:
     # 5. Direction bias
     dirs = by_direction(trades)
     if "long" in dirs and "short" in dirs:
-        l = dirs["long"]
+        lng = dirs["long"]
         s = dirs["short"]
-        if l["n"] >= 10 and s["n"] >= 10:
-            diff = l["avg_r"] - s["avg_r"]
+        if lng["n"] >= 10 and s["n"] >= 10:
+            diff = lng["avg_r"] - s["avg_r"]
             if abs(diff) > 0.5:
                 better = "LONG" if diff > 0 else "SHORT"
                 out.append(
@@ -314,7 +312,7 @@ def main() -> int:
                 by_rule_following(trades))
 
     streaks = consecutive_losses(trades)
-    print(f"\n🔥 Серии убытков:")
+    print("\n🔥 Серии убытков:")
     print(f"  Максимальная за всё время: {streaks['max_streak']}")
     print(f"  Текущая (с конца):          {streaks['current_streak']}")
 

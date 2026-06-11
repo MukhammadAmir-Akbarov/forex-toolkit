@@ -12,8 +12,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-from matplotlib.patches import FancyArrowPatch, Rectangle
+from matplotlib.patches import Rectangle
 
 OUT = Path(__file__).resolve().parent.parent / "docs" / "images"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -32,11 +31,11 @@ plt.rcParams.update({
 UP, DOWN = "#10b981", "#ef4444"
 
 
-def draw_candle(ax, x, o, h, l, c, width=0.6):
+def draw_candle(ax, x, o, h, low, c, width=0.6):
     color = UP if c >= o else DOWN
-    ax.plot([x, x], [l, h], color=color, linewidth=1.2, zorder=2)
+    ax.plot([x, x], [low, h], color=color, linewidth=1.2, zorder=2)
     body_low = min(o, c)
-    body_h = max(abs(c - o), (h - l) * 0.001)
+    body_h = max(abs(c - o), (h - low) * 0.001)
     ax.add_patch(Rectangle((x - width / 2, body_low), width, body_h,
                            facecolor=color, edgecolor=color, zorder=3))
 
@@ -110,8 +109,8 @@ def chart_advanced_candles():
           (2, 1.0825, 1.083, 1.0795, 1.0800)]),
     ]
     for ax, (title, candles) in zip(axes, patterns):
-        for x, o, h, l, c in candles:
-            draw_candle(ax, x, o, h, l, c, width=0.5)
+        for x, o, h, low, c in candles:
+            draw_candle(ax, x, o, h, low, c, width=0.5)
         ax.set_title(title, fontsize=11, weight="bold")
         ax.set_xticks([])
         ax.set_xlim(-0.7, 2.7)
@@ -277,7 +276,6 @@ def chart_monte_carlo_demo():
         final_results.append(eq[-1])
         ax.plot(eq, alpha=0.15, color="#3b82f6", linewidth=0.5)
 
-    median = np.median(np.array([list(range(n_trades + 1))] * n_sims), axis=0)
     ax.axhline(1.0, color="black", linewidth=1, label="Начало")
     ax.set_xlabel("Сделка")
     ax.set_ylabel("Equity (множитель)")

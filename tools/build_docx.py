@@ -224,7 +224,7 @@ def cover(doc: Document) -> None:
 
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run(f"Версия документа: 2026.05\n~ 80 страниц · 12 графиков ~")
+    run = p.add_run("Версия документа: 2026.05\n~ 80 страниц · 12 графиков ~")
     run.font.size = Pt(10)
     run.font.color.rgb = RGBColor(0x9C, 0xA3, 0xAF)
 

@@ -86,10 +86,10 @@ def update_progress(progress: dict, key: str, knew: bool) -> None:
 def quiz_card(card: dict) -> bool:
     """Возвращает True если пользователь ответил верно."""
     print("\n" + "─" * 60)
-    print(f"❓ Что значит:")
+    print("❓ Что значит:")
     print(f"\n  {card['front']}")
     input("\n[Enter — показать ответ]")
-    print(f"\n💡 Ответ:")
+    print("\n💡 Ответ:")
     print(f"\n  {card['back']}")
     while True:
         ans = input("\nЗнал? (y = да / n = нет / s = пропустить): ").strip().lower()

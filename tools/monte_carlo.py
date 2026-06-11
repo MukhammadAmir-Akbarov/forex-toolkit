@@ -71,7 +71,7 @@ def print_summary(r: dict) -> None:
     print("\n" + "=" * 60)
     print("  МОНТЕ-КАРЛО РЕЗУЛЬТАТЫ")
     print("=" * 60)
-    print(f"\nФинальный капитал (множитель к начальному):")
+    print("\nФинальный капитал (множитель к начальному):")
     print(f"  Среднее:           {fe.mean():.3f}x")
     print(f"  Медиана:           {np.median(fe):.3f}x")
     print(f"  Худший 5%:         {np.percentile(fe, 5):.3f}x")
@@ -79,18 +79,18 @@ def print_summary(r: dict) -> None:
     print(f"  Лучший 95%:        {np.percentile(fe, 95):.3f}x")
     print(f"  Лучший 99%:        {np.percentile(fe, 99):.3f}x")
 
-    print(f"\nМаксимальная просадка:")
+    print("\nМаксимальная просадка:")
     print(f"  Средняя:           {dd.mean()*100:.1f}%")
     print(f"  Медианная:         {np.median(dd)*100:.1f}%")
     print(f"  Худший 5% случаев: {np.percentile(dd, 95)*100:.1f}%")
     print(f"  Худший 1% случаев: {np.percentile(dd, 99)*100:.1f}%")
 
-    print(f"\nВероятность просадки:")
+    print("\nВероятность просадки:")
     for threshold in [0.1, 0.2, 0.3, 0.5]:
         pct = (dd >= threshold).mean() * 100
         print(f"  ≥ {threshold*100:.0f}%: {pct:.1f}% случаев")
 
-    print(f"\nВероятность потери:")
+    print("\nВероятность потери:")
     print(f"  Закончить ниже 0.5x (-50%): {(fe < 0.5).mean()*100:.1f}%")
     print(f"  Закончить ниже 1.0x (минус): {(fe < 1.0).mean()*100:.1f}%")
     print(f"  Закончить выше 1.5x (+50%): {(fe > 1.5).mean()*100:.1f}%")

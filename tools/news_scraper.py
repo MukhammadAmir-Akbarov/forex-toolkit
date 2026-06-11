@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import argparse
 import sys
-from datetime import datetime, timedelta
 
 import requests
 from bs4 import BeautifulSoup
@@ -84,7 +83,7 @@ def fetch_calendar(date: str = "today") -> list[dict]:
 def print_events(events: list[dict], filter_high: bool = False) -> None:
     if not events:
         print("\nНе удалось загрузить календарь.")
-        print(f"Открой вручную: https://www.forexfactory.com/calendar")
+        print("Открой вручную: https://www.forexfactory.com/calendar")
         return
 
     if filter_high:
