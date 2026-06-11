@@ -114,6 +114,7 @@ plugins:
             "Stocks basics": "Stocks basics"
             "Брокеры для УЗ": "Brokers for Uzbekistan"
             "Вывод денег": "Withdrawing money"
+            "🧾 Калькулятор налога": "🧾 Tax calculator"
             "🚨 Защита от скама": "🚨 Scam protection"
             "Сообщества": "Communities"
         - locale: uz
@@ -186,6 +187,7 @@ plugins:
             "Stocks basics": "Aksiyalar asoslari"
             "Брокеры для УЗ": "O'zbekiston uchun brokerlar"
             "Вывод денег": "Pul yechib olish"
+            "🧾 Калькулятор налога": "🧾 Soliq kalkulyatori"
             "🚨 Защита от скама": "🚨 Firibgarlikdan himoya"
             "Сообщества": "Hamjamiyatlar"
   # Дата последнего обновления страницы (из git-истории).
@@ -331,6 +333,7 @@ nav:
   - 🇺🇿 Узбекистан:
       - Брокеры для УЗ: uz/brokers-uz.md
       - Вывод денег: uz/withdrawal-guide.md
+      - 🧾 Калькулятор налога: uz/tax-calculator.md
       - 🚨 Защита от скама: uz/scam-protection.md
       - Сообщества: uz/communities.md
 
