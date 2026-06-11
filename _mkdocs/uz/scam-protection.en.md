@@ -1,3 +1,7 @@
+---
+verified: 2026-06-11
+---
+
 # Scam Protection: How Not to Lose Money on "Trading" in Uzbekistan
 
 > ⚠️ Educational material, not financial or legal advice.

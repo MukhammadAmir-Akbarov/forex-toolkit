@@ -1,3 +1,7 @@
+---
+verified: 2026-06-10
+---
+
 # Guide to Withdrawing Money from a Broker to Uzbekistan
 
 > ⚠️ This information is general, as of the date of compilation (verified 2026-06-10). Specific fees, timelines and **legal status** change — verify before making any transaction.

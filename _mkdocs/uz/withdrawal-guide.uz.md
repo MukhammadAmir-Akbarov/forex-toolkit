@@ -1,3 +1,7 @@
+---
+verified: 2026-06-10
+---
+
 # Brokerdan O'zbekistonga pul yechib olish qo'llanmasi
 
 > ⚠️ Ma'lumot umumiy, tuzilgan sanada (tekshirildi 2026-06-10). Aniq komissiyalar, muddatlar va **huquqiy holat** o'zgarib turadi — operatsiyadan oldin tekshirib oling.

@@ -14,6 +14,8 @@ site_dir: site
 # на каждую страницу по её локали — RU/EN/UZ получают термины на своём языке.
 hooks:
   - hooks/glossary_tooltips.py
+  # Структурированные данные schema.org (JSON-LD) для SEO rich-результатов.
+  - hooks/structured_data.py
 
 extra_css:
   - stylesheets/extra.css
