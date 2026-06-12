@@ -79,7 +79,7 @@ def print_report(deposit: float, positions: list[Position]) -> None:
     print("  RISK EXPOSURE TRACKER")
     print("=" * 60)
     print(f"\nДепозит: ${deposit:,.2f}")
-    print(f"\nОткрытые позиции:")
+    print("\nОткрытые позиции:")
     print(f"{'Пара':<10} {'Направление':<12} {'Риск $':>10} "
           f"{'Риск %':>8}")
     print("-" * 50)
@@ -98,10 +98,10 @@ def print_report(deposit: float, positions: list[Position]) -> None:
           f"${eff:,.2f} ({eff / deposit * 100:.2f}%)")
 
     if eff / deposit > 0.02:
-        print(f"\n⚠️  Эффективный риск > 2% депозита — много для новичка")
+        print("\n⚠️  Эффективный риск > 2% депозита — много для новичка")
     if eff > plain_total * 1.2:
-        print(f"⚠️  Эффективный риск намного больше номинального — "
-              f"твои позиции скоррелированы. Это «двойная ставка» в одну сторону.")
+        print("⚠️  Эффективный риск намного больше номинального — "
+              "твои позиции скоррелированы. Это «двойная ставка» в одну сторону.")
 
     print("\nКорреляции между парами:")
     n = len(positions)

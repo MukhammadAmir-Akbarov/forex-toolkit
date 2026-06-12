@@ -19,7 +19,6 @@ import webbrowser
 from urllib.parse import quote
 
 import requests
-from bs4 import BeautifulSoup
 
 
 REGULATORS = {
@@ -172,12 +171,12 @@ def main() -> int:
 
     results = {}
     if args.check_fca:
-        print(f"🌐 Проверяю FCA...")
+        print("🌐 Проверяю FCA...")
         results["FCA"] = check_fca_register(args.broker)
         if results["FCA"].get("found_keywords"):
             print(f"  ✓ FCA: возможно найден '{args.broker}'")
         else:
-            print(f"  ❌ FCA: не найдено явных упоминаний")
+            print("  ❌ FCA: не найдено явных упоминаний")
 
     print_report(args.broker, results, args.open)
     return 0

@@ -66,7 +66,7 @@ def chart_real_ema():
     plt.tight_layout()
     plt.savefig(OUT / "ema-real.png", dpi=130)
     plt.close()
-    print(f"  ✓ ema-real.png")
+    print("  ✓ ema-real.png")
 
 
 # --- 2. Real RSI chart ---
@@ -105,7 +105,7 @@ def chart_real_rsi():
     plt.tight_layout()
     plt.savefig(OUT / "rsi-real.png", dpi=130)
     plt.close()
-    print(f"  ✓ rsi-real.png")
+    print("  ✓ rsi-real.png")
 
 
 # --- 3. Real Bollinger ---
@@ -131,7 +131,7 @@ def chart_real_bollinger():
     plt.tight_layout()
     plt.savefig(OUT / "bollinger-real.png", dpi=130)
     plt.close()
-    print(f"  ✓ bollinger-real.png")
+    print("  ✓ bollinger-real.png")
 
 
 # --- 4. Real MACD ---
@@ -162,14 +162,14 @@ def chart_real_macd():
     plt.tight_layout()
     plt.savefig(OUT / "macd-real.png", dpi=130)
     plt.close()
-    print(f"  ✓ macd-real.png")
+    print("  ✓ macd-real.png")
 
 
 # --- 5. Real Equity curves on multi-pair backtest ---
 def chart_real_equity():
     """Сводный график equity curves по всем парам из multi-pair бэктеста."""
     sys.path.insert(0, str(ROOT / "advanced"))
-    from multi_pair_backtest import PAIRS, run_pair, load as load_pair
+    from multi_pair_backtest import PAIRS, load as load_pair
 
     fig, ax = plt.subplots(figsize=(13, 7))
     colors = ["#1e40af", "#10b981", "#f59e0b", "#ef4444",
@@ -205,7 +205,7 @@ def chart_real_equity():
     plt.tight_layout()
     plt.savefig(OUT / "equity-multi-pair-real.png", dpi=130)
     plt.close()
-    print(f"  ✓ equity-multi-pair-real.png")
+    print("  ✓ equity-multi-pair-real.png")
 
 
 # --- 6. Strategy example on REAL data with real entry ---
@@ -267,11 +267,11 @@ def chart_real_strategy_example():
     plt.tight_layout()
     plt.savefig(OUT / "strategy-real.png", dpi=130)
     plt.close()
-    print(f"  ✓ strategy-real.png")
+    print("  ✓ strategy-real.png")
 
 
 if __name__ == "__main__":
-    print(f"Перерисовка ключевых графиков на РЕАЛЬНЫХ данных EUR/USD\n")
+    print("Перерисовка ключевых графиков на РЕАЛЬНЫХ данных EUR/USD\n")
     chart_real_ema()
     chart_real_rsi()
     chart_real_bollinger()

@@ -143,6 +143,13 @@ extend-exclude = [".venv", "site", "dist", "_mkdocs", "материал"]
 # постепенно: `ruff check --fix . && ruff format .`.
 select = ["E", "F"]
 
+[tool.ruff.lint.per-file-ignores]
+# tools/ и hooks/ — скрипты и генераторы (print/HTML-шаблоны/формулы), где
+# длинные строки читаемее переноса. Логические правила (F*, E741) держим
+# строго и в CI (job lint), а длину строки (E501) здесь не требуем.
+"tools/**" = ["E501"]
+"hooks/**" = ["E501"]
+
 [tool.mypy]
 files = ["forex_toolkit"]
 ignore_missing_imports = true
