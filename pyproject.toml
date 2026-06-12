@@ -10,7 +10,10 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-    { name = "forex-trading project" },
+    { name = "Mukhammad Amir Akbarov" },
+]
+maintainers = [
+    { name = "Mukhammad Amir Akbarov" },
 ]
 keywords = ["forex", "trading", "backtest", "education", "finance"]
 classifiers = [
@@ -18,7 +21,10 @@ classifiers = [
     "Intended Audience :: Education",
     "Intended Audience :: Financial and Insurance Industry",
     "License :: OSI Approved :: MIT License",
+    "Natural Language :: Russian",
+    "Natural Language :: English",
     "Operating System :: OS Independent",
+    "Typing :: Typed",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -88,6 +94,22 @@ packages = ["forex_toolkit"]
 # backtest импортирует strategy как соседний модуль — кладём рядом.
 "bot/backtest.py" = "forex_toolkit/_tools/backtest.py"
 "bot/strategy.py" = "forex_toolkit/_tools/strategy.py"
+# PEP 561: маркер типизации — чтобы mypy/IDE у потребителей видели тайпинги.
+"forex_toolkit/py.typed" = "forex_toolkit/py.typed"
+
+[tool.hatch.build.targets.sdist]
+# В sdist кладём пакет + исходники CLI-скриптов (tools/, bot/), тесты и лицензии,
+# чтобы из исходника можно было собрать тот же wheel (force-include читает tools/).
+include = [
+    "/forex_toolkit",
+    "/tools",
+    "/bot",
+    "/tests",
+    "/README.md",
+    "/LICENSE",
+    "/LICENSE-CONTENT.md",
+    "/pyproject.toml",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

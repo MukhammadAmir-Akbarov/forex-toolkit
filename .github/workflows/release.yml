@@ -6,7 +6,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write   # создать GitHub Release
+  id-token: write   # OIDC для PyPI Trusted Publisher (без секретов/токенов)
 
 jobs:
   release:
@@ -29,8 +30,8 @@ jobs:
       - name: Run tests (гейт — не публикуем сломанный релиз)
         run: pytest -q
 
-      - name: Build wheel
-        run: python -m build --wheel
+      - name: Build wheel + sdist
+        run: python -m build
 
       - name: Build PDF and DOCX handbooks (из _mkdocs/)
         run: |
@@ -39,6 +40,10 @@ jobs:
           # имя под ссылку для скачивания в документации
           cp -f "forex-guide-полный.docx" "forex-guide-rus.docx"
 
+      - name: Publish to PyPI (Trusted Publisher / OIDC)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: pypa/gh-action-pypi-publish@release/v1
+
       - name: Publish GitHub Release with assets
         if: startsWith(github.ref, 'refs/tags/')
         env:
@@ -46,6 +51,7 @@ jobs:
         run: |
           gh release create "${{ github.ref_name }}" \
             dist/*.whl \
+            dist/*.tar.gz \
             forex-handbook.pdf \
             forex-guide-rus.docx \
             --title "${{ github.ref_name }}" \
