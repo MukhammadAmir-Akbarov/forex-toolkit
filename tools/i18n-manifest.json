@@ -372,6 +372,13 @@
       },
       "ru_sha256": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee"
     },
+    "tools/exam.md": {
+      "locales": {
+        "en": "e03ff409bb3f3c538a13e128b4cca07bc62dbede5a755f8f5ff7599cba725c68",
+        "uz": "e03ff409bb3f3c538a13e128b4cca07bc62dbede5a755f8f5ff7599cba725c68"
+      },
+      "ru_sha256": "e03ff409bb3f3c538a13e128b4cca07bc62dbede5a755f8f5ff7599cba725c68"
+    },
     "tools/flashcards.md": {
       "locales": {
         "en": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971",
