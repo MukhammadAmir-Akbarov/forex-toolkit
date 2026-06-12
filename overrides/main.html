@@ -20,3 +20,9 @@
     async src="//gc.zgo.at/count.js"></script>
   {% endif %}
 {% endblock %}
+
+{#-
+  Комментарии giscus подключаются через overrides/partials/comments.html —
+  Material включает этот партиал в конце страницы автоматически. Здесь ничего
+  делать не нужно; партиал сам проверяет наличие config.extra.giscus.
+-#}
