@@ -7,6 +7,10 @@
 
 from __future__ import annotations
 
+import re
+
+import pytest
+
 from compound_calculator import project_growth
 from margin_calculator import margin_required
 
@@ -18,6 +22,21 @@ def money(text: str) -> float:
     """Распарсить '$2 032,79' (ru-RU) → 2032.79."""
     t = text.replace("$", "").replace(NBSP, "").replace(" ", "").replace(",", ".")
     return float(t)
+
+
+def money_any(text: str) -> float:
+    """Распарсить денежную строку в любой локали (ru-RU/en-US/uz-UZ).
+
+    Последний разделитель ('.' или ',') считаем десятичным, остальные —
+    разрядными. Покрывает '$1,234.56' (en), '$1 234,56' (ru/uz), '$36.00'.
+    """
+    t = text.replace("$", "").replace(NBSP, "").replace(" ", "")
+    t = t.replace(" ", "").strip()
+    dec = max(t.rfind(","), t.rfind("."))
+    if dec == -1:
+        return float(t)
+    intpart = re.sub(r"[.,]", "", t[:dec])
+    return float(intpart + "." + t[dec + 1 :])
 
 
 def _fill(page, selector: str, value: str) -> None:
@@ -89,3 +108,28 @@ def test_compound_calculator(pw_page, site_url):
         assert abs(got - expected) < 0.01, (
             f"compound {initial=} {roi=} {months=} {dep=}: JS={got} Python={expected}"
         )
+
+
+# ───────────────── Cross-locale (общий JS виджетов, I2) ─────────────────
+# Виджеты переведены на общий JS из _mkdocs/javascripts/widgets/*.js, где локаль
+# берётся из <html lang>. Проверяем, что вынесенный скрипт активируется на EN/UZ
+# страницах (другой путь, другой lang) и считает ту же математику, что Python.
+
+
+@pytest.mark.parametrize("prefix", ["en", "uz"])
+def test_margin_calculator_locales(pw_page, site_url, prefix):
+    page = pw_page
+    page.goto(f"{site_url}/{prefix}/tools/margin-calculator/")
+    deposit, lots, price, lev, lot_type, contract = (1000, 0.1, 1.0800, 30, "standard", 100_000)
+    _fill(page, "#mc-deposit", deposit)
+    _fill(page, "#mc-lots", lots)
+    _fill(page, "#mc-price", price)
+    page.select_option("#mc-leverage", str(lev))
+    page.select_option("#mc-type", lot_type)
+    page.click("#mc-calc-btn")
+
+    expected = margin_required(lots, price, lev, contract)
+    got = money_any(_read(page, "#mc-out-margin"))
+    assert abs(got - expected) < 0.01, (
+        f"[{prefix}] margin: JS={got} Python={expected}"
+    )
