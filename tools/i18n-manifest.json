@@ -353,10 +353,17 @@
     },
     "tools/compound-calculator.md": {
       "locales": {
-        "en": "3d6ef16f6047df8b7d14f86e6d5cb071553d978f072dccc2c53add380dfbfaba",
-        "uz": "3d6ef16f6047df8b7d14f86e6d5cb071553d978f072dccc2c53add380dfbfaba"
+        "en": "96ad85e06cf0f0d0c81ef8ec57b3ebed5e9b74c7923b9d0e1589c1be1d9f2533",
+        "uz": "96ad85e06cf0f0d0c81ef8ec57b3ebed5e9b74c7923b9d0e1589c1be1d9f2533"
       },
-      "ru_sha256": "3d6ef16f6047df8b7d14f86e6d5cb071553d978f072dccc2c53add380dfbfaba"
+      "ru_sha256": "96ad85e06cf0f0d0c81ef8ec57b3ebed5e9b74c7923b9d0e1589c1be1d9f2533"
+    },
+    "tools/cost-calculator.md": {
+      "locales": {
+        "en": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee",
+        "uz": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee"
+      },
+      "ru_sha256": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee"
     },
     "tools/flashcards.md": {
       "locales": {
@@ -367,24 +374,24 @@
     },
     "tools/margin-calculator.md": {
       "locales": {
-        "en": "5dc92cc16ce182be4f30fa06bf9b8bc4492aa61c3b3648a7187180e13d0c615d",
-        "uz": "5dc92cc16ce182be4f30fa06bf9b8bc4492aa61c3b3648a7187180e13d0c615d"
+        "en": "ea4adca897ed3ea3326d76d5d90624d246151cb44eeff2c36ce5aaff4906aabb",
+        "uz": "ea4adca897ed3ea3326d76d5d90624d246151cb44eeff2c36ce5aaff4906aabb"
       },
-      "ru_sha256": "5dc92cc16ce182be4f30fa06bf9b8bc4492aa61c3b3648a7187180e13d0c615d"
+      "ru_sha256": "ea4adca897ed3ea3326d76d5d90624d246151cb44eeff2c36ce5aaff4906aabb"
     },
     "tools/pip-calculator.md": {
       "locales": {
-        "en": "0445fa2e05980562be39df8a9e8b478c7773bd74d0e0341ad25f062300128565",
-        "uz": "0445fa2e05980562be39df8a9e8b478c7773bd74d0e0341ad25f062300128565"
+        "en": "e443f04a833573b1d06c6d4b5b1027a00d05203f7de179e74f7610bcfa5ac471",
+        "uz": "e443f04a833573b1d06c6d4b5b1027a00d05203f7de179e74f7610bcfa5ac471"
       },
-      "ru_sha256": "0445fa2e05980562be39df8a9e8b478c7773bd74d0e0341ad25f062300128565"
+      "ru_sha256": "e443f04a833573b1d06c6d4b5b1027a00d05203f7de179e74f7610bcfa5ac471"
     },
     "tools/position-calculator.md": {
       "locales": {
-        "en": "52f7551a96cfbd5384ee3275b59966f1089f6116fd870bd264fb7723885170e2",
-        "uz": "52f7551a96cfbd5384ee3275b59966f1089f6116fd870bd264fb7723885170e2"
+        "en": "308fdc8ac8be5f8afffe968808f6dd1d3747abb024243216cc75a3b97bdeb644",
+        "uz": "308fdc8ac8be5f8afffe968808f6dd1d3747abb024243216cc75a3b97bdeb644"
       },
-      "ru_sha256": "52f7551a96cfbd5384ee3275b59966f1089f6116fd870bd264fb7723885170e2"
+      "ru_sha256": "308fdc8ac8be5f8afffe968808f6dd1d3747abb024243216cc75a3b97bdeb644"
     },
     "tools/quiz.md": {
       "locales": {
@@ -409,10 +416,10 @@
     },
     "tools/winrate-rr-calculator.md": {
       "locales": {
-        "en": "c7a008689f4a2f331c9e5b603b4cbe372f2e189cfff430f0addc54b1d9716f89",
-        "uz": "c7a008689f4a2f331c9e5b603b4cbe372f2e189cfff430f0addc54b1d9716f89"
+        "en": "d068337dbc3bbae79960ff6ee247febab7fb27121f1688956e3ec070680a0d54",
+        "uz": "d068337dbc3bbae79960ff6ee247febab7fb27121f1688956e3ec070680a0d54"
       },
-      "ru_sha256": "c7a008689f4a2f331c9e5b603b4cbe372f2e189cfff430f0addc54b1d9716f89"
+      "ru_sha256": "d068337dbc3bbae79960ff6ee247febab7fb27121f1688956e3ec070680a0d54"
     },
     "uz/brokers-uz.md": {
       "locales": {

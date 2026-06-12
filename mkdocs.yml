@@ -26,10 +26,18 @@ extra_javascript:
   - javascripts/progress.js
   # Переключатель письма лотин ⇄ кирилл — активен только на узбекской локали.
   - javascripts/translit.js
-  # Replay Trainer (I9) — загружается только там, где есть #replay-widget.
-  - javascripts/widgets/replay.js
-  # Подсказка «☰ — открой меню» при первом визите на мобильном.
-  - javascripts/mobile-menu-hint.js
+  # Виджеты-калькуляторы: общая логика, локаль берётся из <html lang>.
+  # _i18n.js ОБЯЗАТЕЛЬНО первым — он определяет window.FXW. Каждый виджет
+  # сам проверяет наличие своего контейнера и активируется только на своей
+  # странице, поэтому загружать их глобально безопасно.
+  - javascripts/widgets/_i18n.js
+  - javascripts/widgets/margin.js
+  - javascripts/widgets/compound.js
+  - javascripts/widgets/pip.js
+  - javascripts/widgets/position.js
+  - javascripts/widgets/winrate.js
+  - javascripts/widgets/tax.js
+  - javascripts/widgets/cost.js
 
 plugins:
   - search
@@ -110,6 +118,7 @@ plugins:
             "💲 Калькулятор пипса": "💲 Pip calculator"
             "📈 Сложный процент": "📈 Compound interest"
             "📊 WinRate × RR": "📊 WinRate × RR"
+            "💸 Стоимость торговли": "💸 Trading cost"
             "🎴 Тренажёр карточек": "🎴 Flashcards"
             "🎯 Квиз — готов к реалу?": "🎯 Quiz — ready for real?"
             "🎲 Риск разорения": "🎲 Risk of ruin"
@@ -188,6 +197,7 @@ plugins:
             "💲 Калькулятор пипса": "💲 Pip kalkulyatori"
             "📈 Сложный процент": "📈 Murakkab foiz"
             "📊 WinRate × RR": "📊 WinRate × RR"
+            "💸 Стоимость торговли": "💸 Savdo xarajati"
             "🎴 Тренажёр карточек": "🎴 Kartochka mashqi"
             "🎯 Квиз — готов к реалу?": "🎯 Kviz — real hisobga tayyormisan?"
             "🎲 Риск разорения": "🎲 Vayron bo'lish xavfi"
@@ -336,6 +346,7 @@ nav:
       - 💲 Калькулятор пипса: tools/pip-calculator.md
       - 📈 Сложный процент: tools/compound-calculator.md
       - 📊 WinRate × RR: tools/winrate-rr-calculator.md
+      - 💸 Стоимость торговли: tools/cost-calculator.md
       - 🎴 Тренажёр карточек: tools/flashcards.md
       - "🎯 Квиз — готов к реалу?": tools/quiz.md
       - 🎲 Риск разорения: tools/risk-of-ruin.md

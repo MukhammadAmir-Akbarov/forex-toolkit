@@ -34,82 +34,12 @@
   <span>%</span>
 </div>
 
-<button class="calc-button" onclick="calcWRRR()">Рассчитать</button>
+<button class="calc-button" id="wr-calc-btn">Рассчитать</button>
 
 <div id="wr-result" class="calc-result"></div>
 
 </div>
 
-<script>
-function calcWRRR() {
-  const wr = parseFloat(document.getElementById('wr-input').value) / 100;
-  const rr = parseFloat(document.getElementById('rr-input').value);
-  const trades = parseInt(document.getElementById('trades-input').value);
-  const risk = parseFloat(document.getElementById('risk-input').value);
-
-  if (!wr || !rr || !trades || !risk) {
-    document.getElementById('wr-result').innerHTML = '<div class="calc-warn">Заполни все поля</div>';
-    return;
-  }
-
-  const wins = Math.round(trades * wr);
-  const losses = trades - wins;
-  const winPnL = wins * rr * risk;
-  const lossPnL = losses * risk;
-  const netPnL = winPnL - lossPnL;
-
-  // Expected value per trade
-  const ev = (wr * rr - (1 - wr)) * risk;
-  const evSign = ev >= 0 ? '+' : '';
-
-  // Required RR for breakeven at this WR
-  const requiredRR = (1 - wr) / wr;
-
-  // Status
-  let status, statusClass;
-  if (ev > 0.5) {
-    status = '✅ Сильная стратегия — стабильный плюс';
-    statusClass = 'calc-ok';
-  } else if (ev > 0.1) {
-    status = '🟡 Стратегия в плюсе, но плюс слабый';
-    statusClass = 'calc-warn';
-  } else if (ev > -0.1) {
-    status = '🟠 Стратегия на грани — близко к нулю';
-    statusClass = 'calc-warn';
-  } else {
-    status = '🔴 Стратегия УБЫТОЧНА по математике';
-    statusClass = 'calc-error';
-  }
-
-  const html = `
-    <div class="${statusClass}">
-      <h4>${status}</h4>
-
-      <table class="calc-table">
-        <tr><td><strong>Прибыльных сделок</strong></td><td>${wins} (${(wr*100).toFixed(0)}%)</td></tr>
-        <tr><td><strong>Убыточных сделок</strong></td><td>${losses} (${((1-wr)*100).toFixed(0)}%)</td></tr>
-        <tr><td><strong>Прибыль с побед</strong></td><td>+${winPnL.toFixed(2)}% депозита</td></tr>
-        <tr><td><strong>Убыток с поражений</strong></td><td>-${lossPnL.toFixed(2)}% депозита</td></tr>
-        <tr><td><strong>Итог за ${trades} сделок</strong></td><td><strong>${netPnL >= 0 ? '+' : ''}${netPnL.toFixed(2)}% депозита</strong></td></tr>
-        <tr><td><strong>EV (на 1 сделку)</strong></td><td>${evSign}${ev.toFixed(3)}% депозита</td></tr>
-        <tr><td><strong>Минимальный RR для безубытка</strong></td><td>${requiredRR.toFixed(2)}</td></tr>
-      </table>
-
-      <p><strong>Расшифровка:</strong></p>
-      <ul>
-        <li>EV (Expected Value) = математическое ожидание одной сделки</li>
-        <li>Если EV > 0 — стратегия в долгосроке прибыльна</li>
-        <li>Если EV < 0 — даже миллион сделок не спасут</li>
-        <li>При твоём WR <strong>${(wr*100).toFixed(0)}%</strong> минимальный RR для нуля = <strong>${requiredRR.toFixed(2)}</strong>. Ты используешь RR=<strong>${rr.toFixed(1)}</strong>, что ${rr > requiredRR ? '✅ ВЫШЕ' : '❌ НИЖЕ'} требуемого.</li>
-      </ul>
-    </div>
-  `;
-
-  document.getElementById('wr-result').innerHTML = html;
-}
-
-window.addEventListener('DOMContentLoaded', calcWRRR);
-</script>
 
 ---
 
