@@ -365,6 +365,13 @@
       },
       "ru_sha256": "fe90e3463b6e458f56423bdbeb397a2e98786500009d7e6d11e7b23e84da763f"
     },
+    "tools/replay-trainer.md": {
+      "locales": {
+        "en": "272fdb3b299fb45ba30a9630bc90cba1f75974c4b6de928cd6903ca3d740fbc5",
+        "uz": "272fdb3b299fb45ba30a9630bc90cba1f75974c4b6de928cd6903ca3d740fbc5"
+      },
+      "ru_sha256": "272fdb3b299fb45ba30a9630bc90cba1f75974c4b6de928cd6903ca3d740fbc5"
+    },
     "tools/risk-of-ruin.md": {
       "locales": {
         "en": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e",
