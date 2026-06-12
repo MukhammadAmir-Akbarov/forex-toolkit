@@ -259,3 +259,88 @@
 
 .calc-error { border-left-color: #dc2626; }
 .calc-error h4 { color: #dc2626; }
+
+/* ==========================================================================
+   Итоговый экзамен + сертификат (widgets/exam.js)
+   ========================================================================== */
+.exam-name-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: 600;
+  gap: 0.3rem;
+  margin: 0.8rem 0 1rem;
+}
+.exam-name-label input {
+  padding: 0.55rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-family: inherit;
+}
+.exam-best { font-weight: 600; color: var(--md-default-fg-color--light); }
+.exam-progress {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 0.4rem;
+}
+.exam-bar-track {
+  height: 6px;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+.exam-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--md-primary-fg-color);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+.exam-question { margin: 0.4rem 0 1rem; font-size: 1.15rem; }
+.exam-options { display: flex; flex-direction: column; gap: 0.5rem; }
+.exam-option {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 8px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.exam-option:hover:not(:disabled) { border-color: var(--md-primary-fg-color); }
+.exam-option:disabled { cursor: default; }
+.exam-option.exam-correct {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: #22c55e;
+  font-weight: 600;
+}
+.exam-option.exam-wrong {
+  background: rgba(220, 38, 38, 0.12);
+  border-color: #dc2626;
+}
+.exam-explain {
+  margin-top: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.9rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid #3b82f6;
+  border-radius: 6px;
+}
+#exam-cert-wrap { margin-top: 1.2rem; text-align: center; }
+#exam-cert {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  margin-bottom: 0.8rem;
+}
