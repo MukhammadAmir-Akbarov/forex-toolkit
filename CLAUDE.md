@@ -32,6 +32,7 @@ python -m venv .venv && .venv/bin/pip install -e ".[dev]"
 .venv/bin/python tools/check_docs_sync.py              # дубли доков
 .venv/bin/python tools/check_translation_coverage.py  # наличие переводов
 .venv/bin/python tools/check_translation_drift.py      # свежесть переводов (дрейф)
+.venv/bin/python tools/check_links.py --build          # внутренние #якоря (по site/)
 # или просто: /forex-check
 ```
 

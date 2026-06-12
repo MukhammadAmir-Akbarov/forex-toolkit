@@ -152,12 +152,22 @@
     return nodes;
   }
 
-  function applyCyrillic() {
-    var article = document.querySelector(".md-content");
-    if (!article) return;
-    if (converted.length) return; // уже применено
-    var nodes = collectTextNodes(article);
-    for (var i = 0; i < nodes.length; i++) {
+  // Поколение применения: на больших страницах конверсия идёт чанками через
+  // requestIdleCallback; если пользователь переключил обратно или сменил
+  // страницу, увеличиваем счётчик — незавершённые чанки прекращают работу.
+  var applyGen = 0;
+  var CHUNK = 400; // узлов за один проход (≈ страница >50 КБ обходится лениво)
+
+  function schedule(fn) {
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(fn, { timeout: 200 });
+    } else {
+      window.setTimeout(fn, 0);
+    }
+  }
+
+  function convertRange(nodes, start, end) {
+    for (var i = start; i < end; i++) {
       var node = nodes[i];
       var latn = node.nodeValue;
       var cyr = toCyrillic(latn);
@@ -168,7 +178,28 @@
     }
   }
 
+  function applyCyrillic() {
+    var article = document.querySelector(".md-content");
+    if (!article) return;
+    if (converted.length) return; // уже применено
+    var nodes = collectTextNodes(article);
+    if (nodes.length <= CHUNK) {
+      convertRange(nodes, 0, nodes.length); // маленькая страница — сразу
+      return;
+    }
+    var gen = ++applyGen; // большая — лениво, чанками
+    var i = 0;
+    (function step() {
+      if (gen !== applyGen) return; // отменено
+      var end = Math.min(i + CHUNK, nodes.length);
+      convertRange(nodes, i, end);
+      i = end;
+      if (i < nodes.length) schedule(step);
+    })();
+  }
+
   function restoreLatin() {
+    applyGen++; // отменяем незавершённую ленивую конверсию, если она идёт
     for (var i = 0; i < converted.length; i++) {
       converted[i].node.nodeValue = converted[i].latn;
     }
@@ -201,9 +232,13 @@
     toggleEl.className = "fx-script-toggle fx-no-translit";
     toggleEl.setAttribute("role", "group");
     toggleEl.setAttribute("aria-label", "Yozuv: lotin yoki kirill");
+    // Подсказка: это машинная транслитерация, а не выверенная орфография.
+    var hint = "Avtomatik transliteratsiya — rasmiy imlo emas";
+    toggleEl.setAttribute("title", hint);
     toggleEl.innerHTML =
       '<button type="button" data-mode="latn">Lotin</button>' +
-      '<button type="button" data-mode="cyrl">Кирил</button>';
+      '<button type="button" data-mode="cyrl">Кирил</button>' +
+      '<span class="fx-script-hint" aria-hidden="true" title="' + hint + '">ⓘ</span>';
     toggleEl.addEventListener("click", function (ev) {
       var btn = ev.target.closest("button[data-mode]");
       if (!btn) return;
