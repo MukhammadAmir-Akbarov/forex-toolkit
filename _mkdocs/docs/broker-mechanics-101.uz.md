@@ -20,8 +20,8 @@
 4. [Spred: Qat'iy va suzuvchi](#4-spred-qatiy-va-suzuvchi)
 5. [Svop — pozitsiyani kechasi ushlab turishning narxi](#5-svop--pozitsiyani-kechasi-ushlab-turishning-narxi)
 6. [Marja va Margin Call: mexanika](#6-marja-va-margin-call-mexanika)
-7. [Haqiqiy manfaatlar to'qnashuvi](#7-haqiqiy-manfaatlar-tonashuvi)
-8. [Broker qanday tanlash: ob'ektiv mezonlar](#8-broker-qanday-tanlash-obyektiv-mezonlar)
+7. [Haqiqiy manfaatlar to'qnashuvi](#7-haqiqiy-manfaatlar-toqnashuvi)
+8. [Broker qanday tanlash: ob'ektiv mezonlar](#8-broker-qanday-tanlash-obektiv-mezonlar)
 
 ---
 

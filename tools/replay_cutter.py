@@ -31,7 +31,7 @@ def load_csv(pair: str, tf: str) -> list[dict]:
         sys.exit(f"❌ Файл не найден: {path}")
     rows = []
     with path.open(encoding="utf-8") as f:
-        header = f.readline().strip().split(",")
+        f.readline()  # skip header row
         for line in f:
             parts = line.strip().split(",")
             if len(parts) < 5:
@@ -92,7 +92,6 @@ def cut_episodes(
     step: int = STEP,
 ) -> list[dict]:
     total = len(candles)
-    min_len = context + outcome
     episodes = []
     seen_cats: dict[str, int] = {}
 
@@ -125,7 +124,6 @@ def cut_episodes(
     # Обрезаем до нужного количества, выравниваем категории
     episodes.sort(key=lambda e: e["category"])
     selected: list[dict] = []
-    cats = ["uptrend", "downtrend", "sideways"]
     per_cat = n_episodes // 3
     cat_counts: dict[str, int] = {}
     for ep in episodes:
