@@ -197,12 +197,12 @@ html { scroll-behavior: smooth; }
 .md-tabs__list::-webkit-scrollbar { display: none; }  /* WebKit */
 
 .md-tabs__item {
-  padding: 0 0.4rem;
+  padding: 0 0.45rem;
   white-space: nowrap;
 }
 .md-tabs__link {
-  font-size: 0.62rem;
-  letter-spacing: -0.005em;
+  font-size: 0.68rem;
+  letter-spacing: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -488,6 +488,142 @@ button:focus-visible,
   .md-typeset h2 { font-size: 1.3rem; }
   .fx-hero__subtitle { font-size: 0.95rem; }
   .fx-progress { flex-direction: column; align-items: stretch; }
+}
+
+/* --------------------------------------------------------------------------
+   19. Mobile UX — навигация и касания для телефонов/планшетов
+   -------------------------------------------------------------------------- */
+
+/* ── A. Минимальная зона касания 44×44 px (Apple/Google HIG) ── */
+@media (hover: none) and (pointer: coarse) {
+  /* Кнопки шапки: гамбургер, поиск, цветовая схема */
+  .md-header__button {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+  label[for="__drawer"],
+  label[for="__search"] {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Пункты навигации в ящике */
+  .md-nav__link {
+    min-height: 2.75rem;
+    font-size: 0.9rem;
+    padding: 0.55rem 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+  .md-nav__title {
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+
+  /* Ссылки в контенте — удобно тапать */
+  .md-typeset a {
+    padding: 0.05em 0;
+  }
+}
+
+/* ── B. Пульсирующая точка-подсказка «открой меню» при первом визите ── */
+label[for="__drawer"].fx-menu-hint::after {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  right: 0.3rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--fx-accent);
+  box-shadow: 0 0 0 0 var(--fx-glow);
+  animation: fx-menu-pulse 1.8s ease-in-out 5;
+  pointer-events: none;
+  z-index: 10;
+}
+@keyframes fx-menu-pulse {
+  0%   { box-shadow: 0 0 0 0   var(--fx-glow); transform: scale(1); }
+  50%  { box-shadow: 0 0 0 8px transparent;    transform: scale(1.1); }
+  100% { box-shadow: 0 0 0 0   transparent;    transform: scale(1); }
+}
+
+/* ── C. Навигационный ящик (drawer) на мобильных ── */
+@media screen and (max-width: 76.1875em) {
+  /* Глубокий фон ящика в тёмной теме */
+  [data-md-color-scheme="slate"] .md-sidebar--primary .md-sidebar__scrollwrap {
+    background: #0d1117;
+  }
+
+  /* Заголовок ящика — фирменный шрифт */
+  .md-nav--primary .md-nav__title {
+    font-family: var(--fx-font-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    background: linear-gradient(120deg, var(--fx-accent), var(--fx-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Разделители между секциями верхнего уровня */
+  .md-nav--primary > .md-nav__list > .md-nav__item {
+    border-bottom: 1px solid var(--fx-border);
+  }
+  .md-nav--primary > .md-nav__list > .md-nav__item:last-child {
+    border-bottom: none;
+  }
+
+  /* Вкладки (tabs) на мобильных скрыты Material'ом — не показываем вообще,
+     вся навигация работает через ящик слева. */
+}
+
+/* ── D. Контент на маленьких экранах (≤ 480 px) ── */
+@media screen and (max-width: 30em) {
+  /* Чуть меньше боковые отступы */
+  .md-content__inner {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
+
+  /* Код — немного меньше шрифт, чтобы не обрезался */
+  .md-typeset pre > code {
+    font-size: 0.73em;
+  }
+
+  /* Блоки-предупреждения — компактнее */
+  .md-typeset .admonition,
+  .md-typeset details {
+    font-size: 0.8rem;
+  }
+
+  /* Кнопки — на всю ширину, удобнее тапать */
+  .md-typeset .md-button {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Заголовок сайта — помещается в одну строку */
+  .md-header__title { font-size: 0.85rem; }
+}
+
+/* ── E. Таблицы на мобильных — горизонтальный скролл ── */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .md-typeset__scrollwrap {
+    border-radius: var(--fx-radius);
+    background: var(--fx-surface);
+  }
+  .md-typeset .md-typeset__table {
+    width: max-content;
+    min-width: 100%;
+  }
 }
 
 /* --------------------------------------------------------------------------
