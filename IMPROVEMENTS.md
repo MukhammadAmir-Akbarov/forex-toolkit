@@ -83,8 +83,13 @@ CI-гейт покрытия переводов · UZ handbook PDF · dual-licen
 
 ## Tier 2 — Вовлечение и обратная связь
 
-### I7. Комментарии giscus · P1 · S · maint: low
+### I7. Комментарии giscus · P1 · S · maint: low ✅ СДЕЛАНО (нужен 1 клик владельца)
 **Зачем.** Аналитика считает *сколько*, но `MAINTAINER-30D` требует «0 фич без запроса пользователей» — а канала *что думают* нет. giscus поверх GitHub Discussions, без бэкенда, спам отсекается GH-аккаунтами. Официально поддержан mkdocs-material.
+✅ Discussions включены; `overrides/partials/comments.html` + `extra.giscus` в
+`mkdocs.yml` (repo-id/category-id получены через GitHub API, категория Announcements);
+синхронизация темы giscus с палитрой Material; mapping=pathname (своя ветка на
+страницу/локаль). ⬜ Владельцу — один раз установить giscus app
+(github.com/apps/giscus → forex-toolkit), иначе виджет покажет «not installed».
 
 ### I8. Активировать GoatCounter · P1 · S (10 мин) · maint: none
 **Факт.** Вшит в `overrides/main.html`, включается раскомментированием `extra.goatcounter` в `mkdocs.yml`. Без cookie-баннера. Закрывает «замеряй метрики». Не меряет события виджетов — при желании добавить кастомные события (translit toggle, клики калькуляторов).

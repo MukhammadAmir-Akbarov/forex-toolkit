@@ -345,6 +345,20 @@ extra:
   # ТОЛЬКО когда здесь задан endpoint. Заведи бесплатный аккаунт на goatcounter.com
   # и раскомментируй строку ниже со своим кодом:
   # goatcounter: https://ВАШ-КОД.goatcounter.com/count
+
+  # Комментарии giscus (поверх GitHub Discussions, без бэкенда и без cookie).
+  # Рендерятся внизу страниц из overrides/partials/comments.html, когда задан
+  # этот блок. ID получены через GitHub API для репозитория forex-toolkit.
+  # ⚠️ Чтобы комментарии РАБОТАЛИ, владелец репо должен один раз установить
+  # giscus app: https://github.com/apps/giscus → Install → выбрать forex-toolkit.
+  # До установки виджет покажет «giscus is not installed». Чтобы выключить
+  # комментарии — закомментируй весь блок giscus ниже.
+  giscus:
+    repo: MukhammadAmir-Akbarov/forex-toolkit
+    repo_id: R_kgDOSi9ouA
+    category: Announcements
+    category_id: DIC_kwDOSi9ouM4C9qBu
+
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/MukhammadAmir-Akbarov/forex-toolkit
