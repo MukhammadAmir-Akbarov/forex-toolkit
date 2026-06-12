@@ -13,6 +13,7 @@ import pytest
 
 from compound_calculator import project_growth
 from margin_calculator import margin_required
+from position_calculator import calculate_position
 
 # RU-локаль форматирует деньги как "$2 032,79" (nbsp-разряды, запятая-десятичная).
 NBSP = " "
@@ -114,6 +115,37 @@ def test_compound_calculator(pw_page, site_url):
 # Виджеты переведены на общий JS из _mkdocs/javascripts/widgets/*.js, где локаль
 # берётся из <html lang>. Проверяем, что вынесенный скрипт активируется на EN/UZ
 # страницах (другой путь, другой lang) и считает ту же математику, что Python.
+
+
+# ──────────────────────── Position ────────────────────────
+
+POSITION_CASES = [
+    # (balance, risk%, stop_pips, pair) — EURUSD: статичный pip $10, live не влияет
+    (1000, 1, 20, "EURUSD"),
+    (500, 2, 50, "EURUSD"),
+    (2000, 0.5, 30, "EURUSD"),
+    (1000, 3, 15, "EURUSD"),
+]
+
+
+def test_position_calculator(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/tools/position-calculator/")
+    # Выключаем live-курс — детерминизм без сетевых запросов (EURUSD статичен в любом случае).
+    if page.is_checked("#pc-live"):
+        page.uncheck("#pc-live")
+    for balance, risk, stop, pair in POSITION_CASES:
+        _fill(page, "#pc-balance", balance)
+        _fill(page, "#pc-risk", risk)
+        _fill(page, "#pc-stop", stop)
+        page.select_option("#pc-pair", pair)
+        page.click("#pc-calc-btn")
+
+        expected = calculate_position(balance, risk, stop, pair).lots_rounded
+        got = float(_read(page, "#pc-out-lots-rounded"))
+        assert abs(got - expected) < 1e-9, (
+            f"position {balance=} {risk=} {stop=} {pair=}: JS={got} Python={expected}"
+        )
 
 
 @pytest.mark.parametrize("prefix", ["en", "uz"])

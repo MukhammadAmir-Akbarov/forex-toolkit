@@ -27,13 +27,14 @@ window.FXW = (function () {
       return tables[lang] || tables.ru;
     },
 
-    // "$1,234.56" в локализованном формате разрядов.
-    money: function (v) {
+    // "$1,234.56" в локализованном формате разрядов. maxFrac по умолчанию 2
+    // (большинство калькуляторов); pip-калькулятор передаёт 4.
+    money: function (v, maxFrac) {
       return (
         "$" +
         Number(v).toLocaleString(numLocale, {
           minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
+          maximumFractionDigits: maxFrac == null ? 2 : maxFrac,
         })
       );
     },

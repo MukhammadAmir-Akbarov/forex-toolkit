@@ -32,6 +32,9 @@ extra_javascript:
   # странице, поэтому загружать их глобально безопасно.
   - javascripts/widgets/_i18n.js
   - javascripts/widgets/margin.js
+  - javascripts/widgets/compound.js
+  - javascripts/widgets/pip.js
+  - javascripts/widgets/position.js
 
 plugins:
   - search
