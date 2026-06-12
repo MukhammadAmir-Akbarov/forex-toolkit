@@ -34,82 +34,12 @@
   <span>%</span>
 </div>
 
-<button class="calc-button" onclick="calcWRRR()">Hisoblash</button>
+<button class="calc-button" id="wr-calc-btn">Hisoblash</button>
 
 <div id="wr-result" class="calc-result"></div>
 
 </div>
 
-<script>
-function calcWRRR() {
-  const wr = parseFloat(document.getElementById('wr-input').value) / 100;
-  const rr = parseFloat(document.getElementById('rr-input').value);
-  const trades = parseInt(document.getElementById('trades-input').value);
-  const risk = parseFloat(document.getElementById('risk-input').value);
-
-  if (!wr || !rr || !trades || !risk) {
-    document.getElementById('wr-result').innerHTML = '<div class="calc-warn">Barcha maydonlarni to\'ldiring</div>';
-    return;
-  }
-
-  const wins = Math.round(trades * wr);
-  const losses = trades - wins;
-  const winPnL = wins * rr * risk;
-  const lossPnL = losses * risk;
-  const netPnL = winPnL - lossPnL;
-
-  // Expected value per trade
-  const ev = (wr * rr - (1 - wr)) * risk;
-  const evSign = ev >= 0 ? '+' : '';
-
-  // Required RR for breakeven at this WR
-  const requiredRR = (1 - wr) / wr;
-
-  // Status
-  let status, statusClass;
-  if (ev > 0.5) {
-    status = '✅ Kuchli strategiya — barqaror plyus';
-    statusClass = 'calc-ok';
-  } else if (ev > 0.1) {
-    status = '🟡 Strategiya plyusda, lekin plyus kuchsiz';
-    statusClass = 'calc-warn';
-  } else if (ev > -0.1) {
-    status = '🟠 Strategiya chegarada — nolga yaqin';
-    statusClass = 'calc-warn';
-  } else {
-    status = '🔴 Strategiya matematika bo\'yicha ZARARLI';
-    statusClass = 'calc-error';
-  }
-
-  const html = `
-    <div class="${statusClass}">
-      <h4>${status}</h4>
-
-      <table class="calc-table">
-        <tr><td><strong>Foydali savdolar</strong></td><td>${wins} (${(wr*100).toFixed(0)}%)</td></tr>
-        <tr><td><strong>Zararli savdolar</strong></td><td>${losses} (${((1-wr)*100).toFixed(0)}%)</td></tr>
-        <tr><td><strong>G'alabalardan foyda</strong></td><td>+${winPnL.toFixed(2)}% depozit</td></tr>
-        <tr><td><strong>Mag'lubiyatlardan zarar</strong></td><td>-${lossPnL.toFixed(2)}% depozit</td></tr>
-        <tr><td><strong>${trades} savdo uchun jami</strong></td><td><strong>${netPnL >= 0 ? '+' : ''}${netPnL.toFixed(2)}% depozit</strong></td></tr>
-        <tr><td><strong>EV (1 savdoga)</strong></td><td>${evSign}${ev.toFixed(3)}% depozit</td></tr>
-        <tr><td><strong>Zarar ko'rmaslik uchun minimal RR</strong></td><td>${requiredRR.toFixed(2)}</td></tr>
-      </table>
-
-      <p><strong>Izoh:</strong></p>
-      <ul>
-        <li>EV (Expected Value) = bir savdoning matematik kutilmasi</li>
-        <li>Agar EV > 0 — strategiya uzoq muddatda foydali</li>
-        <li>Agar EV < 0 — million savdo ham yordam bermaydi</li>
-        <li>Sizning WR <strong>${(wr*100).toFixed(0)}%</strong> bo'lganda nol uchun minimal RR = <strong>${requiredRR.toFixed(2)}</strong>. Siz RR=<strong>${rr.toFixed(1)}</strong> ishlatyapsiz, bu talab qilinganidan ${rr > requiredRR ? '✅ YUQORI' : '❌ PAST'}.</li>
-      </ul>
-    </div>
-  `;
-
-  document.getElementById('wr-result').innerHTML = html;
-}
-
-window.addEventListener('DOMContentLoaded', calcWRRR);
-</script>
 
 ---
 

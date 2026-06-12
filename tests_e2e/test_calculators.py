@@ -131,7 +131,7 @@ POSITION_CASES = [
 def test_position_calculator(pw_page, site_url):
     page = pw_page
     page.goto(f"{site_url}/tools/position-calculator/")
-    # Выключаем live-курс — детерминизм без сетевых запросов (EURUSD статичен в любом случае).
+    # Выключаем live-курс — детерминизм без сети (EURUSD статичен в любом случае).
     if page.is_checked("#pc-live"):
         page.uncheck("#pc-live")
     for balance, risk, stop, pair in POSITION_CASES:
@@ -152,7 +152,8 @@ def test_position_calculator(pw_page, site_url):
 def test_margin_calculator_locales(pw_page, site_url, prefix):
     page = pw_page
     page.goto(f"{site_url}/{prefix}/tools/margin-calculator/")
-    deposit, lots, price, lev, lot_type, contract = (1000, 0.1, 1.0800, 30, "standard", 100_000)
+    deposit, lots, price, lev = 1000, 0.1, 1.0800, 30
+    lot_type, contract = "standard", 100_000
     _fill(page, "#mc-deposit", deposit)
     _fill(page, "#mc-lots", lots)
     _fill(page, "#mc-price", price)
@@ -165,3 +166,52 @@ def test_margin_calculator_locales(pw_page, site_url, prefix):
     assert abs(got - expected) < 0.01, (
         f"[{prefix}] margin: JS={got} Python={expected}"
     )
+
+
+# ──────────────────────── Tax (НДФЛ 12%) ────────────────────────
+# Каноничная формула — uz/tax-calculator.py:calculate_tax (имя файла с дефисом,
+# не импортируется через conftest), поэтому ожидание считаем инлайн:
+#   net = profit - loss;  tax = max(0, net) * 0.12.
+
+TAX_CASES = [
+    # (profit, loss, expected_tax)
+    (5000, 1000, 480.0),
+    (3000, 3000, 0.0),
+    (10000, 2500, 900.0),
+    (1000, 5000, 0.0),
+]
+
+
+def test_tax_calculator(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/uz/tax-calculator/")
+    for profit, loss, expected in TAX_CASES:
+        _fill(page, "#tax-profit", profit)
+        _fill(page, "#tax-loss", loss)
+        page.click("#tax-calc-btn")
+        # tax==0 → headline показывает "$0.00", _read это примет.
+        got = money(_read(page, "#tax-out-tax"))
+        assert abs(got - expected) < 0.01, (
+            f"tax {profit=} {loss=}: JS={got} expected={expected}"
+        )
+
+
+# ──────────────────────── Win Rate × R:R ────────────────────────
+# Чистая математика (без Python-инструмента): минимальный RR безубытка = (1-wr)/wr.
+# Проверяем, что значение появляется в таблице результата на всех локалях.
+
+
+@pytest.mark.parametrize("prefix", ["", "en/", "uz/"])
+def test_winrate_calculator(pw_page, site_url, prefix):
+    page = pw_page
+    page.goto(f"{site_url}/{prefix}tools/winrate-rr-calculator/")
+    page.fill("#wr-input", "40")
+    page.fill("#rr-input", "2")
+    page.fill("#trades-input", "100")
+    page.fill("#risk-input", "1")
+    page.click("#wr-calc-btn")
+    # requiredRR = (1-0.4)/0.4 = 1.50 — должно появиться в таблице.
+    page.wait_for_function(
+        "() => document.getElementById('wr-result').textContent.includes('1.50')"
+    )
+    assert "1.50" in page.text_content("#wr-result")

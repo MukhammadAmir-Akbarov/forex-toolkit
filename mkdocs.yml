@@ -35,6 +35,8 @@ extra_javascript:
   - javascripts/widgets/compound.js
   - javascripts/widgets/pip.js
   - javascripts/widgets/position.js
+  - javascripts/widgets/winrate.js
+  - javascripts/widgets/tax.js
 
 plugins:
   - search

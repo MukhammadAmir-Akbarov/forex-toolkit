@@ -34,82 +34,12 @@
   <span>%</span>
 </div>
 
-<button class="calc-button" onclick="calcWRRR()">Calculate</button>
+<button class="calc-button" id="wr-calc-btn">Calculate</button>
 
 <div id="wr-result" class="calc-result"></div>
 
 </div>
 
-<script>
-function calcWRRR() {
-  const wr = parseFloat(document.getElementById('wr-input').value) / 100;
-  const rr = parseFloat(document.getElementById('rr-input').value);
-  const trades = parseInt(document.getElementById('trades-input').value);
-  const risk = parseFloat(document.getElementById('risk-input').value);
-
-  if (!wr || !rr || !trades || !risk) {
-    document.getElementById('wr-result').innerHTML = '<div class="calc-warn">Fill in all fields</div>';
-    return;
-  }
-
-  const wins = Math.round(trades * wr);
-  const losses = trades - wins;
-  const winPnL = wins * rr * risk;
-  const lossPnL = losses * risk;
-  const netPnL = winPnL - lossPnL;
-
-  // Expected value per trade
-  const ev = (wr * rr - (1 - wr)) * risk;
-  const evSign = ev >= 0 ? '+' : '';
-
-  // Required RR for breakeven at this WR
-  const requiredRR = (1 - wr) / wr;
-
-  // Status
-  let status, statusClass;
-  if (ev > 0.5) {
-    status = '✅ Strong strategy — consistently profitable';
-    statusClass = 'calc-ok';
-  } else if (ev > 0.1) {
-    status = '🟡 Strategy is profitable, but marginally';
-    statusClass = 'calc-warn';
-  } else if (ev > -0.1) {
-    status = '🟠 Strategy on the edge — close to breakeven';
-    statusClass = 'calc-warn';
-  } else {
-    status = '🔴 Strategy is UNPROFITABLE by mathematics';
-    statusClass = 'calc-error';
-  }
-
-  const html = `
-    <div class="${statusClass}">
-      <h4>${status}</h4>
-
-      <table class="calc-table">
-        <tr><td><strong>Winning trades</strong></td><td>${wins} (${(wr*100).toFixed(0)}%)</td></tr>
-        <tr><td><strong>Losing trades</strong></td><td>${losses} (${((1-wr)*100).toFixed(0)}%)</td></tr>
-        <tr><td><strong>Profit from wins</strong></td><td>+${winPnL.toFixed(2)}% of deposit</td></tr>
-        <tr><td><strong>Loss from losses</strong></td><td>-${lossPnL.toFixed(2)}% of deposit</td></tr>
-        <tr><td><strong>Net result over ${trades} trades</strong></td><td><strong>${netPnL >= 0 ? '+' : ''}${netPnL.toFixed(2)}% of deposit</strong></td></tr>
-        <tr><td><strong>EV (per 1 trade)</strong></td><td>${evSign}${ev.toFixed(3)}% of deposit</td></tr>
-        <tr><td><strong>Minimum RR for breakeven</strong></td><td>${requiredRR.toFixed(2)}</td></tr>
-      </table>
-
-      <p><strong>Explanation:</strong></p>
-      <ul>
-        <li>EV (Expected Value) = mathematical expectation of one trade</li>
-        <li>If EV > 0 — the strategy is profitable in the long run</li>
-        <li>If EV < 0 — even a million trades won't save you</li>
-        <li>At your WR of <strong>${(wr*100).toFixed(0)}%</strong> the minimum RR for breakeven = <strong>${requiredRR.toFixed(2)}</strong>. You are using RR=<strong>${rr.toFixed(1)}</strong>, which is ${rr > requiredRR ? '✅ ABOVE' : '❌ BELOW'} the required value.</li>
-      </ul>
-    </div>
-  `;
-
-  document.getElementById('wr-result').innerHTML = html;
-}
-
-window.addEventListener('DOMContentLoaded', calcWRRR);
-</script>
 
 ---
 
