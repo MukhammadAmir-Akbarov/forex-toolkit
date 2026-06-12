@@ -1,3 +1,7 @@
+---
+verified: 2026-06-11
+---
+
 # Firibgarlikdan himoya: O'zbekistonda «treyding»da pulni qanday yo'qotmaslik
 
 > ⚠️ O'quv materiali, moliyaviy yoki yuridik maslahat emas.
