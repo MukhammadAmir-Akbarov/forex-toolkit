@@ -435,12 +435,33 @@
       },
       "ru_sha256": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130"
     },
+    "uz/legal-faq.md": {
+      "locales": {
+        "en": "46c40ac6d1dd93bcd6d47116cd670a14cced5c4dcdec23eadf13f57eeffce36a",
+        "uz": "46c40ac6d1dd93bcd6d47116cd670a14cced5c4dcdec23eadf13f57eeffce36a"
+      },
+      "ru_sha256": "46c40ac6d1dd93bcd6d47116cd670a14cced5c4dcdec23eadf13f57eeffce36a"
+    },
     "uz/scam-protection.md": {
       "locales": {
         "en": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60",
         "uz": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
       },
       "ru_sha256": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
+    },
+    "uz/sum-examples.md": {
+      "locales": {
+        "en": "f368fac222507a63916557cd95449634c6b979b5e2c78ee1af9eb48191043f84",
+        "uz": "f368fac222507a63916557cd95449634c6b979b5e2c78ee1af9eb48191043f84"
+      },
+      "ru_sha256": "f368fac222507a63916557cd95449634c6b979b5e2c78ee1af9eb48191043f84"
+    },
+    "uz/swap-free-accounts.md": {
+      "locales": {
+        "en": "c5626c3f8486201a20069465e3a34c1d2d349dc589d6235d6cc3f7f522168961",
+        "uz": "c5626c3f8486201a20069465e3a34c1d2d349dc589d6235d6cc3f7f522168961"
+      },
+      "ru_sha256": "c5626c3f8486201a20069465e3a34c1d2d349dc589d6235d6cc3f7f522168961"
     },
     "uz/tax-calculator.md": {
       "locales": {

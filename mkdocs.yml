@@ -135,6 +135,9 @@ plugins:
             "Вывод денег": "Withdrawing money"
             "🧾 Калькулятор налога": "🧾 Tax calculator"
             "🚨 Защита от скама": "🚨 Scam protection"
+            "⚖️ Правовой FAQ": "⚖️ Legal FAQ"
+            "🌙 Своп-фри счета": "🌙 Swap-free accounts"
+            "🇺🇿 Примеры в сумах": "🇺🇿 Examples in soum"
             "Сообщества": "Communities"
             "🎮 Тренажёр Replay": "🎮 Replay Trainer"
         - locale: uz
@@ -214,6 +217,9 @@ plugins:
             "Вывод денег": "Pul yechib olish"
             "🧾 Калькулятор налога": "🧾 Soliq kalkulyatori"
             "🚨 Защита от скама": "🚨 Firibgarlikdan himoya"
+            "⚖️ Правовой FAQ": "⚖️ Huquqiy FAQ"
+            "🌙 Своп-фри счета": "🌙 Svop-siz hisoblar"
+            "🇺🇿 Примеры в сумах": "🇺🇿 So'mdagi misollar"
             "Сообщества": "Hamjamiyatlar"
             "🎮 Тренажёр Replay": "🎮 Replay Mashqi"
   # Дата последнего обновления страницы (из git-истории).
@@ -367,6 +373,9 @@ nav:
       - Вывод денег: uz/withdrawal-guide.md
       - 🧾 Калькулятор налога: uz/tax-calculator.md
       - 🚨 Защита от скама: uz/scam-protection.md
+      - ⚖️ Правовой FAQ: uz/legal-faq.md
+      - 🌙 Своп-фри счета: uz/swap-free-accounts.md
+      - 🇺🇿 Примеры в сумах: uz/sum-examples.md
       - Сообщества: uz/communities.md
 
 extra:
