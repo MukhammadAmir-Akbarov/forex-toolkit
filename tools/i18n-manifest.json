@@ -36,6 +36,27 @@
       },
       "ru_sha256": "85ea78eca388bec4e5e5a34ad4a2eb1fe4df94622a65c69410812755db9d0f77"
     },
+    "docs/broker-mechanics-101.md": {
+      "locales": {
+        "en": "1b4a604797c30c46593c58c0ac08d87586d797895d262690a91cf39e2257e40a",
+        "uz": "1b4a604797c30c46593c58c0ac08d87586d797895d262690a91cf39e2257e40a"
+      },
+      "ru_sha256": "1b4a604797c30c46593c58c0ac08d87586d797895d262690a91cf39e2257e40a"
+    },
+    "docs/fundamental-analysis-guide.md": {
+      "locales": {
+        "en": "4bb680f093e31d662c8fd545d259cbc4291d112042a02d876755bc9d4df2f083",
+        "uz": "4bb680f093e31d662c8fd545d259cbc4291d112042a02d876755bc9d4df2f083"
+      },
+      "ru_sha256": "4bb680f093e31d662c8fd545d259cbc4291d112042a02d876755bc9d4df2f083"
+    },
+    "docs/order-types-mechanics.md": {
+      "locales": {
+        "en": "447278f488daedf5d50c091972d32dc5c940edab92d755e40a61ef6881497548",
+        "uz": "447278f488daedf5d50c091972d32dc5c940edab92d755e40a61ef6881497548"
+      },
+      "ru_sha256": "447278f488daedf5d50c091972d32dc5c940edab92d755e40a61ef6881497548"
+    },
     "docs/real-analysis.md": {
       "locales": {
         "en": "97ab12f3fa70c4624291a6a639704616afa32a921f749b300cefe2cc84709413",
@@ -302,6 +323,13 @@
       },
       "ru_sha256": "328623d301e091dcf27bb210b06fcd36a819d2dbfc7aabb5df0961c503dd56fd"
     },
+    "practice/news-trading-protocol.md": {
+      "locales": {
+        "en": "a8e42e8c5b7b4dbb1e9713191c932fb6ab5696bad6f728c72e10ec5da3a7d6ac",
+        "uz": "a8e42e8c5b7b4dbb1e9713191c932fb6ab5696bad6f728c72e10ec5da3a7d6ac"
+      },
+      "ru_sha256": "a8e42e8c5b7b4dbb1e9713191c932fb6ab5696bad6f728c72e10ec5da3a7d6ac"
+    },
     "practice/scaling-in.md": {
       "locales": {
         "en": "83f33c12a36b35b7fd792a7b5b4c34e72c93fb427892464f969c33c0a468f30b",
@@ -399,6 +427,13 @@
         "uz": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
       },
       "ru_sha256": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
+    },
+    "uz/tax-calculator.md": {
+      "locales": {
+        "en": "3df1a611efbb5f66119216db51491012e80e0c58e0029ece683fdf74e7122e29",
+        "uz": "3df1a611efbb5f66119216db51491012e80e0c58e0029ece683fdf74e7122e29"
+      },
+      "ru_sha256": "3df1a611efbb5f66119216db51491012e80e0c58e0029ece683fdf74e7122e29"
     },
     "uz/withdrawal-guide.md": {
       "locales": {
