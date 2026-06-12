@@ -626,6 +626,16 @@ button:focus-visible,
   outline: 2px solid var(--md-primary-fg-color);
   outline-offset: 2px;
 }
+/* Подсказка-индикатор: машинная транслитерация, не официальная орфография.
+   Текст — в title (тултип при наведении), здесь только приглушённый значок. */
+.fx-script-hint {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.4rem 0 0.2rem;
+  color: var(--md-default-fg-color--lighter);
+  font-size: 0.8rem;
+  cursor: help;
+}
 
 /* На узких экранах не перекрываем кнопку «наверх». */
 @media screen and (max-width: 76.1875em) {
