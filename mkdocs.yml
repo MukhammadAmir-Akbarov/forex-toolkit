@@ -208,6 +208,9 @@ plugins:
 
 theme:
   name: material
+  # Логотип — график свечей (Material Design icon)
+  icon:
+    logo: material/chart-line
   # Локальные шаблонные переопределения (overrides/main.html подключает
   # приватную аналитику GoatCounter, когда задан extra.goatcounter).
   custom_dir: overrides

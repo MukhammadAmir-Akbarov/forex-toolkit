@@ -626,6 +626,57 @@ label[for="__drawer"].fx-menu-hint::after {
   }
 }
 
+/* ── F. Скрыть ¶ якоря в заголовках на тачскринах ──────────────────────────
+   На десктопе они появляются только при hover. На мобильных hover не работает,
+   поэтому символ ¶ всегда виден — убираем его совсем.               ── */
+@media (hover: none) and (pointer: coarse) {
+  .md-typeset .headerlink,
+  .md-typeset :is(h1,h2,h3,h4,h5,h6) > a.headerlink,
+  .md-typeset :is(h1,h2,h3,h4,h5,h6) .md-typeset__perma {
+    display: none !important;
+  }
+}
+
+/* ── G. Цветные иконки в шапке ─────────────────────────────────────────────
+   Каждая кнопка шапки получает свой акцентный цвет при наведении / касании. */
+/* Поиск */
+label[for="__search"] svg,
+.md-search__icon svg { transition: color 160ms ease; }
+label[for="__search"]:hover svg { color: #facc15; }
+/* Переключатель цветовой схемы */
+.md-header__button.md-icon[for="__palette"]:hover svg,
+form.md-header__option label:hover svg { color: #f472b6; }
+/* Кнопка языка / версии */
+.md-header__button[href]:hover svg { color: #34d399; }
+
+/* В тёмной теме — яркие иконки даже без hover (touchscreen) */
+[data-md-color-scheme="slate"] .md-header__button.md-icon svg {
+  opacity: 0.85;
+}
+[data-md-color-scheme="slate"] label[for="__search"] svg { color: #fbbf24; }
+[data-md-color-scheme="slate"] .md-header__option:last-child label svg { color: #a78bfa; }
+
+/* ── H. Прогресс-трекер на мобильных — убрать пустое пространство ── */
+@media screen and (max-width: 44.9375em) {
+  /* В колонке растягиваем кнопку и бар на всю ширину */
+  .fx-progress__btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .fx-progress__stat {
+    flex: none;
+    width: 100%;
+    min-width: 0;
+  }
+  /* Сам прогресс-бар — убрать лишний отступ снизу */
+  .fx-progress {
+    padding: 0.7rem 0.8rem;
+    gap: 0.6rem;
+  }
+  /* Счётчик «Пройдено 0 из 58» — правый край */
+  .fx-progress__count { margin-left: auto; }
+}
+
 /* --------------------------------------------------------------------------
    16. Трекер прогресса обучения (создаётся в progress.js)
    -------------------------------------------------------------------------- */
