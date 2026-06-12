@@ -201,6 +201,43 @@ def test_tax_calculator(pw_page, site_url):
 # Проверяем, что значение появляется в таблице результата на всех локалях.
 
 
+# ──────────────────── Cost of trading (I17) ────────────────────
+# Самодостаточный виджет (Python-канона нет). Ожидание считаем инлайн:
+#   pipValue = PIP_VALUE_PER_LOT[pair] * lots
+#   total    = spread*pipValue + commission*lots*2 + (-swap)*lots*nights.
+
+PIP_VALUE_PER_LOT = {"EURUSD": 10.0, "USDJPY": 6.7}
+
+COST_CASES = [
+    # (lots, spread, commission, nights, swap, pair) — nights=0 → своп не влияет
+    (0.10, 1.0, 0.0, 0, -2, "EURUSD"),
+    (0.50, 1.2, 3.5, 0, -2, "EURUSD"),
+    (0.10, 2.0, 0.0, 0, 0, "USDJPY"),
+    (0.20, 1.0, 3.5, 1, -3, "EURUSD"),
+]
+
+
+def test_cost_calculator(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/tools/cost-calculator/")
+    for lots, spread, commission, nights, swap, pair in COST_CASES:
+        _fill(page, "#co-lots", lots)
+        _fill(page, "#co-spread", spread)
+        _fill(page, "#co-commission", commission)
+        _fill(page, "#co-nights", nights)
+        _fill(page, "#co-swap", swap)
+        page.select_option("#co-pair", pair)
+        page.click("#co-calc-btn")
+
+        pip_value = PIP_VALUE_PER_LOT[pair] * lots
+        expected = spread * pip_value + commission * lots * 2 + (-swap) * lots * nights
+        got = money(_read(page, "#co-out-total"))
+        assert abs(got - expected) < 0.01, (
+            f"cost {lots=} {spread=} {commission=} {nights=} {swap=} {pair=}: "
+            f"JS={got} expected={expected}"
+        )
+
+
 @pytest.mark.parametrize("prefix", ["", "en/", "uz/"])
 def test_winrate_calculator(pw_page, site_url, prefix):
     page = pw_page

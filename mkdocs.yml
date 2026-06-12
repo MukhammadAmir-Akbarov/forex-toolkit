@@ -37,6 +37,7 @@ extra_javascript:
   - javascripts/widgets/position.js
   - javascripts/widgets/winrate.js
   - javascripts/widgets/tax.js
+  - javascripts/widgets/cost.js
 
 plugins:
   - search
@@ -117,6 +118,7 @@ plugins:
             "💲 Калькулятор пипса": "💲 Pip calculator"
             "📈 Сложный процент": "📈 Compound interest"
             "📊 WinRate × RR": "📊 WinRate × RR"
+            "💸 Стоимость торговли": "💸 Trading cost"
             "🎴 Тренажёр карточек": "🎴 Flashcards"
             "🎯 Квиз — готов к реалу?": "🎯 Quiz — ready for real?"
             "🎲 Риск разорения": "🎲 Risk of ruin"
@@ -195,6 +197,7 @@ plugins:
             "💲 Калькулятор пипса": "💲 Pip kalkulyatori"
             "📈 Сложный процент": "📈 Murakkab foiz"
             "📊 WinRate × RR": "📊 WinRate × RR"
+            "💸 Стоимость торговли": "💸 Savdo xarajati"
             "🎴 Тренажёр карточек": "🎴 Kartochka mashqi"
             "🎯 Квиз — готов к реалу?": "🎯 Kviz — real hisobga tayyormisan?"
             "🎲 Риск разорения": "🎲 Vayron bo'lish xavfi"
@@ -343,6 +346,7 @@ nav:
       - 💲 Калькулятор пипса: tools/pip-calculator.md
       - 📈 Сложный процент: tools/compound-calculator.md
       - 📊 WinRate × RR: tools/winrate-rr-calculator.md
+      - 💸 Стоимость торговли: tools/cost-calculator.md
       - 🎴 Тренажёр карточек: tools/flashcards.md
       - "🎯 Квиз — готов к реалу?": tools/quiz.md
       - 🎲 Риск разорения: tools/risk-of-ruin.md

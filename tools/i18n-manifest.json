@@ -358,6 +358,13 @@
       },
       "ru_sha256": "96ad85e06cf0f0d0c81ef8ec57b3ebed5e9b74c7923b9d0e1589c1be1d9f2533"
     },
+    "tools/cost-calculator.md": {
+      "locales": {
+        "en": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee",
+        "uz": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee"
+      },
+      "ru_sha256": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee"
+    },
     "tools/flashcards.md": {
       "locales": {
         "en": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971",
