@@ -73,6 +73,9 @@ plugins:
             "Технический анализ": "Technical analysis"
             "Учебная стратегия": "Sample strategy"
             "📈 Реальный анализ EUR/USD": "📈 Real EUR/USD analysis"
+            "📋 Типы ордеров и вход": "📋 Order types & entry"
+            "🌍 Фундаментальный анализ": "🌍 Fundamental analysis"
+            "⚙️ Механика брокера": "⚙️ Broker mechanics"
             "Обзор раздела": "Section overview"
             "🥇 Торговля золотом (XAUUSD)": "🥇 Gold trading (XAUUSD)"
             "🎯 ЛОТ - главное": "🎯 LOT — the main thing"
@@ -80,6 +83,7 @@ plugins:
             "📈 Доливка (Scaling-in)": "📈 Scaling-in"
             "🔁 Циклы рынка": "🔁 Market cycles"
             "🏛️ Структура рынка": "🏛️ Market structure"
+            "📡 Торговля на новостях": "📡 News trading"
             "Психология трейдинга": "Trading psychology"
             "🆘 Ответственная торговля": "🆘 Responsible trading"
             "Anti-Tilt протокол": "Anti-Tilt protocol"
@@ -147,6 +151,9 @@ plugins:
             "Технический анализ": "Texnik tahlil"
             "Учебная стратегия": "O'quv strategiyasi"
             "📈 Реальный анализ EUR/USD": "📈 Real tahlil EUR/USD"
+            "📋 Типы ордеров и вход": "📋 Order turlari va kirish"
+            "🌍 Фундаментальный анализ": "🌍 Fundamental tahlil"
+            "⚙️ Механика брокера": "⚙️ Broker mexanikasi"
             "Обзор раздела": "Bo'lim sharhi"
             "🥇 Торговля золотом (XAUUSD)": "🥇 Oltin savdosi (XAUUSD)"
             "🎯 ЛОТ - главное": "🎯 LOT — eng muhimi"
@@ -154,6 +161,7 @@ plugins:
             "📈 Доливка (Scaling-in)": "📈 Pozitsiyani oshirish (Scaling-in)"
             "🔁 Циклы рынка": "🔁 Bozor sikllari"
             "🏛️ Структура рынка": "🏛️ Bozor tuzilmasi"
+            "📡 Торговля на новостях": "📡 Yangiliklar asosida savdo"
             "Психология трейдинга": "Treyding psixologiyasi"
             "🆘 Ответственная торговля": "🆘 Mas'uliyatli savdo"
             "Anti-Tilt протокол": "Anti-Tilt protokoli"
@@ -286,6 +294,9 @@ nav:
       - Технический анализ: docs/technical-analysis.md
       - Учебная стратегия: docs/strategy-details.md
       - 📈 Реальный анализ EUR/USD: docs/real-analysis.md
+      - 📋 Типы ордеров и вход: docs/order-types-mechanics.md
+      - 🌍 Фундаментальный анализ: docs/fundamental-analysis-guide.md
+      - ⚙️ Механика брокера: docs/broker-mechanics-101.md
   - 🎯 Из практики (2 года):
       - Обзор раздела: practice/README.md
       - 🥇 Торговля золотом (XAUUSD): practice/gold-trading.md
@@ -294,6 +305,7 @@ nav:
       - 📈 Доливка (Scaling-in): practice/scaling-in.md
       - 🔁 Циклы рынка: practice/cycle-theory.md
       - 🏛️ Структура рынка: practice/market-structure.md
+      - 📡 Торговля на новостях: practice/news-trading-protocol.md
   - 🧠 Психология и дисциплина:
       - Психология трейдинга: extras/psychology.md
       - 🆘 Ответственная торговля: extras/responsible-trading.md
