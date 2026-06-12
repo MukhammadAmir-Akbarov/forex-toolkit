@@ -26,6 +26,8 @@ extra_javascript:
   - javascripts/progress.js
   # Переключатель письма лотин ⇄ кирилл — активен только на узбекской локали.
   - javascripts/translit.js
+  # Replay Trainer (I9) — загружается только там, где есть #replay-widget.
+  - javascripts/widgets/replay.js
 
 plugins:
   - search
@@ -119,6 +121,7 @@ plugins:
             "🧾 Калькулятор налога": "🧾 Tax calculator"
             "🚨 Защита от скама": "🚨 Scam protection"
             "Сообщества": "Communities"
+            "🎮 Тренажёр Replay": "🎮 Replay Trainer"
         - locale: uz
           name: 🇺🇿 O'zbek
           build: true
@@ -192,6 +195,7 @@ plugins:
             "🧾 Калькулятор налога": "🧾 Soliq kalkulyatori"
             "🚨 Защита от скама": "🚨 Firibgarlikdan himoya"
             "Сообщества": "Hamjamiyatlar"
+            "🎮 Тренажёр Replay": "🎮 Replay Mashqi"
   # Дата последнего обновления страницы (из git-истории).
   # ВАЖНО: должен идти ПОСЛЕ i18n (i18n добавляет переменную locale).
   - git-revision-date-localized:
@@ -321,6 +325,7 @@ nav:
       - 🎴 Тренажёр карточек: tools/flashcards.md
       - "🎯 Квиз — готов к реалу?": tools/quiz.md
       - 🎲 Риск разорения: tools/risk-of-ruin.md
+      - 🎮 Тренажёр Replay: tools/replay-trainer.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
   - 🚀 Продвинутое:

@@ -51,9 +51,11 @@ Thumbs.db
 # Personal trading data (не пушить!)
 journal/personal-*.md
 journal/personal-*.csv
-data/
+/data/
 *.csv
 !journal/trading-journal-template.csv
+# Предварительно нарезанные эпизоды для виджета — часть репо
+!_mkdocs/data/
 
 # Brokers credentials
 .env
