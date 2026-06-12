@@ -119,6 +119,9 @@ jobs:
       - name: Translation coverage (информационно, не блокирует)
         continue-on-error: true
         run: python tools/check_translation_coverage.py
+      - name: Translation drift (свежесть переводов, информационно)
+        continue-on-error: true
+        run: python tools/check_translation_drift.py
       - name: Content freshness (информационно, не блокирует)
         continue-on-error: true
         run: python tools/check_freshness.py

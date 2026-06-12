@@ -29,9 +29,16 @@ python -m venv .venv && .venv/bin/pip install -e ".[dev]"
 .venv/bin/mkdocs build            # сайт собирается из _mkdocs/, кладётся в site/
 
 # проверка перед коммитом (всё сразу)
-.venv/bin/python tools/check_docs_sync.py     # дубли доков
+.venv/bin/python tools/check_docs_sync.py              # дубли доков
+.venv/bin/python tools/check_translation_coverage.py  # наличие переводов
+.venv/bin/python tools/check_translation_drift.py      # свежесть переводов (дрейф)
 # или просто: /forex-check
 ```
+
+> После правки RU-страницы и обновления её переводов отметь их свежими:
+> `python tools/sync_translation_manifest.py --file <путь от _mkdocs/>`.
+> Манифест `tools/i18n-manifest.json` — единственный источник правды о том, под
+> какой sha256 RU сделан каждый перевод (детали — [IMPROVEMENTS.md](IMPROVEMENTS.md) I1).
 
 ## Источник правды для документации
 

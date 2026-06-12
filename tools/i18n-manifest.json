@@ -1,0 +1,419 @@
+{
+  "_comment": "sha256 RU-исходника, под который сделаны переводы. Обновить: python tools/sync_translation_manifest.py. Проверка свежести: python tools/check_translation_drift.py.",
+  "entries": {
+    "advanced/SETUP-mt5.md": {
+      "locales": {
+        "en": "4733007519af8eb55684ffdf8017d92787b2ecd527fdc0879433292adf12919d",
+        "uz": "4733007519af8eb55684ffdf8017d92787b2ecd527fdc0879433292adf12919d"
+      },
+      "ru_sha256": "4733007519af8eb55684ffdf8017d92787b2ecd527fdc0879433292adf12919d"
+    },
+    "advanced/SETUP-streamlit.md": {
+      "locales": {
+        "en": "568cc7ba2da2d893dba9a3a16819bfbbd8ed99be13bc9263884ea7f7000e9e27",
+        "uz": "568cc7ba2da2d893dba9a3a16819bfbbd8ed99be13bc9263884ea7f7000e9e27"
+      },
+      "ru_sha256": "568cc7ba2da2d893dba9a3a16819bfbbd8ed99be13bc9263884ea7f7000e9e27"
+    },
+    "advanced/SETUP-telegram.md": {
+      "locales": {
+        "en": "b40e049d53620bc0e6ad2d198ef47c89ce1ced2563d80e69b93658121c5135c3",
+        "uz": "b40e049d53620bc0e6ad2d198ef47c89ce1ced2563d80e69b93658121c5135c3"
+      },
+      "ru_sha256": "b40e049d53620bc0e6ad2d198ef47c89ce1ced2563d80e69b93658121c5135c3"
+    },
+    "advanced/SETUP-vps-deployment.md": {
+      "locales": {
+        "en": "29bc270cdc19900c3fe902cd4f71236fe43067d85e3cd1b1611c63eeb08a2c40",
+        "uz": "29bc270cdc19900c3fe902cd4f71236fe43067d85e3cd1b1611c63eeb08a2c40"
+      },
+      "ru_sha256": "29bc270cdc19900c3fe902cd4f71236fe43067d85e3cd1b1611c63eeb08a2c40"
+    },
+    "bot/README.md": {
+      "locales": {
+        "en": "85ea78eca388bec4e5e5a34ad4a2eb1fe4df94622a65c69410812755db9d0f77",
+        "uz": "85ea78eca388bec4e5e5a34ad4a2eb1fe4df94622a65c69410812755db9d0f77"
+      },
+      "ru_sha256": "85ea78eca388bec4e5e5a34ad4a2eb1fe4df94622a65c69410812755db9d0f77"
+    },
+    "docs/real-analysis.md": {
+      "locales": {
+        "en": "97ab12f3fa70c4624291a6a639704616afa32a921f749b300cefe2cc84709413",
+        "uz": "97ab12f3fa70c4624291a6a639704616afa32a921f749b300cefe2cc84709413"
+      },
+      "ru_sha256": "97ab12f3fa70c4624291a6a639704616afa32a921f749b300cefe2cc84709413"
+    },
+    "docs/strategy-details.md": {
+      "locales": {
+        "en": "07a9708239b138e364b95cf3439a3bee447e0852330a9bc6a7c9a719b435e0bf",
+        "uz": "07a9708239b138e364b95cf3439a3bee447e0852330a9bc6a7c9a719b435e0bf"
+      },
+      "ru_sha256": "07a9708239b138e364b95cf3439a3bee447e0852330a9bc6a7c9a719b435e0bf"
+    },
+    "docs/technical-analysis.md": {
+      "locales": {
+        "en": "c3a19ee185712b3df91a77d40d5cd9525236fbcb5b9bbdc455cf579ca9462350",
+        "uz": "c3a19ee185712b3df91a77d40d5cd9525236fbcb5b9bbdc455cf579ca9462350"
+      },
+      "ru_sha256": "c3a19ee185712b3df91a77d40d5cd9525236fbcb5b9bbdc455cf579ca9462350"
+    },
+    "extras/anti-tilt-protocol.md": {
+      "locales": {
+        "en": "01591771a1b812004ac96687bae0705806d0f29c3edbf3c92508dd9563b2880c",
+        "uz": "01591771a1b812004ac96687bae0705806d0f29c3edbf3c92508dd9563b2880c"
+      },
+      "ru_sha256": "01591771a1b812004ac96687bae0705806d0f29c3edbf3c92508dd9563b2880c"
+    },
+    "extras/brokers-comparison.md": {
+      "locales": {
+        "en": "d5ee85579e291ff5691c69744ff302bd7119365cbda6d483bcdd1e5509bcca90",
+        "uz": "d5ee85579e291ff5691c69744ff302bd7119365cbda6d483bcdd1e5509bcca90"
+      },
+      "ru_sha256": "d5ee85579e291ff5691c69744ff302bd7119365cbda6d483bcdd1e5509bcca90"
+    },
+    "extras/checklist-printable.md": {
+      "locales": {
+        "en": "a2c41aaa93ccf7509a0f0ee9f601447c6b93efc3bdc543703a0b9fb857dfa7d4",
+        "uz": "a2c41aaa93ccf7509a0f0ee9f601447c6b93efc3bdc543703a0b9fb857dfa7d4"
+      },
+      "ru_sha256": "a2c41aaa93ccf7509a0f0ee9f601447c6b93efc3bdc543703a0b9fb857dfa7d4"
+    },
+    "extras/daily-routine.md": {
+      "locales": {
+        "en": "1b4ab049f2284bb8298afffb4abe8ab1e97a3b459e8ceba23d498ffd6e6b3f7f",
+        "uz": "1b4ab049f2284bb8298afffb4abe8ab1e97a3b459e8ceba23d498ffd6e6b3f7f"
+      },
+      "ru_sha256": "1b4ab049f2284bb8298afffb4abe8ab1e97a3b459e8ceba23d498ffd6e6b3f7f"
+    },
+    "extras/emergency-card.md": {
+      "locales": {
+        "en": "869bfa7fb5017eabd3f97b5480b584c0925ad4c1de2b6aa158ffd60e6bf12b8a",
+        "uz": "869bfa7fb5017eabd3f97b5480b584c0925ad4c1de2b6aa158ffd60e6bf12b8a"
+      },
+      "ru_sha256": "869bfa7fb5017eabd3f97b5480b584c0925ad4c1de2b6aa158ffd60e6bf12b8a"
+    },
+    "extras/faq.md": {
+      "locales": {
+        "en": "9253d64dd165b9a55476cb555b8021f9ee61628a504029642bdcdfb96d0150bd",
+        "uz": "9253d64dd165b9a55476cb555b8021f9ee61628a504029642bdcdfb96d0150bd"
+      },
+      "ru_sha256": "9253d64dd165b9a55476cb555b8021f9ee61628a504029642bdcdfb96d0150bd"
+    },
+    "extras/first-100-days.md": {
+      "locales": {
+        "en": "5c37ff26d34c196ad4549e26eb4edf7a9cac24d96ed71470fc97bb4b3d8f0523",
+        "uz": "5c37ff26d34c196ad4549e26eb4edf7a9cac24d96ed71470fc97bb4b3d8f0523"
+      },
+      "ru_sha256": "5c37ff26d34c196ad4549e26eb4edf7a9cac24d96ed71470fc97bb4b3d8f0523"
+    },
+    "extras/glossary.md": {
+      "locales": {
+        "en": "60e8bd798c2f66bebb0035b9a0323f2a6b62fcbe6a95fedf5348e70e9a6e2c12",
+        "uz": "60e8bd798c2f66bebb0035b9a0323f2a6b62fcbe6a95fedf5348e70e9a6e2c12"
+      },
+      "ru_sha256": "60e8bd798c2f66bebb0035b9a0323f2a6b62fcbe6a95fedf5348e70e9a6e2c12"
+    },
+    "extras/market-data-sources.md": {
+      "locales": {
+        "en": "02c18090af311ce9d4084ed3285c3159a5c628caac171582cc9fd6648d085e0c",
+        "uz": "02c18090af311ce9d4084ed3285c3159a5c628caac171582cc9fd6648d085e0c"
+      },
+      "ru_sha256": "02c18090af311ce9d4084ed3285c3159a5c628caac171582cc9fd6648d085e0c"
+    },
+    "extras/mind-map.md": {
+      "locales": {
+        "en": "e5b0f47138f8a45dea6923b8d40434929b01a6b0e9656ae373e0b47ebccd4a08",
+        "uz": "e5b0f47138f8a45dea6923b8d40434929b01a6b0e9656ae373e0b47ebccd4a08"
+      },
+      "ru_sha256": "e5b0f47138f8a45dea6923b8d40434929b01a6b0e9656ae373e0b47ebccd4a08"
+    },
+    "extras/pre-trade-check.md": {
+      "locales": {
+        "en": "793a60806ceb08f86daad4f059c1bb23938eccb9aa00ea342af8130623c50b9d",
+        "uz": "793a60806ceb08f86daad4f059c1bb23938eccb9aa00ea342af8130623c50b9d"
+      },
+      "ru_sha256": "793a60806ceb08f86daad4f059c1bb23938eccb9aa00ea342af8130623c50b9d"
+    },
+    "extras/progress.md": {
+      "locales": {
+        "en": "a7e58002b8567f4ddc5d39ac03954a5599fdfff1d336486c48310d006ef322d8",
+        "uz": "a7e58002b8567f4ddc5d39ac03954a5599fdfff1d336486c48310d006ef322d8"
+      },
+      "ru_sha256": "a7e58002b8567f4ddc5d39ac03954a5599fdfff1d336486c48310d006ef322d8"
+    },
+    "extras/psychology.md": {
+      "locales": {
+        "en": "4eee0211ecb33e5bbce97090cc7cccc5053a018d80adb0b235856e90b9d637e6",
+        "uz": "4eee0211ecb33e5bbce97090cc7cccc5053a018d80adb0b235856e90b9d637e6"
+      },
+      "ru_sha256": "4eee0211ecb33e5bbce97090cc7cccc5053a018d80adb0b235856e90b9d637e6"
+    },
+    "extras/responsible-trading.md": {
+      "locales": {
+        "en": "b34337672b5a1d224518176e6fbd058445e5d68fd740cc9183bfda6809662dd3",
+        "uz": "b34337672b5a1d224518176e6fbd058445e5d68fd740cc9183bfda6809662dd3"
+      },
+      "ru_sha256": "b34337672b5a1d224518176e6fbd058445e5d68fd740cc9183bfda6809662dd3"
+    },
+    "extras/trading-plan-template.md": {
+      "locales": {
+        "en": "122e8be32aa8da02cee7cd433c07ccafd2e5af10504dc2a9e16c7671a119406e",
+        "uz": "122e8be32aa8da02cee7cd433c07ccafd2e5af10504dc2a9e16c7671a119406e"
+      },
+      "ru_sha256": "122e8be32aa8da02cee7cd433c07ccafd2e5af10504dc2a9e16c7671a119406e"
+    },
+    "extras/video-script-1-full.md": {
+      "locales": {
+        "en": "12e2d63f9304d02d51962fb173193eb7410ca6d7bb85bc7cd9cb974f042090f5",
+        "uz": "12e2d63f9304d02d51962fb173193eb7410ca6d7bb85bc7cd9cb974f042090f5"
+      },
+      "ru_sha256": "12e2d63f9304d02d51962fb173193eb7410ca6d7bb85bc7cd9cb974f042090f5"
+    },
+    "extras/video-script-4-full.md": {
+      "locales": {
+        "en": "3f6f54ffb14d7048805ca66185a60318afe91093dd21884a4ea78dfda014e089",
+        "uz": "3f6f54ffb14d7048805ca66185a60318afe91093dd21884a4ea78dfda014e089"
+      },
+      "ru_sha256": "3f6f54ffb14d7048805ca66185a60318afe91093dd21884a4ea78dfda014e089"
+    },
+    "extras/video-scripts.md": {
+      "locales": {
+        "en": "e7e127b846f301d0c9dc76d453416c6ee859368c6fdee7be19f736b857445088",
+        "uz": "e7e127b846f301d0c9dc76d453416c6ee859368c6fdee7be19f736b857445088"
+      },
+      "ru_sha256": "e7e127b846f301d0c9dc76d453416c6ee859368c6fdee7be19f736b857445088"
+    },
+    "forex-guide.md": {
+      "locales": {
+        "en": "cd1af6abad09b745667a6994850aba71e1ef4d670223fd9d7f9d9e8a5e6207ad",
+        "uz": "cd1af6abad09b745667a6994850aba71e1ef4d670223fd9d7f9d9e8a5e6207ad"
+      },
+      "ru_sha256": "cd1af6abad09b745667a6994850aba71e1ef4d670223fd9d7f9d9e8a5e6207ad"
+    },
+    "growth/crypto-trading-guide.md": {
+      "locales": {
+        "en": "260072650bef27aaed5b54e03594aeaa7a05e3aec07297f7fcf8742399d4bd6b",
+        "uz": "260072650bef27aaed5b54e03594aeaa7a05e3aec07297f7fcf8742399d4bd6b"
+      },
+      "ru_sha256": "260072650bef27aaed5b54e03594aeaa7a05e3aec07297f7fcf8742399d4bd6b"
+    },
+    "growth/order-flow-volume-profile.md": {
+      "locales": {
+        "en": "ebb192ec4bf8b059aae49a50bbdad898ccecccb53571032bd3fd9b116adeddf1",
+        "uz": "ebb192ec4bf8b059aae49a50bbdad898ccecccb53571032bd3fd9b116adeddf1"
+      },
+      "ru_sha256": "ebb192ec4bf8b059aae49a50bbdad898ccecccb53571032bd3fd9b116adeddf1"
+    },
+    "growth/stocks-basics.md": {
+      "locales": {
+        "en": "688d25e1b82c2e0a5852b6307f6bb749951950cc4eb24283b6282b1074ef8e7a",
+        "uz": "688d25e1b82c2e0a5852b6307f6bb749951950cc4eb24283b6282b1074ef8e7a"
+      },
+      "ru_sha256": "688d25e1b82c2e0a5852b6307f6bb749951950cc4eb24283b6282b1074ef8e7a"
+    },
+    "index.md": {
+      "locales": {
+        "en": "a6656b19f769f364932785e79cf4ac52872405844918817acac112d46b792fee",
+        "uz": "a6656b19f769f364932785e79cf4ac52872405844918817acac112d46b792fee"
+      },
+      "ru_sha256": "a6656b19f769f364932785e79cf4ac52872405844918817acac112d46b792fee"
+    },
+    "journal/README.md": {
+      "locales": {
+        "en": "255603e425cc8c98bd0d86d11913d4b294e26eb000a7c0c9e9cb5c4d52f7c8be",
+        "uz": "255603e425cc8c98bd0d86d11913d4b294e26eb000a7c0c9e9cb5c4d52f7c8be"
+      },
+      "ru_sha256": "255603e425cc8c98bd0d86d11913d4b294e26eb000a7c0c9e9cb5c4d52f7c8be"
+    },
+    "journal/demo-vs-real-comparison.md": {
+      "locales": {
+        "en": "fd8005eead42534de3e818a08bf50a69d3f7c4875c53a1a3fa9d33dba43c82be",
+        "uz": "fd8005eead42534de3e818a08bf50a69d3f7c4875c53a1a3fa9d33dba43c82be"
+      },
+      "ru_sha256": "fd8005eead42534de3e818a08bf50a69d3f7c4875c53a1a3fa9d33dba43c82be"
+    },
+    "journal/journal-extended.md": {
+      "locales": {
+        "en": "8f812fd19c7cd62328de1718beb7454578900b4cc3a906f7fd97b7887f059801",
+        "uz": "8f812fd19c7cd62328de1718beb7454578900b4cc3a906f7fd97b7887f059801"
+      },
+      "ru_sha256": "8f812fd19c7cd62328de1718beb7454578900b4cc3a906f7fd97b7887f059801"
+    },
+    "journal/mistakes-log.md": {
+      "locales": {
+        "en": "623745ea98da3eaee14e03a34143e64ce6b4a14c98f91866c2cd83909afc59fc",
+        "uz": "623745ea98da3eaee14e03a34143e64ce6b4a14c98f91866c2cd83909afc59fc"
+      },
+      "ru_sha256": "623745ea98da3eaee14e03a34143e64ce6b4a14c98f91866c2cd83909afc59fc"
+    },
+    "journal/trading-journal-template.md": {
+      "locales": {
+        "en": "faee281f9a4ecea74aa68482dde1b4db9f26e5c2781b77cd0ec70ff33d946e81",
+        "uz": "faee281f9a4ecea74aa68482dde1b4db9f26e5c2781b77cd0ec70ff33d946e81"
+      },
+      "ru_sha256": "faee281f9a4ecea74aa68482dde1b4db9f26e5c2781b77cd0ec70ff33d946e81"
+    },
+    "journal/weekly-report-template.md": {
+      "locales": {
+        "en": "61cc6991c5f28734d70d2314d47d5949f863f005eccee81fdb2725e8aa18cb07",
+        "uz": "61cc6991c5f28734d70d2314d47d5949f863f005eccee81fdb2725e8aa18cb07"
+      },
+      "ru_sha256": "61cc6991c5f28734d70d2314d47d5949f863f005eccee81fdb2725e8aa18cb07"
+    },
+    "practice/README.md": {
+      "locales": {
+        "en": "04e3286362534203fc9eeec6e4a6844ba019a49d8080ca262c1c5ca327171f8b",
+        "uz": "04e3286362534203fc9eeec6e4a6844ba019a49d8080ca262c1c5ca327171f8b"
+      },
+      "ru_sha256": "04e3286362534203fc9eeec6e4a6844ba019a49d8080ca262c1c5ca327171f8b"
+    },
+    "practice/breakeven-protocol.md": {
+      "locales": {
+        "en": "d5cb1301eac1febfce8821a324b02e288ff2997bb76b80703852aea4d3242ce8",
+        "uz": "d5cb1301eac1febfce8821a324b02e288ff2997bb76b80703852aea4d3242ce8"
+      },
+      "ru_sha256": "d5cb1301eac1febfce8821a324b02e288ff2997bb76b80703852aea4d3242ce8"
+    },
+    "practice/cycle-theory.md": {
+      "locales": {
+        "en": "9a79805cbfe8464f806087f85047f7cd79789708808b41cb7e48e7200844c09d",
+        "uz": "9a79805cbfe8464f806087f85047f7cd79789708808b41cb7e48e7200844c09d"
+      },
+      "ru_sha256": "9a79805cbfe8464f806087f85047f7cd79789708808b41cb7e48e7200844c09d"
+    },
+    "practice/gold-trading.md": {
+      "locales": {
+        "en": "37074e8f246cb311a9634553986befd2ef2c934dd94ea2b7d33dfe02b0bc47d5",
+        "uz": "37074e8f246cb311a9634553986befd2ef2c934dd94ea2b7d33dfe02b0bc47d5"
+      },
+      "ru_sha256": "37074e8f246cb311a9634553986befd2ef2c934dd94ea2b7d33dfe02b0bc47d5"
+    },
+    "practice/lot-discipline.md": {
+      "locales": {
+        "en": "00c45c204dbe8d207dfdd018e3278be63452cb1fc25a699847aeaa14b4675147",
+        "uz": "00c45c204dbe8d207dfdd018e3278be63452cb1fc25a699847aeaa14b4675147"
+      },
+      "ru_sha256": "00c45c204dbe8d207dfdd018e3278be63452cb1fc25a699847aeaa14b4675147"
+    },
+    "practice/market-structure.md": {
+      "locales": {
+        "en": "328623d301e091dcf27bb210b06fcd36a819d2dbfc7aabb5df0961c503dd56fd",
+        "uz": "328623d301e091dcf27bb210b06fcd36a819d2dbfc7aabb5df0961c503dd56fd"
+      },
+      "ru_sha256": "328623d301e091dcf27bb210b06fcd36a819d2dbfc7aabb5df0961c503dd56fd"
+    },
+    "practice/scaling-in.md": {
+      "locales": {
+        "en": "83f33c12a36b35b7fd792a7b5b4c34e72c93fb427892464f969c33c0a468f30b",
+        "uz": "83f33c12a36b35b7fd792a7b5b4c34e72c93fb427892464f969c33c0a468f30b"
+      },
+      "ru_sha256": "83f33c12a36b35b7fd792a7b5b4c34e72c93fb427892464f969c33c0a468f30b"
+    },
+    "roadmap.md": {
+      "locales": {
+        "en": "d231f8834a3414ed4fc15046b978d82459da18a33c620da2d08f56865bc3ea2b",
+        "uz": "d231f8834a3414ed4fc15046b978d82459da18a33c620da2d08f56865bc3ea2b"
+      },
+      "ru_sha256": "d231f8834a3414ed4fc15046b978d82459da18a33c620da2d08f56865bc3ea2b"
+    },
+    "tools/README.md": {
+      "locales": {
+        "en": "56bdce3accb666668ca7a414a028abab23434fe04d5c747077f5bcdc8da89e07",
+        "uz": "56bdce3accb666668ca7a414a028abab23434fe04d5c747077f5bcdc8da89e07"
+      },
+      "ru_sha256": "56bdce3accb666668ca7a414a028abab23434fe04d5c747077f5bcdc8da89e07"
+    },
+    "tools/compound-calculator.md": {
+      "locales": {
+        "en": "3d6ef16f6047df8b7d14f86e6d5cb071553d978f072dccc2c53add380dfbfaba",
+        "uz": "3d6ef16f6047df8b7d14f86e6d5cb071553d978f072dccc2c53add380dfbfaba"
+      },
+      "ru_sha256": "3d6ef16f6047df8b7d14f86e6d5cb071553d978f072dccc2c53add380dfbfaba"
+    },
+    "tools/flashcards.md": {
+      "locales": {
+        "en": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971",
+        "uz": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971"
+      },
+      "ru_sha256": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971"
+    },
+    "tools/margin-calculator.md": {
+      "locales": {
+        "en": "5dc92cc16ce182be4f30fa06bf9b8bc4492aa61c3b3648a7187180e13d0c615d",
+        "uz": "5dc92cc16ce182be4f30fa06bf9b8bc4492aa61c3b3648a7187180e13d0c615d"
+      },
+      "ru_sha256": "5dc92cc16ce182be4f30fa06bf9b8bc4492aa61c3b3648a7187180e13d0c615d"
+    },
+    "tools/pip-calculator.md": {
+      "locales": {
+        "en": "0445fa2e05980562be39df8a9e8b478c7773bd74d0e0341ad25f062300128565",
+        "uz": "0445fa2e05980562be39df8a9e8b478c7773bd74d0e0341ad25f062300128565"
+      },
+      "ru_sha256": "0445fa2e05980562be39df8a9e8b478c7773bd74d0e0341ad25f062300128565"
+    },
+    "tools/position-calculator.md": {
+      "locales": {
+        "en": "52f7551a96cfbd5384ee3275b59966f1089f6116fd870bd264fb7723885170e2",
+        "uz": "52f7551a96cfbd5384ee3275b59966f1089f6116fd870bd264fb7723885170e2"
+      },
+      "ru_sha256": "52f7551a96cfbd5384ee3275b59966f1089f6116fd870bd264fb7723885170e2"
+    },
+    "tools/quiz.md": {
+      "locales": {
+        "en": "fe90e3463b6e458f56423bdbeb397a2e98786500009d7e6d11e7b23e84da763f",
+        "uz": "fe90e3463b6e458f56423bdbeb397a2e98786500009d7e6d11e7b23e84da763f"
+      },
+      "ru_sha256": "fe90e3463b6e458f56423bdbeb397a2e98786500009d7e6d11e7b23e84da763f"
+    },
+    "tools/risk-of-ruin.md": {
+      "locales": {
+        "en": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e",
+        "uz": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e"
+      },
+      "ru_sha256": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e"
+    },
+    "tools/winrate-rr-calculator.md": {
+      "locales": {
+        "en": "c7a008689f4a2f331c9e5b603b4cbe372f2e189cfff430f0addc54b1d9716f89",
+        "uz": "c7a008689f4a2f331c9e5b603b4cbe372f2e189cfff430f0addc54b1d9716f89"
+      },
+      "ru_sha256": "c7a008689f4a2f331c9e5b603b4cbe372f2e189cfff430f0addc54b1d9716f89"
+    },
+    "uz/brokers-uz.md": {
+      "locales": {
+        "en": "94014bdc70d42120ebad931756a9132e11c9b55240e40fc579c17f8b4eb08e09",
+        "uz": "94014bdc70d42120ebad931756a9132e11c9b55240e40fc579c17f8b4eb08e09"
+      },
+      "ru_sha256": "94014bdc70d42120ebad931756a9132e11c9b55240e40fc579c17f8b4eb08e09"
+    },
+    "uz/communities.md": {
+      "locales": {
+        "en": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130",
+        "uz": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130"
+      },
+      "ru_sha256": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130"
+    },
+    "uz/scam-protection.md": {
+      "locales": {
+        "en": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60",
+        "uz": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
+      },
+      "ru_sha256": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
+    },
+    "uz/withdrawal-guide.md": {
+      "locales": {
+        "en": "6974812508355197e00c4d117d8d13fe77012c65cf7873b4bdbef7d4703324fe",
+        "uz": "6974812508355197e00c4d117d8d13fe77012c65cf7873b4bdbef7d4703324fe"
+      },
+      "ru_sha256": "6974812508355197e00c4d117d8d13fe77012c65cf7873b4bdbef7d4703324fe"
+    },
+    "КАК-ПОЛЬЗОВАТЬСЯ.md": {
+      "locales": {
+        "en": "8adc73f1ecdc00487830d444744b8ea5d3a37162d3baa36fb59265996a394293",
+        "uz": "8adc73f1ecdc00487830d444744b8ea5d3a37162d3baa36fb59265996a394293"
+      },
+      "ru_sha256": "8adc73f1ecdc00487830d444744b8ea5d3a37162d3baa36fb59265996a394293"
+    }
+  },
+  "version": 1
+}
