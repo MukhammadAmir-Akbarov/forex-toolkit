@@ -28,6 +28,8 @@ extra_javascript:
   - javascripts/translit.js
   # Replay Trainer (I9) — загружается только там, где есть #replay-widget.
   - javascripts/widgets/replay.js
+  # Подсказка «☰ — открой меню» при первом визите на мобильном.
+  - javascripts/mobile-menu-hint.js
 
 plugins:
   - search
