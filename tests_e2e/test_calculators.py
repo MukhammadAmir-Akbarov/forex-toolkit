@@ -252,3 +252,50 @@ def test_winrate_calculator(pw_page, site_url, prefix):
         "() => document.getElementById('wr-result').textContent.includes('1.50')"
     )
     assert "1.50" in page.text_content("#wr-result")
+
+
+# ──────────────────── Итоговый экзамен + сертификат (I10) ────────────────────
+# Проходим экзамен на 100% (кликаем правильный вариант по индексу answer из JSON),
+# проверяем: проходной балл сработал, сертификат отрисован, прогресс записан.
+
+
+@pytest.mark.parametrize("prefix", ["", "en/", "uz/"])
+def test_exam_certificate(pw_page, site_url, prefix):
+    page = pw_page
+    page.goto(f"{site_url}/{prefix}tools/exam/")
+    questions = page.evaluate(
+        "() => JSON.parse(document.getElementById('exam-questions').textContent)"
+    )
+    assert len(questions) == 18
+
+    page.fill("#exam-name", "Test User")
+    page.click("#exam-start-btn")
+
+    for n, q in enumerate(questions):
+        page.wait_for_function(
+            "n => document.getElementById('exam-counter').textContent.trim()"
+            " && document.querySelectorAll('#exam-options .exam-option').length > 0",
+            arg=n,
+        )
+        # Кликаем вариант с текстом правильного ответа (точное совпадение).
+        correct = q["options"][q["answer"]]
+        clicked = page.evaluate(
+            "c => { const b = [...document.querySelectorAll("
+            "'#exam-options .exam-option')].find(x => x.textContent.trim() === c);"
+            " if (b) { b.click(); return true; } return false; }",
+            correct,
+        )
+        assert clicked, f"[{prefix}] не нашёл вариант: {correct!r}"
+        page.click("#exam-next")
+
+    # Результат: 100% → проходной балл, сертификат виден, прогресс записан.
+    page.wait_for_selector("#exam-cert-wrap", state="visible")
+    passed = page.evaluate("() => localStorage.getItem('forex_exam_passed')")
+    best = page.evaluate("() => localStorage.getItem('forex_exam_best')")
+    assert passed == "1", f"[{prefix}] экзамен не отметился пройденным"
+    assert best == "100", f"[{prefix}] best={best}, ожидали 100"
+    # canvas сертификата непустой (есть data-URL).
+    durl = page.evaluate(
+        "() => document.getElementById('exam-cert').toDataURL('image/png').length"
+    )
+    assert durl > 1000, "сертификат не отрисован"

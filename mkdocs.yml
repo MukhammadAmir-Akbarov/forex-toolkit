@@ -39,6 +39,7 @@ extra_javascript:
   - javascripts/widgets/tax.js
   - javascripts/widgets/cost.js
   - javascripts/widgets/sessions.js
+  - javascripts/widgets/exam.js
 
 plugins:
   - search
@@ -124,6 +125,7 @@ plugins:
             "🎴 Тренажёр карточек": "🎴 Flashcards"
             "🎯 Квиз — готов к реалу?": "🎯 Quiz — ready for real?"
             "🎲 Риск разорения": "🎲 Risk of ruin"
+            "🎓 Итоговый экзамен": "🎓 Final exam"
             "Tools README": "Tools README"
             "Bot README": "Bot README"
             "MT5 setup": "MT5 setup"
@@ -204,6 +206,7 @@ plugins:
             "🎴 Тренажёр карточек": "🎴 Kartochka mashqi"
             "🎯 Квиз — готов к реалу?": "🎯 Kviz — real hisobga tayyormisan?"
             "🎲 Риск разорения": "🎲 Vayron bo'lish xavfi"
+            "🎓 Итоговый экзамен": "🎓 Yakuniy imtihon"
             "Tools README": "Tools README"
             "Bot README": "Bot README"
             "MT5 setup": "MT5 sozlash"
@@ -355,6 +358,7 @@ nav:
       - "🎯 Квиз — готов к реалу?": tools/quiz.md
       - 🎲 Риск разорения: tools/risk-of-ruin.md
       - 🎮 Тренажёр Replay: tools/replay-trainer.md
+      - 🎓 Итоговый экзамен: tools/exam.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
   - 🚀 Продвинутое:
