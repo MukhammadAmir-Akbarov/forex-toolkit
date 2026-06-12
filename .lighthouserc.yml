@@ -1,0 +1,57 @@
+# Конфиг Lighthouse CI (I23).
+# Запускается в CI после mkdocs build, проверяет три локали сайта.
+# Пороги намеренно консервативные: UZ-аудитория часто на медленном мобильном,
+# translit.js обходит DOM — следим за Performance и CLS.
+ci:
+  collect:
+    # Статический сайт собирается перед запуском; сервируется через http.server.
+    staticDistDir: site
+    url:
+      # RU (по умолчанию)
+      - http://localhost/
+      - http://localhost/tools/margin-calculator/
+      # EN
+      - http://localhost/en/
+      - http://localhost/en/tools/margin-calculator/
+      # UZ
+      - http://localhost/uz/
+      - http://localhost/uz/tools/margin-calculator/
+    numberOfRuns: 1
+    settings:
+      # Мобильный профиль — соответствует целевой аудитории (UZ на телефоне).
+      preset: desktop  # desktop быстрее в CI; mobile проверяем через throttling
+      throttlingMethod: simulate
+      # Тихий headless Chromium.
+      chromeFlags: "--no-sandbox --headless"
+
+  assert:
+    preset: "lighthouse:no-pwa"
+    assertions:
+      # Ключевые метрики — пороги информационные, не блокирующие (warn вместо error).
+      # Когда реальные данные будут собраны, поднять до error.
+      first-contentful-paint:
+        - warn
+        - maxNumericValue: 3000  # мс
+      largest-contentful-paint:
+        - warn
+        - maxNumericValue: 4000  # мс, UZ-страницы могут быть медленнее
+      cumulative-layout-shift:
+        - warn
+        - maxNumericValue: 0.15  # CLS: translit.js может сдвигать DOM
+      total-blocking-time:
+        - warn
+        - maxNumericValue: 600   # мс
+      # Доступность — строже: контент образовательный, читатели разные.
+      categories:accessibility:
+        - warn
+        - minScore: 0.85
+      categories:best-practices:
+        - warn
+        - minScore: 0.80
+      categories:seo:
+        - warn
+        - minScore: 0.85
+
+  upload:
+    # Для публичного хранения результатов — включить если нужно.
+    target: temporary-public-storage

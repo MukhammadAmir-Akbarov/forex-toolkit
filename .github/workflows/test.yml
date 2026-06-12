@@ -132,6 +132,35 @@ jobs:
       - name: Внутренние якоря (#fragment) ведут на существующие заголовки
         run: python tools/check_links.py
 
+  lighthouse:
+    name: Lighthouse / a11y (I23)
+    runs-on: ubuntu-latest
+    # Информационный джоб: не блокирует мерж, пока пороги не устоялись.
+    # Когда средние оценки стабилизируются — убрать continue-on-error.
+    continue-on-error: true
+    needs: docs  # сначала убеждаемся, что сайт собирается без ошибок
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install MkDocs
+        run: |
+          python -m pip install --upgrade pip
+          pip install "mkdocs>=1.5,<2" "mkdocs-material>=9.0,<10" \
+                      "pymdown-extensions>=10" "mkdocs-static-i18n>=1.2,<2" \
+                      "mkdocs-git-revision-date-localized-plugin>=1.2"
+      - name: Build site
+        run: mkdocs build --quiet
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.14.x
+      - name: Run Lighthouse CI (RU + EN + UZ)
+        # lhci autorun читает .lighthouserc.yml, сервирует site/, проверяет пороги.
+        run: lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
   e2e:
     name: Widget e2e (JS-математика == Python)
     runs-on: ubuntu-latest
