@@ -337,6 +337,13 @@
       },
       "ru_sha256": "83f33c12a36b35b7fd792a7b5b4c34e72c93fb427892464f969c33c0a468f30b"
     },
+    "practice/trading-sessions.md": {
+      "locales": {
+        "en": "1431f39927edabfb9f6bb71335de6516453677a73760f5812f423dc371be24a2",
+        "uz": "1431f39927edabfb9f6bb71335de6516453677a73760f5812f423dc371be24a2"
+      },
+      "ru_sha256": "1431f39927edabfb9f6bb71335de6516453677a73760f5812f423dc371be24a2"
+    },
     "roadmap.md": {
       "locales": {
         "en": "d231f8834a3414ed4fc15046b978d82459da18a33c620da2d08f56865bc3ea2b",

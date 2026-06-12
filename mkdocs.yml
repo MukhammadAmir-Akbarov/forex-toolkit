@@ -38,6 +38,7 @@ extra_javascript:
   - javascripts/widgets/winrate.js
   - javascripts/widgets/tax.js
   - javascripts/widgets/cost.js
+  - javascripts/widgets/sessions.js
 
 plugins:
   - search
@@ -92,6 +93,7 @@ plugins:
             "🔁 Циклы рынка": "🔁 Market cycles"
             "🏛️ Структура рынка": "🏛️ Market structure"
             "📡 Торговля на новостях": "📡 News trading"
+            "🕐 Торговые сессии": "🕐 Trading sessions"
             "Психология трейдинга": "Trading psychology"
             "🆘 Ответственная торговля": "🆘 Responsible trading"
             "Anti-Tilt протокол": "Anti-Tilt protocol"
@@ -171,6 +173,7 @@ plugins:
             "🔁 Циклы рынка": "🔁 Bozor sikllari"
             "🏛️ Структура рынка": "🏛️ Bozor tuzilmasi"
             "📡 Торговля на новостях": "📡 Yangiliklar asosida savdo"
+            "🕐 Торговые сессии": "🕐 Savdo sessiyalari"
             "Психология трейдинга": "Treyding psixologiyasi"
             "🆘 Ответственная торговля": "🆘 Mas'uliyatli savdo"
             "Anti-Tilt протокол": "Anti-Tilt protokoli"
@@ -316,6 +319,7 @@ nav:
       - 🔁 Циклы рынка: practice/cycle-theory.md
       - 🏛️ Структура рынка: practice/market-structure.md
       - 📡 Торговля на новостях: practice/news-trading-protocol.md
+      - 🕐 Торговые сессии: practice/trading-sessions.md
   - 🧠 Психология и дисциплина:
       - Психология трейдинга: extras/psychology.md
       - 🆘 Ответственная торговля: extras/responsible-trading.md
