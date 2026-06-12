@@ -2181,6 +2181,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../tools/cost-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💸 Стоимость торговли
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../tools/flashcards/" class="md-nav__link">
         
   
@@ -3229,83 +3257,6 @@
   <div class="tax-warnings" id="tax-warnings"></div>
 </div>
 
-<script>
-(function() {
-  // Математика идентична uz/tax-calculator.py:calculate_tax:
-  //   net   = profit - loss
-  //   tax   = net * 0.12  (только если net > 0, иначе 0)
-  //   after = net - tax
-  const NDFL_RATE = 0.12;  // 12% НДФЛ для физлиц-резидентов (проверять на soliq.uz)
-
-  function calcTax(profit, loss, rate) {
-    const net = profit - loss;
-    if (net <= 0) {
-      return { net, netUzs: net * rate, tax: 0, taxUzs: 0,
-               after: net, afterUzs: net * rate, isLoss: true };
-    }
-    const tax = net * NDFL_RATE;
-    return { net, netUzs: net * rate, tax, taxUzs: tax * rate,
-             after: net - tax, afterUzs: (net - tax) * rate, isLoss: false };
-  }
-
-  const fmt$ = v => '$' + v.toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  const fmtUZS = v => Math.round(v).toLocaleString('ru-RU') + ' сум';
-
-  function recalc() {
-    const profit = parseFloat(document.getElementById('tax-profit').value);
-    const loss   = parseFloat(document.getElementById('tax-loss').value);
-    const rate   = parseFloat(document.getElementById('tax-rate').value);
-
-    const result   = document.getElementById('tax-result');
-    const warnings = document.getElementById('tax-warnings');
-    warnings.innerHTML = '';
-
-    const errors = [];
-    if (!(profit >= 0)) errors.push('Прибыль не может быть отрицательной.');
-    if (!(loss >= 0))   errors.push('Убыток укажи как положительное число.');
-    if (!(rate > 0))    errors.push('Укажи курс USD → UZS.');
-    if (errors.length) {
-      result.style.display = 'block';
-      result.className = '';
-      document.getElementById('tax-headline').textContent = '—';
-      warnings.innerHTML = errors.map(e => `<div class="tax-note tax-danger">⛔ ${e}</div>`).join('');
-      return;
-    }
-
-    const r = calcTax(profit, loss, rate);
-
-    document.getElementById('tax-out-net').textContent      = fmt$(r.net);
-    document.getElementById('tax-out-net-uzs').textContent  = fmtUZS(r.netUzs);
-    document.getElementById('tax-out-tax').textContent      = fmt$(r.tax);
-    document.getElementById('tax-out-tax-uzs').textContent  = fmtUZS(r.taxUzs);
-    document.getElementById('tax-out-after').textContent    = fmt$(r.after);
-    document.getElementById('tax-out-after-uzs').textContent = fmtUZS(r.afterUzs);
-    document.getElementById('tax-headline').textContent     = fmt$(r.tax);
-    result.style.display = 'block';
-    result.className = r.isLoss ? 'ok' : '';
-
-    const nextYear = new Date().getFullYear() + 1;
-    if (r.isLoss) {
-      document.getElementById('tax-subhead').textContent = 'налога нет — убыток за год';
-      warnings.innerHTML += `<div class="tax-note tax-ok">✅ За год убыток (${fmt$(r.net)}) — НДФЛ платить не нужно. Сохрани отчёт брокера минимум 3 года на случай вопросов.</div>`;
-    } else {
-      document.getElementById('tax-subhead').textContent = 'налог к уплате (НДФЛ 12%)';
-      warnings.innerHTML += `<div class="tax-note">📌 Задекларируй чистую прибыль до <strong>1 апреля ${nextYear}</strong> года в личном кабинете my.soliq.uz.</div>`;
-      warnings.innerHTML += `<div class="tax-note">💡 Декларируется итог за год (прибыли − убытки), а не каждая сделка отдельно.</div>`;
-    }
-    warnings.innerHTML += `<div class="tax-note">⚠️ Ставку и порядок уточни на soliq.uz — это образовательная оценка, не налоговая консультация.</div>`;
-  }
-
-  ['tax-profit','tax-loss','tax-rate'].forEach(function(id) {
-    var el = document.getElementById(id);
-    el.addEventListener('input', recalc);
-    el.addEventListener('change', recalc);
-  });
-  document.getElementById('tax-calc-btn').addEventListener('click', recalc);
-
-  recalc();
-})();
-</script>
 
 </div>
 
@@ -3367,7 +3318,7 @@
     <span class="md-icon" title="Последнее обновление">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="11 июня 2026 г. 15:36:29 UTC">11 июня 2026 г.</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12 июня 2026 г. 18:02:04 UTC">12 июня 2026 г.</span>
   </span>
 
     
@@ -3598,9 +3549,21 @@
       
         <script src="../../javascripts/translit.js"></script>
       
-        <script src="../../javascripts/widgets/replay.js"></script>
+        <script src="../../javascripts/widgets/_i18n.js"></script>
       
-        <script src="../../javascripts/mobile-menu-hint.js"></script>
+        <script src="../../javascripts/widgets/margin.js"></script>
+      
+        <script src="../../javascripts/widgets/compound.js"></script>
+      
+        <script src="../../javascripts/widgets/pip.js"></script>
+      
+        <script src="../../javascripts/widgets/position.js"></script>
+      
+        <script src="../../javascripts/widgets/winrate.js"></script>
+      
+        <script src="../../javascripts/widgets/tax.js"></script>
+      
+        <script src="../../javascripts/widgets/cost.js"></script>
       
     
   </body>

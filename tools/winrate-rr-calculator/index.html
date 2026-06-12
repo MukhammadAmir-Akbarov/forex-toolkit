@@ -18,7 +18,7 @@
         <link rel="prev" href="../compound-calculator/">
       
       
-        <link rel="next" href="../flashcards/">
+        <link rel="next" href="../cost-calculator/">
       
       
         
@@ -2338,6 +2338,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../cost-calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    💸 Стоимость торговли
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../flashcards/" class="md-nav__link">
         
   
@@ -3203,82 +3231,11 @@
   <span>%</span>
 </div>
 
-<button class="calc-button" onclick="calcWRRR()">Рассчитать</button>
+<button class="calc-button" id="wr-calc-btn">Рассчитать</button>
 
 <div id="wr-result" class="calc-result"></div>
 
 </div>
-
-<script>
-function calcWRRR() {
-  const wr = parseFloat(document.getElementById('wr-input').value) / 100;
-  const rr = parseFloat(document.getElementById('rr-input').value);
-  const trades = parseInt(document.getElementById('trades-input').value);
-  const risk = parseFloat(document.getElementById('risk-input').value);
-
-  if (!wr || !rr || !trades || !risk) {
-    document.getElementById('wr-result').innerHTML = '<div class="calc-warn">Заполни все поля</div>';
-    return;
-  }
-
-  const wins = Math.round(trades * wr);
-  const losses = trades - wins;
-  const winPnL = wins * rr * risk;
-  const lossPnL = losses * risk;
-  const netPnL = winPnL - lossPnL;
-
-  // Expected value per trade
-  const ev = (wr * rr - (1 - wr)) * risk;
-  const evSign = ev >= 0 ? '+' : '';
-
-  // Required RR for breakeven at this WR
-  const requiredRR = (1 - wr) / wr;
-
-  // Status
-  let status, statusClass;
-  if (ev > 0.5) {
-    status = '✅ Сильная стратегия — стабильный плюс';
-    statusClass = 'calc-ok';
-  } else if (ev > 0.1) {
-    status = '🟡 Стратегия в плюсе, но плюс слабый';
-    statusClass = 'calc-warn';
-  } else if (ev > -0.1) {
-    status = '🟠 Стратегия на грани — близко к нулю';
-    statusClass = 'calc-warn';
-  } else {
-    status = '🔴 Стратегия УБЫТОЧНА по математике';
-    statusClass = 'calc-error';
-  }
-
-  const html = `
-    <div class="${statusClass}">
-      <h4>${status}</h4>
-
-      <table class="calc-table">
-        <tr><td><strong>Прибыльных сделок</strong></td><td>${wins} (${(wr*100).toFixed(0)}%)</td></tr>
-        <tr><td><strong>Убыточных сделок</strong></td><td>${losses} (${((1-wr)*100).toFixed(0)}%)</td></tr>
-        <tr><td><strong>Прибыль с побед</strong></td><td>+${winPnL.toFixed(2)}% депозита</td></tr>
-        <tr><td><strong>Убыток с поражений</strong></td><td>-${lossPnL.toFixed(2)}% депозита</td></tr>
-        <tr><td><strong>Итог за ${trades} сделок</strong></td><td><strong>${netPnL >= 0 ? '+' : ''}${netPnL.toFixed(2)}% депозита</strong></td></tr>
-        <tr><td><strong>EV (на 1 сделку)</strong></td><td>${evSign}${ev.toFixed(3)}% депозита</td></tr>
-        <tr><td><strong>Минимальный RR для безубытка</strong></td><td>${requiredRR.toFixed(2)}</td></tr>
-      </table>
-
-      <p><strong>Расшифровка:</strong></p>
-      <ul>
-        <li>EV (Expected Value) = математическое ожидание одной сделки</li>
-        <li>Если EV > 0 — стратегия в долгосроке прибыльна</li>
-        <li>Если EV < 0 — даже миллион сделок не спасут</li>
-        <li>При твоём WR <strong>${(wr*100).toFixed(0)}%</strong> минимальный RR для нуля = <strong>${requiredRR.toFixed(2)}</strong>. Ты используешь RR=<strong>${rr.toFixed(1)}</strong>, что ${rr > requiredRR ? '✅ ВЫШЕ' : '❌ НИЖЕ'} требуемого.</li>
-      </ul>
-    </div>
-  `;
-
-  document.getElementById('wr-result').innerHTML = html;
-}
-
-window.addEventListener('DOMContentLoaded', calcWRRR);
-</script>
 
 <hr />
 <h2 id="-эталонная-таблица-wr-vs-минимальный-rr">📋 Эталонная таблица «WR vs минимальный <abbr title="Risk/Reward — отношение риска к прибыли (1:2 — на $1 риска $2 прибыли).">RR</abbr>»<a class="headerlink" href="#-эталонная-таблица-wr-vs-минимальный-rr" title="Permanent link">&para;</a></h2>
@@ -3423,7 +3380,7 @@ window.addEventListener('DOMContentLoaded', calcWRRR);
     <span class="md-icon" title="Последнее обновление">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="23 мая 2026 г. 09:49:09 UTC">23 мая 2026 г.</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12 июня 2026 г. 18:02:04 UTC">12 июня 2026 г.</span>
   </span>
 
     
@@ -3571,13 +3528,13 @@ window.addEventListener('DOMContentLoaded', calcWRRR);
         
         
           
-          <a href="../flashcards/" class="md-footer__link md-footer__link--next" aria-label="Вперед: 🎴 Тренажёр карточек">
+          <a href="../cost-calculator/" class="md-footer__link md-footer__link--next" aria-label="Вперед: 💸 Стоимость торговли">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Вперед
               </span>
               <div class="md-ellipsis">
-                🎴 Тренажёр карточек
+                💸 Стоимость торговли
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3654,9 +3611,21 @@ window.addEventListener('DOMContentLoaded', calcWRRR);
       
         <script src="../../javascripts/translit.js"></script>
       
-        <script src="../../javascripts/widgets/replay.js"></script>
+        <script src="../../javascripts/widgets/_i18n.js"></script>
       
-        <script src="../../javascripts/mobile-menu-hint.js"></script>
+        <script src="../../javascripts/widgets/margin.js"></script>
+      
+        <script src="../../javascripts/widgets/compound.js"></script>
+      
+        <script src="../../javascripts/widgets/pip.js"></script>
+      
+        <script src="../../javascripts/widgets/position.js"></script>
+      
+        <script src="../../javascripts/widgets/winrate.js"></script>
+      
+        <script src="../../javascripts/widgets/tax.js"></script>
+      
+        <script src="../../javascripts/widgets/cost.js"></script>
       
     
   </body>
