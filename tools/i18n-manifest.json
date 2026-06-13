@@ -234,10 +234,10 @@
     },
     "index.md": {
       "locales": {
-        "en": "ff8165162e8d0f1e6215629811b3002a9428d46fa075403a35090cad1ac0d49c",
-        "uz": "ff8165162e8d0f1e6215629811b3002a9428d46fa075403a35090cad1ac0d49c"
+        "en": "92ff4ba3b77ed8da6f0f6c1e144233a10b130f1293ae5c3e0985064d63c574be",
+        "uz": "92ff4ba3b77ed8da6f0f6c1e144233a10b130f1293ae5c3e0985064d63c574be"
       },
-      "ru_sha256": "ff8165162e8d0f1e6215629811b3002a9428d46fa075403a35090cad1ac0d49c"
+      "ru_sha256": "92ff4ba3b77ed8da6f0f6c1e144233a10b130f1293ae5c3e0985064d63c574be"
     },
     "journal/README.md": {
       "locales": {
@@ -353,10 +353,10 @@
     },
     "roadmap.md": {
       "locales": {
-        "en": "d231f8834a3414ed4fc15046b978d82459da18a33c620da2d08f56865bc3ea2b",
-        "uz": "d231f8834a3414ed4fc15046b978d82459da18a33c620da2d08f56865bc3ea2b"
+        "en": "93916f32da60700f683831c04db3805f6ebd977248f2c63630825944d81955a3",
+        "uz": "93916f32da60700f683831c04db3805f6ebd977248f2c63630825944d81955a3"
       },
-      "ru_sha256": "d231f8834a3414ed4fc15046b978d82459da18a33c620da2d08f56865bc3ea2b"
+      "ru_sha256": "93916f32da60700f683831c04db3805f6ebd977248f2c63630825944d81955a3"
     },
     "tools/README.md": {
       "locales": {
