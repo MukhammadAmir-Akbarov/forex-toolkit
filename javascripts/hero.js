@@ -124,11 +124,18 @@
     if (!header) return;
 
     var lang = (document.documentElement.lang || "ru").split("-")[0];
-    var labels  = { ru: "Начать →", en: "Start →", uz: "Boshlash →" };
-    var hrefs   = { ru: "forex-guide/", en: "../forex-guide/", uz: "../forex-guide/" };
+    var labels = { ru: "Начать →", en: "Start →", uz: "Boshlash →" };
+
+    /* Вычисляем корень текущей локали из кнопки-логотипа Material.
+       Это даёт абсолютный URL независимо от глубины вложенности страницы:
+       /forex-toolkit/           (RU)
+       /forex-toolkit/en/        (EN)
+       /forex-toolkit/uz/        (UZ) */
+    var logoBtn = document.querySelector(".md-header__button.md-logo");
+    var localeRoot = logoBtn ? logoBtn.href : window.location.origin + "/";
 
     var a = document.createElement("a");
-    a.href      = hrefs[lang] || hrefs.ru;
+    a.href = localeRoot + "forex-guide/";
     a.className = "md-button md-button--primary fx-nav-cta";
     a.textContent = labels[lang] || labels.ru;
     header.appendChild(a);
