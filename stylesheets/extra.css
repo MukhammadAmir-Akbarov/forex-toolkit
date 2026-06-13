@@ -214,9 +214,19 @@ html { scroll-behavior: smooth; }
    -------------------------------------------------------------------------- */
 
 .md-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   box-shadow: none;
   border-bottom: 1px solid transparent;
   transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+/* Вкладки всегда видны — не скрываются при скролле */
+.md-tabs {
+  position: sticky;
+  top: var(--md-header-height, 48px);
+  z-index: 4;
 }
 .md-header[data-md-state="shadow"],
 .md-header--shadow { box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18); }
