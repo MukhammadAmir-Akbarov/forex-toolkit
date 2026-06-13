@@ -71,6 +71,55 @@
 }
 
 /* --------------------------------------------------------------------------
+   1b. Плавный переход светлая ⇄ тёмная тема
+   Чистый CSS: переход срабатывает только когда меняется data-md-color-scheme
+   (при переключении), а на первой загрузке страницы НЕ анимируется — у свойств
+   нет предыдущего значения. Уважает prefers-reduced-motion.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  .md-header,
+  .md-tabs,
+  .md-footer,
+  .md-footer-meta,
+  .md-sidebar,
+  .md-nav,
+  .md-nav__link,
+  .md-main,
+  .md-content,
+  .md-search__form,
+  .md-search__input,
+  .md-typeset,
+  .md-typeset h1,
+  .md-typeset h2,
+  .md-typeset h3,
+  .md-typeset h4,
+  .md-typeset h5,
+  .md-typeset p,
+  .md-typeset a,
+  .md-typeset li,
+  .md-typeset td,
+  .md-typeset th,
+  .md-typeset pre,
+  .md-typeset code,
+  .md-typeset blockquote,
+  .md-typeset hr,
+  .md-typeset .admonition,
+  .md-typeset details,
+  .md-typeset table:not([class]),
+  .calc-widget,
+  .pos-calc-widget,
+  .fx-script-toggle,
+  .fx-readtime {
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease,
+      border-color 0.5s ease,
+      box-shadow 0.5s ease;
+  }
+}
+
+/* --------------------------------------------------------------------------
    2. Базовая типографика и комфортное чтение
    -------------------------------------------------------------------------- */
 
