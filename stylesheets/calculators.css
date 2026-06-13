@@ -344,3 +344,164 @@
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
   margin-bottom: 0.8rem;
 }
+
+/* ==========================================================================
+   Веб-журнал сделок (widgets/journal.js)
+   ========================================================================== */
+.journal-widget {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+  background: var(--md-code-bg-color);
+}
+.journal-drop {
+  border: 2px dashed var(--md-default-fg-color--lighter);
+  border-radius: 10px;
+  padding: 1.4rem;
+  text-align: center;
+  background: var(--md-default-bg-color);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.journal-drop.is-dragging {
+  border-color: var(--md-primary-fg-color);
+  background: rgba(59, 130, 246, 0.08);
+}
+.journal-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+.journal-button {
+  border: 0;
+  border-radius: 7px;
+  padding: 0.6rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--md-primary-bg-color);
+  background: var(--md-primary-fg-color);
+}
+.journal-button.secondary {
+  color: var(--md-default-fg-color);
+  background: var(--md-default-fg-color--lightest);
+}
+.journal-file-name,
+.journal-privacy {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.82rem;
+  margin: 0.6rem 0 0;
+}
+.journal-error {
+  display: none;
+  margin-top: 0.8rem;
+  padding: 0.65rem 0.8rem;
+  border-left: 3px solid #dc2626;
+  border-radius: 6px;
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--md-default-fg-color);
+}
+.journal-dashboard { display: none; margin-top: 1.2rem; }
+.journal-filters {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+.journal-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.journal-filters input,
+.journal-filters select {
+  min-width: 0;
+  padding: 0.48rem 0.55rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+}
+.journal-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(125px, 1fr));
+  gap: 0.7rem;
+}
+.journal-card {
+  padding: 0.85rem;
+  border-radius: 8px;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+.journal-card-label {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+.journal-card-value {
+  margin-top: 0.2rem;
+  font-family: var(--md-code-font-family);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+.journal-positive { color: #22c55e; }
+.journal-negative { color: #ef4444; }
+.journal-chart-wrap,
+.journal-rules,
+.journal-table-wrap {
+  margin-top: 1rem;
+  padding: 0.9rem;
+  border-radius: 8px;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+.journal-chart-wrap h3,
+.journal-rules h3,
+.journal-table-wrap h3 { margin: 0 0 0.7rem; font-size: 1rem; }
+#journal-equity {
+  display: block;
+  width: 100%;
+  height: 260px;
+}
+.journal-rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+.journal-rule-card {
+  border-left: 3px solid #3b82f6;
+  padding: 0.6rem 0.8rem;
+  background: var(--md-code-bg-color);
+  border-radius: 6px;
+}
+.journal-rule-card strong { display: block; margin-bottom: 0.25rem; }
+.journal-table-scroll { overflow-x: auto; }
+.journal-table { width: 100%; min-width: 680px; border-collapse: collapse; }
+.journal-table th,
+.journal-table td {
+  padding: 0.48rem 0.55rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.82rem;
+  text-align: left;
+}
+.journal-table th { color: var(--md-default-fg-color--light); }
+.journal-empty {
+  padding: 1rem;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+}
+@media (max-width: 900px) {
+  .journal-filters { grid-template-columns: repeat(2, 1fr); }
+  .journal-metrics { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .journal-widget { padding: 0.8rem; }
+  .journal-filters,
+  .journal-metrics,
+  .journal-rules-grid { grid-template-columns: 1fr; }
+}
