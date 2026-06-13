@@ -234,10 +234,10 @@
     },
     "index.md": {
       "locales": {
-        "en": "a6656b19f769f364932785e79cf4ac52872405844918817acac112d46b792fee",
-        "uz": "a6656b19f769f364932785e79cf4ac52872405844918817acac112d46b792fee"
+        "en": "ff8165162e8d0f1e6215629811b3002a9428d46fa075403a35090cad1ac0d49c",
+        "uz": "ff8165162e8d0f1e6215629811b3002a9428d46fa075403a35090cad1ac0d49c"
       },
-      "ru_sha256": "a6656b19f769f364932785e79cf4ac52872405844918817acac112d46b792fee"
+      "ru_sha256": "ff8165162e8d0f1e6215629811b3002a9428d46fa075403a35090cad1ac0d49c"
     },
     "journal/README.md": {
       "locales": {
@@ -273,6 +273,13 @@
         "uz": "faee281f9a4ecea74aa68482dde1b4db9f26e5c2781b77cd0ec70ff33d946e81"
       },
       "ru_sha256": "faee281f9a4ecea74aa68482dde1b4db9f26e5c2781b77cd0ec70ff33d946e81"
+    },
+    "journal/web-journal.md": {
+      "locales": {
+        "en": "79d830b8a25b45c66505167f4037861b2e9f9ef48cdc112cfe85991310da54b3",
+        "uz": "79d830b8a25b45c66505167f4037861b2e9f9ef48cdc112cfe85991310da54b3"
+      },
+      "ru_sha256": "79d830b8a25b45c66505167f4037861b2e9f9ef48cdc112cfe85991310da54b3"
     },
     "journal/weekly-report-template.md": {
       "locales": {
@@ -458,10 +465,10 @@
     },
     "uz/tax-calculator.md": {
       "locales": {
-        "en": "3df1a611efbb5f66119216db51491012e80e0c58e0029ece683fdf74e7122e29",
-        "uz": "3df1a611efbb5f66119216db51491012e80e0c58e0029ece683fdf74e7122e29"
+        "en": "e37f6712dde0e02c33317a2172797bb1d5ad622bb172bdb9b744105579aab5c5",
+        "uz": "e37f6712dde0e02c33317a2172797bb1d5ad622bb172bdb9b744105579aab5c5"
       },
-      "ru_sha256": "3df1a611efbb5f66119216db51491012e80e0c58e0029ece683fdf74e7122e29"
+      "ru_sha256": "e37f6712dde0e02c33317a2172797bb1d5ad622bb172bdb9b744105579aab5c5"
     },
     "uz/withdrawal-guide.md": {
       "locales": {

@@ -1,23 +1,41 @@
 # Forex Trading Toolkit
 
 <div class="fx-hero">
-  <p class="fx-hero__subtitle">Полный учебный проект для изучения forex с нуля — теория, инструменты и стратегии в одном месте.</p>
-  <div class="fx-hero__meta">
-    <span class="fx-hero__pill">📚 25+ гайдов</span>
-    <span class="fx-hero__pill">🛠️ 30+ инструментов</span>
-    <span class="fx-hero__pill">🎯 6 стратегий</span>
-    <span class="fx-hero__pill">🧪 95 тестов</span>
-    <span class="fx-hero__pill">🌍 RU · EN · UZ</span>
+  <p class="fx-hero__eyebrow">Образовательный проект · Бесплатно · MIT лицензия</p>
+  <p class="fx-hero__subtitle">Полный учебник forex с нуля — теория, Python-инструменты,<br>торговые стратегии и практика в одном месте.</p>
+  <div class="fx-hero__cta">
+    <a href="forex-guide/" class="md-button md-button--primary">Начать обучение →</a>
+    <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" class="md-button" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+  <div class="fx-hero__stats">
+    <div class="fx-stat"><span class="fx-stat__num">25+</span><span class="fx-stat__label">гайдов</span></div>
+    <div class="fx-stat"><span class="fx-stat__num">30+</span><span class="fx-stat__label">инструментов</span></div>
+    <div class="fx-stat"><span class="fx-stat__num">6</span><span class="fx-stat__label">стратегий</span></div>
+    <div class="fx-stat"><span class="fx-stat__num">95</span><span class="fx-stat__label">тестов</span></div>
+    <div class="fx-stat"><span class="fx-stat__num">3</span><span class="fx-stat__label">языка</span></div>
   </div>
 </div>
 
-<p align="center" markdown="1">
-[![Tests](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml)
-[![Deploy](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml)
-[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![GitHub](https://img.shields.io/badge/github-source-black?logo=github)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit)
-</p>
+<div class="fx-features">
+  <div class="fx-feature-card">
+    <div class="fx-feature-card__icon">📚</div>
+    <div class="fx-feature-card__title">Теория</div>
+    <p>25+ гайдов: от «что такое forex» до продвинутого технического анализа, психологии трейдинга и риск-менеджмента.</p>
+    <a href="forex-guide/">Читать учебник →</a>
+  </div>
+  <div class="fx-feature-card">
+    <div class="fx-feature-card__icon">🛠️</div>
+    <div class="fx-feature-card__title">Инструменты</div>
+    <p>30+ Python-инструментов: калькуляторы позиции и маржи, бэктестер на 8 парах, Monte Carlo и паттерн-сканер.</p>
+    <a href="tools/position-calculator/">Открыть инструменты →</a>
+  </div>
+  <div class="fx-feature-card">
+    <div class="fx-feature-card__icon">🎯</div>
+    <div class="fx-feature-card__title">Практика</div>
+    <p>6 стратегий с unit-тестами, Replay Trainer для тренировки на истории, итоговый экзамен и журнал сделок.</p>
+    <a href="practice/trading-sessions/">Начать практику →</a>
+  </div>
+</div>
 
 ## 📥 Скачать готовые материалы
 
@@ -57,65 +75,9 @@
 ## 🚀 С чего начать
 
 1. **[Как пользоваться](КАК-ПОЛЬЗОВАТЬСЯ.md)** — экскурсия по проекту
-2. **[Главный учебник](forex-guide.md)** — 700 строк теории
+2. **[Главный учебник](forex-guide.md)** — теория с нуля
 3. **[Психология трейдинга](extras/psychology.md)** — главный навык
-
-## 🎯 Рекомендуемый путь
-
-```mermaid
-graph TD
-    A[Прочитал что такое forex] --> B[Прошёл risk_profile.py]
-    B --> C{Результат?}
-    C -->|< 50%| D[Stocks/ETF лучше]
-    C -->|> 60%| E[Заполнил Trading Plan]
-    E --> F[Открыл демо-счёт]
-    F --> G[First 100 Days]
-    G --> H[30+ сделок с журналом]
-    H --> I{Стабильный плюс?}
-    I -->|Да| J[Маленький реал-депозит]
-    I -->|Нет| K[Ещё 3 месяца демо]
-```
-
-## 📊 Что внутри
-
-### Учебники (RU + EN)
-- Главный гайд (RU 638, EN 638 строк)
-- Технический анализ с 20+ графиками
-- Подробный разбор стратегии
-- Глоссарий 200+ терминов
-- 30 FAQ
-
-### Инструменты
-- Калькуляторы (позиции, маржи, сложного процента, пипса)
-- Бэктестер с реальными данными по 8 парам
-- Pattern scanner (8 свечных паттернов)
-- Trading Journal CLI + HTML dashboard
-- Monte Carlo симулятор
-- Risk profile тест (30 вопросов)
-- Broker license checker
-
-### Боты
-- MT5 Expert Advisor (MQL5)
-- Telegram signals bot
-- Daily Coach bot
-- Streamlit веб-приложение
-
-### Стратегии (с unit-тестами)
-- EMA50 Pullback (trend-following)
-- Mean Reversion (Bollinger)
-- Breakout (с фильтрами в v2)
-- London Open Range
-- Three Soldiers / Crows
-- Carry Trade (теория)
-
-## 🧪 Качество кода
-
-- **74/74** unit-теста проходят на каждом push (CI matrix: Ubuntu/macOS × Python 3.10-3.12)
-- Тестировано на **8 валютных парах × 2 года** реальных данных
-- Walk-forward optimization для проверки робастности
-- Coverage отчёт встроен
-- **Risk Guardian** (anti-tilt): автоматический стоп торговли после N убытков подряд + дневной лимит потерь
-- **Live-цены** в калькуляторе позиции через yfinance — никаких устаревших табличных значений
+4. **[Торговые сессии](practice/trading-sessions.md)** — начни с практики
 
 ## 📜 Дисклеймер
 

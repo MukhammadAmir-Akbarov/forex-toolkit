@@ -1,20 +1,41 @@
 # Forex Trading Toolkit
 
-<div style="text-align: center; font-size: 1.5em; color: #1e40af;">
-  📈 <strong>Forexni noldan o'rganish uchun to'liq o'quv loyihasi</strong>
+<div class="fx-hero">
+  <p class="fx-hero__eyebrow">O'quv loyihasi · Bepul · MIT litsenziya</p>
+  <p class="fx-hero__subtitle">Forexni noldan o'rganish uchun to'liq kurs — nazariya, Python-asboblar,<br>savdo strategiyalari va amaliyot bir joyda.</p>
+  <div class="fx-hero__cta">
+    <a href="../forex-guide/" class="md-button md-button--primary">O'qishni boshlash →</a>
+    <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" class="md-button" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+  <div class="fx-hero__stats">
+    <div class="fx-stat"><span class="fx-stat__num">25+</span><span class="fx-stat__label">qo'llanma</span></div>
+    <div class="fx-stat"><span class="fx-stat__num">30+</span><span class="fx-stat__label">asboblar</span></div>
+    <div class="fx-stat"><span class="fx-stat__num">6</span><span class="fx-stat__label">strategiya</span></div>
+    <div class="fx-stat"><span class="fx-stat__num">95</span><span class="fx-stat__label">test</span></div>
+    <div class="fx-stat"><span class="fx-stat__num">3</span><span class="fx-stat__label">til</span></div>
+  </div>
 </div>
 
-<div style="text-align: center; margin: 1em 0; color: #6b7280;">
-  130+ fayl · 25+ o'quv qo'llanma · 30+ Python-asboblar · 6 strategiya · MT5/Telegram/Streamlit botlar · 74 unit-test
+<div class="fx-features">
+  <div class="fx-feature-card">
+    <div class="fx-feature-card__icon">📚</div>
+    <div class="fx-feature-card__title">Nazariya</div>
+    <p>25+ qo'llanma: «forex nima»dan boshlab texnik tahlil, savdo psixologiyasi va risk-menejmentgacha.</p>
+    <a href="../forex-guide/">Darslikni o'qish →</a>
+  </div>
+  <div class="fx-feature-card">
+    <div class="fx-feature-card__icon">🛠️</div>
+    <div class="fx-feature-card__title">Asboblar</div>
+    <p>30+ Python-asbob: lot va marja kalkulyatorlari, 8 ta juftlik uchun bektester, Monte Carlo va pattern-skaner.</p>
+    <a href="../tools/position-calculator/">Asboblarni ochish →</a>
+  </div>
+  <div class="fx-feature-card">
+    <div class="fx-feature-card__icon">🎯</div>
+    <div class="fx-feature-card__title">Amaliyot</div>
+    <p>Unit-testli 6 ta strategiya, tarix bo'yicha mashq uchun Replay Trainer, yakuniy imtihon va savdo jurnali.</p>
+    <a href="../practice/trading-sessions/">Amaliyotni boshlash →</a>
+  </div>
 </div>
-
-<p align="center" markdown="1">
-[![Tests](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/test.yml)
-[![Deploy](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml/badge.svg)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/actions/workflows/deploy-docs.yml)
-[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![GitHub](https://img.shields.io/badge/github-source-black?logo=github)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit)
-</p>
 
 ## 📥 Tayyor materiallarni yuklab olish
 
@@ -53,73 +74,16 @@
     bo'lmagan pulingiz bilan savdo qilmang.
 
 !!! info "🌐 Til haqida"
-    Loyihaning asosiy tili — rus tili. O'zbek tilidagi sahifa hozircha
-    ushbu bosh sahifagacha tarjima qilingan. Qolgan bo'limlar avtomatik
-    ravishda rus tiliga qaytariladi. Tarjimaga yordam berishni xohlaysizmi?
+    Loyihaning asosiy tili — rus tili. Qolgan bo'limlar avtomatik ravishda
+    rus tiliga qaytariladi. Tarjimaga yordam berishni xohlaysizmi?
     [GitHub'da PR oching](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/pulls).
 
 ## 🚀 Qayerdan boshlash
 
 1. **[Foydalanish qo'llanmasi](КАК-ПОЛЬЗОВАТЬСЯ.md)** — loyiha bo'ylab sayohat
-2. **[Asosiy darslik](forex-guide.md)** — 700 qator nazariya
+2. **[Asosiy darslik](forex-guide.md)** — noldan nazariya
 3. **[Treyding psixologiyasi](extras/psychology.md)** — eng muhim ko'nikma
-
-## 🎯 Tavsiya etilgan yo'l
-
-```mermaid
-graph TD
-    A[Forex nima ekanini o'qidim] --> B[risk_profile.py testidan o'tdim]
-    B --> C{Natija?}
-    C -->|< 50%| D[Aksiya/ETF yaxshiroq]
-    C -->|> 60%| E[Trading Plan to'ldirdim]
-    E --> F[Demo-hisob ochdim]
-    F --> G[Birinchi 100 kun]
-    G --> H[Jurnal bilan 30+ savdo]
-    H --> I{Barqaror foyda?}
-    I -->|Ha| J[Kichik real-depozit]
-    I -->|Yo'q| K[Yana 3 oy demo]
-```
-
-## 📊 Ichida nima bor
-
-### Darsliklar (RU + EN)
-- Asosiy qo'llanma (RU 638 qator, EN 638 qator)
-- 20+ grafik bilan texnik tahlil
-- Strategiyaning batafsil tahlili
-- 200+ atamali lug'at
-- 30 ta tez-tez beriladigan savol
-
-### Asboblar
-- Kalkulyatorlar (lot hajmi, marja, qo'shilgan foiz, pip qiymati)
-- 8 ta valyuta jufti uchun real ma'lumotli bektester
-- Sham pattern skaneri (8 ta pattern)
-- Trading Journal CLI + HTML dashboard
-- Monte Carlo simulyatori
-- Risk profil testi (30 ta savol)
-- Broker litsenziyasini tekshirgich
-
-### Botlar
-- MT5 Expert Advisor (MQL5)
-- Telegram signal boti
-- Daily Coach boti
-- Streamlit veb-ilovasi
-
-### Strategiyalar (unit-testlar bilan)
-- EMA50 Pullback (trend bo'ylab)
-- Mean Reversion (Bollinger)
-- Breakout (v2 da filtrlar bilan)
-- London Open Range
-- Three Soldiers / Crows
-- Carry Trade (nazariya)
-
-## 🧪 Kod sifati
-
-- Har bir push da **74/74** unit-test o'tadi (CI: Ubuntu/macOS × Python 3.10-3.12)
-- 2 yil davomida **8 valyuta jufti** uchun real ma'lumotlarda sinovdan o'tgan
-- Mustahkamlikni tekshirish uchun walk-forward optimization
-- Coverage hisobot o'rnatilgan
-- **Risk Guardian** (anti-tilt): N marta ketma-ket yo'qotishdan keyin avtomatik to'xtatish + kunlik yo'qotish chegarasi
-- Pozitsiya kalkulyatorida yfinance orqali **jonli narxlar** — eskirgan jadval qiymatlari yo'q
+4. **[Savdo sessiyalari](practice/trading-sessions.md)** — amaliyotdan boshlang
 
 ## 📜 Mas'uliyatdan ozod qilish
 
