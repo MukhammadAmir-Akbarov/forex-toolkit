@@ -1,6 +1,9 @@
 # Forex Trading Toolkit
 
 <div class="fx-hero">
+  <div class="fx-blob fx-blob--1" aria-hidden="true"></div>
+  <div class="fx-blob fx-blob--2" aria-hidden="true"></div>
+  <div class="fx-blob fx-blob--3" aria-hidden="true"></div>
   <p class="fx-hero__eyebrow">O'quv loyihasi · Bepul · MIT litsenziya</p>
   <p class="fx-hero__subtitle">Forexni noldan o'rganish uchun to'liq kurs — nazariya, Python-asboblar,<br>savdo strategiyalari va amaliyot bir joyda.</p>
   <div class="fx-hero__cta">

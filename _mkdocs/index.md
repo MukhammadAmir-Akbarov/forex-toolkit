@@ -1,6 +1,9 @@
 # Forex Trading Toolkit
 
 <div class="fx-hero">
+  <div class="fx-blob fx-blob--1" aria-hidden="true"></div>
+  <div class="fx-blob fx-blob--2" aria-hidden="true"></div>
+  <div class="fx-blob fx-blob--3" aria-hidden="true"></div>
   <p class="fx-hero__eyebrow">Образовательный проект · Бесплатно · MIT лицензия</p>
   <p class="fx-hero__subtitle">Полный учебник forex с нуля — теория, Python-инструменты,<br>торговые стратегии и практика в одном месте.</p>
   <div class="fx-hero__cta">

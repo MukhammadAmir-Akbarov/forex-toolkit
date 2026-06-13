@@ -396,11 +396,13 @@ extra:
   # giscus app: https://github.com/apps/giscus → Install → выбрать forex-toolkit.
   # До установки виджет покажет «giscus is not installed». Чтобы выключить
   # комментарии — закомментируй весь блок giscus ниже.
-  giscus:
-    repo: MukhammadAmir-Akbarov/forex-toolkit
-    repo_id: R_kgDOSi9ouA
-    category: Announcements
-    category_id: DIC_kwDOSi9ouM4C9qBu
+  # giscus: (закомментировано — установи giscus app на репо чтобы включить:
+  #   https://github.com/apps/giscus → Install → forex-toolkit)
+  # giscus:
+  #   repo: MukhammadAmir-Akbarov/forex-toolkit
+  #   repo_id: R_kgDOSi9ouA
+  #   category: Announcements
+  #   category_id: DIC_kwDOSi9ouM4C9qBu
 
   social:
     - icon: fontawesome/brands/github
