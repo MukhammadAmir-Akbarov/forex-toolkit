@@ -40,6 +40,7 @@ extra_javascript:
   - javascripts/widgets/cost.js
   - javascripts/widgets/sessions.js
   - javascripts/widgets/exam.js
+  - javascripts/widgets/journal.js
 
 plugins:
   - search
@@ -115,6 +116,7 @@ plugins:
             "📅 Еженедельный отчёт": "📅 Weekly report"
             "Demo vs Real": "Demo vs Real"
             "Mistakes log": "Mistakes log"
+            "📊 Веб-журнал": "📊 Web journal"
             "README": "README"
             "📐 Калькулятор позиции": "📐 Position calculator"
             "💰 Калькулятор маржи": "💰 Margin calculator"
@@ -196,6 +198,7 @@ plugins:
             "📅 Еженедельный отчёт": "📅 Haftalik hisobot"
             "Demo vs Real": "Demo vs Real"
             "Mistakes log": "Xatolar jurnali"
+            "📊 Веб-журнал": "📊 Veb-jurnal"
             "README": "README"
             "📐 Калькулятор позиции": "📐 Pozitsiya kalkulyatori"
             "💰 Калькулятор маржи": "💰 Marja kalkulyatori"
@@ -237,7 +240,7 @@ theme:
   custom_dir: overrides
   language: ru
   font:
-    text: Inter
+    text: Plus Jakarta Sans
     code: JetBrains Mono
   features:
     # navigation.instant НЕ включаем: он ломает контекстный переключатель
@@ -341,6 +344,7 @@ nav:
       - 📡 Источники данных и сигналов: extras/market-data-sources.md
       - Mind map: extras/mind-map.md
   - 📝 Журнал:
+      - 📊 Веб-журнал: journal/web-journal.md
       - Шаблон: journal/trading-journal-template.md
       - Расширенный: journal/journal-extended.md
       - 📅 Еженедельный отчёт: journal/weekly-report-template.md
