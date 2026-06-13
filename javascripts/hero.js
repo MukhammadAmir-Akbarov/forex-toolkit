@@ -141,11 +141,66 @@
     header.appendChild(a);
   }
 
+  /* ── 5. Клавиатурные сокращения ───────────────────────────────────── */
+  function initKeyboardShortcuts() {
+    document.addEventListener("keydown", function (e) {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" ||
+          e.target.isContentEditable) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      if (e.key === "/") {
+        var inp = document.querySelector(".md-search__input");
+        if (inp) { e.preventDefault(); inp.focus(); }
+      }
+      if (e.key === "ArrowLeft") {
+        var prev = document.querySelector("a.md-footer__link--prev");
+        if (prev) { e.preventDefault(); window.location.href = prev.href; }
+      }
+      if (e.key === "ArrowRight") {
+        var next = document.querySelector("a.md-footer__link--next");
+        if (next) { e.preventDefault(); window.location.href = next.href; }
+      }
+    });
+  }
+
+  /* ── 6. Live EUR/USD курс (open.er-api.com, CORS-свободный) ──────── */
+  function initLiveRate() {
+    var ticker = document.getElementById("fx-session-ticker");
+    if (!ticker) return;
+
+    var badge = document.createElement("span");
+    badge.className = "fx-tick__rate";
+    badge.setAttribute("aria-live", "polite");
+    ticker.parentNode.insertBefore(badge, ticker.nextSibling);
+
+    var prevRate = null;
+
+    function fetchRate() {
+      fetch("https://open.er-api.com/v6/latest/EUR")
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var rate = data.rates && data.rates.USD;
+          if (!rate) return;
+          var dir = prevRate === null ? "" : (rate > prevRate ? " fx-tick__rate--up" : " fx-tick__rate--down");
+          var arrow = prevRate === null ? "" : (rate > prevRate ? " ▲" : " ▼");
+          prevRate = rate;
+          badge.className = "fx-tick__rate fx-tick__rate--loaded" + dir;
+          badge.textContent = "EUR/USD " + rate.toFixed(4) + arrow;
+        })
+        .catch(function () {});
+    }
+
+    fetchRate();
+    setInterval(fetchRate, 300000);
+  }
+
   /* ── Инициализация ─────────────────────────────────────────────────── */
   document.addEventListener("DOMContentLoaded", function () {
     animateCounters();
     initScrollReveal();
     initTicker();
     initNavCta();
+    initKeyboardShortcuts();
+    initLiveRate();
   });
 })();
