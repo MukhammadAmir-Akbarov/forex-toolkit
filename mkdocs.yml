@@ -41,6 +41,7 @@ extra_javascript:
   - javascripts/widgets/sessions.js
   - javascripts/widgets/exam.js
   - javascripts/widgets/journal.js
+  - javascripts/hero.js
 
 plugins:
   - search

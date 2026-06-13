@@ -581,6 +581,356 @@ html { scroll-behavior: smooth; }
 .fx-feature-card a:hover { opacity: 0.75; }
 
 /* --------------------------------------------------------------------------
+   12c. Scroll-reveal — плавное появление карточек при скролле
+   -------------------------------------------------------------------------- */
+
+.fx-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+}
+/* Карточки: расширяем transition чтобы анимация reveal + hover не конфликтовали. */
+.fx-feature-card.fx-reveal,
+.fx-path__step.fx-reveal {
+  transition: opacity 0.55s ease, transform 0.55s ease,
+              border-color 200ms ease, box-shadow 200ms ease;
+}
+.fx-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+/* После reveal восстанавливаем быструю transition для hover. */
+.fx-feature-card.fx-revealed {
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   12d. Тикер торговых сессий (#fx-session-ticker)
+   -------------------------------------------------------------------------- */
+
+.fx-session-ticker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 1.6rem;
+  margin-top: 1rem;
+  font-size: 0.69rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color--lighter);
+  letter-spacing: 0.02em;
+}
+.fx-tick__dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 0.28rem;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.fx-tick__dot--on {
+  background: #22c55e;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.55);
+  animation: fx-session-pulse 2.2s ease-in-out infinite;
+}
+.fx-tick__dot--hot { background: #f59e0b; box-shadow: 0 0 5px rgba(245, 158, 11, 0.55); }
+.fx-tick__dot--off { background: var(--md-default-fg-color--lightest); }
+@keyframes fx-session-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+.fx-tick__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.52rem;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.22);
+}
+.fx-tick__pill--hot {
+  background: rgba(245, 158, 11, 0.09);
+  border-color: rgba(245, 158, 11, 0.28);
+}
+.fx-tick__sep { margin: 0 0.25rem; opacity: 0.3; }
+
+/* --------------------------------------------------------------------------
+   12e. Онбординг-шаги (.fx-path) — «Читай → Считай → Тренируйся → Журнал»
+   -------------------------------------------------------------------------- */
+
+.fx-path {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: start;
+  gap: 0 0.4rem;
+  margin: 2rem 0;
+  max-width: none;
+}
+.fx-path__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.3rem 0.85rem 1.1rem;
+  background: var(--fx-surface);
+  border: 1px solid var(--fx-border);
+  border-radius: var(--fx-radius);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+[data-md-color-scheme="slate"] .fx-path__step {
+  background: rgba(12, 18, 27, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.fx-path__step:hover {
+  border-color: color-mix(in srgb, var(--fx-accent) 40%, transparent);
+  box-shadow: 0 0 24px -8px var(--fx-glow);
+}
+.fx-path__num {
+  font-family: var(--fx-font-heading);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--fx-accent);
+  background: color-mix(in srgb, var(--fx-accent) 12%, transparent);
+  border-radius: 999px;
+  width: 1.45rem;
+  height: 1.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+  flex-shrink: 0;
+}
+.fx-path__icon { font-size: 1.7rem; line-height: 1; margin-bottom: 0.5rem; }
+.fx-path__title {
+  font-family: var(--fx-font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  margin-bottom: 0.35rem;
+}
+.fx-path__step p {
+  font-size: 0.74rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.55;
+  margin: 0 0 0.85rem;
+  flex: 1;
+}
+.fx-path__step a {
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: var(--fx-accent);
+  text-decoration: none;
+  margin-top: auto;
+}
+.fx-path__step a:hover { opacity: 0.75; }
+.fx-path__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fx-accent);
+  opacity: 0.38;
+  font-size: 1.15rem;
+  padding-top: 3rem;
+  user-select: none;
+}
+@media (max-width: 768px) {
+  .fx-path { grid-template-columns: 1fr; gap: 0.75rem; }
+  .fx-path__arrow { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   12f. Floating CTA кнопка в навбаре (только десктоп ≥ 960 px)
+   -------------------------------------------------------------------------- */
+
+.fx-nav-cta {
+  flex-shrink: 0;
+  margin-left: 0.6rem;
+  font-size: 0.72rem !important;
+  padding: 0.3rem 0.85rem !important;
+  line-height: 1.5 !important;
+  white-space: nowrap;
+}
+@media (max-width: 960px) {
+  .fx-nav-cta { display: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   20. Инфографика дорожной карты (.fx-rm) — roadmap.md
+   -------------------------------------------------------------------------- */
+
+.fx-rm {
+  position: relative;
+  margin: 1.5rem 0 2rem;
+  max-width: none;
+}
+/* Вертикальная линия-хребет */
+.fx-rm::before {
+  content: "";
+  position: absolute;
+  left: 1.08rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(180deg, #22c55e 0%, #f59e0b 40%, #8b5cf6 75%, var(--fx-accent) 100%);
+  opacity: 0.3;
+  border-radius: 999px;
+}
+.fx-rm__item {
+  display: flex;
+  gap: 1.1rem;
+  margin-bottom: 0.85rem;
+  position: relative;
+  align-items: flex-start;
+}
+/* Значок уровня */
+.fx-rm__badge {
+  flex-shrink: 0;
+  width: 2.18rem;
+  height: 2.18rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fx-font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  z-index: 1;
+  background: var(--md-default-bg-color);
+  border: 2px solid currentColor;
+  line-height: 1;
+}
+.fx-rm__badge--phase1 { color: #22c55e; }
+.fx-rm__badge--phase2 { color: #f59e0b; }
+.fx-rm__badge--phase3 { color: #8b5cf6; }
+.fx-rm__badge--accent  { color: var(--fx-accent); }
+.fx-rm__badge--gold    { color: #fbbf24; }
+.fx-rm__badge--start   {
+  color: var(--fx-accent);
+  background: color-mix(in srgb, var(--fx-accent) 12%, var(--md-default-bg-color));
+}
+/* Карточка уровня */
+.fx-rm__card {
+  flex: 1;
+  background: var(--fx-surface);
+  border: 1px solid var(--fx-border);
+  border-radius: var(--fx-radius);
+  padding: 0.95rem 1.15rem;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+[data-md-color-scheme="slate"] .fx-rm__card {
+  background: rgba(12, 18, 27, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.fx-rm__card:hover {
+  border-color: color-mix(in srgb, var(--fx-accent) 35%, transparent);
+  box-shadow: 0 0 22px -6px var(--fx-glow);
+}
+.fx-rm__card--phase1 { border-left: 3px solid rgba(34, 197, 94, 0.45); }
+.fx-rm__card--phase2 { border-left: 3px solid rgba(245, 158, 11, 0.45); }
+.fx-rm__card--phase3 { border-left: 3px solid rgba(139, 92, 246, 0.45); }
+.fx-rm__card--accent  { border-left: 3px solid rgba(124, 230, 255, 0.5); }
+.fx-rm__card--gold    { border-left: 3px solid rgba(251, 191, 36, 0.45); }
+.fx-rm__card--decision {
+  border-color: rgba(239, 68, 68, 0.3);
+  border-left: 3px solid rgba(239, 68, 68, 0.45);
+  background: color-mix(in srgb, rgba(239, 68, 68, 0.05) 100%, var(--fx-surface));
+}
+[data-md-color-scheme="slate"] .fx-rm__card--decision {
+  background: rgba(239, 68, 68, 0.04);
+}
+.fx-rm__header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.42rem;
+}
+.fx-rm__title {
+  font-family: var(--fx-font-heading);
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  flex: 1;
+  min-width: 0;
+}
+.fx-rm__time {
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 0.18rem 0.58rem;
+  border-radius: 999px;
+  background: var(--fx-surface-2);
+  color: var(--md-default-fg-color--light);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.fx-rm__goal {
+  font-size: 0.79rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.62;
+  margin: 0 0 0.65rem;
+}
+.fx-rm__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.32rem;
+}
+.fx-rm__tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.67rem;
+  font-weight: 600;
+  padding: 0.16rem 0.52rem;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--fx-accent) 7%, transparent);
+  border: 1px solid var(--fx-border);
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+a.fx-rm__tag:hover { border-color: var(--fx-accent); color: var(--fx-accent); }
+.fx-rm__tag--code {
+  background: rgba(139, 92, 246, 0.07);
+  border-color: rgba(139, 92, 246, 0.22);
+  font-family: var(--md-code-font-family);
+}
+/* Фазовый лейбл над группой уровней */
+.fx-rm__phase {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 1.4rem 0 0.7rem 3.3rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+}
+.fx-rm__phase--beginner {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.09);
+  border: 1px solid rgba(34, 197, 94, 0.22);
+}
+.fx-rm__phase--middle {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.09);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+}
+.fx-rm__phase--advanced {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.09);
+  border: 1px solid rgba(139, 92, 246, 0.22);
+}
+.fx-rm__phase--real {
+  color: var(--fx-accent);
+  background: color-mix(in srgb, var(--fx-accent) 8%, transparent);
+  border: 1px solid var(--fx-border);
+}
+
+/* --------------------------------------------------------------------------
    13. Скроллбар, фокус, доступность
    -------------------------------------------------------------------------- */
 

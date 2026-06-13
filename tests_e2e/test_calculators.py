@@ -269,24 +269,29 @@ def test_exam_certificate(pw_page, site_url, prefix):
     assert len(questions) == 18
 
     page.fill("#exam-name", "Test User")
-    page.click("#exam-start-btn")
+    page.wait_for_selector("#exam-start-btn", state="visible")
+    # Material/reading.js обновляют геометрию длинной страницы во время
+    # автопрокрутки, из-за чего координатный click может попасть в следующий h2.
+    # DOM-click вызывает тот же штатный обработчик без зависимости от viewport.
+    page.locator("#exam-start-btn").evaluate("button => button.click()")
 
     for n, q in enumerate(questions):
         page.wait_for_function(
-            "n => document.getElementById('exam-counter').textContent.trim()"
+            "expected => document.getElementById('exam-question').textContent"
+            ".trim() === expected"
             " && document.querySelectorAll('#exam-options .exam-option').length > 0",
-            arg=n,
+            arg=q["q"],
         )
         # Кликаем вариант с текстом правильного ответа (точное совпадение).
         correct = q["options"][q["answer"]]
         clicked = page.evaluate(
             "c => { const b = [...document.querySelectorAll("
             "'#exam-options .exam-option')].find(x => x.textContent.trim() === c);"
-            " if (b) { b.click(); return true; } return false; }",
+            " if (!b) return false; b.click();"
+            " document.getElementById('exam-next').click(); return true; }",
             correct,
         )
         assert clicked, f"[{prefix}] не нашёл вариант: {correct!r}"
-        page.click("#exam-next")
 
     # Результат: 100% → проходной балл, сертификат виден, прогресс записан.
     page.wait_for_selector("#exam-cert-wrap", state="visible")

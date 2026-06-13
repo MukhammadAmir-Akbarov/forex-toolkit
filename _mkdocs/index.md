@@ -8,12 +8,13 @@
     <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" class="md-button" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
   <div class="fx-hero__stats">
-    <div class="fx-stat"><span class="fx-stat__num">25+</span><span class="fx-stat__label">гайдов</span></div>
-    <div class="fx-stat"><span class="fx-stat__num">30+</span><span class="fx-stat__label">инструментов</span></div>
-    <div class="fx-stat"><span class="fx-stat__num">6</span><span class="fx-stat__label">стратегий</span></div>
-    <div class="fx-stat"><span class="fx-stat__num">95</span><span class="fx-stat__label">тестов</span></div>
-    <div class="fx-stat"><span class="fx-stat__num">3</span><span class="fx-stat__label">языка</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="25" data-suffix="+">25+</span><span class="fx-stat__label">гайдов</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="30" data-suffix="+">30+</span><span class="fx-stat__label">инструментов</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="6">6</span><span class="fx-stat__label">стратегий</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="95">95</span><span class="fx-stat__label">тестов</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="3">3</span><span class="fx-stat__label">языка</span></div>
   </div>
+  <div id="fx-session-ticker" class="fx-session-ticker"></div>
 </div>
 
 <div class="fx-features">
@@ -34,6 +35,42 @@
     <div class="fx-feature-card__title">Практика</div>
     <p>6 стратегий с unit-тестами, Replay Trainer для тренировки на истории, итоговый экзамен и журнал сделок.</p>
     <a href="practice/trading-sessions/">Начать практику →</a>
+  </div>
+</div>
+
+## Путь трейдера с нуля
+
+<div class="fx-path">
+  <div class="fx-path__step">
+    <div class="fx-path__num">1</div>
+    <div class="fx-path__icon">📖</div>
+    <div class="fx-path__title">Читай</div>
+    <p>Изучи теорию — от основ валютного рынка до стратегий и риск-менеджмента.</p>
+    <a href="forex-guide/">Открыть учебник →</a>
+  </div>
+  <div class="fx-path__arrow">›</div>
+  <div class="fx-path__step">
+    <div class="fx-path__num">2</div>
+    <div class="fx-path__icon">🔢</div>
+    <div class="fx-path__title">Считай</div>
+    <p>Используй калькуляторы для расчёта лотов, маржи, соотношения риска к прибыли.</p>
+    <a href="tools/position-calculator/">Открыть калькулятор →</a>
+  </div>
+  <div class="fx-path__arrow">›</div>
+  <div class="fx-path__step">
+    <div class="fx-path__num">3</div>
+    <div class="fx-path__icon">🎮</div>
+    <div class="fx-path__title">Тренируйся</div>
+    <p>Проверь навыки на исторических данных с Replay Trainer без риска реальных денег.</p>
+    <a href="tools/replay-trainer/">Открыть тренажёр →</a>
+  </div>
+  <div class="fx-path__arrow">›</div>
+  <div class="fx-path__step">
+    <div class="fx-path__num">4</div>
+    <div class="fx-path__icon">📓</div>
+    <div class="fx-path__title">Фиксируй</div>
+    <p>Веди журнал сделок — анализируй результаты и планомерно улучшай стратегию.</p>
+    <a href="journal/web-journal/">Открыть журнал →</a>
   </div>
 </div>
 
@@ -71,13 +108,6 @@
     Этот документ — **образовательный материал**, не финансовый совет.
     Forex — высокорисковая деятельность. По данным ESMA, **74–89%** розничных
     трейдеров теряют деньги. Никогда не торгуй на деньги, которые не готов потерять.
-
-## 🚀 С чего начать
-
-1. **[Как пользоваться](КАК-ПОЛЬЗОВАТЬСЯ.md)** — экскурсия по проекту
-2. **[Главный учебник](forex-guide.md)** — теория с нуля
-3. **[Психология трейдинга](extras/psychology.md)** — главный навык
-4. **[Торговые сессии](practice/trading-sessions.md)** — начни с практики
 
 ## 📜 Дисклеймер
 

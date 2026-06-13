@@ -12,22 +12,171 @@
 
 ## Общая картина
 
-```mermaid
-graph TD
-    A[🎬 Старт: я хочу научиться форексу] --> B{Уровень 0: Подготовка<br/>1 неделя}
-    B --> |✅| C{Уровень 1: Основы<br/>2-4 недели}
-    C --> |✅| D{Уровень 2: Психология + Риск<br/>1-2 недели}
-    D --> |✅| E{Уровень 3: Первая стратегия<br/>1-2 месяца}
-    E --> |✅| F{Уровень 4: Анализ + Доработка<br/>1 месяц}
-    F --> G{Уровень 5: Готов к реалу?}
-    G --> |❌ Нет| F
-    G --> |✅ Да| H[💵 Уровень 5: Реал<br/>с $100-300, 0.5%]
-    H --> I[📈 Уровень 6: Развитие<br/>после года]
+<div class="fx-rm">
 
-    style A fill:#10b981,color:#fff
-    style H fill:#3b82f6,color:#fff
-    style I fill:#8b5cf6,color:#fff
-```
+  <!-- Старт -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--start">🏁</div>
+    <div class="fx-rm__card">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Старт: я хочу научиться форексу</div>
+      </div>
+      <p class="fx-rm__goal">Первый шаг — пройти путь с нуля до уверенного трейдера на демо.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Новичок</span>
+        <a href="../" class="fx-rm__tag">Главная →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Фаза 1 -->
+  <div class="fx-rm__phase fx-rm__phase--beginner">🌱 Фаза 1 — Основы</div>
+
+  <!-- Уровень 0 -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--phase1">0</div>
+    <div class="fx-rm__card fx-rm__card--phase1">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Уровень 0: Подготовка</div>
+        <span class="fx-rm__time">~1 неделя</span>
+      </div>
+      <p class="fx-rm__goal">Понять, что такое форекс, и проверить — подходит ли он тебе.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Пипс · Лот · Спред · Плечо</span>
+        <a href="../КАК-ПОЛЬЗОВАТЬСЯ/" class="fx-rm__tag">Как пользоваться →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Уровень 1 -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--phase1">1</div>
+    <div class="fx-rm__card fx-rm__card--phase1">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Уровень 1: Основы теории</div>
+        <span class="fx-rm__time">2–4 недели</span>
+      </div>
+      <p class="fx-rm__goal">Освоить базовый язык трейдера: тренды, поддержка/сопротивление, индикаторы, свечи.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">EMA · RSI · S/R</span>
+        <a href="../forex-guide/" class="fx-rm__tag">Учебник →</a>
+        <a href="../docs/technical-analysis/" class="fx-rm__tag">Техн. анализ →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Фаза 2 -->
+  <div class="fx-rm__phase fx-rm__phase--middle">⚡ Фаза 2 — Психология и стратегия</div>
+
+  <!-- Уровень 2 -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--phase2">2</div>
+    <div class="fx-rm__card fx-rm__card--phase2">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Уровень 2: Психология и риск-менеджмент</div>
+        <span class="fx-rm__time">1–2 недели</span>
+      </div>
+      <p class="fx-rm__goal">Понять, что главный противник — ты сам. Калькулятор позиции, торговый план.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Anti-Tilt · Trading Plan</span>
+        <a href="../extras/psychology/" class="fx-rm__tag">Психология →</a>
+        <a href="../tools/position-calculator/" class="fx-rm__tag">Калькулятор →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Уровень 3 -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--phase2">3</div>
+    <div class="fx-rm__card fx-rm__card--phase2">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Уровень 3: Первая стратегия</div>
+        <span class="fx-rm__time">1–2 месяца</span>
+      </div>
+      <p class="fx-rm__goal">Выбрать одну стратегию, освоить бэктест и отторговать 50+ сделок на демо.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">50+ демо-сделок</span>
+        <a href="../docs/strategy-details/" class="fx-rm__tag">Стратегия →</a>
+        <a href="../tools/replay-trainer/" class="fx-rm__tag">Replay →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Фаза 3 -->
+  <div class="fx-rm__phase fx-rm__phase--advanced">🚀 Фаза 3 — Продвинутое</div>
+
+  <!-- Уровень 4 -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--phase3">4</div>
+    <div class="fx-rm__card fx-rm__card--phase3">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Уровень 4: Анализ и доработка</div>
+        <span class="fx-rm__time">~1 месяц</span>
+      </div>
+      <p class="fx-rm__goal">Анализировать результаты, вести журнал сделок, исправлять ошибки итерационно.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Winrate > 50% · RR ≥ 1.5</span>
+        <a href="../journal/web-journal/" class="fx-rm__tag">Журнал →</a>
+        <a href="../tools/winrate-rr-calculator/" class="fx-rm__tag">WinRate × RR →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Развилка -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge" style="color:#ef4444;border-color:#ef4444;">?</div>
+    <div class="fx-rm__card fx-rm__card--decision">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Уровень 5: Готов к реалу?</div>
+      </div>
+      <p class="fx-rm__goal">Пройди итоговый экзамен. Если результат ниже порога — возвращайся на уровень 4.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">❌ Нет → уровень 4</span>
+        <a href="../tools/exam/" class="fx-rm__tag">🎓 Итоговый экзамен →</a>
+        <a href="../tools/quiz/" class="fx-rm__tag">Квиз →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Фаза реал -->
+  <div class="fx-rm__phase fx-rm__phase--real">💵 Реальный счёт</div>
+
+  <!-- Уровень 5 Реал -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--accent">5</div>
+    <div class="fx-rm__card fx-rm__card--accent">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Уровень 5: Реальный счёт</div>
+        <span class="fx-rm__time">$100–300</span>
+      </div>
+      <p class="fx-rm__goal">Открыть реальный счёт с минимальным депозитом. Риск 0.5% в сделку, без исключений.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">0.5% риска · Мини-лоты</span>
+        <a href="../extras/brokers-comparison/" class="fx-rm__tag">Брокеры →</a>
+        <a href="../uz/brokers-uz/" class="fx-rm__tag">Брокеры для УЗ →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Уровень 6 -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--gold">6</div>
+    <div class="fx-rm__card fx-rm__card--gold">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Уровень 6: Развитие после года</div>
+        <span class="fx-rm__time">После 12 мес.</span>
+      </div>
+      <p class="fx-rm__goal">Расширять инструментарий: Order Flow, крипто, акции, портфельное мышление.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Доходность > 0</span>
+        <a href="../growth/order-flow-volume-profile/" class="fx-rm__tag">Order Flow →</a>
+        <a href="../growth/crypto-trading-guide/" class="fx-rm__tag">Крипто →</a>
+        <a href="../growth/stocks-basics/" class="fx-rm__tag">Акции →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 ---
 

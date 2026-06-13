@@ -8,12 +8,13 @@
     <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" class="md-button" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
   <div class="fx-hero__stats">
-    <div class="fx-stat"><span class="fx-stat__num">25+</span><span class="fx-stat__label">qo'llanma</span></div>
-    <div class="fx-stat"><span class="fx-stat__num">30+</span><span class="fx-stat__label">asboblar</span></div>
-    <div class="fx-stat"><span class="fx-stat__num">6</span><span class="fx-stat__label">strategiya</span></div>
-    <div class="fx-stat"><span class="fx-stat__num">95</span><span class="fx-stat__label">test</span></div>
-    <div class="fx-stat"><span class="fx-stat__num">3</span><span class="fx-stat__label">til</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="25" data-suffix="+">25+</span><span class="fx-stat__label">qo'llanma</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="30" data-suffix="+">30+</span><span class="fx-stat__label">asboblar</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="6">6</span><span class="fx-stat__label">strategiya</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="95">95</span><span class="fx-stat__label">test</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="3">3</span><span class="fx-stat__label">til</span></div>
   </div>
+  <div id="fx-session-ticker" class="fx-session-ticker"></div>
 </div>
 
 <div class="fx-features">
@@ -34,6 +35,42 @@
     <div class="fx-feature-card__title">Amaliyot</div>
     <p>Unit-testli 6 ta strategiya, tarix bo'yicha mashq uchun Replay Trainer, yakuniy imtihon va savdo jurnali.</p>
     <a href="../practice/trading-sessions/">Amaliyotni boshlash →</a>
+  </div>
+</div>
+
+## Noldan treyderlik yo'li
+
+<div class="fx-path">
+  <div class="fx-path__step">
+    <div class="fx-path__num">1</div>
+    <div class="fx-path__icon">📖</div>
+    <div class="fx-path__title">O'qi</div>
+    <p>Nazariyani o'rgan — valyuta bozori asoslaridan strategiya va risk-menejmentgacha.</p>
+    <a href="../forex-guide/">Darslikni ochish →</a>
+  </div>
+  <div class="fx-path__arrow">›</div>
+  <div class="fx-path__step">
+    <div class="fx-path__num">2</div>
+    <div class="fx-path__icon">🔢</div>
+    <div class="fx-path__title">Hisobla</div>
+    <p>Lot hajmi, marja va risk/foyda nisbatini hisoblash uchun kalkulyatorlardan foydalaning.</p>
+    <a href="../tools/position-calculator/">Kalkulyatorni ochish →</a>
+  </div>
+  <div class="fx-path__arrow">›</div>
+  <div class="fx-path__step">
+    <div class="fx-path__num">3</div>
+    <div class="fx-path__icon">🎮</div>
+    <div class="fx-path__title">Mashq qil</div>
+    <p>Replay Trainer yordamida tarixiy ma'lumotlarda haqiqiy pul xavfisiz ko'nikmalaringizni sinab ko'ring.</p>
+    <a href="../tools/replay-trainer/">Trenajoni ochish →</a>
+  </div>
+  <div class="fx-path__arrow">›</div>
+  <div class="fx-path__step">
+    <div class="fx-path__num">4</div>
+    <div class="fx-path__icon">📓</div>
+    <div class="fx-path__title">Yozib bor</div>
+    <p>Savdo kundaligini yuring — natijalarni tahlil qiling va strategiyangizni doimiy takomillashtiring.</p>
+    <a href="../journal/web-journal/">Jurnalni ochish →</a>
   </div>
 </div>
 
@@ -77,13 +114,6 @@
     Loyihaning asosiy tili — rus tili. Qolgan bo'limlar avtomatik ravishda
     rus tiliga qaytariladi. Tarjimaga yordam berishni xohlaysizmi?
     [GitHub'da PR oching](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/pulls).
-
-## 🚀 Qayerdan boshlash
-
-1. **[Foydalanish qo'llanmasi](КАК-ПОЛЬЗОВАТЬСЯ.md)** — loyiha bo'ylab sayohat
-2. **[Asosiy darslik](forex-guide.md)** — noldan nazariya
-3. **[Treyding psixologiyasi](extras/psychology.md)** — eng muhim ko'nikma
-4. **[Savdo sessiyalari](practice/trading-sessions.md)** — amaliyotdan boshlang
 
 ## 📜 Mas'uliyatdan ozod qilish
 
