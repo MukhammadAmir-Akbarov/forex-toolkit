@@ -505,3 +505,46 @@
   .journal-metrics,
   .journal-rules-grid { grid-template-columns: 1fr; }
 }
+
+/* ==========================================================================
+   Mobile-first — калькуляторы и виджеты на телефоне
+   ========================================================================== */
+@media (max-width: 600px) {
+  /* Общий виджет — меньше padding */
+  .pos-calc-widget,
+  .calc-widget {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  /* Форма — 1 колонка (уже есть, но убедимся) */
+  .pos-calc-form { grid-template-columns: 1fr; gap: 0.75rem; }
+
+  /* Поля ввода и select — удобный размер для касания */
+  .pos-calc-form input[type="number"],
+  .pos-calc-form select,
+  .calc-widget input,
+  .calc-widget select {
+    padding: 0.65rem 0.75rem;
+    font-size: 1rem;  /* iOS не зумирует при font-size ≥ 16px */
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  /* Кнопка — на всю ширину */
+  .pos-calc-form button,
+  .calc-widget button[type="submit"],
+  .calc-widget .calc-btn {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Результаты */
+  .pc-result { padding: 0.9rem; }
+  .pc-headline { font-size: 1.75rem; }
+  .pc-result-row { font-size: 0.86rem; }
+}
