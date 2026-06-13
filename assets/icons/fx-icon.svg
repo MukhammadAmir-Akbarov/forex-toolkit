@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#07090d"/>
+  <!-- candlestick 1 — green -->
+  <line x1="100" y1="152" x2="100" y2="196" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+  <rect x="76" y="196" width="48" height="152" rx="7" fill="#22c55e"/>
+  <line x1="100" y1="348" x2="100" y2="390" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+  <!-- candlestick 2 — red -->
+  <line x1="200" y1="218" x2="200" y2="258" stroke="#ef4444" stroke-width="10" stroke-linecap="round"/>
+  <rect x="176" y="258" width="48" height="116" rx="7" fill="#ef4444"/>
+  <line x1="200" y1="374" x2="200" y2="414" stroke="#ef4444" stroke-width="10" stroke-linecap="round"/>
+  <!-- candlestick 3 — green -->
+  <line x1="300" y1="130" x2="300" y2="176" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+  <rect x="276" y="176" width="48" height="136" rx="7" fill="#22c55e"/>
+  <line x1="300" y1="312" x2="300" y2="358" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+  <!-- candlestick 4 — cyan accent -->
+  <line x1="400" y1="178" x2="400" y2="222" stroke="#7ce6ff" stroke-width="10" stroke-linecap="round"/>
+  <rect x="376" y="222" width="48" height="98" rx="7" fill="#7ce6ff"/>
+  <line x1="400" y1="320" x2="400" y2="360" stroke="#7ce6ff" stroke-width="10" stroke-linecap="round"/>
+</svg>
