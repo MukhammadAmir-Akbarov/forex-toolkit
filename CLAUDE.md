@@ -66,6 +66,13 @@ python -m venv .venv && .venv/bin/pip install -e ".[dev]"
   это работает потому, что `tests/conftest.py` добавляет `tools/`, `bot/`,
   `strategies/`, `advanced/`, `journal/` в `sys.path`. Не переименовывай публичные
   функции инструментов без обновления тестов.
+- **`.codex/skills/graphify/` — платформенный вариант для OpenAI Codex**, не копия.
+  Он использует `spawn_agent`/`wait_agent` вместо `Agent tool`. Уже расходится с
+  `.claude/skills/graphify/` по `SKILL.md`, `extraction-spec.md`, `query.md`.
+  После правки `.claude/skills/graphify/` — проверяй и обновляй `.codex/` вручную.
+- **`detect_signals()` в `bot/strategy.py` — единственная точка входа** во всю логику
+  сигналов. Её вызывают 11 файлов (backtest, walk-forward, parameter sweep, Streamlit,
+  Telegram-бот, MT5, тесты). Меняешь сигнатуру — обновляй все 11 мест.
 - `mkdocs build --strict` проходит и **включён в CI** (джоб `docs`). Кириллические
   якоря работают благодаря `toc.slugify: pymdownx.slugs.uslugify` в `mkdocs.yml` —
   без него оглавления (`#что-такое-forex …`) не совпадают с заголовками. Заголовки
@@ -86,3 +93,13 @@ python -m venv .venv && .venv/bin/pip install -e ".[dev]"
   `refactor:`, `ci:`, `deps:`). См. `CONTRIBUTING.md`.
 - Тестируется на numpy/pandas (см. `pyproject.toml`); локально проверено на
   numpy 2.x / pandas 3.x / Python 3.12+.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).

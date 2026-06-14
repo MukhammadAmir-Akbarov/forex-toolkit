@@ -1,0 +1,2087 @@
+{
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/settings.json": {
+    "mtime": 1781414685.50988,
+    "ast_hash": "e1073342e958ac9f00716938c8f165e3",
+    "semantic_hash": "e1073342e958ac9f00716938c8f165e3"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/hooks.json": {
+    "mtime": 1781414685.5741053,
+    "ast_hash": "485e450c4fe9224fb843d4454d01dbb2",
+    "semantic_hash": "485e450c4fe9224fb843d4454d01dbb2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/data/replay-episodes.json": {
+    "mtime": 1781287561.169236,
+    "ast_hash": "3a844722b3269787f988316bae37cb69",
+    "semantic_hash": "3a844722b3269787f988316bae37cb69"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/hero.js": {
+    "mtime": 1781378081.4070957,
+    "ast_hash": "6170866df7ae75ba2dfe5193d1fdb5b8",
+    "semantic_hash": "6170866df7ae75ba2dfe5193d1fdb5b8"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/mobile-menu-hint.js": {
+    "mtime": 1781287561.1705782,
+    "ast_hash": "8304f8edccf57c312adb474df4f5c867",
+    "semantic_hash": "8304f8edccf57c312adb474df4f5c867"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/progress.js": {
+    "mtime": 1780078722.9106028,
+    "ast_hash": "fd6a268ea69c661dda204c47662cdfc3",
+    "semantic_hash": "fd6a268ea69c661dda204c47662cdfc3"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/reading.js": {
+    "mtime": 1780078722.912116,
+    "ast_hash": "384623c928a750dda69f5de38db5be6f",
+    "semantic_hash": "384623c928a750dda69f5de38db5be6f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/translit.js": {
+    "mtime": 1781287561.1707315,
+    "ast_hash": "580af5800e7dd376b71648b258789deb",
+    "semantic_hash": "580af5800e7dd376b71648b258789deb"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/_i18n.js": {
+    "mtime": 1781287565.1368482,
+    "ast_hash": "123624cad48ac7bb5956c195a2baf05c",
+    "semantic_hash": "123624cad48ac7bb5956c195a2baf05c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/compound.js": {
+    "mtime": 1781287340.4982853,
+    "ast_hash": "543130d40d8ed811963a503e9ab9f6f5",
+    "semantic_hash": "543130d40d8ed811963a503e9ab9f6f5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/cost.js": {
+    "mtime": 1781287340.498418,
+    "ast_hash": "dbe335ab6a7f4b29979a4afed88dfa86",
+    "semantic_hash": "dbe335ab6a7f4b29979a4afed88dfa86"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/exam.js": {
+    "mtime": 1781287781.5972114,
+    "ast_hash": "13ce721b45ea10e8096d55b97e0b8453",
+    "semantic_hash": "13ce721b45ea10e8096d55b97e0b8453"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/journal.js": {
+    "mtime": 1781293334.3117762,
+    "ast_hash": "385cc89e5a6f5c3e250c8b2d0ceaa73b",
+    "semantic_hash": "385cc89e5a6f5c3e250c8b2d0ceaa73b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/margin.js": {
+    "mtime": 1781287340.4985723,
+    "ast_hash": "808e1e8adf70744238a71d577e153605",
+    "semantic_hash": "808e1e8adf70744238a71d577e153605"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/pip.js": {
+    "mtime": 1781287340.4987483,
+    "ast_hash": "93bbc012cf0c5a9b8446fe6ed35a4906",
+    "semantic_hash": "93bbc012cf0c5a9b8446fe6ed35a4906"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/position.js": {
+    "mtime": 1781287340.4988914,
+    "ast_hash": "8c1d39699a882b3d54cd04e13a94b4ba",
+    "semantic_hash": "8c1d39699a882b3d54cd04e13a94b4ba"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/replay.js": {
+    "mtime": 1781287561.170839,
+    "ast_hash": "c48327f1ac4c7aa345fc9b5fb9a64e0c",
+    "semantic_hash": "c48327f1ac4c7aa345fc9b5fb9a64e0c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/sessions.js": {
+    "mtime": 1781287561.1709774,
+    "ast_hash": "d58491f55ea32ceb4c7f9d483f65605d",
+    "semantic_hash": "d58491f55ea32ceb4c7f9d483f65605d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/tax.js": {
+    "mtime": 1781287340.4990504,
+    "ast_hash": "2e9c2d16e6329b4d3e8c3c311902a7b5",
+    "semantic_hash": "2e9c2d16e6329b4d3e8c3c311902a7b5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/javascripts/widgets/winrate.js": {
+    "mtime": 1781287340.499183,
+    "ast_hash": "6779c8f9297e370f77683b0e38387664",
+    "semantic_hash": "6779c8f9297e370f77683b0e38387664"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/broker_api/__init__.py": {
+    "mtime": 1780078723.0026977,
+    "ast_hash": "90896f5a1d4fca8c6fec95cd1ce5ab41",
+    "semantic_hash": "90896f5a1d4fca8c6fec95cd1ce5ab41"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/broker_api/base.py": {
+    "mtime": 1779281397.6935384,
+    "ast_hash": "e8213ac7b6097a6c96992588d9ae7b63",
+    "semantic_hash": "e8213ac7b6097a6c96992588d9ae7b63"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/broker_api/binance_broker.py": {
+    "mtime": 1780078723.0116103,
+    "ast_hash": "935bc1c531792e88aac8909eb6eb1018",
+    "semantic_hash": "935bc1c531792e88aac8909eb6eb1018"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/broker_api/example.py": {
+    "mtime": 1779281397.693963,
+    "ast_hash": "a4cb2d08a329726929973286ab56c6c7",
+    "semantic_hash": "a4cb2d08a329726929973286ab56c6c7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/broker_api/factory.py": {
+    "mtime": 1779281397.6941252,
+    "ast_hash": "7daf4091763bc149c066fb3ff2bb104c",
+    "semantic_hash": "7daf4091763bc149c066fb3ff2bb104c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/broker_api/mt5_broker.py": {
+    "mtime": 1780078723.015141,
+    "ast_hash": "37042c4f6c4bd3f22a0df1f903480033",
+    "semantic_hash": "37042c4f6c4bd3f22a0df1f903480033"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/broker_api/yfinance_broker.py": {
+    "mtime": 1779281397.694692,
+    "ast_hash": "684c082bc5f6f0337ea0a2eccff05d39",
+    "semantic_hash": "684c082bc5f6f0337ea0a2eccff05d39"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/coach_bot.py": {
+    "mtime": 1779281397.6949604,
+    "ast_hash": "964931f74222bbf19170db4ec720f250",
+    "semantic_hash": "964931f74222bbf19170db4ec720f250"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/data_downloader.py": {
+    "mtime": 1779281397.6951206,
+    "ast_hash": "8556d10d82e485cec8b265e3416f1812",
+    "semantic_hash": "8556d10d82e485cec8b265e3416f1812"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/download_all_pairs.py": {
+    "mtime": 1779281397.6952748,
+    "ast_hash": "245a003217d6f23f8d0961986e571c12",
+    "semantic_hash": "245a003217d6f23f8d0961986e571c12"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/integration_test.py": {
+    "mtime": 1779281397.69547,
+    "ast_hash": "730171d1a0bd0f7c6534387ff4119e45",
+    "semantic_hash": "730171d1a0bd0f7c6534387ff4119e45"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/mt5_connector.py": {
+    "mtime": 1780067564.5353827,
+    "ast_hash": "33ce85ab9f61907f2206d560643dfaf9",
+    "semantic_hash": "33ce85ab9f61907f2206d560643dfaf9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/multi_pair_backtest.py": {
+    "mtime": 1779281397.6959279,
+    "ast_hash": "5bb6b43abc5011622984d5c542c944c7",
+    "semantic_hash": "5bb6b43abc5011622984d5c542c944c7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/parameter_sweep.py": {
+    "mtime": 1779281397.6961246,
+    "ast_hash": "7e7c9be37364e6179921a626540e9b38",
+    "semantic_hash": "7e7c9be37364e6179921a626540e9b38"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/streamlit_app.py": {
+    "mtime": 1779281397.6963792,
+    "ast_hash": "39b8f8302f8966f1f0be6543baa4b4a0",
+    "semantic_hash": "39b8f8302f8966f1f0be6543baa4b4a0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/telegram_alerts.py": {
+    "mtime": 1779281397.6967192,
+    "ast_hash": "37e9d752d081aad2dade870d38871952",
+    "semantic_hash": "37e9d752d081aad2dade870d38871952"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/advanced/walk_forward.py": {
+    "mtime": 1779281397.696937,
+    "ast_hash": "a04d58e313b162894ec264e57aec6969",
+    "semantic_hash": "a04d58e313b162894ec264e57aec6969"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/bot/backtest.py": {
+    "mtime": 1779455353.7557101,
+    "ast_hash": "8923608e994ced76c8650a50d0463ad7",
+    "semantic_hash": "8923608e994ced76c8650a50d0463ad7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/bot/strategy.py": {
+    "mtime": 1779281397.6976821,
+    "ast_hash": "4b31f835f8a6e628f8f07a6dd5ead3f9",
+    "semantic_hash": "4b31f835f8a6e628f8f07a6dd5ead3f9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/forex_toolkit/__init__.py": {
+    "mtime": 1780078723.020109,
+    "ast_hash": "c59c915c1419273f97a15c26f477bb3f",
+    "semantic_hash": "c59c915c1419273f97a15c26f477bb3f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/forex_toolkit/candles.py": {
+    "mtime": 1780067564.5359566,
+    "ast_hash": "e5386606b5f8f05211c1b8506a7d91c3",
+    "semantic_hash": "e5386606b5f8f05211c1b8506a7d91c3"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/forex_toolkit/cli.py": {
+    "mtime": 1780067564.5361915,
+    "ast_hash": "9938dd623202a3f735b2662f9189359b",
+    "semantic_hash": "9938dd623202a3f735b2662f9189359b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/forex_toolkit/fx_math.py": {
+    "mtime": 1780067564.5364437,
+    "ast_hash": "7c2f579191c7ed65573314604d3c28f7",
+    "semantic_hash": "7c2f579191c7ed65573314604d3c28f7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/forex_toolkit/indicators.py": {
+    "mtime": 1780067564.536635,
+    "ast_hash": "9449bdcfbdaf3e989bd047fa72f8f86b",
+    "semantic_hash": "9449bdcfbdaf3e989bd047fa72f8f86b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/forex_toolkit/position_calculator.py": {
+    "mtime": 1780078723.021985,
+    "ast_hash": "6aeb99de6c5166f353e3be0ce70e486a",
+    "semantic_hash": "6aeb99de6c5166f353e3be0ce70e486a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/hooks/glossary_tooltips.py": {
+    "mtime": 1780078723.0237966,
+    "ast_hash": "b78f43615e4de8d7e0e9fd16839dc9e2",
+    "semantic_hash": "b78f43615e4de8d7e0e9fd16839dc9e2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/hooks/structured_data.py": {
+    "mtime": 1781241242.7022948,
+    "ast_hash": "4bcbb1d8b19aae508a21af0454ef6c4e",
+    "semantic_hash": "4bcbb1d8b19aae508a21af0454ef6c4e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/journal/monthly_report.py": {
+    "mtime": 1779281397.7467613,
+    "ast_hash": "f5aa3cfa1904ba420b6110bb5579d570",
+    "semantic_hash": "f5aa3cfa1904ba420b6110bb5579d570"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/__init__.py": {
+    "mtime": 1779281397.808942,
+    "ast_hash": "f4a710c64b208df52f07cd1c7ffcf1d5",
+    "semantic_hash": "f4a710c64b208df52f07cd1c7ffcf1d5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/breakout.py": {
+    "mtime": 1779281397.8091002,
+    "ast_hash": "951cbc95810e8c3b3e8c5d267d30bf3e",
+    "semantic_hash": "951cbc95810e8c3b3e8c5d267d30bf3e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/breakout_v2.py": {
+    "mtime": 1779281397.8093684,
+    "ast_hash": "cb2568653b6c6c039dd79dbc29fa2499",
+    "semantic_hash": "cb2568653b6c6c039dd79dbc29fa2499"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/common.py": {
+    "mtime": 1779281397.809708,
+    "ast_hash": "5738f3bdaa0213d305f183890a89294d",
+    "semantic_hash": "5738f3bdaa0213d305f183890a89294d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/compare.py": {
+    "mtime": 1779281397.8100445,
+    "ast_hash": "cd9ae8aba6070e2b6d4be1a899cf5355",
+    "semantic_hash": "cd9ae8aba6070e2b6d4be1a899cf5355"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/london_open.py": {
+    "mtime": 1779281397.810209,
+    "ast_hash": "fbbf9e7c592002ae7bfa993434bad561",
+    "semantic_hash": "fbbf9e7c592002ae7bfa993434bad561"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/mean_reversion.py": {
+    "mtime": 1779281397.810378,
+    "ast_hash": "03b8353ec9819020a56073e0dd9764b5",
+    "semantic_hash": "03b8353ec9819020a56073e0dd9764b5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/three_soldiers.py": {
+    "mtime": 1779281397.810533,
+    "ast_hash": "0e47e81e205c3b3a0d25a24068374374",
+    "semantic_hash": "0e47e81e205c3b3a0d25a24068374374"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/__init__.py": {
+    "mtime": 1779281397.81058,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/conftest.py": {
+    "mtime": 1779281397.8108275,
+    "ast_hash": "c0785bcae0d950128e3bdde992eebda9",
+    "semantic_hash": "c0785bcae0d950128e3bdde992eebda9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/test_backtest.py": {
+    "mtime": 1779281397.8109846,
+    "ast_hash": "1d1329c54a691ed06be08cc0c9ab4479",
+    "semantic_hash": "1d1329c54a691ed06be08cc0c9ab4479"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/test_broker_api.py": {
+    "mtime": 1779281397.8111372,
+    "ast_hash": "4912f6d35619f9967fbdc58689dc3494",
+    "semantic_hash": "4912f6d35619f9967fbdc58689dc3494"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/test_calculators.py": {
+    "mtime": 1779281397.811459,
+    "ast_hash": "1dc62c978e1ded1bddf83cdffd658330",
+    "semantic_hash": "1dc62c978e1ded1bddf83cdffd658330"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/test_indicators.py": {
+    "mtime": 1780078723.0640147,
+    "ast_hash": "7fc4f0404c808a3e3770c1ee7996fdf1",
+    "semantic_hash": "7fc4f0404c808a3e3770c1ee7996fdf1"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/test_position_calculator.py": {
+    "mtime": 1779281397.8118417,
+    "ast_hash": "37ef693baa7e1d5587f2a1a42e2718bf",
+    "semantic_hash": "37ef693baa7e1d5587f2a1a42e2718bf"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/test_smoke.py": {
+    "mtime": 1780067564.5379522,
+    "ast_hash": "ea260facfc8557d2f2e36a7b5ba80568",
+    "semantic_hash": "ea260facfc8557d2f2e36a7b5ba80568"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/test_strategies.py": {
+    "mtime": 1779281397.8120809,
+    "ast_hash": "ffe9917bcd8f6c89cc190f2f7ffc6d9b",
+    "semantic_hash": "ffe9917bcd8f6c89cc190f2f7ffc6d9b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests/test_strategy.py": {
+    "mtime": 1779281397.8125064,
+    "ast_hash": "0b8df865bed47998d0318fe1a1067997",
+    "semantic_hash": "0b8df865bed47998d0318fe1a1067997"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests_e2e/conftest.py": {
+    "mtime": 1781241693.180288,
+    "ast_hash": "55ab884f7e134edfc664ab984eecac16",
+    "semantic_hash": "55ab884f7e134edfc664ab984eecac16"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests_e2e/test_calculators.py": {
+    "mtime": 1781294222.2135708,
+    "ast_hash": "83f09e36a9a32e7256b425de00d74a34",
+    "semantic_hash": "83f09e36a9a32e7256b425de00d74a34"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tests_e2e/test_web_journal.py": {
+    "mtime": 1781293449.6092303,
+    "ast_hash": "dfeab981cd9d0c4423151bbfaeccfdaf",
+    "semantic_hash": "dfeab981cd9d0c4423151bbfaeccfdaf"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/broker_check.py": {
+    "mtime": 1781241693.2148538,
+    "ast_hash": "b2c4e502c31f96d792246b3c7b99b2d2",
+    "semantic_hash": "b2c4e502c31f96d792246b3c7b99b2d2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/build_docx.py": {
+    "mtime": 1781241693.2900746,
+    "ast_hash": "63739b692a991ee10d6c122e84ca60cd",
+    "semantic_hash": "63739b692a991ee10d6c122e84ca60cd"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/build_pdf.py": {
+    "mtime": 1781241693.3056967,
+    "ast_hash": "7a36fc3e01b977930fa18d0ac3e16479",
+    "semantic_hash": "7a36fc3e01b977930fa18d0ac3e16479"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/chart_generator.py": {
+    "mtime": 1781241693.3117685,
+    "ast_hash": "cd62f9fb88e0026432a1246ef611d92d",
+    "semantic_hash": "cd62f9fb88e0026432a1246ef611d92d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/chart_generator_extra.py": {
+    "mtime": 1781241693.327917,
+    "ast_hash": "c5f2cb0dd7748adc9c21970f97381e1b",
+    "semantic_hash": "c5f2cb0dd7748adc9c21970f97381e1b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/chart_generator_real.py": {
+    "mtime": 1781241693.3957956,
+    "ast_hash": "29ed6530ae15fabaa848794e0acb7fbc",
+    "semantic_hash": "29ed6530ae15fabaa848794e0acb7fbc"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/check_docs_sync.py": {
+    "mtime": 1781189723.4790504,
+    "ast_hash": "5d8cc6c050e81100b330fb4f44f342c3",
+    "semantic_hash": "5d8cc6c050e81100b330fb4f44f342c3"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/check_freshness.py": {
+    "mtime": 1781241242.7125213,
+    "ast_hash": "55a4582426fad56fe1df401a3d285596",
+    "semantic_hash": "55a4582426fad56fe1df401a3d285596"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/check_links.py": {
+    "mtime": 1781287561.173529,
+    "ast_hash": "eb3db72a5c9b3ac561fc5dc286733d5b",
+    "semantic_hash": "eb3db72a5c9b3ac561fc5dc286733d5b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/check_translation_coverage.py": {
+    "mtime": 1781189723.479525,
+    "ast_hash": "61f346b744d418c223552334261765f7",
+    "semantic_hash": "61f346b744d418c223552334261765f7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/check_translation_drift.py": {
+    "mtime": 1781241693.398738,
+    "ast_hash": "0d3911788426f103c57b4d94bc808c5e",
+    "semantic_hash": "0d3911788426f103c57b4d94bc808c5e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/compound_calculator.py": {
+    "mtime": 1781189723.4797025,
+    "ast_hash": "1d26b50d168d01abcc5c89b7673b1ab6",
+    "semantic_hash": "1d26b50d168d01abcc5c89b7673b1ab6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/i18n-manifest.json": {
+    "mtime": 1781376908.7834964,
+    "ast_hash": "4c52f061ad4f843c7b848b2db6b5a387",
+    "semantic_hash": "4c52f061ad4f843c7b848b2db6b5a387"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/journal_analyzer.py": {
+    "mtime": 1781241693.4029765,
+    "ast_hash": "763cf67b9613dfbbb0fabd101902c6ae",
+    "semantic_hash": "763cf67b9613dfbbb0fabd101902c6ae"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/journal_cli.py": {
+    "mtime": 1781189723.4848619,
+    "ast_hash": "3a017b7b14b03a6878fcecf76f90fd69",
+    "semantic_hash": "3a017b7b14b03a6878fcecf76f90fd69"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/journal_dashboard.py": {
+    "mtime": 1781189723.485096,
+    "ast_hash": "30ba012847801098154d9b526aee3918",
+    "semantic_hash": "30ba012847801098154d9b526aee3918"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/margin_calculator.py": {
+    "mtime": 1781241693.4065642,
+    "ast_hash": "7128e4a727e2a05ede0618d132e34377",
+    "semantic_hash": "7128e4a727e2a05ede0618d132e34377"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/market_correlations.py": {
+    "mtime": 1781241693.4103096,
+    "ast_hash": "56dfea70756525d54b38a6c80286ffb2",
+    "semantic_hash": "56dfea70756525d54b38a6c80286ffb2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/monte_carlo.py": {
+    "mtime": 1781241693.411967,
+    "ast_hash": "804c4f5bae88477dd75004d15aec4c6c",
+    "semantic_hash": "804c4f5bae88477dd75004d15aec4c6c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/multi_position_sizer.py": {
+    "mtime": 1781189723.4868765,
+    "ast_hash": "853ffbb91cfe89fcbd2c637d4eaab290",
+    "semantic_hash": "853ffbb91cfe89fcbd2c637d4eaab290"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/news_scraper.py": {
+    "mtime": 1781241693.4128811,
+    "ast_hash": "08c1e4f56dc756f89dafb14c6c1168e4",
+    "semantic_hash": "08c1e4f56dc756f89dafb14c6c1168e4"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/pattern_scanner.py": {
+    "mtime": 1781189723.487555,
+    "ast_hash": "803224bead917b745117638edab90646",
+    "semantic_hash": "803224bead917b745117638edab90646"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/pip_calculator.py": {
+    "mtime": 1781189723.4877257,
+    "ast_hash": "f1f2258c26577b96b05d3aad19236c7d",
+    "semantic_hash": "f1f2258c26577b96b05d3aad19236c7d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/position_calculator.py": {
+    "mtime": 1781189723.4879386,
+    "ast_hash": "18a76d9af6de42ddc96ec9efc4f2c72a",
+    "semantic_hash": "18a76d9af6de42ddc96ec9efc4f2c72a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/quiz.py": {
+    "mtime": 1781241693.4144306,
+    "ast_hash": "c885bb29e5d819c8bc2c496fe5ff5a2d",
+    "semantic_hash": "c885bb29e5d819c8bc2c496fe5ff5a2d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/replay_cutter.py": {
+    "mtime": 1781287891.36496,
+    "ast_hash": "84cd4ad4c1fb9ba5d6ea69612dc7000a",
+    "semantic_hash": "84cd4ad4c1fb9ba5d6ea69612dc7000a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/risk_exposure.py": {
+    "mtime": 1781241693.414893,
+    "ast_hash": "66803e433da65e13e456b5af69bd690c",
+    "semantic_hash": "66803e433da65e13e456b5af69bd690c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/risk_profile.py": {
+    "mtime": 1781189723.4911509,
+    "ast_hash": "4c516e5dc8674a321c4a7e3575874131",
+    "semantic_hash": "4c516e5dc8674a321c4a7e3575874131"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/tools/sync_translation_manifest.py": {
+    "mtime": 1781241693.415148,
+    "ast_hash": "030bf5783d0f25049f6a8dc6638738f8",
+    "semantic_hash": "030bf5783d0f25049f6a8dc6638738f8"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/uz/tax-calculator.py": {
+    "mtime": 1779281397.8195326,
+    "ast_hash": "6f8eaa5644c4ef7292f53de33be643da",
+    "semantic_hash": "6f8eaa5644c4ef7292f53de33be643da"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/CLAUDE.md": {
+    "mtime": 1781414685.5090072,
+    "ast_hash": "db73b0edd7ffbc61ceac177130730865",
+    "semantic_hash": "db73b0edd7ffbc61ceac177130730865"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/agents/add-translation.md": {
+    "mtime": 1780067564.5286953,
+    "ast_hash": "17a27df16019e09d82828215989cb75c",
+    "semantic_hash": "17a27df16019e09d82828215989cb75c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/agents/new-calculator.md": {
+    "mtime": 1780067564.528885,
+    "ast_hash": "4b3ad14a4df4cf16c3e81d9a9a4650db",
+    "semantic_hash": "4b3ad14a4df4cf16c3e81d9a9a4650db"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/forex-check/SKILL.md": {
+    "mtime": 1780067564.5293765,
+    "ast_hash": "e6eece39366b11963e5775a5c6e2e510",
+    "semantic_hash": "e6eece39366b11963e5775a5c6e2e510"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/SKILL.md": {
+    "mtime": 1781414685.5087714,
+    "ast_hash": "97c2755905a5a0e53b96b31c725a7010",
+    "semantic_hash": "97c2755905a5a0e53b96b31c725a7010"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/references/add-watch.md": {
+    "mtime": 1781414652.6725454,
+    "ast_hash": "0df0589623217ca38a12bdcabfb42f4c",
+    "semantic_hash": "0df0589623217ca38a12bdcabfb42f4c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/references/exports.md": {
+    "mtime": 1781414652.6726937,
+    "ast_hash": "c04ddf8f1f5ef5e262ebec491a523c74",
+    "semantic_hash": "c04ddf8f1f5ef5e262ebec491a523c74"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1781414652.6729362,
+    "ast_hash": "24808b03abfeaf5f6435bb69c0125b2c",
+    "semantic_hash": "24808b03abfeaf5f6435bb69c0125b2c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1781414652.6751006,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": "cde13df085e4c492aeb7ba298a996d0d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/references/hooks.md": {
+    "mtime": 1781414652.6754081,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": "3f545db6ce646650bb9de588f5512a27"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/references/query.md": {
+    "mtime": 1781414652.675657,
+    "ast_hash": "8b40ed8c9e9060fc215219a8fc964091",
+    "semantic_hash": "8b40ed8c9e9060fc215219a8fc964091"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/references/transcribe.md": {
+    "mtime": 1781414652.675788,
+    "ast_hash": "70f6aa30d6211f3a2c7e9fc45479f50c",
+    "semantic_hash": "70f6aa30d6211f3a2c7e9fc45479f50c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.claude/skills/graphify/references/update.md": {
+    "mtime": 1781414652.6759777,
+    "ast_hash": "0dad167a95bdb389f02fecffb60b1bc8",
+    "semantic_hash": "0dad167a95bdb389f02fecffb60b1bc8"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/SKILL.md": {
+    "mtime": 1781414685.5734687,
+    "ast_hash": "5c72924d8902cf334936c5827ff65349",
+    "semantic_hash": "5c72924d8902cf334936c5827ff65349"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/references/add-watch.md": {
+    "mtime": 1781414652.679647,
+    "ast_hash": "0df0589623217ca38a12bdcabfb42f4c",
+    "semantic_hash": "0df0589623217ca38a12bdcabfb42f4c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/references/exports.md": {
+    "mtime": 1781414652.679766,
+    "ast_hash": "c04ddf8f1f5ef5e262ebec491a523c74",
+    "semantic_hash": "c04ddf8f1f5ef5e262ebec491a523c74"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/references/extraction-spec.md": {
+    "mtime": 1781414652.6799266,
+    "ast_hash": "a86a7321597b23cc2b22e011b3dc6e1d",
+    "semantic_hash": "a86a7321597b23cc2b22e011b3dc6e1d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/references/github-and-merge.md": {
+    "mtime": 1781414652.6800575,
+    "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
+    "semantic_hash": "cde13df085e4c492aeb7ba298a996d0d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/references/hooks.md": {
+    "mtime": 1781414652.680135,
+    "ast_hash": "3f545db6ce646650bb9de588f5512a27",
+    "semantic_hash": "3f545db6ce646650bb9de588f5512a27"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/references/query.md": {
+    "mtime": 1781414652.6803517,
+    "ast_hash": "c2a8e798674a81b02aa9975f43023819",
+    "semantic_hash": "c2a8e798674a81b02aa9975f43023819"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/references/transcribe.md": {
+    "mtime": 1781414652.680433,
+    "ast_hash": "70f6aa30d6211f3a2c7e9fc45479f50c",
+    "semantic_hash": "70f6aa30d6211f3a2c7e9fc45479f50c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.codex/skills/graphify/references/update.md": {
+    "mtime": 1781414652.6805866,
+    "ast_hash": "0dad167a95bdb389f02fecffb60b1bc8",
+    "semantic_hash": "0dad167a95bdb389f02fecffb60b1bc8"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/FUNDING.yml": {
+    "mtime": 1780067564.5297892,
+    "ast_hash": "2e75f20fe543fa24fd0bc17208ebcb01",
+    "semantic_hash": "2e75f20fe543fa24fd0bc17208ebcb01"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/ISSUE_TEMPLATE/bug_report.yml": {
+    "mtime": 1779513818.5409133,
+    "ast_hash": "90bb62e917f258bdff9b3d153dc6fd84",
+    "semantic_hash": "90bb62e917f258bdff9b3d153dc6fd84"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/ISSUE_TEMPLATE/config.yml": {
+    "mtime": 1779513832.2661445,
+    "ast_hash": "79f54a4951ea6919fded900d3e4a282a",
+    "semantic_hash": "79f54a4951ea6919fded900d3e4a282a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/ISSUE_TEMPLATE/feature_request.yml": {
+    "mtime": 1779513827.4826174,
+    "ast_hash": "da802a0d119332745a06a5a3858473da",
+    "semantic_hash": "da802a0d119332745a06a5a3858473da"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/PULL_REQUEST_TEMPLATE.md": {
+    "mtime": 1779513850.199379,
+    "ast_hash": "1294fb48b285c6fda9256c35dd82e7fe",
+    "semantic_hash": "1294fb48b285c6fda9256c35dd82e7fe"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/dependabot.yml": {
+    "mtime": 1779513726.3552341,
+    "ast_hash": "cd5402a8a3f7e5f1e9370e7030a7df56",
+    "semantic_hash": "cd5402a8a3f7e5f1e9370e7030a7df56"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/workflows/deploy-docs.yml": {
+    "mtime": 1781288988.7017484,
+    "ast_hash": "c51be659a657eecd515f66e8e54919d6",
+    "semantic_hash": "c51be659a657eecd515f66e8e54919d6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/workflows/release.yml": {
+    "mtime": 1781288988.701906,
+    "ast_hash": "6faf54612ee6997548b151431bfe7bed",
+    "semantic_hash": "6faf54612ee6997548b151431bfe7bed"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/workflows/test.yml": {
+    "mtime": 1781293118.1738033,
+    "ast_hash": "079ce4feda6854cc0c8f7c1f42f3f210",
+    "semantic_hash": "079ce4feda6854cc0c8f7c1f42f3f210"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.github/workflows/weekly-health.yml": {
+    "mtime": 1781288988.7024357,
+    "ast_hash": "8f7b3945d8da662a9e9e4a45e82c681a",
+    "semantic_hash": "8f7b3945d8da662a9e9e4a45e82c681a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/.lighthouserc.yml": {
+    "mtime": 1781287561.1685205,
+    "ast_hash": "3528bdc88ae1442bd85307e898bc4f41",
+    "semantic_hash": "3528bdc88ae1442bd85307e898bc4f41"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/AGENTS.md": {
+    "mtime": 1781414685.573884,
+    "ast_hash": "62c05a2bf20bf036a0b2633478663e64",
+    "semantic_hash": "62c05a2bf20bf036a0b2633478663e64"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/CHANGELOG.md": {
+    "mtime": 1780078722.7659483,
+    "ast_hash": "f2ce960af3edafd3908535c1ae4b9331",
+    "semantic_hash": "f2ce960af3edafd3908535c1ae4b9331"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/CLAUDE.md": {
+    "mtime": 1781414685.5096292,
+    "ast_hash": "c679f3b20609baaeb48bb92827cd0826",
+    "semantic_hash": "c679f3b20609baaeb48bb92827cd0826"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/CODE_OF_CONDUCT.md": {
+    "mtime": 1779513799.546334,
+    "ast_hash": "c9234cd15b484bb8b0a466aabbb75b10",
+    "semantic_hash": "c9234cd15b484bb8b0a466aabbb75b10"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/CONTRIBUTING.md": {
+    "mtime": 1780067564.531625,
+    "ast_hash": "0af582710a55dd7acfe61c48dd15af35",
+    "semantic_hash": "0af582710a55dd7acfe61c48dd15af35"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/DISCLAIMER.md": {
+    "mtime": 1779514531.6988697,
+    "ast_hash": "49bb6d826d8def28b233d7280325249b",
+    "semantic_hash": "49bb6d826d8def28b233d7280325249b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/HOW-TO-USE.md": {
+    "mtime": 1780067564.5319757,
+    "ast_hash": "fc835e3c29a70eb755afeedc495544df",
+    "semantic_hash": "fc835e3c29a70eb755afeedc495544df"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/IMPROVEMENTS.md": {
+    "mtime": 1781287781.5970314,
+    "ast_hash": "ab2ace638255501bec0b1a203b0c00b8",
+    "semantic_hash": "ab2ace638255501bec0b1a203b0c00b8"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/LAUNCH.md": {
+    "mtime": 1779515129.5958853,
+    "ast_hash": "8f3604f62f3da2dd837c73fdd0cf643f",
+    "semantic_hash": "8f3604f62f3da2dd837c73fdd0cf643f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/LICENSE-CONTENT.md": {
+    "mtime": 1781155861.2663593,
+    "ast_hash": "3bd920009491323de2ba63b6d2bb2c3c",
+    "semantic_hash": "3bd920009491323de2ba63b6d2bb2c3c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/MAINTAINER-30D.md": {
+    "mtime": 1779516617.3818932,
+    "ast_hash": "d062ee9ff636085fb8e3f56663a61bce",
+    "semantic_hash": "d062ee9ff636085fb8e3f56663a61bce"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/README.md": {
+    "mtime": 1781155861.2677188,
+    "ast_hash": "89b7c9718555ca6890af094b1256b412",
+    "semantic_hash": "89b7c9718555ca6890af094b1256b412"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/SECURITY.md": {
+    "mtime": 1779513785.1297138,
+    "ast_hash": "ab5994c99aedebbe37c8564616798568",
+    "semantic_hash": "ab5994c99aedebbe37c8564616798568"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/TODO.md": {
+    "mtime": 1781287340.4962642,
+    "ast_hash": "f18460efc1d9483a34fbd7c6fd757210",
+    "semantic_hash": "f18460efc1d9483a34fbd7c6fd757210"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/TRANSLATIONS.md": {
+    "mtime": 1780067564.532549,
+    "ast_hash": "a6961e3b9f717323df60da143177d551",
+    "semantic_hash": "a6961e3b9f717323df60da143177d551"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-mt5.en.md": {
+    "mtime": 1781241242.4198275,
+    "ast_hash": "70b069f7af7d394e0d86773ec3004e32",
+    "semantic_hash": "70b069f7af7d394e0d86773ec3004e32"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-mt5.md": {
+    "mtime": 1780078722.7882965,
+    "ast_hash": "f76bcbe09f69468068387531765da6d0",
+    "semantic_hash": "f76bcbe09f69468068387531765da6d0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-mt5.uz.md": {
+    "mtime": 1781155861.2701843,
+    "ast_hash": "c026adaf23e6acc04a3cacacd41daa25",
+    "semantic_hash": "c026adaf23e6acc04a3cacacd41daa25"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-streamlit.en.md": {
+    "mtime": 1781241242.4244711,
+    "ast_hash": "0ad6ebe34e4e3948c34f8ddee52c1561",
+    "semantic_hash": "0ad6ebe34e4e3948c34f8ddee52c1561"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-streamlit.md": {
+    "mtime": 1780078722.7912889,
+    "ast_hash": "90830a69b90b358a3a82d6e3ad6f2784",
+    "semantic_hash": "90830a69b90b358a3a82d6e3ad6f2784"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-streamlit.uz.md": {
+    "mtime": 1781155861.2706473,
+    "ast_hash": "e2ec516b89fa744268f39b51f3d22207",
+    "semantic_hash": "e2ec516b89fa744268f39b51f3d22207"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-telegram.en.md": {
+    "mtime": 1781241242.4384272,
+    "ast_hash": "4b2d0a9221bdb1ffb3d652522cdb0602",
+    "semantic_hash": "4b2d0a9221bdb1ffb3d652522cdb0602"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-telegram.md": {
+    "mtime": 1780078722.7940018,
+    "ast_hash": "e4320bffea68e6e3ba4f9def37860907",
+    "semantic_hash": "e4320bffea68e6e3ba4f9def37860907"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-telegram.uz.md": {
+    "mtime": 1781155861.2715404,
+    "ast_hash": "71a7fb635bacac367406fd046e7f9a13",
+    "semantic_hash": "71a7fb635bacac367406fd046e7f9a13"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-vps-deployment.en.md": {
+    "mtime": 1781241242.447812,
+    "ast_hash": "3780144f266add5aa069735099fcd0c6",
+    "semantic_hash": "3780144f266add5aa069735099fcd0c6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-vps-deployment.md": {
+    "mtime": 1779281397.6486635,
+    "ast_hash": "7bbd9eedfec4b94c77b68a7585c23b8b",
+    "semantic_hash": "7bbd9eedfec4b94c77b68a7585c23b8b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/advanced/SETUP-vps-deployment.uz.md": {
+    "mtime": 1781155861.2730968,
+    "ast_hash": "847d42a31cb670c6b45b20459f184725",
+    "semantic_hash": "847d42a31cb670c6b45b20459f184725"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/bot/README.en.md": {
+    "mtime": 1781241242.4584646,
+    "ast_hash": "f857d34d053be9a3eb0ec3a4b5f68c9d",
+    "semantic_hash": "f857d34d053be9a3eb0ec3a4b5f68c9d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/bot/README.md": {
+    "mtime": 1780078722.7976933,
+    "ast_hash": "c2f5c136bd1aa3924da612858f7ccf60",
+    "semantic_hash": "c2f5c136bd1aa3924da612858f7ccf60"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/bot/README.uz.md": {
+    "mtime": 1781155861.2737412,
+    "ast_hash": "7c2189e87229fb1b7179ff0fc3e78488",
+    "semantic_hash": "7c2189e87229fb1b7179ff0fc3e78488"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/broker-mechanics-101.en.md": {
+    "mtime": 1781287561.1693885,
+    "ast_hash": "f0ef1e9b2436983155529a9b27f6d6cb",
+    "semantic_hash": "f0ef1e9b2436983155529a9b27f6d6cb"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/broker-mechanics-101.md": {
+    "mtime": 1781287561.1695278,
+    "ast_hash": "b367aead5298379b8a88bcefc225fb7a",
+    "semantic_hash": "b367aead5298379b8a88bcefc225fb7a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/broker-mechanics-101.uz.md": {
+    "mtime": 1781287863.1705077,
+    "ast_hash": "e896c56ddd291e66a54bd1e8348d4018",
+    "semantic_hash": "e896c56ddd291e66a54bd1e8348d4018"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/fundamental-analysis-guide.en.md": {
+    "mtime": 1781287561.169774,
+    "ast_hash": "fe44291ee6d78d9362216876f3eba7a2",
+    "semantic_hash": "fe44291ee6d78d9362216876f3eba7a2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/fundamental-analysis-guide.md": {
+    "mtime": 1781287561.169872,
+    "ast_hash": "c75b18bfd2089ad084221003044e4ca0",
+    "semantic_hash": "c75b18bfd2089ad084221003044e4ca0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/fundamental-analysis-guide.uz.md": {
+    "mtime": 1781287561.170144,
+    "ast_hash": "715b4fcecc12df5ac857dad89147a170",
+    "semantic_hash": "715b4fcecc12df5ac857dad89147a170"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/order-types-mechanics.en.md": {
+    "mtime": 1781287561.1702657,
+    "ast_hash": "f1b9b320921926356255fbfeb73a5b8a",
+    "semantic_hash": "f1b9b320921926356255fbfeb73a5b8a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/order-types-mechanics.md": {
+    "mtime": 1781287561.1703846,
+    "ast_hash": "e1ab754218444ad9ff112828c329b177",
+    "semantic_hash": "e1ab754218444ad9ff112828c329b177"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/order-types-mechanics.uz.md": {
+    "mtime": 1781287561.1705034,
+    "ast_hash": "c22331994e9b74e17ca198048504d372",
+    "semantic_hash": "c22331994e9b74e17ca198048504d372"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/real-analysis.en.md": {
+    "mtime": 1781241242.46196,
+    "ast_hash": "79d48ec81ea2e6114db681d0c93b6a70",
+    "semantic_hash": "79d48ec81ea2e6114db681d0c93b6a70"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/real-analysis.md": {
+    "mtime": 1780078722.800148,
+    "ast_hash": "a169d48a5c11451acd576d0e14409010",
+    "semantic_hash": "a169d48a5c11451acd576d0e14409010"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/real-analysis.uz.md": {
+    "mtime": 1781155861.2766502,
+    "ast_hash": "76a99713838f8e0cd36d4166d7c3cd78",
+    "semantic_hash": "76a99713838f8e0cd36d4166d7c3cd78"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/strategy-details.en.md": {
+    "mtime": 1781241242.4729025,
+    "ast_hash": "337f028868e16089e3352200bf8291e7",
+    "semantic_hash": "337f028868e16089e3352200bf8291e7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/strategy-details.md": {
+    "mtime": 1780078722.801843,
+    "ast_hash": "2d1828381f6acfe12e7eb3a2edb543f0",
+    "semantic_hash": "2d1828381f6acfe12e7eb3a2edb543f0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/strategy-details.uz.md": {
+    "mtime": 1781155861.278149,
+    "ast_hash": "864552ac0df660a92f7b1fffe421cbcf",
+    "semantic_hash": "864552ac0df660a92f7b1fffe421cbcf"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/technical-analysis.en.md": {
+    "mtime": 1781241242.4760387,
+    "ast_hash": "71bf315becab75f04b111bd11ebc7819",
+    "semantic_hash": "71bf315becab75f04b111bd11ebc7819"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/technical-analysis.md": {
+    "mtime": 1780078722.8041556,
+    "ast_hash": "71c0e26710e91e448dc7605018f35366",
+    "semantic_hash": "71c0e26710e91e448dc7605018f35366"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/technical-analysis.uz.md": {
+    "mtime": 1781155861.280893,
+    "ast_hash": "cb9dec0863dfa8457d5bd816c0f5beb3",
+    "semantic_hash": "cb9dec0863dfa8457d5bd816c0f5beb3"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/anti-tilt-protocol.en.md": {
+    "mtime": 1781241242.4767427,
+    "ast_hash": "70f91c80bb6cafb3861f2d02d9f12f5f",
+    "semantic_hash": "70f91c80bb6cafb3861f2d02d9f12f5f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/anti-tilt-protocol.md": {
+    "mtime": 1779281397.6830645,
+    "ast_hash": "bc8707250497f864fe16d8c0f5ab9c40",
+    "semantic_hash": "bc8707250497f864fe16d8c0f5ab9c40"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/anti-tilt-protocol.uz.md": {
+    "mtime": 1781155861.282817,
+    "ast_hash": "73e8f7d67cd70efc854cc695d563dc59",
+    "semantic_hash": "73e8f7d67cd70efc854cc695d563dc59"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/brokers-comparison.en.md": {
+    "mtime": 1781241242.4796011,
+    "ast_hash": "ccd154367cbd52f056324413720550e3",
+    "semantic_hash": "ccd154367cbd52f056324413720550e3"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/brokers-comparison.md": {
+    "mtime": 1779281397.6835096,
+    "ast_hash": "2845b1e47f4882788be20de608fb95a2",
+    "semantic_hash": "2845b1e47f4882788be20de608fb95a2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/brokers-comparison.uz.md": {
+    "mtime": 1781155861.2831857,
+    "ast_hash": "2bb6dd5f5ca43039dd338c85721991bd",
+    "semantic_hash": "2bb6dd5f5ca43039dd338c85721991bd"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/checklist-printable.en.md": {
+    "mtime": 1781241242.4802558,
+    "ast_hash": "4278dc9f866a1e543e1596923cd838cd",
+    "semantic_hash": "4278dc9f866a1e543e1596923cd838cd"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/checklist-printable.md": {
+    "mtime": 1779281397.683877,
+    "ast_hash": "0a85a2198345fe0887dc5cfe42994263",
+    "semantic_hash": "0a85a2198345fe0887dc5cfe42994263"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/checklist-printable.uz.md": {
+    "mtime": 1781155861.2835648,
+    "ast_hash": "57a7ce27c237be4fe43d4e4674c391ff",
+    "semantic_hash": "57a7ce27c237be4fe43d4e4674c391ff"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/daily-routine.en.md": {
+    "mtime": 1781241242.482113,
+    "ast_hash": "2fbd33b354981ebfd121b73e50b40f71",
+    "semantic_hash": "2fbd33b354981ebfd121b73e50b40f71"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/daily-routine.md": {
+    "mtime": 1779281397.684109,
+    "ast_hash": "ddbbde0c7d99033c545f8e0ce702f550",
+    "semantic_hash": "ddbbde0c7d99033c545f8e0ce702f550"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/daily-routine.uz.md": {
+    "mtime": 1781155861.2850132,
+    "ast_hash": "bf77c65a4a708ab9ba3b57e85e37be8b",
+    "semantic_hash": "bf77c65a4a708ab9ba3b57e85e37be8b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/emergency-card.en.md": {
+    "mtime": 1781241242.4835033,
+    "ast_hash": "fdf724ba9ad0e21dc739b7e1f2898a07",
+    "semantic_hash": "fdf724ba9ad0e21dc739b7e1f2898a07"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/emergency-card.md": {
+    "mtime": 1779281397.6844454,
+    "ast_hash": "92d4e4f23679d52d34587263e26d201b",
+    "semantic_hash": "92d4e4f23679d52d34587263e26d201b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/emergency-card.uz.md": {
+    "mtime": 1781155861.285904,
+    "ast_hash": "c466a7f8bb20416cd93299a1ada66fed",
+    "semantic_hash": "c466a7f8bb20416cd93299a1ada66fed"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/faq.en.md": {
+    "mtime": 1780078722.8053958,
+    "ast_hash": "ef256ad54ed3189cfc54ed07d9295e80",
+    "semantic_hash": "ef256ad54ed3189cfc54ed07d9295e80"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/faq.md": {
+    "mtime": 1779281397.684674,
+    "ast_hash": "41e02cc680fe0d4544bc16f4b2e997e3",
+    "semantic_hash": "41e02cc680fe0d4544bc16f4b2e997e3"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/faq.uz.md": {
+    "mtime": 1780078722.8217437,
+    "ast_hash": "17bcc7dc98e90e37d29e1682056c01fb",
+    "semantic_hash": "17bcc7dc98e90e37d29e1682056c01fb"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/first-100-days.en.md": {
+    "mtime": 1781241242.4839616,
+    "ast_hash": "ea45c9b51ed18dbf7ec5660623eda03a",
+    "semantic_hash": "ea45c9b51ed18dbf7ec5660623eda03a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/first-100-days.md": {
+    "mtime": 1779281397.6848931,
+    "ast_hash": "cd863606a0eec6939a153f2857484449",
+    "semantic_hash": "cd863606a0eec6939a153f2857484449"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/first-100-days.uz.md": {
+    "mtime": 1781155861.2875414,
+    "ast_hash": "7898b88bea9d8bbc5dff2940b2fc9318",
+    "semantic_hash": "7898b88bea9d8bbc5dff2940b2fc9318"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/glossary.en.md": {
+    "mtime": 1780078722.8345978,
+    "ast_hash": "9b7c46f84240e2479cc56e5439220138",
+    "semantic_hash": "9b7c46f84240e2479cc56e5439220138"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/glossary.md": {
+    "mtime": 1779281397.6851094,
+    "ast_hash": "a0e2a459bcba4e0714bdaa24ef4ccde5",
+    "semantic_hash": "a0e2a459bcba4e0714bdaa24ef4ccde5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/glossary.uz.md": {
+    "mtime": 1780078722.8483353,
+    "ast_hash": "5b1688fa42120d4cabbaf9d43fe160bd",
+    "semantic_hash": "5b1688fa42120d4cabbaf9d43fe160bd"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/market-data-sources.en.md": {
+    "mtime": 1779515388.5422354,
+    "ast_hash": "67637b6f54405b26ab83c38670e9d54c",
+    "semantic_hash": "67637b6f54405b26ab83c38670e9d54c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/market-data-sources.md": {
+    "mtime": 1779515363.2081892,
+    "ast_hash": "0273c30ef98ee3c8dafc8ebc6b193f09",
+    "semantic_hash": "0273c30ef98ee3c8dafc8ebc6b193f09"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/market-data-sources.uz.md": {
+    "mtime": 1779515594.6313634,
+    "ast_hash": "8469c1723122b9172c083da29808dde1",
+    "semantic_hash": "8469c1723122b9172c083da29808dde1"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/mind-map.en.md": {
+    "mtime": 1781241242.4842663,
+    "ast_hash": "5218911ecbd57dbb25d785275f4ae6ec",
+    "semantic_hash": "5218911ecbd57dbb25d785275f4ae6ec"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/mind-map.md": {
+    "mtime": 1779281397.6854494,
+    "ast_hash": "f57cb2baba6d540ecf71236f0b3dac4b",
+    "semantic_hash": "f57cb2baba6d540ecf71236f0b3dac4b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/mind-map.uz.md": {
+    "mtime": 1781155861.2888405,
+    "ast_hash": "a27232265b0dee6fbef80b1550c1fac6",
+    "semantic_hash": "a27232265b0dee6fbef80b1550c1fac6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/pre-trade-check.en.md": {
+    "mtime": 1781241242.484742,
+    "ast_hash": "783d3db792ebbce83a525f9590c2b09f",
+    "semantic_hash": "783d3db792ebbce83a525f9590c2b09f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/pre-trade-check.md": {
+    "mtime": 1780067564.5329874,
+    "ast_hash": "540a08bf78e419644f391932fcd82d8f",
+    "semantic_hash": "540a08bf78e419644f391932fcd82d8f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/pre-trade-check.uz.md": {
+    "mtime": 1781155861.2898428,
+    "ast_hash": "58961a926820732eb86c0ce4d63ae78c",
+    "semantic_hash": "58961a926820732eb86c0ce4d63ae78c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/progress.en.md": {
+    "mtime": 1781241242.4856951,
+    "ast_hash": "e55d5964db17cd3c9e1cfb25a230c15e",
+    "semantic_hash": "e55d5964db17cd3c9e1cfb25a230c15e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/progress.md": {
+    "mtime": 1780067564.5332062,
+    "ast_hash": "427170aee7c27328e0b69817ad4f0988",
+    "semantic_hash": "427170aee7c27328e0b69817ad4f0988"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/progress.uz.md": {
+    "mtime": 1781155861.2921057,
+    "ast_hash": "058017833957fe6de4ef5bcd72bf4d1b",
+    "semantic_hash": "058017833957fe6de4ef5bcd72bf4d1b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/psychology.en.md": {
+    "mtime": 1779281397.685733,
+    "ast_hash": "cfab394f70b53d1257047a661b8cad19",
+    "semantic_hash": "cfab394f70b53d1257047a661b8cad19"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/psychology.md": {
+    "mtime": 1779281397.6860626,
+    "ast_hash": "c3ea6cced6d7bfb52166690a1a976f26",
+    "semantic_hash": "c3ea6cced6d7bfb52166690a1a976f26"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/psychology.uz.md": {
+    "mtime": 1781155861.293713,
+    "ast_hash": "99b8389c85f7dd3c23f8936b103728fb",
+    "semantic_hash": "99b8389c85f7dd3c23f8936b103728fb"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/responsible-trading.en.md": {
+    "mtime": 1781241242.4881592,
+    "ast_hash": "5225d81d14d9377239c443944daa37a5",
+    "semantic_hash": "5225d81d14d9377239c443944daa37a5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/responsible-trading.md": {
+    "mtime": 1781155861.2970235,
+    "ast_hash": "cfa5c9efc062fe7244053c059b3ecd18",
+    "semantic_hash": "cfa5c9efc062fe7244053c059b3ecd18"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/responsible-trading.uz.md": {
+    "mtime": 1781155861.2987235,
+    "ast_hash": "ad459f7c1552a5cb14ecf44e8651d695",
+    "semantic_hash": "ad459f7c1552a5cb14ecf44e8651d695"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/trading-plan-template.en.md": {
+    "mtime": 1781241242.4890192,
+    "ast_hash": "85745ad05e69991bff56d6fac0c7dd6c",
+    "semantic_hash": "85745ad05e69991bff56d6fac0c7dd6c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/trading-plan-template.md": {
+    "mtime": 1779281397.6863647,
+    "ast_hash": "716d5c1bb4b7fc5758eb2ce8815882bd",
+    "semantic_hash": "716d5c1bb4b7fc5758eb2ce8815882bd"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/trading-plan-template.uz.md": {
+    "mtime": 1781155861.299886,
+    "ast_hash": "c5bbb8db448b5e4554f139fc4d06923d",
+    "semantic_hash": "c5bbb8db448b5e4554f139fc4d06923d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-script-1-full.en.md": {
+    "mtime": 1781241242.4896383,
+    "ast_hash": "917672477dba8d7be3fdecde45de0ec1",
+    "semantic_hash": "917672477dba8d7be3fdecde45de0ec1"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-script-1-full.md": {
+    "mtime": 1779281397.686735,
+    "ast_hash": "90ee6b38dfb76a3928ea18f458b7503c",
+    "semantic_hash": "90ee6b38dfb76a3928ea18f458b7503c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-script-1-full.uz.md": {
+    "mtime": 1781155861.3001802,
+    "ast_hash": "a24f08baf33bffb3e78d6c7778a6a918",
+    "semantic_hash": "a24f08baf33bffb3e78d6c7778a6a918"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-script-4-full.en.md": {
+    "mtime": 1781241242.491132,
+    "ast_hash": "71a2120d44c51be6feb31c11d8d040dd",
+    "semantic_hash": "71a2120d44c51be6feb31c11d8d040dd"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-script-4-full.md": {
+    "mtime": 1779281397.687095,
+    "ast_hash": "c8ced9121e6fe2f6ab2eaa0f54deb0b0",
+    "semantic_hash": "c8ced9121e6fe2f6ab2eaa0f54deb0b0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-script-4-full.uz.md": {
+    "mtime": 1781155861.3007994,
+    "ast_hash": "d96d96d4f4a2eef96e718552091f5635",
+    "semantic_hash": "d96d96d4f4a2eef96e718552091f5635"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-scripts.en.md": {
+    "mtime": 1781241242.4919798,
+    "ast_hash": "0082e26eb33893a44efbd08114ae2415",
+    "semantic_hash": "0082e26eb33893a44efbd08114ae2415"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-scripts.md": {
+    "mtime": 1779281397.6874151,
+    "ast_hash": "33ba62e5ea5ead4ebf07177ac44af3c0",
+    "semantic_hash": "33ba62e5ea5ead4ebf07177ac44af3c0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/extras/video-scripts.uz.md": {
+    "mtime": 1781155861.3013635,
+    "ast_hash": "8c47cf25cfed7e84f3bc4f64655aa52c",
+    "semantic_hash": "8c47cf25cfed7e84f3bc4f64655aa52c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/forex-guide.en.md": {
+    "mtime": 1779281397.6878033,
+    "ast_hash": "72ec567899f1a956728cf737a9875064",
+    "semantic_hash": "72ec567899f1a956728cf737a9875064"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/forex-guide.md": {
+    "mtime": 1779281397.6881723,
+    "ast_hash": "bf310ab2dc34c4c4a50b16b39a97b7da",
+    "semantic_hash": "bf310ab2dc34c4c4a50b16b39a97b7da"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/forex-guide.uz.md": {
+    "mtime": 1780078722.8842669,
+    "ast_hash": "d69469e36bd553aa960630510f1f334d",
+    "semantic_hash": "d69469e36bd553aa960630510f1f334d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/crypto-trading-guide.en.md": {
+    "mtime": 1781241242.4944384,
+    "ast_hash": "98423b2c5d388f305b21e15f03e8d627",
+    "semantic_hash": "98423b2c5d388f305b21e15f03e8d627"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/crypto-trading-guide.md": {
+    "mtime": 1779281397.68853,
+    "ast_hash": "9771fe82da9e212d7fb9e77f49848266",
+    "semantic_hash": "9771fe82da9e212d7fb9e77f49848266"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/crypto-trading-guide.uz.md": {
+    "mtime": 1781155861.3019054,
+    "ast_hash": "19b0e4b9b724860faf320ac8f3878656",
+    "semantic_hash": "19b0e4b9b724860faf320ac8f3878656"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/order-flow-volume-profile.en.md": {
+    "mtime": 1781241242.495195,
+    "ast_hash": "6a3cd9e616c059bfd447c0c9f4bc6555",
+    "semantic_hash": "6a3cd9e616c059bfd447c0c9f4bc6555"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/order-flow-volume-profile.md": {
+    "mtime": 1779281397.688839,
+    "ast_hash": "88f66aa161a5be5e90c8d73e5e4d91f8",
+    "semantic_hash": "88f66aa161a5be5e90c8d73e5e4d91f8"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/order-flow-volume-profile.uz.md": {
+    "mtime": 1781155861.302598,
+    "ast_hash": "a06568317f4bfa7d5ef09fcf3c62a9b6",
+    "semantic_hash": "a06568317f4bfa7d5ef09fcf3c62a9b6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/stocks-basics.en.md": {
+    "mtime": 1781241242.4959078,
+    "ast_hash": "232f75972b1404b62b209a63971a5fe5",
+    "semantic_hash": "232f75972b1404b62b209a63971a5fe5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/stocks-basics.md": {
+    "mtime": 1779281397.6891077,
+    "ast_hash": "94e12fc2452e51549658f39b8bf098b2",
+    "semantic_hash": "94e12fc2452e51549658f39b8bf098b2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/growth/stocks-basics.uz.md": {
+    "mtime": 1781155861.3032494,
+    "ast_hash": "e02044ae75805c434ae4d9363cb44cdd",
+    "semantic_hash": "e02044ae75805c434ae4d9363cb44cdd"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/index.en.md": {
+    "mtime": 1781376864.25542,
+    "ast_hash": "79217a544470fcae6993d98ef06bf817",
+    "semantic_hash": "79217a544470fcae6993d98ef06bf817"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/index.md": {
+    "mtime": 1781376848.7037752,
+    "ast_hash": "4d3c5e976208e65551d721af948ff9d4",
+    "semantic_hash": "4d3c5e976208e65551d721af948ff9d4"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/index.uz.md": {
+    "mtime": 1781376869.9932582,
+    "ast_hash": "50cce95e6bcb0175e27a2c2323835aad",
+    "semantic_hash": "50cce95e6bcb0175e27a2c2323835aad"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/README.en.md": {
+    "mtime": 1781241242.4985127,
+    "ast_hash": "fcb3818afadde8084a9a6613a81934e5",
+    "semantic_hash": "fcb3818afadde8084a9a6613a81934e5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/README.md": {
+    "mtime": 1780078722.9194252,
+    "ast_hash": "f8cc08a02e86305491918d6bf55fea8d",
+    "semantic_hash": "f8cc08a02e86305491918d6bf55fea8d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/README.uz.md": {
+    "mtime": 1781155861.3042195,
+    "ast_hash": "3587c3f8b8a99f128398fb39e16769ce",
+    "semantic_hash": "3587c3f8b8a99f128398fb39e16769ce"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/demo-vs-real-comparison.en.md": {
+    "mtime": 1781241242.499976,
+    "ast_hash": "5c4b44bfd863afd00c07957f808f79b6",
+    "semantic_hash": "5c4b44bfd863afd00c07957f808f79b6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/demo-vs-real-comparison.md": {
+    "mtime": 1779281397.6899345,
+    "ast_hash": "7dad42147d7bbeabc97df5092e952886",
+    "semantic_hash": "7dad42147d7bbeabc97df5092e952886"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/demo-vs-real-comparison.uz.md": {
+    "mtime": 1781155861.3045952,
+    "ast_hash": "03616f43cfcade1eaa7fa34970d38c31",
+    "semantic_hash": "03616f43cfcade1eaa7fa34970d38c31"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/journal-extended.en.md": {
+    "mtime": 1781241242.502755,
+    "ast_hash": "8e713f1cfbb9ed9217593d236950b3bf",
+    "semantic_hash": "8e713f1cfbb9ed9217593d236950b3bf"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/journal-extended.md": {
+    "mtime": 1779281397.690208,
+    "ast_hash": "650baf9433688373b8922b66feb81816",
+    "semantic_hash": "650baf9433688373b8922b66feb81816"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/journal-extended.uz.md": {
+    "mtime": 1781155861.3073955,
+    "ast_hash": "e40285fef6a5ec3e7ca589a7404974e4",
+    "semantic_hash": "e40285fef6a5ec3e7ca589a7404974e4"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/mistakes-log.en.md": {
+    "mtime": 1781241242.5038154,
+    "ast_hash": "4f888a22c11068092a15520636f27ccb",
+    "semantic_hash": "4f888a22c11068092a15520636f27ccb"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/mistakes-log.md": {
+    "mtime": 1779281397.6904845,
+    "ast_hash": "5b0602c5110f77164665cc9b94b40ebd",
+    "semantic_hash": "5b0602c5110f77164665cc9b94b40ebd"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/mistakes-log.uz.md": {
+    "mtime": 1781155861.3094952,
+    "ast_hash": "a6efa948f96750de30708cc1c5b8bc78",
+    "semantic_hash": "a6efa948f96750de30708cc1c5b8bc78"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/trading-journal-template.en.md": {
+    "mtime": 1781241242.504272,
+    "ast_hash": "a1114cc1aa889475ee9a7c70a9edd918",
+    "semantic_hash": "a1114cc1aa889475ee9a7c70a9edd918"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/trading-journal-template.md": {
+    "mtime": 1779281397.6907563,
+    "ast_hash": "faf26403886f2f50e3d3c53f904a41b3",
+    "semantic_hash": "faf26403886f2f50e3d3c53f904a41b3"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/trading-journal-template.uz.md": {
+    "mtime": 1781155861.3100157,
+    "ast_hash": "667452149e6e2f188bf9bb2c22c47dd9",
+    "semantic_hash": "667452149e6e2f188bf9bb2c22c47dd9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/web-journal.en.md": {
+    "mtime": 1781293424.8112252,
+    "ast_hash": "f8b76463e9ac0e5e81f5224c68103639",
+    "semantic_hash": "f8b76463e9ac0e5e81f5224c68103639"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/web-journal.md": {
+    "mtime": 1781293424.8107922,
+    "ast_hash": "68ff377dd13c3ca07517ea5fdce5a191",
+    "semantic_hash": "68ff377dd13c3ca07517ea5fdce5a191"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/web-journal.uz.md": {
+    "mtime": 1781293424.8114023,
+    "ast_hash": "73f0e4c8e2740a8df3cc5985c9eb3be9",
+    "semantic_hash": "73f0e4c8e2740a8df3cc5985c9eb3be9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/weekly-report-template.en.md": {
+    "mtime": 1781241242.5059433,
+    "ast_hash": "965dc8021d4a059e2cf3e64fdbc69b0d",
+    "semantic_hash": "965dc8021d4a059e2cf3e64fdbc69b0d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/weekly-report-template.md": {
+    "mtime": 1779529445.068276,
+    "ast_hash": "b6f29d3af895a6b0b592b0bdaa783f57",
+    "semantic_hash": "b6f29d3af895a6b0b592b0bdaa783f57"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/journal/weekly-report-template.uz.md": {
+    "mtime": 1781155861.311165,
+    "ast_hash": "b03408e4d4f03dfba15fa14275b297ba",
+    "semantic_hash": "b03408e4d4f03dfba15fa14275b297ba"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/README.en.md": {
+    "mtime": 1780067564.533773,
+    "ast_hash": "e6dcc57207cc88eee03b46114a277f43",
+    "semantic_hash": "e6dcc57207cc88eee03b46114a277f43"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/README.md": {
+    "mtime": 1779529643.8266826,
+    "ast_hash": "ee8c679fb361b7e8427010fb2029321a",
+    "semantic_hash": "ee8c679fb361b7e8427010fb2029321a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/README.uz.md": {
+    "mtime": 1780067564.5339675,
+    "ast_hash": "21658462cad1baec5a22b1434859d085",
+    "semantic_hash": "21658462cad1baec5a22b1434859d085"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/breakeven-protocol.en.md": {
+    "mtime": 1781241242.5072842,
+    "ast_hash": "9e1820ccab0a54bc03adcf4fe3e52196",
+    "semantic_hash": "9e1820ccab0a54bc03adcf4fe3e52196"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/breakeven-protocol.md": {
+    "mtime": 1779529281.6217315,
+    "ast_hash": "1eea3c58403d202ea21a72d89875af79",
+    "semantic_hash": "1eea3c58403d202ea21a72d89875af79"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/breakeven-protocol.uz.md": {
+    "mtime": 1781155861.3117287,
+    "ast_hash": "c482d23efd7c1bc4c86799de8e6a75b0",
+    "semantic_hash": "c482d23efd7c1bc4c86799de8e6a75b0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/cycle-theory.en.md": {
+    "mtime": 1781241242.5075703,
+    "ast_hash": "e96ea5dd934f9f8e24fba21dcef7c154",
+    "semantic_hash": "e96ea5dd934f9f8e24fba21dcef7c154"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/cycle-theory.md": {
+    "mtime": 1779529511.6424685,
+    "ast_hash": "d0f641ec696facf1a0aeae8d6afe4922",
+    "semantic_hash": "d0f641ec696facf1a0aeae8d6afe4922"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/cycle-theory.uz.md": {
+    "mtime": 1781155861.3120184,
+    "ast_hash": "289e3ac6180a931a5f45ecc3dea1e301",
+    "semantic_hash": "289e3ac6180a931a5f45ecc3dea1e301"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/gold-trading.en.md": {
+    "mtime": 1780078722.9395273,
+    "ast_hash": "fb5315257a8085341d23a7ef277830ae",
+    "semantic_hash": "fb5315257a8085341d23a7ef277830ae"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/gold-trading.md": {
+    "mtime": 1780078722.9471745,
+    "ast_hash": "55934f6598befa5badd39bc75253045d",
+    "semantic_hash": "55934f6598befa5badd39bc75253045d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/gold-trading.uz.md": {
+    "mtime": 1780078722.952039,
+    "ast_hash": "50059a5db457a0f94672970e84643fb1",
+    "semantic_hash": "50059a5db457a0f94672970e84643fb1"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/lot-discipline.en.md": {
+    "mtime": 1781241242.5077915,
+    "ast_hash": "1dcc7434d465ee839c49bccb91db5b7a",
+    "semantic_hash": "1dcc7434d465ee839c49bccb91db5b7a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/lot-discipline.md": {
+    "mtime": 1780078722.9624035,
+    "ast_hash": "fb42dc0b6af2f4ff615be7f22dc7ddf6",
+    "semantic_hash": "fb42dc0b6af2f4ff615be7f22dc7ddf6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/lot-discipline.uz.md": {
+    "mtime": 1781155861.3135924,
+    "ast_hash": "efbf82a5f0ec442c68fa9f630cf6410a",
+    "semantic_hash": "efbf82a5f0ec442c68fa9f630cf6410a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/market-structure.en.md": {
+    "mtime": 1781241242.5080254,
+    "ast_hash": "c73a2a68905563e0ae6a9831e855712c",
+    "semantic_hash": "c73a2a68905563e0ae6a9831e855712c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/market-structure.md": {
+    "mtime": 1779529580.2328708,
+    "ast_hash": "bca71a1600c5dc3c5127333f7f7e3c25",
+    "semantic_hash": "bca71a1600c5dc3c5127333f7f7e3c25"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/market-structure.uz.md": {
+    "mtime": 1781155861.3172176,
+    "ast_hash": "6c1aff13db1f88c76c29095c7cdcc864",
+    "semantic_hash": "6c1aff13db1f88c76c29095c7cdcc864"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/news-trading-protocol.en.md": {
+    "mtime": 1781287561.1711092,
+    "ast_hash": "9884cc8724f6968acb510ec68d1eab22",
+    "semantic_hash": "9884cc8724f6968acb510ec68d1eab22"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/news-trading-protocol.md": {
+    "mtime": 1781287561.1712294,
+    "ast_hash": "9b60cb672af9c28c83290cb20d5bf25d",
+    "semantic_hash": "9b60cb672af9c28c83290cb20d5bf25d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/news-trading-protocol.uz.md": {
+    "mtime": 1781287561.1713586,
+    "ast_hash": "48c9f010e7609644454da05b24eeb015",
+    "semantic_hash": "48c9f010e7609644454da05b24eeb015"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/scaling-in.en.md": {
+    "mtime": 1781241242.5082214,
+    "ast_hash": "6a4be765251a26e706ca8919d1cf0183",
+    "semantic_hash": "6a4be765251a26e706ca8919d1cf0183"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/scaling-in.md": {
+    "mtime": 1779529305.9497404,
+    "ast_hash": "c3ddf96afa9affc79a7abd5dd5c8fd15",
+    "semantic_hash": "c3ddf96afa9affc79a7abd5dd5c8fd15"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/scaling-in.uz.md": {
+    "mtime": 1781155861.319903,
+    "ast_hash": "13cacf9cd5783e4d49661959066b587a",
+    "semantic_hash": "13cacf9cd5783e4d49661959066b587a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/trading-sessions.en.md": {
+    "mtime": 1781287561.171452,
+    "ast_hash": "cb89a4d48dfe2a040acbd0bc9622c095",
+    "semantic_hash": "cb89a4d48dfe2a040acbd0bc9622c095"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/trading-sessions.md": {
+    "mtime": 1781287561.1715975,
+    "ast_hash": "1189d55316b4a8ad1a9dde21ce061825",
+    "semantic_hash": "1189d55316b4a8ad1a9dde21ce061825"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/practice/trading-sessions.uz.md": {
+    "mtime": 1781287561.1716783,
+    "ast_hash": "3ddde8192c29ebc930f1f99f0317fb9d",
+    "semantic_hash": "3ddde8192c29ebc930f1f99f0317fb9d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/roadmap.en.md": {
+    "mtime": 1780078722.9699833,
+    "ast_hash": "53c05b5b9acc2881cd5705015726772e",
+    "semantic_hash": "53c05b5b9acc2881cd5705015726772e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/roadmap.md": {
+    "mtime": 1781345203.169701,
+    "ast_hash": "8e91f191ec65b34109516bd71b1160c0",
+    "semantic_hash": "8e91f191ec65b34109516bd71b1160c0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/roadmap.uz.md": {
+    "mtime": 1780078722.974737,
+    "ast_hash": "4a69d95a4b5eaa1e8d1b669c39a3bce9",
+    "semantic_hash": "4a69d95a4b5eaa1e8d1b669c39a3bce9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/README.en.md": {
+    "mtime": 1781241242.5084631,
+    "ast_hash": "d728839ea92181e3783060ad2caabc3d",
+    "semantic_hash": "d728839ea92181e3783060ad2caabc3d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/README.md": {
+    "mtime": 1781155861.330672,
+    "ast_hash": "b1fcd76b863909f88c82fd3cdf2a07c1",
+    "semantic_hash": "b1fcd76b863909f88c82fd3cdf2a07c1"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/README.uz.md": {
+    "mtime": 1781155861.3310502,
+    "ast_hash": "a526fb59fee12f5688b131bb1da3074f",
+    "semantic_hash": "a526fb59fee12f5688b131bb1da3074f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/compound-calculator.en.md": {
+    "mtime": 1781287340.4999914,
+    "ast_hash": "2f2c6fcbe89f1ab3fad3d84d28be2815",
+    "semantic_hash": "2f2c6fcbe89f1ab3fad3d84d28be2815"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/compound-calculator.md": {
+    "mtime": 1781287340.5002024,
+    "ast_hash": "220fdccda29e0aac31899d552df18717",
+    "semantic_hash": "220fdccda29e0aac31899d552df18717"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/compound-calculator.uz.md": {
+    "mtime": 1781287340.500378,
+    "ast_hash": "1900bbd879b16649851c5b56d9a0df3d",
+    "semantic_hash": "1900bbd879b16649851c5b56d9a0df3d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/cost-calculator.en.md": {
+    "mtime": 1781287340.5005348,
+    "ast_hash": "02cbb2c57e199d698af8b72ffded6c89",
+    "semantic_hash": "02cbb2c57e199d698af8b72ffded6c89"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/cost-calculator.md": {
+    "mtime": 1781287340.5006714,
+    "ast_hash": "7724abade470c612db60c785690e1668",
+    "semantic_hash": "7724abade470c612db60c785690e1668"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/cost-calculator.uz.md": {
+    "mtime": 1781287340.5008264,
+    "ast_hash": "f7bb3a94e86a67c1a79abda142573b2e",
+    "semantic_hash": "f7bb3a94e86a67c1a79abda142573b2e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/exam.en.md": {
+    "mtime": 1781287781.5976076,
+    "ast_hash": "613087ca8ee3a55a218b54e92ed9340b",
+    "semantic_hash": "613087ca8ee3a55a218b54e92ed9340b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/exam.md": {
+    "mtime": 1781287781.5977244,
+    "ast_hash": "86d33d36d0c58e0ef77c1723c812edd7",
+    "semantic_hash": "86d33d36d0c58e0ef77c1723c812edd7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/exam.uz.md": {
+    "mtime": 1781287781.5979466,
+    "ast_hash": "48af69365fd073f5f76a6a1654a911ee",
+    "semantic_hash": "48af69365fd073f5f76a6a1654a911ee"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/flashcards.en.md": {
+    "mtime": 1781241242.5169003,
+    "ast_hash": "aaa99ee1ecfad8f8dec196933a3f4cc0",
+    "semantic_hash": "aaa99ee1ecfad8f8dec196933a3f4cc0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/flashcards.md": {
+    "mtime": 1780067564.5343425,
+    "ast_hash": "2f3cbb911410be53f97e7b9ad62dc91c",
+    "semantic_hash": "2f3cbb911410be53f97e7b9ad62dc91c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/flashcards.uz.md": {
+    "mtime": 1781155861.3361108,
+    "ast_hash": "eee2d1d79a7dc5268694a06d628f46d5",
+    "semantic_hash": "eee2d1d79a7dc5268694a06d628f46d5"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/margin-calculator.en.md": {
+    "mtime": 1781287340.501019,
+    "ast_hash": "cff38720a306c02d46ab01d93d22d261",
+    "semantic_hash": "cff38720a306c02d46ab01d93d22d261"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/margin-calculator.md": {
+    "mtime": 1781287340.5012224,
+    "ast_hash": "5a377d9a0ae8bfb0d3b2d49091b9459f",
+    "semantic_hash": "5a377d9a0ae8bfb0d3b2d49091b9459f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/margin-calculator.uz.md": {
+    "mtime": 1781287340.5013978,
+    "ast_hash": "5b0a0c3a5641bc435e9595245f692f0a",
+    "semantic_hash": "5b0a0c3a5641bc435e9595245f692f0a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/pip-calculator.en.md": {
+    "mtime": 1781287340.5015204,
+    "ast_hash": "3bfa446dc829e15a1332c1a349ba813c",
+    "semantic_hash": "3bfa446dc829e15a1332c1a349ba813c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/pip-calculator.md": {
+    "mtime": 1781287340.5017066,
+    "ast_hash": "042196f4ebdb1a3cb82e08109780f281",
+    "semantic_hash": "042196f4ebdb1a3cb82e08109780f281"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/pip-calculator.uz.md": {
+    "mtime": 1781287340.5018284,
+    "ast_hash": "eb04e972cfd91acbcbd1d7251b6e36ff",
+    "semantic_hash": "eb04e972cfd91acbcbd1d7251b6e36ff"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/position-calculator.en.md": {
+    "mtime": 1781287340.5020254,
+    "ast_hash": "6a8de02ae4cbcbf11af7bf92f0465ab6",
+    "semantic_hash": "6a8de02ae4cbcbf11af7bf92f0465ab6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/position-calculator.md": {
+    "mtime": 1781287340.5022044,
+    "ast_hash": "9f97b3fede529a6103c27c0a052ce6b8",
+    "semantic_hash": "9f97b3fede529a6103c27c0a052ce6b8"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/position-calculator.uz.md": {
+    "mtime": 1781287340.5023866,
+    "ast_hash": "bbf009b48580591964a54337b143b8e4",
+    "semantic_hash": "bbf009b48580591964a54337b143b8e4"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/quiz.en.md": {
+    "mtime": 1781241242.520414,
+    "ast_hash": "990ce32a137605f5258e5c32e73ac89c",
+    "semantic_hash": "990ce32a137605f5258e5c32e73ac89c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/quiz.md": {
+    "mtime": 1780078722.988501,
+    "ast_hash": "df8194f46d86c5a60750060ba86edc48",
+    "semantic_hash": "df8194f46d86c5a60750060ba86edc48"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/quiz.uz.md": {
+    "mtime": 1781155861.342388,
+    "ast_hash": "23fe09a01f7ebfc4de7825e3586e6052",
+    "semantic_hash": "23fe09a01f7ebfc4de7825e3586e6052"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/replay-trainer.en.md": {
+    "mtime": 1781287561.1722565,
+    "ast_hash": "d758074fda9aae4b7aee606050930e3e",
+    "semantic_hash": "d758074fda9aae4b7aee606050930e3e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/replay-trainer.md": {
+    "mtime": 1781287561.1723433,
+    "ast_hash": "d03df7bbbc9da66f9a36cae76c4a628c",
+    "semantic_hash": "d03df7bbbc9da66f9a36cae76c4a628c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/replay-trainer.uz.md": {
+    "mtime": 1781287561.172426,
+    "ast_hash": "55ce2701b9786037396a9c562a1e68da",
+    "semantic_hash": "55ce2701b9786037396a9c562a1e68da"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/risk-of-ruin.en.md": {
+    "mtime": 1781241242.535056,
+    "ast_hash": "16d919fbf04460260f1ddc9352aaead4",
+    "semantic_hash": "16d919fbf04460260f1ddc9352aaead4"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/risk-of-ruin.md": {
+    "mtime": 1780067564.5348098,
+    "ast_hash": "b9fc72f609ffce4d3aec82b1a54b5364",
+    "semantic_hash": "b9fc72f609ffce4d3aec82b1a54b5364"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/risk-of-ruin.uz.md": {
+    "mtime": 1781155861.3427253,
+    "ast_hash": "e0030b7e0948af700d5093c689a36590",
+    "semantic_hash": "e0030b7e0948af700d5093c689a36590"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/winrate-rr-calculator.en.md": {
+    "mtime": 1781287340.5025837,
+    "ast_hash": "7782b66ace8f48b58c0c1ac40cce144c",
+    "semantic_hash": "7782b66ace8f48b58c0c1ac40cce144c"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/winrate-rr-calculator.md": {
+    "mtime": 1781287340.502773,
+    "ast_hash": "a011853ecc167008d30935eac375e649",
+    "semantic_hash": "a011853ecc167008d30935eac375e649"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/tools/winrate-rr-calculator.uz.md": {
+    "mtime": 1781287340.5029685,
+    "ast_hash": "3218944fe7c5385af27b0544bcbae477",
+    "semantic_hash": "3218944fe7c5385af27b0544bcbae477"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/brokers-uz.en.md": {
+    "mtime": 1781241242.5407865,
+    "ast_hash": "127493cf0fd803145818d637899adfc1",
+    "semantic_hash": "127493cf0fd803145818d637899adfc1"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/brokers-uz.md": {
+    "mtime": 1781241242.542799,
+    "ast_hash": "48ff5a4df60af0a331d63b069d9c8d11",
+    "semantic_hash": "48ff5a4df60af0a331d63b069d9c8d11"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/brokers-uz.uz.md": {
+    "mtime": 1781241242.543123,
+    "ast_hash": "04ea908fe07dc9d4b52323da58a47608",
+    "semantic_hash": "04ea908fe07dc9d4b52323da58a47608"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/communities.en.md": {
+    "mtime": 1781241242.5434625,
+    "ast_hash": "512de94e10cc954208754827d59675a7",
+    "semantic_hash": "512de94e10cc954208754827d59675a7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/communities.md": {
+    "mtime": 1779281397.6914055,
+    "ast_hash": "a7440037f90baf4fd91ff2b4db5e24cf",
+    "semantic_hash": "a7440037f90baf4fd91ff2b4db5e24cf"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/communities.uz.md": {
+    "mtime": 1781155861.3467886,
+    "ast_hash": "e1ebfb0be0127cb7116233a9a7c47c0b",
+    "semantic_hash": "e1ebfb0be0127cb7116233a9a7c47c0b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/scam-protection.en.md": {
+    "mtime": 1781241242.543856,
+    "ast_hash": "f70ed620a076cd23ccb0b07bd0045d50",
+    "semantic_hash": "f70ed620a076cd23ccb0b07bd0045d50"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/scam-protection.md": {
+    "mtime": 1781241242.5452256,
+    "ast_hash": "99ca1061b8b358a4ab2353f5e5c48ec4",
+    "semantic_hash": "99ca1061b8b358a4ab2353f5e5c48ec4"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/scam-protection.uz.md": {
+    "mtime": 1781241242.5479708,
+    "ast_hash": "d74307ddd7b3fbcb4775c12c7eaa6c8a",
+    "semantic_hash": "d74307ddd7b3fbcb4775c12c7eaa6c8a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/tax-calculator.en.md": {
+    "mtime": 1781287340.5031734,
+    "ast_hash": "9f4523018d16076e2f26247c04f386cc",
+    "semantic_hash": "9f4523018d16076e2f26247c04f386cc"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/tax-calculator.md": {
+    "mtime": 1781287340.503346,
+    "ast_hash": "db8a09f1d444110d7c38532ac6d8bbcb",
+    "semantic_hash": "db8a09f1d444110d7c38532ac6d8bbcb"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/tax-calculator.uz.md": {
+    "mtime": 1781287340.503534,
+    "ast_hash": "28f662dc13fde48dc7f68fd8b0339778",
+    "semantic_hash": "28f662dc13fde48dc7f68fd8b0339778"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/withdrawal-guide.en.md": {
+    "mtime": 1781241242.6906118,
+    "ast_hash": "fd0bd5b2089d64c3d815da064a1f5447",
+    "semantic_hash": "fd0bd5b2089d64c3d815da064a1f5447"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/withdrawal-guide.md": {
+    "mtime": 1781241242.698733,
+    "ast_hash": "2dda56a349b3387c5ec70ef46ddaf52a",
+    "semantic_hash": "2dda56a349b3387c5ec70ef46ddaf52a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/uz/withdrawal-guide.uz.md": {
+    "mtime": 1781241242.6998901,
+    "ast_hash": "d4101790d7d3b59d9ef820f787b01d0f",
+    "semantic_hash": "d4101790d7d3b59d9ef820f787b01d0f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/\u041a\u0410\u041a-\u041f\u041e\u041b\u042c\u0417\u041e\u0412\u0410\u0422\u042c\u0421\u042f.en.md": {
+    "mtime": 1779281397.6472607,
+    "ast_hash": "40b7def6acb4e5cf1377c3f73bb41a78",
+    "semantic_hash": "40b7def6acb4e5cf1377c3f73bb41a78"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/\u041a\u0410\u041a-\u041f\u041e\u041b\u042c\u0417\u041e\u0412\u0410\u0422\u042c\u0421\u042f.md": {
+    "mtime": 1779281397.6920722,
+    "ast_hash": "4e8b5ccbca1079f98d50eb5d6dbc5e67",
+    "semantic_hash": "4e8b5ccbca1079f98d50eb5d6dbc5e67"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/\u041a\u0410\u041a-\u041f\u041e\u041b\u042c\u0417\u041e\u0412\u0410\u0422\u042c\u0421\u042f.uz.md": {
+    "mtime": 1781155861.3572104,
+    "ast_hash": "0ce738db4aceba24cfa40b5bca615d16",
+    "semantic_hash": "0ce738db4aceba24cfa40b5bca615d16"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/includes/abbreviations.en.md": {
+    "mtime": 1780078723.039156,
+    "ast_hash": "007b16239e139a54f5fddd2ff603f9d9",
+    "semantic_hash": "007b16239e139a54f5fddd2ff603f9d9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/includes/abbreviations.ru.md": {
+    "mtime": 1780078723.0518863,
+    "ast_hash": "66cd9e983ae91ebecb4d62f78a3ba043",
+    "semantic_hash": "66cd9e983ae91ebecb4d62f78a3ba043"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/includes/abbreviations.uz.md": {
+    "mtime": 1780078723.0525954,
+    "ast_hash": "f55426a9e0f803ffc99e9518ac9b684d",
+    "semantic_hash": "f55426a9e0f803ffc99e9518ac9b684d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/mkdocs.yml": {
+    "mtime": 1781376795.6069689,
+    "ast_hash": "dccb3ca6a52aaf7af834b95ed7c02cfb",
+    "semantic_hash": "dccb3ca6a52aaf7af834b95ed7c02cfb"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/overrides/404.html": {
+    "mtime": 1781376883.8298397,
+    "ast_hash": "a2a4dfb3ffbefa47e7d3879961990eb6",
+    "semantic_hash": "a2a4dfb3ffbefa47e7d3879961990eb6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/overrides/main.html": {
+    "mtime": 1781379462.0563917,
+    "ast_hash": "718a6825e5dd560a5ce4935b8849de63",
+    "semantic_hash": "718a6825e5dd560a5ce4935b8849de63"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/overrides/partials/comments.html": {
+    "mtime": 1781287561.1729934,
+    "ast_hash": "af38f508a4ae07eab7fa329dd5d2ab13",
+    "semantic_hash": "af38f508a4ae07eab7fa329dd5d2ab13"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/strategies/carry_trade.md": {
+    "mtime": 1779281397.8095381,
+    "ast_hash": "adef8361a088fffa5d0976a5ee2414ba",
+    "semantic_hash": "adef8361a088fffa5d0976a5ee2414ba"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/assets/icons/fx-icon.svg": {
+    "mtime": 1781379442.4197977,
+    "ast_hash": "2955c4ec770f3c84f1f0125e3533ac98",
+    "semantic_hash": "2955c4ec770f3c84f1f0125e3533ac98"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/advanced-candles.png": {
+    "mtime": 1779281397.650248,
+    "ast_hash": "da2d7f5ec0effd3c9bed5927b733348f",
+    "semantic_hash": "da2d7f5ec0effd3c9bed5927b733348f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/anatomy-of-loss.png": {
+    "mtime": 1779281397.6515036,
+    "ast_hash": "5169c78c3100293d996b3da97bb7c0b9",
+    "semantic_hash": "5169c78c3100293d996b3da97bb7c0b9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/bollinger-example.png": {
+    "mtime": 1779281397.6523373,
+    "ast_hash": "14b4dca919a24efeeaf80c5355f8fb47",
+    "semantic_hash": "14b4dca919a24efeeaf80c5355f8fb47"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/candle-anatomy.png": {
+    "mtime": 1779281397.6528294,
+    "ast_hash": "cff4d42ff1a32751e9e2283c62c3a83e",
+    "semantic_hash": "cff4d42ff1a32751e9e2283c62c3a83e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/candle-patterns.png": {
+    "mtime": 1779281397.6531763,
+    "ast_hash": "ee435bf4ae6d24fc880b4b19e57f837b",
+    "semantic_hash": "ee435bf4ae6d24fc880b4b19e57f837b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/chart-patterns.png": {
+    "mtime": 1779281397.654115,
+    "ast_hash": "0ab333eb38f79068ff6fb4891049e3c9",
+    "semantic_hash": "0ab333eb38f79068ff6fb4891049e3c9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/correlation-matrix.png": {
+    "mtime": 1779281397.6596708,
+    "ast_hash": "5f65420900a5b455457b6e542fed4fb6",
+    "semantic_hash": "5f65420900a5b455457b6e542fed4fb6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/drawdown-math.png": {
+    "mtime": 1779281397.661075,
+    "ast_hash": "f9bddd0e72c5914e2b8352c593f4bed2",
+    "semantic_hash": "f9bddd0e72c5914e2b8352c593f4bed2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/ema-example.png": {
+    "mtime": 1779281397.6619434,
+    "ast_hash": "3087f29b3ae384ac1cbf9de846992e43",
+    "semantic_hash": "3087f29b3ae384ac1cbf9de846992e43"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/fibonacci.png": {
+    "mtime": 1779281397.6631417,
+    "ast_hash": "bd45f14610710b2e85934fb7fd031104",
+    "semantic_hash": "bd45f14610710b2e85934fb7fd031104"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/macd-example.png": {
+    "mtime": 1779281397.6639268,
+    "ast_hash": "04cb058764ef44279eb94758fb14b32a",
+    "semantic_hash": "04cb058764ef44279eb94758fb14b32a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/monte-carlo-demo.png": {
+    "mtime": 1779281397.6659317,
+    "ast_hash": "27b86ea498205d48f6386328a529f09b",
+    "semantic_hash": "27b86ea498205d48f6386328a529f09b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/multi-pair-backtest.png": {
+    "mtime": 1779281397.6672885,
+    "ast_hash": "0f2933042e0d4b4c4a1c55c10e5d6907",
+    "semantic_hash": "0f2933042e0d4b4c4a1c55c10e5d6907"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/real-eurusd-backtest.png": {
+    "mtime": 1779281397.6680567,
+    "ast_hash": "70525782d70bc2734b196028654ed360",
+    "semantic_hash": "70525782d70bc2734b196028654ed360"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/real/bollinger-real.png": {
+    "mtime": 1779281397.6690803,
+    "ast_hash": "06c3de1d4dc6f9330e9ef0a83dbb0e05",
+    "semantic_hash": "06c3de1d4dc6f9330e9ef0a83dbb0e05"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/real/ema-real.png": {
+    "mtime": 1779281397.6701615,
+    "ast_hash": "c691fcb7fc3f4e0021bef866247f3605",
+    "semantic_hash": "c691fcb7fc3f4e0021bef866247f3605"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/real/equity-multi-pair-real.png": {
+    "mtime": 1779281397.6723306,
+    "ast_hash": "14a74ed3a88ff7bf36c0cbaeb2e18578",
+    "semantic_hash": "14a74ed3a88ff7bf36c0cbaeb2e18578"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/real/macd-real.png": {
+    "mtime": 1779281397.6735017,
+    "ast_hash": "a6c85d31ef4fe492d3af6be32a8adce7",
+    "semantic_hash": "a6c85d31ef4fe492d3af6be32a8adce7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/real/rsi-real.png": {
+    "mtime": 1779281397.674204,
+    "ast_hash": "cad84333523495ae101f476c4e1fc159",
+    "semantic_hash": "cad84333523495ae101f476c4e1fc159"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/real/strategy-real.png": {
+    "mtime": 1779281397.67514,
+    "ast_hash": "bbb133fbab69f1b2394c591167e6b3a0",
+    "semantic_hash": "bbb133fbab69f1b2394c591167e6b3a0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/risk-reward.png": {
+    "mtime": 1779281397.6758919,
+    "ast_hash": "221f6719159bbe192eb57949a96dbc0d",
+    "semantic_hash": "221f6719159bbe192eb57949a96dbc0d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/rsi-example.png": {
+    "mtime": 1779281397.6765773,
+    "ast_hash": "60c305ca39a6584db8f9e2221d360644",
+    "semantic_hash": "60c305ca39a6584db8f9e2221d360644"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/strategy-compare.png": {
+    "mtime": 1779281397.677856,
+    "ast_hash": "574b62c252900ff6ee0783bc4309013a",
+    "semantic_hash": "574b62c252900ff6ee0783bc4309013a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/strategy-example.png": {
+    "mtime": 1779281397.6786566,
+    "ast_hash": "4240abc0f04c066104c0047b77e95542",
+    "semantic_hash": "4240abc0f04c066104c0047b77e95542"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/support-resistance.png": {
+    "mtime": 1779281397.6791008,
+    "ast_hash": "050797051b1bcb9b8b2cf855d20d3e0e",
+    "semantic_hash": "050797051b1bcb9b8b2cf855d20d3e0e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/time-heatmap.png": {
+    "mtime": 1779281397.6799695,
+    "ast_hash": "2497231109beb39e22ef43d262593150",
+    "semantic_hash": "2497231109beb39e22ef43d262593150"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/_mkdocs/docs/images/trend-types.png": {
+    "mtime": 1779281397.681177,
+    "ast_hash": "ea79e6b6788de3d3caab847e6d0b248b",
+    "semantic_hash": "ea79e6b6788de3d3caab847e6d0b248b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/advanced-candles.png": {
+    "mtime": 1779281397.6983974,
+    "ast_hash": "da2d7f5ec0effd3c9bed5927b733348f",
+    "semantic_hash": "da2d7f5ec0effd3c9bed5927b733348f"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/anatomy-of-loss.png": {
+    "mtime": 1779281397.6990824,
+    "ast_hash": "5169c78c3100293d996b3da97bb7c0b9",
+    "semantic_hash": "5169c78c3100293d996b3da97bb7c0b9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/bollinger-example.png": {
+    "mtime": 1779281397.6996791,
+    "ast_hash": "14b4dca919a24efeeaf80c5355f8fb47",
+    "semantic_hash": "14b4dca919a24efeeaf80c5355f8fb47"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/candle-anatomy.png": {
+    "mtime": 1779281397.699953,
+    "ast_hash": "cff4d42ff1a32751e9e2283c62c3a83e",
+    "semantic_hash": "cff4d42ff1a32751e9e2283c62c3a83e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/candle-patterns.png": {
+    "mtime": 1779281397.7002423,
+    "ast_hash": "ee435bf4ae6d24fc880b4b19e57f837b",
+    "semantic_hash": "ee435bf4ae6d24fc880b4b19e57f837b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/chart-patterns.png": {
+    "mtime": 1779281397.7009487,
+    "ast_hash": "0ab333eb38f79068ff6fb4891049e3c9",
+    "semantic_hash": "0ab333eb38f79068ff6fb4891049e3c9"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/correlation-matrix.png": {
+    "mtime": 1779281397.7018905,
+    "ast_hash": "5f65420900a5b455457b6e542fed4fb6",
+    "semantic_hash": "5f65420900a5b455457b6e542fed4fb6"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/drawdown-math.png": {
+    "mtime": 1779281397.7023106,
+    "ast_hash": "f9bddd0e72c5914e2b8352c593f4bed2",
+    "semantic_hash": "f9bddd0e72c5914e2b8352c593f4bed2"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/ema-example.png": {
+    "mtime": 1779281397.7027564,
+    "ast_hash": "3087f29b3ae384ac1cbf9de846992e43",
+    "semantic_hash": "3087f29b3ae384ac1cbf9de846992e43"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/fibonacci.png": {
+    "mtime": 1779281397.7033162,
+    "ast_hash": "bd45f14610710b2e85934fb7fd031104",
+    "semantic_hash": "bd45f14610710b2e85934fb7fd031104"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/macd-example.png": {
+    "mtime": 1779281397.7039564,
+    "ast_hash": "04cb058764ef44279eb94758fb14b32a",
+    "semantic_hash": "04cb058764ef44279eb94758fb14b32a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/monte-carlo-demo.png": {
+    "mtime": 1779281397.7100294,
+    "ast_hash": "27b86ea498205d48f6386328a529f09b",
+    "semantic_hash": "27b86ea498205d48f6386328a529f09b"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/multi-pair-backtest.png": {
+    "mtime": 1779281397.7110536,
+    "ast_hash": "0f2933042e0d4b4c4a1c55c10e5d6907",
+    "semantic_hash": "0f2933042e0d4b4c4a1c55c10e5d6907"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/real-eurusd-backtest.png": {
+    "mtime": 1779281397.7118366,
+    "ast_hash": "70525782d70bc2734b196028654ed360",
+    "semantic_hash": "70525782d70bc2734b196028654ed360"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/real/bollinger-real.png": {
+    "mtime": 1779281397.7127638,
+    "ast_hash": "06c3de1d4dc6f9330e9ef0a83dbb0e05",
+    "semantic_hash": "06c3de1d4dc6f9330e9ef0a83dbb0e05"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/real/ema-real.png": {
+    "mtime": 1779281397.7134871,
+    "ast_hash": "c691fcb7fc3f4e0021bef866247f3605",
+    "semantic_hash": "c691fcb7fc3f4e0021bef866247f3605"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/real/equity-multi-pair-real.png": {
+    "mtime": 1779281397.7152154,
+    "ast_hash": "14a74ed3a88ff7bf36c0cbaeb2e18578",
+    "semantic_hash": "14a74ed3a88ff7bf36c0cbaeb2e18578"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/real/macd-real.png": {
+    "mtime": 1779281397.7159567,
+    "ast_hash": "a6c85d31ef4fe492d3af6be32a8adce7",
+    "semantic_hash": "a6c85d31ef4fe492d3af6be32a8adce7"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/real/rsi-real.png": {
+    "mtime": 1779281397.7165644,
+    "ast_hash": "cad84333523495ae101f476c4e1fc159",
+    "semantic_hash": "cad84333523495ae101f476c4e1fc159"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/real/strategy-real.png": {
+    "mtime": 1779281397.7171643,
+    "ast_hash": "bbb133fbab69f1b2394c591167e6b3a0",
+    "semantic_hash": "bbb133fbab69f1b2394c591167e6b3a0"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/risk-reward.png": {
+    "mtime": 1779281397.717949,
+    "ast_hash": "221f6719159bbe192eb57949a96dbc0d",
+    "semantic_hash": "221f6719159bbe192eb57949a96dbc0d"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/rsi-example.png": {
+    "mtime": 1779281397.718601,
+    "ast_hash": "60c305ca39a6584db8f9e2221d360644",
+    "semantic_hash": "60c305ca39a6584db8f9e2221d360644"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/strategy-compare.png": {
+    "mtime": 1779281397.7197363,
+    "ast_hash": "574b62c252900ff6ee0783bc4309013a",
+    "semantic_hash": "574b62c252900ff6ee0783bc4309013a"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/strategy-example.png": {
+    "mtime": 1779281397.7203627,
+    "ast_hash": "4240abc0f04c066104c0047b77e95542",
+    "semantic_hash": "4240abc0f04c066104c0047b77e95542"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/support-resistance.png": {
+    "mtime": 1779281397.7206953,
+    "ast_hash": "050797051b1bcb9b8b2cf855d20d3e0e",
+    "semantic_hash": "050797051b1bcb9b8b2cf855d20d3e0e"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/time-heatmap.png": {
+    "mtime": 1779281397.721241,
+    "ast_hash": "2497231109beb39e22ef43d262593150",
+    "semantic_hash": "2497231109beb39e22ef43d262593150"
+  },
+  "/Users/mukhammadamir/Sites/WORK/trading/docs/images/trend-types.png": {
+    "mtime": 1779281397.7219455,
+    "ast_hash": "ea79e6b6788de3d3caab847e6d0b248b",
+    "semantic_hash": "ea79e6b6788de3d3caab847e6d0b248b"
+  }
+}
