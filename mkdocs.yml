@@ -24,6 +24,8 @@ extra_css:
 extra_javascript:
   - javascripts/reading.js
   - javascripts/progress.js
+  # Мелкие правки доступности (имя для диалога поиска) — Lighthouse a11y.
+  - javascripts/a11y.js
   # Переключатель письма лотин ⇄ кирилл — активен только на узбекской локали.
   - javascripts/translit.js
   # Виджеты-калькуляторы: общая логика, локаль берётся из <html lang>.

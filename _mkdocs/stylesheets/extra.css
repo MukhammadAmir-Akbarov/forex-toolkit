@@ -1779,3 +1779,20 @@ label[for="__drawer"].fx-menu-hint::after {
   .md-tabs__link { padding: 0.75rem 0.5rem; }
   .md-tabs__item { padding: 0 0.3rem; }
 }
+
+/* --------------------------------------------------------------------------
+   19. Доступность — контраст под WCAG AA в тёмной теме (Lighthouse a11y, I23)
+   В slate индиго #4051b5 (--md-primary-fg-color) как ТЕКСT на тёмном фоне даёт
+   ~2.8:1 (нужно ≥4.5). Точечно поднимаем контраст там, где он как текст.
+   -------------------------------------------------------------------------- */
+/* Вторичные кнопки (не --primary): светлый бирюзовый акцент вместо тёмного индиго. */
+[data-md-color-scheme="slate"] .md-typeset .md-button:not(.md-button--primary) {
+  color: var(--fx-accent);
+  border-color: color-mix(in srgb, var(--fx-accent) 60%, transparent);
+}
+/* Заголовок-результат калькуляторов: дефолт = --md-primary-fg-color (индиго).
+   Состояния warn/danger (#mc-result.warn …) выше по специфичности — сохраняются. */
+[data-md-color-scheme="slate"] .mc-headline { color: var(--md-default-fg-color); }
+/* Переключатель письма: активная «пилюля» на бирюзовом — тёмный текст (белый по
+   бирюзовому давал 1.4:1). В светлой теме акцент индиго — белый текст там корректен. */
+[data-md-color-scheme="slate"] .fx-script-toggle button.fx-active { color: #07090d; }
