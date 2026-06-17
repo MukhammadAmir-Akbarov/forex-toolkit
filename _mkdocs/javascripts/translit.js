@@ -21,7 +21,13 @@
   /* Активируем только на узбекской локали. i18n строит uz-страницы под /uz/
      и проставляет <html lang="uz">. Проверяем оба признака. */
   function isUzLocale() {
-    var lang = (document.documentElement.lang || "").slice(0, 2).toLowerCase();
+    // На статически сгенерированных кириллических страницах (/uz-cyrl/) текст
+    // УЖЕ кириллица: тумблер там не нужен и повторный toCyrillic + восстановление
+    // (которое ждёт латинские оригиналы) только испортили бы страницу. Выключаем.
+    var fullLang = (document.documentElement.lang || "").toLowerCase();
+    if (fullLang === "uz-cyrl" || /\/uz-cyrl\//.test(location.pathname)) return false;
+
+    var lang = fullLang.slice(0, 2);
     if (lang === "uz") return true;
     return /\/uz\//.test(location.pathname) || /\.uz\//.test(location.pathname);
   }
