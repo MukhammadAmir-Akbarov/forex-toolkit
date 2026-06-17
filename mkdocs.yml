@@ -16,6 +16,9 @@ hooks:
   - hooks/glossary_tooltips.py
   # Структурированные данные schema.org (JSON-LD) для SEO rich-результатов.
   - hooks/structured_data.py
+  # Статическое кириллическое зеркало /uz-cyrl/ (post-build, серверный рендер).
+  # Должен идти ПОСЛЕ structured_data.py, чтобы JSON-LD уже был в <head>.
+  - hooks/translit_cyrl.py
 
 extra_css:
   - stylesheets/extra.css
