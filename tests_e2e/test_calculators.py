@@ -15,6 +15,10 @@ from compound_calculator import project_growth
 from margin_calculator import margin_required
 from position_calculator import calculate_position
 
+# Канон стоимости пипса берём прямо из пакета (а не из tools/) — это эталон,
+# который CLAUDE.md называет единственным источником финансовой математики.
+from forex_toolkit.fx_math import pip_value_in_quote
+
 # RU-локаль форматирует деньги как "$2 032,79" (nbsp-разряды, запятая-десятичная).
 NBSP = " "
 
@@ -148,6 +152,40 @@ def test_position_calculator(pw_page, site_url):
         )
 
 
+# ──────────────────────── Pip value ────────────────────────
+# Эталон — forex_toolkit.fx_math.pip_value_in_quote. Для пар с котировкой USD
+# (EUR/USD, GBP/USD, …) стоимость пипса в USD равна значению в котируемой валюте,
+# поэтому конвертация по live-курсу не нужна и тест не ходит в сеть. JPY/кросс-
+# пары требуют курс — их сюда не берём (их покрывает математика fx_math отдельно).
+
+PIP_CASES = [
+    # (lots, pair) — только USD-quote, где pipValueUSD == pip_value_in_quote
+    (1.0, "EURUSD"),
+    (0.1, "EURUSD"),
+    (0.5, "GBPUSD"),
+    (2.0, "AUDUSD"),
+    (0.25, "NZDUSD"),
+]
+
+
+def test_pip_calculator(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/tools/pip-calculator/")
+    # Выключаем live-курс — детерминизм без сети (USD-quote пары статичны и так).
+    if page.is_checked("#pp-live"):
+        page.uncheck("#pp-live")
+    for lots, pair in PIP_CASES:
+        page.select_option("#pp-pair", pair)
+        _fill(page, "#pp-lots", lots)
+        page.click("#pp-calc-btn")
+
+        expected = pip_value_in_quote(lots, pair)
+        got = money(_read(page, "#pp-out-pip"))
+        assert abs(got - expected) < 1e-4, (
+            f"pip {lots=} {pair=}: JS={got} fx_math={expected}"
+        )
+
+
 @pytest.mark.parametrize("prefix", ["en", "uz"])
 def test_margin_calculator_locales(pw_page, site_url, prefix):
     page = pw_page
@@ -163,9 +201,7 @@ def test_margin_calculator_locales(pw_page, site_url, prefix):
 
     expected = margin_required(lots, price, lev, contract)
     got = money_any(_read(page, "#mc-out-margin"))
-    assert abs(got - expected) < 0.01, (
-        f"[{prefix}] margin: JS={got} Python={expected}"
-    )
+    assert abs(got - expected) < 0.01, f"[{prefix}] margin: JS={got} Python={expected}"
 
 
 # ──────────────────────── Tax (НДФЛ 12%) ────────────────────────
@@ -251,7 +287,13 @@ def test_winrate_calculator(pw_page, site_url, prefix):
     page.wait_for_function(
         "() => document.getElementById('wr-result').textContent.includes('1.50')"
     )
-    assert "1.50" in page.text_content("#wr-result")
+    text = page.text_content("#wr-result")
+    assert "1.50" in text
+    # Сверяем саму математику EV и нетто, а не только requiredRR:
+    #   EV  = (wr*rr - (1-wr))*risk = (0.4*2 - 0.6)*1 = +0.200 за сделку;
+    #   net = wins*rr*risk - losses*risk = 40*2 - 60 = +20.00% депозита.
+    assert "+0.200" in text, f"EV не совпал: {text!r}"
+    assert "+20.00" in text, f"нетто-результат не совпал: {text!r}"
 
 
 # ──────────────────── Итоговый экзамен + сертификат (I10) ────────────────────
