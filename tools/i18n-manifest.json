@@ -470,6 +470,13 @@
       },
       "ru_sha256": "e37f6712dde0e02c33317a2172797bb1d5ad622bb172bdb9b744105579aab5c5"
     },
+    "uz/trading-vs-deposit.md": {
+      "locales": {
+        "en": "ef88f6dff08a6f575d3a260f39db1aac310b1aa89088993301bfa817ffe1b6af",
+        "uz": "ef88f6dff08a6f575d3a260f39db1aac310b1aa89088993301bfa817ffe1b6af"
+      },
+      "ru_sha256": "ef88f6dff08a6f575d3a260f39db1aac310b1aa89088993301bfa817ffe1b6af"
+    },
     "uz/withdrawal-guide.md": {
       "locales": {
         "en": "6974812508355197e00c4d117d8d13fe77012c65cf7873b4bdbef7d4703324fe",
