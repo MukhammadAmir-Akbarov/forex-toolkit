@@ -470,6 +470,13 @@
       },
       "ru_sha256": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
     },
+    "uz/swap-free.md": {
+      "locales": {
+        "en": "1333beeb7df46cc0698720e6f3fcb2b9cc27de205f00021d1d50c176278e1c72",
+        "uz": "1333beeb7df46cc0698720e6f3fcb2b9cc27de205f00021d1d50c176278e1c72"
+      },
+      "ru_sha256": "1333beeb7df46cc0698720e6f3fcb2b9cc27de205f00021d1d50c176278e1c72"
+    },
     "uz/tax-calculator.md": {
       "locales": {
         "en": "e37f6712dde0e02c33317a2172797bb1d5ad622bb172bdb9b744105579aab5c5",
