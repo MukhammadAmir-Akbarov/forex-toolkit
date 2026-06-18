@@ -456,6 +456,13 @@
       },
       "ru_sha256": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130"
     },
+    "uz/forex-nima.md": {
+      "locales": {
+        "en": "fec1907ca1a612ee8dd4df9e72ab6d6a2630a6e75ff579ab703998978bd3c4c8",
+        "uz": "fec1907ca1a612ee8dd4df9e72ab6d6a2630a6e75ff579ab703998978bd3c4c8"
+      },
+      "ru_sha256": "fec1907ca1a612ee8dd4df9e72ab6d6a2630a6e75ff579ab703998978bd3c4c8"
+    },
     "uz/law-faq.md": {
       "locales": {
         "en": "3597e317e7d804c642d3acf502dcb2882e68b9ebc7a4924c2ef7242faf3616a8",
