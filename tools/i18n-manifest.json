@@ -456,6 +456,13 @@
       },
       "ru_sha256": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130"
     },
+    "uz/law-faq.md": {
+      "locales": {
+        "en": "3597e317e7d804c642d3acf502dcb2882e68b9ebc7a4924c2ef7242faf3616a8",
+        "uz": "3597e317e7d804c642d3acf502dcb2882e68b9ebc7a4924c2ef7242faf3616a8"
+      },
+      "ru_sha256": "3597e317e7d804c642d3acf502dcb2882e68b9ebc7a4924c2ef7242faf3616a8"
+    },
     "uz/scam-protection.md": {
       "locales": {
         "en": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60",
