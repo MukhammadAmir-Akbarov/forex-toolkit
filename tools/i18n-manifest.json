@@ -1,6 +1,13 @@
 {
   "_comment": "sha256 RU-исходника, под который сделаны переводы. Обновить: python tools/sync_translation_manifest.py. Проверка свежести: python tools/check_translation_drift.py.",
   "entries": {
+    "about.md": {
+      "locales": {
+        "en": "1c128058954d9a52a33e0363cdd895a43310bc1b30ccf1d6293291cedded18ad",
+        "uz": "1c128058954d9a52a33e0363cdd895a43310bc1b30ccf1d6293291cedded18ad"
+      },
+      "ru_sha256": "1c128058954d9a52a33e0363cdd895a43310bc1b30ccf1d6293291cedded18ad"
+    },
     "advanced/SETUP-mt5.md": {
       "locales": {
         "en": "4733007519af8eb55684ffdf8017d92787b2ecd527fdc0879433292adf12919d",

@@ -86,6 +86,7 @@ plugins:
             "Главная": "Home"
             "🗺️ Дорожная карта обучения": "🗺️ Learning roadmap"
             "Как пользоваться": "How to use"
+            "ℹ️ О проекте": "ℹ️ About"
             "Главный учебник": "Main handbook"
             "Технический анализ": "Technical analysis"
             "Учебная стратегия": "Sample strategy"
@@ -177,6 +178,7 @@ plugins:
             "Главная": "Bosh sahifa"
             "🗺️ Дорожная карта обучения": "🗺️ O'quv yo'l xaritasi"
             "Как пользоваться": "Qanday foydalanish"
+            "ℹ️ О проекте": "ℹ️ Loyiha haqida"
             "Главный учебник": "Asosiy darslik"
             "Технический анализ": "Texnik tahlil"
             "Учебная стратегия": "O'quv strategiyasi"
@@ -332,6 +334,7 @@ nav:
       - Главная: index.md
       - 🗺️ Дорожная карта обучения: roadmap.md
       - Как пользоваться: КАК-ПОЛЬЗОВАТЬСЯ.md
+      - ℹ️ О проекте: about.md
       - Главный учебник: forex-guide.md
   - 📚 Углублённо:
       - Технический анализ: docs/technical-analysis.md
