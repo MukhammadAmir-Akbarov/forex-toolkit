@@ -396,7 +396,7 @@ extra:
   # дружелюбна к медленному мобильному. Скрипт подключается из overrides/main.html
   # ТОЛЬКО когда здесь задан endpoint. Заведи бесплатный аккаунт на goatcounter.com
   # и раскомментируй строку ниже со своим кодом:
-  # goatcounter: https://ВАШ-КОД.goatcounter.com/count
+  goatcounter: https://forex-toolkit.goatcounter.com/count
 
   # Комментарии giscus (поверх GitHub Discussions, без бэкенда и без cookie).
   # Рендерятся внизу страниц из overrides/partials/comments.html, когда задан
