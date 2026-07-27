@@ -167,6 +167,10 @@ Yumalash          ←  pastga 0.01 gacha (broker minimumi) — real xavf
       <option value="EURGBP">EUR / GBP</option>
     </select>
   </label>
+  <label>
+    USD→UZS kursi (so'm, ixtiyoriy)
+    <input type="number" id="pc-uzs" value="12600" min="0" step="any" autocomplete="off">
+  </label>
   <label class="pc-checkbox pc-row-wide">
     <input type="checkbox" id="pc-live">
     <span>Jonli kursdan foydalanish (Frankfurter / ECB) — USDJPY, USDCHF, USDCAD va kross-juftliklar uchun aniqroq</span>
@@ -185,6 +189,7 @@ Yumalash          ←  pastga 0.01 gacha (broker minimumi) — real xavf
     <div class="pc-result-row"><span>Hajm (aniq)</span><span id="pc-out-lots-exact">—</span></div>
     <div class="pc-result-row"><span>Hajm (yumalangan)</span><span id="pc-out-lots-rounded">—</span></div>
     <div class="pc-result-row"><span>Real xavf</span><span id="pc-out-actual">—</span></div>
+    <div class="pc-result-row" id="pc-out-uzs-row"><span>Xavf so'mda</span><span id="pc-out-uzs">—</span></div>
   </div>
   <div class="pc-warnings" id="pc-warnings"></div>
 </div>

@@ -151,6 +151,13 @@ def test_position_calculator(pw_page, site_url):
             f"position {balance=} {risk=} {stop=} {pair=}: JS={got} Python={expected}"
         )
 
+        # I21: риск в сумах = actualRisk (lots·stop·pipvalue) × курс 12600 (дефолт).
+        # Все POSITION_CASES — USD-quote (EURUSD), поэтому pipvalue = 10.
+        uzs_num = int(re.sub(r"\D", "", _read(page, "#pc-out-uzs")))
+        assert uzs_num == round(got * stop * 10 * 12600), (
+            f"UZS {balance=} {stop=}: got={uzs_num}"
+        )
+
 
 # ──────────────────────── Pip value ────────────────────────
 # Эталон — forex_toolkit.fx_math.pip_value_in_quote. Для пар с котировкой USD

@@ -113,6 +113,13 @@
       },
       "ru_sha256": "1b4ab049f2284bb8298afffb4abe8ab1e97a3b459e8ceba23d498ffd6e6b3f7f"
     },
+    "extras/dashboard.md": {
+      "locales": {
+        "en": "81ce8b1a9d35de96f317cf94266a4833c0ce13ee210ba731ef7014f3aa03fd6a",
+        "uz": "81ce8b1a9d35de96f317cf94266a4833c0ce13ee210ba731ef7014f3aa03fd6a"
+      },
+      "ru_sha256": "81ce8b1a9d35de96f317cf94266a4833c0ce13ee210ba731ef7014f3aa03fd6a"
+    },
     "extras/emergency-card.md": {
       "locales": {
         "en": "869bfa7fb5017eabd3f97b5480b584c0925ad4c1de2b6aa158ffd60e6bf12b8a",
@@ -283,10 +290,10 @@
     },
     "journal/web-journal.md": {
       "locales": {
-        "en": "79d830b8a25b45c66505167f4037861b2e9f9ef48cdc112cfe85991310da54b3",
-        "uz": "79d830b8a25b45c66505167f4037861b2e9f9ef48cdc112cfe85991310da54b3"
+        "en": "0c8c5b77e5ac87e9aacdb4abff1c0c1460a123d33b461e05facf671bedeee83f",
+        "uz": "0c8c5b77e5ac87e9aacdb4abff1c0c1460a123d33b461e05facf671bedeee83f"
       },
-      "ru_sha256": "79d830b8a25b45c66505167f4037861b2e9f9ef48cdc112cfe85991310da54b3"
+      "ru_sha256": "0c8c5b77e5ac87e9aacdb4abff1c0c1460a123d33b461e05facf671bedeee83f"
     },
     "journal/weekly-report-template.md": {
       "locales": {
@@ -416,10 +423,10 @@
     },
     "tools/position-calculator.md": {
       "locales": {
-        "en": "308fdc8ac8be5f8afffe968808f6dd1d3747abb024243216cc75a3b97bdeb644",
-        "uz": "308fdc8ac8be5f8afffe968808f6dd1d3747abb024243216cc75a3b97bdeb644"
+        "en": "18753cd4c1cb2f4e7fe85b87de8f1837a3ff7e987367e29da2cfe34300b2d7e1",
+        "uz": "18753cd4c1cb2f4e7fe85b87de8f1837a3ff7e987367e29da2cfe34300b2d7e1"
       },
-      "ru_sha256": "308fdc8ac8be5f8afffe968808f6dd1d3747abb024243216cc75a3b97bdeb644"
+      "ru_sha256": "18753cd4c1cb2f4e7fe85b87de8f1837a3ff7e987367e29da2cfe34300b2d7e1"
     },
     "tools/quiz.md": {
       "locales": {
@@ -430,10 +437,10 @@
     },
     "tools/replay-trainer.md": {
       "locales": {
-        "en": "272fdb3b299fb45ba30a9630bc90cba1f75974c4b6de928cd6903ca3d740fbc5",
-        "uz": "272fdb3b299fb45ba30a9630bc90cba1f75974c4b6de928cd6903ca3d740fbc5"
+        "en": "e6713b21e7c748b40765ffc78dba3056a6a6c64d9d1baf419e1ab6e560ed42a1",
+        "uz": "e6713b21e7c748b40765ffc78dba3056a6a6c64d9d1baf419e1ab6e560ed42a1"
       },
-      "ru_sha256": "272fdb3b299fb45ba30a9630bc90cba1f75974c4b6de928cd6903ca3d740fbc5"
+      "ru_sha256": "e6713b21e7c748b40765ffc78dba3056a6a6c64d9d1baf419e1ab6e560ed42a1"
     },
     "tools/risk-of-ruin.md": {
       "locales": {

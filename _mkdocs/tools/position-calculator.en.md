@@ -167,6 +167,10 @@ Round            ←  down to 0.01 (broker minimum) so actual risk never
       <option value="EURGBP">EUR / GBP</option>
     </select>
   </label>
+  <label>
+    USD→UZS rate (so'm, optional)
+    <input type="number" id="pc-uzs" value="12600" min="0" step="any" autocomplete="off">
+  </label>
   <label class="pc-checkbox pc-row-wide">
     <input type="checkbox" id="pc-live">
     <span>Use live rate (Frankfurter / ECB) — more accurate for USDJPY, USDCHF, USDCAD, cross pairs</span>
@@ -185,6 +189,7 @@ Round            ←  down to 0.01 (broker minimum) so actual risk never
     <div class="pc-result-row"><span>Size (exact)</span><span id="pc-out-lots-exact">—</span></div>
     <div class="pc-result-row"><span>Size (rounded)</span><span id="pc-out-lots-rounded">—</span></div>
     <div class="pc-result-row"><span>Actual risk</span><span id="pc-out-actual">—</span></div>
+    <div class="pc-result-row" id="pc-out-uzs-row"><span>Risk in so'm</span><span id="pc-out-uzs">—</span></div>
   </div>
   <div class="pc-warnings" id="pc-warnings"></div>
 </div>
