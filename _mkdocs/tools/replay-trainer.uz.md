@@ -1,19 +1,19 @@
 # 🎮 Replay Mashqi — tarixiy bozorda savdo qiling
 
 !!! abstract "Bu nima"
-    Mashqchi arxivdan **real EURUSD H1 shamlarini** ko'rsatadi — siz X nuqtasigacha
-    bo'lgan tarixni ko'rasiz, qaror qabul qilasiz (Buy / Sell / O'tkazib yubor)
-    va stop-loss qo'yasiz. Keyin vidjet kelajakdagi shamlarni ijro etadi va
-    natijani **R-ko'paytmada** ko'rsatadi.
+    Mashqchi **EURUSD, GBPUSD, USDJPY va EURJPY** uchun **H1 va D1** arxiv
+    shamlarini ko'rsatadi. Bozor va yo'nalishni tanlab, **Entry / SL / TP ni
+    grafikning o'zida** belgilang. Keyin vidjet kelajak shamlarini ijro etadi
+    va natijani **R-ko'paytmada** ko'rsatadi.
 
     **R-ko'paytma = foyda / stop hajmi.** Maqsadingiz: izchil +R olish
     (take-profit 2R, stop 1R → nisbat 1:2).
 
 !!! tip "To'g'ri mashq qilish"
     1. Faqat shamlarga qarang — "buni ko'rganman…" deb o'ylamang
-    2. Stop-lossni Buy/Sell bosishdan **oldin** qo'ying — bu majburiy shart
-    3. Maqsad taxmin qilish emas, balki **o'z qoidalaringiz** asosida qaror qabul qilish
-    4. 20 epizoddan so'ng statistikangizni kutilayotgan EV bilan solishtiring
+    2. Buy/Sell ni tanlang, keyin Entry, SL va TP darajalarini bosing
+    3. Replayni boshlashdan oldin darajalar tartibini tekshiring
+    4. Sessiyadan keyin zararli epizodlarni alohida tugma bilan takrorlang
 
 !!! warning "Ta'limiy material — moliyaviy maslahat emas"
     Barcha epizodlar arxiv ma'lumotlaridan olingan. O'tgan samaradorlik kelajakdagi
@@ -35,8 +35,8 @@
 | **Avg R** | Sessiya uchun o'rtacha R — 0 dan katta bo'lishi kerak |
 
 !!! note "Statistika brauzerda saqlanadi"
-    Har bir sessiya natijalari `localStorage`da saqlanadi. Keyingi tashrifda
-    progress saqlanmaydi — har bir sessiya noldan boshlanadi.
+    Sessiya xulosasi, zaif bozor kategoriyasi va xato epizodlar `localStorage`da
+    saqlanadi. O'quv kabineti keyingi tavsiya uchun ulardan foydalanadi.
 
 ---
 
@@ -47,10 +47,11 @@ skripti yordamida `data/EURUSD_1h.csv` arxividan yaratilgan:
 
 ```bash
 python tools/replay_cutter.py \
-  --pair EURUSD --tf 1h \
-  --episodes 20 --context 30 --outcome 15 \
+  --pairs EURUSD,GBPUSD,USDJPY,EURJPY \
+  --timeframes 1h,1d \
+  --episodes 6 --context 30 --outcome 15 \
   --output _mkdocs/data/replay-episodes.json
 ```
 
-`--context` (tarix shamlari) va `--outcome` (kelajak shamlari) bayroqlarini o'zgartirish mumkin.
-Skript kategoriyalarni avtomatik muvozanatlaydi: ≈1/3 ko'tariluvchi, 1/3 tushuvchi, 1/3 yon harakat.
+`--episodes` har bir bozor va taymfreym uchun epizodlar sonini belgilaydi.
+Skript JPY pip hajmini to'g'ri ishlatadi va kategoriyalarni muvozanatlaydi.

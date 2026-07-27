@@ -1,27 +1,39 @@
 # 📊 Веб-журнал сделок
 
 !!! abstract "Что делает этот инструмент"
-    Загрузи CSV-журнал — браузер сразу посчитает Win Rate, Profit Factor, P&L,
+    Загрузи CSV-журнал или HTML-отчёт MT5 — браузер сразу посчитает Win Rate, Profit Factor, P&L,
     результат в R, максимальную просадку и дисциплину. Можно фильтровать сделки
     по датам, паре, направлению и соблюдению правил.
 
 !!! tip "Приватность"
     Файл обрабатывается **только в твоём браузере**. Он не загружается на сервер
-    и не сохраняется после закрытия страницы.
+    и сохраняется локально, чтобы журнал восстановился при следующем открытии.
 
 Поддерживаются оба формата проекта: расширенный
 [`trading-journal-template.csv`](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/journal/trading-journal-template.csv)
-и короткий CSV, который создаёт `forex-journal`.
+и короткий CSV, который создаёт `forex-journal`, а также HTML-отчёт MT5.
+
+Чтобы получить отчёт: **MT5 → View → Toolbox → History → правый клик →
+Report → HTML**. Перед загрузкой проверь, что в отчёте нет данных, которыми
+не хочешь делиться; инструмент всё равно обрабатывает файл только локально.
+
+Через терминал тот же импорт доступен командой:
+
+```bash
+forex-journal import-mt5 report.html --out journal/mt5-trades.csv
+```
 
 <div class="journal-widget" id="journal-widget">
   <div class="journal-drop" id="journal-drop">
-    <strong>Перетащи CSV-файл сюда</strong>
+    <strong>Перетащи CSV или MT5 HTML сюда</strong>
     <div class="journal-actions">
-      <label class="journal-button" for="journal-file">Выбрать CSV</label>
-      <input id="journal-file" type="file" accept=".csv,text/csv" hidden>
+      <label class="journal-button" for="journal-file">Выбрать файл</label>
+      <input id="journal-file" type="file" accept=".csv,.html,.htm,.xls,text/csv,text/html" hidden>
       <button class="journal-button secondary" id="journal-demo" type="button">Открыть демо</button>
+      <button class="journal-button secondary" id="journal-clear" type="button">Очистить данные</button>
     </div>
     <p class="journal-file-name" id="journal-file-name">Файл ещё не выбран</p>
+    <p class="journal-status" id="journal-status" aria-live="polite"></p>
     <p class="journal-privacy">🔒 Данные остаются на этом устройстве.</p>
   </div>
   <div class="journal-error" id="journal-error"></div>
@@ -55,6 +67,19 @@
     </div>
 
     <div class="journal-empty" id="journal-empty" style="display:none"></div>
+    <div class="journal-toolbar">
+      <button class="journal-button secondary" id="journal-export-csv" type="button">Экспорт сводки CSV</button>
+      <button class="journal-button secondary" id="journal-export-html" type="button">Экспорт отчёта HTML</button>
+    </div>
+    <section class="journal-insights">
+      <h3>Автоматические выводы</h3>
+      <ul id="journal-insights-list"></ul>
+    </section>
+    <section class="journal-heatmap-wrap">
+      <h3>Результат по дням и часам</h3>
+      <p>Цвет показывает итог в R, число — количество сделок.</p>
+      <div class="journal-heatmap-scroll"><div class="journal-heatmap" id="journal-heatmap"></div></div>
+    </section>
     <div class="journal-chart-wrap"><h3>Equity curve</h3><canvas id="journal-equity"></canvas></div>
     <div class="journal-rules">
       <h3>Сделки по правилам и с нарушениями</h3>
@@ -62,6 +87,12 @@
         <div class="journal-rule-card" id="journal-rules-yes"></div>
         <div class="journal-rule-card" id="journal-rules-no"></div>
       </div>
+    </div>
+    <div class="journal-breakdowns">
+      <div class="journal-breakdown"><h3>По парам</h3><div class="journal-table-scroll"><table class="journal-table compact"><thead><tr><th>Группа</th><th>Сделки</th><th>WR</th><th>P&L</th><th>R</th></tr></thead><tbody id="journal-by-pair"></tbody></table></div></div>
+      <div class="journal-breakdown"><h3>По сетапам</h3><div class="journal-table-scroll"><table class="journal-table compact"><thead><tr><th>Группа</th><th>Сделки</th><th>WR</th><th>P&L</th><th>R</th></tr></thead><tbody id="journal-by-setup"></tbody></table></div></div>
+      <div class="journal-breakdown"><h3>По направлениям</h3><div class="journal-table-scroll"><table class="journal-table compact"><thead><tr><th>Группа</th><th>Сделки</th><th>WR</th><th>P&L</th><th>R</th></tr></thead><tbody id="journal-by-direction"></tbody></table></div></div>
+      <div class="journal-breakdown"><h3>По эмоциям</h3><div class="journal-table-scroll"><table class="journal-table compact"><thead><tr><th>Группа</th><th>Сделки</th><th>WR</th><th>P&L</th><th>R</th></tr></thead><tbody id="journal-by-emotion"></tbody></table></div></div>
     </div>
     <div class="journal-table-wrap">
       <h3>Последние 30 сделок</h3>
@@ -76,13 +107,13 @@
 </div>
 
 <script id="journal-demo-data" type="text/plain">
-id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_rules
-1,2026-05-11,09:15,EURUSD,long,EMA50 pullback,10,20,2,win,yes
-2,2026-05-12,14:30,GBPUSD,short,Resistance rejection,10,-10,-1,loss,yes
-3,2026-05-13,16:10,EURUSD,long,Breakout,10,-10,-1,loss,no
-4,2026-05-14,10:40,USDJPY,short,London range,10,15,1.5,win,yes
-5,2026-05-15,18:20,GBPUSD,long,FOMO entry,10,-12,-1.2,loss,no
-6,2026-05-18,11:05,EURUSD,long,EMA50 pullback,10,20,2,win,yes
+id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_rules,emotions
+1,2026-05-11,09:15,EURUSD,long,EMA50 pullback,10,20,2,win,yes,calm
+2,2026-05-12,14:30,GBPUSD,short,Resistance rejection,10,-10,-1,loss,yes,calm
+3,2026-05-13,16:10,EURUSD,long,Breakout,10,-10,-1,loss,no,frustrated
+4,2026-05-14,10:40,USDJPY,short,London range,10,15,1.5,win,yes,calm
+5,2026-05-15,18:20,GBPUSD,long,FOMO entry,10,-12,-1.2,loss,no,anxious
+6,2026-05-18,11:05,EURUSD,long,EMA50 pullback,10,20,2,win,yes,calm
 </script>
 
 ## Как читать результаты
@@ -94,4 +125,3 @@ id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_
 - **По правилам** — доля `yes` среди сделок, где это поле заполнено.
 
 Для надёжных выводов накопи хотя бы **30 сделок одной стратегии**.
-

@@ -7,13 +7,14 @@
 
 Использование:
     python tools/replay_cutter.py                      # дефолт: EURUSD H1
-    python tools/replay_cutter.py --pair GBPUSD --tf 1d --episodes 40
+    python tools/replay_cutter.py --pairs EURUSD,GBPUSD --timeframes 1h,1d
     python tools/replay_cutter.py --output custom.json
 """
 from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -23,6 +24,11 @@ DATA_DIR = REPO / "data"
 CONTEXT = 40   # сколько свечей показывает виджет (история)
 OUTCOME = 20   # сколько свечей проигрывается (будущее)
 STEP = 30      # шаг выборки (избегаем перекрытия)
+
+
+def pip_size(pair: str) -> float:
+    """Return the conventional pip size for a currency pair."""
+    return 0.01 if pair.upper().endswith("JPY") else 0.0001
 
 
 def load_csv(pair: str, tf: str) -> list[dict]:
@@ -90,6 +96,7 @@ def cut_episodes(
     context: int = CONTEXT,
     outcome: int = OUTCOME,
     step: int = STEP,
+    pip: float = 0.0001,
 ) -> list[dict]:
     total = len(candles)
     episodes = []
@@ -106,7 +113,6 @@ def cut_episodes(
             continue
         fut = candles[i : i + outcome]
         atr = _atr(ctx[-14:])
-        pip_size = 0.0001
         episodes.append(
             {
                 "id": len(episodes),
@@ -114,7 +120,7 @@ def cut_episodes(
                 "context": ctx,
                 "future": fut,
                 # Рекомендуемые уровни для виджета (в пипсах)
-                "atr_pips": round(atr / pip_size, 1),
+                "atr_pips": round(atr / pip, 1),
                 "entry": ctx[-1]["c"],
             }
         )
@@ -143,11 +149,90 @@ def cut_episodes(
     return selected[:n_episodes]
 
 
+def encode_episode(ep: dict, pair: str, tf: str) -> dict:
+    """Compactly encode one episode in pips from a base price."""
+    pip = pip_size(pair)
+    digits = 2 if pip == 0.01 else 4
+    base = round(math.floor(ep["entry"] / pip) * pip, digits)
+    display_tf = {"1h": "H1", "1d": "D1"}[tf.lower()]
+
+    def enc(candle: dict) -> list[int]:
+        return [
+            round((candle["o"] - base) / pip),
+            round((candle["h"] - base) / pip),
+            round((candle["l"] - base) / pip),
+            round((candle["c"] - base) / pip),
+        ]
+
+    return {
+        "id": f"{pair}-{tf}-{ep['id']}",
+        "pair": pair,
+        "tf": display_tf,
+        "cat": ep["category"][:1],
+        "atr": ep["atr_pips"],
+        "base": base,
+        "pip": pip,
+        "ctx": len(ep["context"]),
+        "k": [enc(c) for c in ep["context"]]
+        + [enc(c) for c in ep["future"]],
+        "t": [candle["t"] for candle in ep["context"]]
+        + [candle["t"] for candle in ep["future"]],
+    }
+
+
+def build_catalog(
+    pairs: list[str],
+    timeframes: list[str],
+    episodes_per_market: int,
+    context: int = CONTEXT,
+    outcome: int = OUTCOME,
+) -> dict:
+    """Build a Replay 2.0 catalog for multiple markets."""
+    encoded: list[dict] = []
+    for pair in pairs:
+        pair = pair.upper()
+        for tf in timeframes:
+            tf = tf.lower()
+            market_episodes = cut_episodes(
+                load_csv(pair, tf),
+                n_episodes=episodes_per_market,
+                context=context,
+                outcome=outcome,
+                pip=pip_size(pair),
+            )
+            encoded.extend(
+                encode_episode(ep, pair, tf) for ep in market_episodes
+            )
+
+    return {
+        "version": 2,
+        "pairs": pairs,
+        "timeframes": [
+            {"1h": "H1", "1d": "D1"}[tf.lower()] for tf in timeframes
+        ],
+        "context": context,
+        "outcome": outcome,
+        "episodes": encoded,
+    }
+
+
+def _csv_values(value: str) -> list[str]:
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="Генератор эпизодов Replay Trainer")
     ap.add_argument("--pair", default="EURUSD", help="Валютная пара (EURUSD, GBPUSD…)")
     ap.add_argument(
         "--tf", default="1h", choices=["1h", "1d"], help="Таймфрейм"
+    )
+    ap.add_argument(
+        "--pairs",
+        help="Несколько пар через запятую; переопределяет --pair",
+    )
+    ap.add_argument(
+        "--timeframes",
+        help="Несколько TF через запятую (1h,1d); переопределяет --tf",
     )
     ap.add_argument(
         "--episodes", type=int, default=30, help="Количество эпизодов (по умолчанию 30)"
@@ -166,60 +251,30 @@ def main() -> None:
     )
     args = ap.parse_args()
 
-    candles = load_csv(args.pair, args.tf)
-    episodes = cut_episodes(
-        candles,
-        n_episodes=args.episodes,
+    pairs = [pair.upper() for pair in _csv_values(args.pairs or args.pair)]
+    timeframes = [
+        tf.lower() for tf in _csv_values(args.timeframes or args.tf)
+    ]
+    invalid_timeframes = set(timeframes) - {"1h", "1d"}
+    if invalid_timeframes:
+        ap.error(
+            "неподдерживаемые таймфреймы: "
+            + ", ".join(sorted(invalid_timeframes))
+        )
+
+    result = build_catalog(
+        pairs,
+        timeframes,
+        episodes_per_market=args.episodes,
         context=args.context,
         outcome=args.outcome,
     )
 
-    cats = {}
-    for ep in episodes:
-        cats[ep["category"]] = cats.get(ep["category"], 0) + 1
+    markets = len(pairs) * len(timeframes)
     print(
-        f"✅ {len(episodes)} эпизодов из {args.pair} {args.tf}: {cats}",
+        f"✅ {len(result['episodes'])} эпизодов для {markets} рынков",
         file=sys.stderr,
     )
-
-    def encode_episode(ep: dict) -> dict:
-        """Компактное дельта-кодирование: пипсы от базовой цены эпизода."""
-        pip = 0.0001
-        base = round(ep["entry"] - (ep["entry"] % 0.0001), 4)
-
-        def enc(c: dict) -> list[int]:
-            return [
-                round((c["o"] - base) / pip),
-                round((c["h"] - base) / pip),
-                round((c["l"] - base) / pip),
-                round((c["c"] - base) / pip),
-            ]
-
-        # Сохраняем только дату (не время) для часовых + дату целиком для D1
-        times = [c["t"][:10] for c in ep["context"]] + [
-            c["t"][:10] for c in ep["future"]
-        ]
-
-        return {
-            "id": ep["id"],
-            "cat": ep["category"][:1],  # u=uptrend, d=downtrend, s=sideways
-            "atr": ep["atr_pips"],
-            "base": base,
-            "pip": 0.0001,
-            "ctx": len(ep["context"]),
-            # Все свечи (контекст + будущее) в одном массиве
-            "k": [enc(c) for c in ep["context"]] + [enc(c) for c in ep["future"]],
-            # Только даты — для подписей при наведении
-            "t": times,
-        }
-
-    result = {
-        "pair": args.pair,
-        "tf": args.tf,
-        "context": args.context,
-        "outcome": args.outcome,
-        "episodes": [encode_episode(ep) for ep in episodes],
-    }
 
     out_text = json.dumps(result, ensure_ascii=False, separators=(",", ":"))
     if args.output:

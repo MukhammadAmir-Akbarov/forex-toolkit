@@ -1,18 +1,19 @@
 # 🎮 Replay Trainer — trade the historical market
 
 !!! abstract "What is this"
-    The trainer shows **real EURUSD H1 candles** from the archive — you see history
-    up to point X, make a decision (Buy / Sell / Skip), and set a stop-loss.
-    The widget then plays back the future candles and shows the result in **R-multiple**.
+    The trainer shows archived candles for **EURUSD, GBPUSD, USDJPY and EURJPY**
+    on **H1 and D1**. Choose a market and direction, then place
+    **Entry / SL / TP directly on the chart**. The widget plays back future
+    candles and shows the result in **R-multiple**.
 
     **R-multiple = profit / stop size.** Your goal: consistently achieve +R
     (take-profit 2R, stop 1R → reward-to-risk ratio 1:2).
 
 !!! tip "How to train correctly"
     1. Look only at the candles — don't think "I've seen this before…"
-    2. Set your stop **before** clicking Buy/Sell — it's a mandatory requirement
-    3. The goal is not to guess, but to make a decision based on **your rules**
-    4. After 20 episodes compare your statistics with expected EV
+    2. Choose Buy/Sell, then click Entry, SL and TP levels in order
+    3. Check the level order before starting Replay
+    4. After the session, repeat losing episodes with one button
 
 !!! warning "Educational material — not financial advice"
     All episodes are taken from historical data. Past performance does not guarantee
@@ -34,8 +35,8 @@
 | **Avg R** | Average R for the session — should be > 0 |
 
 !!! note "Statistics are saved in the browser"
-    Results of each session are stored in `localStorage`. On the next visit
-    progress is not preserved — each session starts from scratch.
+    The session summary, weak market category and failed episode IDs are stored
+    in `localStorage`. The student dashboard uses them for its next recommendation.
 
 ---
 
@@ -46,10 +47,11 @@ from the `data/EURUSD_1h.csv` archive:
 
 ```bash
 python tools/replay_cutter.py \
-  --pair EURUSD --tf 1h \
-  --episodes 20 --context 30 --outcome 15 \
+  --pairs EURUSD,GBPUSD,USDJPY,EURJPY \
+  --timeframes 1h,1d \
+  --episodes 6 --context 30 --outcome 15 \
   --output _mkdocs/data/replay-episodes.json
 ```
 
-The `--context` (history candles) and `--outcome` (future candles) flags can be changed.
-The script automatically balances categories: ≈1/3 uptrend, 1/3 downtrend, 1/3 sideways.
+`--episodes` is the number of episodes **per market and timeframe**. The script
+uses the correct JPY pip size and balances trend/sideways categories.

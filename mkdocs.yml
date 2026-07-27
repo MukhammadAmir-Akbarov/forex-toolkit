@@ -46,6 +46,8 @@ extra_javascript:
   - javascripts/widgets/sessions.js
   - javascripts/widgets/exam.js
   - javascripts/widgets/journal.js
+  - javascripts/widgets/dashboard.js
+  - javascripts/widgets/replay.js
   - javascripts/hero.js
 
 plugins:
@@ -121,6 +123,7 @@ plugins:
             "Trading Plan": "Trading Plan"
             "First 100 Days": "First 100 Days"
             "🏆 Мой прогресс": "🏆 My progress"
+            "🧭 Личный кабинет": "🧭 Student Dashboard"
             "Чек-лист": "Checklist"
             "FAQ": "FAQ"
             "Глоссарий": "Glossary"
@@ -213,6 +216,7 @@ plugins:
             "Trading Plan": "Savdo rejasi"
             "First 100 Days": "Birinchi 100 kun"
             "🏆 Мой прогресс": "🏆 Mening progressim"
+            "🧭 Личный кабинет": "🧭 O'quvchi kabineti"
             "Чек-лист": "Checklist"
             "FAQ": "Savol-javob"
             "Глоссарий": "Lug'at"
@@ -364,6 +368,7 @@ nav:
       - Trading Plan: extras/trading-plan-template.md
       - First 100 Days: extras/first-100-days.md
       - 🏆 Мой прогресс: extras/progress.md
+      - 🧭 Личный кабинет: extras/dashboard.md
       - Чек-лист: extras/checklist-printable.md
       - FAQ: extras/faq.md
       - Глоссарий: extras/glossary.md
