@@ -9,6 +9,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/about/</loc>
+        <lastmod>2026-07-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/about/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/forex-guide/</loc>
         <lastmod>2026-07-27</lastmod>
         <changefreq>daily</changefreq>
@@ -593,6 +601,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/about/</loc>
+        <lastmod>2026-07-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/about/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/about/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/forex-guide/</loc>
         <lastmod>2026-07-27</lastmod>
         <changefreq>daily</changefreq>
@@ -1175,6 +1191,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/"/>
+    </url>
+    <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/about/</loc>
+        <lastmod>2026-07-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/about/"/>
     </url>
     <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/forex-guide/</loc>
@@ -1885,6 +1909,13 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/"/>
+    </url><url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/about/</loc>
+        <lastmod>2026-07-27</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/about/"/>
     </url><url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/forex-guide/</loc>
         <lastmod>2026-07-27</lastmod>
