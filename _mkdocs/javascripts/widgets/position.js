@@ -8,6 +8,8 @@
 (function () {
   if (!document.getElementById("pc-calc-btn")) return;
   var F = window.FXW;
+  // I21: риск в родной валюте отрезвляет сильнее лекций. Суффикс по локали.
+  var SOUM = { ru: " сум", en: " so'm", uz: " so'm" }[F.lang] || " сум";
 
   var T = F.pick({
     ru: {
@@ -187,6 +189,17 @@
     document.getElementById("pc-out-lots-exact").textContent = fmtLots(r.lots);
     document.getElementById("pc-out-lots-rounded").textContent = fmtLotsR(r.lotsRounded);
     document.getElementById("pc-out-actual").textContent = F.money(r.actualRisk) + " (" + fmtPct(r.actualRiskPct) + ")";
+
+    // I21: показываем реальный риск в сумах, если задан курс USD→UZS.
+    var uzs = parseFloat(document.getElementById("pc-uzs").value);
+    var uzsRow = document.getElementById("pc-out-uzs-row");
+    if (uzs > 0) {
+      document.getElementById("pc-out-uzs").textContent =
+        "≈ " + F.int(Math.round(r.actualRisk * uzs)) + SOUM;
+      uzsRow.style.display = "";
+    } else {
+      uzsRow.style.display = "none";
+    }
     document.getElementById("pc-headline").textContent = fmtLotsR(r.lotsRounded) + T.lot;
     result.style.display = "block";
 
@@ -208,7 +221,7 @@
     result.className = cls === "ok" ? "" : cls;
   }
 
-  ["pc-balance", "pc-risk", "pc-stop", "pc-pair", "pc-live"].forEach(function (id) {
+  ["pc-balance", "pc-risk", "pc-stop", "pc-pair", "pc-live", "pc-uzs"].forEach(function (id) {
     var el = document.getElementById(id);
     el.addEventListener("input", recalc);
     el.addEventListener("change", recalc);

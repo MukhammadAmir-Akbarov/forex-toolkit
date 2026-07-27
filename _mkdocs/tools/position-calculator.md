@@ -167,6 +167,10 @@
       <option value="EURGBP">EUR / GBP</option>
     </select>
   </label>
+  <label>
+    Курс USD→UZS (сум, необязательно)
+    <input type="number" id="pc-uzs" value="12600" min="0" step="any" autocomplete="off">
+  </label>
   <label class="pc-checkbox pc-row-wide">
     <input type="checkbox" id="pc-live">
     <span>Подтянуть актуальный курс (Frankfurter / ECB) — точнее для USDJPY, USDCHF, USDCAD, кросс-пар</span>
@@ -185,6 +189,7 @@
     <div class="pc-result-row"><span>Размер (точный)</span><span id="pc-out-lots-exact">—</span></div>
     <div class="pc-result-row"><span>Размер (округлён)</span><span id="pc-out-lots-rounded">—</span></div>
     <div class="pc-result-row"><span>Реальный риск</span><span id="pc-out-actual">—</span></div>
+    <div class="pc-result-row" id="pc-out-uzs-row"><span>Риск в сумах</span><span id="pc-out-uzs">—</span></div>
   </div>
   <div class="pc-warnings" id="pc-warnings"></div>
 </div>
