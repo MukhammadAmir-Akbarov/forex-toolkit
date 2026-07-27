@@ -9,6 +9,7 @@ Trading Journal CLI — добавление сделок в журнал чер
   python journal_cli.py close 1 --price 1.0902
   python journal_cli.py list
   python journal_cli.py stats
+  python journal_cli.py import-mt5 report.html --out journal/mt5-trades.csv
 """
 from __future__ import annotations
 
@@ -19,6 +20,12 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+
+from forex_toolkit.mt5_statement import (
+    MT5StatementError,
+    parse_mt5_html,
+    write_journal_csv,
+)
 
 def _resolve_journal_path() -> Path:
     """Где хранить журнал сделок.
@@ -202,6 +209,26 @@ def cmd_stats(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_import_mt5(args: argparse.Namespace) -> int:
+    """Convert an MT5 HTML account statement to the web-journal CSV schema."""
+    source = Path(args.report)
+    if not source.is_file():
+        print(f"Отчёт не найден: {source}")
+        return 1
+    try:
+        result = parse_mt5_html(source)
+        output = write_journal_csv(result.trades, args.out)
+    except (MT5StatementError, OSError) as exc:
+        print(f"Не удалось импортировать MT5-отчёт: {exc}")
+        return 1
+
+    print(f"\n✓ Импортировано закрытых сделок: {len(result.trades)}")
+    print(f"  CSV: {output}")
+    for warning in result.warnings:
+        print(f"  ⚠ {warning}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Trading Journal CLI")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -231,6 +258,19 @@ def main() -> int:
 
     p_stats = sub.add_parser("stats", help="Показать статистику")
     p_stats.set_defaults(func=cmd_stats)
+
+    p_import = sub.add_parser(
+        "import-mt5",
+        help="Преобразовать HTML-отчёт MetaTrader 5 в CSV журнала",
+    )
+    p_import.add_argument("report", help="Путь к MT5 HTML report")
+    p_import.add_argument(
+        "--out",
+        type=Path,
+        default=Path("journal/mt5-trades.csv"),
+        help="Куда сохранить CSV (по умолчанию journal/mt5-trades.csv)",
+    )
+    p_import.set_defaults(func=cmd_import_mt5)
 
     args = parser.parse_args()
     return args.func(args)
