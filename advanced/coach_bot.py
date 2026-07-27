@@ -11,8 +11,9 @@ Coach Bot — ежедневный Telegram-помощник по дисципл
 Сохраняет ответы в coach-log.csv для анализа.
 
 Запуск:
-  python advanced/coach_bot.py --send-prompt    # отправить вопросы
-  python advanced/coach_bot.py --receive-replies # принять ответы (long-poll)
+  python advanced/coach_bot.py send
+  python advanced/coach_bot.py receive
+  python advanced/coach_bot.py analyze --csv journal/my-trades.csv
 """
 from __future__ import annotations
 
@@ -26,7 +27,10 @@ from pathlib import Path
 
 import requests
 
+from forex_toolkit.coach import analyze_trades, load_journal
+
 LOG = Path(__file__).resolve().parent.parent / "coach-log.csv"
+JOURNAL = Path(__file__).resolve().parent.parent / "journal" / "my-trades.csv"
 HEADERS = ["date", "question", "answer"]
 
 QUESTIONS = [
@@ -81,8 +85,8 @@ def cmd_send(token: str, chat_id: str) -> int:
     for i, q in enumerate(QUESTIONS, 1):
         message += f"*{i}.* {q}\n"
     message += (
-        f"\n💡 _Просто пиши ответы по очереди. "
-        f"Сохранится автоматически._"
+        "\n💡 _Просто пиши ответы по очереди. "
+        "Сохранится автоматически._"
     )
 
     if send_telegram(message, token, chat_id):
@@ -146,7 +150,7 @@ def cmd_receive(token: str, chat_id: str, timeout_min: int = 60) -> int:
     return 0
 
 
-def cmd_analyze() -> int:
+def cmd_analyze_log() -> int:
     """Простая аналитика накопленных ответов."""
     if not LOG.exists():
         print("Логов пока нет")
@@ -166,12 +170,33 @@ def cmd_analyze() -> int:
     print(f"Дней с ответами: {len(dates)}")
 
     # Последние 7 дней
-    print(f"\n📅 Последние 7 ответов (если есть):")
+    print("\n📅 Последние 7 ответов (если есть):")
     recent = rows[-7 * len(QUESTIONS):]
     for r in recent[-10:]:
         print(f"  [{r['date']}] {r['question'][:40]}")
         print(f"    → {r['answer'][:80]}")
 
+    return 0
+
+
+def cmd_analyze(csv_path: Path) -> int:
+    """Build three personalized rules from a trading journal."""
+    try:
+        report = analyze_trades(load_journal(csv_path))
+    except (FileNotFoundError, OSError, ValueError) as exc:
+        print(f"Не удалось проанализировать журнал: {exc}")
+        return 1
+
+    print("\n" + "=" * 64)
+    print("  PERSONAL COACH — 3 правила по торговому журналу")
+    print("=" * 64)
+    print(f"\nИсточник: {csv_path}")
+    print(f"Закрытых сделок: {report.trade_count}")
+    for index, rule in enumerate(report.rules, 1):
+        print(f"\n{index}. {rule.title}")
+        print(f"   Факт: {rule.evidence}")
+        print(f"   Действие: {rule.action}")
+    print()
     return 0
 
 
@@ -182,11 +207,23 @@ def main() -> int:
     p_recv = sub.add_parser("receive", help="Принять ответы (long-poll)")
     p_recv.add_argument("--timeout", type=int, default=60,
                         help="Сколько минут слушать (по умолч. 60)")
-    sub.add_parser("analyze", help="Анализ накопленных ответов")
+    p_analyze = sub.add_parser(
+        "analyze",
+        help="Выдать 3 персональных правила из CSV торгового журнала",
+    )
+    p_analyze.add_argument(
+        "--csv",
+        type=Path,
+        default=JOURNAL,
+        help="Путь к CSV журнала (по умолчанию journal/my-trades.csv)",
+    )
+    sub.add_parser("analyze-log", help="Показать накопленные ответы Coach")
     args = parser.parse_args()
 
     if args.cmd == "analyze":
-        return cmd_analyze()
+        return cmd_analyze(args.csv)
+    if args.cmd == "analyze-log":
+        return cmd_analyze_log()
 
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
     chat_id = os.environ.get("TELEGRAM_CHAT_ID")
