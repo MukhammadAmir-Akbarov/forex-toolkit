@@ -1656,6 +1656,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../extras/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧭 O'quvchi kabineti
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../extras/checklist-printable/" class="md-nav__link">
         
   
@@ -3272,10 +3300,10 @@
 <h1 id="-replay-mashqi--tarixiy-bozorda-savdo-qiling">🎮 Replay Mashqi — tarixiy bozorda savdo qiling<a class="headerlink" href="#-replay-mashqi--tarixiy-bozorda-savdo-qiling" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Bu nima</p>
-<p>Mashqchi arxivdan <strong>real EURUSD H1 shamlarini</strong> ko'rsatadi — siz X nuqtasigacha
-bo'lgan tarixni ko'rasiz, qaror qabul qilasiz (Buy / Sell / O'tkazib yubor)
-va stop-loss qo'yasiz. Keyin vidjet kelajakdagi shamlarni ijro etadi va
-natijani <strong>R-ko'paytmada</strong> ko'rsatadi.</p>
+<p>Mashqchi <strong>EURUSD, GBPUSD, USDJPY va EURJPY</strong> uchun <strong>H1 va D1</strong> arxiv
+shamlarini ko'rsatadi. Bozor va yo'nalishni tanlab, <strong>Entry / <abbr title="Stop Loss — belgilangan zararda savdoni avtomatik yopadigan order.">SL</abbr> / <abbr title="Take Profit — belgilangan daromadda savdoni avtomatik yopadigan order.">TP</abbr> ni
+grafikning o'zida</strong> belgilang. Keyin vidjet kelajak shamlarini ijro etadi
+va natijani <strong>R-ko'paytmada</strong> ko'rsatadi.</p>
 <p><strong>R-ko'paytma = foyda / stop hajmi.</strong> Maqsadingiz: izchil +R olish
 (take-profit 2R, stop 1R → nisbat 1:2).</p>
 </div>
@@ -3283,9 +3311,9 @@ natijani <strong>R-ko'paytmada</strong> ko'rsatadi.</p>
 <p class="admonition-title">To'g'ri mashq qilish</p>
 <ol>
 <li>Faqat shamlarga qarang — "buni ko'rganman…" deb o'ylamang</li>
-<li>Stop-lossni Buy/Sell bosishdan <strong>oldin</strong> qo'ying — bu majburiy shart</li>
-<li>Maqsad taxmin qilish emas, balki <strong>o'z qoidalaringiz</strong> asosida qaror qabul qilish</li>
-<li>20 epizoddan so'ng statistikangizni kutilayotgan EV bilan solishtiring</li>
+<li>Buy/Sell ni tanlang, keyin Entry, <abbr title="Stop Loss — belgilangan zararda savdoni avtomatik yopadigan order.">SL</abbr> va <abbr title="Take Profit — belgilangan daromadda savdoni avtomatik yopadigan order.">TP</abbr> darajalarini bosing</li>
+<li>Replayni boshlashdan oldin darajalar tartibini tekshiring</li>
+<li>Sessiyadan keyin zararli epizodlarni alohida tugma bilan takrorlang</li>
 </ol>
 </div>
 <div class="admonition warning">
@@ -3326,20 +3354,21 @@ natijalarni kafolatlamaydi. Forex savdosi katta yo'qotish xavfi bilan birga kela
 </table>
 <div class="admonition note">
 <p class="admonition-title">Statistika brauzerda saqlanadi</p>
-<p>Har bir sessiya natijalari <code>localStorage</code>da saqlanadi. Keyingi tashrifda
-progress saqlanmaydi — har bir sessiya noldan boshlanadi.</p>
+<p>Sessiya xulosasi, zaif bozor kategoriyasi va xato epizodlar <code>localStorage</code>da
+saqlanadi. O'quv kabineti keyingi tavsiya uchun ulardan foydalanadi.</p>
 </div>
 <hr />
 <h2 id="epizodlar-toplamini-qayta-yaratish">Epizodlar to'plamini qayta yaratish<a class="headerlink" href="#epizodlar-toplamini-qayta-yaratish" title="Permanent link">&para;</a></h2>
 <p>Epizodlar <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/replay_cutter.py"><code>tools/replay_cutter.py</code></a>
 skripti yordamida <code>data/EURUSD_1h.csv</code> arxividan yaratilgan:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>tools/replay_cutter.py<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--pair<span class="w"> </span>EURUSD<span class="w"> </span>--tf<span class="w"> </span>1h<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--episodes<span class="w"> </span><span class="m">20</span><span class="w"> </span>--context<span class="w"> </span><span class="m">30</span><span class="w"> </span>--outcome<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--output<span class="w"> </span>_mkdocs/data/replay-episodes.json
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--pairs<span class="w"> </span>EURUSD,GBPUSD,USDJPY,EURJPY<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--timeframes<span class="w"> </span>1h,1d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--episodes<span class="w"> </span><span class="m">6</span><span class="w"> </span>--context<span class="w"> </span><span class="m">30</span><span class="w"> </span>--outcome<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>--output<span class="w"> </span>_mkdocs/data/replay-episodes.json
 </code></pre></div>
-<p><code>--context</code> (tarix shamlari) va <code>--outcome</code> (kelajak shamlari) bayroqlarini o'zgartirish mumkin.
-Skript kategoriyalarni avtomatik muvozanatlaydi: ≈1/3 ko'tariluvchi, 1/3 tushuvchi, 1/3 yon harakat.</p>
+<p><code>--episodes</code> har bir bozor va taymfreym uchun epizodlar sonini belgilaydi.
+Skript JPY <abbr title="Narx o'zgarishining standart birligi (odatda 4-xona; JPY juftlarida 2-xona).">pip</abbr> hajmini to'g'ri ishlatadi va kategoriyalarni muvozanatlaydi.</p>
 <!-- UZ lug'at (podskazkalar). hooks/glossary_tooltips.py uni o'zbekcha sahifalarga
      qo'shadi. Kalit so'zlar matndagi yozilishi bilan bir xil bo'lishi shart.
      Apostrof — oddiy ASCII (o', g') — kontentdagidek. -->
@@ -3363,7 +3392,7 @@ Skript kategoriyalarni avtomatik muvozanatlaydi: ≈1/3 ko'tariluvchi, 1/3 tushu
     <span class="md-icon" title="Oxirgi yangilanish">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12-iyun, 2026 17:28:28 UTC">12-iyun, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="27-iyul, 2026 14:55:19 UTC">27-iyul, 2026</span>
   </span>
 
     
@@ -3576,6 +3605,10 @@ Skript kategoriyalarni avtomatik muvozanatlaydi: ≈1/3 ko'tariluvchi, 1/3 tushu
         <script src="../../../javascripts/widgets/exam.js"></script>
       
         <script src="../../../javascripts/widgets/journal.js"></script>
+      
+        <script src="../../../javascripts/widgets/dashboard.js"></script>
+      
+        <script src="../../../javascripts/widgets/replay.js"></script>
       
         <script src="../../../javascripts/hero.js"></script>
       

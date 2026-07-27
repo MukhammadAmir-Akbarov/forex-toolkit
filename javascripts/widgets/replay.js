@@ -1,546 +1,915 @@
 /**
- * Replay Trainer widget (I9).
+ * Replay Trainer 2.0.
  *
- * Загружает /data/replay-episodes.json, показывает N свечей истории на Canvas,
- * просит выбрать Buy / Sell / Skip + выставить стоп, затем проигрывает будущие
- * свечи и считает результат в R.
- *
- * Не зависит от window.FXW чтобы работать независимо от PR #22.
+ * Loads compact historical episodes, lets the student place Entry/SL/TP on a
+ * Canvas chart, replays future candles and stores weak categories locally.
  */
 (function () {
+  "use strict";
+
   var CONTAINER = document.getElementById("replay-widget");
   if (!CONTAINER) return;
 
-  /* ── Локализация ── */
   var lang = (document.documentElement.lang || "ru").slice(0, 2).toLowerCase();
   if (lang !== "en" && lang !== "uz") lang = "ru";
 
-  var T = {
+  var I18N = {
     ru: {
-      loading: "Загрузка эпизодов…",
+      loading: "Загрузка эпизодов...",
+      loadError: "Не удалось загрузить эпизоды. Обновите страницу.",
       episode: "Эпизод",
       of: "из",
-      pair: "EURUSD H1",
-      question: "Что вы делаете?",
-      buy: "▲ Buy",
-      sell: "▼ Sell",
-      skip: "— Пропустить",
-      stop_label: "Стоп-лосс (в пипсах от входа):",
-      stop_hint: "Обязательно! Введите число пипсов",
-      stop_err: "Введите стоп (минимум 1 пипс)",
-      reveal: "Показать результат",
-      result_win: "✅ Прибыль",
-      result_loss: "❌ Убыток",
-      result_skip: "⏭ Пропущен",
-      next: "Следующий эпизод →",
-      finish: "Посмотреть статистику",
-      stats_title: "Ваша статистика",
-      stats_trades: "Сделок",
-      stats_wins: "Побед",
-      stats_losses: "Поражений",
-      stats_skips: "Пропусков",
-      stats_rr: "Средний R",
-      stats_wr: "WinRate",
-      restart: "Начать заново",
+      pair: "Пара",
+      timeframe: "Таймфрейм",
+      direction: "1. Выбери направление",
+      levels: "2. Поставь Entry, SL и TP кликами по графику",
+      buy: "Buy",
+      sell: "Sell",
+      skip: "Пропустить",
+      start: "3. Запустить Replay",
+      entry: "Entry",
+      sl: "SL",
+      tp: "TP",
+      chooseDirection: "Сначала выбери Buy или Sell.",
+      clickLevel: "Выбери уровень и кликни по графику.",
+      missingLevels: "Поставь все три уровня: Entry, SL и TP.",
+      invalidBuy: "Для Buy должно быть: SL < Entry < TP.",
+      invalidSell: "Для Sell должно быть: TP < Entry < SL.",
+      minStop: "Расстояние от Entry до SL должно быть не меньше 1 пипса.",
+      win: "Прибыль",
+      loss: "Убыток",
+      skipped: "Пропущен",
+      notTriggered: "Entry не был активирован",
+      next: "Следующий эпизод",
+      finish: "Статистика",
+      wins: "Побед",
+      losses: "Убытков",
+      skips: "Пропусков",
+      trades: "Сделок",
+      winrate: "WinRate",
+      avgR: "Средний R",
+      stats: "Результаты Replay",
+      restart: "Новая сессия",
+      repeat: "Повторить ошибки",
+      weak: "Слабая категория",
+      noWeak: "Критической слабости пока нет",
+      errors: "Ошибочных эпизодов",
       atr: "ATR",
       pips: "пипс",
-      cat_u: "Восходящий тренд",
-      cat_d: "Нисходящий тренд",
-      cat_s: "Флэт",
-      candles_left: "Осталось свечей",
-      err_load: "Ошибка загрузки данных. Обновите страницу.",
+      cat_u: "восходящий тренд",
+      cat_d: "нисходящий тренд",
+      cat_s: "флэт",
+      preview: "Уровни можно менять до запуска.",
     },
     en: {
-      loading: "Loading episodes…",
+      loading: "Loading episodes...",
+      loadError: "Could not load episodes. Refresh the page.",
       episode: "Episode",
       of: "of",
-      pair: "EURUSD H1",
-      question: "What do you do?",
-      buy: "▲ Buy",
-      sell: "▼ Sell",
-      skip: "— Skip",
-      stop_label: "Stop-loss (pips from entry):",
-      stop_hint: "Required! Enter number of pips",
-      stop_err: "Enter stop (min 1 pip)",
-      reveal: "Show result",
-      result_win: "✅ Profit",
-      result_loss: "❌ Loss",
-      result_skip: "⏭ Skipped",
-      next: "Next episode →",
-      finish: "View statistics",
-      stats_title: "Your statistics",
-      stats_trades: "Trades",
-      stats_wins: "Wins",
-      stats_losses: "Losses",
-      stats_skips: "Skips",
-      stats_rr: "Avg R",
-      stats_wr: "WinRate",
-      restart: "Start over",
+      pair: "Pair",
+      timeframe: "Timeframe",
+      direction: "1. Choose direction",
+      levels: "2. Place Entry, SL and TP by clicking the chart",
+      buy: "Buy",
+      sell: "Sell",
+      skip: "Skip",
+      start: "3. Start Replay",
+      entry: "Entry",
+      sl: "SL",
+      tp: "TP",
+      chooseDirection: "Choose Buy or Sell first.",
+      clickLevel: "Select a level and click the chart.",
+      missingLevels: "Place all three levels: Entry, SL and TP.",
+      invalidBuy: "Buy requires: SL < Entry < TP.",
+      invalidSell: "Sell requires: TP < Entry < SL.",
+      minStop: "Entry-to-SL distance must be at least 1 pip.",
+      win: "Profit",
+      loss: "Loss",
+      skipped: "Skipped",
+      notTriggered: "Entry was not triggered",
+      next: "Next episode",
+      finish: "Statistics",
+      wins: "Wins",
+      losses: "Losses",
+      skips: "Skips",
+      trades: "Trades",
+      winrate: "WinRate",
+      avgR: "Avg R",
+      stats: "Replay results",
+      restart: "New session",
+      repeat: "Repeat mistakes",
+      weak: "Weak category",
+      noWeak: "No critical weakness yet",
+      errors: "Failed episodes",
       atr: "ATR",
       pips: "pips",
-      cat_u: "Uptrend",
-      cat_d: "Downtrend",
-      cat_s: "Sideways",
-      candles_left: "Candles left",
-      err_load: "Error loading data. Please refresh.",
+      cat_u: "uptrend",
+      cat_d: "downtrend",
+      cat_s: "sideways",
+      preview: "Levels can be changed before replay.",
     },
     uz: {
-      loading: "Epizodlar yuklanmoqda…",
+      loading: "Epizodlar yuklanmoqda...",
+      loadError: "Epizodlarni yuklab bo'lmadi. Sahifani yangilang.",
       episode: "Epizod",
       of: "dan",
-      pair: "EURUSD H1",
-      question: "Nima qilasiz?",
-      buy: "▲ Sotib ol",
-      sell: "▼ Sot",
-      skip: "— O'tkazib yubor",
-      stop_label: "Stop-loss (entry dan pipslarda):",
-      stop_hint: "Majburiy! Pip sonini kiriting",
-      stop_err: "Stop kiriting (kamida 1 pip)",
-      reveal: "Natijani ko'rsat",
-      result_win: "✅ Foyda",
-      result_loss: "❌ Zarar",
-      result_skip: "⏭ O'tkazildi",
-      next: "Keyingi epizod →",
-      finish: "Statistikani ko'r",
-      stats_title: "Sizning statistikangiz",
-      stats_trades: "Savdolar",
-      stats_wins: "G'alabalar",
-      stats_losses: "Mag'lubiyatlar",
-      stats_skips: "O'tkazilganlar",
-      stats_rr: "O'rtacha R",
-      stats_wr: "WinRate",
-      restart: "Qaytadan boshlash",
+      pair: "Juftlik",
+      timeframe: "Taymfreym",
+      direction: "1. Yo'nalishni tanlang",
+      levels: "2. Grafikda Entry, SL va TP ni belgilang",
+      buy: "Buy",
+      sell: "Sell",
+      skip: "O'tkazish",
+      start: "3. Replayni boshlash",
+      entry: "Entry",
+      sl: "SL",
+      tp: "TP",
+      chooseDirection: "Avval Buy yoki Sell ni tanlang.",
+      clickLevel: "Darajani tanlang va grafikni bosing.",
+      missingLevels: "Uchala darajani belgilang: Entry, SL va TP.",
+      invalidBuy: "Buy uchun: SL < Entry < TP.",
+      invalidSell: "Sell uchun: TP < Entry < SL.",
+      minStop: "Entry va SL oralig'i kamida 1 pip bo'lishi kerak.",
+      win: "Foyda",
+      loss: "Zarar",
+      skipped: "O'tkazildi",
+      notTriggered: "Entry ishga tushmadi",
+      next: "Keyingi epizod",
+      finish: "Statistika",
+      wins: "G'alaba",
+      losses: "Zarar",
+      skips: "O'tkazildi",
+      trades: "Savdo",
+      winrate: "WinRate",
+      avgR: "O'rtacha R",
+      stats: "Replay natijalari",
+      restart: "Yangi sessiya",
+      repeat: "Xatolarni takrorlash",
+      weak: "Zaif kategoriya",
+      noWeak: "Hozircha jiddiy zaiflik yo'q",
+      errors: "Xato epizodlar",
       atr: "ATR",
       pips: "pip",
-      cat_u: "Ko'tariluvchi trend",
-      cat_d: "Tushuvchi trend",
-      cat_s: "Yon harakat",
-      candles_left: "Shamlar qoldi",
-      err_load: "Ma'lumotlarni yuklashda xato. Sahifani yangilang.",
+      cat_u: "ko'tarilish trendi",
+      cat_d: "pasayish trendi",
+      cat_s: "flet",
+      preview: "Replay boshlanguncha darajalarni o'zgartirish mumkin.",
     },
-  }[lang];
+  };
+  var T = I18N[lang];
 
-  /* ── Стили ── */
   var style = document.createElement("style");
   style.textContent = [
-    "#replay-widget{font-family:inherit;max-width:720px;margin:1.5rem 0}",
-    "#replay-canvas{width:100%;border-radius:8px;background:#0d1117;display:block}",
-    ".rp-controls{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}",
-    ".rp-btn{padding:.5rem 1.1rem;border:none;border-radius:6px;cursor:pointer;font-size:.95rem;font-weight:600;transition:opacity .15s}",
-    ".rp-btn:hover{opacity:.85}",
+    "#replay-widget{font-family:inherit;max-width:860px;margin:1.5rem 0}",
+    "#replay-canvas{width:100%;height:340px;border-radius:9px;background:#0d1117;display:block;cursor:crosshair;touch-action:none}",
+    ".rp-toolbar,.rp-controls,.rp-levels{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}",
+    ".rp-toolbar{margin-bottom:.75rem;padding:.7rem;background:var(--md-code-bg-color);border-radius:8px}",
+    ".rp-toolbar label{font-size:.78rem;color:var(--md-default-fg-color--light)}",
+    ".rp-select{padding:.35rem .5rem;border:1px solid var(--md-default-fg-color--lighter);border-radius:5px;background:var(--md-default-bg-color);color:var(--md-default-fg-color)}",
+    ".rp-step{margin:.8rem 0 .4rem;font-size:.83rem;font-weight:700}",
+    ".rp-btn{padding:.48rem .9rem;border:1px solid transparent;border-radius:6px;cursor:pointer;font-weight:650}",
+    ".rp-btn:hover{filter:brightness(1.08)}",
+    ".rp-btn:disabled{opacity:.4;cursor:not-allowed}",
     ".rp-buy{background:#2dd4bf;color:#0d1117}",
     ".rp-sell{background:#f87171;color:#fff}",
     ".rp-skip{background:#6b7280;color:#fff}",
-    ".rp-next{background:#3b82f6;color:#fff}",
-    ".rp-btn:disabled{opacity:.4;cursor:not-allowed}",
-    ".rp-stop-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}",
-    ".rp-stop-row label{font-size:.85rem;color:var(--md-default-fg-color)}",
-    ".rp-stop-input{width:70px;padding:.4rem .5rem;border:1px solid var(--md-default-fg-color--lighter);border-radius:5px;background:var(--md-default-bg-color);color:var(--md-default-fg-color);font-size:.95rem}",
-    ".rp-result{margin-top:.8rem;padding:.7rem 1rem;border-radius:7px;font-size:1rem;font-weight:600}",
+    ".rp-start,.rp-next{background:#3b82f6;color:#fff}",
+    ".rp-btn.rp-active{outline:3px solid #facc15;outline-offset:1px}",
+    ".rp-level{background:transparent;color:var(--md-default-fg-color);border-color:var(--md-default-fg-color--lighter)}",
+    ".rp-level-value{font-family:monospace;font-size:.8rem;min-width:6.5rem}",
+    ".rp-level-entry{color:#facc15}.rp-level-sl{color:#f87171}.rp-level-tp{color:#2dd4bf}",
+    ".rp-hint,.rp-meta,.rp-progress{font-size:.8rem;color:var(--md-default-fg-color--light)}",
+    ".rp-hint{min-height:1.3rem;margin:.5rem 0}",
+    ".rp-error{color:#f87171}",
+    ".rp-result{margin-top:.85rem;padding:.75rem 1rem;border-radius:7px;font-weight:650}",
     ".rp-result-win{background:rgba(45,212,191,.15);border:1px solid #2dd4bf;color:#2dd4bf}",
     ".rp-result-loss{background:rgba(248,113,113,.15);border:1px solid #f87171;color:#f87171}",
     ".rp-result-skip{background:rgba(107,114,128,.15);border:1px solid #6b7280;color:#9ca3af}",
-    ".rp-meta{font-size:.8rem;color:var(--md-default-fg-color--light);margin-bottom:.4rem}",
-    ".rp-stats{background:var(--md-code-bg-color);border-radius:10px;padding:1.2rem 1.5rem}",
-    ".rp-stats h3{margin:0 0 .8rem;font-size:1.1rem}",
-    ".rp-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}",
-    ".rp-stat{text-align:center}",
-    ".rp-stat-val{font-size:1.5rem;font-weight:700;color:#2dd4bf}",
-    ".rp-stat-lbl{font-size:.75rem;color:var(--md-default-fg-color--light)}",
-    ".rp-progress{font-size:.8rem;color:var(--md-default-fg-color--light);margin-top:.5rem}",
+    ".rp-meta{margin:.45rem 0}",
+    ".rp-progress{margin-top:.65rem}",
+    ".rp-stats{background:var(--md-code-bg-color);border-radius:10px;padding:1.2rem 1.4rem}",
+    ".rp-stats h3{margin:0 0 .8rem}",
+    ".rp-stats-grid{display:grid;grid-template-columns:repeat(3,minmax(90px,1fr));gap:.7rem}",
+    ".rp-stat{text-align:center;padding:.45rem;border-radius:6px;background:var(--md-default-bg-color)}",
+    ".rp-stat-val{font-size:1.35rem;font-weight:750;color:#2dd4bf}",
+    ".rp-stat-lbl{font-size:.72rem;color:var(--md-default-fg-color--light)}",
+    ".rp-weak{margin:.9rem 0;padding:.7rem;border-left:3px solid #facc15;background:rgba(250,204,21,.08)}",
+    "@media(max-width:600px){#replay-canvas{height:300px}.rp-stats-grid{grid-template-columns:repeat(2,1fr)}}",
   ].join("");
   document.head.appendChild(style);
 
-  /* ── State ── */
-  var episodes = [];
+  var allEpisodes = [];
   var order = [];
   var idx = 0;
-  var action = null; // "buy" | "sell" | "skip"
-  var stopPips = 0;
-  var revealed = false;
-  var stats = { trades: 0, wins: 0, losses: 0, skips: 0, totalR: 0 };
+  var action = null;
+  var placement = "entry";
+  var levels = { entry: null, sl: null, tp: null };
+  var running = false;
+  var chartScale = null;
+  var stats = newStats();
+  var repeatQueue = null;
 
-  /* ── DOM ── */
-  CONTAINER.innerHTML =
-    '<p id="rp-loading">' + T.loading + "</p>";
-
-  /* ── Загрузка данных ──
-     URL берём из data-src на контейнере — разные значения для RU (2 уровня)
-     и EN/UZ (3 уровня) чтобы путь к /data/ был одинаков везде.
-  */
+  CONTAINER.innerHTML = '<p id="rp-loading">' + T.loading + "</p>";
   var dataUrl = CONTAINER.getAttribute("data-src");
-  if (!dataUrl) { showError(); return; }
-  var req = new XMLHttpRequest();
-  req.open("GET", dataUrl, true);
-  req.onload = function () {
-    if (req.status >= 200 && req.status < 300) {
-      try {
-        var data = JSON.parse(req.responseText);
-        episodes = data.episodes || [];
-        order = episodes.map(function (_, i) { return i; });
-        for (var i = order.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var tmp = order[i]; order[i] = order[j]; order[j] = tmp;
-        }
-        buildUI();
-      } catch (e) {
-        showError();
-      }
-    } else {
-      showError();
-    }
-  };
-  req.onerror = showError;
-  req.send();
+  if (!dataUrl) return showError();
 
-  function showError() {
-    CONTAINER.innerHTML = '<p style="color:#f87171">' + T.err_load + "</p>";
+  fetch(dataUrl)
+    .then(function (response) {
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      return response.json();
+    })
+    .then(function (data) {
+      allEpisodes = (data.episodes || []).map(function (ep) {
+        ep.pair = ep.pair || data.pair || "EURUSD";
+        ep.tf = String(ep.tf || data.tf || "H1").toUpperCase();
+        ep.id = String(ep.id);
+        return ep;
+      });
+      if (!allEpisodes.length) throw new Error("empty");
+      buildUI();
+    })
+    .catch(showError);
+
+  function newStats() {
+    return {
+      trades: 0,
+      wins: 0,
+      losses: 0,
+      skips: 0,
+      totalR: 0,
+      history: [],
+    };
   }
 
-  /* ── Построение UI ── */
+  function showError() {
+    CONTAINER.innerHTML = '<p class="rp-error">' + T.loadError + "</p>";
+  }
+
+  function uniqueValues(key) {
+    var seen = {};
+    return allEpisodes
+      .map(function (ep) { return ep[key]; })
+      .filter(function (value) {
+        if (seen[value]) return false;
+        seen[value] = true;
+        return true;
+      })
+      .sort();
+  }
+
+  function options(values) {
+    return values
+      .map(function (value) {
+        return '<option value="' + value + '">' + value + "</option>";
+      })
+      .join("");
+  }
+
   function buildUI() {
+    var pairs = uniqueValues("pair");
+    var timeframes = uniqueValues("tf");
     CONTAINER.innerHTML = [
+      '<div class="rp-toolbar">',
+      '<label for="rp-pair">' + T.pair + "</label>",
+      '<select class="rp-select" id="rp-pair">' + options(pairs) + "</select>",
+      '<label for="rp-tf">' + T.timeframe + "</label>",
+      '<select class="rp-select" id="rp-tf">' + options(timeframes) + "</select>",
+      "</div>",
       '<div class="rp-meta" id="rp-meta"></div>',
-      '<canvas id="replay-canvas" height="300"></canvas>',
-      '<div class="rp-stop-row">',
-      '  <label for="rp-stop">' + T.stop_label + "</label>",
-      '  <input id="rp-stop" class="rp-stop-input" type="number" min="1" max="500" placeholder="10" />',
-      '  <span id="rp-stop-err" style="color:#f87171;font-size:.8rem;display:none">' + T.stop_err + "</span>",
+      '<canvas id="replay-canvas" height="340" tabindex="0"></canvas>',
+      '<div class="rp-step">' + T.direction + "</div>",
+      '<div class="rp-controls">',
+      '<button class="rp-btn rp-buy" id="rp-buy">' + T.buy + "</button>",
+      '<button class="rp-btn rp-sell" id="rp-sell">' + T.sell + "</button>",
+      '<button class="rp-btn rp-skip" id="rp-skip">' + T.skip + "</button>",
       "</div>",
-      '<div class="rp-controls" id="rp-controls">',
-      '  <button class="rp-btn rp-buy" id="rp-buy">' + T.buy + "</button>",
-      '  <button class="rp-btn rp-sell" id="rp-sell">' + T.sell + "</button>",
-      '  <button class="rp-btn rp-skip" id="rp-skip">' + T.skip + "</button>",
+      '<div class="rp-step">' + T.levels + "</div>",
+      '<div class="rp-levels">',
+      levelButton("entry", T.entry),
+      levelButton("sl", T.sl),
+      levelButton("tp", T.tp),
       "</div>",
+      '<div class="rp-hint" id="rp-hint">' + T.chooseDirection + "</div>",
+      '<button class="rp-btn rp-start" id="rp-start" disabled>' + T.start + "</button>",
       '<div id="rp-result" style="display:none"></div>',
       '<div class="rp-progress" id="rp-progress"></div>',
     ].join("");
 
-    document.getElementById("rp-buy").addEventListener("click", function () { choose("buy"); });
-    document.getElementById("rp-sell").addEventListener("click", function () { choose("sell"); });
-    document.getElementById("rp-skip").addEventListener("click", function () { choose("skip"); });
+    document.getElementById("rp-pair").addEventListener("change", resetFiltered);
+    document.getElementById("rp-tf").addEventListener("change", resetFiltered);
+    document.getElementById("rp-buy").addEventListener("click", function () {
+      chooseDirection("buy");
+    });
+    document.getElementById("rp-sell").addEventListener("click", function () {
+      chooseDirection("sell");
+    });
+    document.getElementById("rp-skip").addEventListener("click", skipEpisode);
+    document.getElementById("rp-start").addEventListener("click", startReplay);
+    ["entry", "sl", "tp"].forEach(function (name) {
+      document.getElementById("rp-level-" + name).addEventListener(
+        "click",
+        function () { selectPlacement(name); }
+      );
+    });
+    document.getElementById("replay-canvas").addEventListener(
+      "click",
+      placeLevel
+    );
+    resetFiltered();
+  }
 
+  function levelButton(name, label) {
+    return (
+      '<button class="rp-btn rp-level rp-level-' + name +
+      '" id="rp-level-' + name + '">' + label + "</button>" +
+      '<span class="rp-level-value rp-level-' + name +
+      '" id="rp-value-' + name + '">--</span>'
+    );
+  }
+
+  function resetFiltered() {
+    if (running) return;
+    repeatQueue = null;
+    stats = newStats();
+    idx = 0;
+    var pair = document.getElementById("rp-pair").value;
+    var tf = document.getElementById("rp-tf").value;
+    order = shuffle(
+      allEpisodes.filter(function (ep) {
+        return ep.pair === pair && ep.tf === tf;
+      })
+    );
     showEpisode();
   }
 
+  function shuffle(items) {
+    var copy = items.slice();
+    for (var i = copy.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = copy[i];
+      copy[i] = copy[j];
+      copy[j] = tmp;
+    }
+    return copy;
+  }
+
+  function currentEpisode() {
+    return order[idx];
+  }
+
   function showEpisode() {
-    revealed = false;
+    if (!order.length) return showError();
+    running = false;
     action = null;
-    var ep = episodes[order[idx]];
-    var canvas = document.getElementById("replay-canvas");
-    var meta = document.getElementById("rp-meta");
-    var resultEl = document.getElementById("rp-result");
-    var ctrlEl = document.getElementById("rp-controls");
-    var stopErr = document.getElementById("rp-stop-err");
-    var progress = document.getElementById("rp-progress");
+    placement = "entry";
+    levels = { entry: null, sl: null, tp: null };
 
-    resultEl.style.display = "none";
-    stopErr.style.display = "none";
-    document.getElementById("rp-stop").value = "";
-    setButtonsEnabled(true);
-
-    var catMap = { u: T.cat_u, d: T.cat_d, s: T.cat_s };
-    meta.textContent =
+    var ep = currentEpisode();
+    var result = document.getElementById("rp-result");
+    result.style.display = "none";
+    document.getElementById("rp-meta").textContent =
       T.episode + " " + (idx + 1) + " " + T.of + " " + order.length +
-      "  |  " + T.pair +
-      "  |  " + T.atr + ": " + ep.atr + " " + T.pips;
-
-    progress.textContent =
-      T.stats_wins + ": " + stats.wins +
-      "  " + T.stats_losses + ": " + stats.losses +
-      "  " + T.stats_skips + ": " + stats.skips;
-
-    drawChart(canvas, ep, ep.ctx - 1, false);
+      " | " + ep.pair + " " + ep.tf +
+      " | " + T.atr + ": " + ep.atr + " " + T.pips;
+    document.getElementById("rp-hint").textContent = T.chooseDirection;
+    document.getElementById("rp-hint").className = "rp-hint";
+    document.getElementById("rp-start").disabled = true;
+    setControlsEnabled(true);
+    updateLevelUI();
+    updateProgress();
+    drawChart(ep, ep.ctx - 1, false, null);
   }
 
-  function choose(dir) {
-    if (dir === "skip") {
-      stats.skips++;
-      stats.trades++;
-      showResult(dir, 0);
-      return;
-    }
-    var stopInput = document.getElementById("rp-stop");
-    var stopErr = document.getElementById("rp-stop-err");
-    var s = parseInt(stopInput.value, 10);
-    if (!s || s < 1) {
-      stopErr.style.display = "inline";
-      return;
-    }
-    stopErr.style.display = "none";
-    action = dir;
-    stopPips = s;
-    setButtonsEnabled(false);
-    revealOutcome();
+  function chooseDirection(direction) {
+    if (running) return;
+    action = direction;
+    document.getElementById("rp-buy").classList.toggle(
+      "rp-active",
+      direction === "buy"
+    );
+    document.getElementById("rp-sell").classList.toggle(
+      "rp-active",
+      direction === "sell"
+    );
+    selectPlacement("entry");
+    setHint(T.clickLevel, false);
   }
 
-  function revealOutcome() {
-    var ep = episodes[order[idx]];
-    var canvas = document.getElementById("replay-canvas");
+  function selectPlacement(name) {
+    if (running) return;
+    placement = name;
+    ["entry", "sl", "tp"].forEach(function (level) {
+      document.getElementById("rp-level-" + level).classList.toggle(
+        "rp-active",
+        level === name
+      );
+    });
+  }
 
-    // Анимируем проигрыш свечей
-    var futureStart = ep.ctx;
-    var futureEnd = ep.k.length;
-    var current = futureStart;
+  function placeLevel(event) {
+    if (running) return;
+    if (!action) return setHint(T.chooseDirection, true);
+    if (!chartScale) return;
 
-    var entry = ep.base + ep.k[futureStart - 1][3] * ep.pip;
-    var sl = action === "buy"
-      ? entry - stopPips * ep.pip
-      : entry + stopPips * ep.pip;
-    var tp = action === "buy"
-      ? entry + stopPips * 2 * ep.pip   // RR 1:2
-      : entry - stopPips * 2 * ep.pip;
+    var rect = event.currentTarget.getBoundingClientRect();
+    var localY = event.clientY - rect.top;
+    var price = chartScale.price(localY, rect.height);
+    levels[placement] = roundToPip(price, currentEpisode().pip);
 
-    var hitResult = null;
-    var hitR = 0;
+    if (placement === "entry") selectPlacement("sl");
+    else if (placement === "sl") selectPlacement("tp");
+    updateLevelUI();
+    validateLevels(false);
+    drawChart(currentEpisode(), currentEpisode().ctx - 1, false, null);
+  }
+
+  function roundToPip(price, pip) {
+    return Math.round(price / pip) * pip;
+  }
+
+  function digits(ep) {
+    return ep.pip >= 0.01 ? 3 : 5;
+  }
+
+  function updateLevelUI() {
+    var ep = currentEpisode();
+    ["entry", "sl", "tp"].forEach(function (name) {
+      document.getElementById("rp-value-" + name).textContent =
+        levels[name] === null ? "--" : levels[name].toFixed(digits(ep));
+    });
+    document.getElementById("rp-buy").classList.toggle(
+      "rp-active",
+      action === "buy"
+    );
+    document.getElementById("rp-sell").classList.toggle(
+      "rp-active",
+      action === "sell"
+    );
+  }
+
+  function validationMessage() {
+    if (!action) return T.chooseDirection;
+    if (
+      levels.entry === null ||
+      levels.sl === null ||
+      levels.tp === null
+    ) return T.missingLevels;
+    if (Math.abs(levels.entry - levels.sl) < currentEpisode().pip) {
+      return T.minStop;
+    }
+    if (
+      action === "buy" &&
+      !(levels.sl < levels.entry && levels.entry < levels.tp)
+    ) return T.invalidBuy;
+    if (
+      action === "sell" &&
+      !(levels.tp < levels.entry && levels.entry < levels.sl)
+    ) return T.invalidSell;
+    return "";
+  }
+
+  function validateLevels(showError) {
+    var message = validationMessage();
+    document.getElementById("rp-start").disabled = Boolean(message);
+    if (message) {
+      setHint(showError ? message : T.preview, showError);
+      return false;
+    }
+    setHint(T.preview, false);
+    return true;
+  }
+
+  function setHint(message, isError) {
+    var hint = document.getElementById("rp-hint");
+    hint.textContent = message;
+    hint.className = "rp-hint" + (isError ? " rp-error" : "");
+  }
+
+  function skipEpisode() {
+    if (running) return;
+    stats.skips++;
+    stats.history.push(historyItem("skip", 0));
+    setControlsEnabled(false);
+    showResult("skip", 0);
+  }
+
+  function startReplay() {
+    if (!validateLevels(true)) return;
+    running = true;
+    setControlsEnabled(false);
+    replayFuture();
+  }
+
+  function replayFuture() {
+    var ep = currentEpisode();
+    var current = ep.ctx;
+    var entered = false;
+    var result = null;
+    var resultR = 0;
+    var risk = Math.abs(levels.entry - levels.sl);
 
     function step() {
-      if (current >= futureEnd || hitResult) {
-        // Итог
-        if (!hitResult) {
-          // Не дошли до SL/TP — незакрытая позиция: считаем по последней цене
-          var lastClose = ep.base + ep.k[futureEnd - 1][3] * ep.pip;
-          var pnlPips = action === "buy"
-            ? (lastClose - entry) / ep.pip
-            : (entry - lastClose) / ep.pip;
-          hitR = pnlPips / stopPips;
-          hitResult = hitR >= 0 ? "win" : "loss";
+      if (current >= ep.k.length || result) {
+        if (!entered) {
+          stats.skips++;
+          stats.history.push(historyItem("not_triggered", 0));
+          drawChart(ep, ep.k.length - 1, true, "not_triggered");
+          showResult("not_triggered", 0);
+          return;
         }
-        stats.trades++;
-        if (hitResult === "win") stats.wins++;
-        else stats.losses++;
-        stats.totalR += hitR;
-        drawChart(canvas, ep, futureEnd - 1, true, entry, sl, tp, hitResult);
-        showResult(hitResult, hitR);
+        if (!result) {
+          var lastClose = price(ep, ep.k[ep.k.length - 1][3]);
+          resultR = action === "buy"
+            ? (lastClose - levels.entry) / risk
+            : (levels.entry - lastClose) / risk;
+          result = resultR >= 0 ? "win" : "loss";
+        }
+        recordTrade(result, resultR);
+        drawChart(ep, ep.k.length - 1, true, result);
+        showResult(result, resultR);
         return;
       }
 
-      drawChart(canvas, ep, current, false, entry, sl, tp, null);
-
-      // Проверяем хит на этой свече
-      var c = ep.k[current];
-      var high = ep.base + c[1] * ep.pip;
-      var low  = ep.base + c[2] * ep.pip;
-
-      if (action === "buy") {
-        if (low <= sl) { hitResult = "loss"; hitR = -1; }
-        else if (high >= tp) { hitResult = "win"; hitR = 2; }
-      } else {
-        if (high >= sl) { hitResult = "loss"; hitR = -1; }
-        else if (low <= tp) { hitResult = "win"; hitR = 2; }
+      var candle = ep.k[current];
+      var high = price(ep, candle[1]);
+      var low = price(ep, candle[2]);
+      if (!entered && low <= levels.entry && high >= levels.entry) {
+        entered = true;
+      }
+      if (entered) {
+        if (action === "buy") {
+          if (low <= levels.sl) {
+            result = "loss";
+            resultR = -1;
+          } else if (high >= levels.tp) {
+            result = "win";
+            resultR = (levels.tp - levels.entry) / risk;
+          }
+        } else if (high >= levels.sl) {
+          result = "loss";
+          resultR = -1;
+        } else if (low <= levels.tp) {
+          result = "win";
+          resultR = (levels.entry - levels.tp) / risk;
+        }
       }
 
+      drawChart(ep, current, true, result);
       current++;
-      setTimeout(step, 120);
+      window.setTimeout(step, 80);
     }
-
     step();
   }
 
-  function showResult(type, r) {
-    var el = document.getElementById("rp-result");
+  function recordTrade(result, resultR) {
+    stats.trades++;
+    if (result === "win") stats.wins++;
+    else stats.losses++;
+    stats.totalR += resultR;
+    stats.history.push(historyItem(result, resultR));
+  }
+
+  function historyItem(result, resultR) {
+    var ep = currentEpisode();
+    return {
+      id: ep.id,
+      pair: ep.pair,
+      tf: ep.tf,
+      cat: ep.cat,
+      result: result,
+      r: Number(resultR.toFixed(2)),
+      action: action || "skip",
+      entry: levels.entry,
+      sl: levels.sl,
+      tp: levels.tp,
+    };
+  }
+
+  function showResult(type, resultR) {
+    var element = document.getElementById("rp-result");
     var isLast = idx >= order.length - 1;
-
-    var rText = r !== 0 ? " (" + (r > 0 ? "+" : "") + r.toFixed(1) + "R)" : "";
-    var cls = type === "win" ? "rp-result-win" : type === "loss" ? "rp-result-loss" : "rp-result-skip";
-    var label = type === "win" ? T.result_win : type === "loss" ? T.result_loss : T.result_skip;
-    var nextLabel = isLast ? T.finish : T.next;
-
-    el.className = "rp-result " + cls;
-    el.innerHTML =
+    var label = type === "win"
+      ? T.win
+      : type === "loss"
+        ? T.loss
+        : type === "not_triggered"
+          ? T.notTriggered
+          : T.skipped;
+    var className = type === "win"
+      ? "rp-result-win"
+      : type === "loss"
+        ? "rp-result-loss"
+        : "rp-result-skip";
+    var rText = type === "win" || type === "loss"
+      ? " (" + (resultR > 0 ? "+" : "") + resultR.toFixed(2) + "R)"
+      : "";
+    element.className = "rp-result " + className;
+    element.innerHTML =
       label + rText +
-      '&nbsp;&nbsp;<button class="rp-btn rp-next" id="rp-next">' + nextLabel + "</button>";
-    el.style.display = "block";
-
+      ' <button class="rp-btn rp-next" id="rp-next">' +
+      (isLast ? T.finish : T.next) + "</button>";
+    element.style.display = "block";
     document.getElementById("rp-next").addEventListener("click", function () {
-      if (isLast) {
-        showStats();
-      } else {
+      if (isLast) showStats();
+      else {
         idx++;
         showEpisode();
       }
     });
+    updateProgress();
+  }
+
+  function updateProgress() {
+    var progress = document.getElementById("rp-progress");
+    if (!progress) return;
+    progress.textContent =
+      T.wins + ": " + stats.wins + " | " +
+      T.losses + ": " + stats.losses + " | " +
+      T.skips + ": " + stats.skips;
+  }
+
+  function categoryStats() {
+    var result = {};
+    stats.history.forEach(function (item) {
+      if (item.result !== "win" && item.result !== "loss") return;
+      if (!result[item.cat]) {
+        result[item.cat] = { trades: 0, losses: 0, totalR: 0 };
+      }
+      result[item.cat].trades++;
+      if (item.result === "loss") result[item.cat].losses++;
+      result[item.cat].totalR += item.r;
+    });
+    Object.keys(result).forEach(function (cat) {
+      result[cat].avgR = result[cat].totalR / result[cat].trades;
+    });
+    return result;
+  }
+
+  function weakestCategory(categories) {
+    var keys = Object.keys(categories);
+    if (!keys.length) return "";
+    keys.sort(function (a, b) {
+      return categories[a].avgR - categories[b].avgR;
+    });
+    return categories[keys[0]].avgR < 0 ? keys[0] : "";
+  }
+
+  function categoryLabel(cat) {
+    return cat ? T["cat_" + cat] : T.noWeak;
   }
 
   function showStats() {
-    var wr = stats.trades > 0 ? Math.round((stats.wins / stats.trades) * 100) : 0;
-    var avgR = stats.trades - stats.skips > 0
-      ? (stats.totalR / (stats.trades - stats.skips)).toFixed(2)
+    var wr = stats.trades
+      ? Math.round((stats.wins / stats.trades) * 100)
+      : 0;
+    var avgR = stats.trades
+      ? (stats.totalR / stats.trades).toFixed(2)
       : "0.00";
+    var categories = categoryStats();
+    var weakCategory = weakestCategory(categories);
+    var errors = stats.history.filter(function (item) {
+      return item.result === "loss";
+    });
 
     CONTAINER.innerHTML = [
       '<div class="rp-stats">',
-      "  <h3>" + T.stats_title + "</h3>",
-      '  <div class="rp-stats-grid">',
-      stat(stats.trades, T.stats_trades),
-      stat(stats.wins, T.stats_wins),
-      stat(stats.losses, T.stats_losses),
-      stat(stats.skips, T.stats_skips),
-      stat(wr + "%", T.stats_wr),
-      stat(avgR + "R", T.stats_rr),
-      "  </div>",
-      '  <button class="rp-btn rp-next" id="rp-restart" style="margin-top:1rem">' + T.restart + "</button>",
+      "<h3>" + T.stats + "</h3>",
+      '<div class="rp-stats-grid">',
+      stat(stats.trades, T.trades),
+      stat(stats.wins, T.wins),
+      stat(stats.losses, T.losses),
+      stat(stats.skips, T.skips),
+      stat(wr + "%", T.winrate),
+      stat(avgR + "R", T.avgR),
+      "</div>",
+      '<div class="rp-weak"><strong>' + T.weak + ":</strong> " +
+        categoryLabel(weakCategory) + "<br>" +
+        T.errors + ": " + errors.length + "</div>",
+      '<div class="rp-controls">',
+      '<button class="rp-btn rp-next" id="rp-restart">' + T.restart + "</button>",
+      errors.length
+        ? '<button class="rp-btn rp-sell" id="rp-repeat">' +
+          T.repeat + "</button>"
+        : "",
+      "</div>",
       "</div>",
     ].join("");
 
+    saveStats(wr, avgR, categories, weakCategory, errors);
     document.getElementById("rp-restart").addEventListener("click", function () {
-      stats = { trades: 0, wins: 0, losses: 0, skips: 0, totalR: 0 };
+      stats = newStats();
+      repeatQueue = null;
       idx = 0;
-      for (var i = order.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = order[i]; order[i] = order[j]; order[j] = tmp;
-      }
       buildUI();
     });
-
-    // Сохранить в localStorage
-    try {
-      localStorage.setItem("forex_replay_stats", JSON.stringify({
-        trades: stats.trades, wins: stats.wins, losses: stats.losses,
-        totalR: stats.totalR, wr: wr, avgR: avgR,
-        date: new Date().toISOString().slice(0, 10),
-      }));
-    } catch (e) {}
+    if (errors.length) {
+      document.getElementById("rp-repeat").addEventListener(
+        "click",
+        function () { repeatErrors(errors); }
+      );
+    }
   }
 
-  function stat(val, label) {
-    return '<div class="rp-stat"><div class="rp-stat-val">' + val +
+  function repeatErrors(errors) {
+    var ids = {};
+    errors.forEach(function (item) { ids[item.id] = true; });
+    repeatQueue = allEpisodes.filter(function (ep) { return ids[ep.id]; });
+    stats = newStats();
+    idx = 0;
+    buildUI();
+    order = shuffle(repeatQueue);
+    showEpisode();
+  }
+
+  function saveStats(wr, avgR, categories, weakCategory, errors) {
+    try {
+      localStorage.setItem("forex_replay_stats", JSON.stringify({
+        version: 2,
+        trades: stats.trades,
+        wins: stats.wins,
+        losses: stats.losses,
+        skips: stats.skips,
+        totalR: Number(stats.totalR.toFixed(2)),
+        wr: wr,
+        avgR: avgR,
+        categories: categories,
+        weakCategory: weakCategory,
+        errors: errors.map(function (item) { return item.id; }),
+        date: new Date().toISOString().slice(0, 10),
+      }));
+    } catch (error) {
+      // localStorage can be disabled; Replay itself should still work.
+    }
+  }
+
+  function stat(value, label) {
+    return '<div class="rp-stat"><div class="rp-stat-val">' + value +
       '</div><div class="rp-stat-lbl">' + label + "</div></div>";
   }
 
-  function setButtonsEnabled(on) {
-    ["rp-buy", "rp-sell", "rp-skip"].forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) el.disabled = !on;
+  function setControlsEnabled(enabled) {
+    [
+      "rp-buy",
+      "rp-sell",
+      "rp-skip",
+      "rp-level-entry",
+      "rp-level-sl",
+      "rp-level-tp",
+    ].forEach(function (id) {
+      var element = document.getElementById(id);
+      if (element) element.disabled = !enabled;
     });
-    var stopEl = document.getElementById("rp-stop");
-    if (stopEl) stopEl.disabled = !on;
+    var canvas = document.getElementById("replay-canvas");
+    if (canvas) canvas.style.cursor = enabled ? "crosshair" : "default";
+    ["rp-pair", "rp-tf"].forEach(function (id) {
+      var select = document.getElementById(id);
+      if (select) select.disabled = !enabled;
+    });
   }
 
-  /* ── Canvas Chart ── */
-  var BULL_COLOR  = "#2dd4bf";
-  var BEAR_COLOR  = "#f87171";
-  var SL_COLOR    = "#f87171";
-  var TP_COLOR    = "#2dd4bf";
-  var ENTRY_COLOR = "#facc15";
-  var FUTURE_ALPHA = 0.5;
-  var PAD = { top: 20, right: 16, bottom: 20, left: 52 };
+  var COLORS = {
+    bull: "#2dd4bf",
+    bear: "#f87171",
+    entry: "#facc15",
+    sl: "#f87171",
+    tp: "#2dd4bf",
+  };
+  var PAD = { top: 20, right: 16, bottom: 22, left: 58 };
 
-  function drawChart(canvas, ep, upTo, showFuture, entry, sl, tp, outcome) {
+  function price(ep, pipValue) {
+    return ep.base + pipValue * ep.pip;
+  }
+
+  function drawChart(ep, upTo, showFuture, outcome) {
+    var canvas = document.getElementById("replay-canvas");
+    if (!canvas) return;
     var dpr = window.devicePixelRatio || 1;
-    var w = canvas.offsetWidth || 640;
-    canvas.width  = w * dpr;
-    canvas.height = 300 * dpr;
-    var ctx = canvas.getContext("2d");
-    ctx.scale(dpr, dpr);
+    var width = canvas.offsetWidth || 760;
+    var height = canvas.offsetHeight || 340;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    var context = canvas.getContext("2d");
+    context.scale(dpr, dpr);
 
-    var cw = w;
-    var ch = 300;
-
-    // Диапазон свечей для отрисовки
-    var from = Math.max(0, upTo - ep.ctx + 1);
-    var to   = showFuture ? ep.k.length - 1 : upTo;
-    var slice = ep.k.slice(from, to + 1);
-
-    // Определить min/max
-    var minP = Infinity, maxP = -Infinity;
-    slice.forEach(function (c) {
-      minP = Math.min(minP, c[2]);
-      maxP = Math.max(maxP, c[1]);
+    var candles = ep.k.slice(0, upTo + 1);
+    var minPips = Infinity;
+    var maxPips = -Infinity;
+    candles.forEach(function (candle) {
+      minPips = Math.min(minPips, candle[2]);
+      maxPips = Math.max(maxPips, candle[1]);
     });
-    if (sl !== undefined) {
-      minP = Math.min(minP, Math.round((sl - ep.base) / ep.pip));
-      maxP = Math.max(maxP, Math.round((tp - ep.base) / ep.pip));
+    if (!showFuture && levels.entry !== null) {
+      ["entry", "sl", "tp"].forEach(function (name) {
+        if (levels[name] === null) return;
+        var value = (levels[name] - ep.base) / ep.pip;
+        minPips = Math.min(minPips, value);
+        maxPips = Math.max(maxPips, value);
+      });
     }
-    var range = maxP - minP || 1;
-    var pad = range * 0.1;
-    minP -= pad; maxP += pad;
+    var range = maxPips - minPips || 10;
+    minPips -= range * 0.12;
+    maxPips += range * 0.12;
 
-    function y(pipVal) {
-      return PAD.top + (ch - PAD.top - PAD.bottom) * (1 - (pipVal - minP) / (maxP - minP));
+    function y(pipValue) {
+      return PAD.top +
+        (height - PAD.top - PAD.bottom) *
+        (1 - (pipValue - minPips) / (maxPips - minPips));
     }
-    var barW = Math.max(2, (cw - PAD.left - PAD.right) / slice.length - 1);
-    var x0 = PAD.left;
+    chartScale = {
+      price: function (pixelY, renderedHeight) {
+        var scaledY = pixelY * (height / renderedHeight);
+        var ratio = (scaledY - PAD.top) /
+          (height - PAD.top - PAD.bottom);
+        var pipValue = maxPips - ratio * (maxPips - minPips);
+        return price(ep, pipValue);
+      },
+    };
 
-    // Фон
-    ctx.fillStyle = "#0d1117";
-    ctx.fillRect(0, 0, cw, ch);
+    context.fillStyle = "#0d1117";
+    context.fillRect(0, 0, width, height);
+    drawGrid(context, ep, width, height, minPips, maxPips, y);
 
-    // Сетка
-    ctx.strokeStyle = "#21262d";
-    ctx.lineWidth = 1;
-    for (var g = 0; g <= 4; g++) {
-      var gy = PAD.top + ((ch - PAD.top - PAD.bottom) * g) / 4;
-      ctx.beginPath(); ctx.moveTo(PAD.left, gy); ctx.lineTo(cw - PAD.right, gy); ctx.stroke();
-      var pVal = maxP - ((maxP - minP) * g) / 4;
-      ctx.fillStyle = "#6b7280";
-      ctx.font = "10px monospace";
-      ctx.fillText((ep.base + pVal * ep.pip).toFixed(4), 0, gy + 4);
-    }
-
-    // Линии SL/TP/Entry
-    if (entry !== undefined) {
-      var entryPips = Math.round((entry - ep.base) / ep.pip);
-      var slPips    = Math.round((sl    - ep.base) / ep.pip);
-      var tpPips    = Math.round((tp    - ep.base) / ep.pip);
-      drawHLine(ctx, y(entryPips), PAD.left, cw - PAD.right, ENTRY_COLOR, "- - -", "Entry");
-      drawHLine(ctx, y(slPips),    PAD.left, cw - PAD.right, SL_COLOR,    ".",     "SL");
-      drawHLine(ctx, y(tpPips),    PAD.left, cw - PAD.right, TP_COLOR,    ".",     "TP");
-    }
-
-    // Свечи
-    slice.forEach(function (c, i) {
-      var isFuture = (from + i) >= ep.ctx;
-      var isBull = c[3] >= c[0];
-      var baseColor = isBull ? BULL_COLOR : BEAR_COLOR;
-      ctx.globalAlpha = isFuture ? FUTURE_ALPHA : 1;
-      ctx.strokeStyle = baseColor;
-      ctx.fillStyle   = baseColor;
-      ctx.lineWidth   = 1;
-
-      var cx = x0 + i * (barW + 1) + barW / 2;
-      // Тень
-      ctx.beginPath();
-      ctx.moveTo(cx, y(c[1]));
-      ctx.lineTo(cx, y(c[2]));
-      ctx.stroke();
-      // Тело
-      var oy = y(Math.max(c[0], c[3]));
-      var cy_h = Math.max(1, Math.abs(y(c[0]) - y(c[3])));
-      ctx.fillRect(x0 + i * (barW + 1), oy, barW, cy_h);
+    var chartWidth = width - PAD.left - PAD.right;
+    var barStep = chartWidth / Math.max(candles.length, ep.k.length);
+    var barWidth = Math.max(2, barStep - 1);
+    candles.forEach(function (candle, index) {
+      var future = index >= ep.ctx;
+      var bullish = candle[3] >= candle[0];
+      context.globalAlpha = future ? 0.58 : 1;
+      context.strokeStyle = bullish ? COLORS.bull : COLORS.bear;
+      context.fillStyle = context.strokeStyle;
+      var x = PAD.left + index * barStep + barStep / 2;
+      context.beginPath();
+      context.moveTo(x, y(candle[1]));
+      context.lineTo(x, y(candle[2]));
+      context.stroke();
+      var bodyTop = y(Math.max(candle[0], candle[3]));
+      var bodyHeight = Math.max(1, Math.abs(y(candle[0]) - y(candle[3])));
+      context.fillRect(x - barWidth / 2, bodyTop, barWidth, bodyHeight);
     });
+    context.globalAlpha = 1;
 
-    ctx.globalAlpha = 1;
-
-    // Метка разделителя (где кончается история)
+    drawLevels(context, ep, width, y);
     if (showFuture) {
-      var sepX = x0 + ep.ctx * (barW + 1);
-      ctx.strokeStyle = "#facc15";
-      ctx.lineWidth = 1.5;
-      ctx.setLineDash([4, 3]);
-      ctx.beginPath(); ctx.moveTo(sepX, PAD.top); ctx.lineTo(sepX, ch - PAD.bottom); ctx.stroke();
-      ctx.setLineDash([]);
+      var divider = PAD.left + ep.ctx * barStep;
+      context.strokeStyle = COLORS.entry;
+      context.setLineDash([5, 4]);
+      context.beginPath();
+      context.moveTo(divider, PAD.top);
+      context.lineTo(divider, height - PAD.bottom);
+      context.stroke();
+      context.setLineDash([]);
     }
-
-    // Бейдж результата
-    if (outcome) {
-      ctx.fillStyle = outcome === "win" ? BULL_COLOR : BEAR_COLOR;
-      ctx.font = "bold 13px sans-serif";
-      ctx.fillText(outcome === "win" ? "✓ WIN" : "✗ LOSS", cw - 70, 36);
+    if (outcome === "win" || outcome === "loss") {
+      context.fillStyle = outcome === "win" ? COLORS.bull : COLORS.bear;
+      context.font = "bold 13px sans-serif";
+      context.fillText(
+        outcome === "win" ? "WIN" : "LOSS",
+        width - 62,
+        36
+      );
     }
   }
 
-  function drawHLine(ctx, yPos, x1, x2, color, dash, label) {
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1;
-    ctx.setLineDash(dash === "- - -" ? [6, 3] : [2, 2]);
-    ctx.beginPath();
-    ctx.moveTo(x1, yPos);
-    ctx.lineTo(x2, yPos);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.fillStyle = color;
-    ctx.font = "10px monospace";
-    ctx.fillText(label, x2 - 28, yPos - 3);
+  function drawGrid(context, ep, width, height, minPips, maxPips, y) {
+    context.strokeStyle = "#21262d";
+    context.lineWidth = 1;
+    for (var index = 0; index <= 4; index++) {
+      var pipValue = maxPips - ((maxPips - minPips) * index) / 4;
+      var lineY = y(pipValue);
+      context.beginPath();
+      context.moveTo(PAD.left, lineY);
+      context.lineTo(width - PAD.right, lineY);
+      context.stroke();
+      context.fillStyle = "#6b7280";
+      context.font = "10px monospace";
+      context.fillText(
+        price(ep, pipValue).toFixed(digits(ep)),
+        2,
+        Math.min(height - 3, lineY + 4)
+      );
+    }
+  }
+
+  function drawLevels(context, ep, width, y) {
+    ["entry", "sl", "tp"].forEach(function (name) {
+      if (levels[name] === null) return;
+      var pipValue = (levels[name] - ep.base) / ep.pip;
+      context.strokeStyle = COLORS[name];
+      context.fillStyle = COLORS[name];
+      context.lineWidth = name === "entry" ? 1.5 : 1;
+      context.setLineDash(name === "entry" ? [6, 3] : [2, 2]);
+      context.beginPath();
+      context.moveTo(PAD.left, y(pipValue));
+      context.lineTo(width - PAD.right, y(pipValue));
+      context.stroke();
+      context.setLineDash([]);
+      context.font = "10px monospace";
+      context.fillText(
+        name.toUpperCase(),
+        width - PAD.right - 34,
+        y(pipValue) - 3
+      );
+    });
   }
 })();

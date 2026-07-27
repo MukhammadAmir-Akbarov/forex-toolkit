@@ -1656,6 +1656,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../extras/dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🧭 Личный кабинет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../extras/checklist-printable/" class="md-nav__link">
         
   
@@ -3272,9 +3300,10 @@
 <h1 id="-тренажёр-replay--торгуй-прошлым-рынком">🎮 Тренажёр Replay — торгуй прошлым рынком<a class="headerlink" href="#-тренажёр-replay--торгуй-прошлым-рынком" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Что это такое</p>
-<p>Тренажёр показывает <strong>реальные свечи EURUSD H1</strong> из архива — ты видишь историю
-до точки X, принимаешь решение (Buy / Sell / Пропустить) и выставляешь стоп-лосс.
-Затем виджет доигрывает будущие свечи и показывает результат в <strong>R-кратном</strong>.</p>
+<p>Тренажёр показывает реальные архивные свечи <strong>EURUSD, GBPUSD, USDJPY и
+EURJPY</strong> на <strong>H1 и D1</strong>. Ты выбираешь рынок, направление и ставишь
+<strong>Entry / <abbr title="Stop Loss — ордер, автоматически закрывающий сделку при убытке.">SL</abbr> / <abbr title="Take Profit — ордер, фиксирующий прибыль на заданном уровне.">TP</abbr> прямо на графике</strong>. Затем виджет доигрывает будущие свечи
+и показывает результат в <strong>R-кратном</strong>.</p>
 <p><strong>R-кратное = прибыль / размер стопа.</strong> Твоя цель: стабильно получать +R
 (тейк-профит 2R, стоп 1R → отношение 1:2).</p>
 </div>
@@ -3282,9 +3311,9 @@
 <p class="admonition-title">Как тренироваться правильно</p>
 <ol>
 <li>Смотри только на свечи — не думай «это уже было…»</li>
-<li>Выставляй стоп <strong>до</strong> нажатия Buy/Sell — это обязательное условие</li>
-<li>Цель не угадать, а принять решение по <strong>своим правилам</strong></li>
-<li>После 20 эпизодов сравни свою статистику с ожидаемым EV</li>
+<li>Выбери Buy/Sell, затем по очереди кликни уровни Entry, <abbr title="Stop Loss — ордер, автоматически закрывающий сделку при убытке.">SL</abbr> и <abbr title="Take Profit — ордер, фиксирующий прибыль на заданном уровне.">TP</abbr></li>
+<li>Проверь порядок уровней и только потом запускай Replay</li>
+<li>После сессии повтори убыточные эпизоды отдельной кнопкой</li>
 </ol>
 </div>
 <div class="admonition warning">
@@ -3325,21 +3354,21 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Статистика сохраняется в браузере</p>
-<p>Результаты каждой сессии хранятся в <code>localStorage</code>. При следующем визите
-прогресс не сохраняется — каждая сессия начинается с нуля.</p>
+<p>Итог сессии, слабая категория рынка и список ошибочных эпизодов сохраняются
+в <code>localStorage</code>. Личный кабинет использует их для следующей рекомендации.</p>
 </div>
 <hr />
 <h2 id="пересобрать-набор-эпизодов">Пересобрать набор эпизодов<a class="headerlink" href="#пересобрать-набор-эпизодов" title="Permanent link">&para;</a></h2>
 <p>Эпизоды сгенерированы скриптом <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/replay_cutter.py"><code>tools/replay_cutter.py</code></a>
 из архива <code>data/EURUSD_1h.csv</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>tools/replay_cutter.py<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--pair<span class="w"> </span>EURUSD<span class="w"> </span>--tf<span class="w"> </span>1h<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--episodes<span class="w"> </span><span class="m">20</span><span class="w"> </span>--context<span class="w"> </span><span class="m">30</span><span class="w"> </span>--outcome<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--output<span class="w"> </span>_mkdocs/data/replay-episodes.json
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--pairs<span class="w"> </span>EURUSD,GBPUSD,USDJPY,EURJPY<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--timeframes<span class="w"> </span>1h,1d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--episodes<span class="w"> </span><span class="m">6</span><span class="w"> </span>--context<span class="w"> </span><span class="m">30</span><span class="w"> </span>--outcome<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>--output<span class="w"> </span>_mkdocs/data/replay-episodes.json
 </code></pre></div>
-<p>Флаги <code>--context</code> (свечей истории) и <code>--outcome</code> (свечей будущего) можно менять.
-Скрипт автоматически балансирует категории: ≈1/3 восходящий тренд,
-1/3 нисходящий, 1/3 флэт.</p>
+<p><code>--episodes</code> задаёт число эпизодов <strong>на каждый рынок и таймфрейм</strong>. Скрипт
+правильно учитывает размер <abbr title="Минимальное изменение цены (4-й знак; для JPY-пар — 2-й).">пипса</abbr> JPY-пар и балансирует тренд/флэт.</p>
 <!-- RU-словарь подсказок терминов. Подставляется хуком hooks/glossary_tooltips.py
      на русские страницы. Ключи должны совпадать с тем, как слово написано в тексте. -->
 
@@ -3362,7 +3391,7 @@
     <span class="md-icon" title="Последнее обновление">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12 июня 2026 г. 17:28:28 UTC">12 июня 2026 г.</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="27 июля 2026 г. 14:55:19 UTC">27 июля 2026 г.</span>
   </span>
 
     
@@ -3575,6 +3604,10 @@
         <script src="../../javascripts/widgets/exam.js"></script>
       
         <script src="../../javascripts/widgets/journal.js"></script>
+      
+        <script src="../../javascripts/widgets/dashboard.js"></script>
+      
+        <script src="../../javascripts/widgets/replay.js"></script>
       
         <script src="../../javascripts/hero.js"></script>
       
