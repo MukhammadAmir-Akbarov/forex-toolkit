@@ -1,3 +1,7 @@
+---
+verified: 2026-08-05
+---
+
 # Communities and Resources for Traders from CIS / Uzbekistan
 
 > ⚠️ This list is general — specific groups and channels are constantly created and closed. Use it as a search guide. **Do not subscribe to paid "signals" — it is almost always a loss of money.**

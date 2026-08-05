@@ -167,6 +167,7 @@
       if (pct > prev) localStorage.setItem("forex_exam_best", String(pct));
       if (passed) localStorage.setItem("forex_exam_passed", "1");
     } catch (e) {}
+    if (window.fxTrack) window.fxTrack("exam_completed");
 
     var name = (el("exam-name").value || "").trim();
     var html =

@@ -1,3 +1,7 @@
+---
+verified: 2026-08-05
+---
+
 # 🧾 Soliq kalkulyatori (O'zbekiston)
 
 !!! abstract "Nima uchun kerak"
@@ -9,7 +13,7 @@
     Hisob **soddalashtirilgan va o'quv maqsadli**. Stavkalar va deklaratsiya tartibi o'zgarib turadi —
     dolzarb ma'lumotni [soliq.uz](https://soliq.uz) va shaxsiy kabinetingizda
     [my.soliq.uz](https://my.soliq.uz) tekshiring; katta summalar bo'lsa — buxgalterga murojaat qiling.
-    JShDS stavkasi 12% — tekshirildi 2026-06-11.
+    JShDS stavkasi 12% — tekshirildi 2026-08-05.
 
 ## Formula
 
@@ -173,6 +177,9 @@ So'mda           =  Summa ($) × USD→UZS kursi
 - **Qachon:** deklaratsiya — hisobot yilidan keyingi yilning **1 aprelgacha**.
 - **Qayerda:** [my.soliq.uz](https://my.soliq.uz) shaxsiy kabineti yoki soliq inspeksiyasi bo'limi.
 
+Rasmiy tekshiruv manbalari: Soliq qo'mitasining [2025 yil deklaratsiyasi haqidagi xabari](https://gov.uz/ru/soliq/news/view/144996)
+va [12% stavka bo'yicha tushuntirishi](https://gov.uz/ru/soliq/news/view/42496).
+
 ## Nima saqlash kerak (kamida 3 yil)
 
 - 📄 Brokerning yillik foyda/zarar hisoboti (statement).
@@ -181,8 +188,8 @@ So'mda           =  Summa ($) × USD→UZS kursi
 
 ## Qachon buxgalter kerak
 
-- Treyding daromadi **yiliga > $5 000**.
-- Asosiy ish joyi «oq» maoshi bilan bor → to'liq umumiy deklaratsiya kerak.
+- Bir nechta broker, valyuta yoki xorijiy daromad turi mavjud.
+- Qaysi xarajat va zararlarni hisobga olish mumkinligi noaniq.
 - To'ldirishga ishonchingiz yo'q yoki **soliq idorasidan so'rov** keldi.
 
 ## Misol

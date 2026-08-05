@@ -1,3 +1,7 @@
+---
+verified: 2026-08-05
+---
+
 # 🧾 Tax Calculator (Uzbekistan)
 
 !!! abstract "Why you need this"
@@ -9,7 +13,7 @@
     The calculation is **simplified and educational**. Rates and filing procedures change —
     always verify the current rules at [soliq.uz](https://soliq.uz) and in your personal
     account at [my.soliq.uz](https://my.soliq.uz); for large amounts consult an accountant.
-    NDFL rate 12% — verified as of 2026-06-11.
+    NDFL rate 12% — verified as of 2026-08-05.
 
 ## Formula
 
@@ -173,6 +177,9 @@ In UZS          =  Amount ($) × USD→UZS rate
 - **When:** tax return due **by April 1** of the year following the reporting year.
 - **Where:** personal account at [my.soliq.uz](https://my.soliq.uz) or a local tax office.
 
+Official verification sources: the [Tax Committee notice for the 2025 return](https://gov.uz/ru/soliq/news/view/144996)
+and its [12% rate explanation](https://gov.uz/ru/soliq/news/view/42496).
+
 ## What to keep (minimum 3 years)
 
 - 📄 Annual broker statement showing profit/loss.
@@ -181,8 +188,8 @@ In UZS          =  Amount ($) × USD→UZS rate
 
 ## When you need an accountant
 
-- Trading income **> $5,000 / year**.
-- You also have a formal salaried job → a combined tax return is required.
+- You have several brokers, currencies, or types of foreign income.
+- It is unclear which costs and losses apply in your situation.
 - You are unsure how to file or have received **a request from the tax authority**.
 
 ## Example

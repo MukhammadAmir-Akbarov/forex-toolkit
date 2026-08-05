@@ -1,3 +1,7 @@
+---
+verified: 2026-08-05
+---
+
 # MDT va resurslar: MDH / O'zbekiston treyderlari uchun
 
 > ⚠️ Ro'yxat umumiy xarakterda; guruhlar va kanallar doimiy ravishda ochiladi va yopiladi. Qidiruv uchun yo'naltiruvchi sifatida foydalaning. **Pullik «signal»larga obuna bo'lmang — deyarli har doim bu pul yo'qotish demak.**

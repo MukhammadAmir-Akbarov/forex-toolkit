@@ -14,10 +14,12 @@ from dataclasses import dataclass
 # чтобы скрипт работал и без установки пакета).
 try:
     from forex_toolkit.fx_math import calc_lots
+    from forex_toolkit.risk_exposure import allocate_risk
 except ModuleNotFoundError:  # запуск скрипта без установки пакета
     from pathlib import Path as _Path
     sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
     from forex_toolkit.fx_math import calc_lots
+    from forex_toolkit.risk_exposure import allocate_risk
 
 
 @dataclass
@@ -52,14 +54,11 @@ def main() -> int:
     n = len(trades)
     total_risk_usd = args.deposit * args.total_risk / 100
 
-    if args.allocation == "equal":
-        per_trade = total_risk_usd / n
-        allocations = [per_trade] * n
-    else:
-        # Weighted: больше риска на сделки с меньшим стопом
-        weights = [1 / t.stop_pips for t in trades]
-        total_w = sum(weights)
-        allocations = [total_risk_usd * w / total_w for w in weights]
+    allocations = allocate_risk(
+        total_risk_usd,
+        [trade.stop_pips for trade in trades],
+        args.allocation,
+    )
 
     print(f"\n  Депозит:           ${args.deposit:,.2f}")
     print(f"  Общий риск:        {args.total_risk}% = ${total_risk_usd:.2f}")

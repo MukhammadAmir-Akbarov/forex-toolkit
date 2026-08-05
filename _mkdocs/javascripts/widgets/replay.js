@@ -740,6 +740,7 @@
     } catch (error) {
       // localStorage can be disabled; Replay itself should still work.
     }
+    if (window.fxTrack) window.fxTrack("replay_completed");
   }
 
   function stat(value, label) {

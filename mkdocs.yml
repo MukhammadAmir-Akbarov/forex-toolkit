@@ -25,6 +25,8 @@ extra_css:
   - stylesheets/calculators.css
 
 extra_javascript:
+  - javascripts/analytics.js
+  - javascripts/offline.js
   - javascripts/reading.js
   - javascripts/progress.js
   # Мелкие правки доступности (имя для диалога поиска) — Lighthouse a11y.
@@ -48,6 +50,9 @@ extra_javascript:
   - javascripts/widgets/journal.js
   - javascripts/widgets/dashboard.js
   - javascripts/widgets/replay.js
+  - javascripts/widgets/risk-exposure.js
+  - javascripts/widgets/trade-desk.js
+  - javascripts/widgets/monte-carlo.js
   - javascripts/hero.js
 
 plugins:
@@ -89,6 +94,8 @@ plugins:
             "🗺️ Дорожная карта обучения": "🗺️ Learning roadmap"
             "Как пользоваться": "How to use"
             "ℹ️ О проекте": "ℹ️ About"
+            "Приватность": "Privacy"
+            "Offline-режим": "Offline mode"
             "Главный учебник": "Main handbook"
             "Технический анализ": "Technical analysis"
             "Учебная стратегия": "Sample strategy"
@@ -143,6 +150,9 @@ plugins:
             "📈 Сложный процент": "📈 Compound interest"
             "📊 WinRate × RR": "📊 WinRate × RR"
             "💸 Стоимость торговли": "💸 Trading cost"
+            "🧮 Совокупный риск": "🧮 Aggregate risk"
+            "✅ Перед сделкой": "✅ Pre-trade desk"
+            "🎲 Monte Carlo": "🎲 Monte Carlo"
             "🎴 Тренажёр карточек": "🎴 Flashcards"
             "🎯 Квиз — готов к реалу?": "🎯 Quiz — ready for real?"
             "🎲 Риск разорения": "🎲 Risk of ruin"
@@ -182,6 +192,8 @@ plugins:
             "🗺️ Дорожная карта обучения": "🗺️ O'quv yo'l xaritasi"
             "Как пользоваться": "Qanday foydalanish"
             "ℹ️ О проекте": "ℹ️ Loyiha haqida"
+            "Приватность": "Maxfiylik"
+            "Offline-режим": "Offline rejim"
             "Главный учебник": "Asosiy darslik"
             "Технический анализ": "Texnik tahlil"
             "Учебная стратегия": "O'quv strategiyasi"
@@ -236,6 +248,9 @@ plugins:
             "📈 Сложный процент": "📈 Murakkab foiz"
             "📊 WinRate × RR": "📊 WinRate × RR"
             "💸 Стоимость торговли": "💸 Savdo xarajati"
+            "🧮 Совокупный риск": "🧮 Umumiy risk"
+            "✅ Перед сделкой": "✅ Savdodan oldin"
+            "🎲 Monte Carlo": "🎲 Monte Carlo"
             "🎴 Тренажёр карточек": "🎴 Kartochka mashqi"
             "🎯 Квиз — готов к реалу?": "🎯 Kviz — real hisobga tayyormisan?"
             "🎲 Риск разорения": "🎲 Vayron bo'lish xavfi"
@@ -339,6 +354,8 @@ nav:
       - 🗺️ Дорожная карта обучения: roadmap.md
       - Как пользоваться: КАК-ПОЛЬЗОВАТЬСЯ.md
       - ℹ️ О проекте: about.md
+      - Приватность: privacy.md
+      - Offline-режим: offline.md
       - Главный учебник: forex-guide.md
   - 📚 Углублённо:
       - Технический анализ: docs/technical-analysis.md
@@ -390,6 +407,9 @@ nav:
       - 📈 Сложный процент: tools/compound-calculator.md
       - 📊 WinRate × RR: tools/winrate-rr-calculator.md
       - 💸 Стоимость торговли: tools/cost-calculator.md
+      - 🧮 Совокупный риск: tools/risk-exposure-calculator.md
+      - ✅ Перед сделкой: tools/trade-desk.md
+      - 🎲 Monte Carlo: tools/monte-carlo.md
       - 🎴 Тренажёр карточек: tools/flashcards.md
       - "🎯 Квиз — готов к реалу?": tools/quiz.md
       - 🎲 Риск разорения: tools/risk-of-ruin.md

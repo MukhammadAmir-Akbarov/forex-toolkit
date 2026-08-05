@@ -720,6 +720,9 @@
       setOptions();
       render();
       if (persist !== false) saveSource(String(text), name, isMT5 ? "mt5" : "csv");
+      if (persist !== false && window.fxTrack) {
+        window.fxTrack(name === T.demo ? "journal_demo_opened" : "journal_import_completed");
+      }
     } catch (e) {
       dashboard.style.display = "none";
       error.textContent = T.invalid;

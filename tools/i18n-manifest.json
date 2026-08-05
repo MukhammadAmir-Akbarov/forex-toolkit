@@ -302,6 +302,13 @@
       },
       "ru_sha256": "61cc6991c5f28734d70d2314d47d5949f863f005eccee81fdb2725e8aa18cb07"
     },
+    "offline.md": {
+      "locales": {
+        "en": "4e7de9f7ab9e11620aea3a68f02116980040fa821ca5f216e6554c9741b33b4a",
+        "uz": "4e7de9f7ab9e11620aea3a68f02116980040fa821ca5f216e6554c9741b33b4a"
+      },
+      "ru_sha256": "4e7de9f7ab9e11620aea3a68f02116980040fa821ca5f216e6554c9741b33b4a"
+    },
     "practice/README.md": {
       "locales": {
         "en": "04e3286362534203fc9eeec6e4a6844ba019a49d8080ca262c1c5ca327171f8b",
@@ -365,6 +372,13 @@
       },
       "ru_sha256": "1431f39927edabfb9f6bb71335de6516453677a73760f5812f423dc371be24a2"
     },
+    "privacy.md": {
+      "locales": {
+        "en": "72a443f6b31eb24ab096f1639ba25cc3772fef6b531a985a7d0495f5ed2a6463",
+        "uz": "72a443f6b31eb24ab096f1639ba25cc3772fef6b531a985a7d0495f5ed2a6463"
+      },
+      "ru_sha256": "72a443f6b31eb24ab096f1639ba25cc3772fef6b531a985a7d0495f5ed2a6463"
+    },
     "roadmap.md": {
       "locales": {
         "en": "93916f32da60700f683831c04db3805f6ebd977248f2c63630825944d81955a3",
@@ -414,6 +428,13 @@
       },
       "ru_sha256": "ea4adca897ed3ea3326d76d5d90624d246151cb44eeff2c36ce5aaff4906aabb"
     },
+    "tools/monte-carlo.md": {
+      "locales": {
+        "en": "0034ddc0989be89fa4a7c1baecc9254d1269a59ead0858e1e3ea133eb0236dd3",
+        "uz": "0034ddc0989be89fa4a7c1baecc9254d1269a59ead0858e1e3ea133eb0236dd3"
+      },
+      "ru_sha256": "0034ddc0989be89fa4a7c1baecc9254d1269a59ead0858e1e3ea133eb0236dd3"
+    },
     "tools/pip-calculator.md": {
       "locales": {
         "en": "794a14308910a26391bedf250aa913640d1f863fdca477286fb0f9b4bfc0f136",
@@ -442,12 +463,26 @@
       },
       "ru_sha256": "e6713b21e7c748b40765ffc78dba3056a6a6c64d9d1baf419e1ab6e560ed42a1"
     },
+    "tools/risk-exposure-calculator.md": {
+      "locales": {
+        "en": "c1773222981a0ff81b6436f781e61fab908895f9253f063e90a9ce0b04321d2e",
+        "uz": "c1773222981a0ff81b6436f781e61fab908895f9253f063e90a9ce0b04321d2e"
+      },
+      "ru_sha256": "c1773222981a0ff81b6436f781e61fab908895f9253f063e90a9ce0b04321d2e"
+    },
     "tools/risk-of-ruin.md": {
       "locales": {
         "en": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e",
         "uz": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e"
       },
       "ru_sha256": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e"
+    },
+    "tools/trade-desk.md": {
+      "locales": {
+        "en": "c0194ea96f8749e2d561f301fb0e67ff9391db929def8477796f2ac7f19b754b",
+        "uz": "c0194ea96f8749e2d561f301fb0e67ff9391db929def8477796f2ac7f19b754b"
+      },
+      "ru_sha256": "c0194ea96f8749e2d561f301fb0e67ff9391db929def8477796f2ac7f19b754b"
     },
     "tools/winrate-rr-calculator.md": {
       "locales": {
@@ -465,10 +500,10 @@
     },
     "uz/communities.md": {
       "locales": {
-        "en": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130",
-        "uz": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130"
+        "en": "1a766ff440da4cd9539503db67ad086f3ae366c8f1657ac238107a5b615e956c",
+        "uz": "1a766ff440da4cd9539503db67ad086f3ae366c8f1657ac238107a5b615e956c"
       },
-      "ru_sha256": "e4c90c598cc29a7afb08776ae41d17d0dd4b79af9e7e918e2a8857dc3aecf130"
+      "ru_sha256": "1a766ff440da4cd9539503db67ad086f3ae366c8f1657ac238107a5b615e956c"
     },
     "uz/forex-nima.md": {
       "locales": {
@@ -500,10 +535,10 @@
     },
     "uz/tax-calculator.md": {
       "locales": {
-        "en": "e37f6712dde0e02c33317a2172797bb1d5ad622bb172bdb9b744105579aab5c5",
-        "uz": "e37f6712dde0e02c33317a2172797bb1d5ad622bb172bdb9b744105579aab5c5"
+        "en": "820e541891a79849930f3710f6f071c2b86ca3bbe75b96d9736495664daf8afc",
+        "uz": "820e541891a79849930f3710f6f071c2b86ca3bbe75b96d9736495664daf8afc"
       },
-      "ru_sha256": "e37f6712dde0e02c33317a2172797bb1d5ad622bb172bdb9b744105579aab5c5"
+      "ru_sha256": "820e541891a79849930f3710f6f071c2b86ca3bbe75b96d9736495664daf8afc"
     },
     "uz/trading-vs-deposit.md": {
       "locales": {

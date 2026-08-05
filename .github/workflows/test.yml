@@ -123,9 +123,8 @@ jobs:
         run: python tools/check_translation_coverage.py
       - name: Translation drift (свежесть переводов)
         run: python tools/check_translation_drift.py --fail-on-drift
-      - name: Content freshness (информационно, не блокирует)
-        continue-on-error: true
-        run: python tools/check_freshness.py
+      - name: Content freshness
+        run: python tools/check_freshness.py --fail
       - name: mkdocs build --strict (битые ссылки и якоря валят сборку)
         run: mkdocs build --strict
       - name: Внутренние якоря (#fragment) ведут на существующие заголовки

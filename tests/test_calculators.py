@@ -93,17 +93,17 @@ class TestRiskExposure:
 
     def test_unknown_correlation(self):
         # Несуществующая пара → 0
-        c = get_correlation("XYZ", "ABC")
+        c = get_correlation("XAUUSD", "USDCAD")
         assert c == 0.0
 
     def test_effective_risk_increases_with_correlation(self):
         """Скоррелированные позиции в одну сторону увеличивают риск."""
-        single = [Position("EURUSD", "long", 5)]
         two_correlated = [
             Position("EURUSD", "long", 5),
             Position("GBPUSD", "long", 5),  # сильно скоррелированы
         ]
-        single_risk = effective_risk(single)
         correlated_risk = effective_risk(two_correlated)
-        # Скоррелированные в одну сторону → риск больше суммы
-        assert correlated_risk > single_risk * 2
+        # Сильная корреляция повышает риск относительно независимых позиций,
+        # но ковариационная оценка не превышает простую сумму стоп-рисков.
+        assert correlated_risk > (5**2 + 5**2) ** 0.5
+        assert correlated_risk < 10

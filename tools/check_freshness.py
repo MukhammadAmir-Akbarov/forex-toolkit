@@ -11,7 +11,7 @@ front-matter датой проверки::
 
 Скрипт читает все ``_mkdocs/**/*.md``, собирает ``verified``-даты и предупреждает,
 если факт старше N месяцев (по умолчанию 6). По умолчанию — информационно
-(код 0); с ``--fail`` валит CI при наличии протухших страниц.
+(код 0); с ``--fail`` валит CI при протухших или отсутствующих метках.
 
 Запуск:
     python tools/check_freshness.py
@@ -62,7 +62,7 @@ def main() -> int:
     parser.add_argument("--max-age-months", type=int, default=6)
     parser.add_argument(
         "--fail", action="store_true",
-        help="Вернуть код 1, если есть страницы старше порога.",
+        help="Вернуть код 1 при старых или отсутствующих verified-метках.",
     )
     args = parser.parse_args()
 
@@ -97,8 +97,8 @@ def main() -> int:
     if stale:
         n, m = len(stale), args.max_age_months
         print(f"\n⚠️  Протухших страниц: {n} (старше {m} мес.) — перепроверь факты.")
-        if args.fail:
-            return 1
+    if args.fail and (stale or sensitive_without):
+        return 1
     else:
         print("\n✅ Все verified-страницы свежие.")
 
