@@ -154,13 +154,9 @@ def analyze_trades(rows: Iterable[Mapping[str, object]]) -> CoachReport:
         )
 
     known_rules = [
-        followed
-        for row in trades
-        if (followed := _rule_followed(row)) is not None
+        followed for row in trades if (followed := _rule_followed(row)) is not None
     ]
-    discipline = (
-        sum(known_rules) / len(known_rules) * 100 if known_rules else None
-    )
+    discipline = sum(known_rules) / len(known_rules) * 100 if known_rules else None
     if discipline is not None and discipline < 95:
         candidates.append(
             CoachRule(
@@ -178,7 +174,8 @@ def analyze_trades(rows: Iterable[Mapping[str, object]]) -> CoachReport:
         )
 
     evening = [
-        row for row in trades
+        row
+        for row in trades
         if (stamp := _datetime(row)) is not None and stamp.hour >= 18
     ]
     evening_score = sum(_performance(row) for row in evening)

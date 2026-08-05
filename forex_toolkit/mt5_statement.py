@@ -327,10 +327,7 @@ def _match_deals(deals: Iterable[_Deal]) -> ImportResult:
             )
 
     unmatched = sum(
-        1
-        for queue in open_lots.values()
-        for lot in queue
-        if lot.remaining > epsilon
+        1 for queue in open_lots.values() for lot in queue if lot.remaining > epsilon
     )
     if unmatched:
         warnings.append(
