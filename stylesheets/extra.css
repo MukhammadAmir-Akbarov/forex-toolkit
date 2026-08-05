@@ -222,7 +222,7 @@ html { scroll-behavior: smooth; }
   transition: background-color 200ms ease, border-color 200ms ease;
 }
 
-/* Вкладки всегда видны — не скрываются при скролле */
+/* На широком экране вкладки остаются под шапкой при прокрутке. */
 .md-tabs {
   position: sticky;
   top: var(--md-header-height, 48px);
@@ -246,35 +246,45 @@ html { scroll-behavior: smooth; }
 
 .md-header__title { font-family: var(--fx-font-heading); font-weight: 700; }
 
-/* Активная вкладка — подчёркивание акцентом. */
-.md-tabs__item { transition: opacity 160ms ease; }
-.md-tabs__link { opacity: 0.85; }
-.md-tabs__link--active,
-.md-tabs__link:hover { opacity: 1; }
-.md-tabs__item--active .md-tabs__link {
-  position: relative;
-  font-weight: 700;
-}
-
-/* Верхних разделов много (10) — уплотняем вкладки, чтобы все помещались в
-   одну строку и последняя («После года / Узбекистан») не обрезалась у края.
-   Горизонтальный скролл со скрытой полосой — страховка на узких десктопах:
-   вкладки прокручиваются, но НИКОГДА не обрезаются «жёстко». */
+/* Компактные вкладки: короткие подписи помещаются в строку, активный раздел
+   читается как аккуратная плашка, а не как набор разнокалиберных эмодзи. */
 .md-tabs__list {
+  align-items: center;
+  gap: 0.12rem;
   flex-wrap: nowrap;
   overflow-x: auto;
-  scrollbar-width: none;          /* Firefox */
-  -ms-overflow-style: none;       /* IE / старый Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.md-tabs__list::-webkit-scrollbar { display: none; }  /* WebKit */
+.md-tabs__list::-webkit-scrollbar { display: none; }
 
 .md-tabs__item {
-  padding: 0 0.45rem;
+  display: flex;
+  align-items: center;
+  height: 2.4rem;
+  padding: 0;
   white-space: nowrap;
 }
 .md-tabs__link {
-  font-size: 0.68rem;
+  margin-top: 0;
+  padding: 0.42rem 0.58rem;
+  border-radius: 0.55rem;
+  font-size: 0.66rem;
+  line-height: 1.1;
   letter-spacing: 0;
+  opacity: 0.72;
+  transition: color 160ms ease, background-color 160ms ease, opacity 160ms ease;
+}
+.md-tabs__link:hover {
+  background: color-mix(in srgb, var(--md-default-fg-color) 8%, transparent);
+  opacity: 1;
+}
+.md-tabs__link--active,
+.md-tabs__item--active .md-tabs__link {
+  color: var(--fx-accent);
+  background: color-mix(in srgb, var(--fx-accent) 12%, transparent);
+  font-weight: 700;
+  opacity: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -1774,30 +1784,11 @@ label[for="__drawer"].fx-menu-hint::after {
   }
 }
 
-/* ── N. Полоса вкладок разделов на мобильном ──────────────────────────
-   По умолчанию тема Material прячет .md-tabs ниже 76.1875em (display:none) —
-   все разделы уходят в «гамбургер» ☰. Из-за этого на телефоне верхнее меню
-   (Начало … Узбекистан) было не видно. Возвращаем горизонтальную полосу:
-   разделы видны сразу и прокручиваются свайпом со скрытым скроллбаром
-   (overflow задан в базовом правиле .md-tabs__list). Полный путь по
-   подразделам по-прежнему доступен в ящике ☰.
-   ВАЖНО: только этот display:block «оживляет» правила .md-tabs ниже —
-   раньше они были мёртвыми, потому что вкладки скрыты темой. */
+/* ── N. Навигация на планшетах и телефонах ────────────────────────────
+   На этой ширине Material переносит разделы в полноценное меню ☰. Отдельная
+   полоса из десяти вкладок здесь только отнимала высоту и обрезалась. */
 @media screen and (max-width: 76.1875em) {
-  .md-tabs { display: block; }
-  .md-tabs__list {
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
-    -webkit-overflow-scrolling: touch;   /* инерционный свайп на iOS */
-  }
-  /* читаемо на телефоне (на десктопе вкладки уплотнены до 0.68rem) */
-  .md-tabs__link { font-size: 0.8rem; }
-}
-
-/* Больше поля для касания на узких экранах (теперь работает — см. блок выше). */
-@media (max-width: 960px) {
-  .md-tabs__link { padding: 0.75rem 0.5rem; }
-  .md-tabs__item { padding: 0 0.3rem; }
+  .md-tabs { display: none; }
 }
 
 /* --------------------------------------------------------------------------
