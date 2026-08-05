@@ -40,6 +40,11 @@ Pip value (USD)=  pip_size × lot × position_size  /  rate (if USD is quote or 
     <input type="number" id="pp-lots" value="0.10" min="0.01" step="0.01" autocomplete="off">
     <span class="pc-meta">0.01 = micro, 0.1 = mini, 1.0 = standard.</span>
   </label>
+  <label>
+    USD→UZS rate (so'm, optional)
+    <input type="number" id="pp-uzs" value="12600" min="0" step="any" autocomplete="off">
+    <span class="pc-meta">Used only for the additional result in so'm.</span>
+  </label>
   <label class="pc-checkbox pc-row-wide">
     <input type="checkbox" id="pp-live" checked>
     <span>Use live ECB rate (recommended)</span>
@@ -56,6 +61,8 @@ Pip value (USD)=  pip_size × lot × position_size  /  rate (if USD is quote or 
     <div class="pc-result-row"><span>Rate used</span><span id="pp-out-rate">—</span></div>
     <div class="pc-result-row"><span>1 pip value</span><span id="pp-out-pip">—</span></div>
     <div class="pc-result-row"><span>10 pips</span><span id="pp-out-10">—</span></div>
+    <div class="pc-result-row" id="pp-out-uzs-row"><span>1 pip in so'm</span><span id="pp-out-uzs">—</span></div>
+    <div class="pc-result-row" id="pp-out-uzs-10-row"><span>10 pips in so'm</span><span id="pp-out-uzs-10">—</span></div>
   </div>
   <div class="pc-warnings" id="pp-warnings"></div>
 </div>

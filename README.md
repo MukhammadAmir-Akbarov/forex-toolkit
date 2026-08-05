@@ -7,7 +7,7 @@
 [![License: content CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey)](LICENSE-CONTENT.md)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 
-> Самодостаточный набор материалов: **80+ файлов**, 25 markdown-гайдов, 20+ учебных графиков, 25+ Python-инструментов, 6 стратегий, MT5 EA, Telegram-бот, Coach-бот, Streamlit-приложение, Word-документ и PDF-учебник.
+> Самодостаточный набор материалов: **75 страниц на RU + EN + UZ**, 20+ учебных графиков, 25+ Python-инструментов, 12 браузерных инструментов, 6 стратегий, MT5 EA, Telegram-бот, Coach-бот, Streamlit-приложение, Word-документ и PDF-учебник.
 >
 > **⚠️ Образовательный материал. Не финансовый совет.** Forex — высокорисковая деятельность. 74–89% розничных трейдеров теряют деньги.
 
@@ -51,7 +51,7 @@ trading/
 ├── strategies/                    ← учебные стратегии + сравнительный бэктест
 ├── advanced/                      ← MT5, Telegram, Streamlit, walk-forward, broker_api/
 ├── uz/                            ← tax-calculator.py (локальные скрипты)
-├── tests/                         ← 129 тестов (pytest)
+├── tests/                         ← 156 unit-тестов + 32 браузерных e2e
 ├── dist/                          ← собранный wheel
 ├── mkdocs.yml · pyproject.toml · CLAUDE.md
 ├── data/                          ← скачанные котировки (gitignored)
@@ -167,7 +167,7 @@ streamlit run advanced/streamlit_app.py
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -e ".[dev]"     # ядро + тесты/линт/mkdocs
-.venv/bin/pytest -q                    # должны пройти все 129 тестов
+.venv/bin/pytest -q                    # должны пройти все 156 unit-тестов
 ```
 
 Опциональные группы зависимостей (extras):

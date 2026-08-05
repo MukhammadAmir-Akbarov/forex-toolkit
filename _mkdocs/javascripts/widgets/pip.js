@@ -10,6 +10,7 @@
 (function () {
   if (!document.getElementById("pp-calc-btn")) return;
   var F = window.FXW;
+  var SOUM = { ru: " сум", en: " so'm", uz: " so'm" }[F.lang] || " сум";
 
   var T = F.pick({
     ru: {
@@ -70,6 +71,22 @@
     return null;
   }
 
+  function updateSoum(pipValueUSD) {
+    var rate = parseFloat(document.getElementById("pp-uzs").value);
+    var oneRow = document.getElementById("pp-out-uzs-row");
+    var tenRow = document.getElementById("pp-out-uzs-10-row");
+    var show = Number.isFinite(rate) && rate > 0 && Number.isFinite(pipValueUSD);
+
+    oneRow.style.display = show ? "" : "none";
+    tenRow.style.display = show ? "" : "none";
+    if (!show) return;
+
+    document.getElementById("pp-out-uzs").textContent =
+      "≈ " + F.int(Math.round(pipValueUSD * rate)) + SOUM;
+    document.getElementById("pp-out-uzs-10").textContent =
+      "≈ " + F.int(Math.round(pipValueUSD * 10 * rate)) + SOUM;
+  }
+
   async function calculate() {
     var pair = document.getElementById("pp-pair").value;
     var lots = parseFloat(document.getElementById("pp-lots").value);
@@ -77,6 +94,7 @@
     var result = document.getElementById("pp-result");
     var warnings = document.getElementById("pp-warnings");
     warnings.innerHTML = "";
+    updateSoum(null);
 
     if (!(lots > 0)) {
       result.style.display = "block";
@@ -131,12 +149,13 @@
     document.getElementById("pp-out-rate").textContent = rateUsed;
     document.getElementById("pp-out-pip").textContent = F.money(pipValueUSD, 4);
     document.getElementById("pp-out-10").textContent = F.money(pipValueUSD * 10, 4);
+    updateSoum(pipValueUSD);
     document.getElementById("pp-headline").textContent = F.money(pipValueUSD, 4) + T.pipSuffix;
     result.style.display = "block";
     result.className = "pc-result";
   }
 
-  ["pp-pair", "pp-lots", "pp-live"].forEach(function (id) {
+  ["pp-pair", "pp-lots", "pp-live", "pp-uzs"].forEach(function (id) {
     var el = document.getElementById(id);
     el.addEventListener("input", calculate);
     el.addEventListener("change", calculate);

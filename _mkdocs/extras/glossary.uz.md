@@ -292,6 +292,34 @@
 
 **Expectancy** — bitta savdoning kutilgan natijasi: (Win rate × O'rtacha G'alaba) − (Yutqazish darajasi × O'rtacha Zarar).
 
+## Mahalliy o'zbekcha atamalar
+
+Platformalarda inglizcha nomlar ko'p ishlatiladi. Quyidagi jadval ularni o'zbekcha
+mazmuni bilan tez solishtirish uchun berilgan; qavsdagi atama platformadagi odatiy nomdir.
+
+| O'zbekcha atama | Platformadagi nom | Qisqa ma'nosi |
+|---|---|---|
+| **Hisob balansi** | Balance | Yopilgan savdolardan keyingi hisobdagi pul. |
+| **Hisob kapitali** | Equity | Balans va ochiq savdolarning joriy natijasi. |
+| **Ochiq pozitsiya** | Open position | Hali yopilmagan faol savdo. |
+| **Yopiq pozitsiya** | Closed position | Natijasi balansga yozilgan tugallangan savdo. |
+| **Xarid narxi** | Ask | Valyutani sotib oladigan narx. |
+| **Sotuv narxi** | Bid | Valyutani sotadigan narx. |
+| **Narx farqi** | Spread | Ask va Bid orasidagi farq. |
+| **Zararni cheklash** | Stop Loss | Rejalashtirilgan zararda savdoni yopuvchi order. |
+| **Foyda maqsadi** | Take Profit | Rejalashtirilgan foydada savdoni yopuvchi order. |
+| **Xavf miqdori** | Risk amount | Stop ishlasa yo'qotilishi mumkin bo'lgan summa. |
+| **Savdo hajmi** | Position size | Pozitsiyaning lot yoki birlikdagi kattaligi. |
+| **Kredit yelkasi** | Leverage | Kichik kapital bilan katta pozitsiyani boshqarish nisbati. |
+| **Marja talabi** | Margin requirement | Pozitsiyani ochish uchun bloklanadigan mablag'. |
+| **Erkin marja** | Free margin | Yangi pozitsiyalar uchun qolgan mablag'. |
+| **Marja chaqiruvi** | Margin Call | Marja xavfli darajaga tushgani haqidagi ogohlantirish. |
+| **Majburiy yopilish** | Stop Out | Marja yetmaganda broker pozitsiyani avtomatik yopishi. |
+| **Narx sirpanishi** | Slippage | So'ralgan va amalda bajarilgan narx orasidagi farq. |
+| **Qayta kotirovka** | Requote | Broker avvalgi narx o'rniga yangi narx taklif qilishi. |
+| **Bozor likvidligi** | Market liquidity | Aktivni narxga kuchli ta'sirsiz sotib olish yoki sotish osonligi. |
+| **Narx o'zgaruvchanligi** | Volatility | Narx tebranishlarining tezligi va kattaligi. |
+
 ## Inglizcha qisqartmalar
 
 | Qisq. | To'liq nomi | Tarjimasi |

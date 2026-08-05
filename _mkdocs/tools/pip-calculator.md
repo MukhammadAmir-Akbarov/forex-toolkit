@@ -40,6 +40,11 @@
     <input type="number" id="pp-lots" value="0.10" min="0.01" step="0.01" autocomplete="off">
     <span class="pc-meta">0.01 = микро-лот, 0.1 = мини, 1.0 = стандартный.</span>
   </label>
+  <label>
+    Курс USD→UZS (сум, необязательно)
+    <input type="number" id="pp-uzs" value="12600" min="0" step="any" autocomplete="off">
+    <span class="pc-meta">Нужен только для дополнительного результата в сумах.</span>
+  </label>
   <label class="pc-checkbox pc-row-wide">
     <input type="checkbox" id="pp-live" checked>
     <span>Использовать актуальный курс ECB (рекомендуется)</span>
@@ -56,6 +61,8 @@
     <div class="pc-result-row"><span>Курс (для расчёта)</span><span id="pp-out-rate">—</span></div>
     <div class="pc-result-row"><span>Стоимость 1 пипса</span><span id="pp-out-pip">—</span></div>
     <div class="pc-result-row"><span>На 10 пипсах</span><span id="pp-out-10">—</span></div>
+    <div class="pc-result-row" id="pp-out-uzs-row"><span>1 пипс в сумах</span><span id="pp-out-uzs">—</span></div>
+    <div class="pc-result-row" id="pp-out-uzs-10-row"><span>10 пипсов в сумах</span><span id="pp-out-uzs-10">—</span></div>
   </div>
   <div class="pc-warnings" id="pp-warnings"></div>
 </div>

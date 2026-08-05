@@ -192,6 +192,38 @@ def test_pip_calculator(pw_page, site_url):
             f"pip {lots=} {pair=}: JS={got} fx_math={expected}"
         )
 
+        uzs = int(re.sub(r"\D", "", _read(page, "#pp-out-uzs")))
+        uzs_10 = int(re.sub(r"\D", "", _read(page, "#pp-out-uzs-10")))
+        assert uzs == round(expected * 12_600)
+        assert uzs_10 == round(expected * 10 * 12_600)
+
+    _fill(page, "#pp-lots", 0.1)
+    page.select_option("#pp-pair", "EURUSD")
+    _fill(page, "#pp-uzs", 13_000)
+    page.click("#pp-calc-btn")
+    assert int(re.sub(r"\D", "", _read(page, "#pp-out-uzs"))) == 13_000
+
+    _fill(page, "#pp-uzs", 0)
+    page.click("#pp-calc-btn")
+    assert not page.locator("#pp-out-uzs-row").is_visible()
+    assert not page.locator("#pp-out-uzs-10-row").is_visible()
+
+
+@pytest.mark.parametrize("prefix", ["en/", "uz/"])
+def test_pip_calculator_uzs_locales(pw_page, site_url, prefix):
+    page = pw_page
+    page.goto(f"{site_url}/{prefix}tools/pip-calculator/")
+    if page.is_checked("#pp-live"):
+        page.uncheck("#pp-live")
+    page.select_option("#pp-pair", "EURUSD")
+    _fill(page, "#pp-lots", 0.1)
+    _fill(page, "#pp-uzs", 12_600)
+    page.click("#pp-calc-btn")
+
+    assert money_any(_read(page, "#pp-out-pip")) == pytest.approx(1.0)
+    assert int(re.sub(r"\D", "", _read(page, "#pp-out-uzs"))) == 12_600
+    assert "so'm" in _read(page, "#pp-out-uzs")
+
 
 @pytest.mark.parametrize("prefix", ["en", "uz"])
 def test_margin_calculator_locales(pw_page, site_url, prefix):

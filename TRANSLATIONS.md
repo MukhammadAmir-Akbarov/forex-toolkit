@@ -1,71 +1,60 @@
-# 🌍 Переводы / Translations / Tarjimalar
+# Переводы / Translations / Tarjimalar
 
-Проект многоязычный (RU → EN → UZ) через `mkdocs-static-i18n`. Сейчас переведена
-малая часть страниц — это **отличная задача для первого вклада**: не нужен Python,
-не нужны тесты, один markdown-файл мёржится сразу.
+> Обновлено: **2026-08-05**.
 
-## Как перевести страницу (3 шага)
+Проект использует `mkdocs-static-i18n` и хранит переводы рядом с RU-источником:
 
-1. Возьми RU-файл в `_mkdocs/`, например `_mkdocs/practice/lot-discipline.md`.
-2. Создай рядом перевод с суффиксом локали:
-   - английский → `_mkdocs/practice/lot-discipline.en.md`
-   - узбекский (лотин) → `_mkdocs/practice/lot-discipline.uz.md`
-3. Переведи **только текст**: заголовки, абзацы, ячейки таблиц, подписи. НЕ трогай
-   ссылки, пути к картинкам, тикеры (EUR/USD), числа, блоки кода и Mermaid.
+- `page.md`: русский источник;
+- `page.en.md`: английский;
+- `page.uz.md`: узбекский, lotin.
 
-Сохрани структуру 1-в-1 (те же заголовки и `!!! admonition`). Пример готового
-перевода — `_mkdocs/practice/README.uz.md` и `_mkdocs/practice/README.en.md`.
+## Текущий статус
 
-Проверка: `mkdocs serve` и переключи язык вверху страницы.
+- RU: **75/75**.
+- EN: **75/75**.
+- UZ: **75/75**.
+- Свежесть: **150/150** переводов отслеживается в `tools/i18n-manifest.json`.
 
-> 💡 Можно попросить ассистента: используется агент `add-translation`
-> (`.claude/agents/add-translation.md`) — он создаёт `.en.md`/`.uz.md` по правилам.
+Открытого бэклога переводов сейчас нет. Новые страницы должны сразу создаваться
+на трех языках; не оставлять перевод отдельной будущей задачей.
 
-## Приоритет
+## Как обновить существующую страницу
 
-**Сначала UZ** (недообслуженная домашняя аудитория), затем EN. В первую очередь —
-раздел `practice/` (самые ценные «не слей депозит» главы) и калькуляторы `tools/`.
-
-## Что уже переведено полностью (RU/EN/UZ)
-
-- `index.md`, `roadmap.md`, `extras/market-data-sources.md`
-
-## Что нужно перевести (приоритетные разделы)
-
-### 🥇 practice/ — приоритет №1 (UZ, затем EN)
-- [x] `practice/README.md` → **UZ ✓, EN ✓** (образец)
-- [ ] `practice/lot-discipline.md`
-- [ ] `practice/gold-trading.md`
-- [ ] `practice/breakeven-protocol.md`
-- [ ] `practice/scaling-in.md`
-- [ ] `practice/cycle-theory.md`
-- [ ] `practice/market-structure.md`
-
-### 🛠️ tools/ — калькуляторы (высокая отдача)
-- [ ] `tools/winrate-rr-calculator.md`
-- [ ] `tools/pip-calculator.md` (есть EN, нужен UZ)
-- [ ] `tools/compound-calculator.md` (есть EN, нужен UZ)
-- [ ] `tools/flashcards.md`, `tools/risk-of-ruin.md` (новые виджеты)
-
-### 🧠 extras/, 📝 journal/, 🌱 growth/ — по мере сил
-Полный актуальный список незакрытых языков всегда можно получить командой:
+1. Изменить RU-файл в `_mkdocs/`.
+2. Внести тот же смысл в соседние `.en.md` и `.uz.md`.
+3. Не менять тикеры, числа, пути, anchors, код и структуру admonition без причины.
+4. Синхронизировать манифест по пути относительно `_mkdocs/`:
 
 ```bash
-python - <<'PY'
-from pathlib import Path
-src = Path("_mkdocs")
-for p in sorted(src.rglob("*.md")):
-    if p.name.endswith((".en.md", ".uz.md")):
-        continue
-    stem = str(p.with_suffix(""))
-    miss = [s for s in (".en.md", ".uz.md") if not Path(stem + s).exists()]
-    if miss:
-        print(p.relative_to(src), "→ нет:", ", ".join(miss))
-PY
+.venv/bin/python tools/sync_translation_manifest.py --file tools/pip-calculator.md
 ```
 
-## Узбекский: соглашения
+5. Запустить проверки:
 
-- Латиница (O'zbek lotin), как в существующих `*.uz.md`.
-- Финансовые термины оставляй узнаваемыми: «lot», «spread», «stop-loss» можно
-  не переводить, если так понятнее новичку.
+```bash
+.venv/bin/python tools/check_translation_coverage.py
+.venv/bin/python tools/check_translation_drift.py --fail-on-drift
+.venv/bin/mkdocs build --strict
+```
+
+## Как добавить новую страницу
+
+1. Создать `name.md`, `name.en.md`, `name.uz.md` в одном каталоге.
+2. Сохранить одинаковую структуру заголовков и виджетов.
+3. Добавить страницу в `mkdocs.yml`; названия nav локализовать в i18n config.
+4. Добавить запись в translation manifest через `sync_translation_manifest.py`.
+5. Проверить страницу на `/`, `/en/` и `/uz/`.
+
+## Узбекские соглашения
+
+- Использовать современную латиницу O'zbek lotin.
+- Сохранять узнаваемый английский термин рядом с локальным объяснением.
+- Не делать буквальный перевод, если он хуже понятен новичку.
+- Числа и финансовые формулы должны совпадать во всех локалях.
+- Для терминов использовать `_mkdocs/extras/glossary.uz.md` как источник стиля.
+
+## Источник правды
+
+Фактический статус определяют команды coverage/drift, а не ручные чекбоксы в этом
+файле. Если цифры здесь расходятся с проверками, сначала доверять проверкам, затем
+обновить этот документ.

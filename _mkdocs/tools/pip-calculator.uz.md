@@ -40,6 +40,11 @@ Pip qiymati (USD)     =  pip_o'lchami × lot / kurs (agar USD — quote yoki bas
     <input type="number" id="pp-lots" value="0.10" min="0.01" step="0.01" autocomplete="off">
     <span class="pc-meta">0.01 = mikro-lot, 0.1 = mini, 1.0 = standart.</span>
   </label>
+  <label>
+    USD→UZS kursi (so'm, ixtiyoriy)
+    <input type="number" id="pp-uzs" value="12600" min="0" step="any" autocomplete="off">
+    <span class="pc-meta">Faqat so'mdagi qo'shimcha natija uchun ishlatiladi.</span>
+  </label>
   <label class="pc-checkbox pc-row-wide">
     <input type="checkbox" id="pp-live" checked>
     <span>Joriy ECB kursidan foydalanish (tavsiya etiladi)</span>
@@ -56,6 +61,8 @@ Pip qiymati (USD)     =  pip_o'lchami × lot / kurs (agar USD — quote yoki bas
     <div class="pc-result-row"><span>Kurs (hisoblash uchun)</span><span id="pp-out-rate">—</span></div>
     <div class="pc-result-row"><span>1 pip qiymati</span><span id="pp-out-pip">—</span></div>
     <div class="pc-result-row"><span>10 pipda</span><span id="pp-out-10">—</span></div>
+    <div class="pc-result-row" id="pp-out-uzs-row"><span>1 pip so'mda</span><span id="pp-out-uzs">—</span></div>
+    <div class="pc-result-row" id="pp-out-uzs-10-row"><span>10 pip so'mda</span><span id="pp-out-uzs-10">—</span></div>
   </div>
   <div class="pc-warnings" id="pp-warnings"></div>
 </div>

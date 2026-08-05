@@ -27,7 +27,7 @@ What's inside:
 
 🛠️ 30+ Python tools — position calculator with live ECB rates, pip value calc, compound interest with realism warnings (it'll tell you if "5% per month" promises are scams), Monte Carlo simulator, journal CLI with HTML dashboard.
 
-🤖 Backtester with anti-tilt Risk Guardian — stops trading after N consecutive losses + daily loss limit. Plus 6 strategies with unit tests (EMA50 pullback, mean reversion, breakout, London open range, etc.). 74/74 tests pass on CI matrix (Ubuntu/macOS × Py 3.10-3.12).
+🤖 Backtester with anti-tilt Risk Guardian — stops trading after N consecutive losses + daily loss limit. Plus 6 strategies with unit tests (EMA50 pullback, mean reversion, breakout, London open range, etc.). 156 unit tests and 32 browser tests pass.
 
 📐 Interactive web calculators — no install, no signup. Just open and use.
 
@@ -63,7 +63,7 @@ Built an educational forex backtester in Python with features I haven't seen in 
 
 **Realistic spread modeling** — `--spread-pips` flag subtracts broker spread from PnL of every trade. Ideal cost = 0; realistic ECN = 1-2 pips. Win rate often drops 5-10% with realistic spreads.
 
-**6 strategies with unit tests** (74/74 passing on CI):
+**6 strategies with unit tests** (156 project unit tests passing):
 - EMA50 pullback (trend-following)
 - Mean reversion (Bollinger Bands)
 - Breakout v1 + v2 (with filters)
@@ -105,7 +105,7 @@ The toolkit has three layers:
 
 1. **Education** — a 700-line handbook, online site (RU/EN/Uzbek), PDF, DOCX. With diagrams generated from real EUR/USD 2-year data, not idealized examples.
 
-2. **Tools** — 30+ Python CLI scripts (position calculator, journal, Monte Carlo, broker checker), all unit-tested. Plus 3 interactive web calculators ported to JS that use real ECB rates via frankfurter.app (no API key, CORS-friendly).
+2. **Tools** — 25+ Python scripts and 8 packaged CLI commands (position calculator, journal, Monte Carlo, broker checker). Plus 12 browser tools, with financial formulas checked against Python in Playwright.
 
 3. **Strategies + backtester** — 6 strategies with unit tests, walk-forward optimization, anti-tilt "Risk Guardian" that stops trading after consecutive losses or hitting a daily loss limit.
 
@@ -138,7 +138,7 @@ Hi r/Python,
 I built `forex-toolkit` — a Python-heavy open-source project. Posting because I'd love code-level feedback from the community.
 
 **Tech highlights**:
-- 74/74 unit tests passing on CI matrix (Ubuntu + macOS × Python 3.10/3.11/3.12)
+- 156 unit tests plus 32 browser tests on CI (Ubuntu/macOS × Python 3.10/3.11/3.12)
 - Strict typing in new modules, pep8 throughout
 - Docstrings with examples, RST-compatible
 - pyproject.toml-driven setup with hatchling, optional extras (`dev`, `docs`, `web`, `mt5`, `crypto`)
@@ -183,7 +183,7 @@ PRs welcome.
 Сделал бесплатный open-source проект по форексу — учебник + Python-инструменты + интерактивные калькуляторы. Без подписок, без сигналов, без рекламы брокеров.
 
 📖 Что внутри:
-• Полный учебник на 3 языках (RU/EN/узбекский в разработке)
+• Полный учебник на 3 языках (75 страниц на RU/EN/UZ)
 • Калькулятор размера позиции с актуальными курсами ECB
 • Калькулятор сложного процента с предупреждениями про обещания «50% в месяц» (это скам)
 • Бэктестер с anti-tilt защитой (стоп после 3 убытков подряд)
@@ -214,7 +214,7 @@ Built an open-source forex education toolkit:
 📐 Live position calculator
 🤖 Backtester w/ anti-tilt Risk Guardian
 🔧 30+ Python tools
-✅ 74/74 unit tests, MIT licensed
+✅ 156 unit tests + 32 browser tests, MIT licensed
 
 🚫 No signals. No shilling. No "guru" courses.
 

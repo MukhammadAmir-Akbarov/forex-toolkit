@@ -1,14 +1,43 @@
 """Тесты для broker_api/."""
-from __future__ import annotations
 
-import pytest
+from __future__ import annotations
 
 import sys
 from pathlib import Path
+
+import pandas as pd
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "advanced"))
 
 from broker_api import Broker, get_broker
 from broker_api.base import Order, Position
+
+
+class FakeTicker:
+    """Deterministic yfinance substitute for the offline unit-test suite."""
+
+    def __init__(self, symbol: str):
+        self.symbol = symbol
+
+    def history(self, *, period: str, interval: str) -> pd.DataFrame:
+        index = pd.date_range("2026-01-01", periods=12, freq="h")
+        close = [1.08 + i * 0.0001 for i in range(len(index))]
+        return pd.DataFrame(
+            {
+                "Open": close,
+                "High": [value + 0.0002 for value in close],
+                "Low": [value - 0.0002 for value in close],
+                "Close": close,
+                "Volume": [100] * len(index),
+            },
+            index=index,
+        )
+
+
+@pytest.fixture
+def fake_yfinance(monkeypatch):
+    monkeypatch.setattr("broker_api.yfinance_broker.yf.Ticker", FakeTicker)
 
 
 class TestFactory:
@@ -27,6 +56,7 @@ class TestFactory:
         assert type(b1) is type(b2) is type(b3)
 
 
+@pytest.mark.usefixtures("fake_yfinance")
 class TestYFinanceBroker:
     def setup_method(self):
         self.broker = get_broker("yfinance")
@@ -70,16 +100,20 @@ class TestYFinanceBroker:
 
 class TestOrderPosition:
     def test_order_defaults(self):
-        o = Order(id="1", symbol="EURUSD", direction="long",
-                  volume=0.01, entry=1.08)
+        o = Order(id="1", symbol="EURUSD", direction="long", volume=0.01, entry=1.08)
         assert o.status == "pending"
         assert o.stop is None
         assert o.take is None
 
     def test_position_structure(self):
         p = Position(
-            order_id="1", symbol="EURUSD", direction="long",
-            volume=0.01, entry_price=1.08, current_price=1.09, pnl=10,
+            order_id="1",
+            symbol="EURUSD",
+            direction="long",
+            volume=0.01,
+            entry_price=1.08,
+            current_price=1.09,
+            pnl=10,
         )
         assert p.pnl == 10
         assert p.direction == "long"

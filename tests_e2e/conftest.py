@@ -70,6 +70,15 @@ def _browser():
 @pytest.fixture
 def pw_page(_browser):
     context = _browser.new_context()
+
+    def keep_tests_local(route):
+        url = route.request.url
+        if url.startswith(("http://127.0.0.1:", "http://localhost:")):
+            route.continue_()
+        else:
+            route.abort()
+
+    context.route("**/*", keep_tests_local)
     page = context.new_page()
     try:
         yield page

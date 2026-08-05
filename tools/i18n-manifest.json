@@ -416,10 +416,10 @@
     },
     "tools/pip-calculator.md": {
       "locales": {
-        "en": "e443f04a833573b1d06c6d4b5b1027a00d05203f7de179e74f7610bcfa5ac471",
-        "uz": "e443f04a833573b1d06c6d4b5b1027a00d05203f7de179e74f7610bcfa5ac471"
+        "en": "794a14308910a26391bedf250aa913640d1f863fdca477286fb0f9b4bfc0f136",
+        "uz": "794a14308910a26391bedf250aa913640d1f863fdca477286fb0f9b4bfc0f136"
       },
-      "ru_sha256": "e443f04a833573b1d06c6d4b5b1027a00d05203f7de179e74f7610bcfa5ac471"
+      "ru_sha256": "794a14308910a26391bedf250aa913640d1f863fdca477286fb0f9b4bfc0f136"
     },
     "tools/position-calculator.md": {
       "locales": {
