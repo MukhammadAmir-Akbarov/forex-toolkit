@@ -8,6 +8,23 @@
   margin: 1.5rem 0;
 }
 
+/* Shared layout for the aggregate-risk, trade-desk and Monte Carlo tools. */
+.fx-tool { background:var(--md-code-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:14px;padding:1.2rem;margin:1.3rem 0 }
+.fx-tool-grid,.fx-position-row,.fx-metrics { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem }
+.fx-tool label { display:flex;flex-direction:column;gap:.3rem;font-size:.82rem;font-weight:700 }
+.fx-tool input,.fx-tool select,.fx-tool textarea { padding:.58rem .65rem;border:1px solid var(--md-default-fg-color--lighter);border-radius:7px;background:var(--md-default-bg-color);color:var(--md-default-fg-color);font:inherit }
+.fx-position-row { grid-template-columns:1.1fr 1fr .8fr 1fr auto;align-items:end;margin:.9rem 0;padding:.8rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:10px }
+.fx-tool-actions { display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem }
+.fx-tool button { border:0;border-radius:7px;padding:.65rem .9rem;background:var(--md-primary-fg-color);color:var(--md-primary-bg-color);font:inherit;font-weight:700;cursor:pointer }
+.fx-tool button.fx-secondary,.fx-tool .fx-remove { background:var(--md-default-bg-color);color:var(--md-default-fg-color);border:1px solid var(--md-default-fg-color--lighter) }
+.fx-result { margin-top:1rem;padding:1rem;background:var(--md-default-bg-color);border-left:4px solid var(--md-primary-fg-color);border-radius:8px }
+.fx-metrics>div { padding:.7rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px }
+.fx-metrics span,.fx-metrics strong { display:block }.fx-metrics span,.fx-tool-note { color:var(--md-default-fg-color--light);font-size:.8rem }.fx-metrics strong { margin-top:.2rem }
+.fx-warning { padding:.7rem;border-left:3px solid #dc2626;background:rgba(220,38,38,.1) }
+.fx-checks { display:grid;gap:.55rem }.fx-checks label { flex-direction:row;align-items:flex-start;font-size:.9rem;font-weight:500 }.fx-checks input { margin-top:.18rem }
+.fx-chart { display:block;width:100%;height:auto;margin-top:1rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:8px }
+@media(max-width:700px){.fx-tool-grid,.fx-position-row,.fx-metrics{grid-template-columns:1fr}.fx-position-row .fx-remove{width:100%}}
+
 .pos-calc-form {
   display: grid;
   grid-template-columns: 1fr 1fr;

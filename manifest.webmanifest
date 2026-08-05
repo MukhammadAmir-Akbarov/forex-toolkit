@@ -3,8 +3,8 @@
   "short_name": "FX Toolkit",
   "description": "Образовательный forex-проект: учебник, калькуляторы, стратегии и практика",
   "lang": "ru",
-  "start_url": "/forex-toolkit/",
-  "scope": "/forex-toolkit/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#07090d",
@@ -22,19 +22,19 @@
     {
       "name": "Учебник",
       "short_name": "Учебник",
-      "url": "/forex-toolkit/forex-guide/",
+      "url": "./forex-guide/",
       "description": "Открыть главный учебник"
     },
     {
       "name": "Калькулятор позиции",
       "short_name": "Калькулятор",
-      "url": "/forex-toolkit/tools/position-calculator/",
+      "url": "./tools/position-calculator/",
       "description": "Рассчитать размер позиции"
     },
     {
       "name": "Веб-журнал",
       "short_name": "Журнал",
-      "url": "/forex-toolkit/journal/web-journal/",
+      "url": "./journal/web-journal/",
       "description": "Журнал сделок"
     }
   ]
