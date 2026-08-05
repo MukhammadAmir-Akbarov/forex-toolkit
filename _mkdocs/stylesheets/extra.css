@@ -1785,10 +1785,68 @@ label[for="__drawer"].fx-menu-hint::after {
 }
 
 /* ── N. Навигация на планшетах и телефонах ────────────────────────────
-   На этой ширине Material переносит разделы в полноценное меню ☰. Отдельная
-   полоса из десяти вкладок здесь только отнимала высоту и обрезалась. */
+   Оставляем разделы на виду, но не пытаемся втиснуть все десять пунктов.
+   Компактная строка прокручивается свайпом; мягкая тень справа подсказывает,
+   что список продолжается. Полное дерево по-прежнему доступно через ☰. */
 @media screen and (max-width: 76.1875em) {
-  .md-tabs { display: none; }
+  .md-tabs {
+    display: block;
+    height: 2.55rem;
+    overflow: hidden;
+  }
+  .md-tabs::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2.2rem;
+    pointer-events: none;
+  }
+  [data-md-color-scheme="slate"] .md-tabs::after {
+    background: linear-gradient(90deg, transparent, #07090d 82%);
+  }
+  [data-md-color-scheme="default"] .md-tabs::after {
+    background: linear-gradient(90deg, transparent, var(--md-primary-fg-color) 82%);
+  }
+  .md-tabs__inner {
+    max-width: none;
+  }
+  .md-tabs__list {
+    height: 2.55rem;
+    gap: 0.05rem;
+    padding: 0 2.2rem 0 0.65rem;
+    scroll-padding-left: 0.65rem;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .md-tabs__item {
+    flex: 0 0 auto;
+    height: 2.55rem;
+    scroll-snap-align: start;
+  }
+  .md-tabs__link {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.64rem;
+  }
+}
+
+@media screen and (max-width: 36rem) {
+  .md-tabs,
+  .md-tabs__list,
+  .md-tabs__item {
+    height: 2.4rem;
+  }
+  .md-tabs__list {
+    padding-left: 0.45rem;
+    scroll-padding-left: 0.45rem;
+  }
+  .md-tabs__link {
+    padding: 0.36rem 0.45rem;
+    font-size: 0.62rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
