@@ -80,16 +80,16 @@ plugins:
           site_name: "Forex Trading Toolkit (English)"
           # Перевод заголовков меню (ключ = русский заголовок из nav ниже).
           nav_translations:
-            "🏠 Начало": "🏠 Start"
-            "📚 Углублённо": "📚 In depth"
-            "🎯 Из практики (2 года)": "🎯 From practice (2 years)"
-            "🧠 Психология и дисциплина": "🧠 Psychology & discipline"
-            "📋 Шаблоны": "📋 Templates"
-            "📝 Журнал": "📝 Journal"
-            "🛠️ Инструменты": "🛠️ Tools"
-            "🚀 Продвинутое": "🚀 Advanced"
-            "🌱 После года": "🌱 After a year"
-            "🇺🇿 Узбекистан": "🇺🇿 Uzbekistan"
+            "Начало": "Start"
+            "Обучение": "Learn"
+            "Практика": "Practice"
+            "Психология": "Psychology"
+            "Шаблоны": "Templates"
+            "Журнал": "Journal"
+            "Инструменты": "Tools"
+            "Продвинутое": "Advanced"
+            "После года": "After one year"
+            "Узбекистан": "Uzbekistan"
             "Главная": "Home"
             "🗺️ Дорожная карта обучения": "🗺️ Learning roadmap"
             "Как пользоваться": "How to use"
@@ -178,16 +178,16 @@ plugins:
           site_name: "Forex Trading Toolkit (O'zbek)"
           # Menyu sarlavhalari tarjimasi (kalit = pastdagi nav'dagi ruscha sarlavha).
           nav_translations:
-            "🏠 Начало": "🏠 Boshlash"
-            "📚 Углублённо": "📚 Chuqurroq"
-            "🎯 Из практики (2 года)": "🎯 Amaliyotdan (2 yil)"
-            "🧠 Психология и дисциплина": "🧠 Psixologiya va intizom"
-            "📋 Шаблоны": "📋 Shablonlar"
-            "📝 Журнал": "📝 Jurnal"
-            "🛠️ Инструменты": "🛠️ Asboblar"
-            "🚀 Продвинутое": "🚀 Ilg'or"
-            "🌱 После года": "🌱 Bir yildan keyin"
-            "🇺🇿 Узбекистан": "🇺🇿 O'zbekiston"
+            "Начало": "Boshlash"
+            "Обучение": "Ta'lim"
+            "Практика": "Amaliyot"
+            "Психология": "Psixologiya"
+            "Шаблоны": "Shablonlar"
+            "Журнал": "Jurnal"
+            "Инструменты": "Asboblar"
+            "Продвинутое": "Ilg'or"
+            "После года": "Bir yildan keyin"
+            "Узбекистан": "O'zbekiston"
             "Главная": "Bosh sahifa"
             "🗺️ Дорожная карта обучения": "🗺️ O'quv yo'l xaritasi"
             "Как пользоваться": "Qanday foydalanish"
@@ -349,7 +349,7 @@ markdown_extensions:
       slugify: !!python/name:pymdownx.slugs.uslugify
 
 nav:
-  - 🏠 Начало:
+  - Начало:
       - Главная: index.md
       - 🗺️ Дорожная карта обучения: roadmap.md
       - Как пользоваться: КАК-ПОЛЬЗОВАТЬСЯ.md
@@ -357,14 +357,14 @@ nav:
       - Приватность: privacy.md
       - Offline-режим: offline.md
       - Главный учебник: forex-guide.md
-  - 📚 Углублённо:
+  - Обучение:
       - Технический анализ: docs/technical-analysis.md
       - Учебная стратегия: docs/strategy-details.md
       - 📈 Реальный анализ EUR/USD: docs/real-analysis.md
       - 📋 Типы ордеров и вход: docs/order-types-mechanics.md
       - 🌍 Фундаментальный анализ: docs/fundamental-analysis-guide.md
       - ⚙️ Механика брокера: docs/broker-mechanics-101.md
-  - 🎯 Из практики (2 года):
+  - Практика:
       - Обзор раздела: practice/README.md
       - 🥇 Торговля золотом (XAUUSD): practice/gold-trading.md
       - 🎯 ЛОТ - главное: practice/lot-discipline.md
@@ -374,14 +374,14 @@ nav:
       - 🏛️ Структура рынка: practice/market-structure.md
       - 📡 Торговля на новостях: practice/news-trading-protocol.md
       - 🕐 Торговые сессии: practice/trading-sessions.md
-  - 🧠 Психология и дисциплина:
+  - Психология:
       - Психология трейдинга: extras/psychology.md
       - 🆘 Ответственная торговля: extras/responsible-trading.md
       - Anti-Tilt протокол: extras/anti-tilt-protocol.md
       - Emergency card: extras/emergency-card.md
       - Daily routine: extras/daily-routine.md
       - 🚦 Предторговый чек-лист: extras/pre-trade-check.md
-  - 📋 Шаблоны:
+  - Шаблоны:
       - Trading Plan: extras/trading-plan-template.md
       - First 100 Days: extras/first-100-days.md
       - 🏆 Мой прогресс: extras/progress.md
@@ -392,7 +392,7 @@ nav:
       - Сравнение брокеров: extras/brokers-comparison.md
       - 📡 Источники данных и сигналов: extras/market-data-sources.md
       - Mind map: extras/mind-map.md
-  - 📝 Журнал:
+  - Журнал:
       - 📊 Веб-журнал: journal/web-journal.md
       - Шаблон: journal/trading-journal-template.md
       - Расширенный: journal/journal-extended.md
@@ -400,7 +400,7 @@ nav:
       - Demo vs Real: journal/demo-vs-real-comparison.md
       - Mistakes log: journal/mistakes-log.md
       - README: journal/README.md
-  - 🛠️ Инструменты:
+  - Инструменты:
       - 📐 Калькулятор позиции: tools/position-calculator.md
       - 💰 Калькулятор маржи: tools/margin-calculator.md
       - 💲 Калькулятор пипса: tools/pip-calculator.md
@@ -417,16 +417,16 @@ nav:
       - 🎓 Итоговый экзамен: tools/exam.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
-  - 🚀 Продвинутое:
+  - Продвинутое:
       - MT5 setup: advanced/SETUP-mt5.md
       - Streamlit setup: advanced/SETUP-streamlit.md
       - Telegram bot: advanced/SETUP-telegram.md
       - VPS deployment: advanced/SETUP-vps-deployment.md
-  - 🌱 После года:
+  - После года:
       - Order Flow / Volume Profile: growth/order-flow-volume-profile.md
       - Crypto trading: growth/crypto-trading-guide.md
       - Stocks basics: growth/stocks-basics.md
-  - 🇺🇿 Узбекистан:
+  - Узбекистан:
       - ❓ Forex nima? (с чего начать): uz/forex-nima.md
       - Брокеры для УЗ: uz/brokers-uz.md
       - Вывод денег: uz/withdrawal-guide.md
