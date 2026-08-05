@@ -34,10 +34,22 @@
       pnl: "P&L",
       export: "Экспорт JSON",
       import: "Импорт JSON",
-      importReady: "Данные импортированы. Обновляю кабинет.",
-      importBad: "Не удалось импортировать JSON.",
+      importReady: "Резервная копия восстановлена.",
+      importBad: "Не удалось прочитать backup: файл повреждён или имеет неизвестную версию.",
+      previewTitle: "Проверь перед восстановлением",
+      previewVersion: "Версия backup",
+      previewDate: "Дата экспорта",
+      previewProgress: "Пройденные страницы",
+      previewJournal: "Сделки в журнале",
+      previewPlans: "Планы сделок",
+      previewReplay: "Replay-сделки",
+      previewSettings: "Настройки инструментов",
+      present: "есть",
+      absent: "нет",
+      restore: "Восстановить данные",
+      cancel: "Отмена",
       reset: "Очистить данные кабинета",
-      confirmReset: "Очистить прогресс, экзамен, Replay и summary журнала в этом браузере?",
+      confirmReset: "Очистить прогресс, экзамен, Replay, полный журнал, планы и настройки в этом браузере?",
       beginner: "Beginner",
       demo: "Demo Ready",
       riskReady: "Risk Ready",
@@ -83,10 +95,22 @@
       pnl: "P&L",
       export: "Export JSON",
       import: "Import JSON",
-      importReady: "Data imported. Refreshing dashboard.",
-      importBad: "Could not import JSON.",
+      importReady: "Backup restored.",
+      importBad: "Could not read the backup: the file is damaged or uses an unknown version.",
+      previewTitle: "Review before restoring",
+      previewVersion: "Backup version",
+      previewDate: "Export date",
+      previewProgress: "Completed pages",
+      previewJournal: "Journal trades",
+      previewPlans: "Trade plans",
+      previewReplay: "Replay trades",
+      previewSettings: "Tool settings",
+      present: "present",
+      absent: "absent",
+      restore: "Restore data",
+      cancel: "Cancel",
       reset: "Clear dashboard data",
-      confirmReset: "Clear progress, exam, Replay and journal summary in this browser?",
+      confirmReset: "Clear progress, exam, Replay, full journal, trade plans and settings in this browser?",
       beginner: "Beginner",
       demo: "Demo Ready",
       riskReady: "Risk Ready",
@@ -132,10 +156,22 @@
       pnl: "P&L",
       export: "JSON eksport",
       import: "JSON import",
-      importReady: "Ma'lumot import qilindi. Kabinet yangilanmoqda.",
-      importBad: "JSON import qilib bo'lmadi.",
+      importReady: "Zaxira nusxasi tiklandi.",
+      importBad: "Backup o'qilmadi: fayl buzilgan yoki versiyasi noma'lum.",
+      previewTitle: "Tiklashdan oldin tekshiring",
+      previewVersion: "Backup versiyasi",
+      previewDate: "Eksport sanasi",
+      previewProgress: "O'qilgan sahifalar",
+      previewJournal: "Jurnaldagi savdolar",
+      previewPlans: "Savdo rejalari",
+      previewReplay: "Replay savdolari",
+      previewSettings: "Asbob sozlamalari",
+      present: "bor",
+      absent: "yo'q",
+      restore: "Ma'lumotlarni tiklash",
+      cancel: "Bekor qilish",
       reset: "Kabinet ma'lumotlarini tozalash",
-      confirmReset: "Bu brauzerdagi progress, imtihon, Replay va jurnal summary tozalansinmi?",
+      confirmReset: "Bu brauzerdagi progress, imtihon, Replay, to'liq jurnal, rejalar va sozlamalar tozalansinmi?",
       beginner: "Beginner",
       demo: "Demo Ready",
       riskReady: "Risk Ready",
@@ -159,7 +195,29 @@
     }
   }[lang];
 
-  var KEYS = ["fx-progress-v1", "forex_exam_passed", "forex_exam_best", "forex_replay_stats", "forex_journal_summary"];
+  var BACKUP_VERSION = 2;
+  var KEYS = [
+    "fx-progress-v1",
+    "forex_exam_passed",
+    "forex_exam_best",
+    "forex_replay_stats",
+    "forex_journal_summary",
+    "forex_journal_data_v2",
+    "forex_trade_drafts_v1",
+    "forex_tool_settings_v1",
+    "forex_first15_v1",
+    "fx-uz-script"
+  ];
+  var JSON_KEYS = {
+    "fx-progress-v1": "array",
+    "forex_replay_stats": "object",
+    "forex_journal_summary": "object",
+    "forex_journal_data_v2": "object",
+    "forex_trade_drafts_v1": "array",
+    "forex_tool_settings_v1": "object",
+    "forex_first15_v1": "object"
+  };
+  var pendingRestore = null;
 
   function readJSON(key, fallback) {
     try {
@@ -278,7 +336,7 @@
 
     root.innerHTML = [
       '<style>',
-      '.student-dashboard{margin:1.4rem 0}.sd-hero{padding:1.2rem 1.4rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(45,212,191,.08));margin-bottom:1rem}.sd-hero h2{margin:.1rem 0 .3rem}.sd-hero p{margin:.2rem 0;color:var(--md-default-fg-color--light)}.sd-level{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}.sd-pill{background:var(--md-default-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:999px;padding:.45rem .8rem;font-weight:700}.sd-bar{height:12px;background:var(--md-default-fg-color--lightest);border-radius:99px;overflow:hidden;margin-top:.8rem}.sd-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#22c55e);border-radius:99px}.sd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1rem 0}@media(max-width:700px){.sd-grid{grid-template-columns:1fr}}.sd-card{background:var(--md-code-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:12px;padding:1rem}.sd-card--ok{border-left:4px solid #22c55e}.sd-card--warn{border-left:4px solid #f59e0b}.sd-card__title{font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--md-default-fg-color--light);font-weight:700}.sd-card__value{font-size:1.55rem;font-weight:800;margin:.25rem 0;color:var(--md-primary-fg-color)}.sd-card__meta{font-size:.86rem;color:var(--md-default-fg-color--light);min-height:2.1em}.sd-card__link{display:inline-block;margin-top:.65rem;font-weight:700}.sd-next{border:1px solid rgba(45,212,191,.45);background:rgba(45,212,191,.08);border-radius:12px;padding:1rem 1.2rem;margin-top:1rem}.sd-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}.sd-actions button,.sd-actions label{display:inline-flex;align-items:center;gap:.35rem;border:0;border-radius:7px;padding:.58rem .9rem;background:var(--md-primary-fg-color);color:var(--md-primary-bg-color);font-weight:700;cursor:pointer;font:inherit}.sd-actions .sd-secondary{background:var(--md-code-bg-color);color:var(--md-default-fg-color);border:1px solid var(--md-default-fg-color--lightest)}.sd-actions input{display:none}.sd-note{font-size:.82rem;color:var(--md-default-fg-color--light);margin-top:.7rem}',
+      '.student-dashboard{margin:1.4rem 0}.sd-hero{padding:1.2rem 1.4rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(45,212,191,.08));margin-bottom:1rem}.sd-hero h2{margin:.1rem 0 .3rem}.sd-hero p{margin:.2rem 0;color:var(--md-default-fg-color--light)}.sd-level{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}.sd-pill{background:var(--md-default-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:999px;padding:.45rem .8rem;font-weight:700}.sd-bar{height:12px;background:var(--md-default-fg-color--lightest);border-radius:99px;overflow:hidden;margin-top:.8rem}.sd-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#22c55e);border-radius:99px}.sd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1rem 0}@media(max-width:700px){.sd-grid{grid-template-columns:1fr}}.sd-card{background:var(--md-code-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:12px;padding:1rem}.sd-card--ok{border-left:4px solid #22c55e}.sd-card--warn{border-left:4px solid #f59e0b}.sd-card__title{font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--md-default-fg-color--light);font-weight:700}.sd-card__value{font-size:1.55rem;font-weight:800;margin:.25rem 0;color:var(--md-primary-fg-color)}.sd-card__meta{font-size:.86rem;color:var(--md-default-fg-color--light);min-height:2.1em}.sd-card__link{display:inline-block;margin-top:.65rem;font-weight:700}.sd-next{border:1px solid rgba(45,212,191,.45);background:rgba(45,212,191,.08);border-radius:12px;padding:1rem 1.2rem;margin-top:1rem}.sd-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}.sd-actions button,.sd-actions label{display:inline-flex;align-items:center;gap:.35rem;border:0;border-radius:7px;padding:.58rem .9rem;background:var(--md-primary-fg-color);color:var(--md-primary-bg-color);font-weight:700;cursor:pointer;font:inherit}.sd-actions .sd-secondary{background:var(--md-code-bg-color);color:var(--md-default-fg-color);border:1px solid var(--md-default-fg-color--lightest)}.sd-actions input{display:none}.sd-note{font-size:.82rem;color:var(--md-default-fg-color--light);margin-top:.7rem}.sd-restore{margin-top:1rem;padding:1rem 1.1rem;border:1px solid rgba(59,130,246,.45);border-radius:12px;background:rgba(59,130,246,.07)}.sd-restore h3{margin:0 0 .65rem}.sd-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem 1rem;margin:.6rem 0 1rem;padding:0;list-style:none}.sd-preview li{padding:.35rem 0;border-bottom:1px solid var(--md-default-fg-color--lightest)}@media(max-width:600px){.sd-preview{grid-template-columns:1fr}}',
       '</style>',
       '<div class="sd-hero">',
       '  <h2>' + safeText(T.title) + '</h2>',
@@ -298,6 +356,7 @@
       '  <label class="sd-secondary">' + safeText(T.import) + '<input type="file" id="sd-import" accept="application/json,.json"></label>',
       '  <button type="button" id="sd-reset" class="sd-secondary">' + safeText(T.reset) + '</button>',
       '</div>',
+      '<section class="sd-restore" id="sd-restore" hidden></section>',
       '<div class="sd-note" id="sd-note"></div>'
     ].join("");
 
@@ -311,13 +370,73 @@
     KEYS.forEach(function (key) {
       try { data[key] = localStorage.getItem(key); } catch (e) { data[key] = null; }
     });
-    var blob = new Blob([JSON.stringify({ version: 1, exported_at: new Date().toISOString(), localStorage: data }, null, 2)], { type: "application/json" });
+    var blob = new Blob([JSON.stringify({ schema: "forex-toolkit-backup", version: BACKUP_VERSION, exported_at: new Date().toISOString(), localStorage: data }, null, 2)], { type: "application/json" });
     var url = URL.createObjectURL(blob);
     var a = document.createElement("a");
     a.href = url;
     a.download = "forex-dashboard-backup.json";
     a.click();
     URL.revokeObjectURL(url);
+    if (window.fxTrack) window.fxTrack("backup_exported", { once: false });
+  }
+
+  function parsedValue(data, key, fallback) {
+    if (!Object.prototype.hasOwnProperty.call(data, key) || data[key] == null) return fallback;
+    try { return JSON.parse(String(data[key])); } catch (e) { return fallback; }
+  }
+
+  function validatePayload(payload) {
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) throw new Error("invalid payload");
+    var version = payload.version == null ? 1 : Number(payload.version);
+    if (!Number.isInteger(version) || version < 1 || version > BACKUP_VERSION) throw new Error("unsupported version");
+    if (payload.schema && payload.schema !== "forex-toolkit-backup") throw new Error("invalid schema");
+    var data = payload.localStorage || payload;
+    if (!data || typeof data !== "object" || Array.isArray(data)) throw new Error("invalid storage");
+    KEYS.forEach(function (key) {
+      if (!Object.prototype.hasOwnProperty.call(data, key) || data[key] == null || !JSON_KEYS[key]) return;
+      var value = JSON.parse(String(data[key]));
+      var expected = JSON_KEYS[key];
+      if (expected === "array" && !Array.isArray(value)) throw new Error("invalid " + key);
+      if (expected === "object" && (!value || typeof value !== "object" || Array.isArray(value))) throw new Error("invalid " + key);
+    });
+    return { version: version, exportedAt: payload.exported_at || "-", data: data };
+  }
+
+  function showPreview(backup) {
+    pendingRestore = backup;
+    var data = backup.data;
+    var progress = parsedValue(data, "fx-progress-v1", []);
+    var replay = parsedValue(data, "forex_replay_stats", {});
+    var journalSummary = parsedValue(data, "forex_journal_summary", {});
+    var journalData = parsedValue(data, "forex_journal_data_v2", {});
+    var plans = parsedValue(data, "forex_trade_drafts_v1", []);
+    var settings = parsedValue(data, "forex_tool_settings_v1", null);
+    var journalCount = Number(journalSummary.trades || 0);
+    if (!journalCount && journalData && Array.isArray(journalData.rows)) journalCount = journalData.rows.length;
+    var panel = document.getElementById("sd-restore");
+    panel.innerHTML = [
+      '<h3>' + safeText(T.previewTitle) + '</h3>',
+      '<ul class="sd-preview">',
+      '<li><strong>' + safeText(T.previewVersion) + ':</strong> ' + backup.version + '</li>',
+      '<li><strong>' + safeText(T.previewDate) + ':</strong> ' + safeText(backup.exportedAt) + '</li>',
+      '<li><strong>' + safeText(T.previewProgress) + ':</strong> ' + (Array.isArray(progress) ? progress.length : 0) + '</li>',
+      '<li><strong>' + safeText(T.previewJournal) + ':</strong> ' + journalCount + '</li>',
+      '<li><strong>' + safeText(T.previewPlans) + ':</strong> ' + (Array.isArray(plans) ? plans.length : 0) + '</li>',
+      '<li><strong>' + safeText(T.previewReplay) + ':</strong> ' + Number(replay.trades || 0) + '</li>',
+      '<li><strong>' + safeText(T.previewSettings) + ':</strong> ' + safeText(settings ? T.present : T.absent) + '</li>',
+      '</ul>',
+      '<div class="sd-actions">',
+      '<button type="button" id="sd-confirm-restore">' + safeText(T.restore) + '</button>',
+      '<button type="button" id="sd-cancel-restore" class="sd-secondary">' + safeText(T.cancel) + '</button>',
+      '</div>'
+    ].join("");
+    panel.hidden = false;
+    document.getElementById("sd-confirm-restore").addEventListener("click", restoreData);
+    document.getElementById("sd-cancel-restore").addEventListener("click", function () {
+      pendingRestore = null;
+      panel.hidden = true;
+      document.getElementById("sd-import").value = "";
+    });
   }
 
   function importData(event) {
@@ -326,18 +445,29 @@
     var reader = new FileReader();
     reader.onload = function () {
       try {
-        var payload = JSON.parse(reader.result);
-        var data = payload.localStorage || payload;
-        KEYS.forEach(function (key) {
-          if (Object.prototype.hasOwnProperty.call(data, key) && data[key] != null) localStorage.setItem(key, String(data[key]));
-        });
-        document.getElementById("sd-note").textContent = T.importReady;
-        render();
+        showPreview(validatePayload(JSON.parse(reader.result)));
       } catch (e) {
+        pendingRestore = null;
         document.getElementById("sd-note").textContent = T.importBad;
       }
     };
     reader.readAsText(file);
+  }
+
+  function restoreData() {
+    if (!pendingRestore) return;
+    var data = pendingRestore.data;
+    KEYS.forEach(function (key) {
+      if (!Object.prototype.hasOwnProperty.call(data, key)) return;
+      try {
+        if (data[key] == null) localStorage.removeItem(key);
+        else localStorage.setItem(key, String(data[key]));
+      } catch (e) {}
+    });
+    pendingRestore = null;
+    render();
+    document.getElementById("sd-note").textContent = T.importReady;
+    if (window.fxTrack) window.fxTrack("backup_restored", { once: false });
   }
 
   function resetData() {

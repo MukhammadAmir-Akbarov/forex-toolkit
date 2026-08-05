@@ -138,7 +138,7 @@
   var fmtLots = function (v) { return v.toFixed(4); };
   var fmtLotsR = function (v) { return v.toFixed(2); };
 
-  async function recalc() {
+  async function recalc(event) {
     var balance = parseFloat(document.getElementById("pc-balance").value);
     var riskPct = parseFloat(document.getElementById("pc-risk").value);
     var stopPips = parseFloat(document.getElementById("pc-stop").value);
@@ -219,6 +219,14 @@
       warnings.innerHTML += '<div class="pc-warn pc-info">' + T.minLot + "</div>";
     }
     result.className = cls === "ok" ? "" : cls;
+    if (event && event.isTrusted) {
+      try {
+        var first15 = JSON.parse(localStorage.getItem("forex_first15_v1") || "{}");
+        first15.position = true;
+        first15.updatedAt = new Date().toISOString();
+        localStorage.setItem("forex_first15_v1", JSON.stringify(first15));
+      } catch (e) {}
+    }
   }
 
   ["pc-balance", "pc-risk", "pc-stop", "pc-pair", "pc-live", "pc-uzs"].forEach(function (id) {

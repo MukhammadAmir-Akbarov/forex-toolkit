@@ -12,7 +12,13 @@
     feedback_no: true,
     risk_exposure_completed: true,
     trade_plan_saved: true,
-    monte_carlo_completed: true
+    monte_carlo_completed: true,
+    backup_exported: true,
+    backup_restored: true,
+    trade_plan_opened: true,
+    trade_review_completed: true,
+    journal_monte_carlo_opened: true,
+    first15_completed: true
   };
   var pending = [];
 

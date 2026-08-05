@@ -740,6 +740,12 @@
     } catch (error) {
       // localStorage can be disabled; Replay itself should still work.
     }
+    try {
+      var first15 = JSON.parse(localStorage.getItem("forex_first15_v1") || "{}");
+      first15.replay = true;
+      first15.updatedAt = new Date().toISOString();
+      localStorage.setItem("forex_first15_v1", JSON.stringify(first15));
+    } catch (error) {}
     if (window.fxTrack) window.fxTrack("replay_completed");
   }
 
