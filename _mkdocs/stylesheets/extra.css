@@ -1557,6 +1557,21 @@ label[for="__drawer"].fx-menu-hint::after {
   white-space: nowrap;
 }
 
+/* Базовые стили выше должны быть объявлены до mobile override. */
+@media screen and (max-width: 44.9375em) {
+  .fx-progress {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+  .fx-progress__btn { align-self: flex-start; }
+  .fx-progress__stat {
+    flex: 0 0 auto;
+    min-width: 0;
+    width: 100%;
+  }
+}
+
 /* Галочка «пройдено» у пункта меню. */
 .md-nav__link.fx-done { color: var(--md-default-fg-color--light); }
 .md-nav__link.fx-done::after {

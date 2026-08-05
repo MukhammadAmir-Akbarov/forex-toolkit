@@ -422,6 +422,51 @@
   background: rgba(220, 38, 38, 0.1);
   color: var(--md-default-fg-color);
 }
+.journal-plans {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 10px;
+  background: var(--md-default-bg-color);
+}
+.journal-plans h3 { margin: 0 0 0.8rem; }
+.journal-plans-empty { margin: 0; color: var(--md-default-fg-color--light); }
+.journal-plan-list { display: grid; gap: 0.7rem; }
+.journal-plan-card {
+  padding: 0.85rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  background: var(--md-code-bg-color);
+}
+.journal-plan-card[data-status="open"] { border-left-color: #3b82f6; }
+.journal-plan-card[data-status="closed"] { border-left-color: #22c55e; }
+.journal-plan-card p { margin: 0.35rem 0; font-size: 0.86rem; }
+.journal-plan-head { display: flex; justify-content: space-between; gap: 1rem; }
+.journal-plan-head span {
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--md-default-fg-color--lightest);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.journal-plan-actions { margin-top: 0.65rem; }
+.journal-plan-focus { padding: 0.55rem 0.7rem; border-radius: 6px; background: rgba(45, 212, 191, 0.1); }
+.journal-review { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--md-default-fg-color--lightest); }
+.journal-review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
+.journal-review-grid label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.78rem; font-weight: 600; }
+.journal-review-grid input,
+.journal-review-grid select,
+.journal-review-grid textarea {
+  width: 100%;
+  padding: 0.48rem 0.55rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+}
+.journal-review-wide { grid-column: 1 / -1; }
 .journal-dashboard { display: none; margin-top: 1.2rem; }
 .journal-filters {
   display: grid;
@@ -578,7 +623,69 @@
   .journal-filters,
   .journal-metrics,
   .journal-rules-grid,
-  .journal-breakdowns { grid-template-columns: 1fr; }
+  .journal-breakdowns,
+  .journal-review-grid { grid-template-columns: 1fr; }
+  .journal-review-wide { grid-column: auto; }
+}
+
+/* First 15 minutes onboarding */
+.first-15-widget { margin: 1.4rem 0; }
+.first-15-hero,
+.first-15-next {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.13), rgba(45, 212, 191, 0.08));
+}
+.first-15-hero { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.7rem 1rem; }
+.first-15-hero h2 { margin: 0; }
+.first-15-bar {
+  grid-column: 1 / -1;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--md-default-fg-color--lightest);
+}
+.first-15-bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #3b82f6, #22c55e); }
+.first-15-list { display: grid; gap: 0.75rem; margin: 0.9rem 0; }
+.first-15-step {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 10px;
+  background: var(--md-code-bg-color);
+}
+.first-15-step.is-done { border-color: rgba(34, 197, 94, 0.55); }
+.first-15-number {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 800;
+}
+.first-15-step.is-done .first-15-number { background: #16a34a; color: #fff; }
+.first-15-step h3 { margin: 0 0 0.25rem; }
+.first-15-step p { margin: 0 0 0.65rem; color: var(--md-default-fg-color--light); }
+.first-15-step a,
+.first-15-step button {
+  display: inline-flex;
+  border: 0;
+  border-radius: 7px;
+  padding: 0.5rem 0.75rem;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+@media (max-width: 520px) {
+  .first-15-hero { grid-template-columns: 1fr; }
+  .first-15-bar { grid-column: auto; }
 }
 
 /* ==========================================================================

@@ -20,3 +20,9 @@
 3. Complete a few episodes in the Replay trainer.
 4. Upload a CSV to the web journal to see discipline and results.
 5. Come back here: the dashboard will suggest your next step.
+
+## Backup
+
+**Export JSON** saves the full journal, trade plans and drafts, progress, exam,
+Replay, and tool settings. Import first shows the backup contents and version;
+nothing is overwritten until you confirm the restore.

@@ -53,6 +53,7 @@ extra_javascript:
   - javascripts/widgets/risk-exposure.js
   - javascripts/widgets/trade-desk.js
   - javascripts/widgets/monte-carlo.js
+  - javascripts/widgets/first-15.js
   - javascripts/hero.js
 
 plugins:
@@ -92,6 +93,7 @@ plugins:
             "Узбекистан": "Uzbekistan"
             "Главная": "Home"
             "🗺️ Дорожная карта обучения": "🗺️ Learning roadmap"
+            "⏱️ Первые 15 минут": "⏱️ First 15 minutes"
             "Как пользоваться": "How to use"
             "ℹ️ О проекте": "ℹ️ About"
             "Приватность": "Privacy"
@@ -190,6 +192,7 @@ plugins:
             "Узбекистан": "O'zbekiston"
             "Главная": "Bosh sahifa"
             "🗺️ Дорожная карта обучения": "🗺️ O'quv yo'l xaritasi"
+            "⏱️ Первые 15 минут": "⏱️ Dastlabki 15 daqiqa"
             "Как пользоваться": "Qanday foydalanish"
             "ℹ️ О проекте": "ℹ️ Loyiha haqida"
             "Приватность": "Maxfiylik"
@@ -351,6 +354,7 @@ markdown_extensions:
 nav:
   - Начало:
       - Главная: index.md
+      - ⏱️ Первые 15 минут: first-15.md
       - 🗺️ Дорожная карта обучения: roadmap.md
       - Как пользоваться: КАК-ПОЛЬЗОВАТЬСЯ.md
       - ℹ️ О проекте: about.md

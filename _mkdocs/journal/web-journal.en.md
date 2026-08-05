@@ -5,6 +5,10 @@
     P&L, total R, maximum drawdown, and discipline. Filter trades by date, pair,
     direction, and rule compliance.
 
+    Plans from the Pre-trade screen appear here automatically. Move them through
+    **Plan → Open → Closed**, complete the post-trade review, and send the
+    resulting statistics to a personal Monte Carlo model.
+
 !!! tip "Privacy"
     The file is processed **only in your browser**. It is not uploaded and is
     stored locally so the journal can be restored next time.

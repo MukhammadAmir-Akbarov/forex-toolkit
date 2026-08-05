@@ -5,6 +5,10 @@
     maksimal pasayish va intizomni hisoblaydi. Savdolarni sana, juftlik,
     yo'nalish va qoidalarga rioya bo'yicha filtrlash mumkin.
 
+    «Savdodan oldin» ekranidagi rejalar bu yerda avtomatik ko'rinadi. Ularni
+    **Plan → Ochiq → Yopiq** holatlaridan o'tkazing, yopilgach tahlil qiling va
+    statistikani shaxsiy Monte Carlo modeliga yuboring.
+
 !!! tip "Maxfiylik"
     Fayl **faqat brauzeringizda** qayta ishlanadi. U serverga yuklanmaydi va
     jurnal keyingi safar tiklanishi uchun qurilmada lokal saqlanadi.

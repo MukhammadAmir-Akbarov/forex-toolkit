@@ -33,6 +33,21 @@
       cleared: "Сохранённый журнал удалён.",
       noFile: "Файл ещё не выбран",
       exportReady: "Сводка экспортирована.",
+      plansTitle: "Планы и открытые сделки",
+      plansEmpty: "Планов пока нет. Создай первый на экране «Перед сделкой».",
+      statusPlan: "План", statusOpen: "Открыта", statusClosed: "Закрыта",
+      openTrade: "Отметить открытой", closeTrade: "Закрыть сделку", cancel: "Отмена",
+      originalReason: "Исходная причина", resultUsd: "Результат до комиссии, USD",
+      commission: "Комиссия, USD", emotion: "Эмоция", rulesKept: "Первоначальный план соблюдён?",
+      stopMoved: "Стоп передвигался?", lesson: "Что повторить или исключить",
+      answerYes: "Да", answerNo: "Нет",
+      saveReview: "Сохранить разбор", nextFocus: "Задача на следующую неделю",
+      focusStop: "Не передвигать стоп после входа ни при каких обстоятельствах.",
+      focusRules: "Брать только сделки, прошедшие первоначальный чек-лист.",
+      focusEmotion: "После сильной эмоции делать паузу минимум 15 минут.",
+      focusProcess: "Сохранить тот же риск и собрать ещё 5 сделок по этому процессу.",
+      simulate: "Смоделировать мои результаты",
+      sampleWarning: function (count) { return "Для персональной модели пока мало данных: " + count + " из рекомендуемых 30 сделок."; },
       weekdays: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"],
       insightSample: function (count) { return "Пока только " + count + " сделок. Для устойчивых выводов желательно 30+ в одной стратегии."; },
       insightExpectancy: function (value) { return "Средний результат на сделку: " + value + "R."; },
@@ -67,6 +82,21 @@
       cleared: "Saved journal removed.",
       noFile: "No file selected",
       exportReady: "Summary exported.",
+      plansTitle: "Plans and open trades",
+      plansEmpty: "No plans yet. Create the first one on the Pre-trade screen.",
+      statusPlan: "Plan", statusOpen: "Open", statusClosed: "Closed",
+      openTrade: "Mark as open", closeTrade: "Close trade", cancel: "Cancel",
+      originalReason: "Original reason", resultUsd: "Result before commission, USD",
+      commission: "Commission, USD", emotion: "Emotion", rulesKept: "Was the original plan followed?",
+      stopMoved: "Was the stop moved?", lesson: "What to repeat or remove",
+      answerYes: "Yes", answerNo: "No",
+      saveReview: "Save review", nextFocus: "Task for next week",
+      focusStop: "Do not move the stop after entry under any circumstances.",
+      focusRules: "Take only trades that pass the original checklist.",
+      focusEmotion: "Pause for at least 15 minutes after a strong emotion.",
+      focusProcess: "Keep the same risk and collect 5 more trades with this process.",
+      simulate: "Simulate my results",
+      sampleWarning: function (count) { return "The personal model has only " + count + " of the recommended 30 trades."; },
       weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
       insightSample: function (count) { return "Only " + count + " trades so far. Aim for 30+ trades in one strategy for stable conclusions."; },
       insightExpectancy: function (value) { return "Average result per trade: " + value + "R."; },
@@ -101,6 +131,21 @@
       cleared: "Saqlangan jurnal o'chirildi.",
       noFile: "Fayl tanlanmagan",
       exportReady: "Hisobot eksport qilindi.",
+      plansTitle: "Rejalar va ochiq savdolar",
+      plansEmpty: "Hozircha reja yo'q. Birinchi rejani «Savdodan oldin» ekranida yarating.",
+      statusPlan: "Plan", statusOpen: "Ochiq", statusClosed: "Yopiq",
+      openTrade: "Ochiq deb belgilash", closeTrade: "Savdoni yopish", cancel: "Bekor qilish",
+      originalReason: "Dastlabki sabab", resultUsd: "Komissiyadan oldingi natija, USD",
+      commission: "Komissiya, USD", emotion: "Hissiyot", rulesKept: "Dastlabki rejaga amal qilindimi?",
+      stopMoved: "Stop ko'chirildimi?", lesson: "Nimani takrorlash yoki chiqarish kerak",
+      answerYes: "Ha", answerNo: "Yo'q",
+      saveReview: "Tahlilni saqlash", nextFocus: "Keyingi hafta vazifasi",
+      focusStop: "Kirishdan keyin stopni hech qanday holatda ko'chirmaslik.",
+      focusRules: "Faqat dastlabki checklistdan o'tgan savdolarni olish.",
+      focusEmotion: "Kuchli hissiyotdan keyin kamida 15 daqiqa tanaffus qilish.",
+      focusProcess: "Riskni o'zgartirmasdan shu jarayon bo'yicha yana 5 savdo yig'ish.",
+      simulate: "Natijalarimni modellashtirish",
+      sampleWarning: function (count) { return "Shaxsiy model uchun hozircha " + count + "/30 savdo bor."; },
       weekdays: ["Du", "Se", "Cho", "Pa", "Ju", "Sha", "Ya"],
       insightSample: function (count) { return "Hozircha " + count + " ta savdo bor. Barqaror xulosa uchun bitta strategiyada 30+ savdo to'plang."; },
       insightExpectancy: function (value) { return "Har bir savdoning o'rtacha natijasi: " + value + "R."; },
@@ -114,7 +159,9 @@
   });
 
   var STORAGE_KEY = "forex_journal_data_v2";
-  var state = { rows: [], sourceText: "", sourceName: "" };
+  var PLANS_KEY = "forex_trade_drafts_v1";
+  var SETTINGS_KEY = "forex_tool_settings_v1";
+  var state = { rows: [], importedRows: [], sourceText: "", sourceName: "" };
   var fileInput = document.getElementById("journal-file");
   var drop = document.getElementById("journal-drop");
   var demoButton = document.getElementById("journal-demo");
@@ -123,6 +170,17 @@
   var fileName = document.getElementById("journal-file-name");
   var status = document.getElementById("journal-status");
   var filters = ["journal-from", "journal-to", "journal-pair", "journal-direction", "journal-rules"];
+
+  var plansPanel = document.createElement("section");
+  plansPanel.id = "journal-plans";
+  plansPanel.className = "journal-plans";
+  dashboard.parentNode.insertBefore(plansPanel, dashboard);
+  var monteCarloButton = document.createElement("button");
+  monteCarloButton.id = "journal-monte-carlo";
+  monteCarloButton.type = "button";
+  monteCarloButton.className = "journal-button secondary";
+  monteCarloButton.textContent = T.simulate;
+  document.querySelector(".journal-toolbar").appendChild(monteCarloButton);
 
   function detectDelimiter(line) {
     var options = [",", ";", "\t"];
@@ -348,6 +406,135 @@
     }).filter(function (row) {
       return row.date || row.pair || row.pnl || row.outcome;
     }).sort(function (a, b) { return a.timestamp - b.timestamp; });
+  }
+
+  function readPlans() {
+    try {
+      var value = JSON.parse(localStorage.getItem(PLANS_KEY) || "[]");
+      if (!Array.isArray(value)) return [];
+      return value.map(function (plan, index) {
+        var copy = Object.assign({}, plan);
+        copy.id = copy.id || "legacy-plan-" + index + "-" + (copy.date || "unknown");
+        copy.status = ["plan", "open", "closed"].indexOf(copy.status) >= 0 ? copy.status : "plan";
+        if (copy.planned_reason == null) copy.planned_reason = copy.notes || "";
+        return copy;
+      });
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function writePlans(plans) {
+    try { localStorage.setItem(PLANS_KEY, JSON.stringify(plans.slice(0, 100))); } catch (e) {}
+  }
+
+  function planRows(plans) {
+    return plans.filter(function (plan) { return plan.status === "closed"; }).map(function (plan, index) {
+      var gross = number(plan.result_usd);
+      var commission = Math.abs(number(plan.commission_usd));
+      var pnl = gross - commission;
+      var risk = number(plan.risk_usd);
+      var closed = plan.closed_at ? new Date(plan.closed_at) : null;
+      return {
+        id: plan.id,
+        date: plan.date || (closed ? closed.toISOString().slice(0, 10) : ""),
+        time: closed ? closed.toTimeString().slice(0, 5) : "",
+        timestamp: closed && !isNaN(closed.getTime()) ? closed.getTime() : index,
+        pair: String(plan.pair || "").toUpperCase().replace("/", ""),
+        direction: String(plan.direction || "").toLowerCase(),
+        setup: plan.setup || "",
+        emotion: plan.emotion || "",
+        hour: closed && !isNaN(closed.getTime()) ? closed.getHours() : null,
+        weekday: closed && !isNaN(closed.getTime()) ? (closed.getDay() + 6) % 7 : null,
+        pnl: pnl,
+        risk: risk,
+        r: risk > 0 ? pnl / risk : 0,
+        outcome: pnl > 0 ? "win" : pnl < 0 ? "loss" : "be",
+        rules: plan.followed_rules === false ? "no" : plan.followed_rules === true ? "yes" : "",
+        plannedReason: plan.planned_reason || "",
+        reviewFocus: plan.review_focus || ""
+      };
+    });
+  }
+
+  function syncRows(plans) {
+    plans = plans || readPlans();
+    var lifecycle = planRows(plans);
+    var lifecycleIds = {};
+    lifecycle.forEach(function (row) { lifecycleIds[row.id] = true; });
+    state.rows = state.importedRows.filter(function (row) { return !lifecycleIds[row.id]; })
+      .concat(lifecycle)
+      .sort(function (a, b) { return a.timestamp - b.timestamp; });
+  }
+
+  function statusLabel(value) {
+    return value === "open" ? T.statusOpen : value === "closed" ? T.statusClosed : T.statusPlan;
+  }
+
+  function reviewFocus(plan) {
+    if (plan.moved_stop) return T.focusStop;
+    if (plan.followed_rules === false) return T.focusRules;
+    if (["anxious", "frustrated", "fomo", "angry"].indexOf(String(plan.emotion || "").toLowerCase()) >= 0) return T.focusEmotion;
+    return T.focusProcess;
+  }
+
+  function closeForm(plan) {
+    return [
+      '<form class="journal-review" data-plan-id="' + escapeHtml(plan.id) + '" hidden>',
+      '<div class="journal-review-grid">',
+      '<label><span>' + T.resultUsd + '</span><input name="result" type="number" step="0.01" required></label>',
+      '<label><span>' + T.commission + '</span><input name="commission" type="number" min="0" step="0.01" value="0"></label>',
+      '<label><span>' + T.emotion + '</span><select name="emotion"><option value="calm">calm</option><option value="anxious">anxious</option><option value="frustrated">frustrated</option><option value="fomo">FOMO</option></select></label>',
+      '<label><span>' + T.rulesKept + '</span><select name="rules"><option value="yes">' + T.yes + '</option><option value="no">' + T.no + '</option></select></label>',
+      '<label><span>' + T.stopMoved + '</span><select name="stop"><option value="no">' + T.answerNo + '</option><option value="yes">' + T.answerYes + '</option></select></label>',
+      '<label class="journal-review-wide"><span>' + T.lesson + '</span><textarea name="lesson" rows="2"></textarea></label>',
+      '</div>',
+      '<div class="journal-actions"><button class="journal-button" type="submit">' + T.saveReview + '</button><button class="journal-button secondary" type="button" data-action="cancel-review" data-id="' + escapeHtml(plan.id) + '">' + T.cancel + '</button></div>',
+      '</form>'
+    ].join("");
+  }
+
+  function renderPlans() {
+    var plans = readPlans();
+    if (!plans.length) {
+      plansPanel.innerHTML = '<h3>' + T.plansTitle + '</h3><p class="journal-plans-empty">' + T.plansEmpty + '</p>';
+      return plans;
+    }
+    plansPanel.innerHTML = '<h3>' + T.plansTitle + '</h3><div class="journal-plan-list">' + plans.slice(0, 30).map(function (plan) {
+      var action = "";
+      if (plan.status === "plan") {
+        action = '<button class="journal-button" type="button" data-action="open" data-id="' + escapeHtml(plan.id) + '">' + T.openTrade + '</button>';
+      } else if (plan.status === "open") {
+        action = '<button class="journal-button" type="button" data-action="show-review" data-id="' + escapeHtml(plan.id) + '">' + T.closeTrade + '</button>' + closeForm(plan);
+      }
+      var focus = plan.review_focus ? '<p class="journal-plan-focus"><strong>' + T.nextFocus + ':</strong> ' + escapeHtml(plan.review_focus) + '</p>' : "";
+      var closedSummary = plan.status === "closed"
+        ? '<p><strong>' + T.pnl + ':</strong> ' + F.money(number(plan.result_usd) - Math.abs(number(plan.commission_usd))) + ' · ' + escapeHtml(plan.emotion || T.unknown) + '</p>'
+        : "";
+      return [
+        '<article class="journal-plan-card" data-status="' + escapeHtml(plan.status) + '">',
+        '<div class="journal-plan-head"><strong>' + escapeHtml(plan.pair || "-") + ' · ' + escapeHtml(plan.direction || "-") + '</strong><span>' + statusLabel(plan.status) + '</span></div>',
+        '<p>' + escapeHtml(plan.date || "-") + ' · ' + escapeHtml(plan.setup || "-") + ' · ' + F.money(number(plan.risk_usd)) + '</p>',
+        '<p><strong>' + T.originalReason + ':</strong> ' + escapeHtml(plan.planned_reason || "-") + '</p>',
+        closedSummary,
+        focus,
+        '<div class="journal-plan-actions">' + action + '</div>',
+        '</article>'
+      ].join("");
+    }).join("") + '</div>';
+    return plans;
+  }
+
+  function refreshFromPlans() {
+    var plans = renderPlans();
+    syncRows(plans);
+    setOptions();
+    if (state.rows.length) {
+      dashboard.style.display = "block";
+      render();
+    } else {
+      dashboard.style.display = "none";
+    }
   }
 
   function setOptions() {
@@ -679,6 +866,7 @@
     try {
       localStorage.setItem("forex_journal_summary", JSON.stringify({
         trades: m.trades, winRate: m.winRate, pnl: m.pnl, totalR: m.totalR,
+        avgR: m.trades ? m.totalR / m.trades : 0,
         maxDrawdown: m.maxDrawdown, discipline: m.discipline,
         updated: new Date().toISOString().slice(0, 10)
       }));
@@ -711,7 +899,8 @@
       var raw = isMT5 ? parseMT5HTML(text) : parseCSV(text);
       var rows = normalize(raw);
       if (!rows.length) throw new Error("empty");
-      state.rows = rows;
+      state.importedRows = rows;
+      syncRows(renderPlans());
       state.sourceText = String(text);
       state.sourceName = name;
       error.style.display = "none";
@@ -744,6 +933,89 @@
     reader.readAsText(file);
   }
 
+  function updatePlan(id, updater) {
+    var plans = readPlans();
+    var changed = false;
+    plans = plans.map(function (plan) {
+      if (plan.id !== id) return plan;
+      changed = true;
+      return updater(Object.assign({}, plan));
+    });
+    if (changed) {
+      writePlans(plans);
+      refreshFromPlans();
+    }
+  }
+
+  plansPanel.addEventListener("click", function (event) {
+    var button = event.target.closest("button[data-action]");
+    if (!button) return;
+    var action = button.dataset.action;
+    var id = button.dataset.id;
+    if (action === "open") {
+      updatePlan(id, function (plan) {
+        plan.status = "open";
+        plan.opened_at = new Date().toISOString();
+        plan.updated_at = plan.opened_at;
+        return plan;
+      });
+      if (window.fxTrack) window.fxTrack("trade_plan_opened", { once: false });
+    } else if (action === "show-review") {
+      var form = plansPanel.querySelector('.journal-review[data-plan-id="' + CSS.escape(id) + '"]');
+      if (form) form.hidden = false;
+    } else if (action === "cancel-review") {
+      var cancelForm = button.closest("form");
+      if (cancelForm) cancelForm.hidden = true;
+    }
+  });
+
+  plansPanel.addEventListener("submit", function (event) {
+    var form = event.target.closest("form.journal-review");
+    if (!form) return;
+    event.preventDefault();
+    var result = Number(form.elements.result.value);
+    if (!isFinite(result)) return;
+    updatePlan(form.dataset.planId, function (plan) {
+      plan.status = "closed";
+      plan.result_usd = result;
+      plan.commission_usd = Math.abs(Number(form.elements.commission.value) || 0);
+      plan.emotion = form.elements.emotion.value;
+      plan.followed_rules = form.elements.rules.value === "yes";
+      plan.moved_stop = form.elements.stop.value === "yes";
+      plan.review_lesson = form.elements.lesson.value.trim();
+      plan.closed_at = new Date().toISOString();
+      plan.updated_at = plan.closed_at;
+      plan.review_focus = reviewFocus(plan);
+      return plan;
+    });
+    if (window.fxTrack) window.fxTrack("trade_review_completed", { once: false });
+  });
+
+  function openPersonalMonteCarlo() {
+    var rows = state.rows.filter(function (row) { return row.outcome !== "open"; });
+    if (!rows.length) return;
+    var m = metrics(rows);
+    var wins = rows.filter(function (row) { return row.r > 0; });
+    var losses = rows.filter(function (row) { return row.r < 0; });
+    var avgWin = wins.length ? wins.reduce(function (sum, row) { return sum + row.r; }, 0) / wins.length : 1;
+    var avgLoss = losses.length ? Math.abs(losses.reduce(function (sum, row) { return sum + row.r; }, 0) / losses.length) : 1;
+    try {
+      var settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}");
+      settings.monteCarlo = {
+        source: "journal",
+        sampleSize: rows.length,
+        trades: Math.max(10, rows.length),
+        winRate: m.winRate,
+        rewardRisk: Math.max(0.1, avgWin / Math.max(0.01, avgLoss)),
+        updatedAt: new Date().toISOString()
+      };
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    } catch (e) {}
+    if (rows.length < 30) status.textContent = T.sampleWarning(rows.length);
+    if (window.fxTrack) window.fxTrack("journal_monte_carlo_opened", { once: false });
+    window.location.href = "../../tools/monte-carlo/?journal=1";
+  }
+
   fileInput.addEventListener("change", function () { readFile(fileInput.files[0]); });
   drop.addEventListener("dragover", function (event) {
     event.preventDefault(); drop.classList.add("is-dragging");
@@ -758,14 +1030,15 @@
   });
   document.getElementById("journal-clear").addEventListener("click", function () {
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
-    state = { rows: [], sourceText: "", sourceName: "" };
-    dashboard.style.display = "none";
+    state = { rows: [], importedRows: [], sourceText: "", sourceName: "" };
+    refreshFromPlans();
     fileInput.value = "";
     fileName.textContent = T.noFile;
     status.textContent = T.cleared;
   });
   document.getElementById("journal-export-csv").addEventListener("click", exportCsv);
   document.getElementById("journal-export-html").addEventListener("click", exportHtml);
+  monteCarloButton.addEventListener("click", openPersonalMonteCarlo);
   filters.forEach(function (id) {
     document.getElementById(id).addEventListener("change", render);
   });
@@ -777,6 +1050,8 @@
     if (saved && saved.text) {
       loadText(saved.text, saved.name || T.restoredName, false, saved.kind);
       status.textContent = T.restored + ": " + (saved.name || T.restoredName);
+    } else {
+      refreshFromPlans();
     }
-  } catch (e) {}
+  } catch (e) { refreshFromPlans(); }
 })();

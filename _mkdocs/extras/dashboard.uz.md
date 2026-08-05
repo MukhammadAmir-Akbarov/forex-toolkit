@@ -20,3 +20,9 @@
 3. Replay mashqida bir nechta epizod bajaring.
 4. Intizom va natijani ko'rish uchun veb-jurnalga CSV yuklang.
 5. Bu yerga qayting: kabinet keyingi qadamni tavsiya qiladi.
+
+## Zaxira nusxasi
+
+**JSON eksport** to'liq jurnal, savdo rejalari va qoralamalar, progress, imtihon,
+Replay va asbob sozlamalarini saqlaydi. Import avval backup tarkibi va versiyasini
+ko'rsatadi; tasdiqlamaguningizcha hech narsa almashtirilmaydi.

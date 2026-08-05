@@ -87,6 +87,9 @@ def test_trade_desk_saves_journal_ready_draft(pw_page, site_url):
     draft = page.evaluate("JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0]")
     assert draft["pair"] == "EURUSD"
     assert draft["lot_size"] == 0.05
+    assert draft["status"] == "plan"
+    assert "planned_reason" in draft
+    assert page.locator("#td-journal").is_enabled()
     assert page.locator("#td-download").is_enabled()
 
 
@@ -100,6 +103,28 @@ def test_monte_carlo_matches_python_fixture(pw_page, site_url):
     expected = simulate_summary(100, 50, 0.45, 2, 1, seed=42)
     assert _number(values[0]) == pytest.approx(expected["median_final"] * 1000, abs=0.01)
     assert page.locator("#mco-chart").is_visible()
+    assert page.locator("#mco-risk-comparison .fx-metrics > div").count() == 3
+
+
+def test_first_15_minutes_collects_local_progress(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/first-15/")
+    assert "0 / 4" in page.locator(".first-15-hero").inner_text()
+    page.click("#first-15-basics")
+    page.evaluate(
+        """
+        () => {
+          const first = JSON.parse(localStorage.getItem('forex_first15_v1'));
+          first.position = true;
+          localStorage.setItem('forex_first15_v1', JSON.stringify(first));
+          localStorage.setItem('forex_replay_stats', JSON.stringify({trades: 3}));
+          localStorage.setItem('forex_trade_drafts_v1', JSON.stringify([{id: 'p1'}]));
+        }
+        """
+    )
+    page.reload()
+    assert "4 / 4" in page.locator(".first-15-hero").inner_text()
+    assert page.locator(".first-15-step.is-done").count() == 4
 
 
 def test_service_worker_registers(pw_page, site_url):

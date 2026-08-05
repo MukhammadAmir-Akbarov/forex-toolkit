@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 import pytest
 
 
@@ -50,3 +52,81 @@ def test_student_dashboard_reads_existing_local_state(pw_page, site_url):
     assert "12 сделок" in page.text_content("#student-dashboard")
     assert "Live Caution" in page.text_content("#student-dashboard")
     assert "флэт" in page.text_content("#sd-next-text")
+
+
+@pytest.mark.parametrize("backup_version", [1, 2])
+def test_dashboard_full_backup_requires_preview_confirmation(
+    pw_page, site_url, backup_version
+):
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    page.evaluate(
+        """
+        () => {
+          localStorage.setItem('fx-progress-v1', JSON.stringify(['/old/']));
+          localStorage.setItem('forex_journal_data_v2', JSON.stringify({text: 'old'}));
+          localStorage.setItem('forex_trade_drafts_v1', JSON.stringify([]));
+        }
+        """
+    )
+    payload = {
+        "version": backup_version,
+        "exported_at": "2026-08-06T00:00:00.000Z",
+        "localStorage": {
+            "fx-progress-v1": json.dumps(["/one/", "/two/"]),
+            "forex_journal_data_v2": json.dumps(
+                {"text": "id,date\n1,2026-08-06", "name": "journal.csv"}
+            ),
+            "forex_trade_drafts_v1": json.dumps(
+                [{"id": "plan-1", "status": "plan", "pair": "EURUSD"}]
+            ),
+            "forex_tool_settings_v1": json.dumps({"tradeDesk": {"riskPct": 1}}),
+        },
+    }
+    if backup_version == 2:
+        payload["schema"] = "forex-toolkit-backup"
+    page.set_input_files(
+        "#sd-import",
+        {
+            "name": "forex-dashboard-backup.json",
+            "mimeType": "application/json",
+            "buffer": json.dumps(payload).encode(),
+        },
+    )
+
+    assert page.locator("#sd-restore").is_visible()
+    assert "2" in page.locator("#sd-restore").inner_text()
+    assert page.evaluate("JSON.parse(localStorage.getItem('fx-progress-v1'))") == [
+        "/old/"
+    ]
+
+    page.click("#sd-confirm-restore")
+    assert page.evaluate("JSON.parse(localStorage.getItem('fx-progress-v1'))") == [
+        "/one/",
+        "/two/",
+    ]
+    assert page.evaluate(
+        "JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0].id"
+    ) == "plan-1"
+
+
+def test_dashboard_export_contains_full_local_data(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    page.evaluate(
+        """
+        () => {
+          localStorage.setItem('forex_journal_data_v2', JSON.stringify({text: 'full journal'}));
+          localStorage.setItem('forex_trade_drafts_v1', JSON.stringify([{id: 'p1'}]));
+          localStorage.setItem('forex_tool_settings_v1', JSON.stringify({risk: 1}));
+        }
+        """
+    )
+    with page.expect_download() as download_info:
+        page.click("#sd-export")
+    payload = json.loads(download_info.value.path().read_text())
+    assert payload["version"] == 2
+    assert payload["schema"] == "forex-toolkit-backup"
+    assert payload["localStorage"]["forex_journal_data_v2"]
+    assert payload["localStorage"]["forex_trade_drafts_v1"]
+    assert payload["localStorage"]["forex_tool_settings_v1"]

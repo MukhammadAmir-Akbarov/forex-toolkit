@@ -132,3 +132,55 @@ def test_web_journal_exports_summary(pw_page, site_url):
     with page.expect_download() as html_download:
         page.click("#journal-export-html")
     assert html_download.value.suggested_filename == "forex-journal-summary.html"
+
+
+def test_trade_plan_lifecycle_and_review_preserve_original_reason(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/journal/web-journal/")
+    page.evaluate(
+        """
+        () => localStorage.setItem('forex_trade_drafts_v1', JSON.stringify([{
+          id: 'plan-review-1', status: 'plan', date: '2026-08-06', pair: 'EURUSD',
+          direction: 'long', setup: 'pullback', risk_usd: 10,
+          planned_reason: 'EMA50 held before entry'
+        }]))
+        """
+    )
+    page.reload()
+
+    assert "EMA50 held before entry" in page.locator("#journal-plans").inner_text()
+    page.click('button[data-action="open"]')
+    assert page.evaluate(
+        "JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0].status"
+    ) == "open"
+    page.click('button[data-action="show-review"]')
+    form = page.locator("form.journal-review")
+    form.locator('[name="result"]').fill("15")
+    form.locator('[name="commission"]').fill("2")
+    form.locator('[name="emotion"]').select_option("frustrated")
+    form.locator('[name="rules"]').select_option("no")
+    form.locator('[name="stop"]').select_option("yes")
+    form.locator('[name="lesson"]').fill("Wait for confirmation")
+    form.locator('button[type="submit"]').click()
+
+    trade = page.evaluate(
+        "JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0]"
+    )
+    assert trade["status"] == "closed"
+    assert trade["planned_reason"] == "EMA50 held before entry"
+    assert trade["review_lesson"] == "Wait for confirmation"
+    assert trade["review_focus"]
+    assert number(page.text_content("#journal-m-pnl")) == pytest.approx(13.0)
+
+
+def test_journal_opens_personal_monte_carlo_profile(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/journal/web-journal/")
+    page.click("#journal-demo")
+    page.click("#journal-monte-carlo")
+    page.wait_for_url("**/tools/monte-carlo/?journal=1")
+
+    assert page.locator("#mco-source").is_visible()
+    assert "6" in page.locator("#mco-source").inner_text()
+    assert float(page.input_value("#mco-wr")) == pytest.approx(50.0)
+    assert page.locator("#mco-risk-comparison .fx-metrics > div").count() == 3

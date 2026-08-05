@@ -115,10 +115,10 @@
     },
     "extras/dashboard.md": {
       "locales": {
-        "en": "81ce8b1a9d35de96f317cf94266a4833c0ce13ee210ba731ef7014f3aa03fd6a",
-        "uz": "81ce8b1a9d35de96f317cf94266a4833c0ce13ee210ba731ef7014f3aa03fd6a"
+        "en": "068a716463945421593dbe963298e915d1709092656fb6715905c9a0bf56c124",
+        "uz": "068a716463945421593dbe963298e915d1709092656fb6715905c9a0bf56c124"
       },
-      "ru_sha256": "81ce8b1a9d35de96f317cf94266a4833c0ce13ee210ba731ef7014f3aa03fd6a"
+      "ru_sha256": "068a716463945421593dbe963298e915d1709092656fb6715905c9a0bf56c124"
     },
     "extras/emergency-card.md": {
       "locales": {
@@ -218,6 +218,13 @@
       },
       "ru_sha256": "e7e127b846f301d0c9dc76d453416c6ee859368c6fdee7be19f736b857445088"
     },
+    "first-15.md": {
+      "locales": {
+        "en": "49299edeacac881011f961b468a10dadc870efe2da1d251a4bf4c03eb377055d",
+        "uz": "49299edeacac881011f961b468a10dadc870efe2da1d251a4bf4c03eb377055d"
+      },
+      "ru_sha256": "49299edeacac881011f961b468a10dadc870efe2da1d251a4bf4c03eb377055d"
+    },
     "forex-guide.md": {
       "locales": {
         "en": "cd1af6abad09b745667a6994850aba71e1ef4d670223fd9d7f9d9e8a5e6207ad",
@@ -290,10 +297,10 @@
     },
     "journal/web-journal.md": {
       "locales": {
-        "en": "0c8c5b77e5ac87e9aacdb4abff1c0c1460a123d33b461e05facf671bedeee83f",
-        "uz": "0c8c5b77e5ac87e9aacdb4abff1c0c1460a123d33b461e05facf671bedeee83f"
+        "en": "8486df56a45dfa62cd74fcb2136e5f1724ae6aeec9f351eb6508110d8ba2eddb",
+        "uz": "8486df56a45dfa62cd74fcb2136e5f1724ae6aeec9f351eb6508110d8ba2eddb"
       },
-      "ru_sha256": "0c8c5b77e5ac87e9aacdb4abff1c0c1460a123d33b461e05facf671bedeee83f"
+      "ru_sha256": "8486df56a45dfa62cd74fcb2136e5f1724ae6aeec9f351eb6508110d8ba2eddb"
     },
     "journal/weekly-report-template.md": {
       "locales": {
@@ -430,10 +437,10 @@
     },
     "tools/monte-carlo.md": {
       "locales": {
-        "en": "0034ddc0989be89fa4a7c1baecc9254d1269a59ead0858e1e3ea133eb0236dd3",
-        "uz": "0034ddc0989be89fa4a7c1baecc9254d1269a59ead0858e1e3ea133eb0236dd3"
+        "en": "c5b1976ebe48d43d2c3af2a3d4992f0946360e5b5bb72413965dd7d36c369e7e",
+        "uz": "c5b1976ebe48d43d2c3af2a3d4992f0946360e5b5bb72413965dd7d36c369e7e"
       },
-      "ru_sha256": "0034ddc0989be89fa4a7c1baecc9254d1269a59ead0858e1e3ea133eb0236dd3"
+      "ru_sha256": "c5b1976ebe48d43d2c3af2a3d4992f0946360e5b5bb72413965dd7d36c369e7e"
     },
     "tools/pip-calculator.md": {
       "locales": {
@@ -479,10 +486,10 @@
     },
     "tools/trade-desk.md": {
       "locales": {
-        "en": "c0194ea96f8749e2d561f301fb0e67ff9391db929def8477796f2ac7f19b754b",
-        "uz": "c0194ea96f8749e2d561f301fb0e67ff9391db929def8477796f2ac7f19b754b"
+        "en": "d1c5006ec64aade32cd8efe0d83d581047473606d262d9afad26c42796f1f2b8",
+        "uz": "d1c5006ec64aade32cd8efe0d83d581047473606d262d9afad26c42796f1f2b8"
       },
-      "ru_sha256": "c0194ea96f8749e2d561f301fb0e67ff9391db929def8477796f2ac7f19b754b"
+      "ru_sha256": "d1c5006ec64aade32cd8efe0d83d581047473606d262d9afad26c42796f1f2b8"
     },
     "tools/winrate-rr-calculator.md": {
       "locales": {
