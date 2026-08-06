@@ -63,6 +63,7 @@ def test_web_journal_extended_csv_upload(pw_page, site_url):
     page.set_input_files(
         "#journal-file", ROOT / "journal" / "trading-journal-template.csv"
     )
+    page.click('[data-quality="valid"]')
     page.wait_for_selector("#journal-dashboard", state="visible")
 
     assert page.text_content("#journal-m-trades").strip() == "2"
@@ -84,6 +85,7 @@ def test_web_journal_imports_mt5_html(pw_page, site_url):
     page.set_input_files(
         "#journal-file", ROOT / "tests" / "fixtures" / "mt5-statement.html"
     )
+    page.click('[data-quality="valid"]')
     page.wait_for_selector("#journal-dashboard", state="visible")
 
     assert page.text_content("#journal-m-trades").strip() == "3"
@@ -103,6 +105,7 @@ def test_web_journal_restores_and_clears_local_data(pw_page, site_url):
     page.set_input_files(
         "#journal-file", ROOT / "journal" / "trading-journal-template.csv"
     )
+    page.click('[data-quality="valid"]')
     page.wait_for_selector("#journal-dashboard", state="visible")
 
     stored = page.evaluate("() => localStorage.getItem('forex_journal_data_v2')")
@@ -132,6 +135,51 @@ def test_web_journal_exports_summary(pw_page, site_url):
     with page.expect_download() as html_download:
         page.click("#journal-export-html")
     assert html_download.value.suggested_filename == "forex-journal-summary.html"
+
+
+def test_import_quality_preview_excludes_duplicates_and_protects_monte_carlo(
+    pw_page, site_url
+):
+    page = pw_page
+    page.goto(f"{site_url}/journal/web-journal/")
+    csv = """id,date,time,pair,result_usd,risk_usd,unknown_note
+1,2026-08-04,10:00,EURUSD,10,10,ok
+1,2026-08-04,10:00,EURUSD,10,10,duplicate
+2,2026-08-05,11:00,GBPUSD,-5,,missing risk
+"""
+    page.set_input_files(
+        "#journal-file",
+        {"name": "quality.csv", "mimeType": "text/csv", "buffer": csv.encode()},
+    )
+    panel = page.locator("#journal-quality")
+    assert panel.is_visible()
+    assert "3" in panel.inner_text()
+    assert "unknown_note" in panel.inner_text()
+    assert panel.locator("tr.is-problem").count() == 1
+    page.click('[data-quality="valid"]')
+    saved = page.evaluate(
+        "JSON.parse(localStorage.getItem('forex_journal_data_v2')).rows"
+    )
+    assert len(saved) == 2
+    assert sum(1 for row in saved if row["rValid"]) == 1
+    page.click("#journal-monte-carlo")
+    page.wait_for_url("**/tools/monte-carlo/?journal=1")
+    assert "1" in page.locator("#mco-source").inner_text()
+
+
+def test_weekly_report_compares_weeks_and_exports_markdown(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/journal/web-journal/")
+    page.click("#journal-demo")
+    report = page.locator("#journal-weekly-report")
+    assert report.is_visible()
+    assert "2026-05-18" in report.inner_text()
+    assert "Предыдущая неделя" in report.inner_text()
+    with page.expect_download() as download_info:
+        page.click('[data-weekly="markdown"]')
+    download = download_info.value
+    assert download.suggested_filename == "forex-weekly-report.md"
+    assert "Автоматический недельный отчёт" in download.path().read_text()
 
 
 def test_trade_plan_lifecycle_and_review_preserve_original_reason(pw_page, site_url):
@@ -171,6 +219,10 @@ def test_trade_plan_lifecycle_and_review_preserve_original_reason(pw_page, site_
     assert trade["review_lesson"] == "Wait for confirmation"
     assert trade["review_focus"]
     assert number(page.text_content("#journal-m-pnl")) == pytest.approx(13.0)
+    tasks = page.evaluate(
+        "JSON.parse(localStorage.getItem('forex_training_queue_v1'))"
+    )
+    assert {task["type"] for task in tasks} >= {"stop", "rules"}
 
 
 def test_journal_opens_personal_monte_carlo_profile(pw_page, site_url):

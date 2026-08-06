@@ -9,6 +9,10 @@
     **Plan → Open → Closed**, complete the post-trade review, and send the
     resulting statistics to a personal Monte Carlo model.
 
+    Before importing, the journal previews data quality: valid and problematic
+    rows, duplicates, unknown columns, and the first 10 records. The weekly
+    report includes USD/UZS/R results, discipline, and one next action.
+
 !!! tip "Privacy"
     The file is processed **only in your browser**. It is not uploaded and is
     stored locally so the journal can be restored next time.
@@ -129,3 +133,14 @@ id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_
 - **Rules followed** is the share of `yes` among trades where the field is present.
 
 Collect at least **30 trades using one strategy** before drawing firm conclusions.
+
+## Strategy lab and training
+
+The selected strategy version is saved with every trade plan. Changing its rules
+creates a new version, so separate experiments never mix their statistics. Once
+the target sample is reached, the lab shows expectancy, discipline, drawdown,
+and total R.
+
+Closed-trade mistakes build a local practice queue automatically: moved stops,
+FOMO, and rule violations become 10-exercise Replay assignments. Queue data
+never leaves the browser.

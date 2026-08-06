@@ -18,7 +18,13 @@
     trade_plan_opened: true,
     trade_review_completed: true,
     journal_monte_carlo_opened: true,
-    first15_completed: true
+    first15_completed: true,
+    risk_limit_warning_shown: true,
+    journal_quality_imported: true,
+    weekly_report_exported: true,
+    strategy_version_saved: true,
+    training_task_completed: true,
+    storage_persistence_requested: true
   };
   var pending = [];
 

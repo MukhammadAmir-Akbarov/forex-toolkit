@@ -38,6 +38,15 @@
     Sessiya xulosasi, zaif bozor kategoriyasi va xato epizodlar `localStorage`da
     saqlanadi. O'quv kabineti keyingi tavsiya uchun ulardan foydalanadi.
 
+!!! info "Klaviatura va qulaylik"
+    Buy uchun **B**, Sell uchun **S**, o'tkazib yuborish uchun **Space** ni
+    bosing; darajalarni tanlash va siljitish uchun strelkalardan foydalaning.
+    Grafik ostida matnli tavsif va so'nggi shamlar jadvali mavjud. Ko'rinadigan
+    kontur fokus grafikda ekanini bildiradi.
+
+Jurnal shaxsiy vazifa yaratsa, Replay uni grafik ustida ko'rsatadi va mos
+mashqlardan keyin progressni oshiradi.
+
 ---
 
 ## Epizodlar to'plamini qayta yaratish

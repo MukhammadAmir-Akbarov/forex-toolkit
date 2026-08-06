@@ -11,10 +11,10 @@
     <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit" class="md-button" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
   <div class="fx-hero__stats">
-    <div class="fx-stat"><span class="fx-stat__num" data-target="25" data-suffix="+">25+</span><span class="fx-stat__label">guides</span></div>
-    <div class="fx-stat"><span class="fx-stat__num" data-target="30" data-suffix="+">30+</span><span class="fx-stat__label">tools</span></div>
-    <div class="fx-stat"><span class="fx-stat__num" data-target="6">6</span><span class="fx-stat__label">strategies</span></div>
-    <div class="fx-stat"><span class="fx-stat__num" data-target="95">95</span><span class="fx-stat__label">tests</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="{{PROJECT_PAGES}}">{{PROJECT_PAGES}}</span><span class="fx-stat__label">pages</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="{{PROJECT_TOOLS}}">{{PROJECT_TOOLS}}</span><span class="fx-stat__label">Python tools</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="{{PROJECT_STRATEGIES}}">{{PROJECT_STRATEGIES}}</span><span class="fx-stat__label">strategies</span></div>
+    <div class="fx-stat"><span class="fx-stat__num" data-target="{{PROJECT_TESTS}}">{{PROJECT_TESTS}}</span><span class="fx-stat__label">tests</span></div>
     <div class="fx-stat"><span class="fx-stat__num" data-target="3">3</span><span class="fx-stat__label">languages</span></div>
   </div>
   <div id="fx-session-ticker" class="fx-session-ticker"></div>

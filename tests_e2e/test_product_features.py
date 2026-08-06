@@ -42,6 +42,21 @@ def test_feedback_is_localized_and_deduplicated(pw_page, site_url, prefix, title
     assert page.locator(".md-feedback__list").is_hidden()
 
 
+@pytest.mark.parametrize(
+    "path", ["/", "/tools/trade-desk/", "/en/tools/trade-desk/", "/uz/offline/"]
+)
+def test_pwa_manifest_and_icon_resolve_at_every_depth(pw_page, site_url, path):
+    """base_url has no trailing slash, so a missing "/" silently 404s the manifest."""
+    page = pw_page
+    page.goto(f"{site_url}{path}")
+    for selector in ('link[rel="manifest"]', 'link[rel="apple-touch-icon"]'):
+        status = page.evaluate(
+            "sel => fetch(document.querySelector(sel).href).then(r => r.status)",
+            selector,
+        )
+        assert status == 200, f"{selector} broken on {path}"
+
+
 def test_aggregate_risk_matches_python(pw_page, site_url):
     page = pw_page
     page.goto(f"{site_url}/tools/risk-exposure-calculator/")
@@ -91,6 +106,63 @@ def test_trade_desk_saves_journal_ready_draft(pw_page, site_url):
     assert "planned_reason" in draft
     assert page.locator("#td-journal").is_enabled()
     assert page.locator("#td-download").is_enabled()
+
+
+def test_trade_desk_requires_explicit_risk_limit_confirmation(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/tools/trade-desk/")
+    page.evaluate(
+        """
+        () => localStorage.setItem('forex_trade_drafts_v1', JSON.stringify([{
+          id: 'open-1', status: 'open', risk_pct: 1.5, risk_usd: 15,
+          pair: 'GBPUSD', direction: 'long'
+        }]))
+        """
+    )
+    page.reload()
+    page.click("#td-calc")
+    assert "2.50%" in page.locator("#td-risk-budget").inner_text()
+    assert page.locator("#td-risk-override-wrap").is_visible()
+    page.locator("#td-checks input").evaluate_all(
+        "inputs => inputs.forEach(input => { input.checked = true; })"
+    )
+    page.click("#td-save")
+    assert page.evaluate(
+        "JSON.parse(localStorage.getItem('forex_trade_drafts_v1')).length"
+    ) == 1
+    assert "Лимит риска превышен" in page.locator("#td-status").inner_text()
+    page.check("#td-risk-override")
+    page.click("#td-save")
+    plans = page.evaluate("JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))")
+    assert len(plans) == 2
+    assert plans[0]["risk_guard"]["confirmed_override"] is True
+
+
+def test_strategy_lab_versions_rules_and_snapshots_plan(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/tools/trade-desk/")
+    page.fill("#sl-name", "London Pullback")
+    page.fill("#sl-entry", "Sweep and H1 close above structure")
+    page.fill("#sl-invalidation", "Close below the sweep")
+    page.click("#sl-save")
+    assert page.locator(".strategy-card").count() == 1
+    page.fill("#sl-entry", "Sweep, retest and H1 close above structure")
+    page.click("#sl-save")
+    assert page.locator(".strategy-card").count() == 2
+    versions = page.evaluate(
+        "JSON.parse(localStorage.getItem('forex_strategy_playbooks_v1')).map(x => x.version)"
+    )
+    assert versions == [2, 1]
+    strategy_id = page.locator("#td-strategy option").last.get_attribute("value")
+    page.select_option("#td-strategy", strategy_id)
+    page.click("#td-calc")
+    page.locator("#td-checks input").evaluate_all(
+        "inputs => inputs.forEach(input => { input.checked = true; })"
+    )
+    page.click("#td-save")
+    plan = page.evaluate("JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0]")
+    assert plan["strategy"]["version"] == 2
+    assert plan["strategy"]["entryRules"].startswith("Sweep, retest")
 
 
 def test_monte_carlo_matches_python_fixture(pw_page, site_url):

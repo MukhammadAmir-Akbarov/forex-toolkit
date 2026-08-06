@@ -115,10 +115,10 @@
     },
     "extras/dashboard.md": {
       "locales": {
-        "en": "068a716463945421593dbe963298e915d1709092656fb6715905c9a0bf56c124",
-        "uz": "068a716463945421593dbe963298e915d1709092656fb6715905c9a0bf56c124"
+        "en": "26e9a135db7ebddbb27a1a576a9a03b977446551a691d645030ba453e138f7f3",
+        "uz": "26e9a135db7ebddbb27a1a576a9a03b977446551a691d645030ba453e138f7f3"
       },
-      "ru_sha256": "068a716463945421593dbe963298e915d1709092656fb6715905c9a0bf56c124"
+      "ru_sha256": "26e9a135db7ebddbb27a1a576a9a03b977446551a691d645030ba453e138f7f3"
     },
     "extras/emergency-card.md": {
       "locales": {
@@ -255,10 +255,10 @@
     },
     "index.md": {
       "locales": {
-        "en": "0c87f505dc68938c2def8c6a3e1898976d30c359ad94895649717ad86274522c",
-        "uz": "0c87f505dc68938c2def8c6a3e1898976d30c359ad94895649717ad86274522c"
+        "en": "4868d0b05cbc3ef52dfb397ceffba60949951fb73432a0ee034586f56fe5fc69",
+        "uz": "4868d0b05cbc3ef52dfb397ceffba60949951fb73432a0ee034586f56fe5fc69"
       },
-      "ru_sha256": "0c87f505dc68938c2def8c6a3e1898976d30c359ad94895649717ad86274522c"
+      "ru_sha256": "4868d0b05cbc3ef52dfb397ceffba60949951fb73432a0ee034586f56fe5fc69"
     },
     "journal/README.md": {
       "locales": {
@@ -297,10 +297,10 @@
     },
     "journal/web-journal.md": {
       "locales": {
-        "en": "8486df56a45dfa62cd74fcb2136e5f1724ae6aeec9f351eb6508110d8ba2eddb",
-        "uz": "8486df56a45dfa62cd74fcb2136e5f1724ae6aeec9f351eb6508110d8ba2eddb"
+        "en": "6b8bd3bbb298c2b43e1d1fa42c4e868a2763836f18a5eb5d855ce9622857726c",
+        "uz": "6b8bd3bbb298c2b43e1d1fa42c4e868a2763836f18a5eb5d855ce9622857726c"
       },
-      "ru_sha256": "8486df56a45dfa62cd74fcb2136e5f1724ae6aeec9f351eb6508110d8ba2eddb"
+      "ru_sha256": "6b8bd3bbb298c2b43e1d1fa42c4e868a2763836f18a5eb5d855ce9622857726c"
     },
     "journal/weekly-report-template.md": {
       "locales": {
@@ -311,10 +311,10 @@
     },
     "offline.md": {
       "locales": {
-        "en": "4e7de9f7ab9e11620aea3a68f02116980040fa821ca5f216e6554c9741b33b4a",
-        "uz": "4e7de9f7ab9e11620aea3a68f02116980040fa821ca5f216e6554c9741b33b4a"
+        "en": "0ef9c67c77a8a575d530bb1530ea8da0e58808c416dfe7c672f0e650e00b5300",
+        "uz": "0ef9c67c77a8a575d530bb1530ea8da0e58808c416dfe7c672f0e650e00b5300"
       },
-      "ru_sha256": "4e7de9f7ab9e11620aea3a68f02116980040fa821ca5f216e6554c9741b33b4a"
+      "ru_sha256": "0ef9c67c77a8a575d530bb1530ea8da0e58808c416dfe7c672f0e650e00b5300"
     },
     "practice/README.md": {
       "locales": {
@@ -465,10 +465,10 @@
     },
     "tools/replay-trainer.md": {
       "locales": {
-        "en": "e6713b21e7c748b40765ffc78dba3056a6a6c64d9d1baf419e1ab6e560ed42a1",
-        "uz": "e6713b21e7c748b40765ffc78dba3056a6a6c64d9d1baf419e1ab6e560ed42a1"
+        "en": "bd6f1ef04910ebdcfe591d3d4cee83dee13de411da8d9d951dabda414a549649",
+        "uz": "bd6f1ef04910ebdcfe591d3d4cee83dee13de411da8d9d951dabda414a549649"
       },
-      "ru_sha256": "e6713b21e7c748b40765ffc78dba3056a6a6c64d9d1baf419e1ab6e560ed42a1"
+      "ru_sha256": "bd6f1ef04910ebdcfe591d3d4cee83dee13de411da8d9d951dabda414a549649"
     },
     "tools/risk-exposure-calculator.md": {
       "locales": {
@@ -486,10 +486,10 @@
     },
     "tools/trade-desk.md": {
       "locales": {
-        "en": "d1c5006ec64aade32cd8efe0d83d581047473606d262d9afad26c42796f1f2b8",
-        "uz": "d1c5006ec64aade32cd8efe0d83d581047473606d262d9afad26c42796f1f2b8"
+        "en": "c9d9e1319c072a6f5bc1d30cc0e471d26cf31b72dfcd94d79a7f1e0e1111d9bf",
+        "uz": "c9d9e1319c072a6f5bc1d30cc0e471d26cf31b72dfcd94d79a7f1e0e1111d9bf"
       },
-      "ru_sha256": "d1c5006ec64aade32cd8efe0d83d581047473606d262d9afad26c42796f1f2b8"
+      "ru_sha256": "c9d9e1319c072a6f5bc1d30cc0e471d26cf31b72dfcd94d79a7f1e0e1111d9bf"
     },
     "tools/winrate-rr-calculator.md": {
       "locales": {

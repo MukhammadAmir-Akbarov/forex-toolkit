@@ -23,6 +23,11 @@
 
 ## Backup
 
-**Export JSON** saves the full journal, trade plans and drafts, progress, exam,
-Replay, and tool settings. Import first shows the backup contents and version;
-nothing is overwritten until you confirm the restore.
+**Export JSON** saves the full journal, trade plans and drafts, strategy versions,
+training queue, risk limits, progress, exam, Replay, and tool settings. Import
+first shows the backup contents and version; nothing is overwritten until you
+confirm the restore.
+
+The dashboard shows the last backup date and reminds you after 30 days. It also
+reports storage status and can ask the browser for persistent storage; the
+browser makes the final decision.

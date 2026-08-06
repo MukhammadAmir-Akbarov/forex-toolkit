@@ -75,3 +75,6 @@ material/
 
 # Сгенерированный граф знаний graphify (пересоздаётся `graphify update .`)
 graphify-out/
+
+# артефакты отладки браузера
+.playwright-mcp/

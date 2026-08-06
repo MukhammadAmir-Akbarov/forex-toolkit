@@ -34,6 +34,7 @@ PACKAGE_MODULES = [
     "forex_toolkit.indicators",
     "forex_toolkit.candles",
     "forex_toolkit.position_calculator",
+    "forex_toolkit.risk_budget",
 ]
 
 
