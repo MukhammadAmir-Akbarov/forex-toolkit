@@ -399,7 +399,8 @@
     var selected = select.value;
     var items = window.FXStrategies ? window.FXStrategies.read().filter(function (item) { return item.active; }) : [];
     select.innerHTML = '<option value="">' + T.manualStrategy + '</option>' + items.map(function (item) {
-      return '<option value="' + item.id + '">' + item.name + ' v' + item.version + ' · ' + item.timeframe + '</option>';
+      return '<option value="' + F.escape(item.id) + '">' + F.escape(item.name) +
+        ' v' + F.escape(item.version) + ' · ' + F.escape(item.timeframe) + '</option>';
     }).join("");
     if (items.some(function (item) { return item.id === selected; })) select.value = selected;
   }
