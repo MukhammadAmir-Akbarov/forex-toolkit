@@ -4,6 +4,11 @@ verified: 2026-06-11
 
 # Scam Protection: How Not to Lose Money on "Trading" in Uzbekistan
 
+!!! tip "Check the broker before you deposit"
+    The [broker check](../tools/broker-check.md) builds direct links to the FCA,
+    CySEC, ASIC, NFA and FINMA registries and helps you tick off red flags.
+
+
 > ⚠️ Educational material, not financial or legal advice.
 > Last verified: **2026-06-11**. Legal status and contacts change — check
 > primary sources ([napp.uz](https://napp.uz)) before taking any action.

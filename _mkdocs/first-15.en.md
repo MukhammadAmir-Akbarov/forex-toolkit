@@ -10,4 +10,9 @@ workflow and save one safe plan **without opening a live trade**.
     The first plan is for practising the process. Do not use real money until
     demo statistics and journal discipline support the decision.
 
-After these four steps, continue with the full [learning roadmap](roadmap.md).
+After these four steps — the [readiness test](tools/risk-profile.md). It takes
+about 20 minutes and answers the question that matters more than any calculator:
+**should you be trading at all**. It asks about a six-month cushion, borrowed
+money and how you handle a loss.
+
+Then continue with the full [learning roadmap](roadmap.md).

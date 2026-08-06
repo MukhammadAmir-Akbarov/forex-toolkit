@@ -1357,6 +1357,10 @@
         trades: Math.max(10, rows.length),
         winRate: m.winRate,
         rewardRisk: Math.max(0.1, avgWin / Math.max(0.01, avgLoss)),
+        // Для проверки «навык или везение»: фактический итог и профиль выплат.
+        totalR: rows.reduce(function (sum, row) { return sum + row.r; }, 0),
+        avgWinR: avgWin,
+        avgLossR: avgLoss,
         updatedAt: new Date().toISOString()
       };
       localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));

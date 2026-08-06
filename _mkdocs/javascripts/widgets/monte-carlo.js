@@ -14,6 +14,16 @@
       dd: "Медианная макс. просадка", dd95: "Просадка в худших 5%", loss: "Вероятность закончить в минусе",
       dd20: "Вероятность просадки 20%+", ruin: "Риск потерять 50% капитала", streak: "Убыточная серия в худших 5%",
       comparison: "Сравнение риска", riskLevel: "Риск", journalSource: "Параметры подставлены из твоего журнала.",
+      luckTitle: "Навык или везение?",
+      luckShare: function (n) { return "случайных серий из " + n + " сделок дали результат не хуже твоего."; },
+      luckNotEnough: function (n) { return "Сделок пока " + n + " — этого мало, чтобы вообще обсуждать навык. Вернись после 10+."; },
+      luckMethod: function (wr) { return "Модель: те же средние размеры выигрыша и убытка, но winrate ровно безубыточный (" + wr + "%). Каждый выигрыш считается средним выигрышем, каждый убыток — средним убытком, поэтому это оценка порядка величины, а не строгий вывод."; },
+      luckVerdict: {
+        luck: "Твой результат — обычное дело для стратегии без преимущества. Повышать риск и делать выводы рано: нужна выборка больше.",
+        unclear: "Похоже на преимущество, но выборки не хватает, чтобы отличить его от везения. Продолжай в том же режиме и вернись позже.",
+        edge: "Случайностью такой результат объясняется плохо. Похоже на реальное преимущество — но проверь, что правила всё это время были одни и те же.",
+        not_enough: "Сделок слишком мало."
+      },
       smallSample: function (count) { return "Осторожно: в журнале только " + count + " сделок. Для устойчивой оценки нужно хотя бы 30."; },
       note: "Это модель независимых сделок с постоянными WR, R:R и риском. Она не предсказывает рынок."
     },
@@ -24,6 +34,16 @@
       dd: "Median max drawdown", dd95: "Drawdown in worst 5%", loss: "Probability of finishing down",
       dd20: "Probability of 20%+ drawdown", ruin: "Risk of losing 50% of capital", streak: "Losing streak in worst 5%",
       comparison: "Risk comparison", riskLevel: "Risk", journalSource: "Parameters were filled from your journal.",
+      luckTitle: "Skill or luck?",
+      luckShare: function (n) { return "of random " + n + "-trade runs did at least as well as you."; },
+      luckNotEnough: function (n) { return "Only " + n + " trades so far — too few to discuss skill at all. Come back after 10+."; },
+      luckMethod: function (wr) { return "Model: the same average win and loss sizes, but a break-even win rate (" + wr + "%). Every win counts as the average win and every loss as the average loss, so this is an order-of-magnitude estimate, not a formal test."; },
+      luckVerdict: {
+        luck: "Your result is ordinary for a strategy with no edge. It is too early to raise risk or draw conclusions — you need a bigger sample.",
+        unclear: "It looks like an edge, but the sample is too small to separate it from luck. Keep going in the same mode and come back later.",
+        edge: "Chance explains this result poorly. It looks like a real edge — but check that the rules stayed the same throughout.",
+        not_enough: "Too few trades."
+      },
       smallSample: function (count) { return "Caution: your journal has only " + count + " trades. Use at least 30 for a stable estimate."; },
       note: "This model assumes independent trades and constant WR, R:R and risk. It does not predict the market."
     },
@@ -34,6 +54,16 @@
       dd: "Median maksimal pasayish", dd95: "Eng yomon 5% dagi pasayish", loss: "Minusda tugash ehtimoli",
       dd20: "20%+ pasayish ehtimoli", ruin: "Kapitalning 50% ini yo'qotish riski", streak: "Eng yomon 5% dagi zarar seriyasi",
       comparison: "Risk taqqoslash", riskLevel: "Risk", journalSource: "Parametrlar jurnalingizdan olindi.",
+      luckTitle: "Mahorat yoki omad?",
+      luckShare: function (n) { return "ta tasodifiy " + n + " savdolik seriya sizdan yomon bo'lmagan natija berdi."; },
+      luckNotEnough: function (n) { return "Hozircha " + n + " ta savdo — mahorat haqida gapirish uchun juda kam. 10 tadan keyin qayting."; },
+      luckMethod: function (wr) { return "Model: o'sha o'rtacha yutuq va zarar hajmlari, lekin winrate aynan zararsiz (" + wr + "%). Har bir yutuq o'rtacha yutuq, har bir zarar o'rtacha zarar deb hisoblanadi, shuning uchun bu taxminiy baho, qat'iy xulosa emas."; },
+      luckVerdict: {
+        luck: "Natijangiz ustunligi yo'q strategiya uchun oddiy hol. Riskni oshirish va xulosa chiqarish erta — kattaroq tanlanma kerak.",
+        unclear: "Ustunlikka o'xshaydi, lekin uni omaddan ajratish uchun tanlanma kichik. Xuddi shu tartibda davom eting va keyinroq qayting.",
+        edge: "Bunday natijani tasodif yomon tushuntiradi. Haqiqiy ustunlikka o'xshaydi — lekin qoidalar shu vaqt davomida bir xil bo'lganini tekshiring.",
+        not_enough: "Savdolar juda kam."
+      },
       smallSample: function (count) { return "Ehtiyot bo'ling: jurnalda faqat " + count + " savdo bor. Barqaror baho uchun kamida 30 ta kerak."; },
       note: "Model mustaqil savdolar va doimiy WR, R:R hamda riskni faraz qiladi. U bozorni bashorat qilmaydi."
     }
@@ -59,6 +89,7 @@
     '<div id="mco-result" class="fx-result" hidden></div>',
     '<canvas id="mco-chart" class="fx-chart" width="900" height="300" hidden></canvas>',
     '<section id="mco-risk-comparison" class="fx-result" hidden></section>',
+    '<section id="mco-luck" class="fx-result" aria-live="polite" hidden></section>',
     '<p class="fx-tool-note">' + T.note + '</p>'
   ].join("");
 
@@ -88,6 +119,64 @@
       state = state * 48271 % 2147483647;
       return (state - 1) / 2147483646;
     };
+  }
+
+  // Зеркало forex_toolkit/edge_test.py. Порядок обращений к rng() обязан
+  // совпадать с Python, иначе сверка в tests_e2e развалится.
+  var LUCK_THRESHOLD = 0.20;
+  var UNCLEAR_THRESHOLD = 0.05;
+  var MIN_LUCK_TRADES = 10;
+
+  function luckProbability(trades, observedTotalR, avgWinR, avgLossR, simulations, seed) {
+    var winRate = avgLossR / (avgWinR + avgLossR);
+    if (trades < MIN_LUCK_TRADES) {
+      return { enough_data: false, verdict: "not_enough", probability: 1, trades: trades,
+        breakeven_win_rate: winRate, median_random_r: 0, observed_total_r: observedTotalR };
+    }
+    var next = rng(seed);
+    var totals = [];
+    var atLeastAsGood = 0;
+    for (var s = 0; s < simulations; s++) {
+      var total = 0;
+      for (var t = 0; t < trades; t++) {
+        if (next() < winRate) total += avgWinR;
+        else total -= avgLossR;
+      }
+      totals.push(total);
+      if (total >= observedTotalR) atLeastAsGood++;
+    }
+    var probability = atLeastAsGood / simulations;
+    var ordered = totals.slice().sort(function (a, b) { return a - b; });
+    var middle = Math.floor(ordered.length / 2);
+    var median = ordered.length % 2
+      ? ordered[middle]
+      : (ordered[middle - 1] + ordered[middle]) / 2;
+    return {
+      enough_data: true,
+      verdict: probability >= LUCK_THRESHOLD ? "luck" : probability >= UNCLEAR_THRESHOLD ? "unclear" : "edge",
+      probability: probability, trades: trades, breakeven_win_rate: winRate,
+      median_random_r: median, observed_total_r: observedTotalR
+    };
+  }
+
+  function renderLuck() {
+    var box = document.getElementById("mco-luck");
+    if (!profile || typeof profile.totalR !== "number" ||
+        !(profile.avgWinR > 0) || !(profile.avgLossR > 0)) return;
+    var result = luckProbability(
+      profile.sampleSize, profile.totalR, profile.avgWinR, profile.avgLossR, 5000, 42
+    );
+    window.__fxLuck = result;
+    var body = result.enough_data
+      ? '<p><strong>' + (result.probability * 100).toFixed(1) + '%</strong> ' +
+        F.escape(T.luckShare(result.trades)) + '</p><p>' +
+        F.escape(T.luckVerdict[result.verdict]) + '</p>'
+      : '<p>' + F.escape(T.luckNotEnough(result.trades)) + '</p>';
+    box.className = "fx-result luck-" + result.verdict;
+    box.innerHTML = '<h3>' + F.escape(T.luckTitle) + '</h3>' + body +
+      '<p class="fx-tool-note">' + F.escape(T.luckMethod(
+        (result.breakeven_win_rate * 100).toFixed(1))) + '</p>';
+    box.hidden = false;
   }
 
   function percentile(values, p) {
@@ -211,4 +300,5 @@
 
   document.getElementById("mco-run").addEventListener("click", run);
   if (profile && new URLSearchParams(window.location.search).get("journal") === "1") run();
+  renderLuck();
 })();

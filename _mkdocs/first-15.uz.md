@@ -10,4 +10,9 @@ ochmasdan** birinchi xavfsiz rejani saqlash.
     Birinchi reja jarayonni mashq qilish uchun kerak. Demo statistikasi va
     jurnaldagi intizom tasdiqlanmaguncha real puldan foydalanmang.
 
-To'rt qadamdan keyin to'liq [o'quv yo'l xaritasi](roadmap.md) bo'yicha davom eting.
+To'rt qadamdan keyin — [tayyorlik testi](tools/risk-profile.md). U taxminan
+20 daqiqa oladi va har qanday kalkulyatordan muhimroq savolga javob beradi:
+**umuman savdo qilish kerakmi**. Undagi savollar olti oylik yostiq, qarz pul va
+zararga munosabat haqida.
+
+So'ng to'liq [o'quv yo'l xaritasi](roadmap.md) bo'yicha davom eting.

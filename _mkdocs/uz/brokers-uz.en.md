@@ -4,6 +4,11 @@ verified: 2026-06-11
 
 # 🏦 Brokers for Traders from Uzbekistan
 
+!!! tip "Check the broker before you deposit"
+    The [broker check](../tools/broker-check.md) builds direct links to the FCA,
+    CySEC, ASIC, NFA and FINMA registries and helps you tick off red flags.
+
+
 !!! warning "Educational material"
     This section is an overview of well-known options. **Not an advertisement.** Before opening an account, **verify yourself** the current regulation, reviews, and conditions.
 

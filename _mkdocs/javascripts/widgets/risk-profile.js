@@ -216,8 +216,11 @@
         }).join("") + '</ul>'
       : '<p>' + F.escape(T.strong) + '</p>';
 
-    root.innerHTML = '<div class="risk-profile risk-profile--result is-' + summary.band + '">' +
-      '<h3>' + F.escape(T.result) + '</h3>' +
+    // Мы заменяем всё содержимое виджета: без переноса фокуса пользователь
+    // экранного диктора не узнает, что тест кончился и появился вердикт.
+    root.innerHTML = '<div class="risk-profile risk-profile--result is-' + summary.band +
+      '" role="status">' +
+      '<h3 id="rp-result-title" tabindex="-1">' + F.escape(T.result) + '</h3>' +
       '<div class="risk-profile__score"><strong>' + summary.percent.toFixed(1) + '%</strong>' +
       '<span>' + F.escape(T.score) + ': ' + summary.total + ' / ' + summary.max_score + '</span></div>' +
       '<h4 class="risk-profile__verdict">' + F.escape(band.title) + '</h4>' +
@@ -226,6 +229,7 @@
       '<div class="fx-tool-actions"><button type="button" class="fx-secondary" id="rp-retake">' +
       F.escape(T.retake) + '</button></div></div>';
     document.getElementById("rp-retake").addEventListener("click", renderIntro);
+    document.getElementById("rp-result-title").focus();
     if (window.fxTrack) window.fxTrack("risk_profile_completed");
   }
 

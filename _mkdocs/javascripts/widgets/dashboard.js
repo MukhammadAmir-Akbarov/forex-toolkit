@@ -20,6 +20,14 @@
       replay: "Replay",
       journal: "Журнал",
       next: "Следующий шаг",
+      profileTitle: "Тест готовности",
+      profileMeta: "Отвечает на вопрос, стоит ли тебе торговать вообще.",
+      profileBands: {
+        excellent: "Отличный профиль", good: "Хороший профиль",
+        borderline: "Пограничный профиль — сначала укрепи слабые зоны",
+        high_risk: "Высокий риск — пока не начинай",
+        critical: "Критический риск — торговать сейчас не стоит"
+      },
       read: "Пройдено страниц",
       best: "Лучший результат",
       notPassed: "не сдан",
@@ -60,6 +68,7 @@
       riskReady: "Risk Ready",
       liveCaution: "Live Caution",
       steps: {
+        profile: "Пройди тест готовности — он отвечает, стоит ли тебе торговать вообще.",
         progress: "Прочитай базовые разделы и отмечай страницы как пройденные.",
         exam: "Пройди итоговый экзамен минимум на 80%.",
         replay: "Сделай Replay-тренировку и сохрани статистику.",
@@ -70,6 +79,7 @@
         good: "Продолжай цикл: журнал -> вывод -> одно правило на следующую неделю."
       },
       links: {
+        profile: "Пройти тест",
         progress: "Открыть прогресс",
         exam: "Открыть экзамен",
         replay: "Открыть Replay",
@@ -86,6 +96,14 @@
       replay: "Replay",
       journal: "Journal",
       next: "Next step",
+      profileTitle: "Readiness test",
+      profileMeta: "Answers whether you should be trading at all.",
+      profileBands: {
+        excellent: "Excellent profile", good: "Good profile",
+        borderline: "Borderline — close the weak areas first",
+        high_risk: "High risk — do not start yet",
+        critical: "Critical risk — trading now is a bad idea"
+      },
       read: "Pages completed",
       best: "Best score",
       notPassed: "not passed",
@@ -126,6 +144,7 @@
       riskReady: "Risk Ready",
       liveCaution: "Live Caution",
       steps: {
+        profile: "Take the readiness test — it answers whether you should be trading at all.",
         progress: "Read the core sections and mark pages as completed.",
         exam: "Pass the final exam with at least 80%.",
         replay: "Complete a Replay session and save the statistics.",
@@ -136,6 +155,7 @@
         good: "Keep the loop going: journal -> insight -> one rule for next week."
       },
       links: {
+        profile: "Take the test",
         progress: "Open progress",
         exam: "Open exam",
         replay: "Open Replay",
@@ -152,6 +172,14 @@
       replay: "Replay",
       journal: "Jurnal",
       next: "Keyingi qadam",
+      profileTitle: "Tayyorlik testi",
+      profileMeta: "Umuman savdo qilish kerakmi degan savolga javob beradi.",
+      profileBands: {
+        excellent: "A'lo profil", good: "Yaxshi profil",
+        borderline: "Chegarada — avval zaif tomonlarni yoping",
+        high_risk: "Yuqori risk — hozircha boshlamang",
+        critical: "Kritik risk — hozir savdo qilish yaxshi fikr emas"
+      },
       read: "O'qilgan sahifalar",
       best: "Eng yaxshi natija",
       notPassed: "topshirilmagan",
@@ -192,6 +220,7 @@
       riskReady: "Risk Ready",
       liveCaution: "Live Caution",
       steps: {
+        profile: "Tayyorlik testini topshiring — u umuman savdo qilish kerakmi degan savolga javob beradi.",
         progress: "Asosiy bo'limlarni o'qing va sahifalarni o'qilgan deb belgilang.",
         exam: "Yakuniy imtihonni kamida 80% bilan topshiring.",
         replay: "Replay mashqini bajaring va statistikani saqlang.",
@@ -202,6 +231,7 @@
         good: "Siklni davom ettiring: jurnal -> xulosa -> keyingi hafta uchun bitta qoida."
       },
       links: {
+        profile: "Testni topshirish",
         progress: "Progressni ochish",
         exam: "Imtihonni ochish",
         replay: "Replayni ochish",
@@ -302,6 +332,8 @@
     try { examPassed = localStorage.getItem("forex_exam_passed") === "1"; } catch (e) {}
     var replay = readJSON("forex_replay_stats", null);
     var journal = readJSON("forex_journal_summary", null);
+    var profile = readJSON("forex_risk_profile_v1", null);
+    if (profile && typeof profile.percent !== "number") profile = null;
 
     var readiness = 0;
     readiness += Math.min(35, progressPct * 0.35);
@@ -317,7 +349,10 @@
     if (readiness >= 85 && discipline >= 95) level = T.liveCaution;
 
     var next = T.steps.good;
-    if (progressPct < 20) next = T.steps.progress;
+    // Тест готовности — первый шаг для новичка. У того, кто уже ведёт журнал,
+    // конкретный совет полезнее; непройденный тест всё равно виден карточкой.
+    if (!profile && !(journal && journal.trades)) next = T.steps.profile;
+    else if (progressPct < 20) next = T.steps.progress;
     else if (!examPassed) next = T.steps.exam;
     else if (!replay || !replay.trades) next = T.steps.replay;
     else if (!journal || !journal.trades) next = T.steps.journal;
@@ -330,7 +365,7 @@
     }
     else if (level === T.liveCaution || level === T.riskReady) next = T.steps.risk;
 
-    return { done: done, total: total, progressPct: progressPct, examBest: examBest, examPassed: examPassed, replay: replay, journal: journal, readiness: readiness, level: level, next: next };
+    return { done: done, total: total, progressPct: progressPct, examBest: examBest, examPassed: examPassed, replay: replay, journal: journal, profile: profile, readiness: readiness, level: level, next: next };
   }
 
   function card(title, value, meta, href, linkText, status) {
@@ -372,6 +407,11 @@
       '  <div class="sd-bar" aria-hidden="true"><div class="sd-fill" style="width:' + s.readiness + '%"></div></div>',
       '</div>',
       '<div class="sd-grid">',
+      card(T.profileTitle,
+        s.profile ? s.profile.percent.toFixed(1) + '%' : T.noData,
+        s.profile ? T.profileBands[s.profile.band] || '' : T.profileMeta,
+        page('tools/risk-profile/'), T.links.profile,
+        s.profile && s.profile.percent >= 50 ? 'ok' : 'warn'),
       card(T.progress, Math.round(s.progressPct) + '%', T.read + ': ' + s.done.length + ' / ' + s.total, page('extras/progress/'), T.links.progress, s.progressPct >= 20 ? 'ok' : 'warn'),
       card(T.exam, s.examPassed ? T.passed : T.notPassed, T.best + ': ' + s.examBest + '%', page('tools/exam/'), T.links.exam, s.examPassed ? 'ok' : 'warn'),
       card(T.replay, s.replay && s.replay.trades ? s.replay.trades + ' ' + T.trades : T.noData, replayMeta, page('tools/replay-trainer/'), T.links.replay, s.replay && s.replay.trades ? 'ok' : 'warn'),
