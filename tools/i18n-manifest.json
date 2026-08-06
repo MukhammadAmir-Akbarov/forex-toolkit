@@ -220,10 +220,10 @@
     },
     "first-15.md": {
       "locales": {
-        "en": "49299edeacac881011f961b468a10dadc870efe2da1d251a4bf4c03eb377055d",
-        "uz": "49299edeacac881011f961b468a10dadc870efe2da1d251a4bf4c03eb377055d"
+        "en": "11b59407c24a0a3a027d6d05756e6d5e68e1ef1cafdc7558a39ebb3a60851803",
+        "uz": "11b59407c24a0a3a027d6d05756e6d5e68e1ef1cafdc7558a39ebb3a60851803"
       },
-      "ru_sha256": "49299edeacac881011f961b468a10dadc870efe2da1d251a4bf4c03eb377055d"
+      "ru_sha256": "11b59407c24a0a3a027d6d05756e6d5e68e1ef1cafdc7558a39ebb3a60851803"
     },
     "forex-guide.md": {
       "locales": {
@@ -514,10 +514,10 @@
     },
     "uz/brokers-uz.md": {
       "locales": {
-        "en": "94014bdc70d42120ebad931756a9132e11c9b55240e40fc579c17f8b4eb08e09",
-        "uz": "94014bdc70d42120ebad931756a9132e11c9b55240e40fc579c17f8b4eb08e09"
+        "en": "bd59a0de1c23079894c9217f4fa1e86d3a98092831400ab7b37f5f681ae52827",
+        "uz": "bd59a0de1c23079894c9217f4fa1e86d3a98092831400ab7b37f5f681ae52827"
       },
-      "ru_sha256": "94014bdc70d42120ebad931756a9132e11c9b55240e40fc579c17f8b4eb08e09"
+      "ru_sha256": "bd59a0de1c23079894c9217f4fa1e86d3a98092831400ab7b37f5f681ae52827"
     },
     "uz/communities.md": {
       "locales": {
@@ -542,10 +542,10 @@
     },
     "uz/scam-protection.md": {
       "locales": {
-        "en": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60",
-        "uz": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
+        "en": "52bddf98b9815ed3dbdb318638451632736fadff4f87082f50fd5924c4ba581a",
+        "uz": "52bddf98b9815ed3dbdb318638451632736fadff4f87082f50fd5924c4ba581a"
       },
-      "ru_sha256": "89d373e57b1df62f416fde4d0922c4a2a0791e9a7a2a008ba158d8a2ef604a60"
+      "ru_sha256": "52bddf98b9815ed3dbdb318638451632736fadff4f87082f50fd5924c4ba581a"
     },
     "uz/swap-free.md": {
       "locales": {

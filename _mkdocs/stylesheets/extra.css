@@ -2165,3 +2165,18 @@ label[for="__drawer"].fx-menu-hint::after {
   border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
 .broker-check__flags { margin: 0.5rem 0 0; }
+
+/* Вердикт «навык или везение»: цвет говорит то же, что и текст. */
+.luck-luck { border-left: 5px solid #f59e0b; }
+.luck-unclear { border-left: 5px solid #3b82f6; }
+.luck-edge { border-left: 5px solid #22c55e; }
+.luck-not_enough { border-left: 5px solid var(--md-default-fg-color--lighter); }
+
+/* Заголовок результата теста получает фокус программно — рамка должна быть
+   видимой, иначе клавиатурный пользователь теряет место. */
+.risk-profile__question legend:focus-visible,
+#rp-result-title:focus-visible {
+  outline: 2px solid var(--md-primary-fg-color);
+  outline-offset: 3px;
+  border-radius: 4px;
+}

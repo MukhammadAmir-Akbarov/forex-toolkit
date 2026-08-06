@@ -116,7 +116,7 @@
     '<label for="bc-name">' + F.escape(T.label) + '</label>' +
     '<input id="bc-name" type="text" autocomplete="off" placeholder="' + F.escape(T.placeholder) + '">' +
     '<div class="fx-tool-actions"><button type="button" id="bc-check">' + F.escape(T.check) + '</button></div>' +
-    '<div id="bc-result" hidden></div></div>';
+    '<div id="bc-result" role="status" aria-live="polite" hidden></div></div>';
 
   function knownFor(name) {
     var key = name.toLowerCase().trim();

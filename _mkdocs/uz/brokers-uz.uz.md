@@ -4,6 +4,11 @@ verified: 2026-06-11
 
 # 🏦 O'zbekistonlik treyderlar uchun brokerlar
 
+!!! tip "Pul kiritishdan oldin brokerni tekshiring"
+    [Brokerni tekshirish](../tools/broker-check.md) FCA, CySEC, ASIC, NFA va FINMA
+    reyestrlariga to'g'ridan-to'g'ri havolalar tuzadi va qizil bayroqlarni belgilashga yordam beradi.
+
+
 !!! warning "O'quv materiali"
     Bu bo'lim — ma'lum variantlarning sharhi. **Reklama emas.** Hisob ochishdan oldin **o'zing tekshir**: joriy regulyatsiya, sharhlar va shartlar.
 

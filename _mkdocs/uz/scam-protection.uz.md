@@ -4,6 +4,11 @@ verified: 2026-06-11
 
 # Firibgarlikdan himoya: O'zbekistonda «treyding»da pulni qanday yo'qotmaslik
 
+!!! tip "Pul kiritishdan oldin brokerni tekshiring"
+    [Brokerni tekshirish](../tools/broker-check.md) FCA, CySEC, ASIC, NFA va FINMA
+    reyestrlariga to'g'ridan-to'g'ri havolalar tuzadi va qizil bayroqlarni belgilashga yordam beradi.
+
+
 > ⚠️ O'quv materiali, moliyaviy yoki yuridik maslahat emas.
 > Tekshirilgan: **2026-06-11**. Huquqiy holat va kontaktlar o'zgaradi —
 > harakatdan oldin birlamchi manbalar bilan solishtiring ([napp.uz](https://napp.uz)).

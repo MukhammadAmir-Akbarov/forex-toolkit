@@ -13,7 +13,8 @@ def test_student_dashboard_empty_state(pw_page, site_url, prefix):
     page.goto(f"{site_url}/{prefix}extras/dashboard/")
     page.wait_for_selector("#student-dashboard .sd-hero")
 
-    assert page.locator(".sd-card").count() == 4
+    # Пять карточек: тест готовности, обучение, экзамен, Replay, журнал.
+    assert page.locator(".sd-card").count() == 5
     assert "0%" in page.text_content(".sd-hero")
     assert page.text_content("#sd-next-text").strip()
 
@@ -134,3 +135,32 @@ def test_dashboard_export_contains_full_local_data(pw_page, site_url):
     assert payload["localStorage"]["forex_tool_settings_v1"]
     assert payload["localStorage"]["forex_data_meta_v1"]
     assert json.loads(payload["localStorage"]["forex_data_meta_v1"])["lastBackupAt"]
+
+
+def test_dashboard_shows_readiness_test_and_leads_newcomers_to_it(pw_page, site_url):
+    """Тест готовности — первый шаг новичка, поэтому он обязан быть в кабинете."""
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    page.wait_for_selector("#student-dashboard .sd-hero")
+
+    first = page.locator(".sd-card").first
+    # Заголовок карточки CSS переводит в верхний регистр, inner_text отдаёт его
+    # уже отрисованным — сравниваем без учёта регистра.
+    assert "тест готовности" in first.inner_text().lower()
+    assert "нет данных" in first.inner_text()
+    assert "sd-card--warn" in (first.get_attribute("class") or "")
+    assert "тест готовности" in page.text_content("#sd-next-text").lower()
+    assert "tools/risk-profile" in first.locator("a").get_attribute("href")
+
+    page.evaluate(
+        """
+        () => localStorage.setItem('forex_risk_profile_v1', JSON.stringify({
+          percent: 31.7, band: 'high_risk', weak: ['finance'],
+          takenAt: new Date().toISOString()
+        }))
+        """
+    )
+    page.reload()
+    card = page.locator(".sd-card").first
+    assert "31.7%" in card.inner_text()
+    assert "пока не начинай" in card.inner_text()
