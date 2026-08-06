@@ -24,6 +24,8 @@
     weekly_report_exported: true,
     strategy_version_saved: true,
     training_task_completed: true,
+    risk_profile_completed: true,
+    broker_check_completed: true,
     storage_persistence_requested: true
   };
   var pending = [];

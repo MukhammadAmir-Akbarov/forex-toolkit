@@ -12,6 +12,7 @@ AI-помощник для анализа торгового журнала.
 
 Никакого настоящего AI — просто статистика и эвристики. Но эффективно.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -162,12 +163,13 @@ def print_table(title: str, data: dict, sort_by: str = "total_r"):
         print("  (нет данных)")
         return
     sorted_items = sorted(data.items(), key=lambda x: x[1][sort_by], reverse=True)
-    print(f"  {'Категория':<12} {'N':<5} {'WR':<8} "
-          f"{'Avg R':<10} {'Итого R':<10}")
+    print(f"  {'Категория':<12} {'N':<5} {'WR':<8} {'Avg R':<10} {'Итого R':<10}")
     for cat, m in sorted_items:
         wr_str = f"{m['win_rate']:.0f}%"
-        print(f"  {str(cat):<12} {m['n']:<5} "
-              f"{wr_str:<8} {m['avg_r']:+.2f}      {m['total_r']:+.2f}")
+        print(
+            f"  {str(cat):<12} {m['n']:<5} "
+            f"{wr_str:<8} {m['avg_r']:+.2f}      {m['total_r']:+.2f}"
+        )
 
 
 def insights(trades: list[dict]) -> list[str]:
@@ -175,8 +177,7 @@ def insights(trades: list[dict]) -> list[str]:
     out = []
     if len(trades) < 10:
         out.append(
-            f"⚠️  Только {len(trades)} сделок. Для надёжной статистики "
-            f"нужно ≥ 30."
+            f"⚠️  Только {len(trades)} сделок. Для надёжной статистики нужно ≥ 30."
         )
         return out
 
@@ -202,8 +203,7 @@ def insights(trades: list[dict]) -> list[str]:
         worst_day = min(days.items(), key=lambda x: x[1]["avg_r"])
         if worst_day[1]["n"] >= 5 and worst_day[1]["avg_r"] < -0.3:
             out.append(
-                f"📅 Худший день: {worst_day[0]} — "
-                f"avg {worst_day[1]['avg_r']:+.2f}R"
+                f"📅 Худший день: {worst_day[0]} — avg {worst_day[1]['avg_r']:+.2f}R"
             )
 
     # 3. Rule following
@@ -300,16 +300,14 @@ def main() -> int:
     wins = sum(1 for t in trades if t["_pnl"] > 0)
     win_rate = wins / len(trades) * 100 if trades else 0
 
-    print(f"\nОбщий итог: {total_r:+.2f}R ({wins}/{len(trades)} = "
-          f"{win_rate:.1f}% WR)")
+    print(f"\nОбщий итог: {total_r:+.2f}R ({wins}/{len(trades)} = {win_rate:.1f}% WR)")
 
     # По категориям
     print_table("По часам суток", by_hour(trades))
     print_table("По дням недели", by_dayofweek(trades))
     print_table("По парам", by_pair(trades))
     print_table("По направлению", by_direction(trades))
-    print_table("По следованию правилам",
-                by_rule_following(trades))
+    print_table("По следованию правилам", by_rule_following(trades))
 
     streaks = consecutive_losses(trades)
     print("\n🔥 Серии убытков:")

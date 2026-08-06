@@ -17,6 +17,7 @@
 
 Код возврата 1, если найдены битые якоря (для CI).
 """
+
 from __future__ import annotations
 
 import argparse

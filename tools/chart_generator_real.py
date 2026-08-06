@@ -4,6 +4,7 @@
 В отличие от chart_generator.py (синтетика для иллюстрации концепций),
 этот скрипт ищет реальные паттерны в скачанных данных и рисует их.
 """
+
 from __future__ import annotations
 
 import sys
@@ -19,11 +20,18 @@ DATA = ROOT / "data"
 OUT = ROOT / "docs" / "images" / "real"
 OUT.mkdir(parents=True, exist_ok=True)
 
-plt.rcParams.update({
-    "figure.facecolor": "white", "axes.facecolor": "#fafafa",
-    "axes.grid": True, "grid.color": "#e5e5e5", "grid.linewidth": 0.7,
-    "axes.spines.top": False, "axes.spines.right": False, "font.size": 11,
-})
+plt.rcParams.update(
+    {
+        "figure.facecolor": "white",
+        "axes.facecolor": "#fafafa",
+        "axes.grid": True,
+        "grid.color": "#e5e5e5",
+        "grid.linewidth": 0.7,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "font.size": 11,
+    }
+)
 
 UP, DOWN = "#10b981", "#ef4444"
 
@@ -33,8 +41,16 @@ def draw_candle(ax, x, o, h, lo, c, width=0.6):
     ax.plot([x, x], [lo, h], color=color, linewidth=1.0, zorder=2)
     body_low = min(o, c)
     body_h = max(abs(c - o), (h - lo) * 0.001)
-    ax.add_patch(Rectangle((x - width / 2, body_low), width, body_h,
-                           facecolor=color, edgecolor=color, zorder=3))
+    ax.add_patch(
+        Rectangle(
+            (x - width / 2, body_low),
+            width,
+            body_h,
+            facecolor=color,
+            edgecolor=color,
+            zorder=3,
+        )
+    )
 
 
 def load(pair: str = "EURUSD", tf: str = "1h") -> pd.DataFrame:
@@ -55,12 +71,17 @@ def chart_real_ema():
 
     fig, ax = plt.subplots(figsize=(13, 7))
     for i, row in df.iterrows():
-        draw_candle(ax, i, row["open"], row["high"], row["low"], row["close"], width=0.7)
+        draw_candle(
+            ax, i, row["open"], row["high"], row["low"], row["close"], width=0.7
+        )
     ax.plot(df.index, df["ema50"], color="#2563eb", linewidth=2.2, label="EMA 50")
     ax.plot(df.index, df["ema200"], color="#dc2626", linewidth=2.2, label="EMA 200")
     ax.legend(fontsize=11, loc="upper left")
-    ax.set_title("EMA 50 / EMA 200 — РЕАЛЬНЫЕ данные EUR/USD H1 (последние 200 свечей)",
-                 fontsize=12, weight="bold")
+    ax.set_title(
+        "EMA 50 / EMA 200 — РЕАЛЬНЫЕ данные EUR/USD H1 (последние 200 свечей)",
+        fontsize=12,
+        weight="bold",
+    )
     ax.set_ylabel("Цена EUR/USD")
     ax.set_xlabel("Свечи (H1)")
     plt.tight_layout()
@@ -75,30 +96,33 @@ def chart_real_rsi():
     delta = df["close"].diff()
     gain = delta.clip(lower=0)
     loss = -delta.clip(upper=0)
-    avg_g = gain.ewm(alpha=1/14, adjust=False).mean()
-    avg_l = loss.ewm(alpha=1/14, adjust=False).mean()
+    avg_g = gain.ewm(alpha=1 / 14, adjust=False).mean()
+    avg_l = loss.ewm(alpha=1 / 14, adjust=False).mean()
     rs = avg_g / avg_l.replace(0, np.nan)
     df["rsi"] = (100 - 100 / (1 + rs)).fillna(50)
 
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(13, 8),
-                                    gridspec_kw={"height_ratios": [3, 1.5]},
-                                    sharex=True)
+    fig, (ax1, ax2) = plt.subplots(
+        2, 1, figsize=(13, 8), gridspec_kw={"height_ratios": [3, 1.5]}, sharex=True
+    )
     for i, row in df.iterrows():
-        draw_candle(ax1, i, row["open"], row["high"], row["low"], row["close"], width=0.7)
-    ax1.set_title("RSI(14) — РЕАЛЬНЫЕ данные EUR/USD H1",
-                  fontsize=12, weight="bold")
+        draw_candle(
+            ax1, i, row["open"], row["high"], row["low"], row["close"], width=0.7
+        )
+    ax1.set_title("RSI(14) — РЕАЛЬНЫЕ данные EUR/USD H1", fontsize=12, weight="bold")
     ax1.set_ylabel("Цена")
 
     ax2.plot(df.index, df["rsi"], color="#7c3aed", linewidth=1.5)
-    ax2.axhline(70, color=DOWN, linestyle="--", linewidth=1.2,
-                label="70 — перекупленность")
-    ax2.axhline(30, color=UP, linestyle="--", linewidth=1.2,
-                label="30 — перепроданность")
+    ax2.axhline(
+        70, color=DOWN, linestyle="--", linewidth=1.2, label="70 — перекупленность"
+    )
+    ax2.axhline(
+        30, color=UP, linestyle="--", linewidth=1.2, label="30 — перепроданность"
+    )
     ax2.axhline(50, color="#9ca3af", linestyle=":", linewidth=1)
-    ax2.fill_between(df.index, 70, df["rsi"].where(df["rsi"] > 70),
-                     color=DOWN, alpha=0.2)
-    ax2.fill_between(df.index, 30, df["rsi"].where(df["rsi"] < 30),
-                     color=UP, alpha=0.2)
+    ax2.fill_between(
+        df.index, 70, df["rsi"].where(df["rsi"] > 70), color=DOWN, alpha=0.2
+    )
+    ax2.fill_between(df.index, 30, df["rsi"].where(df["rsi"] < 30), color=UP, alpha=0.2)
     ax2.set_ylim(0, 100)
     ax2.set_ylabel("RSI")
     ax2.legend(fontsize=9, loc="upper left")
@@ -119,14 +143,19 @@ def chart_real_bollinger():
 
     fig, ax = plt.subplots(figsize=(13, 7))
     for i, row in df.iterrows():
-        draw_candle(ax, i, row["open"], row["high"], row["low"], row["close"], width=0.7)
+        draw_candle(
+            ax, i, row["open"], row["high"], row["low"], row["close"], width=0.7
+        )
     ax.plot(df.index, df["ma"], color="#2563eb", linewidth=1.5, label="MA 20")
     ax.plot(df.index, df["upper"], color="#9333ea", linewidth=1.3, label="Upper +2σ")
     ax.plot(df.index, df["lower"], color="#9333ea", linewidth=1.3, label="Lower −2σ")
     ax.fill_between(df.index, df["upper"], df["lower"], color="#9333ea", alpha=0.07)
     ax.legend(fontsize=10, loc="upper left")
-    ax.set_title("Bollinger Bands (20, 2) — РЕАЛЬНЫЕ данные EUR/USD H1",
-                 fontsize=12, weight="bold")
+    ax.set_title(
+        "Bollinger Bands (20, 2) — РЕАЛЬНЫЕ данные EUR/USD H1",
+        fontsize=12,
+        weight="bold",
+    )
     ax.set_ylabel("Цена")
     plt.tight_layout()
     plt.savefig(OUT / "bollinger-real.png", dpi=130)
@@ -143,13 +172,16 @@ def chart_real_macd():
     signal = macd.ewm(span=9, adjust=False).mean()
     hist = macd - signal
 
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(13, 8),
-                                    gridspec_kw={"height_ratios": [3, 1.5]},
-                                    sharex=True)
+    fig, (ax1, ax2) = plt.subplots(
+        2, 1, figsize=(13, 8), gridspec_kw={"height_ratios": [3, 1.5]}, sharex=True
+    )
     for i, row in df.iterrows():
-        draw_candle(ax1, i, row["open"], row["high"], row["low"], row["close"], width=0.7)
-    ax1.set_title("MACD (12, 26, 9) — РЕАЛЬНЫЕ данные EUR/USD H1",
-                  fontsize=12, weight="bold")
+        draw_candle(
+            ax1, i, row["open"], row["high"], row["low"], row["close"], width=0.7
+        )
+    ax1.set_title(
+        "MACD (12, 26, 9) — РЕАЛЬНЫЕ данные EUR/USD H1", fontsize=12, weight="bold"
+    )
     ax1.set_ylabel("Цена")
 
     ax2.plot(df.index, macd, color="#2563eb", linewidth=1.5, label="MACD")
@@ -172,8 +204,16 @@ def chart_real_equity():
     from multi_pair_backtest import PAIRS, load as load_pair
 
     fig, ax = plt.subplots(figsize=(13, 7))
-    colors = ["#1e40af", "#10b981", "#f59e0b", "#ef4444",
-              "#7c3aed", "#06b6d4", "#ec4899", "#84cc16"]
+    colors = [
+        "#1e40af",
+        "#10b981",
+        "#f59e0b",
+        "#ef4444",
+        "#7c3aed",
+        "#06b6d4",
+        "#ec4899",
+        "#84cc16",
+    ]
 
     sys.path.insert(0, str(ROOT / "bot"))
     from strategy import detect_signals, prepare_dataframe
@@ -189,8 +229,14 @@ def chart_real_equity():
         if not trades:
             continue
         equity = np.cumsum([t["pnl_r"] for t in trades])
-        ax.plot(range(len(equity)), equity, label=f"{pair} ({equity[-1]:+.1f}R)",
-                color=color, linewidth=1.8, alpha=0.85)
+        ax.plot(
+            range(len(equity)),
+            equity,
+            label=f"{pair} ({equity[-1]:+.1f}R)",
+            color=color,
+            linewidth=1.8,
+            alpha=0.85,
+        )
 
     ax.axhline(0, color="black", linewidth=1)
     ax.set_xlabel("Номер сделки")
@@ -198,7 +244,8 @@ def chart_real_equity():
     ax.set_title(
         "Equity curves всех 8 пар — РЕАЛЬНЫЕ данные за ~2 года\n"
         "Жёсткая правда о бэктесте на одной паре vs. multi-pair",
-        fontsize=12, weight="bold",
+        fontsize=12,
+        weight="bold",
     )
     ax.legend(loc="upper left", fontsize=9, ncol=2)
     ax.grid(alpha=0.3)
@@ -232,36 +279,56 @@ def chart_real_strategy_example():
 
     fig, ax = plt.subplots(figsize=(13, 7))
     for i, row in window.iterrows():
-        draw_candle(ax, i, row["open"], row["high"], row["low"], row["close"], width=0.7)
-    ax.plot(window.index, window["ema50"], color="#2563eb",
-            linewidth=2.2, label="EMA 50")
-    ax.plot(window.index, window["ema200"], color="#dc2626",
-            linewidth=2.2, label="EMA 200")
+        draw_candle(
+            ax, i, row["open"], row["high"], row["low"], row["close"], width=0.7
+        )
+    ax.plot(
+        window.index, window["ema50"], color="#2563eb", linewidth=2.2, label="EMA 50"
+    )
+    ax.plot(
+        window.index, window["ema200"], color="#dc2626", linewidth=2.2, label="EMA 200"
+    )
 
     local_idx = idx - start
-    ax.axhline(sig.entry, color="#10b981", linestyle=":",
-               xmin=local_idx / len(window),
-               label=f"Вход {sig.direction.value.upper()} {sig.entry:.5f}")
-    ax.axhline(sig.stop, color="#ef4444", linestyle="--",
-               xmin=local_idx / len(window),
-               label=f"Stop Loss {sig.stop:.5f}")
-    ax.axhline(sig.take, color="#22c55e", linestyle="--",
-               xmin=local_idx / len(window),
-               label=f"Take Profit {sig.take:.5f}")
+    ax.axhline(
+        sig.entry,
+        color="#10b981",
+        linestyle=":",
+        xmin=local_idx / len(window),
+        label=f"Вход {sig.direction.value.upper()} {sig.entry:.5f}",
+    )
+    ax.axhline(
+        sig.stop,
+        color="#ef4444",
+        linestyle="--",
+        xmin=local_idx / len(window),
+        label=f"Stop Loss {sig.stop:.5f}",
+    )
+    ax.axhline(
+        sig.take,
+        color="#22c55e",
+        linestyle="--",
+        xmin=local_idx / len(window),
+        label=f"Take Profit {sig.take:.5f}",
+    )
 
     ax.annotate(
         f"СИГНАЛ {sig.direction.value.upper()}\n{sig.reason}\nR:R 1:{sig.rr:.0f}",
         xy=(local_idx, sig.entry),
-        xytext=(local_idx - 15, sig.entry + (window["high"].max() - window["low"].min()) * 0.3),
-        fontsize=11, weight="bold",
+        xytext=(
+            local_idx - 15,
+            sig.entry + (window["high"].max() - window["low"].min()) * 0.3,
+        ),
+        fontsize=11,
+        weight="bold",
         arrowprops=dict(arrowstyle="->", color="black", lw=1.5),
-        bbox=dict(boxstyle="round,pad=0.5", facecolor="#fef3c7",
-                  edgecolor="#f59e0b"),
+        bbox=dict(boxstyle="round,pad=0.5", facecolor="#fef3c7", edgecolor="#f59e0b"),
     )
 
     ax.legend(loc="upper left", fontsize=10)
-    ax.set_title("РЕАЛЬНЫЙ сигнал EMA50 pullback на EUR/USD H1",
-                 fontsize=12, weight="bold")
+    ax.set_title(
+        "РЕАЛЬНЫЙ сигнал EMA50 pullback на EUR/USD H1", fontsize=12, weight="bold"
+    )
     ax.set_ylabel("Цена")
     ax.set_xlabel("Свечи")
     plt.tight_layout()

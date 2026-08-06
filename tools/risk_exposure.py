@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """CLI report for aggregate position risk."""
+
 from __future__ import annotations
 
 import argparse
@@ -82,7 +83,9 @@ def main() -> int:
 
     positions: list[Position] = []
     if args.pos:
-        positions = [Position(pair, direction, float(risk)) for pair, direction, risk in args.pos]
+        positions = [
+            Position(pair, direction, float(risk)) for pair, direction, risk in args.pos
+        ]
     else:
         print("Введи позиции (пустая пара завершает ввод):")
         while True:

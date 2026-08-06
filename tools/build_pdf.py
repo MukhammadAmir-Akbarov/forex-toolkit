@@ -7,6 +7,7 @@
 
 Создаёт: forex-handbook.pdf — компактный учебник для печати.
 """
+
 from __future__ import annotations
 
 import re
@@ -22,7 +23,11 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.pdfmetrics import registerFontFamily
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
-    Image, PageBreak, Paragraph, SimpleDocTemplate, Spacer,
+    Image,
+    PageBreak,
+    Paragraph,
+    SimpleDocTemplate,
+    Spacer,
 )
 
 
@@ -50,12 +55,12 @@ def register_cyrillic_fonts() -> None:
 
     ttf_dir = Path(fm.findfont("DejaVu Sans")).parent
     variants = {
-        FONT_REGULAR:           ttf_dir / "DejaVuSans.ttf",
+        FONT_REGULAR: ttf_dir / "DejaVuSans.ttf",
         f"{FONT_REGULAR}-Bold": ttf_dir / "DejaVuSans-Bold.ttf",
         f"{FONT_REGULAR}-Italic": ttf_dir / "DejaVuSans-Oblique.ttf",
         f"{FONT_REGULAR}-BoldItalic": ttf_dir / "DejaVuSans-BoldOblique.ttf",
-        FONT_MONO:              ttf_dir / "DejaVuSansMono.ttf",
-        f"{FONT_MONO}-Bold":    ttf_dir / "DejaVuSansMono-Bold.ttf",
+        FONT_MONO: ttf_dir / "DejaVuSansMono.ttf",
+        f"{FONT_MONO}-Bold": ttf_dir / "DejaVuSansMono-Bold.ttf",
     }
     for name, path in variants.items():
         if not path.exists():
@@ -160,60 +165,104 @@ CHAPTERS = CHAPTERS_RU
 
 # ---------- Стили ----------
 
+
 def make_styles():
     base = getSampleStyleSheet()
     styles = {
         "title": ParagraphStyle(
-            "title", parent=base["Title"], fontName=f"{FONT_REGULAR}-Bold",
-            fontSize=36, textColor=colors.HexColor("#1e40af"),
-            spaceAfter=20, alignment=TA_CENTER,
+            "title",
+            parent=base["Title"],
+            fontName=f"{FONT_REGULAR}-Bold",
+            fontSize=36,
+            textColor=colors.HexColor("#1e40af"),
+            spaceAfter=20,
+            alignment=TA_CENTER,
         ),
         "subtitle": ParagraphStyle(
-            "subtitle", parent=base["Normal"], fontName=FONT_REGULAR,
-            fontSize=18, textColor=colors.HexColor("#374151"),
-            spaceAfter=12, alignment=TA_CENTER,
+            "subtitle",
+            parent=base["Normal"],
+            fontName=FONT_REGULAR,
+            fontSize=18,
+            textColor=colors.HexColor("#374151"),
+            spaceAfter=12,
+            alignment=TA_CENTER,
         ),
         "h1": ParagraphStyle(
-            "h1", parent=base["Heading1"], fontName=f"{FONT_REGULAR}-Bold",
-            fontSize=22, textColor=colors.HexColor("#1e40af"),
-            spaceBefore=20, spaceAfter=12, keepWithNext=True,
+            "h1",
+            parent=base["Heading1"],
+            fontName=f"{FONT_REGULAR}-Bold",
+            fontSize=22,
+            textColor=colors.HexColor("#1e40af"),
+            spaceBefore=20,
+            spaceAfter=12,
+            keepWithNext=True,
         ),
         "h2": ParagraphStyle(
-            "h2", parent=base["Heading2"], fontName=f"{FONT_REGULAR}-Bold",
-            fontSize=16, textColor=colors.HexColor("#1f2937"),
-            spaceBefore=16, spaceAfter=8, keepWithNext=True,
+            "h2",
+            parent=base["Heading2"],
+            fontName=f"{FONT_REGULAR}-Bold",
+            fontSize=16,
+            textColor=colors.HexColor("#1f2937"),
+            spaceBefore=16,
+            spaceAfter=8,
+            keepWithNext=True,
         ),
         "h3": ParagraphStyle(
-            "h3", parent=base["Heading3"], fontName=f"{FONT_REGULAR}-Bold",
-            fontSize=13, textColor=colors.HexColor("#374151"),
-            spaceBefore=10, spaceAfter=6, keepWithNext=True,
+            "h3",
+            parent=base["Heading3"],
+            fontName=f"{FONT_REGULAR}-Bold",
+            fontSize=13,
+            textColor=colors.HexColor("#374151"),
+            spaceBefore=10,
+            spaceAfter=6,
+            keepWithNext=True,
         ),
         "body": ParagraphStyle(
-            "body", parent=base["BodyText"], fontName=FONT_REGULAR,
-            fontSize=10, leading=14,
-            alignment=TA_JUSTIFY, spaceAfter=6,
+            "body",
+            parent=base["BodyText"],
+            fontName=FONT_REGULAR,
+            fontSize=10,
+            leading=14,
+            alignment=TA_JUSTIFY,
+            spaceAfter=6,
         ),
         "bullet": ParagraphStyle(
-            "bullet", parent=base["BodyText"], fontName=FONT_REGULAR,
-            fontSize=10, leading=14, leftIndent=15,
-            bulletIndent=5, spaceAfter=3,
+            "bullet",
+            parent=base["BodyText"],
+            fontName=FONT_REGULAR,
+            fontSize=10,
+            leading=14,
+            leftIndent=15,
+            bulletIndent=5,
+            spaceAfter=3,
         ),
         "code": ParagraphStyle(
-            "code", parent=base["Code"], fontName=FONT_MONO,
-            fontSize=8, leading=10,
-            leftIndent=10, rightIndent=10,
+            "code",
+            parent=base["Code"],
+            fontName=FONT_MONO,
+            fontSize=8,
+            leading=10,
+            leftIndent=10,
+            rightIndent=10,
             backColor=colors.HexColor("#f3f4f6"),
             borderColor=colors.HexColor("#d1d5db"),
-            borderWidth=1, borderPadding=6,
+            borderWidth=1,
+            borderPadding=6,
             spaceAfter=10,
         ),
         "warning": ParagraphStyle(
-            "warning", parent=base["BodyText"], fontName=FONT_REGULAR,
-            fontSize=10, leading=14,
+            "warning",
+            parent=base["BodyText"],
+            fontName=FONT_REGULAR,
+            fontSize=10,
+            leading=14,
             backColor=colors.HexColor("#fee2e2"),
             borderColor=colors.HexColor("#dc2626"),
-            borderWidth=1, borderPadding=8,
-            spaceAfter=10, leftIndent=5, rightIndent=5,
+            borderWidth=1,
+            borderPadding=8,
+            spaceAfter=10,
+            leftIndent=5,
+            rightIndent=5,
         ),
     }
     return styles
@@ -236,8 +285,8 @@ def parse_markdown(text: str, styles: dict) -> list:
                 if code_buffer:
                     code_text = "<br/>".join(
                         ln.replace("&", "&amp;")
-                          .replace("<", "&lt;")
-                          .replace(">", "&gt;")
+                        .replace("<", "&lt;")
+                        .replace(">", "&gt;")
                         for ln in code_buffer
                     )
                     flowables.append(Paragraph(code_text, styles["code"]))
@@ -297,13 +346,17 @@ def parse_markdown(text: str, styles: dict) -> list:
                 if img_path.startswith("images/"):
                     full = IMG_DIR / Path(img_path).name
                 elif img_path.startswith("../"):
-                    full = (ROOT / Path(img_path).name)
+                    full = ROOT / Path(img_path).name
                 else:
                     full = ROOT / img_path
                 if full.exists():
                     try:
-                        img = Image(str(full), width=15 * cm, height=10 * cm,
-                                    kind="proportional")
+                        img = Image(
+                            str(full),
+                            width=15 * cm,
+                            height=10 * cm,
+                            kind="proportional",
+                        )
                         flowables.append(img)
                         flowables.append(Spacer(1, 4))
                     except Exception:
@@ -320,9 +373,7 @@ def parse_markdown(text: str, styles: dict) -> list:
 
 
 def escape_html(text: str) -> str:
-    return (text.replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;"))
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def parse_inline(text: str) -> str:
@@ -340,7 +391,9 @@ def parse_inline(text: str) -> str:
 
 def build(lang: str = "ru") -> int:
     if lang not in LANG_CONFIGS:
-        print(f"Unknown lang: {lang!r}. Use one of: {list(LANG_CONFIGS)}", file=sys.stderr)
+        print(
+            f"Unknown lang: {lang!r}. Use one of: {list(LANG_CONFIGS)}", file=sys.stderr
+        )
         return 2
 
     cfg = LANG_CONFIGS[lang]
@@ -349,9 +402,12 @@ def build(lang: str = "ru") -> int:
     register_cyrillic_fonts()
 
     doc = SimpleDocTemplate(
-        str(out_path), pagesize=A4,
-        leftMargin=2 * cm, rightMargin=2 * cm,
-        topMargin=2 * cm, bottomMargin=2 * cm,
+        str(out_path),
+        pagesize=A4,
+        leftMargin=2 * cm,
+        rightMargin=2 * cm,
+        topMargin=2 * cm,
+        bottomMargin=2 * cm,
         title=cfg["title"],
         author="forex-trading project",
     )
@@ -375,10 +431,12 @@ def build(lang: str = "ru") -> int:
         warning_label = "⚠️ WARNING:"
     story.append(Paragraph(tagline, styles["body"]))
     story.append(Spacer(1, 4 * cm))
-    story.append(Paragraph(
-        f"<b>{warning_label}</b><br/><br/>{cfg['warning']}",
-        styles["warning"],
-    ))
+    story.append(
+        Paragraph(
+            f"<b>{warning_label}</b><br/><br/>{cfg['warning']}",
+            styles["warning"],
+        )
+    )
     story.append(PageBreak())
 
     # Chapters
@@ -402,9 +460,12 @@ def build(lang: str = "ru") -> int:
 
 def main() -> int:
     import argparse
+
     parser = argparse.ArgumentParser(description="Build the Forex handbook PDF")
     parser.add_argument(
-        "--lang", choices=["ru", "en", "uz", "all"], default="ru",
+        "--lang",
+        choices=["ru", "en", "uz", "all"],
+        default="ru",
         help="Language to build (default: ru). 'all' builds ru/en/uz.",
     )
     args = parser.parse_args()

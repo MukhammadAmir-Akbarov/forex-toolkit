@@ -3,6 +3,7 @@
 Создаёт PNG-картинки в docs/images/.
 Все данные синтетические — для иллюстрации концепций, не реальные котировки.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -15,16 +16,18 @@ from matplotlib.patches import Rectangle
 OUT = Path(__file__).resolve().parent.parent / "docs" / "images"
 OUT.mkdir(parents=True, exist_ok=True)
 
-plt.rcParams.update({
-    "figure.facecolor": "white",
-    "axes.facecolor": "#fafafa",
-    "axes.grid": True,
-    "grid.color": "#e5e5e5",
-    "grid.linewidth": 0.7,
-    "axes.spines.top": False,
-    "axes.spines.right": False,
-    "font.size": 11,
-})
+plt.rcParams.update(
+    {
+        "figure.facecolor": "white",
+        "axes.facecolor": "#fafafa",
+        "axes.grid": True,
+        "grid.color": "#e5e5e5",
+        "grid.linewidth": 0.7,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "font.size": 11,
+    }
+)
 
 UP, DOWN = "#10b981", "#ef4444"
 
@@ -34,8 +37,16 @@ def draw_candle(ax, x, o, h, low, c, width=0.6):
     ax.plot([x, x], [low, h], color=color, linewidth=1.2, zorder=2)
     body_low = min(o, c)
     body_h = max(abs(c - o), (h - low) * 0.001)
-    ax.add_patch(Rectangle((x - width / 2, body_low), width, body_h,
-                           facecolor=color, edgecolor=color, zorder=3))
+    ax.add_patch(
+        Rectangle(
+            (x - width / 2, body_low),
+            width,
+            body_h,
+            facecolor=color,
+            edgecolor=color,
+            zorder=3,
+        )
+    )
 
 
 def synthetic_ohlc(n=80, seed=7, start=1.0850, vol=0.0015, drift=0.0):
@@ -59,15 +70,27 @@ def chart_candle_anatomy():
     ax.annotate("Открытие", (1.2, 1.0840), fontsize=10)
     ax.annotate("Верхняя\nтень", (1.2, 1.0875), fontsize=9, color="#555")
     ax.annotate("Нижняя\nтень", (1.2, 1.0830), fontsize=9, color="#555")
-    ax.annotate("Бычья\n(зелёная)\nC > O", (0.5, 1.0890), fontsize=10,
-                color=UP, weight="bold", ha="center")
+    ax.annotate(
+        "Бычья\n(зелёная)\nC > O",
+        (0.5, 1.0890),
+        fontsize=10,
+        color=UP,
+        weight="bold",
+        ha="center",
+    )
 
     # Медвежья
     draw_candle(ax, 3, 1.0865, 1.0875, 1.0830, 1.0840, width=0.4)
     ax.annotate("Открытие", (3.2, 1.0865), fontsize=10)
     ax.annotate("Закрытие", (3.2, 1.0840), fontsize=10)
-    ax.annotate("Медвежья\n(красная)\nC < O", (2.5, 1.0890), fontsize=10,
-                color=DOWN, weight="bold", ha="center")
+    ax.annotate(
+        "Медвежья\n(красная)\nC < O",
+        (2.5, 1.0890),
+        fontsize=10,
+        color=DOWN,
+        weight="bold",
+        ha="center",
+    )
 
     ax.set_xlim(0, 4.5)
     ax.set_ylim(1.0815, 1.0905)
@@ -83,18 +106,38 @@ def chart_candle_anatomy():
 def chart_candle_patterns():
     fig, axes = plt.subplots(1, 4, figsize=(14, 4.5), sharey=True)
     patterns = [
-        ("Молот\n(разворот вверх)", [(0, 1.082, 1.083, 1.078, 1.0822),
-                                       (1, 1.0822, 1.0826, 1.0805, 1.0825),
-                                       (2, 1.0825, 1.0830, 1.0823, 1.0828)]),
-        ("Поглощение\n(бычье)", [(0, 1.082, 1.0824, 1.0815, 1.0817),
-                                  (1, 1.0816, 1.0832, 1.0815, 1.083),
-                                  (2, 1.083, 1.0834, 1.0828, 1.0833)]),
-        ("Доджи\n(неопределённость)", [(0, 1.082, 1.083, 1.0815, 1.082),
-                                         (1, 1.082, 1.0824, 1.0816, 1.0821),
-                                         (2, 1.0821, 1.0825, 1.0817, 1.0822)]),
-        ("Падающая\nзвезда", [(0, 1.0822, 1.0828, 1.082, 1.0827),
-                                (1, 1.0828, 1.0840, 1.0826, 1.0828),
-                                (2, 1.0828, 1.0832, 1.0820, 1.0822)]),
+        (
+            "Молот\n(разворот вверх)",
+            [
+                (0, 1.082, 1.083, 1.078, 1.0822),
+                (1, 1.0822, 1.0826, 1.0805, 1.0825),
+                (2, 1.0825, 1.0830, 1.0823, 1.0828),
+            ],
+        ),
+        (
+            "Поглощение\n(бычье)",
+            [
+                (0, 1.082, 1.0824, 1.0815, 1.0817),
+                (1, 1.0816, 1.0832, 1.0815, 1.083),
+                (2, 1.083, 1.0834, 1.0828, 1.0833),
+            ],
+        ),
+        (
+            "Доджи\n(неопределённость)",
+            [
+                (0, 1.082, 1.083, 1.0815, 1.082),
+                (1, 1.082, 1.0824, 1.0816, 1.0821),
+                (2, 1.0821, 1.0825, 1.0817, 1.0822),
+            ],
+        ),
+        (
+            "Падающая\nзвезда",
+            [
+                (0, 1.0822, 1.0828, 1.082, 1.0827),
+                (1, 1.0828, 1.0840, 1.0826, 1.0828),
+                (2, 1.0828, 1.0832, 1.0820, 1.0822),
+            ],
+        ),
     ]
     for ax, (title, candles) in zip(axes, patterns):
         for x, o, h, low, c in candles:
@@ -120,9 +163,11 @@ def chart_trend_types():
     for ax, data, title, color in zip(
         axes,
         [up, down, flat],
-        ["Восходящий тренд\n(higher highs + higher lows)",
-         "Нисходящий тренд\n(lower highs + lower lows)",
-         "Боковик / флэт\n(нет тренда)"],
+        [
+            "Восходящий тренд\n(higher highs + higher lows)",
+            "Нисходящий тренд\n(lower highs + lower lows)",
+            "Боковик / флэт\n(нет тренда)",
+        ],
         [UP, DOWN, "#6b7280"],
     ):
         ax.plot(x, data, color=color, linewidth=2)
@@ -130,12 +175,24 @@ def chart_trend_types():
         ax.set_xticks([])
         # Трендовая линия
         if title.startswith("Восход"):
-            ax.plot([0, 49], [1.0795, 1.0938], color="#0ea5e9",
-                    linestyle="--", linewidth=1.5, label="Линия поддержки")
+            ax.plot(
+                [0, 49],
+                [1.0795, 1.0938],
+                color="#0ea5e9",
+                linestyle="--",
+                linewidth=1.5,
+                label="Линия поддержки",
+            )
             ax.legend(loc="upper left", fontsize=9)
         elif title.startswith("Нисход"):
-            ax.plot([0, 49], [1.1005, 1.086], color="#f97316",
-                    linestyle="--", linewidth=1.5, label="Линия сопротивления")
+            ax.plot(
+                [0, 49],
+                [1.1005, 1.086],
+                color="#f97316",
+                linestyle="--",
+                linewidth=1.5,
+                label="Линия сопротивления",
+            )
             ax.legend(loc="upper right", fontsize=9)
         else:
             ax.axhline(1.0870, color="#0ea5e9", linestyle="--", linewidth=1.3)
@@ -161,8 +218,9 @@ def chart_support_resistance():
     ax.axhline(res, color="#f97316", linewidth=2, label="Сопротивление 1.0875")
     ax.axhline(sup, color="#0ea5e9", linewidth=2, label="Поддержка 1.0810")
     ax.legend(loc="upper left", fontsize=10)
-    ax.set_title("Уровни поддержки и сопротивления (EUR/USD, H1)",
-                 fontsize=13, weight="bold")
+    ax.set_title(
+        "Уровни поддержки и сопротивления (EUR/USD, H1)", fontsize=13, weight="bold"
+    )
     ax.set_ylabel("Цена")
     ax.set_xlabel("Свечи (H1)")
     plt.tight_layout()
@@ -182,8 +240,7 @@ def chart_ema():
     ax.plot(df.index, df["ema50"], color="#2563eb", linewidth=2, label="EMA 50")
     ax.plot(df.index, df["ema200"], color="#dc2626", linewidth=2, label="EMA 200")
     ax.legend(fontsize=10, loc="upper left")
-    ax.set_title("Скользящие средние EMA 50 и EMA 200",
-                 fontsize=13, weight="bold")
+    ax.set_title("Скользящие средние EMA 50 и EMA 200", fontsize=13, weight="bold")
     ax.set_ylabel("Цена")
     plt.tight_layout()
     plt.savefig(OUT / "ema-example.png", dpi=130)
@@ -199,25 +256,30 @@ def chart_rsi():
     rs = gain / loss
     df["rsi"] = 100 - 100 / (1 + rs)
 
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8),
-                                    gridspec_kw={"height_ratios": [3, 1.5]},
-                                    sharex=True)
+    fig, (ax1, ax2) = plt.subplots(
+        2, 1, figsize=(12, 8), gridspec_kw={"height_ratios": [3, 1.5]}, sharex=True
+    )
     for i, row in df.iterrows():
         draw_candle(ax1, i, row.o, row.h, row.l, row.c, width=0.6)
-    ax1.set_title("RSI(14) — индикатор перекупленности/перепроданности",
-                  fontsize=13, weight="bold")
+    ax1.set_title(
+        "RSI(14) — индикатор перекупленности/перепроданности",
+        fontsize=13,
+        weight="bold",
+    )
     ax1.set_ylabel("Цена")
 
     ax2.plot(df.index, df["rsi"], color="#7c3aed", linewidth=1.5)
-    ax2.axhline(70, color=DOWN, linestyle="--", linewidth=1.2,
-                label="70 — перекупленность")
-    ax2.axhline(30, color=UP, linestyle="--", linewidth=1.2,
-                label="30 — перепроданность")
+    ax2.axhline(
+        70, color=DOWN, linestyle="--", linewidth=1.2, label="70 — перекупленность"
+    )
+    ax2.axhline(
+        30, color=UP, linestyle="--", linewidth=1.2, label="30 — перепроданность"
+    )
     ax2.axhline(50, color="#9ca3af", linestyle=":", linewidth=1)
-    ax2.fill_between(df.index, 70, df["rsi"].where(df["rsi"] > 70),
-                     color=DOWN, alpha=0.2)
-    ax2.fill_between(df.index, 30, df["rsi"].where(df["rsi"] < 30),
-                     color=UP, alpha=0.2)
+    ax2.fill_between(
+        df.index, 70, df["rsi"].where(df["rsi"] > 70), color=DOWN, alpha=0.2
+    )
+    ax2.fill_between(df.index, 30, df["rsi"].where(df["rsi"] < 30), color=UP, alpha=0.2)
     ax2.set_ylim(0, 100)
     ax2.set_ylabel("RSI")
     ax2.set_xlabel("Свечи")
@@ -236,17 +298,16 @@ def chart_macd():
     signal = macd.ewm(span=9, adjust=False).mean()
     hist = macd - signal
 
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 8),
-                                    gridspec_kw={"height_ratios": [3, 1.5]},
-                                    sharex=True)
+    fig, (ax1, ax2) = plt.subplots(
+        2, 1, figsize=(12, 8), gridspec_kw={"height_ratios": [3, 1.5]}, sharex=True
+    )
     for i, row in df.iterrows():
         draw_candle(ax1, i, row.o, row.h, row.l, row.c, width=0.6)
     ax1.set_title("MACD (12, 26, 9)", fontsize=13, weight="bold")
     ax1.set_ylabel("Цена")
 
     ax2.plot(df.index, macd, color="#2563eb", linewidth=1.5, label="MACD")
-    ax2.plot(df.index, signal, color="#f97316", linewidth=1.5,
-             label="Сигнальная (9)")
+    ax2.plot(df.index, signal, color="#f97316", linewidth=1.5, label="Сигнальная (9)")
     colors = [UP if h >= 0 else DOWN for h in hist]
     ax2.bar(df.index, hist, color=colors, alpha=0.5, label="Гистограмма")
     ax2.axhline(0, color="#9ca3af", linewidth=0.8)
@@ -271,12 +332,21 @@ def chart_bollinger():
     for i, row in df.iterrows():
         draw_candle(ax, i, row.o, row.h, row.l, row.c, width=0.6)
     ax.plot(df.index, df["ma"], color="#2563eb", linewidth=1.5, label="MA 20")
-    ax.plot(df.index, df["upper"], color="#9333ea", linewidth=1.2,
-            label="Верхняя полоса (+2σ)")
-    ax.plot(df.index, df["lower"], color="#9333ea", linewidth=1.2,
-            label="Нижняя полоса (−2σ)")
-    ax.fill_between(df.index, df["upper"], df["lower"],
-                    color="#9333ea", alpha=0.07)
+    ax.plot(
+        df.index,
+        df["upper"],
+        color="#9333ea",
+        linewidth=1.2,
+        label="Верхняя полоса (+2σ)",
+    )
+    ax.plot(
+        df.index,
+        df["lower"],
+        color="#9333ea",
+        linewidth=1.2,
+        label="Нижняя полоса (−2σ)",
+    )
+    ax.fill_between(df.index, df["upper"], df["lower"], color="#9333ea", alpha=0.07)
     ax.legend(fontsize=10, loc="upper left")
     ax.set_title("Bollinger Bands (20, 2)", fontsize=13, weight="bold")
     ax.set_ylabel("Цена")
@@ -357,22 +427,44 @@ def chart_strategy_example():
     sl = entry_price - 0.0025
     tp = entry_price + 0.005
 
-    ax.axhline(entry_price, color="#10b981", linewidth=1.3, linestyle=":",
-               xmin=0.65, label=f"Вход (long) {entry_price:.4f}")
-    ax.axhline(sl, color="#ef4444", linewidth=1.3, linestyle="--",
-               xmin=0.65, label=f"Stop Loss {sl:.4f} (риск 25 пипсов)")
-    ax.axhline(tp, color="#22c55e", linewidth=1.3, linestyle="--",
-               xmin=0.65, label=f"Take Profit {tp:.4f} (цель 50 пипсов, R:R 1:2)")
+    ax.axhline(
+        entry_price,
+        color="#10b981",
+        linewidth=1.3,
+        linestyle=":",
+        xmin=0.65,
+        label=f"Вход (long) {entry_price:.4f}",
+    )
+    ax.axhline(
+        sl,
+        color="#ef4444",
+        linewidth=1.3,
+        linestyle="--",
+        xmin=0.65,
+        label=f"Stop Loss {sl:.4f} (риск 25 пипсов)",
+    )
+    ax.axhline(
+        tp,
+        color="#22c55e",
+        linewidth=1.3,
+        linestyle="--",
+        xmin=0.65,
+        label=f"Take Profit {tp:.4f} (цель 50 пипсов, R:R 1:2)",
+    )
 
-    ax.annotate("Откат к EMA50\n+ бычья свеча\n→ ВХОД LONG",
-                xy=(entry_idx, entry_price),
-                xytext=(entry_idx - 25, entry_price + 0.004),
-                fontsize=10, weight="bold",
-                arrowprops=dict(arrowstyle="->", color="black", lw=1.4))
+    ax.annotate(
+        "Откат к EMA50\n+ бычья свеча\n→ ВХОД LONG",
+        xy=(entry_idx, entry_price),
+        xytext=(entry_idx - 25, entry_price + 0.004),
+        fontsize=10,
+        weight="bold",
+        arrowprops=dict(arrowstyle="->", color="black", lw=1.4),
+    )
 
     ax.legend(loc="upper left", fontsize=10)
-    ax.set_title("Учебный пример сигнала: откат к EMA50 по тренду",
-                 fontsize=13, weight="bold")
+    ax.set_title(
+        "Учебный пример сигнала: откат к EMA50 по тренду", fontsize=13, weight="bold"
+    )
     ax.set_ylabel("Цена")
     ax.set_xlabel("Свечи (H1)")
     plt.tight_layout()
@@ -391,13 +483,13 @@ def chart_risk_reward():
         (5.0, "#3b82f6", "R:R = 1:5"),
     ]:
         ev = (win_rates / 100) * rr - (1 - win_rates / 100)
-        ax.plot(win_rates, ev * 100, marker="o", linewidth=2,
-                color=color, label=label)
+        ax.plot(win_rates, ev * 100, marker="o", linewidth=2, color=color, label=label)
     ax.axhline(0, color="black", linewidth=1)
     ax.set_xlabel("Win rate (% прибыльных сделок)")
     ax.set_ylabel("Матожидание на сделку (%) — при риске 1%")
-    ax.set_title("Почему Risk/Reward важнее, чем точность прогноза",
-                 fontsize=13, weight="bold")
+    ax.set_title(
+        "Почему Risk/Reward важнее, чем точность прогноза", fontsize=13, weight="bold"
+    )
     ax.legend(fontsize=11)
     ax.fill_between(win_rates, -200, 0, color=DOWN, alpha=0.05)
     ax.fill_between(win_rates, 0, 200, color=UP, alpha=0.05)
@@ -412,16 +504,23 @@ def chart_drawdown_math():
     losses = np.arange(5, 96, 5)
     recovery = losses / (100 - losses) * 100
     fig, ax = plt.subplots(figsize=(10, 6))
-    bars = ax.bar(losses, recovery, width=4, color=DOWN, alpha=0.7,
-                  edgecolor="#991b1b")
+    bars = ax.bar(losses, recovery, width=4, color=DOWN, alpha=0.7, edgecolor="#991b1b")
     for bar, loss, rec in zip(bars, losses, recovery):
-        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 15,
-                f"{rec:.0f}%", ha="center", fontsize=9, weight="bold")
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            bar.get_height() + 15,
+            f"{rec:.0f}%",
+            ha="center",
+            fontsize=9,
+            weight="bold",
+        )
     ax.set_xlabel("Просадка депозита (%)")
     ax.set_ylabel("Нужно вернуть, чтобы выйти в ноль (%)")
-    ax.set_title("Математика разорения: почему просадку легче не получить,\n"
-                 "чем потом отыграть",
-                 fontsize=12, weight="bold")
+    ax.set_title(
+        "Математика разорения: почему просадку легче не получить,\nчем потом отыграть",
+        fontsize=12,
+        weight="bold",
+    )
     ax.set_ylim(0, max(recovery) * 1.1)
     plt.tight_layout()
     plt.savefig(OUT / "drawdown-math.png", dpi=130)

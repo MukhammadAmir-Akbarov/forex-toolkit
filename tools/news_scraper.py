@@ -5,6 +5,7 @@ News scraper для экономического календаря Forex Factor
 Скачивает события на сегодня/завтра, показывает только важные (red folder).
 Если scraping упадёт (FF может изменить разметку) — даёт ссылку на сайт.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -16,8 +17,8 @@ from bs4 import BeautifulSoup
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                  "AppleWebKit/537.36 (KHTML, like Gecko) "
-                  "Chrome/120.0.0.0 Safari/537.36",
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/120.0.0.0 Safari/537.36",
 }
 
 
@@ -47,17 +48,14 @@ def fetch_calendar(date: str = "today") -> list[dict]:
             if time_cell:
                 event["time"] = time_cell.text.strip()
 
-            currency = row.find("td",
-                                class_=lambda c: c and "currency" in str(c))
+            currency = row.find("td", class_=lambda c: c and "currency" in str(c))
             if currency:
                 event["currency"] = currency.text.strip()
 
             impact = row.find("td", class_=lambda c: c and "impact" in str(c))
             if impact:
                 spans = impact.find_all("span")
-                impact_class = " ".join(
-                    str(s.get("class", "")) for s in spans
-                )
+                impact_class = " ".join(str(s.get("class", "")) for s in spans)
                 if "red" in impact_class or "high" in impact_class.lower():
                     event["impact"] = "🔴 ВАЖНО"
                 elif "orange" in impact_class or "medium" in impact_class.lower():
@@ -67,8 +65,7 @@ def fetch_calendar(date: str = "today") -> list[dict]:
                 else:
                     event["impact"] = "—"
 
-            event_cell = row.find("td",
-                                  class_=lambda c: c and "event" in str(c))
+            event_cell = row.find("td", class_=lambda c: c and "event" in str(c))
             if event_cell:
                 event["name"] = event_cell.text.strip()
 
@@ -109,11 +106,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Экономический календарь Forex Factory",
     )
-    parser.add_argument("--day", choices=["today", "tomorrow",
-                                           "this-week", "next-week"],
-                        default="today")
-    parser.add_argument("--high-only", action="store_true",
-                        help="Только красные новости")
+    parser.add_argument(
+        "--day",
+        choices=["today", "tomorrow", "this-week", "next-week"],
+        default="today",
+    )
+    parser.add_argument(
+        "--high-only", action="store_true", help="Только красные новости"
+    )
     args = parser.parse_args()
 
     print(f"\n📰 Forex Factory · {args.day}")

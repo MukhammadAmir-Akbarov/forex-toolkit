@@ -11,6 +11,7 @@ Trading Journal CLI — добавление сделок в журнал чер
   python journal_cli.py stats
   python journal_cli.py import-mt5 report.html --out journal/mt5-trades.csv
 """
+
 from __future__ import annotations
 
 import argparse
@@ -26,6 +27,7 @@ from forex_toolkit.mt5_statement import (
     parse_mt5_html,
     write_journal_csv,
 )
+
 
 def _resolve_journal_path() -> Path:
     """Где хранить журнал сделок.
@@ -47,9 +49,24 @@ def _resolve_journal_path() -> Path:
 JOURNAL_PATH = _resolve_journal_path()
 
 HEADERS = [
-    "id", "date", "time", "pair", "direction", "entry", "stop", "take",
-    "lot", "risk_usd", "rr_planned", "close_price", "close_time",
-    "result_pips", "result_usd", "outcome", "followed_rules", "note",
+    "id",
+    "date",
+    "time",
+    "pair",
+    "direction",
+    "entry",
+    "stop",
+    "take",
+    "lot",
+    "risk_usd",
+    "rr_planned",
+    "close_price",
+    "close_time",
+    "result_pips",
+    "result_usd",
+    "outcome",
+    "followed_rules",
+    "note",
 ]
 
 
@@ -107,8 +124,10 @@ def cmd_add(args: argparse.Namespace) -> int:
     write_all(rows)
 
     print(f"\n✓ Сделка #{next_id} добавлена:")
-    print(f"  {args.pair.upper()} {args.dir.upper()}  "
-          f"{args.entry} → SL {args.sl} / TP {args.tp}")
+    print(
+        f"  {args.pair.upper()} {args.dir.upper()}  "
+        f"{args.entry} → SL {args.sl} / TP {args.tp}"
+    )
     print(f"  Лот: {args.lot}, риск ${args.risk}, R:R = 1:{rr:.1f}")
     return 0
 
@@ -148,8 +167,10 @@ def cmd_close(args: argparse.Namespace) -> int:
         target["outcome"] = "be"
 
     write_all(rows)
-    print(f"\n✓ Сделка #{args.id} закрыта: "
-          f"{target['outcome'].upper()} {pips:+.1f} пипсов ${usd:+.2f}")
+    print(
+        f"\n✓ Сделка #{args.id} закрыта: "
+        f"{target['outcome'].upper()} {pips:+.1f} пипсов ${usd:+.2f}"
+    )
     return 0
 
 
@@ -159,16 +180,20 @@ def cmd_list(args: argparse.Namespace) -> int:
         print("Журнал пуст.")
         return 0
 
-    print(f"\n{'#':<4} {'Дата':<11} {'Пара':<8} {'Dir':<6} "
-          f"{'Вход':<9} {'Исход':<8} {'P&L $':>9}")
+    print(
+        f"\n{'#':<4} {'Дата':<11} {'Пара':<8} {'Dir':<6} "
+        f"{'Вход':<9} {'Исход':<8} {'P&L $':>9}"
+    )
     print("─" * 65)
     for r in rows[-20:]:
         outcome = r["outcome"]
         emoji = "✓" if outcome == "win" else "✗" if outcome == "loss" else "○"
         pnl = r.get("result_usd", "")
-        print(f"{r['id']:<4} {r['date']:<11} {r['pair']:<8} "
-              f"{r['direction']:<6} {r['entry']:<9} "
-              f"{emoji} {outcome:<6} ${pnl if pnl else '—':>8}")
+        print(
+            f"{r['id']:<4} {r['date']:<11} {r['pair']:<8} "
+            f"{r['direction']:<6} {r['entry']:<9} "
+            f"{emoji} {outcome:<6} ${pnl if pnl else '—':>8}"
+        )
     return 0
 
 
@@ -180,12 +205,9 @@ def cmd_stats(args: argparse.Namespace) -> int:
 
     wins = [r for r in rows if r["outcome"] == "win"]
     losses = [r for r in rows if r["outcome"] == "loss"]
-    total_pnl = sum(float(r["result_usd"]) for r in rows
-                    if r["result_usd"])
-    win_pnl = sum(float(r["result_usd"]) for r in wins
-                  if r["result_usd"])
-    loss_pnl = sum(float(r["result_usd"]) for r in losses
-                   if r["result_usd"])
+    total_pnl = sum(float(r["result_usd"]) for r in rows if r["result_usd"])
+    win_pnl = sum(float(r["result_usd"]) for r in wins if r["result_usd"])
+    loss_pnl = sum(float(r["result_usd"]) for r in losses if r["result_usd"])
 
     win_rate = len(wins) / len(rows) * 100 if rows else 0
     pf = win_pnl / -loss_pnl if loss_pnl < 0 else float("inf")
@@ -240,17 +262,14 @@ def main() -> int:
     p_add.add_argument("--sl", type=float, required=True)
     p_add.add_argument("--tp", type=float, required=True)
     p_add.add_argument("--lot", type=float, required=True)
-    p_add.add_argument("--risk", type=float, required=True,
-                       help="Риск в USD")
-    p_add.add_argument("--rules", choices=["yes", "no"],
-                       help="Следовал ли правилам?")
+    p_add.add_argument("--risk", type=float, required=True, help="Риск в USD")
+    p_add.add_argument("--rules", choices=["yes", "no"], help="Следовал ли правилам?")
     p_add.add_argument("--note", help="Заметка")
     p_add.set_defaults(func=cmd_add)
 
     p_close = sub.add_parser("close", help="Закрыть сделку")
     p_close.add_argument("id", type=int)
-    p_close.add_argument("--price", type=float, required=True,
-                         help="Цена закрытия")
+    p_close.add_argument("--price", type=float, required=True, help="Цена закрытия")
     p_close.set_defaults(func=cmd_close)
 
     p_list = sub.add_parser("list", help="Показать последние 20 сделок")

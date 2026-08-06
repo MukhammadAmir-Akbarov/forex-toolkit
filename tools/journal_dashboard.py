@@ -7,6 +7,7 @@ HTML-дашборд для журнала сделок.
 
 Открыть в браузере: open journal-dashboard.html
 """
+
 from __future__ import annotations
 
 import argparse
@@ -209,8 +210,7 @@ def load_trades(path: Path) -> list[dict]:
     for r in rows:
         r["result_usd_num"] = parse_float(r.get("result_usd", ""))
         r["risk_num"] = parse_float(r.get("risk_usd", ""))
-        r["r_value"] = (r["result_usd_num"] / r["risk_num"]
-                        if r["risk_num"] > 0 else 0)
+        r["r_value"] = r["result_usd_num"] / r["risk_num"] if r["risk_num"] > 0 else 0
         if not r.get("outcome"):
             r["outcome"] = "open"
     return rows
@@ -225,9 +225,7 @@ def calc_stats(trades: list[dict]) -> dict:
     win_pnl = sum(t["result_usd_num"] for t in wins)
     loss_pnl = sum(t["result_usd_num"] for t in losses)
 
-    pf = (win_pnl / -loss_pnl) if loss_pnl < 0 else (
-        float("inf") if win_pnl > 0 else 0
-    )
+    pf = (win_pnl / -loss_pnl) if loss_pnl < 0 else (float("inf") if win_pnl > 0 else 0)
     if pf == float("inf"):
         pf = 99.99
 
@@ -243,12 +241,13 @@ def calc_stats(trades: list[dict]) -> dict:
     }
 
 
-def make_equity_svg(trades: list[dict], width: int = 1000,
-                    height: int = 260) -> str:
+def make_equity_svg(trades: list[dict], width: int = 1000, height: int = 260) -> str:
     closed = [t for t in trades if t["outcome"] in ("win", "loss", "be")]
     if not closed:
-        return ('<text x="50%" y="50%" text-anchor="middle" fill="#9ca3af">'
-                'Нет закрытых сделок</text>')
+        return (
+            '<text x="50%" y="50%" text-anchor="middle" fill="#9ca3af">'
+            "Нет закрытых сделок</text>"
+        )
 
     cum = []
     s = 0
@@ -271,11 +270,11 @@ def make_equity_svg(trades: list[dict], width: int = 1000,
 
     return f"""
 <svg viewBox="0 0 {width} {height}" xmlns="http://www.w3.org/2000/svg">
-  <line x1="{pad}" y1="{zero_y}" x2="{width-pad}" y2="{zero_y}"
+  <line x1="{pad}" y1="{zero_y}" x2="{width - pad}" y2="{zero_y}"
         stroke="#9ca3af" stroke-width="1" stroke-dasharray="3,3"/>
-  <polyline points="{' '.join(points)}"
+  <polyline points="{" ".join(points)}"
             stroke="#3b82f6" stroke-width="2.5" fill="none"/>
-  <text x="{width-pad}" y="{pad+10}" text-anchor="end"
+  <text x="{width - pad}" y="{pad + 10}" text-anchor="end"
         fill="#1e40af" font-weight="600">${cum[-1]:+.2f}</text>
 </svg>"""
 
@@ -285,12 +284,14 @@ def main() -> int:
         description="HTML-дашборд журнала сделок",
     )
     parser.add_argument(
-        "--csv", type=Path,
+        "--csv",
+        type=Path,
         default=Path(__file__).resolve().parent.parent / "journal" / "my-trades.csv",
         help="Путь к CSV с журналом",
     )
     parser.add_argument(
-        "--out", type=Path,
+        "--out",
+        type=Path,
         default=Path(__file__).resolve().parent.parent / "journal-dashboard.html",
     )
     args = parser.parse_args()
@@ -299,7 +300,8 @@ def main() -> int:
         # Если своего журнала нет — используем шаблон с примерами
         template_csv = (
             Path(__file__).resolve().parent.parent
-            / "journal" / "trading-journal-template.csv"
+            / "journal"
+            / "trading-journal-template.csv"
         )
         if template_csv.exists():
             print(f"Свой журнал не найден — использую шаблон {template_csv}")
@@ -313,6 +315,7 @@ def main() -> int:
     equity_svg = make_equity_svg(trades)
 
     from datetime import datetime
+
     template = Template(TEMPLATE)
     html = template.render(
         trades=trades[-30:],
@@ -330,4 +333,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     import sys
+
     sys.exit(main())

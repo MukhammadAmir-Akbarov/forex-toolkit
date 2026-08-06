@@ -17,6 +17,7 @@ TODO.md и служит мягким индикатором приоритета
     0 — по умолчанию (информационный режим) или порог выполнен;
     1 — задан ``--fail-under`` и покрытие указанной локали ниже порога.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -46,11 +47,15 @@ def sibling(src: Path, loc: str) -> Path:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Покрытие переводов _mkdocs/")
     parser.add_argument(
-        "--locale", choices=LOCALES, default=None,
+        "--locale",
+        choices=LOCALES,
+        default=None,
         help="Локаль для проверки порога (по умолчанию — только отчёт).",
     )
     parser.add_argument(
-        "--fail-under", type=float, default=None,
+        "--fail-under",
+        type=float,
+        default=None,
         help="Вернуть код 1, если покрытие --locale ниже этого процента.",
     )
     args = parser.parse_args()
