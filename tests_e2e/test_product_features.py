@@ -57,6 +57,26 @@ def test_pwa_manifest_and_icon_resolve_at_every_depth(pw_page, site_url, path):
         assert status == 200, f"{selector} broken on {path}"
 
 
+def test_strategy_name_from_backup_cannot_inject_html(pw_page, site_url):
+    """Backups are shared between people, so a strategy name is untrusted input."""
+    page = pw_page
+    page.goto(f"{site_url}/tools/trade-desk/")
+    page.evaluate(
+        """
+        () => localStorage.setItem('forex_strategy_playbooks_v1', JSON.stringify([{
+          id: 'x1', baseId: 'x1', version: 1, active: true,
+          name: '</option><img src=x onerror="window.__pwned=true">',
+          session: 'London', timeframe: 'H1', entryRules: 'r',
+          invalidation: 'i', maxRiskPct: 0.5, targetTrades: 30
+        }]))
+        """
+    )
+    page.reload()
+    assert page.evaluate("window.__pwned === true") is False
+    assert page.evaluate("document.querySelectorAll('#td-strategy img').length") == 0
+    assert "onerror" in page.locator("#td-strategy option").nth(1).inner_text()
+
+
 def test_aggregate_risk_matches_python(pw_page, site_url):
     page = pw_page
     page.goto(f"{site_url}/tools/risk-exposure-calculator/")
