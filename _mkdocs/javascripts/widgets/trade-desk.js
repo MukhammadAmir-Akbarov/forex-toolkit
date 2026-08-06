@@ -7,33 +7,64 @@
   var F = window.FXW;
   var STORAGE_KEY = "forex_trade_drafts_v1";
   var SETTINGS_KEY = "forex_tool_settings_v1";
+  var HISTORY_KEY = "forex_journal_risk_history_v1";
   var T = F.pick({
     ru: {
       balance: "Депозит, USD", risk: "Риск, %", pair: "Пара", direction: "Направление",
       stop: "Стоп, пипсы", pip: "USD/пипс на 1 лот", rate: "USD -> UZS", setup: "Сетап",
+      strategy: "Версия стратегии", manualStrategy: "Без сохранённой стратегии",
       notes: "Первоначальная причина входа", calculate: "1. Рассчитать", checks: "2. Проверить план",
       save: "3. Добавить план", journal: "Открыть план в журнале", download: "Скачать CSV",
       riskAmount: "Риск", lot: "Размер позиции", all: "Отметь все пункты перед сохранением.",
       saved: "План сохранён со статусом «План». Теперь его можно открыть в журнале.",
-      checklist: ["Сетап соответствует торговому плану", "Стоп определён до входа", "Нет важной новости рядом со входом", "Совокупный риск остаётся в лимите", "Принимаю полный убыток без переноса стопа"]
+      checklist: ["Сетап соответствует торговому плану", "Стоп определён до входа", "Нет важной новости рядом со входом", "Принимаю полный убыток без переноса стопа"],
+      budgetTitle: "Автоматический риск-бюджет", budgetSettings: "Настройки лимитов",
+      maxOpen: "Макс. одновременный риск, %", dailyLimit: "Дневной лимит, R",
+      weeklyLimit: "Недельный лимит, R", pauseAfter: "Пауза после убытков",
+      plannedRisk: "Запланировано", openRisk: "Открыто", afterRisk: "После новой сделки",
+      todayR: "Сегодня", weekR: "Эта неделя", remaining: "Остаток",
+      lossStreak: "Серия убытков", budgetOk: "Лимиты соблюдены.",
+      budgetWarn: "Один или несколько лимитов превышены. Сделай паузу и перепроверь план.",
+      override: "Я вижу предупреждение и осознанно подтверждаю превышение лимита.",
+      needOverride: "Лимит риска превышен. Подтверди превышение галочкой, чтобы сохранить план."
     },
     en: {
       balance: "Balance, USD", risk: "Risk, %", pair: "Pair", direction: "Direction",
       stop: "Stop, pips", pip: "USD/pip per lot", rate: "USD -> UZS", setup: "Setup",
+      strategy: "Strategy version", manualStrategy: "No saved strategy",
       notes: "Original entry reason", calculate: "1. Calculate", checks: "2. Verify the plan",
       save: "3. Add plan", journal: "Open plan in journal", download: "Download CSV",
       riskAmount: "Risk", lot: "Position size", all: "Check every item before saving.",
       saved: "Saved with Plan status. You can now open it in the journal.",
-      checklist: ["Setup matches the trading plan", "Stop is defined before entry", "No major news near the entry", "Aggregate risk remains within the limit", "I accept the full loss without moving the stop"]
+      checklist: ["Setup matches the trading plan", "Stop is defined before entry", "No major news near the entry", "I accept the full loss without moving the stop"],
+      budgetTitle: "Automatic risk budget", budgetSettings: "Limit settings",
+      maxOpen: "Max simultaneous risk, %", dailyLimit: "Daily limit, R",
+      weeklyLimit: "Weekly limit, R", pauseAfter: "Pause after losses",
+      plannedRisk: "Planned", openRisk: "Open", afterRisk: "After new trade",
+      todayR: "Today", weekR: "This week", remaining: "Remaining",
+      lossStreak: "Loss streak", budgetOk: "All limits are respected.",
+      budgetWarn: "One or more limits are exceeded. Pause and review the plan.",
+      override: "I understand the warning and explicitly confirm exceeding the limit.",
+      needOverride: "Risk limit exceeded. Tick the confirmation box to save the plan."
     },
     uz: {
       balance: "Depozit, USD", risk: "Risk, %", pair: "Juftlik", direction: "Yo'nalish",
       stop: "Stop, pip", pip: "1 lot uchun USD/pip", rate: "USD -> UZS", setup: "Setap",
+      strategy: "Strategiya versiyasi", manualStrategy: "Saqlangan strategiyasiz",
       notes: "Kirishning dastlabki sababi", calculate: "1. Hisoblash", checks: "2. Rejani tekshirish",
       save: "3. Rejani qo'shish", journal: "Rejani jurnalda ochish", download: "CSV yuklash",
       riskAmount: "Risk", lot: "Pozitsiya hajmi", all: "Saqlashdan oldin barcha bandlarni belgilang.",
       saved: "Reja «Plan» holatida saqlandi. Uni endi jurnalda ochish mumkin.",
-      checklist: ["Setap savdo rejasiga mos", "Stop kirishdan oldin belgilangan", "Kirish yaqinida muhim yangilik yo'q", "Umumiy risk limit ichida", "Stopni ko'chirmasdan to'liq zararni qabul qilaman"]
+      checklist: ["Setap savdo rejasiga mos", "Stop kirishdan oldin belgilangan", "Kirish yaqinida muhim yangilik yo'q", "Stopni ko'chirmasdan to'liq zararni qabul qilaman"],
+      budgetTitle: "Avtomatik risk byudjeti", budgetSettings: "Limit sozlamalari",
+      maxOpen: "Maks. bir vaqtdagi risk, %", dailyLimit: "Kunlik limit, R",
+      weeklyLimit: "Haftalik limit, R", pauseAfter: "Zarardan keyingi tanaffus",
+      plannedRisk: "Rejalashtirilgan", openRisk: "Ochiq", afterRisk: "Yangi savdodan keyin",
+      todayR: "Bugun", weekR: "Shu hafta", remaining: "Qoldiq",
+      lossStreak: "Ketma-ket zarar", budgetOk: "Barcha limitlarga rioya qilindi.",
+      budgetWarn: "Bir yoki bir nechta limit oshdi. Tanaffus qiling va rejani qayta tekshiring.",
+      override: "Ogohlantirishni ko'rdim va limit oshishini ongli ravishda tasdiqlayman.",
+      needOverride: "Risk limiti oshdi. Rejani saqlash uchun tasdiq katagini belgilang."
     }
   });
 
@@ -46,11 +77,24 @@
     field(T.stop, '<input id="td-stop" type="number" min="0.1" value="20">'),
     field(T.pip, '<input id="td-pip" type="number" min="0.01" step="0.01" value="10">'),
     field(T.rate, '<input id="td-rate" type="number" min="1" value="12500">'),
+    field(T.strategy, '<select id="td-strategy"><option value="">' + T.manualStrategy + '</option></select>'),
     field(T.setup, '<input id="td-setup" value="pullback">'),
     '</div>',
     field(T.notes, '<textarea id="td-notes" rows="3"></textarea>'),
     '<div class="fx-tool-actions"><button type="button" id="td-calc">' + T.calculate + '</button></div>',
     '<div id="td-result" class="fx-result" hidden></div>',
+    '<section class="risk-budget" aria-labelledby="td-budget-title">',
+    '<div class="risk-budget__head"><h3 id="td-budget-title">' + T.budgetTitle + '</h3>',
+    '<details><summary>' + T.budgetSettings + '</summary><div class="risk-budget__settings">',
+    field(T.maxOpen, '<input id="td-limit-open" type="number" min="0.1" step="0.1" value="2">'),
+    field(T.dailyLimit, '<input id="td-limit-day" type="number" min="0.1" step="0.1" value="2">'),
+    field(T.weeklyLimit, '<input id="td-limit-week" type="number" min="0.1" step="0.1" value="5">'),
+    field(T.pauseAfter, '<input id="td-limit-streak" type="number" min="1" step="1" value="3">'),
+    '</div></details></div>',
+    '<div id="td-risk-budget" class="risk-budget__body" aria-live="polite"></div>',
+    '<label id="td-risk-override-wrap" class="risk-budget__override" hidden>',
+    '<input id="td-risk-override" type="checkbox"> <span>' + T.override + '</span></label>',
+    '</section>',
     '<h3>' + T.checks + '</h3>',
     '<div id="td-checks" class="fx-checks">',
     T.checklist.map(function (item, index) {
@@ -66,6 +110,8 @@
   ].join("");
 
   var current = null;
+  var currentBudget = null;
+  var currentStrategy = null;
 
   function field(label, control) {
     return '<label><span>' + label + '</span>' + control + '</label>';
@@ -73,6 +119,15 @@
 
   function value(id) {
     return Number(document.getElementById(id).value);
+  }
+
+  function readObject(key, fallback) {
+    try {
+      var parsed = JSON.parse(localStorage.getItem(key) || "null");
+      return parsed && typeof parsed === "object" ? parsed : fallback;
+    } catch (error) {
+      return fallback;
+    }
   }
 
   function uid() {
@@ -85,6 +140,118 @@
     var month = String(date.getMonth() + 1).padStart(2, "0");
     var day = String(date.getDate()).padStart(2, "0");
     return year + "-" + month + "-" + day;
+  }
+
+  function riskPercent(plan, balance) {
+    var percent = Number(plan.risk_pct);
+    if (isFinite(percent) && percent >= 0) return percent;
+    var usd = Number(plan.risk_usd);
+    return balance > 0 && isFinite(usd) && usd >= 0 ? usd / balance * 100 : 0;
+  }
+
+  function dateOnly(value) {
+    var match = String(value || "").match(/^\d{4}-\d{2}-\d{2}/);
+    return match ? match[0] : "";
+  }
+
+  function startOfWeek(date) {
+    var copy = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    copy.setDate(copy.getDate() - ((copy.getDay() + 6) % 7));
+    return localDate(copy);
+  }
+
+  function closedHistory() {
+    var byId = {};
+    var history = readArray(HISTORY_KEY);
+    history.forEach(function (trade, index) {
+      var r = Number(trade.r);
+      var day = dateOnly(trade.date || trade.closed_at);
+      if (day && isFinite(r)) byId[String(trade.id || "history-" + index)] = { date: day, r: r };
+    });
+    readArray(STORAGE_KEY).forEach(function (plan, index) {
+      if (plan.status !== "closed") return;
+      var risk = Number(plan.risk_usd);
+      var net = Number(plan.result_usd) - Math.abs(Number(plan.commission_usd) || 0);
+      var day = dateOnly(plan.closed_at || plan.date);
+      if (day && risk > 0 && isFinite(net)) {
+        byId[String(plan.id || "plan-" + index)] = { date: day, r: net / risk };
+      }
+    });
+    return Object.keys(byId).map(function (key) { return byId[key]; });
+  }
+
+  function riskLimits() {
+    return {
+      maxOpen: Math.max(0.1, value("td-limit-open") || 2),
+      daily: Math.max(0.1, value("td-limit-day") || 2),
+      weekly: Math.max(0.1, value("td-limit-week") || 5),
+      streak: Math.max(1, Math.floor(value("td-limit-streak") || 3))
+    };
+  }
+
+  function signed(value) {
+    var number = Number(value) || 0;
+    return (number > 0 ? "+" : "") + number.toFixed(2) + "R";
+  }
+
+  function renderRiskBudget() {
+    var balance = Math.max(1, value("td-balance") || 1);
+    var plans = readArray(STORAGE_KEY);
+    var planned = plans.filter(function (plan) { return plan.status === "plan"; })
+      .reduce(function (sum, plan) { return sum + riskPercent(plan, balance); }, 0);
+    var open = plans.filter(function (plan) { return plan.status === "open"; })
+      .reduce(function (sum, plan) { return sum + riskPercent(plan, balance); }, 0);
+    var added = current ? Number(current.risk_pct) || 0 : value("td-risk") || 0;
+    var after = open + added;
+    var limits = riskLimits();
+    var now = new Date();
+    var today = localDate(now);
+    var monday = startOfWeek(now);
+    var history = closedHistory().sort(function (a, b) { return a.date.localeCompare(b.date); });
+    var dailyR = history.filter(function (trade) { return trade.date === today; })
+      .reduce(function (sum, trade) { return sum + trade.r; }, 0);
+    var weeklyR = history.filter(function (trade) { return trade.date >= monday && trade.date <= today; })
+      .reduce(function (sum, trade) { return sum + trade.r; }, 0);
+    var streak = 0;
+    for (var index = history.length - 1; index >= 0; index--) {
+      if (history[index].r >= 0) break;
+      streak++;
+    }
+    var reasons = [];
+    if (after > limits.maxOpen) reasons.push("open");
+    if (dailyR <= -limits.daily) reasons.push("daily");
+    if (weeklyR <= -limits.weekly) reasons.push("weekly");
+    if (streak >= limits.streak) reasons.push("streak");
+    currentBudget = {
+      planned_percent: planned, open_percent: open, new_percent: added,
+      after_percent: after, daily_r: dailyR, weekly_r: weeklyR,
+      loss_streak: streak, limits: limits, requires_confirmation: reasons.length > 0,
+      reasons: reasons
+    };
+    var remainingOpen = Math.max(0, limits.maxOpen - after);
+    var remainingDay = Math.max(0, limits.daily + dailyR);
+    var remainingWeek = Math.max(0, limits.weekly + weeklyR);
+    var body = document.getElementById("td-risk-budget");
+    body.className = "risk-budget__body " + (reasons.length ? "is-warning" : "is-ok");
+    body.innerHTML = '<div class="risk-budget__metrics">' +
+      metric(T.plannedRisk, planned.toFixed(2) + "%") +
+      metric(T.openRisk, open.toFixed(2) + "%") +
+      metric(T.afterRisk, after.toFixed(2) + "%") +
+      metric(T.todayR, signed(dailyR)) +
+      metric(T.weekR, signed(weeklyR)) +
+      metric(T.lossStreak, String(streak)) +
+      '</div><p><strong>' + (reasons.length ? T.budgetWarn : T.budgetOk) + '</strong></p>' +
+      '<p>' + T.remaining + ': ' + remainingOpen.toFixed(2) + '% / ' +
+      remainingDay.toFixed(2) + 'R / ' + remainingWeek.toFixed(2) + 'R</p>';
+    var override = document.getElementById("td-risk-override-wrap");
+    override.hidden = !reasons.length;
+    if (!reasons.length) document.getElementById("td-risk-override").checked = false;
+    if (reasons.length && window.fxTrack) window.fxTrack("risk_limit_warning_shown");
+    return currentBudget;
+  }
+
+  function metric(label, result) {
+    return '<div><span>' + label + '</span><strong>' + result + '</strong></div>';
   }
 
   function calculate() {
@@ -113,7 +280,9 @@
       stop_pips: stop,
       usd_uzs: rate,
       setup: document.getElementById("td-setup").value.trim(),
-      planned_reason: document.getElementById("td-notes").value.trim()
+      planned_reason: document.getElementById("td-notes").value.trim(),
+      strategy: currentStrategy && window.FXStrategies
+        ? window.FXStrategies.snapshot(currentStrategy) : null
     };
 
     var result = document.getElementById("td-result");
@@ -122,6 +291,7 @@
       ' UZS</strong></div><div><span>' + T.lot + '</span><strong>' + lot.toFixed(2) +
       ' lot</strong></div></div>';
     result.hidden = false;
+    renderRiskBudget();
   }
 
   function allChecked() {
@@ -146,6 +316,7 @@
         balance: value("td-balance"), riskPct: value("td-risk"), pipValue: value("td-pip"),
         usdUzs: value("td-rate"), updatedAt: new Date().toISOString()
       };
+      settings.riskBudget = riskLimits();
       localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
     } catch (error) {}
   }
@@ -161,10 +332,18 @@
 
   function save() {
     if (!current) calculate();
-    if (!current || !allChecked()) {
-      document.getElementById("td-status").textContent = T.all;
+    var budget = renderRiskBudget();
+    var override = document.getElementById("td-risk-override").checked;
+    var needsOverride = budget.requires_confirmation && !override;
+    if (!current || !allChecked() || needsOverride) {
+      document.getElementById("td-status").textContent =
+        needsOverride && allChecked() ? T.needOverride : T.all;
       return;
     }
+    current.risk_guard = Object.assign({}, budget, {
+      confirmed_override: budget.requires_confirmation && override,
+      checked_at: new Date().toISOString()
+    });
     var drafts = readArray(STORAGE_KEY).filter(function (item) { return item.id !== current.id; });
     drafts.unshift(current);
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts.slice(0, 100))); } catch (error) {}
@@ -200,4 +379,48 @@
     window.location.href = "../../journal/web-journal/?plans=1";
   });
   document.getElementById("td-download").addEventListener("click", download);
+
+  function restoreSettings() {
+    var settings = readObject(SETTINGS_KEY, {});
+    var tradeDesk = settings.tradeDesk || {};
+    var budget = settings.riskBudget || {};
+    if (tradeDesk.balance > 0) document.getElementById("td-balance").value = tradeDesk.balance;
+    if (tradeDesk.riskPct > 0) document.getElementById("td-risk").value = tradeDesk.riskPct;
+    if (tradeDesk.pipValue > 0) document.getElementById("td-pip").value = tradeDesk.pipValue;
+    if (tradeDesk.usdUzs > 0) document.getElementById("td-rate").value = tradeDesk.usdUzs;
+    if (budget.maxOpen > 0) document.getElementById("td-limit-open").value = budget.maxOpen;
+    if (budget.daily > 0) document.getElementById("td-limit-day").value = budget.daily;
+    if (budget.weekly > 0) document.getElementById("td-limit-week").value = budget.weekly;
+    if (budget.streak > 0) document.getElementById("td-limit-streak").value = budget.streak;
+  }
+
+  function refreshStrategies() {
+    var select = document.getElementById("td-strategy");
+    var selected = select.value;
+    var items = window.FXStrategies ? window.FXStrategies.read().filter(function (item) { return item.active; }) : [];
+    select.innerHTML = '<option value="">' + T.manualStrategy + '</option>' + items.map(function (item) {
+      return '<option value="' + item.id + '">' + item.name + ' v' + item.version + ' · ' + item.timeframe + '</option>';
+    }).join("");
+    if (items.some(function (item) { return item.id === selected; })) select.value = selected;
+  }
+
+  document.getElementById("td-strategy").addEventListener("change", function (event) {
+    currentStrategy = window.FXStrategies
+      ? window.FXStrategies.read().find(function (item) { return item.id === event.target.value; }) || null
+      : null;
+    if (currentStrategy) {
+      document.getElementById("td-setup").value = currentStrategy.name + " v" + currentStrategy.version;
+      document.getElementById("td-risk").value = currentStrategy.maxRiskPct;
+      current = null;
+      renderRiskBudget();
+    }
+  });
+  window.addEventListener("fx:strategies-updated", refreshStrategies);
+
+  ["td-balance", "td-risk", "td-limit-open", "td-limit-day", "td-limit-week", "td-limit-streak"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", renderRiskBudget);
+  });
+  restoreSettings();
+  refreshStrategies();
+  renderRiskBudget();
 })();

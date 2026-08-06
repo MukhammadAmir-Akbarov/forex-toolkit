@@ -54,7 +54,7 @@ def test_student_dashboard_reads_existing_local_state(pw_page, site_url):
     assert "флэт" in page.text_content("#sd-next-text")
 
 
-@pytest.mark.parametrize("backup_version", [1, 2])
+@pytest.mark.parametrize("backup_version", [1, 2, 3])
 def test_dashboard_full_backup_requires_preview_confirmation(
     pw_page, site_url, backup_version
 ):
@@ -83,7 +83,7 @@ def test_dashboard_full_backup_requires_preview_confirmation(
             "forex_tool_settings_v1": json.dumps({"tradeDesk": {"riskPct": 1}}),
         },
     }
-    if backup_version == 2:
+    if backup_version >= 2:
         payload["schema"] = "forex-toolkit-backup"
     page.set_input_files(
         "#sd-import",
@@ -94,7 +94,7 @@ def test_dashboard_full_backup_requires_preview_confirmation(
         },
     )
 
-    assert page.locator("#sd-restore").is_visible()
+    page.locator("#sd-restore").wait_for(state="visible")
     assert "2" in page.locator("#sd-restore").inner_text()
     assert page.evaluate("JSON.parse(localStorage.getItem('fx-progress-v1'))") == [
         "/old/"
@@ -125,8 +125,12 @@ def test_dashboard_export_contains_full_local_data(pw_page, site_url):
     with page.expect_download() as download_info:
         page.click("#sd-export")
     payload = json.loads(download_info.value.path().read_text())
-    assert payload["version"] == 2
+    assert payload["version"] == 3
     assert payload["schema"] == "forex-toolkit-backup"
     assert payload["localStorage"]["forex_journal_data_v2"]
     assert payload["localStorage"]["forex_trade_drafts_v1"]
     assert payload["localStorage"]["forex_tool_settings_v1"]
+    assert payload["localStorage"]["forex_data_meta_v1"]
+    assert json.loads(payload["localStorage"]["forex_data_meta_v1"])[
+        "lastBackupAt"
+    ]

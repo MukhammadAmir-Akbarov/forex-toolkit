@@ -38,6 +38,14 @@
     The session summary, weak market category and failed episode IDs are stored
     in `localStorage`. The student dashboard uses them for its next recommendation.
 
+!!! info "Keyboard and accessibility"
+    Press **B** for Buy, **S** for Sell, **Space** to skip, and use the arrow
+    keys to select and move levels. A text description and a table of recent
+    candles are available below the chart. A visible outline shows chart focus.
+
+When the journal creates a personal assignment, Replay displays it above the
+chart and advances it after matching exercises.
+
 ---
 
 ## Rebuild the episode set

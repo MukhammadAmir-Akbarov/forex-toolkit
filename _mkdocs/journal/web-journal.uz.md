@@ -9,6 +9,10 @@
     **Plan → Ochiq → Yopiq** holatlaridan o'tkazing, yopilgach tahlil qiling va
     statistikani shaxsiy Monte Carlo modeliga yuboring.
 
+    Importdan oldin jurnal ma'lumot sifatini ko'rsatadi: to'g'ri va muammoli
+    qatorlar, dublikatlar, noma'lum ustunlar hamda dastlabki 10 yozuv. Haftalik
+    hisobot USD/UZS/R natijasi, intizom va keyingi vazifani beradi.
+
 !!! tip "Maxfiylik"
     Fayl **faqat brauzeringizda** qayta ishlanadi. U serverga yuklanmaydi va
     jurnal keyingi safar tiklanishi uchun qurilmada lokal saqlanadi.
@@ -129,3 +133,14 @@ id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_
 - **Qoidaga rioya** — maydon to'ldirilgan savdolardagi `yes` ulushi.
 
 Ishonchli xulosa uchun bitta strategiyada kamida **30 ta savdo** to'plang.
+
+## Strategiya laboratoriyasi va mashqlar
+
+Tanlangan strategiya versiyasi har bir savdo rejasi bilan saqlanadi. Qoidalar
+o'zgarsa yangi versiya yaratiladi, shu sabab turli tajribalar statistikasi
+aralashmaydi. Maqsadli savdolar soniga yetgach laboratoriya expectancy, intizom,
+pasayish va jami R ni ko'rsatadi.
+
+Yopilgan savdolardagi xatolar lokal mashqlar navbatini avtomatik yaratadi:
+stopni ko'chirish, FOMO va qoida buzilishi Replay uchun 10 ta mashq vazifasiga
+aylanadi. Navbat ma'lumotlari brauzerdan tashqariga chiqmaydi.

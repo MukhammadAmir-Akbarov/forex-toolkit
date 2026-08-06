@@ -60,6 +60,12 @@
       cat_d: "нисходящий тренд",
       cat_s: "флэт",
       preview: "Уровни можно менять до запуска.",
+      keyboard: "Клавиши: B — Buy, S — Sell, Space — пропустить, ←/→ — выбрать уровень, ↑/↓ — изменить цену, Enter — запустить.",
+      tableShow: "Показать таблицу свечей", tableHide: "Скрыть таблицу свечей",
+      chartDescription: "Текстовое описание графика", candle: "Свеча", open: "Open", high: "High", low: "Low", close: "Close",
+      queue: "Персональная тренировка", queueNone: "Очередь журнала выполнена или ещё не создана.",
+      queueStop: "Постановка стопа до входа", queueFomo: "Осознанный пропуск без FOMO",
+      queueRules: "Решение строго по процессу", queueStructure: "Слабая структура рынка"
     },
     en: {
       loading: "Loading episodes...",
@@ -107,6 +113,12 @@
       cat_d: "downtrend",
       cat_s: "sideways",
       preview: "Levels can be changed before replay.",
+      keyboard: "Keys: B — Buy, S — Sell, Space — skip, ←/→ — choose level, ↑/↓ — adjust price, Enter — start.",
+      tableShow: "Show candle table", tableHide: "Hide candle table",
+      chartDescription: "Text chart description", candle: "Candle", open: "Open", high: "High", low: "Low", close: "Close",
+      queue: "Personal practice", queueNone: "The journal queue is complete or has not been created yet.",
+      queueStop: "Place the stop before entry", queueFomo: "Intentional skip without FOMO",
+      queueRules: "Decision strictly by process", queueStructure: "Weak market structure"
     },
     uz: {
       loading: "Epizodlar yuklanmoqda...",
@@ -154,6 +166,12 @@
       cat_d: "pasayish trendi",
       cat_s: "flet",
       preview: "Replay boshlanguncha darajalarni o'zgartirish mumkin.",
+      keyboard: "Tugmalar: B — Buy, S — Sell, Space — o'tkazish, ←/→ — daraja, ↑/↓ — narx, Enter — boshlash.",
+      tableShow: "Shamlar jadvalini ko'rsatish", tableHide: "Shamlar jadvalini yashirish",
+      chartDescription: "Grafikning matnli tavsifi", candle: "Sham", open: "Open", high: "High", low: "Low", close: "Close",
+      queue: "Shaxsiy mashq", queueNone: "Jurnal navbati bajarilgan yoki hali yaratilmagan.",
+      queueStop: "Kirishdan oldin stop qo'yish", queueFomo: "FOMOsiz ongli o'tkazish",
+      queueRules: "Jarayon bo'yicha qaror", queueStructure: "Zaif bozor tuzilmasi"
     },
   };
   var T = I18N[lang];
@@ -162,6 +180,7 @@
   style.textContent = [
     "#replay-widget{font-family:inherit;max-width:860px;margin:1.5rem 0}",
     "#replay-canvas{width:100%;height:340px;border-radius:9px;background:#0d1117;display:block;cursor:crosshair;touch-action:none}",
+    "#replay-canvas:focus{outline:3px solid #60a5fa;outline-offset:3px}",
     ".rp-toolbar,.rp-controls,.rp-levels{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}",
     ".rp-toolbar{margin-bottom:.75rem;padding:.7rem;background:var(--md-code-bg-color);border-radius:8px}",
     ".rp-toolbar label{font-size:.78rem;color:var(--md-default-fg-color--light)}",
@@ -194,6 +213,12 @@
     ".rp-stat-val{font-size:1.35rem;font-weight:750;color:#2dd4bf}",
     ".rp-stat-lbl{font-size:.72rem;color:var(--md-default-fg-color--light)}",
     ".rp-weak{margin:.9rem 0;padding:.7rem;border-left:3px solid #facc15;background:rgba(250,204,21,.08)}",
+    ".rp-training{margin:0 0 .8rem;padding:.75rem;border:1px solid #3b82f6;border-radius:8px;background:rgba(59,130,246,.09)}",
+    ".rp-training progress{width:100%;display:block;margin-top:.35rem}",
+    ".rp-a11y{margin:.55rem 0;font-size:.78rem;color:var(--md-default-fg-color--light)}",
+    ".rp-candle-table{margin:.6rem 0;max-height:260px;overflow:auto}",
+    ".rp-candle-table table{width:100%;border-collapse:collapse;font-size:.75rem}",
+    ".rp-candle-table th,.rp-candle-table td{padding:.3rem;border:1px solid var(--md-default-fg-color--lighter);text-align:right}",
     "@media(max-width:600px){#replay-canvas{height:300px}.rp-stats-grid{grid-template-columns:repeat(2,1fr)}}",
   ].join("");
   document.head.appendChild(style);
@@ -269,6 +294,7 @@
     var pairs = uniqueValues("pair");
     var timeframes = uniqueValues("tf");
     CONTAINER.innerHTML = [
+      '<div class="rp-training" id="rp-training"></div>',
       '<div class="rp-toolbar">',
       '<label for="rp-pair">' + T.pair + "</label>",
       '<select class="rp-select" id="rp-pair">' + options(pairs) + "</select>",
@@ -276,7 +302,11 @@
       '<select class="rp-select" id="rp-tf">' + options(timeframes) + "</select>",
       "</div>",
       '<div class="rp-meta" id="rp-meta"></div>',
-      '<canvas id="replay-canvas" height="340" tabindex="0"></canvas>',
+      '<canvas id="replay-canvas" height="340" tabindex="0" role="img" aria-describedby="rp-chart-description"></canvas>',
+      '<p class="rp-a11y" id="rp-chart-description" aria-live="polite"></p>',
+      '<p class="rp-a11y">' + T.keyboard + '</p>',
+      '<button class="rp-btn rp-level" id="rp-table-toggle" type="button" aria-expanded="false">' + T.tableShow + '</button>',
+      '<div class="rp-candle-table" id="rp-candle-table" hidden></div>',
       '<div class="rp-step">' + T.direction + "</div>",
       '<div class="rp-controls">',
       '<button class="rp-btn rp-buy" id="rp-buy">' + T.buy + "</button>",
@@ -315,6 +345,14 @@
       "click",
       placeLevel
     );
+    document.getElementById("replay-canvas").addEventListener("keydown", keyboardControl);
+    document.getElementById("rp-table-toggle").addEventListener("click", function () {
+      var table = document.getElementById("rp-candle-table");
+      table.hidden = !table.hidden;
+      this.setAttribute("aria-expanded", table.hidden ? "false" : "true");
+      this.textContent = table.hidden ? T.tableShow : T.tableHide;
+    });
+    renderTraining();
     resetFiltered();
   }
 
@@ -325,6 +363,66 @@
       '<span class="rp-level-value rp-level-' + name +
       '" id="rp-value-' + name + '">--</span>'
     );
+  }
+
+  function trainingLabel(task) {
+    if (task.type === "stop") return T.queueStop;
+    if (task.type === "fomo") return T.queueFomo;
+    if (task.type === "rules") return T.queueRules;
+    return T.queueStructure + (task.category ? " (" + categoryLabel(task.category) + ")" : "");
+  }
+
+  function renderTraining() {
+    var panel = document.getElementById("rp-training");
+    if (!panel) return;
+    var task = window.FXTrainingQueue && window.FXTrainingQueue.active();
+    panel.innerHTML = task
+      ? '<strong>' + T.queue + ':</strong> ' + trainingLabel(task) + '<span> · ' +
+        task.progress + ' / ' + task.target + '</span><progress max="' + task.target + '" value="' + task.progress + '"></progress>'
+      : '<strong>' + T.queue + ':</strong> ' + T.queueNone;
+  }
+
+  function renderAccessibleChart(ep) {
+    var context = ep.k.slice(Math.max(0, ep.ctx - 12), ep.ctx);
+    var first = context[0];
+    var last = context[context.length - 1];
+    var description = T.chartDescription + ': ' + ep.pair + ' ' + ep.tf + ', ' +
+      categoryLabel(ep.cat) + '. ' + T.open + ' ' + price(ep, first[0]).toFixed(digits(ep)) +
+      ', ' + T.close + ' ' + price(ep, last[3]).toFixed(digits(ep)) + '.';
+    document.getElementById("rp-chart-description").textContent = description;
+    document.getElementById("replay-canvas").setAttribute("aria-label", description);
+    document.getElementById("rp-candle-table").innerHTML = '<table><thead><tr><th>' + T.candle + '</th><th>' +
+      T.open + '</th><th>' + T.high + '</th><th>' + T.low + '</th><th>' + T.close + '</th></tr></thead><tbody>' +
+      context.map(function (candle, index) {
+        return '<tr><td>' + (ep.ctx - context.length + index + 1) + '</td><td>' + price(ep, candle[0]).toFixed(digits(ep)) +
+          '</td><td>' + price(ep, candle[1]).toFixed(digits(ep)) + '</td><td>' +
+          price(ep, candle[2]).toFixed(digits(ep)) + '</td><td>' + price(ep, candle[3]).toFixed(digits(ep)) + '</td></tr>';
+      }).join("") + '</tbody></table>';
+  }
+
+  function keyboardControl(event) {
+    if (running) return;
+    var key = event.key.toLowerCase();
+    if (key === "b") chooseDirection("buy");
+    else if (key === "s") chooseDirection("sell");
+    else if (key === " ") { event.preventDefault(); skipEpisode(); return; }
+    else if (key === "enter") { event.preventDefault(); startReplay(); return; }
+    else if (["arrowleft", "arrowright"].indexOf(key) >= 0) {
+      event.preventDefault();
+      var names = ["entry", "sl", "tp"];
+      var current = names.indexOf(placement);
+      selectPlacement(names[(current + (key === "arrowright" ? 1 : 2)) % 3]);
+      return;
+    } else if (["arrowup", "arrowdown"].indexOf(key) >= 0) {
+      event.preventDefault();
+      if (!action) return setHint(T.chooseDirection, true);
+      var ep = currentEpisode();
+      if (levels[placement] === null) levels[placement] = price(ep, ep.k[ep.ctx - 1][3]);
+      levels[placement] = roundToPip(levels[placement] + (key === "arrowup" ? ep.pip : -ep.pip), ep.pip);
+      updateLevelUI(); validateLevels(false); drawChart(ep, ep.ctx - 1, false, null);
+      return;
+    } else return;
+    event.preventDefault();
   }
 
   function resetFiltered() {
@@ -365,6 +463,7 @@
     levels = { entry: null, sl: null, tp: null };
 
     var ep = currentEpisode();
+    renderAccessibleChart(ep);
     var result = document.getElementById("rp-result");
     result.style.display = "none";
     document.getElementById("rp-meta").textContent =
@@ -586,6 +685,10 @@
   }
 
   function showResult(type, resultR) {
+    if (window.FXTrainingQueue) {
+      window.FXTrainingQueue.advance(type === "skip" ? "skip" : (action || "trade"), currentEpisode().cat);
+      renderTraining();
+    }
     var element = document.getElementById("rp-result");
     var isLast = idx >= order.length - 1;
     var label = type === "win"

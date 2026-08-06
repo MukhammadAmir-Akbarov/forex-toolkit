@@ -57,6 +57,26 @@
       insightBest: function (label, value) { return "Сильнейшая группа: " + label + " (" + value + "R). Проверь, можно ли формализовать её условия."; },
       insightDiscipline: function (value) { return "Дисциплина " + value + "%. Цель перед увеличением риска — не ниже 95%."; },
       restoredName: "Сохранённый журнал",
+      qualityTitle: "Проверка качества импорта", qualityFound: "Найдено", qualityValid: "Можно импортировать",
+      qualityProblems: "Проблемных", qualityDuplicates: "Дубликатов", qualityMissingRisk: "Без надёжного R",
+      qualityUnknown: "Неизвестные колонки", qualityPreview: "Первые 10 строк",
+      qualityImportValid: "Исключить проблемы и импортировать", qualityImportAll: "Импортировать всё осознанно",
+      qualityFix: "Вернуться и исправить файл", qualityIssues: "Проблемы", qualityNone: "Нет",
+      issueDate: "неверная дата", issuePair: "не указан инструмент", issueResult: "нет результата",
+      issueDuplicate: "дубликат", issueRisk: "нет risk_usd или result_r",
+      weeklyTitle: "Автоматический недельный отчёт", weeklyEmpty: "Для недельного отчёта пока нет сделок.",
+      weeklyPeriod: "Период", weeklyPrevious: "Предыдущая неделя", weeklyChange: "Изменение",
+      weeklyBest: "Лучшая стратегия", weeklyWorst: "Слабейшая стратегия",
+      weeklyRuleCost: "Цена нарушений", weeklyEmotion: "Слабая эмоция", weeklyFocus: "Задача на неделю",
+      weeklyExport: "Скачать Markdown", weeklyPrint: "Распечатать",
+      focusWeeklyRules: "Следующую неделю брать только сделки, прошедшие чек-лист.",
+      focusWeeklyRisk: "Снизить риск и остановиться при достижении дневного лимита.",
+      focusWeeklyEmotion: "После сильной эмоции делать паузу минимум 15 минут.",
+      focusWeeklyKeep: "Не менять правила и собрать ещё 5 сделок по тому же процессу.",
+      trainingTitle: "Персональная очередь Replay", trainingEmpty: "Новых упражнений из журнала пока нет.",
+      trainingOpen: "Открыть Replay", trainingStop: "10 постановок стопа до входа",
+      trainingFomo: "10 осознанных пропусков без FOMO", trainingRules: "10 решений строго по процессу",
+      trainingStructure: "10 упражнений по слабой структуре рынка",
     },
     en: {
       fileReady: function (name, count) { return name + ": " + count + " rows loaded"; },
@@ -106,6 +126,26 @@
       insightBest: function (label, value) { return "Strongest group: " + label + " (" + value + "R). Check whether its conditions can be formalized."; },
       insightDiscipline: function (value) { return "Discipline is " + value + "%. Target at least 95% before increasing risk."; },
       restoredName: "Saved journal",
+      qualityTitle: "Import quality check", qualityFound: "Found", qualityValid: "Ready to import",
+      qualityProblems: "Problem rows", qualityDuplicates: "Duplicates", qualityMissingRisk: "Without reliable R",
+      qualityUnknown: "Unknown columns", qualityPreview: "First 10 rows",
+      qualityImportValid: "Exclude problems and import", qualityImportAll: "Import everything explicitly",
+      qualityFix: "Go back and fix the file", qualityIssues: "Issues", qualityNone: "None",
+      issueDate: "invalid date", issuePair: "missing instrument", issueResult: "missing result",
+      issueDuplicate: "duplicate", issueRisk: "missing risk_usd or result_r",
+      weeklyTitle: "Automatic weekly report", weeklyEmpty: "There are no trades for a weekly report yet.",
+      weeklyPeriod: "Period", weeklyPrevious: "Previous week", weeklyChange: "Change",
+      weeklyBest: "Best strategy", weeklyWorst: "Weakest strategy",
+      weeklyRuleCost: "Rule violation cost", weeklyEmotion: "Weak emotion", weeklyFocus: "Weekly focus",
+      weeklyExport: "Download Markdown", weeklyPrint: "Print",
+      focusWeeklyRules: "Take only trades that pass the checklist next week.",
+      focusWeeklyRisk: "Reduce risk and stop when the daily limit is reached.",
+      focusWeeklyEmotion: "Pause for at least 15 minutes after a strong emotion.",
+      focusWeeklyKeep: "Keep the rules unchanged and collect 5 more trades with the same process.",
+      trainingTitle: "Personal Replay queue", trainingEmpty: "No new journal-based exercises yet.",
+      trainingOpen: "Open Replay", trainingStop: "10 stop placements before entry",
+      trainingFomo: "10 intentional skips without FOMO", trainingRules: "10 decisions strictly by process",
+      trainingStructure: "10 exercises on the weak market structure",
     },
     uz: {
       fileReady: function (name, count) { return name + ": " + count + " qator yuklandi"; },
@@ -155,13 +195,36 @@
       insightBest: function (label, value) { return "Eng kuchli guruh: " + label + " (" + value + "R). Uning shartlarini aniq qoidaga aylantirishni tekshiring."; },
       insightDiscipline: function (value) { return "Intizom " + value + "%. Riskni oshirishdan oldin maqsad kamida 95%."; },
       restoredName: "Saqlangan jurnal",
+      qualityTitle: "Import sifatini tekshirish", qualityFound: "Topildi", qualityValid: "Importga tayyor",
+      qualityProblems: "Muammoli", qualityDuplicates: "Dublikat", qualityMissingRisk: "Ishonchli R yo'q",
+      qualityUnknown: "Noma'lum ustunlar", qualityPreview: "Dastlabki 10 qator",
+      qualityImportValid: "Muammolarni chiqarib import qilish", qualityImportAll: "Hammasini ongli import qilish",
+      qualityFix: "Faylni tuzatishga qaytish", qualityIssues: "Muammolar", qualityNone: "Yo'q",
+      issueDate: "sana noto'g'ri", issuePair: "instrument yo'q", issueResult: "natija yo'q",
+      issueDuplicate: "dublikat", issueRisk: "risk_usd yoki result_r yo'q",
+      weeklyTitle: "Avtomatik haftalik hisobot", weeklyEmpty: "Haftalik hisobot uchun hozircha savdo yo'q.",
+      weeklyPeriod: "Davr", weeklyPrevious: "Oldingi hafta", weeklyChange: "O'zgarish",
+      weeklyBest: "Eng yaxshi strategiya", weeklyWorst: "Eng zaif strategiya",
+      weeklyRuleCost: "Qoida buzilishi narxi", weeklyEmotion: "Zaif hissiyot", weeklyFocus: "Hafta vazifasi",
+      weeklyExport: "Markdown yuklash", weeklyPrint: "Chop etish",
+      focusWeeklyRules: "Keyingi hafta faqat checklistdan o'tgan savdolarni olish.",
+      focusWeeklyRisk: "Riskni kamaytirish va kunlik limitga yetganda to'xtash.",
+      focusWeeklyEmotion: "Kuchli hissiyotdan keyin kamida 15 daqiqa tanaffus qilish.",
+      focusWeeklyKeep: "Qoidalarni o'zgartirmasdan shu jarayonda yana 5 savdo yig'ish.",
+      trainingTitle: "Shaxsiy Replay navbati", trainingEmpty: "Jurnaldan yangi mashq hozircha yo'q.",
+      trainingOpen: "Replayni ochish", trainingStop: "Kirishdan oldin 10 marta stop qo'yish",
+      trainingFomo: "FOMOsiz 10 ta ongli o'tkazish", trainingRules: "Jarayon bo'yicha 10 ta qaror",
+      trainingStructure: "Zaif bozor tuzilmasi bo'yicha 10 mashq",
     },
   });
 
   var STORAGE_KEY = "forex_journal_data_v2";
   var PLANS_KEY = "forex_trade_drafts_v1";
   var SETTINGS_KEY = "forex_tool_settings_v1";
+  var RISK_HISTORY_KEY = "forex_journal_risk_history_v1";
   var state = { rows: [], importedRows: [], sourceText: "", sourceName: "" };
+  var pendingImport = null;
+  var weeklyMarkdown = "";
   var fileInput = document.getElementById("journal-file");
   var drop = document.getElementById("journal-drop");
   var demoButton = document.getElementById("journal-demo");
@@ -181,6 +244,23 @@
   monteCarloButton.className = "journal-button secondary";
   monteCarloButton.textContent = T.simulate;
   document.querySelector(".journal-toolbar").appendChild(monteCarloButton);
+
+  var qualityPanel = document.createElement("section");
+  qualityPanel.id = "journal-quality";
+  qualityPanel.className = "journal-quality";
+  qualityPanel.hidden = true;
+  error.parentNode.insertBefore(qualityPanel, dashboard);
+
+  var weeklyPanel = document.createElement("section");
+  weeklyPanel.id = "journal-weekly-report";
+  weeklyPanel.className = "journal-weekly-report";
+  var insightsPanel = document.querySelector(".journal-insights");
+  insightsPanel.parentNode.insertBefore(weeklyPanel, insightsPanel.nextSibling);
+
+  var trainingPanel = document.createElement("section");
+  trainingPanel.id = "journal-training-queue";
+  trainingPanel.className = "journal-training-queue";
+  weeklyPanel.parentNode.insertBefore(trainingPanel, weeklyPanel.nextSibling);
 
   function detectDelimiter(line) {
     var options = [",", ";", "\t"];
@@ -361,6 +441,20 @@
     return isFinite(result) ? result : 0;
   }
 
+  function optionalNumber(value) {
+    var text = String(value == null ? "" : value).trim().replace(/\s/g, "");
+    if (!text) return null;
+    if (text.indexOf(",") >= 0 && text.indexOf(".") < 0) text = text.replace(",", ".");
+    var result = Number(text);
+    return isFinite(result) ? result : null;
+  }
+
+  function validDate(value) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value || ""))) return false;
+    var parsed = new Date(value + "T12:00:00");
+    return !isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+  }
+
   function normalizeOutcome(value, pnl) {
     var v = String(value || "").trim().toLowerCase();
     if (["win", "profit", "winner"].indexOf(v) >= 0) return "win";
@@ -379,19 +473,30 @@
 
   function normalize(rows) {
     return rows.map(function (row, index) {
-      var pnl = number(first(row, ["result_usd", "pnl", "profit", "profit_usd"]));
-      var risk = number(first(row, ["risk_usd", "risk"]));
+      var rawPnl = first(row, ["result_usd", "pnl", "profit", "profit_usd"]);
+      var rawRisk = first(row, ["risk_usd", "risk"]);
+      var parsedPnl = optionalNumber(rawPnl);
+      var parsedRisk = optionalNumber(rawRisk);
+      var pnl = parsedPnl === null ? 0 : parsedPnl;
+      var risk = parsedRisk === null ? 0 : parsedRisk;
       var rawR = first(row, ["result_r", "r_result", "pnl_r"]);
+      var parsedR = optionalNumber(rawR);
       var date = first(row, ["date", "open_date"]);
       var time = first(row, ["time", "open_time"]);
+      var pair = first(row, ["pair", "symbol"]).toUpperCase().replace("/", "");
       var hourMatch = String(time).match(/^(\d{1,2})/);
       var parsedDate = date ? new Date(date + "T12:00:00") : null;
+      var issues = [];
+      if (!validDate(date)) issues.push("date");
+      if (!/^[A-Z0-9._-]{3,12}$/.test(pair)) issues.push("pair");
+      if (parsedPnl === null && parsedR === null) issues.push("result");
+      var rValid = parsedR !== null || (parsedRisk !== null && parsedRisk > 0 && parsedPnl !== null);
       return {
         id: first(row, ["id", "ticket"]) || String(index + 1),
         date: date,
         time: time,
         timestamp: Date.parse(date + "T" + (time || "00:00")) || index,
-        pair: first(row, ["pair", "symbol"]).toUpperCase().replace("/", ""),
+        pair: pair,
         direction: first(row, ["direction", "dir", "type"]).toLowerCase(),
         setup: first(row, ["setup", "strategy"]),
         emotion: first(row, ["emotions", "emotion", "mood"]),
@@ -399,13 +504,55 @@
         weekday: parsedDate && !isNaN(parsedDate.getTime()) ? (parsedDate.getDay() + 6) % 7 : null,
         pnl: pnl,
         risk: risk,
-        r: rawR !== "" ? number(rawR) : (risk > 0 ? pnl / risk : 0),
+        r: parsedR !== null ? parsedR : (risk > 0 ? pnl / risk : 0),
+        rValid: rValid,
+        qualityIssues: issues,
+        sourceIndex: index + 1,
         outcome: normalizeOutcome(first(row, ["outcome", "result"]), pnl),
         rules: normalizeRules(first(row, ["followed_rules", "rules"])),
       };
     }).filter(function (row) {
       return row.date || row.pair || row.pnl || row.outcome;
     }).sort(function (a, b) { return a.timestamp - b.timestamp; });
+  }
+
+  var KNOWN_HEADERS = [
+    "id", "ticket", "date", "open_date", "time", "open_time", "pair", "symbol",
+    "direction", "dir", "type", "setup", "strategy", "emotions", "emotion", "mood",
+    "result_usd", "pnl", "profit", "profit_usd", "risk_usd", "risk", "result_r",
+    "r_result", "pnl_r", "outcome", "result", "followed_rules", "rules", "entry_price",
+    "lot_size", "close_price", "close_time", "lesson"
+  ];
+
+  function qualityReport(raw, rows) {
+    var seen = {};
+    var duplicates = 0;
+    rows.forEach(function (row) {
+      var fingerprint = [row.id, row.date, row.time, row.pair, row.pnl].join("|");
+      row.duplicate = Boolean(seen[fingerprint]);
+      if (row.duplicate) duplicates++;
+      seen[fingerprint] = true;
+    });
+    var headers = raw.length ? Object.keys(raw[0]) : [];
+    var unknown = headers.filter(function (header) { return KNOWN_HEADERS.indexOf(header) < 0; });
+    var problems = rows.filter(function (row) { return row.qualityIssues.length || row.duplicate; }).length;
+    return {
+      found: rows.length,
+      valid: rows.length - problems,
+      problems: problems,
+      duplicates: duplicates,
+      missingRisk: rows.filter(function (row) { return !row.rValid; }).length,
+      unknown: unknown
+    };
+  }
+
+  function issueLabels(row) {
+    var labels = row.qualityIssues.map(function (issue) {
+      return issue === "date" ? T.issueDate : issue === "pair" ? T.issuePair : T.issueResult;
+    });
+    if (row.duplicate) labels.push(T.issueDuplicate);
+    if (!row.rValid) labels.push(T.issueRisk);
+    return labels;
   }
 
   function readPlans() {
@@ -449,10 +596,13 @@
         pnl: pnl,
         risk: risk,
         r: risk > 0 ? pnl / risk : 0,
+        rValid: risk > 0,
         outcome: pnl > 0 ? "win" : pnl < 0 ? "loss" : "be",
         rules: plan.followed_rules === false ? "no" : plan.followed_rules === true ? "yes" : "",
         plannedReason: plan.planned_reason || "",
-        reviewFocus: plan.review_focus || ""
+        reviewFocus: plan.review_focus || "",
+        strategyId: plan.strategy && plan.strategy.id || "",
+        strategyVersion: plan.strategy && plan.strategy.version || null
       };
     });
   }
@@ -782,6 +932,122 @@
     });
   }
 
+  function isoDate(date) {
+    var year = date.getFullYear();
+    var month = String(date.getMonth() + 1).padStart(2, "0");
+    var day = String(date.getDate()).padStart(2, "0");
+    return year + "-" + month + "-" + day;
+  }
+
+  function weekRange(anchor) {
+    var endAnchor = new Date(anchor + "T12:00:00");
+    var start = new Date(endAnchor);
+    start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
+    var end = new Date(start);
+    end.setDate(end.getDate() + 6);
+    var previousStart = new Date(start);
+    previousStart.setDate(previousStart.getDate() - 7);
+    var previousEnd = new Date(start);
+    previousEnd.setDate(previousEnd.getDate() - 1);
+    return {
+      start: isoDate(start), end: isoDate(end),
+      previousStart: isoDate(previousStart), previousEnd: isoDate(previousEnd)
+    };
+  }
+
+  function groupExtreme(rows, key, best) {
+    var groups = groupRows(rows, key).filter(function (group) { return group.label !== T.unknown; });
+    if (!groups.length) return null;
+    groups.sort(function (a, b) { return a.metrics.totalR - b.metrics.totalR; });
+    return best ? groups[groups.length - 1] : groups[0];
+  }
+
+  function weeklyFocus(rows, m) {
+    if (m.discipline < 95) return T.focusWeeklyRules;
+    var emotional = rows.filter(function (row) {
+      return ["anxious", "frustrated", "fomo", "angry"].indexOf(String(row.emotion).toLowerCase()) >= 0;
+    });
+    if (emotional.length && metrics(emotional).totalR < 0) return T.focusWeeklyEmotion;
+    if (m.totalR < 0) return T.focusWeeklyRisk;
+    return T.focusWeeklyKeep;
+  }
+
+  function renderWeeklyReport(rows) {
+    var dated = rows.filter(function (row) { return validDate(row.date); });
+    if (!dated.length) {
+      weeklyPanel.innerHTML = '<h3>' + T.weeklyTitle + '</h3><p>' + T.weeklyEmpty + '</p>';
+      weeklyMarkdown = "";
+      return;
+    }
+    var latest = dated.reduce(function (value, row) { return row.date > value ? row.date : value; }, dated[0].date);
+    var range = weekRange(latest);
+    var current = dated.filter(function (row) { return row.date >= range.start && row.date <= range.end; });
+    var previous = dated.filter(function (row) { return row.date >= range.previousStart && row.date <= range.previousEnd; });
+    var currentM = metrics(current);
+    var previousM = metrics(previous);
+    var best = groupExtreme(current.filter(function (row) { return row.rValid !== false; }), "setup", true);
+    var worst = groupExtreme(current.filter(function (row) { return row.rValid !== false; }), "setup", false);
+    var violations = current.filter(function (row) { return row.rules === "no" && row.rValid !== false; });
+    var emotion = groupExtreme(current.filter(function (row) { return row.rValid !== false; }), "emotion", false);
+    var settings = {};
+    try { settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}"); } catch (e) {}
+    var rate = Number(settings.tradeDesk && settings.tradeDesk.usdUzs) || 12500;
+    var change = currentM.totalR - previousM.totalR;
+    var focus = weeklyFocus(current, currentM);
+    function groupText(group) {
+      return group ? group.label + " (" + group.metrics.totalR.toFixed(2) + "R)" : "-";
+    }
+    weeklyPanel.innerHTML = '<h3>' + T.weeklyTitle + '</h3>' +
+      '<p><strong>' + T.weeklyPeriod + ':</strong> ' + range.start + ' — ' + range.end + '</p>' +
+      '<div class="journal-weekly__metrics">' +
+      qualityStat(T.trades, currentM.trades) +
+      qualityStat(T.pnl, F.money(currentM.pnl) + " / " + Math.round(currentM.pnl * rate).toLocaleString(F.numLocale) + " UZS") +
+      qualityStat(T.rTotal, currentM.totalR.toFixed(2) + "R") +
+      qualityStat(T.discipline, F.pct(currentM.discipline, 1)) +
+      qualityStat(T.weeklyPrevious, previousM.totalR.toFixed(2) + "R") +
+      qualityStat(T.weeklyChange, (change > 0 ? "+" : "") + change.toFixed(2) + "R") + '</div>' +
+      '<div class="journal-weekly__findings"><p><strong>' + T.weeklyBest + ':</strong> ' + escapeHtml(groupText(best)) + '</p>' +
+      '<p><strong>' + T.weeklyWorst + ':</strong> ' + escapeHtml(groupText(worst)) + '</p>' +
+      '<p><strong>' + T.weeklyRuleCost + ':</strong> ' + metrics(violations).totalR.toFixed(2) + 'R</p>' +
+      '<p><strong>' + T.weeklyEmotion + ':</strong> ' + escapeHtml(groupText(emotion)) + '</p>' +
+      '<p class="journal-weekly__focus"><strong>' + T.weeklyFocus + ':</strong> ' + escapeHtml(focus) + '</p></div>' +
+      '<div class="journal-actions"><button class="journal-button secondary" type="button" data-weekly="markdown">' + T.weeklyExport + '</button>' +
+      '<button class="journal-button secondary" type="button" data-weekly="print">' + T.weeklyPrint + '</button></div>';
+    weeklyMarkdown = [
+      "# " + T.weeklyTitle, "", "- " + T.weeklyPeriod + ": " + range.start + " - " + range.end,
+      "- " + T.trades + ": " + currentM.trades,
+      "- P&L: " + currentM.pnl.toFixed(2) + " USD / " + Math.round(currentM.pnl * rate) + " UZS",
+      "- " + T.rTotal + ": " + currentM.totalR.toFixed(2) + "R",
+      "- " + T.discipline + ": " + currentM.discipline.toFixed(1) + "%",
+      "- " + T.weeklyPrevious + ": " + previousM.totalR.toFixed(2) + "R",
+      "- " + T.weeklyBest + ": " + groupText(best),
+      "- " + T.weeklyWorst + ": " + groupText(worst),
+      "- " + T.weeklyRuleCost + ": " + metrics(violations).totalR.toFixed(2) + "R",
+      "", "## " + T.weeklyFocus, "", focus, ""
+    ].join("\n");
+  }
+
+  function trainingLabel(task) {
+    if (task.type === "stop") return T.trainingStop;
+    if (task.type === "fomo") return T.trainingFomo;
+    if (task.type === "rules") return T.trainingRules;
+    return T.trainingStructure + (task.category ? " (" + task.category.toUpperCase() + ")" : "");
+  }
+
+  function renderTrainingQueue() {
+    if (!window.FXTrainingQueue) return;
+    var replay = {};
+    try { replay = JSON.parse(localStorage.getItem("forex_replay_stats") || "{}"); } catch (e) {}
+    var tasks = window.FXTrainingQueue.sync(readPlans(), replay);
+    var active = tasks.filter(function (task) { return task.progress < task.target; });
+    trainingPanel.innerHTML = '<h3>' + T.trainingTitle + '</h3>' + (active.length
+      ? '<div class="journal-training-list">' + active.map(function (task) {
+        return '<div class="journal-training-card"><strong>' + escapeHtml(trainingLabel(task)) + '</strong>' +
+          '<span>' + task.progress + ' / ' + task.target + '</span><progress max="' + task.target + '" value="' + task.progress + '"></progress></div>';
+      }).join("") + '</div><a class="journal-button" href="../../tools/replay-trainer/?queue=1">' + T.trainingOpen + '</a>'
+      : '<p>' + T.trainingEmpty + '</p>');
+  }
+
   function summaryRows(rows) {
     var output = [["section", "group", "trades", "win_rate", "pnl", "total_r"]];
     var overall = metrics(rows);
@@ -870,6 +1136,11 @@
         maxDrawdown: m.maxDrawdown, discipline: m.discipline,
         updated: new Date().toISOString().slice(0, 10)
       }));
+      localStorage.setItem(RISK_HISTORY_KEY, JSON.stringify(state.rows.filter(function (row) {
+        return row.outcome !== "open" && row.rValid !== false && validDate(row.date);
+      }).slice(-1000).map(function (row) {
+        return { id: row.id, date: row.date, r: row.r };
+      })));
     } catch (e) {}
     drawChart(rows);
     renderHeatmap(rows);
@@ -878,40 +1149,49 @@
     renderBreakdown("journal-by-direction", groupRows(rows, "direction"));
     renderBreakdown("journal-by-emotion", groupRows(rows, "emotion"));
     renderInsights(rows);
+    renderWeeklyReport(rows);
+    renderTrainingQueue();
     renderTable(rows);
   }
 
-  function saveSource(text, name, kind) {
+  function saveSource(text, name, kind, acceptedRows) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         text: text,
         name: name,
         savedAt: new Date().toISOString(),
-        kind: kind
+        kind: kind,
+        rows: acceptedRows
       }));
       status.textContent = T.saved;
     } catch (e) {}
   }
 
-  function loadText(text, name, persist, kind) {
+  function activateRows(rows, text, name, persist, kind) {
+    if (!rows.length) throw new Error("empty");
+    state.importedRows = rows;
+    syncRows(renderPlans());
+    state.sourceText = String(text || "");
+    state.sourceName = name;
+    error.style.display = "none";
+    qualityPanel.hidden = true;
+    dashboard.style.display = "block";
+    fileName.textContent = T.fileReady(name, rows.length);
+    setOptions();
+    render();
+    if (persist !== false) saveSource(String(text), name, kind, rows);
+    if (persist !== false && window.fxTrack) {
+      window.fxTrack(name === T.demo ? "journal_demo_opened" : "journal_import_completed");
+    }
+  }
+
+  function loadText(text, name, persist, kind, acceptedRows) {
     try {
       var isMT5 = kind === "mt5" || /^\s*(?:<!doctype\s+html|<html|<table)/i.test(String(text));
-      var raw = isMT5 ? parseMT5HTML(text) : parseCSV(text);
-      var rows = normalize(raw);
-      if (!rows.length) throw new Error("empty");
-      state.importedRows = rows;
-      syncRows(renderPlans());
-      state.sourceText = String(text);
-      state.sourceName = name;
-      error.style.display = "none";
-      dashboard.style.display = "block";
-      fileName.textContent = T.fileReady(name, rows.length);
-      setOptions();
-      render();
-      if (persist !== false) saveSource(String(text), name, isMT5 ? "mt5" : "csv");
-      if (persist !== false && window.fxTrack) {
-        window.fxTrack(name === T.demo ? "journal_demo_opened" : "journal_import_completed");
-      }
+      var rows = Array.isArray(acceptedRows)
+        ? acceptedRows
+        : normalize(isMT5 ? parseMT5HTML(text) : parseCSV(text));
+      activateRows(rows, text, name, persist, isMT5 ? "mt5" : "csv");
     } catch (e) {
       dashboard.style.display = "none";
       error.textContent = T.invalid;
@@ -919,12 +1199,76 @@
     }
   }
 
+  function qualityStat(label, result) {
+    return '<div><span>' + escapeHtml(label) + '</span><strong>' + escapeHtml(result) + '</strong></div>';
+  }
+
+  function renderQuality() {
+    if (!pendingImport) return;
+    var report = pendingImport.report;
+    var unknown = report.unknown.length ? report.unknown.join(", ") : T.qualityNone;
+    var preview = pendingImport.rows.slice(0, 10).map(function (row) {
+      var issues = issueLabels(row);
+      return '<tr class="' + (row.qualityIssues.length || row.duplicate ? "is-problem" : "") + '">' +
+        '<td>' + row.sourceIndex + '</td><td>' + escapeHtml(row.date || "-") + '</td>' +
+        '<td>' + escapeHtml(row.pair || "-") + '</td><td>' + F.money(row.pnl) + '</td>' +
+        '<td>' + (row.rValid ? row.r.toFixed(2) + "R" : "-") + '</td>' +
+        '<td>' + escapeHtml(issues.join(", ") || T.qualityNone) + '</td></tr>';
+    }).join("");
+    qualityPanel.innerHTML = '<h3>' + T.qualityTitle + '</h3>' +
+      '<div class="journal-quality__metrics">' +
+      qualityStat(T.qualityFound, report.found) + qualityStat(T.qualityValid, report.valid) +
+      qualityStat(T.qualityProblems, report.problems) + qualityStat(T.qualityDuplicates, report.duplicates) +
+      qualityStat(T.qualityMissingRisk, report.missingRisk) + '</div>' +
+      '<p><strong>' + T.qualityUnknown + ':</strong> ' + escapeHtml(unknown) + '</p>' +
+      '<h4>' + T.qualityPreview + '</h4><div class="journal-table-scroll"><table class="journal-table compact">' +
+      '<thead><tr><th>#</th><th>Date</th><th>Pair</th><th>P&L</th><th>R</th><th>' + T.qualityIssues + '</th></tr></thead>' +
+      '<tbody>' + preview + '</tbody></table></div><div class="journal-actions">' +
+      '<button class="journal-button" type="button" data-quality="valid">' + T.qualityImportValid + '</button>' +
+      '<button class="journal-button secondary" type="button" data-quality="all">' + T.qualityImportAll + '</button>' +
+      '<button class="journal-button secondary" type="button" data-quality="fix">' + T.qualityFix + '</button>' +
+      '</div>';
+    qualityPanel.hidden = false;
+    dashboard.style.display = "none";
+    qualityPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function previewText(text, name, kind) {
+    try {
+      var isMT5 = kind === "mt5" || /^\s*(?:<!doctype\s+html|<html|<table)/i.test(String(text));
+      var raw = isMT5 ? parseMT5HTML(text) : parseCSV(text);
+      var rows = normalize(raw);
+      if (!rows.length) throw new Error("empty");
+      pendingImport = {
+        text: String(text), name: name, kind: isMT5 ? "mt5" : "csv", raw: raw,
+        rows: rows, report: qualityReport(raw, rows)
+      };
+      error.style.display = "none";
+      renderQuality();
+    } catch (e) {
+      error.textContent = T.invalid;
+      error.style.display = "block";
+    }
+  }
+
+  function commitPendingImport(mode) {
+    if (!pendingImport) return;
+    var rows = pendingImport.rows;
+    if (mode === "valid") {
+      rows = rows.filter(function (row) { return !row.qualityIssues.length && !row.duplicate; });
+    }
+    var data = pendingImport;
+    pendingImport = null;
+    activateRows(rows, data.text, data.name, true, data.kind);
+    if (window.fxTrack) window.fxTrack("journal_quality_imported", { once: false });
+  }
+
   function readFile(file) {
     if (!file) return;
     var reader = new FileReader();
     reader.onload = function () {
       var isMT5 = /\.(?:html?|xls)$/i.test(file.name);
-      loadText(reader.result, file.name, true, isMT5 ? "mt5" : "csv");
+      previewText(reader.result, file.name, isMT5 ? "mt5" : "csv");
     };
     reader.onerror = function () {
       error.textContent = T.invalid;
@@ -992,7 +1336,7 @@
   });
 
   function openPersonalMonteCarlo() {
-    var rows = state.rows.filter(function (row) { return row.outcome !== "open"; });
+    var rows = state.rows.filter(function (row) { return row.outcome !== "open" && row.rValid !== false; });
     if (!rows.length) return;
     var m = metrics(rows);
     var wins = rows.filter(function (row) { return row.r > 0; });
@@ -1017,6 +1361,18 @@
   }
 
   fileInput.addEventListener("change", function () { readFile(fileInput.files[0]); });
+  qualityPanel.addEventListener("click", function (event) {
+    var button = event.target.closest("button[data-quality]");
+    if (!button) return;
+    if (button.dataset.quality === "fix") {
+      pendingImport = null;
+      qualityPanel.hidden = true;
+      fileInput.value = "";
+      fileInput.click();
+      return;
+    }
+    commitPendingImport(button.dataset.quality);
+  });
   drop.addEventListener("dragover", function (event) {
     event.preventDefault(); drop.classList.add("is-dragging");
   });
@@ -1039,6 +1395,18 @@
   document.getElementById("journal-export-csv").addEventListener("click", exportCsv);
   document.getElementById("journal-export-html").addEventListener("click", exportHtml);
   monteCarloButton.addEventListener("click", openPersonalMonteCarlo);
+  weeklyPanel.addEventListener("click", function (event) {
+    var button = event.target.closest("button[data-weekly]");
+    if (!button) return;
+    if (button.dataset.weekly === "markdown" && weeklyMarkdown) {
+      download("forex-weekly-report.md", weeklyMarkdown, "text/markdown;charset=utf-8");
+      if (window.fxTrack) window.fxTrack("weekly_report_exported", { once: false });
+    } else if (button.dataset.weekly === "print") {
+      document.body.classList.add("journal-print-weekly");
+      window.print();
+      window.setTimeout(function () { document.body.classList.remove("journal-print-weekly"); }, 500);
+    }
+  });
   filters.forEach(function (id) {
     document.getElementById(id).addEventListener("change", render);
   });
@@ -1048,7 +1416,7 @@
   try {
     var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
     if (saved && saved.text) {
-      loadText(saved.text, saved.name || T.restoredName, false, saved.kind);
+      loadText(saved.text, saved.name || T.restoredName, false, saved.kind, saved.rows);
       status.textContent = T.restored + ": " + (saved.name || T.restoredName);
     } else {
       refreshFromPlans();

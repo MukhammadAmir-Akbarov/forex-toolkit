@@ -59,3 +59,35 @@ def test_replay_session_saves_v2_stats(site_url, pw_page):
     assert stored["trades"] == 0
     assert stored["skips"] == 6
     assert stored["errors"] == []
+
+
+def test_replay_keyboard_table_and_personal_queue(site_url, pw_page):
+    page = pw_page
+    page.goto(f"{site_url}/tools/replay-trainer/")
+    page.evaluate(
+        """
+        () => localStorage.setItem('forex_training_queue_v1', JSON.stringify([{
+          id: 'fomo-pause', type: 'fomo', category: '', progress: 9,
+          target: 10, createdAt: new Date().toISOString(), completedAt: null
+        }]))
+        """
+    )
+    page.reload()
+    page.wait_for_selector("#replay-canvas")
+    canvas = page.locator("#replay-canvas")
+    assert canvas.get_attribute("role") == "img"
+    assert page.locator("#rp-chart-description").inner_text()
+    page.click("#rp-table-toggle")
+    assert page.locator("#rp-candle-table").is_visible()
+    assert page.locator("#rp-candle-table tbody tr").count() == 12
+    canvas.focus()
+    page.keyboard.press("b")
+    page.keyboard.press("ArrowUp")
+    assert page.locator("#rp-value-entry").inner_text() != "--"
+    page.keyboard.press("Space")
+    page.wait_for_selector("#rp-result", state="visible")
+    task = page.evaluate(
+        "JSON.parse(localStorage.getItem('forex_training_queue_v1'))[0]"
+    )
+    assert task["progress"] == 10
+    assert task["completedAt"]

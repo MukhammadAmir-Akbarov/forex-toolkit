@@ -23,6 +23,11 @@
 
 ## Zaxira nusxasi
 
-**JSON eksport** to'liq jurnal, savdo rejalari va qoralamalar, progress, imtihon,
-Replay va asbob sozlamalarini saqlaydi. Import avval backup tarkibi va versiyasini
-ko'rsatadi; tasdiqlamaguningizcha hech narsa almashtirilmaydi.
+**JSON eksport** to'liq jurnal, savdo rejalari va qoralamalar, strategiya
+versiyalari, mashqlar navbati, risk limitlari, progress, imtihon, Replay va asbob
+sozlamalarini saqlaydi. Import avval backup tarkibi va versiyasini ko'rsatadi;
+tasdiqlamaguningizcha hech narsa almashtirilmaydi.
+
+Kabinet oxirgi backup sanasini ko'rsatadi va 30 kundan keyin eslatadi. Shuningdek
+u xotira holatini ko'rsatadi va brauzerdan doimiy saqlashni so'rashi mumkin;
+yakuniy qarorni brauzer qabul qiladi.
