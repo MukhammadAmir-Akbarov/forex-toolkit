@@ -423,10 +423,10 @@
     },
     "tools/exam.md": {
       "locales": {
-        "en": "e03ff409bb3f3c538a13e128b4cca07bc62dbede5a755f8f5ff7599cba725c68",
-        "uz": "e03ff409bb3f3c538a13e128b4cca07bc62dbede5a755f8f5ff7599cba725c68"
+        "en": "74fa77caa18c1eaede5f75b9efd3eb8a882ba5f958f248e0c7c7437c2a2a63d8",
+        "uz": "74fa77caa18c1eaede5f75b9efd3eb8a882ba5f958f248e0c7c7437c2a2a63d8"
       },
-      "ru_sha256": "e03ff409bb3f3c538a13e128b4cca07bc62dbede5a755f8f5ff7599cba725c68"
+      "ru_sha256": "74fa77caa18c1eaede5f75b9efd3eb8a882ba5f958f248e0c7c7437c2a2a63d8"
     },
     "tools/flashcards.md": {
       "locales": {
