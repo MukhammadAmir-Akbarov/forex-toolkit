@@ -75,14 +75,14 @@
     
   
   <!-- PWA manifest -->
-  <link rel="manifest" href="../..manifest.webmanifest">
+  <link rel="manifest" href="../../manifest.webmanifest">
   <meta name="theme-color" content="#07090d" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="FX Toolkit">
-  <link rel="apple-touch-icon" href="../..assets/icons/fx-icon.svg">
+  <link rel="apple-touch-icon" href="../../assets/icons/fx-icon.svg">
   
   <script
     data-goatcounter="https://forex-toolkit.goatcounter.com/count"
@@ -2070,6 +2070,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#лаборатория-стратегии-и-тренировки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Лаборатория стратегии и тренировки
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3423,6 +3434,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#лаборатория-стратегии-и-тренировки" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Лаборатория стратегии и тренировки
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3452,6 +3474,9 @@
 <p>Планы из экрана «Перед сделкой» появляются здесь автоматически. Их можно
 провести по статусам <strong>План → Открыта → Закрыта</strong>, разобрать после закрытия
 и передать статистику в персональный Monte Carlo.</p>
+<p>Перед импортом журнал показывает качество данных: корректные и проблемные
+строки, дубликаты, неизвестные колонки и первые 10 записей. Недельный отчёт
+собирает результат в USD/UZS/R, дисциплину и следующую задачу.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Приватность</p>
@@ -3569,6 +3594,14 @@ id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_
 <li><strong>По правилам</strong> — доля <code>yes</code> среди сделок, где это поле заполнено.</li>
 </ul>
 <p>Для надёжных выводов накопи хотя бы <strong>30 сделок одной стратегии</strong>.</p>
+<h2 id="лаборатория-стратегии-и-тренировки">Лаборатория стратегии и тренировки<a class="headerlink" href="#лаборатория-стратегии-и-тренировки" title="Permanent link">&para;</a></h2>
+<p>Версия стратегии сохраняется вместе с планом сделки. Изменение правил создаёт
+новую версию, поэтому статистика разных экспериментов не смешивается. После
+целевого числа сделок лаборатория показывает expectancy, дисциплину, просадку и
+общий результат в R.</p>
+<p>Ошибки из закрытых сделок автоматически формируют локальную очередь тренировок:
+перенос стопа, <abbr title="Страх упустить движение — толкает входить без сигнала.">FOMO</abbr> и нарушение правил превращаются в задания Replay по 10
+упражнений. Данные очереди не покидают браузер.</p>
 <!-- RU-словарь подсказок терминов. Подставляется хуком hooks/glossary_tooltips.py
      на русские страницы. Ключи должны совпадать с тем, как слово написано в тексте. -->
 
@@ -3591,7 +3624,7 @@ id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_
     <span class="md-icon" title="Последнее обновление">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="5 августа 2026 г. 20:44:36 UTC">5 августа 2026 г.</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="6 августа 2026 г. 08:48:27 UTC">6 августа 2026 г.</span>
   </span>
 
     
@@ -3789,6 +3822,8 @@ id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_
       
         <script src="../../javascripts/widgets/_i18n.js"></script>
       
+        <script src="../../javascripts/widgets/_training-queue.js"></script>
+      
         <script src="../../javascripts/widgets/margin.js"></script>
       
         <script src="../../javascripts/widgets/compound.js"></script>
@@ -3814,6 +3849,8 @@ id,date,time,pair,direction,setup,risk_usd,result_usd,result_r,outcome,followed_
         <script src="../../javascripts/widgets/replay.js"></script>
       
         <script src="../../javascripts/widgets/risk-exposure.js"></script>
+      
+        <script src="../../javascripts/widgets/strategy-lab.js"></script>
       
         <script src="../../javascripts/widgets/trade-desk.js"></script>
       

@@ -44,10 +44,15 @@
       previewPlans: "Планы сделок",
       previewReplay: "Replay-сделки",
       previewSettings: "Настройки инструментов",
+      previewStrategies: "Версии стратегий", previewTraining: "Упражнения Replay",
       present: "есть",
       absent: "нет",
       restore: "Восстановить данные",
       cancel: "Отмена",
+      dataTitle: "Защита локальных данных", lastBackup: "Последний backup", never: "ещё не создавался",
+      backupFresh: "Резервная копия свежая.", backupStale: "Сделай новый backup: прошло 30 дней или данные ещё не сохранялись.",
+      storageStatus: "Хранилище браузера", storagePersistent: "постоянное", storageTemporary: "может быть очищено браузером",
+      requestStorage: "Запросить постоянное хранение",
       reset: "Очистить данные кабинета",
       confirmReset: "Очистить прогресс, экзамен, Replay, полный журнал, планы и настройки в этом браузере?",
       beginner: "Beginner",
@@ -105,10 +110,15 @@
       previewPlans: "Trade plans",
       previewReplay: "Replay trades",
       previewSettings: "Tool settings",
+      previewStrategies: "Strategy versions", previewTraining: "Replay exercises",
       present: "present",
       absent: "absent",
       restore: "Restore data",
       cancel: "Cancel",
+      dataTitle: "Local data protection", lastBackup: "Last backup", never: "not created yet",
+      backupFresh: "The backup is recent.", backupStale: "Create a new backup: 30 days passed or no backup exists.",
+      storageStatus: "Browser storage", storagePersistent: "persistent", storageTemporary: "may be cleared by the browser",
+      requestStorage: "Request persistent storage",
       reset: "Clear dashboard data",
       confirmReset: "Clear progress, exam, Replay, full journal, trade plans and settings in this browser?",
       beginner: "Beginner",
@@ -166,10 +176,15 @@
       previewPlans: "Savdo rejalari",
       previewReplay: "Replay savdolari",
       previewSettings: "Asbob sozlamalari",
+      previewStrategies: "Strategiya versiyalari", previewTraining: "Replay mashqlari",
       present: "bor",
       absent: "yo'q",
       restore: "Ma'lumotlarni tiklash",
       cancel: "Bekor qilish",
+      dataTitle: "Mahalliy ma'lumotlarni himoyalash", lastBackup: "Oxirgi backup", never: "hali yaratilmagan",
+      backupFresh: "Zaxira nusxasi yangi.", backupStale: "Yangi backup yarating: 30 kun o'tdi yoki backup yo'q.",
+      storageStatus: "Brauzer xotirasi", storagePersistent: "doimiy", storageTemporary: "brauzer tomonidan tozalanishi mumkin",
+      requestStorage: "Doimiy saqlashni so'rash",
       reset: "Kabinet ma'lumotlarini tozalash",
       confirmReset: "Bu brauzerdagi progress, imtihon, Replay, to'liq jurnal, rejalar va sozlamalar tozalansinmi?",
       beginner: "Beginner",
@@ -195,7 +210,7 @@
     }
   }[lang];
 
-  var BACKUP_VERSION = 2;
+  var BACKUP_VERSION = 3;
   var KEYS = [
     "fx-progress-v1",
     "forex_exam_passed",
@@ -206,6 +221,10 @@
     "forex_trade_drafts_v1",
     "forex_tool_settings_v1",
     "forex_first15_v1",
+    "forex_journal_risk_history_v1",
+    "forex_strategy_playbooks_v1",
+    "forex_training_queue_v1",
+    "forex_data_meta_v1",
     "fx-uz-script"
   ];
   var JSON_KEYS = {
@@ -215,7 +234,11 @@
     "forex_journal_data_v2": "object",
     "forex_trade_drafts_v1": "array",
     "forex_tool_settings_v1": "object",
-    "forex_first15_v1": "object"
+    "forex_first15_v1": "object",
+    "forex_journal_risk_history_v1": "array",
+    "forex_strategy_playbooks_v1": "array",
+    "forex_training_queue_v1": "array",
+    "forex_data_meta_v1": "object"
   };
   var pendingRestore = null;
 
@@ -323,6 +346,10 @@
 
   function render() {
     var s = collect();
+    var meta = readJSON("forex_data_meta_v1", {});
+    var lastBackup = meta && meta.lastBackupAt ? new Date(meta.lastBackupAt) : null;
+    var backupAge = lastBackup && !isNaN(lastBackup.getTime()) ? Date.now() - lastBackup.getTime() : Infinity;
+    var backupStale = backupAge > 30 * 24 * 60 * 60 * 1000;
     var replayMeta = s.replay && s.replay.trades
       ? s.replay.trades + " " + T.trades + " · " + T.winrate + " " + (s.replay.wr || 0) + "% · " + T.avgR + " " + (s.replay.avgR || "0.00") + "R"
       : T.noData;
@@ -336,7 +363,7 @@
 
     root.innerHTML = [
       '<style>',
-      '.student-dashboard{margin:1.4rem 0}.sd-hero{padding:1.2rem 1.4rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(45,212,191,.08));margin-bottom:1rem}.sd-hero h2{margin:.1rem 0 .3rem}.sd-hero p{margin:.2rem 0;color:var(--md-default-fg-color--light)}.sd-level{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}.sd-pill{background:var(--md-default-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:999px;padding:.45rem .8rem;font-weight:700}.sd-bar{height:12px;background:var(--md-default-fg-color--lightest);border-radius:99px;overflow:hidden;margin-top:.8rem}.sd-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#22c55e);border-radius:99px}.sd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1rem 0}@media(max-width:700px){.sd-grid{grid-template-columns:1fr}}.sd-card{background:var(--md-code-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:12px;padding:1rem}.sd-card--ok{border-left:4px solid #22c55e}.sd-card--warn{border-left:4px solid #f59e0b}.sd-card__title{font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--md-default-fg-color--light);font-weight:700}.sd-card__value{font-size:1.55rem;font-weight:800;margin:.25rem 0;color:var(--md-primary-fg-color)}.sd-card__meta{font-size:.86rem;color:var(--md-default-fg-color--light);min-height:2.1em}.sd-card__link{display:inline-block;margin-top:.65rem;font-weight:700}.sd-next{border:1px solid rgba(45,212,191,.45);background:rgba(45,212,191,.08);border-radius:12px;padding:1rem 1.2rem;margin-top:1rem}.sd-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}.sd-actions button,.sd-actions label{display:inline-flex;align-items:center;gap:.35rem;border:0;border-radius:7px;padding:.58rem .9rem;background:var(--md-primary-fg-color);color:var(--md-primary-bg-color);font-weight:700;cursor:pointer;font:inherit}.sd-actions .sd-secondary{background:var(--md-code-bg-color);color:var(--md-default-fg-color);border:1px solid var(--md-default-fg-color--lightest)}.sd-actions input{display:none}.sd-note{font-size:.82rem;color:var(--md-default-fg-color--light);margin-top:.7rem}.sd-restore{margin-top:1rem;padding:1rem 1.1rem;border:1px solid rgba(59,130,246,.45);border-radius:12px;background:rgba(59,130,246,.07)}.sd-restore h3{margin:0 0 .65rem}.sd-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem 1rem;margin:.6rem 0 1rem;padding:0;list-style:none}.sd-preview li{padding:.35rem 0;border-bottom:1px solid var(--md-default-fg-color--lightest)}@media(max-width:600px){.sd-preview{grid-template-columns:1fr}}',
+      '.student-dashboard{margin:1.4rem 0}.sd-hero{padding:1.2rem 1.4rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(45,212,191,.08));margin-bottom:1rem}.sd-hero h2{margin:.1rem 0 .3rem}.sd-hero p{margin:.2rem 0;color:var(--md-default-fg-color--light)}.sd-level{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}.sd-pill{background:var(--md-default-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:999px;padding:.45rem .8rem;font-weight:700}.sd-bar{height:12px;background:var(--md-default-fg-color--lightest);border-radius:99px;overflow:hidden;margin-top:.8rem}.sd-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#22c55e);border-radius:99px}.sd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1rem 0}@media(max-width:700px){.sd-grid{grid-template-columns:1fr}}.sd-card{background:var(--md-code-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:12px;padding:1rem}.sd-card--ok{border-left:4px solid #22c55e}.sd-card--warn{border-left:4px solid #f59e0b}.sd-card__title{font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--md-default-fg-color--light);font-weight:700}.sd-card__value{font-size:1.55rem;font-weight:800;margin:.25rem 0;color:var(--md-primary-fg-color)}.sd-card__meta{font-size:.86rem;color:var(--md-default-fg-color--light);min-height:2.1em}.sd-card__link{display:inline-block;margin-top:.65rem;font-weight:700}.sd-next{border:1px solid rgba(45,212,191,.45);background:rgba(45,212,191,.08);border-radius:12px;padding:1rem 1.2rem;margin-top:1rem}.sd-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}.sd-actions button,.sd-actions label{display:inline-flex;align-items:center;gap:.35rem;border:0;border-radius:7px;padding:.58rem .9rem;background:var(--md-primary-fg-color);color:var(--md-primary-bg-color);font-weight:700;cursor:pointer;font:inherit}.sd-actions .sd-secondary{background:var(--md-code-bg-color);color:var(--md-default-fg-color);border:1px solid var(--md-default-fg-color--lightest)}.sd-actions input{display:none}.sd-note{font-size:.82rem;color:var(--md-default-fg-color--light);margin-top:.7rem}.sd-restore,.sd-data-health{margin-top:1rem;padding:1rem 1.1rem;border:1px solid rgba(59,130,246,.45);border-radius:12px;background:rgba(59,130,246,.07)}.sd-data-health.is-warning{border-color:#f59e0b;background:rgba(245,158,11,.08)}.sd-data-health h3,.sd-restore h3{margin:0 0 .65rem}.sd-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem 1rem;margin:.6rem 0 1rem;padding:0;list-style:none}.sd-preview li{padding:.35rem 0;border-bottom:1px solid var(--md-default-fg-color--lightest)}@media(max-width:600px){.sd-preview{grid-template-columns:1fr}}',
       '</style>',
       '<div class="sd-hero">',
       '  <h2>' + safeText(T.title) + '</h2>',
@@ -356,6 +383,13 @@
       '  <label class="sd-secondary">' + safeText(T.import) + '<input type="file" id="sd-import" accept="application/json,.json"></label>',
       '  <button type="button" id="sd-reset" class="sd-secondary">' + safeText(T.reset) + '</button>',
       '</div>',
+      '<section class="sd-data-health ' + (backupStale ? 'is-warning' : '') + '">',
+      '<h3>' + safeText(T.dataTitle) + '</h3>',
+      '<p><strong>' + safeText(T.lastBackup) + ':</strong> ' + safeText(lastBackup && !isNaN(lastBackup.getTime()) ? lastBackup.toLocaleDateString() : T.never) + '</p>',
+      '<p>' + safeText(backupStale ? T.backupStale : T.backupFresh) + '</p>',
+      '<p><strong>' + safeText(T.storageStatus) + ':</strong> <span id="sd-storage-status">...</span></p>',
+      '<div class="sd-actions"><button type="button" id="sd-persist" class="sd-secondary">' + safeText(T.requestStorage) + '</button></div>',
+      '</section>',
       '<section class="sd-restore" id="sd-restore" hidden></section>',
       '<div class="sd-note" id="sd-note"></div>'
     ].join("");
@@ -363,14 +397,39 @@
     document.getElementById("sd-export").addEventListener("click", exportData);
     document.getElementById("sd-import").addEventListener("change", importData);
     document.getElementById("sd-reset").addEventListener("click", resetData);
+    document.getElementById("sd-persist").addEventListener("click", requestPersistentStorage);
+    updateStorageStatus();
+  }
+
+  function updateStorageStatus() {
+    var target = document.getElementById("sd-storage-status");
+    if (!target || !navigator.storage || !navigator.storage.persisted) {
+      if (target) target.textContent = T.storageTemporary;
+      return;
+    }
+    navigator.storage.persisted().then(function (persistent) {
+      target.textContent = persistent ? T.storagePersistent : T.storageTemporary;
+    });
+  }
+
+  function requestPersistentStorage() {
+    if (!navigator.storage || !navigator.storage.persist) return updateStorageStatus();
+    navigator.storage.persist().then(updateStorageStatus);
+    if (window.fxTrack) window.fxTrack("storage_persistence_requested");
   }
 
   function exportData() {
+    var exportedAt = new Date().toISOString();
+    try {
+      var meta = readJSON("forex_data_meta_v1", {});
+      meta.lastBackupAt = exportedAt;
+      localStorage.setItem("forex_data_meta_v1", JSON.stringify(meta));
+    } catch (e) {}
     var data = {};
     KEYS.forEach(function (key) {
       try { data[key] = localStorage.getItem(key); } catch (e) { data[key] = null; }
     });
-    var blob = new Blob([JSON.stringify({ schema: "forex-toolkit-backup", version: BACKUP_VERSION, exported_at: new Date().toISOString(), localStorage: data }, null, 2)], { type: "application/json" });
+    var blob = new Blob([JSON.stringify({ schema: "forex-toolkit-backup", version: BACKUP_VERSION, exported_at: exportedAt, localStorage: data }, null, 2)], { type: "application/json" });
     var url = URL.createObjectURL(blob);
     var a = document.createElement("a");
     a.href = url;
@@ -378,6 +437,7 @@
     a.click();
     URL.revokeObjectURL(url);
     if (window.fxTrack) window.fxTrack("backup_exported", { once: false });
+    render();
   }
 
   function parsedValue(data, key, fallback) {
@@ -411,6 +471,8 @@
     var journalData = parsedValue(data, "forex_journal_data_v2", {});
     var plans = parsedValue(data, "forex_trade_drafts_v1", []);
     var settings = parsedValue(data, "forex_tool_settings_v1", null);
+    var strategies = parsedValue(data, "forex_strategy_playbooks_v1", []);
+    var training = parsedValue(data, "forex_training_queue_v1", []);
     var journalCount = Number(journalSummary.trades || 0);
     if (!journalCount && journalData && Array.isArray(journalData.rows)) journalCount = journalData.rows.length;
     var panel = document.getElementById("sd-restore");
@@ -424,6 +486,8 @@
       '<li><strong>' + safeText(T.previewPlans) + ':</strong> ' + (Array.isArray(plans) ? plans.length : 0) + '</li>',
       '<li><strong>' + safeText(T.previewReplay) + ':</strong> ' + Number(replay.trades || 0) + '</li>',
       '<li><strong>' + safeText(T.previewSettings) + ':</strong> ' + safeText(settings ? T.present : T.absent) + '</li>',
+      '<li><strong>' + safeText(T.previewStrategies) + ':</strong> ' + (Array.isArray(strategies) ? strategies.length : 0) + '</li>',
+      '<li><strong>' + safeText(T.previewTraining) + ':</strong> ' + (Array.isArray(training) ? training.length : 0) + '</li>',
       '</ul>',
       '<div class="sd-actions">',
       '<button type="button" id="sd-confirm-restore">' + safeText(T.restore) + '</button>',

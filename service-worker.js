@@ -1,4 +1,4 @@
-const CACHE = "fx-toolkit-v1";
+const CACHE = "fx-toolkit-v3";
 const CORE = [
   "./",
   "./en/",
@@ -27,15 +27,23 @@ const CORE = [
   "./stylesheets/extra.css",
   "./stylesheets/calculators.css",
   "./javascripts/widgets/_i18n.js",
+  "./javascripts/widgets/_training-queue.js",
   "./javascripts/widgets/position.js",
   "./javascripts/widgets/risk-exposure.js",
   "./javascripts/widgets/trade-desk.js",
-  "./javascripts/widgets/monte-carlo.js"
+  "./javascripts/widgets/strategy-lab.js",
+  "./javascripts/widgets/monte-carlo.js",
+  "./javascripts/widgets/journal.js",
+  "./javascripts/widgets/replay.js",
+  "./javascripts/widgets/dashboard.js"
 ];
 
 self.addEventListener("install", function (event) {
   event.waitUntil(caches.open(CACHE).then(function (cache) { return cache.addAll(CORE); }));
-  self.skipWaiting();
+});
+
+self.addEventListener("message", function (event) {
+  if (event.data && event.data.type === "SKIP_WAITING") self.skipWaiting();
 });
 
 self.addEventListener("activate", function (event) {

@@ -75,14 +75,14 @@
     
   
   <!-- PWA manifest -->
-  <link rel="manifest" href="../..manifest.webmanifest">
+  <link rel="manifest" href="../../manifest.webmanifest">
   <meta name="theme-color" content="#07090d" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="FX Toolkit">
-  <link rel="apple-touch-icon" href="../..assets/icons/fx-icon.svg">
+  <link rel="apple-touch-icon" href="../../assets/icons/fx-icon.svg">
   
   <script
     data-goatcounter="https://forex-toolkit.goatcounter.com/count"
@@ -3379,6 +3379,8 @@
 <h1 id="offline-mode">Offline mode<a class="headerlink" href="#offline-mode" title="Permanent link">&para;</a></h1>
 <p>There is no network connection. Previously visited pages and core calculators are
 available from the local cache. Entered data and journal records stay in the browser.</p>
+<p>When a new offline version is ready, the site shows a notice. It is applied only
+after you press the update button, so unfinished input is not interrupted.</p>
 <p><a href="../">Home</a> · <a href="../tools/trade-desk/">Pre-trade desk</a></p>
 <!-- EN tooltip dictionary. Injected by hooks/glossary_tooltips.py on English pages.
      Only unambiguous trading terms are used as keys — common English words
@@ -3404,7 +3406,7 @@ available from the local cache. Entered data and journal records stay in the bro
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 5, 2026 17:16:15 UTC">August 5, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 6, 2026 08:48:27 UTC">August 6, 2026</span>
   </span>
 
     
@@ -3602,6 +3604,8 @@ available from the local cache. Entered data and journal records stay in the bro
       
         <script src="../../javascripts/widgets/_i18n.js"></script>
       
+        <script src="../../javascripts/widgets/_training-queue.js"></script>
+      
         <script src="../../javascripts/widgets/margin.js"></script>
       
         <script src="../../javascripts/widgets/compound.js"></script>
@@ -3627,6 +3631,8 @@ available from the local cache. Entered data and journal records stay in the bro
         <script src="../../javascripts/widgets/replay.js"></script>
       
         <script src="../../javascripts/widgets/risk-exposure.js"></script>
+      
+        <script src="../../javascripts/widgets/strategy-lab.js"></script>
       
         <script src="../../javascripts/widgets/trade-desk.js"></script>
       
