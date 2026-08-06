@@ -48,5 +48,15 @@ window.FXW = (function () {
     pct: function (v, digits) {
       return Number(v).toFixed(digits == null ? 2 : digits) + "%";
     },
+
+    // Экранирует пользовательский текст перед вставкой в innerHTML.
+    // Обязательно для всего, что пришло из формы, CSV брокера или backup-файла:
+    // имена стратегий и заметки попадают в разметку, а backup можно получить
+    // от другого человека — без экранирования это исполняемый код.
+    escape: function (value) {
+      return String(value == null ? "" : value).replace(/[&<>"']/g, function (ch) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+      });
+    },
   };
 })();
