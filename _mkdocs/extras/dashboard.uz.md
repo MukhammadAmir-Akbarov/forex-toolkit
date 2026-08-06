@@ -1,3 +1,7 @@
+---
+widgets: [dashboard]
+---
+
 # 🧭 O'quvchi kabineti
 
 !!! abstract "Bu sahifa nima uchun kerak"

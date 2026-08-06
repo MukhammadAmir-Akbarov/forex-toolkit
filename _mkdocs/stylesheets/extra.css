@@ -1921,6 +1921,14 @@ label[for="__drawer"].fx-menu-hint::after {
   display: grid;
   gap: 0.3rem;
 }
+/* Пояснение к «пауза после убытков»: занимает обе колонки сетки настроек. */
+.risk-budget__note {
+  grid-column: 1 / -1;
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
+}
 .risk-budget__settings input,
 .strategy-lab input,
 .strategy-lab select,

@@ -1,3 +1,7 @@
+---
+widgets: [journal]
+---
+
 # 📊 Veb savdo jurnali
 
 !!! abstract "Bu vosita nima qiladi"

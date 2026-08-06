@@ -115,10 +115,10 @@
     },
     "extras/dashboard.md": {
       "locales": {
-        "en": "26e9a135db7ebddbb27a1a576a9a03b977446551a691d645030ba453e138f7f3",
-        "uz": "26e9a135db7ebddbb27a1a576a9a03b977446551a691d645030ba453e138f7f3"
+        "en": "df44dd00eb6baf6a9139e62d89c4f92735b00cfea84d91ca2691fbe4136712f1",
+        "uz": "df44dd00eb6baf6a9139e62d89c4f92735b00cfea84d91ca2691fbe4136712f1"
       },
-      "ru_sha256": "26e9a135db7ebddbb27a1a576a9a03b977446551a691d645030ba453e138f7f3"
+      "ru_sha256": "df44dd00eb6baf6a9139e62d89c4f92735b00cfea84d91ca2691fbe4136712f1"
     },
     "extras/emergency-card.md": {
       "locales": {
@@ -297,10 +297,10 @@
     },
     "journal/web-journal.md": {
       "locales": {
-        "en": "6b8bd3bbb298c2b43e1d1fa42c4e868a2763836f18a5eb5d855ce9622857726c",
-        "uz": "6b8bd3bbb298c2b43e1d1fa42c4e868a2763836f18a5eb5d855ce9622857726c"
+        "en": "4eb563110eb88d90d354627958bc440012c89c8f1b100d42f16497ecff336e88",
+        "uz": "4eb563110eb88d90d354627958bc440012c89c8f1b100d42f16497ecff336e88"
       },
-      "ru_sha256": "6b8bd3bbb298c2b43e1d1fa42c4e868a2763836f18a5eb5d855ce9622857726c"
+      "ru_sha256": "4eb563110eb88d90d354627958bc440012c89c8f1b100d42f16497ecff336e88"
     },
     "journal/weekly-report-template.md": {
       "locales": {
@@ -465,10 +465,10 @@
     },
     "tools/replay-trainer.md": {
       "locales": {
-        "en": "bd6f1ef04910ebdcfe591d3d4cee83dee13de411da8d9d951dabda414a549649",
-        "uz": "bd6f1ef04910ebdcfe591d3d4cee83dee13de411da8d9d951dabda414a549649"
+        "en": "08d29382554ab9014ad9da2b62b7032e3a9b39989eef021d07cecaa55e425ab5",
+        "uz": "08d29382554ab9014ad9da2b62b7032e3a9b39989eef021d07cecaa55e425ab5"
       },
-      "ru_sha256": "bd6f1ef04910ebdcfe591d3d4cee83dee13de411da8d9d951dabda414a549649"
+      "ru_sha256": "08d29382554ab9014ad9da2b62b7032e3a9b39989eef021d07cecaa55e425ab5"
     },
     "tools/risk-exposure-calculator.md": {
       "locales": {
@@ -486,10 +486,10 @@
     },
     "tools/trade-desk.md": {
       "locales": {
-        "en": "c9d9e1319c072a6f5bc1d30cc0e471d26cf31b72dfcd94d79a7f1e0e1111d9bf",
-        "uz": "c9d9e1319c072a6f5bc1d30cc0e471d26cf31b72dfcd94d79a7f1e0e1111d9bf"
+        "en": "0c9ed2bb3bf0dcc75159c0f8a7467c029dfd1dfea9abf73b547e7ab8b3adbbf7",
+        "uz": "0c9ed2bb3bf0dcc75159c0f8a7467c029dfd1dfea9abf73b547e7ab8b3adbbf7"
       },
-      "ru_sha256": "c9d9e1319c072a6f5bc1d30cc0e471d26cf31b72dfcd94d79a7f1e0e1111d9bf"
+      "ru_sha256": "0c9ed2bb3bf0dcc75159c0f8a7467c029dfd1dfea9abf73b547e7ab8b3adbbf7"
     },
     "tools/winrate-rr-calculator.md": {
       "locales": {

@@ -1,3 +1,7 @@
+---
+widgets: [dashboard]
+---
+
 # 🧭 Student Dashboard
 
 !!! abstract "Why this page exists"

@@ -1,3 +1,7 @@
+---
+widgets: [strategy-lab, trade-desk]
+---
+
 # Pre-trade Desk
 
 One sequential screen to size a position, complete the pre-trade checklist and

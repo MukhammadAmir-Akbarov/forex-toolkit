@@ -41,9 +41,7 @@ def test_web_journal_demo_and_filter(pw_page, site_url, prefix):
     assert number(page.text_content("#journal-m-pnl")) == pytest.approx(23.0)
     assert number(page.text_content("#journal-m-r")) == pytest.approx(2.3)
     assert number(page.text_content("#journal-m-dd")) == pytest.approx(20.0)
-    assert number(page.text_content("#journal-m-discipline")) == pytest.approx(
-        66.7
-    )
+    assert number(page.text_content("#journal-m-discipline")) == pytest.approx(66.7)
     assert page.locator("#journal-heatmap .journal-heatmap-cell").count() == 168
     assert page.locator("#journal-by-pair tr").count() == 3
     assert page.locator("#journal-by-setup tr").count() == 5
@@ -55,6 +53,27 @@ def test_web_journal_demo_and_filter(pw_page, site_url, prefix):
     assert page.text_content("#journal-m-trades").strip() == "2"
     assert number(page.text_content("#journal-m-pnl")) == pytest.approx(-22.0)
     assert page.locator("#journal-table-body tr").count() == 2
+
+
+@pytest.mark.parametrize(
+    "name,body,expected",
+    [
+        ("mt4-report.html", "<html><body><h1>MT4 Statement</h1></body></html>", "MT5"),
+        ("cabinet.csv", "account;balance\n123;500\n", "date, pair"),
+    ],
+)
+def test_unreadable_file_says_what_to_do(
+    pw_page, site_url, tmp_path, name, body, expected
+):
+    """A dead-end "check the format" leaves an MT4 user with nowhere to go."""
+    page = pw_page
+    page.goto(f"{site_url}/journal/web-journal/")
+    bad = tmp_path / name
+    bad.write_text(body, encoding="utf-8")
+    page.set_input_files("#journal-file", bad)
+    message = page.locator("#journal-error")
+    message.wait_for(state="visible")
+    assert expected in message.inner_text()
 
 
 def test_web_journal_extended_csv_upload(pw_page, site_url):
@@ -71,9 +90,7 @@ def test_web_journal_extended_csv_upload(pw_page, site_url):
     assert number(page.text_content("#journal-m-pf")) == pytest.approx(2.0)
     assert number(page.text_content("#journal-m-pnl")) == pytest.approx(5.0)
     assert number(page.text_content("#journal-m-r")) == pytest.approx(1.0)
-    assert number(page.text_content("#journal-m-discipline")) == pytest.approx(
-        100.0
-    )
+    assert number(page.text_content("#journal-m-discipline")) == pytest.approx(100.0)
     assert page.locator("#journal-table-body tr").count() == 2
     assert "trust the plan" not in page.text_content("#journal-table-body")
     assert page.locator("#journal-by-emotion tr").count() == 2
@@ -118,9 +135,7 @@ def test_web_journal_restores_and_clears_local_data(pw_page, site_url):
 
     page.click("#journal-clear")
     assert not page.is_visible("#journal-dashboard")
-    assert page.evaluate(
-        "() => localStorage.getItem('forex_journal_data_v2')"
-    ) is None
+    assert page.evaluate("() => localStorage.getItem('forex_journal_data_v2')") is None
 
 
 def test_web_journal_exports_summary(pw_page, site_url):
@@ -198,9 +213,12 @@ def test_trade_plan_lifecycle_and_review_preserve_original_reason(pw_page, site_
 
     assert "EMA50 held before entry" in page.locator("#journal-plans").inner_text()
     page.click('button[data-action="open"]')
-    assert page.evaluate(
-        "JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0].status"
-    ) == "open"
+    assert (
+        page.evaluate(
+            "JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0].status"
+        )
+        == "open"
+    )
     page.click('button[data-action="show-review"]')
     form = page.locator("form.journal-review")
     form.locator('[name="result"]').fill("15")
@@ -219,9 +237,7 @@ def test_trade_plan_lifecycle_and_review_preserve_original_reason(pw_page, site_
     assert trade["review_lesson"] == "Wait for confirmation"
     assert trade["review_focus"]
     assert number(page.text_content("#journal-m-pnl")) == pytest.approx(13.0)
-    tasks = page.evaluate(
-        "JSON.parse(localStorage.getItem('forex_training_queue_v1'))"
-    )
+    tasks = page.evaluate("JSON.parse(localStorage.getItem('forex_training_queue_v1'))")
     assert {task["type"] for task in tasks} >= {"stop", "rules"}
 
 

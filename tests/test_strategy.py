@@ -1,4 +1,5 @@
 """Тесты для bot/strategy.py — детектор сигналов EMA50 pullback."""
+
 from __future__ import annotations
 
 import numpy as np
@@ -6,9 +7,14 @@ import pandas as pd
 import pytest
 
 from strategy import (
-    Direction, detect_signals, ema, rsi,
-    is_bullish_engulfing, is_bearish_engulfing,
-    is_hammer, is_shooting_star,
+    Direction,
+    detect_signals,
+    ema,
+    rsi,
+    is_bullish_engulfing,
+    is_bearish_engulfing,
+    is_hammer,
+    is_shooting_star,
     prepare_dataframe,
 )
 
@@ -57,32 +63,52 @@ class TestIndicators:
 class TestCandlePatterns:
     def test_hammer(self):
         """Молот: длинная нижняя тень, маленькое тело сверху."""
-        candle = pd.Series({
-            "open": 100.0, "high": 100.3, "low": 95.0, "close": 100.5,
-        })
+        candle = pd.Series(
+            {
+                "open": 100.0,
+                "high": 100.3,
+                "low": 95.0,
+                "close": 100.5,
+            }
+        )
         # Тело = 0.5, нижняя тень = 5 (от open=100 до low=95),
         # верхняя тень = 100.3 - 100.5 = ... wait close > high impossible
         # fix: open=100, close=100.5, high=100.5 (no upper), low=95
-        candle = pd.Series({
-            "open": 100.0, "high": 100.5, "low": 95.0, "close": 100.5,
-        })
+        candle = pd.Series(
+            {
+                "open": 100.0,
+                "high": 100.5,
+                "low": 95.0,
+                "close": 100.5,
+            }
+        )
         # Body = 0.5, lower shadow = 5, upper shadow = 0
         # 5 >= 2*0.5 AND 0 < 0.5 → молот
         assert is_hammer(candle)
 
     def test_not_hammer_when_long_upper_shadow(self):
-        candle = pd.Series({
-            "open": 100, "high": 105, "low": 99.5, "close": 100.5,
-        })
+        candle = pd.Series(
+            {
+                "open": 100,
+                "high": 105,
+                "low": 99.5,
+                "close": 100.5,
+            }
+        )
         # Верхняя тень 4.5, тело 0.5 → не молот (есть длинная верхняя)
         assert not is_hammer(candle)
 
     def test_shooting_star(self):
         """Падающая звезда: длинная верхняя тень."""
         # Body = 0.5, upper shadow = 5, lower shadow = 0
-        candle = pd.Series({
-            "open": 100.5, "high": 105.0, "low": 100.0, "close": 100.0,
-        })
+        candle = pd.Series(
+            {
+                "open": 100.5,
+                "high": 105.0,
+                "low": 100.0,
+                "close": 100.0,
+            }
+        )
         # close=100, open=100.5, body=0.5, upper=105-100.5=4.5, lower=100-100=0
         # 4.5 >= 2*0.5 AND 0 < 0.5 → звезда
         assert is_shooting_star(candle)

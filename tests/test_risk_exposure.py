@@ -21,10 +21,12 @@ def test_opposite_direction_reduces_correlated_risk() -> None:
 
 
 def test_currency_exposure_respects_base_quote_and_direction() -> None:
-    result = currency_exposure([
-        Position("EURUSD", "long", 10),
-        Position("USDJPY", "short", 5),
-    ])
+    result = currency_exposure(
+        [
+            Position("EURUSD", "long", 10),
+            Position("USDJPY", "short", 5),
+        ]
+    )
     assert result == {"EUR": 10, "USD": -15, "JPY": 5}
 
 

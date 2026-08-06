@@ -1,3 +1,7 @@
+---
+widgets: [replay]
+---
+
 # 🎮 Replay Trainer — trade the historical market
 
 !!! abstract "What is this"

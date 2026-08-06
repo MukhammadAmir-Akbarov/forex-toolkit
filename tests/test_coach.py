@@ -67,13 +67,9 @@ def test_analyze_prioritizes_three_personal_rules():
 
 
 def test_analyze_detects_consistently_weak_pair_without_inventing_alerts():
-    rows = [
-        trade(i, hour=10, pair="GBPUSD", pnl=-5, rules="yes")
-        for i in range(1, 6)
-    ]
+    rows = [trade(i, hour=10, pair="GBPUSD", pnl=-5, rules="yes") for i in range(1, 6)]
     rows.extend(
-        trade(i, hour=11, pair="EURUSD", pnl=10, rules="yes")
-        for i in range(6, 11)
+        trade(i, hour=11, pair="EURUSD", pnl=10, rules="yes") for i in range(6, 11)
     )
 
     report = analyze_trades(rows)

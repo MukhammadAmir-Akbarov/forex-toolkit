@@ -1,4 +1,5 @@
 """Pytest fixtures и общая настройка для всех тестов."""
+
 from __future__ import annotations
 
 import sys
@@ -30,9 +31,15 @@ def synthetic_ohlc():
     opens = np.concatenate([[closes[0]], closes[:-1]])
     highs = np.maximum(opens, closes) + rng.uniform(0.0001, 0.001, n)
     lows = np.minimum(opens, closes) - rng.uniform(0.0001, 0.001, n)
-    return pd.DataFrame({
-        "open": opens, "high": highs, "low": lows, "close": closes,
-    }, index=times)
+    return pd.DataFrame(
+        {
+            "open": opens,
+            "high": highs,
+            "low": lows,
+            "close": closes,
+        },
+        index=times,
+    )
 
 
 @pytest.fixture
@@ -47,9 +54,15 @@ def trending_up_ohlc():
     opens = np.concatenate([[closes[0]], closes[:-1]])
     highs = np.maximum(opens, closes) + 0.0005
     lows = np.minimum(opens, closes) - 0.0005
-    return pd.DataFrame({
-        "open": opens, "high": highs, "low": lows, "close": closes,
-    }, index=times)
+    return pd.DataFrame(
+        {
+            "open": opens,
+            "high": highs,
+            "low": lows,
+            "close": closes,
+        },
+        index=times,
+    )
 
 
 @pytest.fixture
@@ -63,6 +76,12 @@ def flat_ohlc():
     opens = np.concatenate([[closes[0]], closes[:-1]])
     highs = np.maximum(opens, closes) + 0.0005
     lows = np.minimum(opens, closes) - 0.0005
-    return pd.DataFrame({
-        "open": opens, "high": highs, "low": lows, "close": closes,
-    }, index=times)
+    return pd.DataFrame(
+        {
+            "open": opens,
+            "high": highs,
+            "low": lows,
+            "close": closes,
+        },
+        index=times,
+    )

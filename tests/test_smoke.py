@@ -4,6 +4,7 @@
 Дёшевы, но ловят целый класс багов — например поломку импорта, из-за которой
 раньше не работал установленный wheel CLI.
 """
+
 from __future__ import annotations
 
 import importlib
@@ -53,8 +54,14 @@ def test_cli_commands_callable():
     from forex_toolkit import cli
 
     for name in (
-        "position_calculator", "backtest", "journal", "risk_profile",
-        "broker_check", "news", "correlations", "monte_carlo",
+        "position_calculator",
+        "backtest",
+        "journal",
+        "risk_profile",
+        "broker_check",
+        "news",
+        "correlations",
+        "monte_carlo",
     ):
         assert callable(getattr(cli, name))
 

@@ -1,10 +1,10 @@
 """Тесты для всех стратегий в strategies/."""
+
 from __future__ import annotations
 
-import pytest
 
 from strategies import breakout, mean_reversion, three_soldiers, london_open
-from strategies.common import Direction, ema, sma, rsi, atr, bollinger
+from strategies.common import Direction, ema, sma, atr, bollinger
 
 
 class TestCommonIndicators:
@@ -54,6 +54,7 @@ class TestMeanReversion:
 
     def test_empty_short_df(self):
         import pandas as pd
+
         empty = pd.DataFrame(columns=["open", "high", "low", "close"])
         assert mean_reversion.detect(empty) == []
 
@@ -88,9 +89,14 @@ class TestLondonOpen:
     def test_without_datetime_index(self):
         """Без DatetimeIndex — возвращает пустой список."""
         import pandas as pd
-        df = pd.DataFrame({
-            "open": [1.0] * 100, "high": [1.001] * 100,
-            "low": [0.999] * 100, "close": [1.0] * 100,
-        })
+
+        df = pd.DataFrame(
+            {
+                "open": [1.0] * 100,
+                "high": [1.001] * 100,
+                "low": [0.999] * 100,
+                "close": [1.0] * 100,
+            }
+        )
         # default RangeIndex
         assert london_open.detect(df) == []

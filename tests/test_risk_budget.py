@@ -17,7 +17,7 @@ def test_risk_budget_combines_open_and_new_risk() -> None:
 
     assert summary["after_percent"] == pytest.approx(2.25)
     assert summary["remaining_open_percent"] == 0
-    assert summary["reasons"] == ["open_risk"]
+    assert summary["reasons"] == ["open"]
     assert summary["requires_confirmation"] is True
 
 
@@ -39,7 +39,7 @@ def test_risk_budget_tracks_day_week_and_latest_loss_streak() -> None:
     assert summary["daily_r"] == pytest.approx(-1)
     assert summary["weekly_r"] == pytest.approx(-3.25)
     assert summary["loss_streak"] == 3
-    assert summary["reasons"] == ["daily_loss", "weekly_loss", "loss_streak"]
+    assert summary["reasons"] == ["daily", "weekly", "streak"]
 
 
 def test_risk_limits_reject_invalid_values() -> None:

@@ -67,15 +67,18 @@ def risk_budget_summary(
     weekly_r = sum(t.result_r for t in history if week_start <= t.closed_on <= current)
     streak = consecutive_losses(history)
     after_percent = open_percent + new_percent
+    # Метки совпадают с trade-desk.js намеренно: браузер уже записал их в
+    # risk_guard.reasons внутри сохранённых планов, поэтому переименовать можно
+    # только здесь. Расхождение проверяет tests_e2e (сверка JS == Python).
     reasons: list[str] = []
     if after_percent > limits.max_open_percent:
-        reasons.append("open_risk")
+        reasons.append("open")
     if daily_r <= -limits.daily_loss_r:
-        reasons.append("daily_loss")
+        reasons.append("daily")
     if weekly_r <= -limits.weekly_loss_r:
-        reasons.append("weekly_loss")
+        reasons.append("weekly")
     if streak >= limits.pause_after_losses:
-        reasons.append("loss_streak")
+        reasons.append("streak")
 
     return {
         "planned_percent": planned_percent,

@@ -31,6 +31,29 @@
 {% endblock %}
 
 {#-
+  Постраничные виджеты.
+
+  Тяжёлые виджеты (журнал, Replay, кабинет, «Перед сделкой») нужны каждый
+  ровно на одной странице, а в extra_javascript они грузились на всех 81 —
+  около 45 KB gzip впустую на каждой текстовой странице учебника. Аудитория
+  часто сидит на мобильном интернете, поэтому страница объявляет их сама:
+
+      ---
+      widgets: [strategy-lab, trade-desk]
+      ---
+
+  Скрипты добавляются ПОСЛЕ config.extra_javascript ({{ super() }}), так что
+  window.FXW из _i18n.js уже готов, а порядок внутри списка сохраняется —
+  strategy-lab обязан идти перед trade-desk, он определяет window.FXStrategies.
+-#}
+{% block scripts %}
+  {{ super() }}
+  {% for widget in (page.meta.widgets if page and page.meta else []) or [] %}
+  <script src="{{ base_url }}/javascripts/widgets/{{ widget }}.js"></script>
+  {% endfor %}
+{% endblock %}
+
+{#-
   Комментарии giscus подключаются через overrides/partials/comments.html —
   Material включает этот партиал в конце страницы автоматически. Здесь ничего
   делать не нужно; партиал сам проверяет наличие config.extra.giscus.
