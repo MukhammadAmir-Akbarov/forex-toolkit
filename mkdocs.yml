@@ -156,6 +156,8 @@ plugins:
             "📊 WinRate × RR": "📊 WinRate × RR"
             "💸 Стоимость торговли": "💸 Trading cost"
             "🧮 Совокупный риск": "🧮 Aggregate risk"
+            "🧭 Тест готовности": "🧭 Readiness test"
+            "🛡️ Проверка брокера": "🛡️ Broker check"
             "✅ Перед сделкой": "✅ Pre-trade desk"
             "🎲 Monte Carlo": "🎲 Monte Carlo"
             "🎴 Тренажёр карточек": "🎴 Flashcards"
@@ -255,6 +257,8 @@ plugins:
             "📊 WinRate × RR": "📊 WinRate × RR"
             "💸 Стоимость торговли": "💸 Savdo xarajati"
             "🧮 Совокупный риск": "🧮 Umumiy risk"
+            "🧭 Тест готовности": "🧭 Tayyorlik testi"
+            "🛡️ Проверка брокера": "🛡️ Brokerni tekshirish"
             "✅ Перед сделкой": "✅ Savdodan oldin"
             "🎲 Monte Carlo": "🎲 Monte Carlo"
             "🎴 Тренажёр карточек": "🎴 Kartochka mashqi"
@@ -408,6 +412,8 @@ nav:
       - Mistakes log: journal/mistakes-log.md
       - README: journal/README.md
   - Инструменты:
+      - 🧭 Тест готовности: tools/risk-profile.md
+      - 🛡️ Проверка брокера: tools/broker-check.md
       - 📐 Калькулятор позиции: tools/position-calculator.md
       - 💰 Калькулятор маржи: tools/margin-calculator.md
       - 💲 Калькулятор пипса: tools/pip-calculator.md

@@ -10,6 +10,7 @@
     python tools/replay_cutter.py --pairs EURUSD,GBPUSD --timeframes 1h,1d
     python tools/replay_cutter.py --output custom.json
 """
+
 from __future__ import annotations
 
 import argparse
@@ -21,9 +22,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO / "data"
 
-CONTEXT = 40   # сколько свечей показывает виджет (история)
-OUTCOME = 20   # сколько свечей проигрывается (будущее)
-STEP = 30      # шаг выборки (избегаем перекрытия)
+CONTEXT = 40  # сколько свечей показывает виджет (история)
+OUTCOME = 20  # сколько свечей проигрывается (будущее)
+STEP = 30  # шаг выборки (избегаем перекрытия)
 
 
 def pip_size(pair: str) -> float:
@@ -173,8 +174,7 @@ def encode_episode(ep: dict, pair: str, tf: str) -> dict:
         "base": base,
         "pip": pip,
         "ctx": len(ep["context"]),
-        "k": [enc(c) for c in ep["context"]]
-        + [enc(c) for c in ep["future"]],
+        "k": [enc(c) for c in ep["context"]] + [enc(c) for c in ep["future"]],
         "t": [candle["t"] for candle in ep["context"]]
         + [candle["t"] for candle in ep["future"]],
     }
@@ -200,16 +200,12 @@ def build_catalog(
                 outcome=outcome,
                 pip=pip_size(pair),
             )
-            encoded.extend(
-                encode_episode(ep, pair, tf) for ep in market_episodes
-            )
+            encoded.extend(encode_episode(ep, pair, tf) for ep in market_episodes)
 
     return {
         "version": 2,
         "pairs": pairs,
-        "timeframes": [
-            {"1h": "H1", "1d": "D1"}[tf.lower()] for tf in timeframes
-        ],
+        "timeframes": [{"1h": "H1", "1d": "D1"}[tf.lower()] for tf in timeframes],
         "context": context,
         "outcome": outcome,
         "episodes": encoded,
@@ -223,9 +219,7 @@ def _csv_values(value: str) -> list[str]:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Генератор эпизодов Replay Trainer")
     ap.add_argument("--pair", default="EURUSD", help="Валютная пара (EURUSD, GBPUSD…)")
-    ap.add_argument(
-        "--tf", default="1h", choices=["1h", "1d"], help="Таймфрейм"
-    )
+    ap.add_argument("--tf", default="1h", choices=["1h", "1d"], help="Таймфрейм")
     ap.add_argument(
         "--pairs",
         help="Несколько пар через запятую; переопределяет --pair",
@@ -237,12 +231,8 @@ def main() -> None:
     ap.add_argument(
         "--episodes", type=int, default=30, help="Количество эпизодов (по умолчанию 30)"
     )
-    ap.add_argument(
-        "--context", type=int, default=CONTEXT, help="Свечей истории"
-    )
-    ap.add_argument(
-        "--outcome", type=int, default=OUTCOME, help="Свечей будущего"
-    )
+    ap.add_argument("--context", type=int, default=CONTEXT, help="Свечей истории")
+    ap.add_argument("--outcome", type=int, default=OUTCOME, help="Свечей будущего")
     ap.add_argument(
         "--output",
         type=Path,
@@ -252,14 +242,11 @@ def main() -> None:
     args = ap.parse_args()
 
     pairs = [pair.upper() for pair in _csv_values(args.pairs or args.pair)]
-    timeframes = [
-        tf.lower() for tf in _csv_values(args.timeframes or args.tf)
-    ]
+    timeframes = [tf.lower() for tf in _csv_values(args.timeframes or args.tf)]
     invalid_timeframes = set(timeframes) - {"1h", "1d"}
     if invalid_timeframes:
         ap.error(
-            "неподдерживаемые таймфреймы: "
-            + ", ".join(sorted(invalid_timeframes))
+            "неподдерживаемые таймфреймы: " + ", ".join(sorted(invalid_timeframes))
         )
 
     result = build_catalog(

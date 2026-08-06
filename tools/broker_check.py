@@ -11,6 +11,7 @@
 Скрипт строит URL для поиска и опционально парсит HTML.
 Для уверенности всегда проверяй вручную на официальном сайте регулятора.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -163,10 +164,12 @@ def main() -> int:
         description="Проверка статуса брокера у регуляторов",
     )
     parser.add_argument("broker", help="Название брокера (например 'IC Markets')")
-    parser.add_argument("--open", action="store_true",
-                        help="Открыть ссылки в браузере")
-    parser.add_argument("--check-fca", action="store_true",
-                        help="Попытаться найти на FCA через HTTP (экспериментально)")
+    parser.add_argument("--open", action="store_true", help="Открыть ссылки в браузере")
+    parser.add_argument(
+        "--check-fca",
+        action="store_true",
+        help="Попытаться найти на FCA через HTTP (экспериментально)",
+    )
     args = parser.parse_args()
 
     results = {}

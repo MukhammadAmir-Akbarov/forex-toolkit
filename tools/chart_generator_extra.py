@@ -6,6 +6,7 @@
   - Корреляция валютных пар
   - Anatomy of a loss
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -17,16 +18,18 @@ from matplotlib.patches import Rectangle
 OUT = Path(__file__).resolve().parent.parent / "docs" / "images"
 OUT.mkdir(parents=True, exist_ok=True)
 
-plt.rcParams.update({
-    "figure.facecolor": "white",
-    "axes.facecolor": "#fafafa",
-    "axes.grid": True,
-    "grid.color": "#e5e5e5",
-    "grid.linewidth": 0.7,
-    "axes.spines.top": False,
-    "axes.spines.right": False,
-    "font.size": 11,
-})
+plt.rcParams.update(
+    {
+        "figure.facecolor": "white",
+        "axes.facecolor": "#fafafa",
+        "axes.grid": True,
+        "grid.color": "#e5e5e5",
+        "grid.linewidth": 0.7,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "font.size": 11,
+    }
+)
 
 UP, DOWN = "#10b981", "#ef4444"
 
@@ -36,8 +39,16 @@ def draw_candle(ax, x, o, h, low, c, width=0.6):
     ax.plot([x, x], [low, h], color=color, linewidth=1.2, zorder=2)
     body_low = min(o, c)
     body_h = max(abs(c - o), (h - low) * 0.001)
-    ax.add_patch(Rectangle((x - width / 2, body_low), width, body_h,
-                           facecolor=color, edgecolor=color, zorder=3))
+    ax.add_patch(
+        Rectangle(
+            (x - width / 2, body_low),
+            width,
+            body_h,
+            facecolor=color,
+            edgecolor=color,
+            zorder=3,
+        )
+    )
 
 
 # ---------- Fibonacci retracement ----------
@@ -65,20 +76,32 @@ def chart_fibonacci():
     ]
     for ratio, label, color in fib_levels:
         y = high - delta * ratio
-        ax.axhline(y, color=color, linewidth=1.2,
-                   linestyle="--" if ratio not in (0.0, 1.0) else "-",
-                   alpha=0.7)
-        ax.text(101, y, f"  {label}: {y:.4f}", fontsize=10, color=color,
-                va="center")
+        ax.axhline(
+            y,
+            color=color,
+            linewidth=1.2,
+            linestyle="--" if ratio not in (0.0, 1.0) else "-",
+            alpha=0.7,
+        )
+        ax.text(101, y, f"  {label}: {y:.4f}", fontsize=10, color=color, va="center")
 
-    ax.annotate("HIGH (точка 0)", xy=(59, high), xytext=(45, high + 0.003),
-                fontsize=10, weight="bold",
-                arrowprops=dict(arrowstyle="->"))
-    ax.annotate("LOW (точка 1)", xy=(0, low), xytext=(5, low - 0.003),
-                fontsize=10, weight="bold",
-                arrowprops=dict(arrowstyle="->"))
-    ax.set_title("Fibonacci retracement — уровни отката",
-                 fontsize=13, weight="bold")
+    ax.annotate(
+        "HIGH (точка 0)",
+        xy=(59, high),
+        xytext=(45, high + 0.003),
+        fontsize=10,
+        weight="bold",
+        arrowprops=dict(arrowstyle="->"),
+    )
+    ax.annotate(
+        "LOW (точка 1)",
+        xy=(0, low),
+        xytext=(5, low - 0.003),
+        fontsize=10,
+        weight="bold",
+        arrowprops=dict(arrowstyle="->"),
+    )
+    ax.set_title("Fibonacci retracement — уровни отката", fontsize=13, weight="bold")
     ax.set_xlabel("Свечи")
     ax.set_ylabel("Цена")
     ax.set_xlim(-2, 130)
@@ -91,22 +114,38 @@ def chart_fibonacci():
 def chart_advanced_candles():
     fig, axes = plt.subplots(1, 4, figsize=(15, 5), sharey=False)
     patterns = [
-        ("Утренняя звезда\n(разворот вверх)",
-         [(0, 1.085, 1.087, 1.080, 1.082),   # длинная красная
-          (1, 1.0815, 1.0820, 1.0805, 1.0810),  # маленькая
-          (2, 1.0815, 1.0875, 1.0810, 1.0865)]),  # длинная зелёная
-        ("Вечерняя звезда\n(разворот вниз)",
-         [(0, 1.082, 1.087, 1.080, 1.086),
-          (1, 1.0865, 1.0875, 1.0860, 1.0867),
-          (2, 1.0865, 1.0870, 1.0815, 1.0820)]),
-        ("Три белых солдата",
-         [(0, 1.080, 1.083, 1.0795, 1.0825),
-          (1, 1.0825, 1.0850, 1.0820, 1.0845),
-          (2, 1.0845, 1.0875, 1.0840, 1.0870)]),
-        ("Три чёрные вороны",
-         [(0, 1.087, 1.0875, 1.0845, 1.085),
-          (1, 1.085, 1.0855, 1.0820, 1.0825),
-          (2, 1.0825, 1.083, 1.0795, 1.0800)]),
+        (
+            "Утренняя звезда\n(разворот вверх)",
+            [
+                (0, 1.085, 1.087, 1.080, 1.082),  # длинная красная
+                (1, 1.0815, 1.0820, 1.0805, 1.0810),  # маленькая
+                (2, 1.0815, 1.0875, 1.0810, 1.0865),
+            ],
+        ),  # длинная зелёная
+        (
+            "Вечерняя звезда\n(разворот вниз)",
+            [
+                (0, 1.082, 1.087, 1.080, 1.086),
+                (1, 1.0865, 1.0875, 1.0860, 1.0867),
+                (2, 1.0865, 1.0870, 1.0815, 1.0820),
+            ],
+        ),
+        (
+            "Три белых солдата",
+            [
+                (0, 1.080, 1.083, 1.0795, 1.0825),
+                (1, 1.0825, 1.0850, 1.0820, 1.0845),
+                (2, 1.0845, 1.0875, 1.0840, 1.0870),
+            ],
+        ),
+        (
+            "Три чёрные вороны",
+            [
+                (0, 1.087, 1.0875, 1.0845, 1.085),
+                (1, 1.085, 1.0855, 1.0820, 1.0825),
+                (2, 1.0825, 1.083, 1.0795, 1.0800),
+            ],
+        ),
     ]
     for ax, (title, candles) in zip(axes, patterns):
         for x, o, h, low, c in candles:
@@ -115,8 +154,7 @@ def chart_advanced_candles():
         ax.set_xticks([])
         ax.set_xlim(-0.7, 2.7)
     axes[0].set_ylabel("Цена")
-    plt.suptitle("Расширенные свечные паттерны",
-                 fontsize=14, weight="bold", y=1.02)
+    plt.suptitle("Расширенные свечные паттерны", fontsize=14, weight="bold", y=1.02)
     plt.tight_layout()
     plt.savefig(OUT / "advanced-candles.png", dpi=130, bbox_inches="tight")
     plt.close()
@@ -147,23 +185,30 @@ def chart_time_heatmap():
             heatmap[i, j] = base
 
     fig, ax = plt.subplots(figsize=(14, 4))
-    im = ax.imshow(heatmap, cmap="RdYlGn", aspect="auto",
-                   vmin=-0.8, vmax=0.8)
+    im = ax.imshow(heatmap, cmap="RdYlGn", aspect="auto", vmin=-0.8, vmax=0.8)
 
     ax.set_xticks(range(len(hours)))
     ax.set_xticklabels([f"{h:02d}" for h in hours])
     ax.set_yticks(range(len(days)))
     ax.set_yticklabels(days)
     ax.set_xlabel("Час (UTC)")
-    ax.set_title("Карта прибыльности по времени (учебный пример)",
-                 fontsize=13, weight="bold")
+    ax.set_title(
+        "Карта прибыльности по времени (учебный пример)", fontsize=13, weight="bold"
+    )
 
     # Подписи на ячейках
     for i in range(len(days)):
         for j in range(len(hours)):
             color = "white" if abs(heatmap[i, j]) > 0.4 else "black"
-            ax.text(j, i, f"{heatmap[i, j]:+.1f}",
-                    ha="center", va="center", color=color, fontsize=7)
+            ax.text(
+                j,
+                i,
+                f"{heatmap[i, j]:+.1f}",
+                ha="center",
+                va="center",
+                color=color,
+                fontsize=7,
+            )
 
     fig.colorbar(im, ax=ax, label="Средний P&L (R)")
     plt.tight_layout()
@@ -173,21 +218,32 @@ def chart_time_heatmap():
 
 # ---------- Корреляция валютных пар ----------
 def chart_correlation_matrix():
-    pairs = ["EURUSD", "GBPUSD", "AUDUSD", "NZDUSD", "USDJPY",
-             "USDCHF", "USDCAD", "EURJPY", "GBPJPY"]
+    pairs = [
+        "EURUSD",
+        "GBPUSD",
+        "AUDUSD",
+        "NZDUSD",
+        "USDJPY",
+        "USDCHF",
+        "USDCAD",
+        "EURJPY",
+        "GBPJPY",
+    ]
 
     # Реалистичные исторические корреляции
-    corr = np.array([
-        [1.00, 0.85, 0.75, 0.70, -0.30, -0.95, -0.50, 0.55, 0.45],
-        [0.85, 1.00, 0.65, 0.60, -0.25, -0.85, -0.40, 0.50, 0.85],
-        [0.75, 0.65, 1.00, 0.90, -0.20, -0.70, 0.30, 0.40, 0.35],
-        [0.70, 0.60, 0.90, 1.00, -0.15, -0.65, 0.25, 0.35, 0.30],
-        [-0.30, -0.25, -0.20, -0.15, 1.00, 0.40, 0.45, 0.60, 0.65],
-        [-0.95, -0.85, -0.70, -0.65, 0.40, 1.00, 0.50, -0.45, -0.40],
-        [-0.50, -0.40, 0.30, 0.25, 0.45, 0.50, 1.00, -0.20, -0.10],
-        [0.55, 0.50, 0.40, 0.35, 0.60, -0.45, -0.20, 1.00, 0.85],
-        [0.45, 0.85, 0.35, 0.30, 0.65, -0.40, -0.10, 0.85, 1.00],
-    ])
+    corr = np.array(
+        [
+            [1.00, 0.85, 0.75, 0.70, -0.30, -0.95, -0.50, 0.55, 0.45],
+            [0.85, 1.00, 0.65, 0.60, -0.25, -0.85, -0.40, 0.50, 0.85],
+            [0.75, 0.65, 1.00, 0.90, -0.20, -0.70, 0.30, 0.40, 0.35],
+            [0.70, 0.60, 0.90, 1.00, -0.15, -0.65, 0.25, 0.35, 0.30],
+            [-0.30, -0.25, -0.20, -0.15, 1.00, 0.40, 0.45, 0.60, 0.65],
+            [-0.95, -0.85, -0.70, -0.65, 0.40, 1.00, 0.50, -0.45, -0.40],
+            [-0.50, -0.40, 0.30, 0.25, 0.45, 0.50, 1.00, -0.20, -0.10],
+            [0.55, 0.50, 0.40, 0.35, 0.60, -0.45, -0.20, 1.00, 0.85],
+            [0.45, 0.85, 0.35, 0.30, 0.65, -0.40, -0.10, 0.85, 1.00],
+        ]
+    )
 
     fig, ax = plt.subplots(figsize=(10, 9))
     im = ax.imshow(corr, cmap="RdBu_r", vmin=-1, vmax=1)
@@ -200,15 +256,23 @@ def chart_correlation_matrix():
     for i in range(len(pairs)):
         for j in range(len(pairs)):
             color = "white" if abs(corr[i, j]) > 0.5 else "black"
-            ax.text(j, i, f"{corr[i, j]:+.2f}",
-                    ha="center", va="center", color=color, fontsize=10,
-                    weight="bold" if abs(corr[i, j]) > 0.7 else "normal")
+            ax.text(
+                j,
+                i,
+                f"{corr[i, j]:+.2f}",
+                ha="center",
+                va="center",
+                color=color,
+                fontsize=10,
+                weight="bold" if abs(corr[i, j]) > 0.7 else "normal",
+            )
 
     ax.set_title(
         "Корреляция валютных пар (исторические значения)\n"
         "🔴 > +0.7 — двойная ставка в одну сторону   "
         "🔵 < −0.7 — противоположные позиции компенсируются",
-        fontsize=12, weight="bold",
+        fontsize=12,
+        weight="bold",
     )
     fig.colorbar(im, ax=ax, label="Коэффициент корреляции")
     plt.tight_layout()
@@ -239,15 +303,24 @@ def chart_anatomy_of_loss():
         y = price[x]
         y_text = y + (price.max() - price.min()) * ytext_frac
         ax.annotate(
-            text, xy=(x, y), xytext=(x + 3, y_text),
-            fontsize=9.5, weight="bold", color="#7f1d1d",
+            text,
+            xy=(x, y),
+            xytext=(x + 3, y_text),
+            fontsize=9.5,
+            weight="bold",
+            color="#7f1d1d",
             arrowprops=dict(arrowstyle="->", color="#dc2626", lw=1.5),
-            bbox=dict(boxstyle="round,pad=0.5", facecolor="#fee2e2",
-                      edgecolor="#dc2626", linewidth=1),
+            bbox=dict(
+                boxstyle="round,pad=0.5",
+                facecolor="#fee2e2",
+                edgecolor="#dc2626",
+                linewidth=1,
+            ),
         )
 
-    ax.set_title("Анатомия убыточной сделки — 4 типичные ошибки",
-                 fontsize=13, weight="bold")
+    ax.set_title(
+        "Анатомия убыточной сделки — 4 типичные ошибки", fontsize=13, weight="bold"
+    )
     ax.set_xlabel("Свечи (H1)")
     ax.set_ylabel("Цена")
     plt.tight_layout()
@@ -281,8 +354,9 @@ def chart_monte_carlo_demo():
     ax.set_ylabel("Equity (множитель)")
     ax.set_title(
         f"Монте-Карло: {n_sims} симуляций × {n_trades} сделок "
-        f"(WR={int(win_rate*100)}%, R:R 1:{rr:.0f})",
-        fontsize=12, weight="bold",
+        f"(WR={int(win_rate * 100)}%, R:R 1:{rr:.0f})",
+        fontsize=12,
+        weight="bold",
     )
     ax.legend()
     plt.tight_layout()

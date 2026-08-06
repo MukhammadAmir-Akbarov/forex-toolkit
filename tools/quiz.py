@@ -11,6 +11,7 @@ Spaced Repetition Quiz — еженедельный тест по термина
 Запуск раз в неделю:
   python tools/quiz.py
 """
+
 from __future__ import annotations
 
 import csv
@@ -59,12 +60,12 @@ def get_due_cards(cards: list[dict], progress: dict) -> list[dict]:
 
 
 INTERVALS = {
-    0: 1,    # после изучения — через 1 день
-    1: 3,    # знаю — через 3 дня
-    2: 7,    # знаю — через неделю
-    3: 14,   # знаю — через 2 недели
-    4: 30,   # знаю — через месяц
-    5: 60,   # знаю — через 2 месяца
+    0: 1,  # после изучения — через 1 день
+    1: 3,  # знаю — через 3 дня
+    2: 7,  # знаю — через неделю
+    3: 14,  # знаю — через 2 недели
+    4: 30,  # знаю — через месяц
+    5: 60,  # знаю — через 2 месяца
     6: 120,  # знаю — через 4 месяца
 }
 
@@ -115,10 +116,17 @@ def show_stats(progress: dict) -> None:
     learned = sum(stages[3:])  # стадия 3+ = «знаю надолго»
     print("\n📊 Твой прогресс:")
     print(f"  Изучено карточек: {total}")
-    print(f"  «Знаю надолго» (стадия 3+): {learned} ({learned/total*100:.0f}%)")
+    print(f"  «Знаю надолго» (стадия 3+): {learned} ({learned / total * 100:.0f}%)")
     print()
-    labels = ["Только узнал", "1-3 дня", "1 неделя", "2 недели",
-              "1 месяц", "2 месяца", "4 месяца"]
+    labels = [
+        "Только узнал",
+        "1-3 дня",
+        "1 неделя",
+        "2 недели",
+        "1 месяц",
+        "2 месяца",
+        "4 месяца",
+    ]
     for i, (label, n) in enumerate(zip(labels, stages)):
         bar = "▓" * min(n, 30)
         print(f"  Стадия {i}: {label:<14} [{bar:<30}] {n}")
@@ -168,7 +176,7 @@ def main() -> int:
     print("=" * 60)
     if answered > 0:
         print(f"\n  Отвечено: {answered}")
-        print(f"  Правильно: {correct} ({correct/answered*100:.0f}%)")
+        print(f"  Правильно: {correct} ({correct / answered * 100:.0f}%)")
         if correct / answered >= 0.8:
             print("  ✅ Отличный результат! Возвращайся через несколько дней.")
         elif correct / answered >= 0.5:

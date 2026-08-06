@@ -388,10 +388,10 @@
     },
     "roadmap.md": {
       "locales": {
-        "en": "93916f32da60700f683831c04db3805f6ebd977248f2c63630825944d81955a3",
-        "uz": "93916f32da60700f683831c04db3805f6ebd977248f2c63630825944d81955a3"
+        "en": "c570f8177cfdbf14a1787219ca1e013cee13188b75391ac693c8c6bb398c98ff",
+        "uz": "c570f8177cfdbf14a1787219ca1e013cee13188b75391ac693c8c6bb398c98ff"
       },
-      "ru_sha256": "93916f32da60700f683831c04db3805f6ebd977248f2c63630825944d81955a3"
+      "ru_sha256": "c570f8177cfdbf14a1787219ca1e013cee13188b75391ac693c8c6bb398c98ff"
     },
     "tools/README.md": {
       "locales": {
@@ -399,6 +399,13 @@
         "uz": "56bdce3accb666668ca7a414a028abab23434fe04d5c747077f5bcdc8da89e07"
       },
       "ru_sha256": "56bdce3accb666668ca7a414a028abab23434fe04d5c747077f5bcdc8da89e07"
+    },
+    "tools/broker-check.md": {
+      "locales": {
+        "en": "9e55b13ff9ce3f359a8485a4ec363777314573b6b3e2b913305082aa2f493350",
+        "uz": "9e55b13ff9ce3f359a8485a4ec363777314573b6b3e2b913305082aa2f493350"
+      },
+      "ru_sha256": "9e55b13ff9ce3f359a8485a4ec363777314573b6b3e2b913305082aa2f493350"
     },
     "tools/compound-calculator.md": {
       "locales": {
@@ -483,6 +490,13 @@
         "uz": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e"
       },
       "ru_sha256": "cfcb1de8b3959f622a57361595a4045840ecd85584ec1c64933449d358d52a3e"
+    },
+    "tools/risk-profile.md": {
+      "locales": {
+        "en": "ea3f2c842454fcb4f502f61fc340f059bc2ba8c2e8853a0d44927089479aa2a7",
+        "uz": "ea3f2c842454fcb4f502f61fc340f059bc2ba8c2e8853a0d44927089479aa2a7"
+      },
+      "ru_sha256": "ea3f2c842454fcb4f502f61fc340f059bc2ba8c2e8853a0d44927089479aa2a7"
     },
     "tools/trade-desk.md": {
       "locales": {

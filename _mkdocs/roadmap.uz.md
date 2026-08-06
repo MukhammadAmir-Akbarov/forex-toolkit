@@ -44,7 +44,7 @@ graph TD
 |---|---|---|
 | 1. «Loyihadan qanday foydalanish» ni o'qish | [Bosh sahifa](index.md) | 30 daq |
 | 2. Tuzilmani tushunish: qo'llanma, asboblar, strategiyalar | [README](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/README.md) | 15 daq |
-| 3. 30 savolli tayyorgarlik testini topshirish | `tools/risk_profile.py` | 20 daq |
+| 3. 30 savolli tayyorgarlik testini topshirish | [Tayyorlik testi](tools/risk-profile.md) — brauzerda | 20 daq |
 | 4. Python va bog'liqliklarni o'rnatish | Ko'rsatma | 30 daq |
 
 ### ✅ Nazorat nuqtasi

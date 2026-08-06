@@ -4,6 +4,7 @@ Multi-position sizer — расчёт размеров для НЕСКОЛЬКИ
 
 Распределяет общий риск-бюджет (2% депозита) между N запланированными сделками.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -17,6 +18,7 @@ try:
     from forex_toolkit.risk_exposure import allocate_risk
 except ModuleNotFoundError:  # запуск скрипта без установки пакета
     from pathlib import Path as _Path
+
     sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
     from forex_toolkit.fx_math import calc_lots
     from forex_toolkit.risk_exposure import allocate_risk
@@ -34,17 +36,27 @@ def main() -> int:
         description="Расчёт лотов для нескольких сделок",
     )
     parser.add_argument("--deposit", "-d", type=float, required=True)
-    parser.add_argument("--total-risk", "-r", type=float, default=2.0,
-                        help="Общий риск-бюджет в %% (по умолч. 2.0)")
     parser.add_argument(
-        "--trade", action="append", nargs=2,
+        "--total-risk",
+        "-r",
+        type=float,
+        default=2.0,
+        help="Общий риск-бюджет в %% (по умолч. 2.0)",
+    )
+    parser.add_argument(
+        "--trade",
+        action="append",
+        nargs=2,
         metavar=("PAIR", "STOP_PIPS"),
         required=True,
         help="Сделка: пара стоп_в_пипсах. Можно указать несколько раз.",
     )
-    parser.add_argument("--allocation", choices=["equal", "weighted"],
-                        default="equal",
-                        help="Как распределять риск (equal по умолч.)")
+    parser.add_argument(
+        "--allocation",
+        choices=["equal", "weighted"],
+        default="equal",
+        help="Как распределять риск (equal по умолч.)",
+    )
     args = parser.parse_args()
 
     trades: list[TradePlan] = []
@@ -65,8 +77,10 @@ def main() -> int:
     print(f"  Сделок:            {n}")
     print(f"  Распределение:     {args.allocation}")
     print()
-    print(f"{'Пара':<10} {'Стоп пипс':>10} {'Риск $':>10} "
-          f"{'Лот':>8} {'Реальн. риск $':>16}")
+    print(
+        f"{'Пара':<10} {'Стоп пипс':>10} {'Риск $':>10} "
+        f"{'Лот':>8} {'Реальн. риск $':>16}"
+    )
     print("─" * 60)
 
     total_actual = 0.0
@@ -74,12 +88,13 @@ def main() -> int:
         lots = calc_lots(alloc, t.stop_pips, t.pip_value)
         actual = lots * t.stop_pips * t.pip_value
         total_actual += actual
-        print(f"{t.pair:<10} {t.stop_pips:>10.0f} "
-              f"${alloc:>9.2f} {lots:>8.2f} ${actual:>14.2f}")
+        print(
+            f"{t.pair:<10} {t.stop_pips:>10.0f} "
+            f"${alloc:>9.2f} {lots:>8.2f} ${actual:>14.2f}"
+        )
 
     print("─" * 60)
-    print(f"{'ИТОГО':<10} {'':<10} {'':<10} "
-          f"{'':<8} ${total_actual:>14.2f}")
+    print(f"{'ИТОГО':<10} {'':<10} {'':<10} {'':<8} ${total_actual:>14.2f}")
     print(f"\nРеальный использованный риск: {total_actual / args.deposit * 100:.2f}%")
 
     if total_actual / args.deposit > 0.025:

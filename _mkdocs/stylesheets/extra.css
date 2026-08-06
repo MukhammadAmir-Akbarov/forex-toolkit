@@ -2068,3 +2068,100 @@ label[for="__drawer"].fx-menu-hint::after {
   body.journal-print-weekly .journal-weekly-report { display: block !important; border: 0; color: #000; background: #fff; }
   body.journal-print-weekly .journal-weekly-report .journal-actions { display: none !important; }
 }
+
+/* ── Тест готовности и проверка брокера ───────────────────────────────── */
+.risk-profile {
+  margin: 1.2rem 0;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: var(--md-code-bg-color);
+}
+.risk-profile__progress {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--md-default-fg-color--light);
+}
+.risk-profile progress {
+  width: 100%;
+  height: 8px;
+  margin: 0.4rem 0 1rem;
+}
+.risk-profile__question {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.risk-profile__question legend {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.7rem;
+  padding: 0;
+}
+.risk-profile__option {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  padding: 0.7rem 0.8rem;
+  margin-bottom: 0.45rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 9px;
+  background: var(--md-default-bg-color);
+  cursor: pointer;
+  /* Крупная зона нажатия: основной сценарий — телефон. */
+  min-height: 44px;
+}
+.risk-profile__option:hover,
+.risk-profile__option:focus-within {
+  border-color: var(--md-primary-fg-color);
+}
+.risk-profile__score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin: 0.6rem 0;
+}
+.risk-profile__score strong {
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--md-primary-fg-color);
+}
+.risk-profile__verdict {
+  margin: 0.5rem 0 0.3rem;
+}
+.risk-profile--result {
+  border-left: 5px solid var(--md-default-fg-color--lighter);
+}
+.risk-profile--result.is-excellent { border-left-color: #22c55e; }
+.risk-profile--result.is-good { border-left-color: #84cc16; }
+.risk-profile--result.is-borderline { border-left-color: #f59e0b; }
+.risk-profile--result.is-high_risk { border-left-color: #f97316; }
+.risk-profile--result.is-critical { border-left-color: #ef4444; }
+.risk-profile__weak { margin: 0.4rem 0 0.8rem; }
+.risk-profile__again,
+.risk-profile__previous {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+}
+.broker-check__result {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: var(--md-code-bg-color);
+}
+.broker-check__result.is-warning {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+}
+.broker-check__registries {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+}
+.broker-check__registries li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.broker-check__flags { margin: 0.5rem 0 0; }

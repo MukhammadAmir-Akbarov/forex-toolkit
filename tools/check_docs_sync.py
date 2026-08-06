@@ -11,6 +11,7 @@
 
 Коды возврата: 0 — дублей нет; 1 — найдены дубли (печатается список).
 """
+
 from __future__ import annotations
 
 import subprocess

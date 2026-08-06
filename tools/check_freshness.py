@@ -17,6 +17,7 @@ front-matter датой проверки::
     python tools/check_freshness.py
     python tools/check_freshness.py --max-age-months 6 --fail
 """
+
 from __future__ import annotations
 
 import argparse
@@ -61,7 +62,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Проверка свежести verified-страниц")
     parser.add_argument("--max-age-months", type=int, default=6)
     parser.add_argument(
-        "--fail", action="store_true",
+        "--fail",
+        action="store_true",
         help="Вернуть код 1 при старых или отсутствующих verified-метках.",
     )
     args = parser.parse_args()

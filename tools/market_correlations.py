@@ -13,6 +13,7 @@
 Считает корреляции с EUR/USD, GBP/USD, USD/JPY.
 Строит heatmap.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -27,13 +28,13 @@ import yfinance as yf
 SYMBOLS = {
     "EUR/USD": "EURUSD=X",
     "GBP/USD": "GBPUSD=X",
-    "USD/JPY": "JPY=X",        # = USD/JPY
+    "USD/JPY": "JPY=X",  # = USD/JPY
     "AUD/USD": "AUDUSD=X",
-    "DXY": "DX-Y.NYB",         # US Dollar Index
-    "Gold": "GC=F",            # Gold futures
-    "S&P 500": "SPY",          # S&P 500 ETF
-    "VIX": "^VIX",             # Volatility Index
-    "10Y bonds": "TLT",        # 20+ Year Treasury Bond ETF (proxy)
+    "DXY": "DX-Y.NYB",  # US Dollar Index
+    "Gold": "GC=F",  # Gold futures
+    "S&P 500": "SPY",  # S&P 500 ETF
+    "VIX": "^VIX",  # Volatility Index
+    "10Y bonds": "TLT",  # 20+ Year Treasury Bond ETF (proxy)
     "Bitcoin": "BTC-USD",
 }
 
@@ -63,8 +64,7 @@ def calc_correlations(df: pd.DataFrame) -> pd.DataFrame:
     return returns.corr()
 
 
-def plot_heatmap(corr: pd.DataFrame, out_path: Path,
-                 period_label: str = "1y") -> None:
+def plot_heatmap(corr: pd.DataFrame, out_path: Path, period_label: str = "1y") -> None:
     fig, ax = plt.subplots(figsize=(11, 9))
 
     im = ax.imshow(corr.values, cmap="RdBu_r", vmin=-1, vmax=1)
@@ -79,13 +79,22 @@ def plot_heatmap(corr: pd.DataFrame, out_path: Path,
             v = corr.values[i, j]
             color = "white" if abs(v) > 0.5 else "black"
             weight = "bold" if abs(v) > 0.7 else "normal"
-            ax.text(j, i, f"{v:+.2f}", ha="center", va="center",
-                    color=color, fontsize=10, weight=weight)
+            ax.text(
+                j,
+                i,
+                f"{v:+.2f}",
+                ha="center",
+                va="center",
+                color=color,
+                fontsize=10,
+                weight=weight,
+            )
 
     ax.set_title(
         f"Корреляция дневных доходностей ({period_label})\n"
         "🔴 = двигаются вместе, 🔵 = противоположно",
-        fontsize=12, weight="bold",
+        fontsize=12,
+        weight="bold",
     )
     fig.colorbar(im, ax=ax, label="Коэффициент корреляции (-1...+1)")
     plt.tight_layout()
@@ -110,7 +119,9 @@ def print_insights(corr: pd.DataFrame) -> None:
                 continue
             c = corr.loc[pair, o]
             if abs(c) > 0.7:
-                direction = "↑↑ сильно положительная" if c > 0 else "↑↓ сильно отрицательная"
+                direction = (
+                    "↑↑ сильно положительная" if c > 0 else "↑↓ сильно отрицательная"
+                )
                 emoji = "⚠️"
             elif abs(c) > 0.4:
                 direction = "↑ положительная" if c > 0 else "↓ отрицательная"
@@ -146,16 +157,21 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Корреляции forex с другими рынками",
     )
-    parser.add_argument("--period", default="1y",
-                        choices=["1mo", "3mo", "6mo", "1y", "2y", "5y"],
-                        help="Период анализа")
     parser.add_argument(
-        "--out", type=Path,
-        default=Path(__file__).resolve().parent.parent
-        / "docs" / "images" / "market-correlations.png",
+        "--period",
+        default="1y",
+        choices=["1mo", "3mo", "6mo", "1y", "2y", "5y"],
+        help="Период анализа",
     )
-    parser.add_argument("--csv", type=Path,
-                        help="Сохранить корреляции в CSV")
+    parser.add_argument(
+        "--out",
+        type=Path,
+        default=Path(__file__).resolve().parent.parent
+        / "docs"
+        / "images"
+        / "market-correlations.png",
+    )
+    parser.add_argument("--csv", type=Path, help="Сохранить корреляции в CSV")
     args = parser.parse_args()
 
     df = download_data(args.period)

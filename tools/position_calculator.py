@@ -20,6 +20,7 @@
 Disclaimer: учебный калькулятор. Точные котировки и стоимость пипса
 лучше брать из терминала твоего брокера.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -37,6 +38,7 @@ try:
     )
 except ModuleNotFoundError:  # запуск скрипта без установки пакета
     from pathlib import Path as _Path
+
     sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
     from forex_toolkit.fx_math import (
         LIVE_SENSITIVE_PAIRS as _LIVE_SENSITIVE_PAIRS,
@@ -193,9 +195,7 @@ def format_result(r: PositionResult) -> str:
             "уменьши размер вручную до 0.01."
         )
     if r.actual_risk_percent > 2.0:
-        warning += (
-            "\n⚠️  Реальный риск > 2% депозита. Это много для новичка."
-        )
+        warning += "\n⚠️  Реальный риск > 2% депозита. Это много для новичка."
 
     return f"""
 ╭─────────────────────────────────────────╮
@@ -225,9 +225,7 @@ def interactive() -> int:
         balance = float(input("Депозит ($): ").strip())
         risk = float(input("Риск на сделку (%, например 0.5): ").strip())
         stop = float(input("Стоп-лосс (в пипсах): ").strip())
-        pair = input(
-            "Пара (EURUSD / GBPUSD / USDJPY / ...): "
-        ).strip() or "EURUSD"
+        pair = input("Пара (EURUSD / GBPUSD / USDJPY / ...): ").strip() or "EURUSD"
     except (ValueError, KeyboardInterrupt, EOFError):
         print("\nОтмена.")
         return 1
@@ -247,25 +245,32 @@ def main() -> int:
         description="Калькулятор размера позиции для forex",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="Примеры:\n"
-               "  position_calculator.py\n"
-               "  position_calculator.py --balance 1000 --risk 0.5 "
-               "--stop 25 --pair EURUSD",
+        "  position_calculator.py\n"
+        "  position_calculator.py --balance 1000 --risk 0.5 "
+        "--stop 25 --pair EURUSD",
     )
-    parser.add_argument("--balance", "-b", type=float,
-                        help="Депозит в USD")
-    parser.add_argument("--risk", "-r", type=float,
-                        help="Риск на сделку в процентах (0.5 = 0.5%%)")
-    parser.add_argument("--stop", "-s", type=float,
-                        help="Стоп-лосс в пипсах")
-    parser.add_argument("--pair", "-p", type=str,
-                        default="EURUSD",
-                        help="Валютная пара (по умолчанию EURUSD)")
-    parser.add_argument("--list-pairs", action="store_true",
-                        help="Показать список поддерживаемых пар")
-    parser.add_argument("--live", action="store_true",
-                        help="Подтянуть актуальную стоимость пипса через "
-                             "yfinance (для USDJPY, USDCHF, USDCAD, кросс-пар). "
-                             "Без yfinance — мягкий фолбэк на таблицу.")
+    parser.add_argument("--balance", "-b", type=float, help="Депозит в USD")
+    parser.add_argument(
+        "--risk", "-r", type=float, help="Риск на сделку в процентах (0.5 = 0.5%%)"
+    )
+    parser.add_argument("--stop", "-s", type=float, help="Стоп-лосс в пипсах")
+    parser.add_argument(
+        "--pair",
+        "-p",
+        type=str,
+        default="EURUSD",
+        help="Валютная пара (по умолчанию EURUSD)",
+    )
+    parser.add_argument(
+        "--list-pairs", action="store_true", help="Показать список поддерживаемых пар"
+    )
+    parser.add_argument(
+        "--live",
+        action="store_true",
+        help="Подтянуть актуальную стоимость пипса через "
+        "yfinance (для USDJPY, USDCHF, USDCAD, кросс-пар). "
+        "Без yfinance — мягкий фолбэк на таблицу.",
+    )
     args = parser.parse_args()
 
     if args.list_pairs:
@@ -279,9 +284,9 @@ def main() -> int:
         return interactive()
 
     try:
-        result = calculate_position(args.balance, args.risk,
-                                     args.stop, args.pair,
-                                     live=args.live)
+        result = calculate_position(
+            args.balance, args.risk, args.stop, args.pair, live=args.live
+        )
     except ValueError as e:
         print(f"Ошибка: {e}", file=sys.stderr)
         return 1

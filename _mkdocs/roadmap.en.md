@@ -44,7 +44,7 @@ graph TD
 |---|---|---|
 | 1. Read "How to use the project" | [Home](index.md) → [How to use](КАК-ПОЛЬЗОВАТЬСЯ.md) | 30 min |
 | 2. Understand structure: handbook, tools, strategies | [README](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/README.md) | 15 min |
-| 3. Take the 30-question readiness test | `tools/risk_profile.py` | 20 min |
+| 3. Take the 30-question readiness test | [Readiness test](tools/risk-profile.md) — right in the browser | 20 min |
 | 4. Install Python + dependencies | See [instructions](КАК-ПОЛЬЗОВАТЬСЯ.md) | 30 min |
 
 ### ✅ Checkpoint

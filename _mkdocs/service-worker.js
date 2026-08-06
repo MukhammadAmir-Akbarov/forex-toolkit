@@ -35,7 +35,9 @@ const CORE = [
   "./javascripts/widgets/monte-carlo.js",
   "./javascripts/widgets/journal.js",
   "./javascripts/widgets/replay.js",
-  "./javascripts/widgets/dashboard.js"
+  "./javascripts/widgets/dashboard.js",
+  "./javascripts/widgets/risk-profile.js",
+  "./javascripts/widgets/broker-check.js"
 ];
 
 self.addEventListener("install", function (event) {
