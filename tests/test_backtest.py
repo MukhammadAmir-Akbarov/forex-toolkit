@@ -1,4 +1,5 @@
 """Тесты для bot/backtest.py — симулятор сделок."""
+
 from __future__ import annotations
 
 import pytest
@@ -58,8 +59,16 @@ class TestStats:
         if not trades:
             pytest.skip("No trades")
         s = stats(trades)
-        required = {"total", "wins", "losses", "win_rate", "profit_factor",
-                    "expectancy_r", "total_r", "max_drawdown_r"}
+        required = {
+            "total",
+            "wins",
+            "losses",
+            "win_rate",
+            "profit_factor",
+            "expectancy_r",
+            "total_r",
+            "max_drawdown_r",
+        }
         assert required.issubset(s.keys())
 
     def test_winrate_consistency(self, synthetic_ohlc):
@@ -77,13 +86,21 @@ class TestStats:
         """Если все сделки прибыльные — PF = inf."""
         from backtest import Trade
         import pandas as pd
+
         trades = [
             Trade(
                 entry_time=pd.Timestamp("2025-01-01"),
                 exit_time=pd.Timestamp("2025-01-02"),
-                direction="long", entry=1.08, stop=1.07, take=1.10,
-                exit_price=1.10, outcome="win",
-                pnl_pips=200, pnl_r=2.0, reason="test", bars_held=24,
+                direction="long",
+                entry=1.08,
+                stop=1.07,
+                take=1.10,
+                exit_price=1.10,
+                outcome="win",
+                pnl_pips=200,
+                pnl_r=2.0,
+                reason="test",
+                bars_held=24,
             )
         ]
         s = stats(trades)

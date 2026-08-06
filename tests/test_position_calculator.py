@@ -1,4 +1,5 @@
 """Тесты для position_calculator."""
+
 from __future__ import annotations
 
 import pytest

@@ -105,9 +105,10 @@ def test_dashboard_full_backup_requires_preview_confirmation(
         "/one/",
         "/two/",
     ]
-    assert page.evaluate(
-        "JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0].id"
-    ) == "plan-1"
+    assert (
+        page.evaluate("JSON.parse(localStorage.getItem('forex_trade_drafts_v1'))[0].id")
+        == "plan-1"
+    )
 
 
 def test_dashboard_export_contains_full_local_data(pw_page, site_url):
@@ -116,7 +117,8 @@ def test_dashboard_export_contains_full_local_data(pw_page, site_url):
     page.evaluate(
         """
         () => {
-          localStorage.setItem('forex_journal_data_v2', JSON.stringify({text: 'full journal'}));
+          localStorage.setItem('forex_journal_data_v2',
+            JSON.stringify({text: 'full journal'}));
           localStorage.setItem('forex_trade_drafts_v1', JSON.stringify([{id: 'p1'}]));
           localStorage.setItem('forex_tool_settings_v1', JSON.stringify({risk: 1}));
         }
@@ -131,6 +133,4 @@ def test_dashboard_export_contains_full_local_data(pw_page, site_url):
     assert payload["localStorage"]["forex_trade_drafts_v1"]
     assert payload["localStorage"]["forex_tool_settings_v1"]
     assert payload["localStorage"]["forex_data_meta_v1"]
-    assert json.loads(payload["localStorage"]["forex_data_meta_v1"])[
-        "lastBackupAt"
-    ]
+    assert json.loads(payload["localStorage"]["forex_data_meta_v1"])["lastBackupAt"]

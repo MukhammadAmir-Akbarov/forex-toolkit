@@ -71,6 +71,10 @@ jobs:
         run: ruff format --check forex_toolkit/
       - name: ruff check tools/ hooks/ (логические правила; E501 игнор по конфигу)
         run: ruff check tools/ hooks/
+      - name: ruff check + format (тесты)
+        run: |
+          ruff check tests/ tests_e2e/
+          ruff format --check tests/ tests_e2e/
       - name: mypy (информационно, не блокирует)
         continue-on-error: true
         run: mypy

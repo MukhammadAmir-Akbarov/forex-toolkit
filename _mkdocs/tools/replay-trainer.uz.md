@@ -1,3 +1,7 @@
+---
+widgets: [replay]
+---
+
 # 🎮 Replay Mashqi — tarixiy bozorda savdo qiling
 
 !!! abstract "Bu nima"

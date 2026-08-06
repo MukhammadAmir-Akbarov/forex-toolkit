@@ -26,7 +26,8 @@
       lossStreak: "Серия убытков", budgetOk: "Лимиты соблюдены.",
       budgetWarn: "Один или несколько лимитов превышены. Сделай паузу и перепроверь план.",
       override: "Я вижу предупреждение и осознанно подтверждаю превышение лимита.",
-      needOverride: "Лимит риска превышен. Подтверди превышение галочкой, чтобы сохранить план."
+      needOverride: "Лимит риска превышен. Подтверди превышение галочкой, чтобы сохранить план.",
+      streakNote: "Серия убытков считается подряд по всей истории и не обнуляется в понедельник: три убытка в пятницу останутся серией и на следующей неделе. Прерывает её только сделка с результатом 0R или лучше."
     },
     en: {
       balance: "Balance, USD", risk: "Risk, %", pair: "Pair", direction: "Direction",
@@ -45,7 +46,8 @@
       lossStreak: "Loss streak", budgetOk: "All limits are respected.",
       budgetWarn: "One or more limits are exceeded. Pause and review the plan.",
       override: "I understand the warning and explicitly confirm exceeding the limit.",
-      needOverride: "Risk limit exceeded. Tick the confirmation box to save the plan."
+      needOverride: "Risk limit exceeded. Tick the confirmation box to save the plan.",
+      streakNote: "The losing streak runs across the whole history and does not reset on Monday: three losses on Friday still count next week. Only a trade at 0R or better breaks it."
     },
     uz: {
       balance: "Depozit, USD", risk: "Risk, %", pair: "Juftlik", direction: "Yo'nalish",
@@ -64,7 +66,8 @@
       lossStreak: "Ketma-ket zarar", budgetOk: "Barcha limitlarga rioya qilindi.",
       budgetWarn: "Bir yoki bir nechta limit oshdi. Tanaffus qiling va rejani qayta tekshiring.",
       override: "Ogohlantirishni ko'rdim va limit oshishini ongli ravishda tasdiqlayman.",
-      needOverride: "Risk limiti oshdi. Rejani saqlash uchun tasdiq katagini belgilang."
+      needOverride: "Risk limiti oshdi. Rejani saqlash uchun tasdiq katagini belgilang.",
+      streakNote: "Zarar seriyasi butun tarix bo'yicha ketma-ket sanaladi va dushanbada nolga tushmaydi: juma kunidagi uchta zarar keyingi haftada ham seriya bo'lib qoladi. Uni faqat 0R yoki undan yaxshi natijali savdo uzadi."
     }
   });
 
@@ -90,6 +93,7 @@
     field(T.dailyLimit, '<input id="td-limit-day" type="number" min="0.1" step="0.1" value="2">'),
     field(T.weeklyLimit, '<input id="td-limit-week" type="number" min="0.1" step="0.1" value="5">'),
     field(T.pauseAfter, '<input id="td-limit-streak" type="number" min="1" step="1" value="3">'),
+    '<p class="risk-budget__note">' + T.streakNote + '</p>',
     '</div></details></div>',
     '<div id="td-risk-budget" class="risk-budget__body" aria-live="polite"></div>',
     '<label id="td-risk-override-wrap" class="risk-budget__override" hidden>',
@@ -222,15 +226,17 @@
     if (dailyR <= -limits.daily) reasons.push("daily");
     if (weeklyR <= -limits.weekly) reasons.push("weekly");
     if (streak >= limits.streak) reasons.push("streak");
-    currentBudget = {
-      planned_percent: planned, open_percent: open, new_percent: added,
-      after_percent: after, daily_r: dailyR, weekly_r: weeklyR,
-      loss_streak: streak, limits: limits, requires_confirmation: reasons.length > 0,
-      reasons: reasons
-    };
     var remainingOpen = Math.max(0, limits.maxOpen - after);
     var remainingDay = Math.max(0, limits.daily + dailyR);
     var remainingWeek = Math.max(0, limits.weekly + weeklyR);
+    currentBudget = {
+      planned_percent: planned, open_percent: open, new_percent: added,
+      after_percent: after, remaining_open_percent: remainingOpen,
+      daily_r: dailyR, weekly_r: weeklyR,
+      remaining_daily_r: remainingDay, remaining_weekly_r: remainingWeek,
+      loss_streak: streak, limits: limits, requires_confirmation: reasons.length > 0,
+      reasons: reasons
+    };
     var body = document.getElementById("td-risk-budget");
     body.className = "risk-budget__body " + (reasons.length ? "is-warning" : "is-ok");
     body.innerHTML = '<div class="risk-budget__metrics">' +
@@ -247,6 +253,9 @@
     override.hidden = !reasons.length;
     if (!reasons.length) document.getElementById("td-risk-override").checked = false;
     if (reasons.length && window.fxTrack) window.fxTrack("risk_limit_warning_shown");
+    // Тот же расчёт есть в forex_toolkit/risk_budget.py. Публикуем результат,
+    // чтобы e2e сверял две реализации целиком, а не только видимые цифры.
+    window.__fxRiskBudget = currentBudget;
     return currentBudget;
   }
 

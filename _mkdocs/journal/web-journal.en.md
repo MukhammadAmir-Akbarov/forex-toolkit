@@ -1,3 +1,7 @@
+---
+widgets: [journal]
+---
+
 # 📊 Web Trading Journal
 
 !!! abstract "What this tool does"

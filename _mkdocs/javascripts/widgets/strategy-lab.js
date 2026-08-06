@@ -28,6 +28,7 @@
   if (!root || !window.FXW) return;
 
   var F = window.FXW;
+  var escapeHtml = F.escape;
   var T = F.pick({
     ru: {
       title: "Лаборатория стратегии", intro: "Зафиксируй правила до серии сделок. Изменение создаёт новую версию, поэтому статистика не смешивается.",
@@ -96,12 +97,6 @@
     var totalR = valid.reduce(function (sum, row) { return sum + row.r; }, 0);
     return { count: rows.length, totalR: totalR, expectancy: valid.length ? totalR / valid.length : 0,
       discipline: answered ? followed / answered * 100 : 0, drawdown: drawdown };
-  }
-
-  function escapeHtml(value) {
-    return String(value).replace(/[&<>"']/g, function (character) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character];
-    });
   }
 
   function render() {

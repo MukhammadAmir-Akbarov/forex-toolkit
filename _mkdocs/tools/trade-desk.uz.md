@@ -1,3 +1,7 @@
+---
+widgets: [strategy-lab, trade-desk]
+---
+
 # Savdodan oldingi ekran
 
 Bitta ketma-ket ekran: pozitsiyani hisoblash, checklistdan o'tish va jurnalga
