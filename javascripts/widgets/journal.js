@@ -8,11 +8,14 @@
   if (!root) return;
 
   var F = window.FXW;
+  var escapeHtml = F.escape;
   var T = F.pick({
     ru: {
       fileReady: function (name, count) { return name + ": загружено строк " + count; },
       demo: "Демо-журнал",
       invalid: "Не удалось прочитать CSV или MT5 HTML. Проверь формат файла.",
+      invalidHtml: "Это HTML-отчёт, но не формат MT5. В MT5: Терминал → История → правой кнопкой → «Отчёт» → сохранить как HTML. Отчёт MT4 и выгрузка из кабинета брокера пока не читаются — сохрани сделки в CSV с колонками date, pair, result_usd, risk_usd.",
+      invalidCsv: "В файле не нашлось нужных колонок. Минимум: date, pair и результат (result_usd или result_r). Добавь risk_usd — без него сделка не попадёт в Monte Carlo. Разделитель — запятая или точка с запятой.",
       noRows: "В выбранном диапазоне нет закрытых сделок.",
       all: "Все",
       yes: "По правилам",
@@ -82,6 +85,8 @@
       fileReady: function (name, count) { return name + ": " + count + " rows loaded"; },
       demo: "Demo journal",
       invalid: "Could not read the CSV or MT5 HTML file. Check its format.",
+      invalidHtml: "This is an HTML report, but not the MT5 format. In MT5: Terminal → History → right click → Report → save as HTML. MT4 reports and broker cabinet exports are not read yet — save your trades as CSV with date, pair, result_usd and risk_usd columns.",
+      invalidCsv: "No usable columns found. Minimum: date, pair and a result (result_usd or result_r). Add risk_usd — without it the trade is excluded from Monte Carlo. Use a comma or semicolon as the separator.",
       noRows: "There are no closed trades in the selected range.",
       all: "All",
       yes: "Followed rules",
@@ -151,6 +156,8 @@
       fileReady: function (name, count) { return name + ": " + count + " qator yuklandi"; },
       demo: "Demo jurnal",
       invalid: "CSV yoki MT5 HTML faylni o'qib bo'lmadi. Formatni tekshiring.",
+      invalidHtml: "Bu HTML hisobot, lekin MT5 formati emas. MT5 da: Terminal → History → o'ng tugma → Report → HTML sifatida saqlang. MT4 hisoboti va broker kabinetidan yuklamalar hozircha o'qilmaydi — savdolarni date, pair, result_usd va risk_usd ustunlari bilan CSV ga saqlang.",
+      invalidCsv: "Faylda kerakli ustunlar topilmadi. Eng kami: date, pair va natija (result_usd yoki result_r). risk_usd qo'shing — usiz savdo Monte Carlo ga kirmaydi. Ajratgich — vergul yoki nuqtali vergul.",
       noRows: "Tanlangan oraliqda yopilgan savdolar yo'q.",
       all: "Barchasi",
       yes: "Qoidaga rioya",
@@ -1089,12 +1096,6 @@
     download("forex-journal-summary.csv", csv, "text/csv;charset=utf-8");
   }
 
-  function escapeHtml(value) {
-    return String(value).replace(/[&<>"']/g, function (ch) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
-    });
-  }
-
   function exportHtml() {
     var rows = summaryRows(filteredRows());
     var body = rows.slice(1).map(function (row) {
@@ -1234,19 +1235,24 @@
   }
 
   function previewText(text, name, kind) {
+    var isMT5 = kind === "mt5" || /^\s*(?:<!doctype\s+html|<html|<table)/i.test(String(text));
     try {
-      var isMT5 = kind === "mt5" || /^\s*(?:<!doctype\s+html|<html|<table)/i.test(String(text));
       var raw = isMT5 ? parseMT5HTML(text) : parseCSV(text);
       var rows = normalize(raw);
-      if (!rows.length) throw new Error("empty");
+      var report = qualityReport(raw, rows);
+      // Ни одной пригодной строки — это чужой формат, а не грязные данные.
+      // Экран качества со сплошными ошибками тут только запутывает.
+      if (!rows.length || !report.valid) throw new Error("unreadable");
       pendingImport = {
         text: String(text), name: name, kind: isMT5 ? "mt5" : "csv", raw: raw,
-        rows: rows, report: qualityReport(raw, rows)
+        rows: rows, report: report
       };
       error.style.display = "none";
       renderQuality();
     } catch (e) {
-      error.textContent = T.invalid;
+      // Тупиковое «проверь формат» не помогает: чаще всего приходят отчёт MT4
+      // или выгрузка из кабинета брокера. Говорим, что именно сделать.
+      error.textContent = isMT5 ? T.invalidHtml : T.invalidCsv;
       error.style.display = "block";
     }
   }
