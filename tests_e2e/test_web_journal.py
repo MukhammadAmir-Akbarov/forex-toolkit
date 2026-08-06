@@ -167,7 +167,9 @@ def test_import_quality_preview_excludes_duplicates_and_protects_monte_carlo(
         {"name": "quality.csv", "mimeType": "text/csv", "buffer": csv.encode()},
     )
     panel = page.locator("#journal-quality")
-    assert panel.is_visible()
+    # FileReader асинхронный: is_visible() без ожидания выигрывает гонку на
+    # быстрой машине и проигрывает в CI.
+    panel.wait_for(state="visible")
     assert "3" in panel.inner_text()
     assert "unknown_note" in panel.inner_text()
     assert panel.locator("tr.is-problem").count() == 1
