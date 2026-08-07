@@ -62,9 +62,12 @@ skripti yordamida `data/EURUSD_1h.csv` arxividan yaratilgan:
 python tools/replay_cutter.py \
   --pairs EURUSD,GBPUSD,USDJPY,EURJPY \
   --timeframes 1h,1d \
-  --episodes 6 --context 30 --outcome 15 \
+  --episodes 10 --context 30 --outcome 15 \
   --output _mkdocs/data/replay-episodes.json
 ```
 
-`--episodes` har bir bozor va taymfreym uchun epizodlar sonini belgilaydi.
+`--episodes` har bir bozor va taymfreym uchun epizodlar sonini belgilaydi:
+hozir 10 ta, ya'ni sakkizta bog'lanish bo'yicha jami 80 ta. Skript tanlovni
+butun arxiv bo'ylab yoyadi (D1 — 2021 yildan boshlab), epizodlarni bir-biriga
+tushirmaydi va trend bilan yon harakatni aralashtiradi.
 Skript JPY pip hajmini to'g'ri ishlatadi va kategoriyalarni muvozanatlaydi.

@@ -53,6 +53,6 @@ def test_exam_question_is_readable_on_a_phone(pw_page, site_url):
     )
     # Узкая колонка переносила вопрос по одной букве в строку.
     assert width > 250, f"вопрос шириной {width}px — текст будет рваться по буквам"
-    assert "Вопрос 1 из 18" in page.text_content("#exam-counter")
+    assert "Вопрос 1 из 20" in page.text_content("#exam-counter")
     assert "Очки" in page.text_content("#exam-score")
     assert page.locator(".exam-option").count() == 4

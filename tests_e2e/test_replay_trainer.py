@@ -46,7 +46,15 @@ def test_replay_session_saves_v2_stats(site_url, pw_page):
     page.goto(f"{site_url}/tools/replay-trainer/")
     page.wait_for_selector("#rp-skip")
 
-    for _ in range(6):
+    # Число эпизодов на рынок берём из самого виджета: тест жёстко пропускал
+    # шесть, и после расширения набора до десяти сессия просто не кончалась.
+    total = page.evaluate(
+        "() => Number((document.getElementById('rp-meta').textContent"
+        ".match(/(\\d+)\\s*\\|/) || [])[1] || 0)"
+    )
+    assert total > 0, "не удалось прочитать число эпизодов из #rp-meta"
+
+    for _ in range(total):
         page.click("#rp-skip")
         page.click("#rp-next")
 
@@ -57,7 +65,7 @@ def test_replay_session_saves_v2_stats(site_url, pw_page):
 
     assert stored["version"] == 2
     assert stored["trades"] == 0
-    assert stored["skips"] == 6
+    assert stored["skips"] == total
     assert stored["errors"] == []
 
 

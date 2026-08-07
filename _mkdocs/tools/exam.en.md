@@ -1,13 +1,15 @@
 # 🎓 Final Exam + Certificate
 
 !!! abstract "How it works"
-    18 questions covering the entire course: risk management, psychology, trading
-    costs, and market mechanics. Passing score — **80%** (15 out of 18). Pass it
-    and you get a **personalised PNG certificate** you can download and share.
+    Every attempt draws **20 random questions from a bank of 30**, and the
+    answer options are shuffled too — memorising the order will not work.
+    Topics: risk management, position sizing, trading costs, psychology,
+    market mechanics. Passing score — **80%** (16 out of 20). Pass it and
+    you get a **personalised PNG certificate** you can download and share.
 
-    This is not a test of "genius" — it checks whether you have absorbed the
-    principles that separate surviving beginners from a blown deposit. Your best
-    result is saved in the browser.
+    More than half the questions ask you to calculate or judge a situation
+    rather than recall a definition. If you fail, the exam lists the topics
+    to revisit. Your best result is saved in the browser.
 
 !!! warning "Educational material — not financial advice"
     The correct answers reflect risk-management principles, not a guarantee of
@@ -24,7 +26,7 @@
       Name for the certificate
       <input type="text" id="exam-name" maxlength="40" placeholder="e.g. John Smith" autocomplete="name">
     </label>
-    <button class="calc-button" id="exam-start-btn">▶ Start exam (18 questions)</button>
+    <button class="calc-button" id="exam-start-btn">▶ Start the exam (20 of 30 questions)</button>
   </div>
 
   <div id="exam-play" style="display:none">
@@ -50,112 +52,334 @@
 <script type="application/json" id="exam-questions">
 [
   {
-    "q": "What is the maximum recommended risk per trade for a beginner?",
-    "options": ["10% of deposit", "1–2% of deposit", "50% of deposit", "Whatever you can afford to lose"],
+    "q": "What is a sensible maximum risk per trade for a beginner?",
+    "options": [
+      "5–10% of the account — otherwise it grows too slowly",
+      "1–2% of the account",
+      "It depends on how confident you are in the signal",
+      "Enough for the profit to cover the previous loss"
+    ],
     "answer": 1,
-    "explain": "1–2% per trade — even a streak of 10 losses won't destroy the account. This is the primary rule of survival."
+    "explain": "1–2% per trade. At 1%, even ten losses in a row take about 10% of the account and it survives the streak. \"By confidence\" is not risk management: confidence cannot be measured and peaks right before the worst trades."
   },
   {
-    "q": "Deposit $1000, risk 2%, stop 50 pips on EUR/USD. What is the position size?",
-    "options": ["0.04 lots", "0.4 lots", "1.0 lot", "0.004 lots"],
+    "q": "$1000 account, 2% risk, 50-pip stop on EUR/USD. What position size?",
+    "options": [
+      "0.04 lots",
+      "0.4 lots",
+      "1.0 lot",
+      "0.02 lots"
+    ],
     "answer": 0,
-    "explain": "Risk $20 / (50 pips × $10/pip per lot) = 0.04 lots. Position size is calculated FROM the risk, not guessed."
+    "explain": "$20 risk ÷ (50 pips × $10 per pip per lot) = 0.04 lots. Size follows FROM risk and stop distance — it is never picked by feel."
   },
   {
-    "q": "What is a stop-loss?",
-    "options": ["A take-profit level", "A pre-set level at which the losing trade is closed", "Leverage size", "Broker commission"],
+    "q": "$2000 account, 1.5% risk, 30-pip stop on USD/JPY at 150.00. Position size?",
+    "options": [
+      "0.10 lots",
+      "0.20 lots",
+      "0.15 lots",
+      "0.015 lots"
+    ],
+    "answer": 2,
+    "explain": "A USD/JPY pip is NOT $10: 0.01 × 100,000 = ¥1000 ÷ 150 = $6.67 per lot. $30 risk ÷ (30 × 6.67) = 0.15 lots. Anyone who plugs in $10 out of habit gets 0.10 and takes only $20 of risk instead of $30."
+  },
+  {
+    "q": "$500 account, 1:100 leverage. You want 0.5 lots of EUR/USD at 1.1000. How much margin is required?",
+    "options": [
+      "$55 — plenty of room",
+      "$550 — the account is too small, the trade will not open",
+      "$110",
+      "$5.50"
+    ],
     "answer": 1,
-    "explain": "A stop-loss limits the loss in advance. Trading without a stop is the fastest route to blowing an account."
+    "explain": "0.5 lots = 50,000 EUR ≈ $55,000. Margin = $55,000 ÷ 100 = $550, more than the account. Leverage does not \"give you money\" — it sets how much of the position must be locked up."
   },
   {
-    "q": "Leverage 1:500 means…",
-    "options": ["A guaranteed profit 500 times over", "The ability to control a position 500× the deposit (and risk is also ×)", "A broker discount", "A deposit bonus"],
-    "answer": 1,
-    "explain": "Leverage amplifies both profit and loss. High leverage ≠ high risk BY ITSELF — risk is controlled by position size and the stop."
+    "q": "Your stop was at 1.0950 but the position closed at 1.0938. This is…",
+    "options": [
+      "A terminal bug — reinstall it",
+      "The broker cheating you; file a complaint",
+      "Slippage: a stop is a trigger price, not a guaranteed fill",
+      "Impossible, stops always fill exactly at the level"
+    ],
+    "answer": 2,
+    "explain": "An ordinary stop becomes a market order once the level is touched. In a fast market the nearest available price is worse. That is why the real loss can exceed the planned one — only a separate \"guaranteed stop\" product removes this."
   },
   {
-    "q": "What does the mathematical expectation (EV) of a strategy show?",
-    "options": ["How much money you will definitely earn", "The average result per trade over the long run", "The commission size", "Win rate"],
-    "answer": 1,
-    "explain": "EV = (win rate × average win) − (losses). If EV ≤ 0 — even a million trades won't save you."
-  },
-  {
-    "q": "Win rate 40%, R:R = 1:2. The strategy is…",
-    "options": ["Unprofitable", "Profitable over the long run", "Depends on the broker", "Impossible"],
-    "answer": 1,
-    "explain": "With R:R 1:2 the break-even win rate is ≈ 33%. 40% > 33% → positive EV. A high win rate is not required."
-  },
-  {
-    "q": "The spread is…",
-    "options": ["A government tax", "The difference between the buy and sell price", "Stop size", "Leverage"],
-    "answer": 1,
-    "explain": "The spread (Ask − Bid) is a cost you pay immediately when a trade is opened."
-  },
-  {
-    "q": "A swap is…",
-    "options": ["A fee for holding a position overnight", "A volume bonus", "A type of order", "A withdrawal commission"],
+    "q": "Two $1000 accounts: one with 1:30 leverage, one with 1:500. Both open 0.1 lots of EUR/USD with a 20-pip stop. Who risks more money?",
+    "options": [
+      "The same — $20 each: risk comes from size and stop, not leverage",
+      "The second one risks about 16× more",
+      "The second one risks slightly more because of margin",
+      "The first one — it locks up more money"
+    ],
     "answer": 0,
-    "explain": "A swap is charged for holding a position overnight and depends on the interest rate differential between the currencies."
+    "explain": "0.1 lots × 20 pips × $1 = $20 for both. Leverage only changes the margin held ($367 vs $22). What is dangerous is not leverage itself but the size it lets you open."
   },
   {
-    "q": "40 small trades per month whose spreads eat up a significant portion of the deposit — this is an example of…",
-    "options": ["Smart trading", "Overtrading (costs kill the account)", "Hedging", "Risk-free scalping"],
+    "q": "50% win rate, average win 1.5R, average loss 1R, spread and commission cost about 0.1R per trade. What is the expectancy?",
+    "options": [
+      "+0.25R",
+      "+0.15R",
+      "−0.10R",
+      "+0.65R"
+    ],
     "answer": 1,
-    "explain": "Costs across hundreds of trades are a 'silent deposit killer'. Trade less frequently and more deliberately."
+    "explain": "0.5 × 1.5 − 0.5 × 1 − 0.1 = +0.15R. You get +0.25R only by ignoring costs — and that is exactly how a strategy that is profitable on paper turns into a losing one in practice."
   },
   {
-    "q": "After 5 consecutive losses the best course of action is…",
-    "options": ["Double the size to recover losses", "Take a break and review your discipline", "Switch broker", "Increase leverage"],
-    "answer": 1,
-    "explain": "Revenge trading (martingale, tilt) blows up accounts. A losing streak is a signal to pause and review — not to increase risk."
+    "q": "A strategy has a 90% win rate, average win 0.1R and average loss 1R. Over a long run it is…",
+    "options": [
+      "Profitable — nine wins out of ten",
+      "Break-even",
+      "Losing: expectancy is −0.01R per trade",
+      "Profitable if you increase size"
+    ],
+    "answer": 2,
+    "explain": "0.9 × 0.1 − 0.1 × 1 = −0.01R. A high win rate with tiny targets and wide stops is the most common trap: nine wins do not cover a single loss."
   },
   {
-    "q": "Why keep a trading journal?",
-    "options": ["For tax purposes only", "To identify your own error patterns and improve", "It's optional", "To show off"],
-    "answer": 1,
-    "explain": "A journal turns experience into data: when and on what you lose and win. Without it, progress is random."
+    "q": "R:R is 1:3. What is the minimum win rate needed to break even (ignoring costs)?",
+    "options": [
+      "33%",
+      "50%",
+      "25%",
+      "75%"
+    ],
+    "answer": 2,
+    "explain": "Break-even win rate = 1 ÷ (1 + 3) = 25%. 33% is the answer for 1:2 — a common mix-up. The higher the R:R, the less often you need to be right."
   },
   {
-    "q": "A demo account is for…",
-    "options": ["Earning real money", "Learning the platform and testing a strategy without risk", "Getting a bonus", "Avoiding taxes"],
-    "answer": 1,
-    "explain": "Demo is for mechanics and strategy testing. But demo doesn't replicate the psychology of real money — switch to live with a small size."
+    "q": "Spread is 1.5 pips and you take 40 trades a month at 0.1 lots on EUR/USD. What does the spread cost per month?",
+    "options": [
+      "$6",
+      "$1.50",
+      "$600",
+      "$60 — that is 6% of a $1000 account"
+    ],
+    "answer": 3,
+    "explain": "1.5 × $1 per pip (0.1 lots) × 40 = $60. On a $1000 account that is 6% a month in costs alone — the strategy has to earn that back before it earns anything for you."
   },
   {
-    "q": "A manager promises 'guaranteed 30% profit per month' — this is…",
-    "options": ["An excellent opportunity", "A sign of a scam / pyramid scheme", "Normal for forex", "A bank service"],
-    "answer": 1,
-    "explain": "Guaranteed high returns do not exist. This is a classic sign of fraud."
+    "q": "A 10-pip stop with a 2-pip spread. What share of your risk does the spread consume?",
+    "options": [
+      "20%",
+      "2%",
+      "10%",
+      "0.2%"
+    ],
+    "answer": 0,
+    "explain": "2 ÷ 10 = 20% of the risk goes to the broker before price moves at all. That is why tight stops and scalping cost a beginner more than they look: the tighter the stop, the larger the cost share inside it."
   },
   {
-    "q": "What is declared for trading income tax (UZ resident)?",
-    "options": ["Each trade separately", "The annual net result: profits minus losses", "Withdrawals only", "Nothing"],
-    "answer": 1,
-    "explain": "The annual net result is declared, personal income tax 12%. Check soliq.uz."
+    "q": "On which weekday is triple swap normally charged?",
+    "options": [
+      "Friday",
+      "Monday",
+      "Wednesday — the weekend rollover is settled through it",
+      "Triple swap does not exist"
+    ],
+    "answer": 2,
+    "explain": "Settlement runs on a T+2 schedule, so a position held through midweek takes three days of swap at once. Hold through Wednesday and you pay (or receive) triple."
   },
   {
-    "q": "A Margin Call level means…",
-    "options": ["The broker pays you extra", "Free margin is low — forced closure is at risk", "The trade was closed in profit", "A bonus"],
-    "answer": 1,
-    "explain": "Margin Call is a warning that funds are insufficient for the open position. Next comes Stop Out (forced closure)."
+    "q": "Three open positions at 1% risk each: long EUR/USD, long GBP/USD, short USD/CHF. What is the real portfolio risk?",
+    "options": [
+      "1% — the risks average out",
+      "About 1.7% — partial diversification",
+      "About 3% — all three are one bet against the dollar",
+      "0.33% each"
+    ],
+    "answer": 2,
+    "explain": "Three tickets, one bet: dollar down. A single strong dollar move takes out all three stops together. Measure risk by what one market move does, not by counting trades."
   },
   {
-    "q": "The best volatility window for majors is…",
-    "options": ["Night time in Tashkent", "London + New York session overlap", "Sydney open", "Weekends"],
+    "q": "An account loses 30%, then gains 30%. Where is it against the start?",
+    "options": [
+      "Exactly back at the start",
+      "−9%",
+      "−0.9%",
+      "+9%"
+    ],
     "answer": 1,
-    "explain": "The London/New York overlap has the highest volume and tight spreads on EUR/USD and GBP/USD."
+    "explain": "0.7 × 1.3 = 0.91, so −9%. Drawdown and recovery are not symmetric: after −50% you need +100%. That is why protecting capital beats chasing returns."
   },
   {
-    "q": "Risk of ruin increases when…",
-    "options": ["Risk per trade is small", "Risk per trade is large and/or EV is negative", "A stop-loss is in place", "You keep a journal"],
-    "answer": 1,
-    "explain": "A large risk per trade sharply raises the chance of wiping the account even with a working strategy. Control the risk size."
+    "q": "With a 50% win rate you hit five losses in a row. What does the maths say?",
+    "options": [
+      "The strategy is broken and must be replaced",
+      "The market has changed",
+      "It is nearly impossible",
+      "It is normal: such a streak shows up roughly once in 32 runs"
+    ],
+    "answer": 3,
+    "explain": "0.5⁵ = 3.1%, about 1 in 32. A losing streak on its own proves nothing — changing a strategy over five trades means changing it in response to noise."
   },
   {
-    "q": "The most important survival skill for a beginner is…",
-    "options": ["Guessing direction", "Risk management and discipline", "High leverage", "Lots of trades"],
+    "q": "Twenty trades produced +6R in total. What can you correctly say about that?",
+    "options": [
+      "The strategy has proven an edge",
+      "You can safely double your risk",
+      "The sample is too small: chance alone produces that result in about 13% of runs",
+      "The win rate is now guaranteed to hold"
+    ],
+    "answer": 2,
+    "explain": "Over 20 trades, skill and luck are indistinguishable. Run your own numbers through the \"Skill or luck\" check — it measures what share of random runs match your result."
+  },
+  {
+    "q": "Entry 1.1000, stop 1.0950, exit at 1.1120. How many R is that?",
+    "options": [
+      "+1.2R",
+      "+2.4R",
+      "+0.4R",
+      "+120R"
+    ],
     "answer": 1,
-    "explain": "Markets cannot be predicted consistently. Survival comes from risk management and discipline, not from entry accuracy."
+    "explain": "Risk = 50 pips = 1R. Result = 120 pips = 120 ÷ 50 = +2.4R. Counting trades in R rather than dollars is the only way to compare them when position sizes differ."
+  },
+  {
+    "q": "A strategy makes +0.2R per trade at 1% risk over 8 trades a month. What monthly return should you expect?",
+    "options": [
+      "About 16%",
+      "About 1.6%",
+      "About 8%",
+      "About 0.2%"
+    ],
+    "answer": 1,
+    "explain": "0.2R × 1% × 8 = 1.6% a month — and that is with a strategy that works. Real numbers look boring; anything promising 30% a month is promising risk of ruin, not return."
+  },
+  {
+    "q": "Moving the stop to break-even right after entry…",
+    "options": [
+      "Is always right — the trade becomes free",
+      "Cuts risk but gets you stopped out by noise more often: the rule must be set in advance",
+      "Changes nothing",
+      "Increases the average win"
+    ],
+    "answer": 1,
+    "explain": "There are no free upgrades: removing risk costs you a share of trades that would have gone on to win. It is a legitimate choice, but it belongs in your written rules and should be tested on history — not decided mid-trade out of fear."
+  },
+  {
+    "q": "The daily loss limit of −2R is used up by lunchtime. What does a disciplined trader do?",
+    "options": [
+      "Wins it back with one large trade",
+      "Keeps trading at half size",
+      "Closes the terminal until tomorrow — that is what a limit is for",
+      "Rolls the limit over and trades to −4R"
+    ],
+    "answer": 2,
+    "explain": "A limit you can move is not a limit, it is a preference. Half size sounds reasonable but is the same rule-bending — and right after a limit is hit is exactly when your decisions are worst."
+  },
+  {
+    "q": "What separates a Stop Out from a Margin Call?",
+    "options": [
+      "A Margin Call closes positions, a Stop Out is only a warning",
+      "They are the same thing",
+      "A Margin Call warns that free margin is low; a Stop Out is the broker force-closing positions",
+      "The trader sets the Stop Out and the broker sets the Margin Call"
+    ],
+    "answer": 2,
+    "explain": "First the Margin Call level warns that free margin is running low. If the loss keeps growing, Stop Out triggers and the broker closes positions itself, at market, without asking you."
+  },
+  {
+    "q": "For the year: $3000 in profits and $1200 in losses. At a 12% personal income tax rate, what is due (Uzbekistan resident)?",
+    "options": [
+      "$360",
+      "$216",
+      "$144",
+      "$0 — forex is not taxed"
+    ],
+    "answer": 1,
+    "explain": "You declare the net annual result: ($3000 − $1200) × 12% = $216. You get $360 only by taxing the profits and forgetting to subtract the losses. Check soliq.uz — rules change."
+  },
+  {
+    "q": "0.01 lots of EUR/USD — how much currency is that and what is a pip worth?",
+    "options": [
+      "100 units, pip ≈ $1",
+      "10,000 units, pip ≈ $1",
+      "1,000 units, pip ≈ $0.10",
+      "1,000 units, pip ≈ $1"
+    ],
+    "answer": 2,
+    "explain": "A standard lot is 100,000 units, so 0.01 lots = 1,000 EUR and a pip is worth $0.10. A microlot is the right size for a first live account."
+  },
+  {
+    "q": "You have a 20-pip stop and NFP is released in a minute. What can go wrong with that specific stop?",
+    "options": [
+      "Nothing — the stop guarantees exactly a 20-pip loss",
+      "A price gap fills the stop beyond the level and the loss exceeds the plan",
+      "The stop is cancelled automatically",
+      "The broker widens the stop for you"
+    ],
+    "answer": 1,
+    "explain": "On a news release price jumps over levels and the spread widens. The stop fills at the first available price, sometimes far past the level. Sitting out the release is cheaper for a beginner than paying for that fill."
+  },
+  {
+    "q": "Two traders run the same strategy with +0.2R expectancy. One risks 1% per trade, the other 10%. Over 200 trades…",
+    "options": [
+      "The second earns exactly ten times more",
+      "Results are the same in percentage terms",
+      "The second has lower risk — they reach profit faster",
+      "The second is far more likely to blow the account despite the same expectancy"
+    ],
+    "answer": 3,
+    "explain": "A positive expectancy only pays the trader who survives long enough to reach it. At 10% risk, seven losses take over half the account and recovery becomes mathematically hopeless. Risk size decides whether you ever see your own edge."
+  },
+  {
+    "q": "Three profitable months on demo. What does this NOT prove?",
+    "options": [
+      "That you will sit through the same drawdown when the money is real",
+      "That you know your way around the terminal",
+      "That the strategy rules can be followed mechanically",
+      "That you can calculate position size"
+    ],
+    "answer": 0,
+    "explain": "Demo tests mechanics and rules, not psychology. The only way to find out how you behave during a real loss is a live account with minimal size."
+  },
+  {
+    "q": "Which of these is NOT, on its own, a sign of fraud?",
+    "options": [
+      "A guaranteed 30% profit per month",
+      "Being asked to deposit more money in order to withdraw profits",
+      "1:500 leverage",
+      "No licence and no registered legal entity"
+    ],
+    "answer": 2,
+    "explain": "High leverage is offered by legitimate non-EU brokers too — the danger is using it, not seeing it on a list. A guaranteed return and \"pay more to withdraw\", on the other hand, mean the money is already gone."
+  },
+  {
+    "q": "What makes a journal entry usable for analysis?",
+    "options": [
+      "A chart screenshot with no notes",
+      "The reason for entry and whether the rules were followed, written down BEFORE the outcome is known",
+      "The month's total P/L",
+      "An entry written from memory at the end of the week"
+    ],
+    "answer": 1,
+    "explain": "Once a trade closes, memory rewrites the motive to fit the result: a win looks like analysis, a loss like bad luck. Only what you recorded in advance carries information."
+  },
+  {
+    "q": "Why is the London–New York overlap easier for a beginner on EUR/USD?",
+    "options": [
+      "Price trends during those hours",
+      "More volume and a tighter spread",
+      "The risk of losing is lower then",
+      "The broker lowers commission"
+    ],
+    "answer": 1,
+    "explain": "Peak liquidity means a tight spread and less slippage — a cheaper entry and a fairer stop fill. Liquidity promises nothing about direction."
+  },
+  {
+    "q": "Which skill decides a beginner's account over the long run?",
+    "options": [
+      "Accuracy in predicting direction",
+      "Reacting quickly to the news",
+      "A correctly tuned indicator",
+      "Risk management and discipline"
+    ],
+    "answer": 3,
+    "explain": "Nobody predicts direction consistently. The survivors are the ones who cap the loss and follow their own rules — which is what this entire exam was testing."
   }
 ]
 </script>
