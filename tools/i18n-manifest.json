@@ -423,10 +423,10 @@
     },
     "tools/exam.md": {
       "locales": {
-        "en": "74fa77caa18c1eaede5f75b9efd3eb8a882ba5f958f248e0c7c7437c2a2a63d8",
-        "uz": "74fa77caa18c1eaede5f75b9efd3eb8a882ba5f958f248e0c7c7437c2a2a63d8"
+        "en": "e71232b6c067dad3d59df587c07a6d2136c8afef3d8092e754062383df87ce4c",
+        "uz": "e71232b6c067dad3d59df587c07a6d2136c8afef3d8092e754062383df87ce4c"
       },
-      "ru_sha256": "74fa77caa18c1eaede5f75b9efd3eb8a882ba5f958f248e0c7c7437c2a2a63d8"
+      "ru_sha256": "e71232b6c067dad3d59df587c07a6d2136c8afef3d8092e754062383df87ce4c"
     },
     "tools/flashcards.md": {
       "locales": {
@@ -465,17 +465,17 @@
     },
     "tools/quiz.md": {
       "locales": {
-        "en": "fe90e3463b6e458f56423bdbeb397a2e98786500009d7e6d11e7b23e84da763f",
-        "uz": "fe90e3463b6e458f56423bdbeb397a2e98786500009d7e6d11e7b23e84da763f"
+        "en": "e5853887ed386088960ba81d466de1643667d5625346305631f103b7cb5bf643",
+        "uz": "e5853887ed386088960ba81d466de1643667d5625346305631f103b7cb5bf643"
       },
-      "ru_sha256": "fe90e3463b6e458f56423bdbeb397a2e98786500009d7e6d11e7b23e84da763f"
+      "ru_sha256": "e5853887ed386088960ba81d466de1643667d5625346305631f103b7cb5bf643"
     },
     "tools/replay-trainer.md": {
       "locales": {
-        "en": "08d29382554ab9014ad9da2b62b7032e3a9b39989eef021d07cecaa55e425ab5",
-        "uz": "08d29382554ab9014ad9da2b62b7032e3a9b39989eef021d07cecaa55e425ab5"
+        "en": "943b1ce89ab4fd5320e8639f8eb184014bf8cac172b74bfa31024bd0079d0cac",
+        "uz": "943b1ce89ab4fd5320e8639f8eb184014bf8cac172b74bfa31024bd0079d0cac"
       },
-      "ru_sha256": "08d29382554ab9014ad9da2b62b7032e3a9b39989eef021d07cecaa55e425ab5"
+      "ru_sha256": "943b1ce89ab4fd5320e8639f8eb184014bf8cac172b74bfa31024bd0079d0cac"
     },
     "tools/risk-exposure-calculator.md": {
       "locales": {

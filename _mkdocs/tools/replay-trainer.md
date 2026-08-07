@@ -62,9 +62,12 @@ widgets: [replay]
 python tools/replay_cutter.py \
   --pairs EURUSD,GBPUSD,USDJPY,EURJPY \
   --timeframes 1h,1d \
-  --episodes 6 --context 30 --outcome 15 \
+  --episodes 10 --context 30 --outcome 15 \
   --output _mkdocs/data/replay-episodes.json
 ```
 
-`--episodes` задаёт число эпизодов **на каждый рынок и таймфрейм**. Скрипт
+`--episodes` задаёт число эпизодов **на каждый рынок и таймфрейм**: сейчас
+их 10, то есть 80 на все восемь связок. Скрипт растягивает выборку по всему
+архиву (D1 — с 2021 года), не даёт эпизодам перекрываться и держит смесь
+трендов и боковика. Скрипт
 правильно учитывает размер пипса JPY-пар и балансирует тренд/флэт.

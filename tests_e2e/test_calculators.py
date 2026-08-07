@@ -344,10 +344,14 @@ def test_winrate_calculator(pw_page, site_url, prefix):
 def test_exam_certificate(pw_page, site_url, prefix):
     page = pw_page
     page.goto(f"{site_url}/{prefix}tools/exam/")
-    questions = page.evaluate(
+    bank = page.evaluate(
         "() => JSON.parse(document.getElementById('exam-questions').textContent)"
     )
-    assert len(questions) == 18
+    assert len(bank) == 30, f"[{prefix}] банк вопросов не 30"
+    draw = 20  # столько виджет достаёт из банка за попытку
+    # Порядок вопросов и вариантов случаен, поэтому идём по тому, что реально
+    # показано на экране, а не по индексам банка.
+    correct_for = {q["q"]: q["options"][q["answer"]] for q in bank}
 
     page.fill("#exam-name", "Test User")
     page.wait_for_selector("#exam-start-btn", state="visible")
@@ -356,23 +360,25 @@ def test_exam_certificate(pw_page, site_url, prefix):
     # DOM-click вызывает тот же штатный обработчик без зависимости от viewport.
     page.locator("#exam-start-btn").evaluate("button => button.click()")
 
-    for n, q in enumerate(questions):
+    seen = []
+    for n in range(draw):
         page.wait_for_function(
-            "expected => document.getElementById('exam-question').textContent"
-            ".trim() === expected"
-            " && document.querySelectorAll('#exam-options .exam-option').length > 0",
-            arg=q["q"],
+            "() => document.getElementById('exam-question').textContent.trim()"
+            " && document.querySelectorAll('#exam-options .exam-option').length > 0"
         )
-        # Кликаем вариант с текстом правильного ответа (точное совпадение).
-        correct = q["options"][q["answer"]]
+        shown = page.text_content("#exam-question").strip()
+        assert shown in correct_for, f"[{prefix}] вопрос вне банка: {shown!r}"
+        seen.append(shown)
         clicked = page.evaluate(
             "c => { const b = [...document.querySelectorAll("
             "'#exam-options .exam-option')].find(x => x.textContent.trim() === c);"
             " if (!b) return false; b.click();"
             " document.getElementById('exam-next').click(); return true; }",
-            correct,
+            correct_for[shown],
         )
-        assert clicked, f"[{prefix}] не нашёл вариант: {correct!r}"
+        assert clicked, f"[{prefix}] не нашёл вариант: {correct_for[shown]!r}"
+
+    assert len(set(seen)) == draw, f"[{prefix}] вопрос повторился внутри попытки"
 
     # Результат: 100% → проходной балл, сертификат виден, прогресс записан.
     page.wait_for_selector("#exam-cert-wrap", state="visible")

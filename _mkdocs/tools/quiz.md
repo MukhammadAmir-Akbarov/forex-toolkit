@@ -147,9 +147,10 @@ const QUIZ = [
   }
 ];
 
-let qOrder = [], qIdx = 0, qScore = 0, qAnswered = false;
+let qDeck = [], qIdx = 0, qScore = 0, qAnswered = false;
 
-function shuffle(a) {
+function shuffle(list) {
+  const a = [...list];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [a[i], a[j]] = [a[j], a[i]];
@@ -164,7 +165,13 @@ function showBest() {
 }
 
 function quizStart() {
-  qOrder = shuffle([...Array(QUIZ.length).keys()]);
+  // Перемешиваем и вопросы, и варианты: раньше правильный ответ почти всегда
+  // стоял вторым, и квиз проходился вслепую на 78%.
+  qDeck = shuffle(QUIZ).map((item) => {
+    const right = item.options[item.correct];
+    const options = shuffle(item.options);
+    return { ...item, options, correct: options.indexOf(right) };
+  });
   qIdx = 0; qScore = 0;
   document.getElementById("quiz-start").style.display = "none";
   document.getElementById("quiz-result").style.display = "none";
@@ -174,7 +181,7 @@ function quizStart() {
 
 function renderQuestion() {
   qAnswered = false;
-  const item = QUIZ[qOrder[qIdx]];
+  const item = qDeck[qIdx];
   document.getElementById("quiz-counter").textContent = `Вопрос ${qIdx + 1} из ${QUIZ.length}`;
   document.getElementById("quiz-score").textContent = `Очки: ${qScore}`;
   document.getElementById("quiz-bar").style.width = `${(qIdx / QUIZ.length) * 100}%`;
@@ -196,7 +203,7 @@ function renderQuestion() {
 function quizAnswer(choice, btn) {
   if (qAnswered) return;
   qAnswered = true;
-  const item = QUIZ[qOrder[qIdx]];
+  const item = qDeck[qIdx];
   const buttons = document.querySelectorAll("#quiz-options .quiz-opt");
   buttons.forEach((b, i) => {
     b.disabled = true;

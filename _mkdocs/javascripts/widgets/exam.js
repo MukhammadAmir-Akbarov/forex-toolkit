@@ -7,6 +7,12 @@
  *
  * Проходной балл 80%. На успехе пишет в localStorage forex_exam_passed (для
  * интеграции с трекером прогресса) и forex_exam_best (лучший процент).
+ *
+ * Каждая попытка собирается заново: DRAW случайных вопросов из банка, и у
+ * каждого свой порядок вариантов. Без этого экзамен сдавался не читая: в банке
+ * правильный ответ стоял вторым 16 раз из 18, поэтому 18 кликов по второй
+ * кнопке давали 89% при проходном 80%. Перемешивание убирает и вторую дыру —
+ * пересдачу по памяти, когда вопросы идут в том же порядке.
  */
 (function () {
   if (!document.getElementById("exam-widget")) return;
@@ -23,6 +29,10 @@
       score: function (s) { return "Очки: " + s; },
       best: function (p) { return "🏆 Лучший результат: " + p + "%"; },
       noBest: "Пройди экзамен, чтобы проверить себя.",
+      startBtn: function (n, bank) {
+        return "▶ Начать экзамен (" + n + " из " + bank + " вопросов)";
+      },
+      reviewTitle: "Вернись к этим темам:",
       passTitle: function (p) { return "🎉 Сдано — " + p + "%!"; },
       failTitle: function (p) { return "Пока не сдано — " + p + "%"; },
       passBody: "Отличная база! Скачай сертификат ниже. Но помни: настоящий экзамен — рынок. Переходи на реал маленьким объёмом.",
@@ -41,6 +51,10 @@
       score: function (s) { return "Score: " + s; },
       best: function (p) { return "🏆 Best result: " + p + "%"; },
       noBest: "Take the exam to test yourself.",
+      startBtn: function (n, bank) {
+        return "▶ Start the exam (" + n + " of " + bank + " questions)";
+      },
+      reviewTitle: "Go back to these topics:",
       passTitle: function (p) { return "🎉 Passed — " + p + "%!"; },
       failTitle: function (p) { return "Not passed yet — " + p + "%"; },
       passBody: "Great foundation! Download your certificate below. But remember: the real exam is the market. Go live with a small size.",
@@ -59,6 +73,10 @@
       score: function (s) { return "Ball: " + s; },
       best: function (p) { return "🏆 Eng yaxshi natija: " + p + "%"; },
       noBest: "O'zingizni sinab ko'rish uchun imtihon topshiring.",
+      startBtn: function (n, bank) {
+        return "▶ Imtihonni boshlash (" + bank + " ta savoldan " + n + " tasi)";
+      },
+      reviewTitle: "Ushbu mavzularga qayting:",
       passTitle: function (p) { return "🎉 Topshirildi — " + p + "%!"; },
       failTitle: function (p) { return "Hali topshirilmadi — " + p + "%"; },
       passBody: "Ajoyib poydevor! Quyida sertifikatni yuklab oling. Lekin esda tuting: asl imtihon — bozor. Kichik hajm bilan realga o'ting.",
@@ -74,20 +92,60 @@
     },
   })[lang];
 
-  var QUESTIONS = [];
+  var BANK = [];
   try {
-    QUESTIONS = JSON.parse(document.getElementById("exam-questions").textContent);
+    BANK = JSON.parse(document.getElementById("exam-questions").textContent);
   } catch (e) {
-    QUESTIONS = [];
+    BANK = [];
   }
-  var total = QUESTIONS.length;
+  // Сколько вопросов достаётся за попытку. Банк больше — две подряд попытки
+  // почти не совпадают, зубрить порядок бессмысленно.
+  var DRAW = Math.min(20, BANK.length);
+
+  var QUESTIONS = [];
+  var total = DRAW;
 
   var idx = 0;
   var score = 0;
   var answered = false;
   var passedName = "";
+  var missed = [];
+
+  function shuffled(list) {
+    var a = list.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i];
+      a[i] = a[j];
+      a[j] = t;
+    }
+    return a;
+  }
+
+  function buildAttempt() {
+    return shuffled(BANK)
+      .slice(0, DRAW)
+      .map(function (item) {
+        // Правильный вариант ищем по тексту после перемешивания. Тексты внутри
+        // одного вопроса не должны повторяться — это держит тест банка.
+        var correct = item.options[item.answer];
+        var options = shuffled(item.options);
+        return {
+          q: item.q,
+          options: options,
+          answer: options.indexOf(correct),
+          explain: item.explain,
+        };
+      });
+  }
 
   var el = function (id) { return document.getElementById(id); };
+
+  function escapeHtml(value) {
+    var box = document.createElement("span");
+    box.textContent = String(value == null ? "" : value);
+    return box.innerHTML;
+  }
 
   function showBest() {
     var b = null;
@@ -98,6 +156,9 @@
   function start() {
     idx = 0;
     score = 0;
+    missed = [];
+    QUESTIONS = buildAttempt();
+    total = QUESTIONS.length;
     el("exam-start").style.display = "none";
     el("exam-result").style.display = "none";
     el("exam-cert-wrap").style.display = "none";
@@ -140,6 +201,7 @@
       score++;
     } else {
       btn.classList.add("exam-wrong");
+      missed.push(q.q);
     }
     el("exam-score").textContent = S.score(score);
     var ex = el("exam-explain");
@@ -170,11 +232,25 @@
     if (window.fxTrack) window.fxTrack("exam_completed");
 
     var name = (el("exam-name").value || "").trim();
+    // Экзамен стал строже, поэтому провал должен называть темы, а не просто
+    // «перечитай слабые места»: без списка человек не знает, куда возвращаться.
+    var review = "";
+    if (missed.length) {
+      review =
+        "<p><strong>" + S.reviewTitle + "</strong></p><ul class=\"exam-missed\">" +
+        missed
+          .map(function (text) {
+            return "<li>" + escapeHtml(text) + "</li>";
+          })
+          .join("") +
+        "</ul>";
+    }
     var html =
       '<div class="calc-result ' + (passed ? "calc-ok" : "calc-warn") + '">' +
       "<h3>" + (passed ? S.passTitle(pct) : S.failTitle(pct)) + "</h3>" +
       "<p>" + (passed ? S.passBody : S.failBody) + "</p>" +
       (passed && !name ? "<p><strong>" + S.needName + "</strong></p>" : "") +
+      review +
       '<button class="calc-button" id="exam-retake">' + S.retake + "</button>" +
       "</div>";
     var res = el("exam-result");
@@ -260,6 +336,9 @@
     link.click();
   }
 
+  // Подпись кнопки считается из банка, а не хранится в разметке трёх локалей:
+  // раньше там жило «18 вопросов», которое устаревало при правке банка.
+  el("exam-start-btn").textContent = S.startBtn(DRAW, BANK.length);
   el("exam-start-btn").addEventListener("click", start);
   el("exam-next").addEventListener("click", next);
   el("exam-download-btn").addEventListener("click", download);

@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import collections
 import json
 import math
 import sys
@@ -24,7 +25,6 @@ DATA_DIR = REPO / "data"
 
 CONTEXT = 40  # сколько свечей показывает виджет (история)
 OUTCOME = 20  # сколько свечей проигрывается (будущее)
-STEP = 30  # шаг выборки (избегаем перекрытия)
 
 
 def pip_size(pair: str) -> float:
@@ -91,62 +91,94 @@ def _category(candles: list[dict]) -> str:
     return "sideways"
 
 
+def _spread(pool: list[dict], count: int) -> list[dict]:
+    """Берёт count элементов, равномерно растянутых по списку.
+
+    Пул отсортирован по времени, поэтому равномерный шаг даёт эпизоды из
+    разных периодов рынка, а не подряд идущие куски одной недели.
+    """
+    if count <= 0 or not pool:
+        return []
+    if len(pool) <= count:
+        return list(pool)
+    stride = len(pool) / count
+    return [pool[int(index * stride)] for index in range(count)]
+
+
 def cut_episodes(
     candles: list[dict],
     n_episodes: int,
     context: int = CONTEXT,
     outcome: int = OUTCOME,
-    step: int = STEP,
+    step: int | None = None,
     pip: float = 0.0001,
 ) -> list[dict]:
+    """Нарезает архив на непересекающиеся эпизоды, разные по характеру рынка."""
     total = len(candles)
-    episodes = []
-    seen_cats: dict[str, int] = {}
+    window = context + outcome
+    usable = total - window
+    if usable <= 0:
+        return []
 
-    # Простой отбор с диверсификацией по категориям
-    i = context
-    while i + outcome < total and len(episodes) < n_episodes * 2:
-        ctx = candles[i - context : i]
-        cat = _category(ctx)
-        # Не более 50% от одной категории
-        if seen_cats.get(cat, 0) >= n_episodes // 2 + 1:
-            i += step
-            continue
-        fut = candles[i : i + outcome]
-        atr = _atr(ctx[-14:])
-        episodes.append(
+    if step is None:
+        # Шаг считаем от длины архива. С фиксированным шагом сбор кандидатов
+        # обрывался после 2×n_episodes штук, и все часовые эпизоды попадали в
+        # первый месяц данных — при 12 000 свечей истории виден был месяц.
+        # Шаг не меньше окна, иначе соседние эпизоды перекрываются и студент
+        # видит те же свечи дважды.
+        step = max(window, usable // max(n_episodes * 4, 1))
+
+    candidates: list[dict] = []
+    position = context
+    while position + outcome <= total:
+        ctx = candles[position - context : position]
+        candidates.append(
             {
-                "id": len(episodes),
-                "category": cat,
+                "id": 0,
+                "start": position,
+                "category": _category(ctx),
                 "context": ctx,
-                "future": fut,
+                "future": candles[position : position + outcome],
                 # Рекомендуемые уровни для виджета (в пипсах)
-                "atr_pips": round(atr / pip, 1),
+                "atr_pips": round(_atr(ctx[-14:]) / pip, 1),
                 "entry": ctx[-1]["c"],
             }
         )
-        seen_cats[cat] = seen_cats.get(cat, 0) + 1
-        i += step
+        position += step
 
-    # Обрезаем до нужного количества, выравниваем категории
-    episodes.sort(key=lambda e: e["category"])
+    # Сначала поровну от каждой категории, растягивая выбор по всей истории.
     selected: list[dict] = []
-    per_cat = n_episodes // 3
-    cat_counts: dict[str, int] = {}
-    for ep in episodes:
-        cat = ep["category"]
-        if cat_counts.get(cat, 0) < per_cat:
-            selected.append(ep)
-            cat_counts[cat] = cat_counts.get(cat, 0) + 1
-    # Добирем если не хватает
-    for ep in episodes:
-        if len(selected) >= n_episodes:
+    per_cat = max(n_episodes // 3, 1)
+    for cat in ("uptrend", "downtrend", "sideways"):
+        pool = [item for item in candidates if item["category"] == cat]
+        selected.extend(_spread(pool, per_cat))
+
+    # Оставшиеся слоты отдаём той категории, которой сейчас меньше всего.
+    # Если брать «что осталось», набор перекашивает в боковик: спокойных
+    # участков в архиве всегда больше, чем выраженных трендов.
+    counts = collections.Counter(item["category"] for item in selected)
+    taken = {item["start"] for item in selected}
+    while len(selected) < n_episodes:
+        pools = {
+            cat: [
+                item
+                for item in candidates
+                if item["category"] == cat and item["start"] not in taken
+            ]
+            for cat in ("uptrend", "downtrend", "sideways")
+        }
+        available = [cat for cat, pool in pools.items() if pool]
+        if not available:
             break
-        if ep not in selected:
-            selected.append(ep)
-    # Переназначить id по финальному порядку
-    for idx, ep in enumerate(selected[:n_episodes]):
-        ep["id"] = idx
+        cat = min(available, key=lambda name: (counts[name], name))
+        chosen = _spread(pools[cat], counts[cat] + 1)[-1]
+        selected.append(chosen)
+        taken.add(chosen["start"])
+        counts[cat] += 1
+
+    selected.sort(key=lambda item: item["start"])
+    for index, episode in enumerate(selected[:n_episodes]):
+        episode["id"] = index
     return selected[:n_episodes]
 
 
