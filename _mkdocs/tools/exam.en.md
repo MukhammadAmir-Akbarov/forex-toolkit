@@ -160,8 +160,6 @@
 ]
 </script>
 
-</div>
-
 ---
 
 ## What's next

@@ -160,8 +160,6 @@
 ]
 </script>
 
-</div>
-
 ---
 
 ## Keyingi qadam
