@@ -63,7 +63,9 @@ want to deal with interest.
           days, then retroactively apply a commission.
     - [ ] **Broker's regulator** — separate from account type. Start with a
           reliable broker (FCA/CySEC/ASIC), then choose an Islamic account
-          there. See [Brokers for Uzbekistan](brokers-uz.md).
+          there. See [Brokers for Uzbekistan](brokers-uz.md). The same checklist lives inside the
+          [broker check](../tools/broker-check.md), where you can work through
+          it next to the regulator registries.
 
 ## When Swap-Free Makes Sense
 

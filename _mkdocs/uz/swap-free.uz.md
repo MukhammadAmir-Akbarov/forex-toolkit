@@ -63,7 +63,9 @@ sabablarga ko'ra foiz bilan ishlamoqchi bo'lmagan treyderlar uchun qilingan.
           faqat N kun beradi, keyin komissiyani orqaga qaytarib yozadi.
     - [ ] **Brokerning regulyatori** — hisob turidan alohida masala. Avval
           ishonchli broker (FCA/CySEC/ASIC), keyin uning islomiy hisobi. Qarang:
-          [O'zbekiston uchun brokerlar](brokers-uz.md).
+          [O'zbekiston uchun brokerlar](brokers-uz.md). Xuddi shu ro'yxat
+          [broker tekshiruvi](../tools/broker-check.md) ichida ham bor — u yerda
+          uni regulyator reestrlaridan uzoqlashmasdan bajarish qulay.
 
 ## Svop-siz qachon mantiqli
 
