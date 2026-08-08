@@ -11,6 +11,12 @@
 //
 // Запуск:
 //   node tests/widget_sandbox.mjs <файл-виджета> <имя функции> '<JSON-массив аргументов>'
+//   node tests/widget_sandbox.mjs <файл-виджета> <имя функции> -   # аргументы со stdin
+//
+// Дефис вместо JSON — не украшение. В Linux один аргумент командной строки
+// ограничен 128 КБ (MAX_ARG_STRLEN), а полный архив свечей занимает 278 КБ:
+// сверка падала только в CI на ubuntu и проходила на macOS, где такого предела
+// нет. У stdin предела нет ни там, ни там.
 
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
@@ -96,7 +102,24 @@ function buildSandbox(locale) {
   return sandbox;
 }
 
-const [file, functionName, argsJson, locale = "ru"] = process.argv.slice(2);
+const [file, functionName, argsSource, locale = "ru"] = process.argv.slice(2);
+
+// Отказываемся от длинного аргумента сами, вместо того чтобы ждать E2BIG от
+// системы. Иначе поведение разъезжается: в Linux процесс просто не стартует,
+// а в macOS всё проходит — и ошибка живёт до первого запуска CI.
+const ARGV_LIMIT = 100_000;
+if (argsSource && argsSource !== "-" && argsSource.length > ARGV_LIMIT) {
+  console.log(
+    JSON.stringify({
+      error:
+        `аргументы длиннее ${ARGV_LIMIT} байт — передавай их через stdin, ` +
+        "поставив '-' вместо JSON",
+    })
+  );
+  process.exit(0);
+}
+
+const argsJson = argsSource === "-" ? readFileSync(0, "utf8") : argsSource;
 const sandbox = buildSandbox(locale);
 const context = vm.createContext(sandbox);
 

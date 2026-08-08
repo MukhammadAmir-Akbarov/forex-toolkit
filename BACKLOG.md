@@ -30,7 +30,7 @@
 | [#65](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/pull/65) | B4 | Сверки виджетов в Node вместо браузера — 33 проверки за 1.4 с |
 | [#66](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/pull/66) | — | Переключатель языков перестал свисать на соседние вкладки |
 
-Тесты: **253 → 424 unit**, **83 → 160 браузерных**. Четыре новых модуля пакета
+Тесты: **253 → 426 unit**, **83 → 160 браузерных**. Четыре новых модуля пакета
 (`tax_summary`, `habits`, `living_capital`, `pattern_outcomes`) — каждый с
 зеркалом в браузере и сверкой, по традиции проекта.
 

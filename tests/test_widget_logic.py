@@ -33,16 +33,16 @@ pytestmark = pytest.mark.skipif(
 
 
 def call(widget: str, function: str, *args, locale: str = "ru"):
-    """Зовёт функцию виджета в песочнице Node и возвращает её результат."""
+    """Зовёт функцию виджета в песочнице Node и возвращает её результат.
+
+    Аргументы уходят через stdin, а не через командную строку: сверка на полном
+    архиве свечей занимает 278 КБ, а в Linux один аргумент командной строки
+    ограничен 128 КБ. На macOS такого предела нет — поэтому первая версия
+    проходила локально и падала в CI на всех ubuntu-джобах сразу.
+    """
     completed = subprocess.run(
-        [
-            "node",
-            str(SANDBOX),
-            str(WIDGETS / f"{widget}.js"),
-            function,
-            json.dumps(list(args)),
-            locale,
-        ],
+        ["node", str(SANDBOX), str(WIDGETS / f"{widget}.js"), function, "-", locale],
+        input=json.dumps(list(args)),
         capture_output=True,
         text=True,
         timeout=30,
@@ -204,6 +204,38 @@ def test_sandbox_reports_a_missing_function_instead_of_passing() -> None:
     )
     payload = json.loads(completed.stdout)
     assert "error" in payload and "не объявлена" in payload["error"]
+
+
+def test_sandbox_refuses_a_command_line_too_long_for_linux() -> None:
+    """Длинный аргумент должен отвергаться одинаково на всех системах.
+
+    Сверка на полном архиве занимает 278 КБ. В Linux один аргумент командной
+    строки ограничен 128 КБ, в macOS — нет. Пока песочница молчала, сверка
+    проходила локально и валила все ubuntu-джобы сразу; чинить приходилось по
+    логам CI. Теперь отказ приходит там же, где написан код.
+    """
+    completed = subprocess.run(
+        [
+            "node",
+            str(SANDBOX),
+            str(WIDGETS / "journal.js"),
+            "__fxTaxSummary",
+            json.dumps([[{"date": "2025-01-01", "pnl": 1.0}] * 4000]),
+            "ru",
+        ],
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    payload = json.loads(completed.stdout)
+    assert "stdin" in payload.get("error", ""), payload
+
+
+def test_sandbox_takes_a_payload_larger_than_the_command_line_limit() -> None:
+    """А через stdin тот же объём обязан проходить — иначе сверять нечем."""
+    trades = [{"date": "2025-01-01", "pnl": 1.0}] * 4000
+    assert len(json.dumps([trades]).encode()) > 131_072, "набор перестал быть большим"
+    assert call("journal", "__fxTaxSummary", trades)[0]["trades"] == 4000
 
 
 def test_sandbox_runs_every_widget_that_exposes_logic() -> None:
