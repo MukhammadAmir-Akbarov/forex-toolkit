@@ -314,3 +314,66 @@ def test_outcome_matches_python(index: int) -> None:
     got = call("pattern-trainer", "__fxPatternOutcome", candles, index, 5)
 
     assert got == outcome_after(candles, index, horizon=5)
+
+
+# ──────────────────── Переобучение: браузер == пакет ───────────────────────
+
+
+def _overfit_rows() -> list[dict]:
+    path = ROOT / "_mkdocs" / "data" / "overfitting.json"
+    return json.loads(path.read_text(encoding="utf-8"))["rows"]
+
+
+def test_overfitting_summary_matches_python() -> None:
+    """Вывод страницы — это число. Оно обязано совпасть с пакетом до знака."""
+    from forex_toolkit.overfitting import summarize
+
+    rows = _overfit_rows()
+    got = call("overfitting", "__fxOverfitSummary", rows, 20)
+    expected = summarize(rows, min_trades=20)
+
+    assert expected is not None
+    assert got["considered"] == expected.considered
+    assert got["rank_out"] == expected.rank_out
+    assert round(got["median_out"], 3) == round(expected.median_out, 3)
+    assert round(got["mean_out"], 3) == round(expected.mean_out, 3)
+    assert round(got["correlation"], 6) == round(expected.correlation, 6)
+    assert round(got["degradation"], 3) == round(expected.degradation, 3)
+    assert got["beat_median"] == expected.beat_median
+    assert got["best_in"]["params"] == expected.best_in.params
+    assert got["best_out"]["params"] == expected.best_out.params
+
+
+def test_overfitting_thin_samples_are_dropped_in_the_browser_too() -> None:
+    """Фильтр по числу сделок обязан работать в обоих зеркалах одинаково."""
+    from forex_toolkit.overfitting import summarize
+
+    rows = [
+        {
+            "params": {"rr": 1},
+            "in": {"total_r": 99.0, "trades": 2},
+            "out": {"total_r": 99.0, "trades": 2},
+        },
+        {
+            "params": {"rr": 2},
+            "in": {"total_r": 10.0, "trades": 50},
+            "out": {"total_r": 3.0, "trades": 50},
+        },
+    ]
+    got = call("overfitting", "__fxOverfitSummary", rows, 20)
+    expected = summarize(rows, min_trades=20)
+    assert got["considered"] == expected.considered == 1
+    assert got["best_in"]["params"] == expected.best_in.params == {"rr": 2}
+
+
+def test_overfitting_correlation_matches_python() -> None:
+    from forex_toolkit.overfitting import correlation
+
+    for xs, ys in (
+        ([1.0, 2.0, 3.0], [2.0, 4.0, 6.0]),
+        ([1.0, 2.0, 3.0], [6.0, 4.0, 2.0]),
+        ([1.0, 1.0, 1.0], [3.0, 7.0, 11.0]),
+        ([3.0, -1.0, 4.0, 1.5], [2.0, 2.5, -3.0, 0.0]),
+    ):
+        got = call("overfitting", "__fxOverfitCorrelation", xs, ys)
+        assert round(got, 9) == round(correlation(xs, ys), 9), (xs, ys)

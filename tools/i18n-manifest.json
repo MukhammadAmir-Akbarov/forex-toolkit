@@ -456,6 +456,13 @@
       },
       "ru_sha256": "931d9e8c170deee09d424b17c3ece1f786e0b5813ae1a9ee25a044849d367b5f"
     },
+    "tools/overfitting.md": {
+      "locales": {
+        "en": "f464a66f99a23409dd79c63a15a09a7ab0c636e67bf88147330a4dfac2861a04",
+        "uz": "f464a66f99a23409dd79c63a15a09a7ab0c636e67bf88147330a4dfac2861a04"
+      },
+      "ru_sha256": "f464a66f99a23409dd79c63a15a09a7ab0c636e67bf88147330a4dfac2861a04"
+    },
     "tools/pattern-trainer.md": {
       "locales": {
         "en": "1af0609e6b1c43588735513eef30d648a5958c3033c9a516f72eca5ca060cfec",

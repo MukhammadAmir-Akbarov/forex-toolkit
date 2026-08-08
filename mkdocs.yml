@@ -169,6 +169,7 @@ plugins:
             "Сообщества": "Communities"
             "🎮 Тренажёр Replay": "🎮 Replay Trainer"
             "🕯️ Тренажёр паттернов": "🕯️ Pattern trainer"
+            "🎣 Почему бэктест врёт": "🎣 Why a backtest lies"
         - locale: uz
           name: 🇺🇿 O'zbek
           build: true
@@ -275,6 +276,7 @@ plugins:
             "Сообщества": "Hamjamiyatlar"
             "🎮 Тренажёр Replay": "🎮 Replay Mashqi"
             "🕯️ Тренажёр паттернов": "🕯️ Figuralar trenajyori"
+            "🎣 Почему бэктест врёт": "🎣 Bektest nega yolg'on gapiradi"
   # Дата последнего обновления страницы (из git-истории).
   # ВАЖНО: должен идти ПОСЛЕ i18n (i18n добавляет переменную locale).
   - git-revision-date-localized:
@@ -429,6 +431,7 @@ nav:
       - 💼 Жить с трейдинга: tools/living-capital.md
       - 🎮 Тренажёр Replay: tools/replay-trainer.md
       - 🕯️ Тренажёр паттернов: tools/pattern-trainer.md
+      - 🎣 Почему бэктест врёт: tools/overfitting.md
       - 🎓 Итоговый экзамен: tools/exam.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
