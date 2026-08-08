@@ -59,6 +59,20 @@
       verdictNone: "Явных красных флагов нет. Всё равно проверь лицензию в реестре и начни с минимальной суммы.",
       verdictSome: "Есть тревожные признаки. Не вноси деньги, пока не проверишь лицензию в официальном реестре.",
       verdictMany: "Очень похоже на схему по отъёму денег. Настоятельно не вноси средства.",
+      swapTitle: "Исламский (своп-фри) счёт",
+      swapNeed: "Мне нужен счёт без свопа",
+      swapIntro: "«Своп-фри» не значит «бесплатно»: брокер убирает своп, но обычно возвращает издержку через спред, разовую плату за статус или потолок дней. Это перераспределение расходов, а не их исчезновение. Проверь всё до открытия счёта:",
+      swapItems: [
+        "Прочитал условия своп-фри на сайте брокера: с какого дня и какая плата",
+        "Сравнил спред обычного и исламского счёта по своим парам",
+        "Проверил, нет ли «потолка дней», после которого своп всё-таки начислят",
+        "Убедился, что нет разовой комиссии за статус или повышенной комиссии за лот",
+        "Сначала выбрал регулируемого брокера (FCA/CySEC/ASIC), и только потом исламский счёт у него"
+      ],
+      swapDone: "Все пункты проверены — теперь ты знаешь реальную цену этого счёта.",
+      swapLeft: function (n) {
+        return "Осталось проверить пунктов: " + n + ". Без этого настоящую стоимость счёта не увидеть.";
+      },
       askTitle: "Спроси у брокера один вопрос",
       ask: "«К какому юрлицу подключается мой счёт и какой у него регулятор?» Уклончивый ответ — сам по себе красный флаг: у крупных брокеров обычно несколько компаний, и клиентов из СНГ часто подключают к офшорной, где защиты почти нет."
     },
@@ -83,6 +97,20 @@
       verdictNone: "No obvious red flags. Still verify the licence in a registry and start with a minimal amount.",
       verdictSome: "There are warning signs. Do not deposit until you have verified the licence in an official registry.",
       verdictMany: "This looks a lot like a scheme to take your money. Strongly do not deposit.",
+      swapTitle: "Islamic (swap-free) account",
+      swapNeed: "I need an account without swap",
+      swapIntro: "\"Swap-free\" does not mean free: the broker removes the swap but usually recovers the cost through the spread, a one-off status fee or a day cap. It redistributes the cost rather than removing it. Check all of this before opening the account:",
+      swapItems: [
+        "I read the swap-free terms on the broker site: from which day and at what fee",
+        "I compared the spread on the regular and the Islamic account for my pairs",
+        "I checked for a day cap after which swap is charged anyway",
+        "I confirmed there is no one-off status fee or higher commission per lot",
+        "I picked a regulated broker first (FCA/CySEC/ASIC), and only then its Islamic account"
+      ],
+      swapDone: "Everything checked — you now know what this account really costs.",
+      swapLeft: function (n) {
+        return "Still to check: " + n + ". Without it the real cost of the account stays hidden.";
+      },
       askTitle: "Ask the broker one question",
       ask: "\"Which legal entity holds my account and who regulates it?\" An evasive answer is itself a red flag: large brokers usually have several companies, and clients from our region are often attached to an offshore one with almost no protection."
     },
@@ -107,6 +135,20 @@
       verdictNone: "Aniq qizil bayroqlar yo'q. Baribir litsenziyani reyestrda tekshiring va eng kichik summadan boshlang.",
       verdictSome: "Xavotirli belgilar bor. Litsenziyani rasmiy reyestrda tekshirmaguningizcha pul kiritmang.",
       verdictMany: "Bu pulni olib qo'yish sxemasiga juda o'xshaydi. Pul kiritmang.",
+      swapTitle: "Islomiy (svopsiz) hisob",
+      swapNeed: "Menga svopsiz hisob kerak",
+      swapIntro: "«Svopsiz» — «bepul» degani emas: broker svopni olib tashlaydi, lekin xarajatni odatda spred, holat uchun bir martalik to'lov yoki kunlar chegarasi orqali qaytaradi. Bu xarajatning yo'qolishi emas, qayta taqsimlanishi. Hisob ochishdan oldin hammasini tekshiring:",
+      swapItems: [
+        "Broker saytida svopsiz shartlarini o'qidim: qaysi kundan va qanday to'lov",
+        "O'z juftliklarim bo'yicha oddiy va islomiy hisob spredini solishtirdim",
+        "Kunlar chegarasi bor-yo'qligini tekshirdim — undan keyin svop baribir hisoblanadi",
+        "Holat uchun bir martalik komissiya yoki lotga oshirilgan komissiya yo'qligiga ishonch hosil qildim",
+        "Avval tartibga solinadigan brokerni tanladim (FCA/CySEC/ASIC), keyin undagi islomiy hisobni"
+      ],
+      swapDone: "Hammasi tekshirildi — endi bu hisobning haqiqiy narxini bilasiz.",
+      swapLeft: function (n) {
+        return "Tekshirish qoldi: " + n + " ta. Busiz hisobning haqiqiy narxi ko'rinmaydi.";
+      },
       askTitle: "Brokerdan bitta savol so'rang",
       ask: "\"Hisobim qaysi yuridik shaxsga ulanadi va uni kim tartibga soladi?\" Aylanma javobning o'zi qizil bayroq: yirik brokerlarda odatda bir necha kompaniya bo'ladi va bizning mintaqa mijozlari ko'pincha himoyasi deyarli yo'q ofshor kompaniyaga ulanadi."
     }
@@ -162,13 +204,47 @@
       '<h4>' + F.escape(T.flagsTitle) + '</h4>' +
       '<div class="broker-check__flags">' + flags + '</div>' +
       '<p id="bc-verdict" aria-live="polite"></p>' +
+      swapBlock() +
       '<h4>' + F.escape(T.askTitle) + '</h4><p>' + F.escape(T.ask) + '</p>';
 
     box.querySelectorAll(".bc-flag").forEach(function (input) {
       input.addEventListener("change", verdict);
     });
+    var swapToggle = document.getElementById("bc-swap-need");
+    swapToggle.addEventListener("change", function () {
+      document.getElementById("bc-swap-body").hidden = !swapToggle.checked;
+    });
+    box.querySelectorAll(".bc-swap-item").forEach(function (input) {
+      input.addEventListener("change", swapVerdict);
+    });
     verdict();
     if (window.fxTrack) window.fxTrack("broker_check_completed");
+  }
+
+  // Исламский счёт — первый вопрос значительной части аудитории, а не
+  // последний. Список брокеров со своп-фри здесь сознательно не хранится:
+  // такие условия меняются молча, и устаревшее «да, у него есть» опаснее
+  // отсутствия ответа. Вместо этого — вопросы, которые надо задать самому.
+  function swapBlock() {
+    var items = T.swapItems.map(function (item, index) {
+      return '<label class="risk-profile__option"><input type="checkbox" class="bc-swap-item" value="' +
+        index + '"> <span>' + F.escape(item) + "</span></label>";
+    }).join("");
+    return '<h4>' + F.escape(T.swapTitle) + "</h4>" +
+      '<label class="risk-profile__option"><input type="checkbox" id="bc-swap-need"> <span>' +
+      F.escape(T.swapNeed) + "</span></label>" +
+      '<div id="bc-swap-body" hidden>' +
+      "<p>" + F.escape(T.swapIntro) + "</p>" +
+      '<div class="broker-check__flags">' + items + "</div>" +
+      '<p id="bc-swap-verdict" aria-live="polite"></p></div>';
+  }
+
+  function swapVerdict() {
+    var total = T.swapItems.length;
+    var checked = document.querySelectorAll(".bc-swap-item:checked").length;
+    document.getElementById("bc-swap-verdict").innerHTML =
+      "<strong>" + F.escape(checked === total ? T.swapDone : T.swapLeft(total - checked)) +
+      "</strong>";
   }
 
   function verdict() {

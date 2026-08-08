@@ -549,10 +549,10 @@
     },
     "uz/swap-free.md": {
       "locales": {
-        "en": "1333beeb7df46cc0698720e6f3fcb2b9cc27de205f00021d1d50c176278e1c72",
-        "uz": "1333beeb7df46cc0698720e6f3fcb2b9cc27de205f00021d1d50c176278e1c72"
+        "en": "bd9de5ba5dc88f053b9938a4a71ba3fde5193082a413782836eb706bfb1cb4c3",
+        "uz": "bd9de5ba5dc88f053b9938a4a71ba3fde5193082a413782836eb706bfb1cb4c3"
       },
-      "ru_sha256": "1333beeb7df46cc0698720e6f3fcb2b9cc27de205f00021d1d50c176278e1c72"
+      "ru_sha256": "bd9de5ba5dc88f053b9938a4a71ba3fde5193082a413782836eb706bfb1cb4c3"
     },
     "uz/tax-calculator.md": {
       "locales": {

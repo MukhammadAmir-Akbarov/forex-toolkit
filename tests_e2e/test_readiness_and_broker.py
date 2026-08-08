@@ -110,3 +110,57 @@ def test_broker_check_escalates_with_red_flags(pw_page, site_url):
         flags.nth(index).check()
     assert "схему по отъёму денег" in verdict.inner_text()
     assert "is-warning" in (result.get_attribute("class") or "")
+
+
+# ── Исламский счёт в проверке брокера ──────────────────────────────────────
+# Для значительной части аудитории «есть ли своп-фри» — первый вопрос, а не
+# последний. Списка брокеров со своп-фри мы сознательно не храним: условия
+# меняются молча, и устаревшее «да, есть» опаснее отсутствия ответа.
+
+
+@pytest.mark.parametrize("prefix", ["", "en/", "uz/"])
+def test_swap_free_checklist_is_opt_in_and_translated(pw_page, site_url, prefix):
+    page = pw_page
+    page.goto(f"{site_url}/{prefix}tools/broker-check/")
+    page.fill("#bc-name", "IC Markets")
+    page.click("#bc-check")
+    page.wait_for_selector("#bc-swap-need")
+
+    # По умолчанию свёрнут: тем, кому своп-фри не нужен, он только мешает.
+    assert page.evaluate("() => document.getElementById('bc-swap-body').hidden")
+
+    page.check("#bc-swap-need")
+    assert not page.evaluate("() => document.getElementById('bc-swap-body').hidden")
+
+    items = page.locator(".bc-swap-item")
+    assert items.count() == 5, f"[{prefix}] ожидали 5 пунктов чек-листа"
+
+    items.first.check()
+    partial = page.text_content("#bc-swap-verdict")
+    assert partial.strip() and "undefined" not in partial, f"[{prefix}] {partial!r}"
+
+    for index in range(1, items.count()):
+        items.nth(index).check()
+    done = page.text_content("#bc-swap-verdict")
+    assert done != partial, f"[{prefix}] вердикт не изменился после всех пунктов"
+    assert "undefined" not in done
+
+
+def test_swap_free_block_never_claims_a_broker_offers_it(pw_page, site_url):
+    """Виджет не должен утверждать, что у брокера есть исламский счёт.
+
+    Такие условия меняются без объявления; устаревшее «да, есть» хуже, чем
+    честное «проверь сам».
+    """
+    page = pw_page
+    page.goto(f"{site_url}/tools/broker-check/")
+    page.fill("#bc-name", "IC Markets")
+    page.click("#bc-check")
+    page.wait_for_selector("#bc-swap-need")
+    page.check("#bc-swap-need")
+
+    text = page.text_content("#bc-swap-body").lower()
+    for claim in ("предлагает своп-фри", "есть своп-фри", "доступен своп-фри"):
+        assert claim not in text, f"виджет утверждает про брокера: {claim!r}"
+    # Зато обязан сказать, что своп-фри — это перераспределение издержек.
+    assert "спред" in text and "не значит" in text
