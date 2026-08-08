@@ -2074,6 +2074,40 @@ label[for="__drawer"].fx-menu-hint::after {
   body.journal-print-weekly .journal-weekly-report .journal-actions { display: none !important; }
 }
 
+/* ── Годовой итог для декларации ──────────────────────────────────────── */
+.journal-tax-summary {
+  margin: 1.2rem 0;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: var(--md-code-bg-color);
+}
+.journal-tax-summary h3 { margin-top: 0; }
+/* Шесть колонок с деньгами не влезают в телефон — таблица едет вбок сама,
+   страница при этом горизонтально не прокручивается. */
+.journal-tax-scroll { overflow-x: auto; }
+.journal-tax-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.journal-tax-table th,
+.journal-tax-table td {
+  padding: 0.45rem 0.6rem;
+  text-align: right;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.journal-tax-table thead th { text-align: right; font-weight: 600; }
+.journal-tax-table tbody th { text-align: left; }
+.journal-tax-table .is-plus { color: #22c55e; font-weight: 600; }
+.journal-tax-table .is-minus { color: #ef4444; font-weight: 600; }
+.journal-tax-note {
+  margin-bottom: 0;
+  font-size: 0.82rem;
+  color: var(--md-default-fg-color--light);
+}
+
 /* ── Тест готовности и проверка брокера ───────────────────────────────── */
 .risk-profile {
   margin: 1.2rem 0;

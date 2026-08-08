@@ -12,6 +12,9 @@
   var T = F.pick({
     ru: {
       uzs: " сум",
+      fromJournal: function (year, n) {
+        return "🧾 Подставлено из журнала: " + year + " год, " + n + " сделок. Проверь числа перед подачей.";
+      },
       errProfit: "Прибыль не может быть отрицательной.",
       errLoss: "Убыток укажи как положительное число.",
       errRate: "Укажи курс USD → UZS.",
@@ -28,6 +31,9 @@
     },
     en: {
       uzs: " UZS",
+      fromJournal: function (year, n) {
+        return "🧾 Filled in from your journal: year " + year + ", " + n + " trades. Check the numbers before you file.";
+      },
       errProfit: "Profit cannot be negative.",
       errLoss: "Enter the loss as a positive number.",
       errRate: "Please enter the USD → UZS rate.",
@@ -44,6 +50,9 @@
     },
     uz: {
       uzs: " so'm",
+      fromJournal: function (year, n) {
+        return "🧾 Jurnaldan olindi: " + year + " yil, " + n + " ta savdo. Topshirishdan oldin raqamlarni tekshiring.";
+      },
       errProfit: "Foyda manfiy bo'lishi mumkin emas.",
       errLoss: "Zararni musbat son sifatida kiriting.",
       errRate: "USD → UZS kursini kiriting.",
@@ -129,5 +138,30 @@
   });
   document.getElementById("tax-calc-btn").addEventListener("click", recalc);
 
+  // Приём годового итога из журнала: он знает каждую сделку за год, а сюда
+  // раньше цифры переносили руками по экспорту CSV. Тот же приём, что у
+  // Monte Carlo: журнал кладёт профиль в настройки и уходит сюда с ?journal=1.
+  function applyJournalSummary() {
+    if (new URLSearchParams(window.location.search).get("journal") !== "1") return;
+    var summary = null;
+    try {
+      summary = (JSON.parse(localStorage.getItem("forex_tool_settings_v1") || "{}")).tax;
+    } catch (e) {}
+    if (!summary || summary.source !== "journal") return;
+
+    document.getElementById("tax-profit").value = Math.abs(summary.profit || 0).toFixed(2);
+    document.getElementById("tax-loss").value = Math.abs(summary.loss || 0).toFixed(2);
+    recalc();
+
+    var note = document.createElement("p");
+    note.id = "tax-from-journal";
+    note.className = "tax-note tax-ok";
+    note.setAttribute("role", "status");
+    note.textContent = T.fromJournal(summary.year, summary.trades || 0);
+    var widget = document.getElementById("tax-widget");
+    widget.parentNode.insertBefore(note, widget);
+  }
+
   recalc();
+  applyJournalSummary();
 })();
