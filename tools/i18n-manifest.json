@@ -456,6 +456,13 @@
       },
       "ru_sha256": "931d9e8c170deee09d424b17c3ece1f786e0b5813ae1a9ee25a044849d367b5f"
     },
+    "tools/multipair.md": {
+      "locales": {
+        "en": "6404f82e03b6d517acd15098c222553368cf51d6308873a623b705613d31a035",
+        "uz": "6404f82e03b6d517acd15098c222553368cf51d6308873a623b705613d31a035"
+      },
+      "ru_sha256": "6404f82e03b6d517acd15098c222553368cf51d6308873a623b705613d31a035"
+    },
     "tools/overfitting.md": {
       "locales": {
         "en": "f464a66f99a23409dd79c63a15a09a7ab0c636e67bf88147330a4dfac2861a04",
