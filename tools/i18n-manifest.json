@@ -526,6 +526,13 @@
       },
       "ru_sha256": "ea3f2c842454fcb4f502f61fc340f059bc2ba8c2e8853a0d44927089479aa2a7"
     },
+    "tools/strategy-ranking.md": {
+      "locales": {
+        "en": "9a7004c3d12ff36f6a5dbe49fb3fbebed94e54afc90ca1890619bc8993ac49e0",
+        "uz": "9a7004c3d12ff36f6a5dbe49fb3fbebed94e54afc90ca1890619bc8993ac49e0"
+      },
+      "ru_sha256": "9a7004c3d12ff36f6a5dbe49fb3fbebed94e54afc90ca1890619bc8993ac49e0"
+    },
     "tools/trade-desk.md": {
       "locales": {
         "en": "0c9ed2bb3bf0dcc75159c0f8a7467c029dfd1dfea9abf73b547e7ab8b3adbbf7",
