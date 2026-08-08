@@ -89,6 +89,13 @@ jobs:
         run: |
           npm ci
           npx eslint _mkdocs/javascripts
+      # Быстрые сверки логики виджетов с Python идут в песочнице Node — им
+      # нужен тот же setup-node, что и линтеру, поэтому живут в этом джобе.
+      - name: Быстрые сверки виджетов (без браузера)
+        run: |
+          python -m pip install pytest
+          pip install -e .
+          python -m pytest tests/test_widget_logic.py -q
 
   package:
     name: Wheel install + CLI smoke
