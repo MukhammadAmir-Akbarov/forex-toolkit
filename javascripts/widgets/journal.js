@@ -34,6 +34,15 @@
       saved: "Журнал сохранён на этом устройстве.",
       restored: "Восстановлен последний журнал",
       cleared: "Сохранённый журнал удалён.",
+      taxTitle: "🧾 Годовой итог для декларации",
+      taxIntro: "Декларируется чистый годовой результат — прибыли минус убытки за календарный год, а не каждая сделка отдельно. Срок подачи — до 1 апреля следующего года.",
+      taxYear: "Год", taxTrades: "Сделок", taxProfit: "Прибыли",
+      taxLoss: "Убытки", taxNet: "Чистый результат", taxDue: "НДФЛ 12%",
+      taxOpen: "Открыть в калькуляторе",
+      taxSkipped: function (n) {
+        return "Записей без суммы: " + n + ". Они не вошли в итог — проверь их в таблице ниже.";
+      },
+      taxNote: "Считается по всем сделкам журнала, фильтры выше не учитываются. Комиссии и свопы уже вычтены при закрытии сделки. Стоимость вывода денег сюда не входит. Это оценка, а не налоговая консультация — сверяйся с soliq.uz.",
       confirmClear: function (n) {
         return (
           "Удалить импортированные сделки (" + n + ")?\n\n" +
@@ -113,6 +122,15 @@
       saved: "Journal saved on this device.",
       restored: "Restored the latest journal",
       cleared: "Saved journal removed.",
+      taxTitle: "🧾 Annual total for the tax return",
+      taxIntro: "What gets declared is the net annual result — profits minus losses over the calendar year, not each trade separately. The deadline is 1 April of the following year.",
+      taxYear: "Year", taxTrades: "Trades", taxProfit: "Profits",
+      taxLoss: "Losses", taxNet: "Net result", taxDue: "Tax at 12%",
+      taxOpen: "Open in calculator",
+      taxSkipped: function (n) {
+        return "Entries with no amount: " + n + ". They are excluded from the total — check them in the table below.";
+      },
+      taxNote: "Calculated over every trade in the journal; the filters above are ignored. Commission and swap are already deducted when the trade is closed. Withdrawal costs are not included. This is an estimate, not tax advice — check soliq.uz.",
       confirmClear: function (n) {
         return (
           "Delete the imported trades (" + n + ")?\n\n" +
@@ -192,6 +210,15 @@
       saved: "Jurnal shu qurilmada saqlandi.",
       restored: "Oxirgi jurnal tiklandi",
       cleared: "Saqlangan jurnal o'chirildi.",
+      taxTitle: "🧾 Deklaratsiya uchun yillik yakun",
+      taxIntro: "Deklaratsiya qilinadigan narsa — sof yillik natija, ya'ni kalendar yil davomidagi foyda minus zarar, har bir savdo alohida emas. Topshirish muddati — keyingi yilning 1-apreligacha.",
+      taxYear: "Yil", taxTrades: "Savdolar", taxProfit: "Foyda",
+      taxLoss: "Zarar", taxNet: "Sof natija", taxDue: "JShDS 12%",
+      taxOpen: "Kalkulyatorda ochish",
+      taxSkipped: function (n) {
+        return "Summasi yo'q yozuvlar: " + n + ". Ular yakunga kirmadi — quyidagi jadvalda tekshiring.";
+      },
+      taxNote: "Jurnaldagi barcha savdolar bo'yicha hisoblanadi, yuqoridagi filtrlar hisobga olinmaydi. Komissiya va svop savdo yopilganda allaqachon ayirilgan. Pul yechish xarajati bunga kirmaydi. Bu baho, soliq maslahati emas — soliq.uz bilan solishtiring.",
       confirmClear: function (n) {
         return (
           "Import qilingan savdolar (" + n + ") o'chirilsinmi?\n\n" +
@@ -292,6 +319,63 @@
   trainingPanel.id = "journal-training-queue";
   trainingPanel.className = "journal-training-queue";
   weeklyPanel.parentNode.insertBefore(trainingPanel, weeklyPanel.nextSibling);
+
+  var taxPanel = document.createElement("section");
+  taxPanel.id = "journal-tax-summary";
+  taxPanel.className = "journal-tax-summary";
+  trainingPanel.parentNode.insertBefore(taxPanel, trainingPanel.nextSibling);
+
+  // ── Годовой итог для декларации ────────────────────────────────────────
+  // Зеркало forex_toolkit/tax_summary.py: это число человек перепишет в
+  // декларацию, поэтому браузер и Python не имеют права разойтись. Сверку
+  // держит тест в tests_e2e. Ставка НДФЛ — там же, менять в обоих местах.
+  var TAX_RATE = 0.12;
+
+  function taxYearOf(value) {
+    var text = String(value == null ? "" : value).trim();
+    if (text.length < 4 || !/^\d{4}$/.test(text.slice(0, 4))) return null;
+    var year = parseInt(text.slice(0, 4), 10);
+    return year >= 1990 && year <= 2999 ? year : null;
+  }
+
+  function taxAmountOf(value) {
+    var amount = typeof value === "number" ? value : parseFloat(value);
+    return isFinite(amount) ? amount : null;
+  }
+
+  function summarizeTaxYear(rows, year, rate) {
+    var profit = 0, loss = 0, counted = 0, skipped = 0;
+    rows.forEach(function (row) {
+      if (taxYearOf(row.date) !== year) return;
+      var amount = taxAmountOf(row.pnl);
+      if (amount === null) { skipped++; return; }
+      counted++;
+      if (amount > 0) profit += amount; else loss += -amount;
+    });
+    var net = profit - loss;
+    // Убыточный год не даёт отрицательного налога и не переносится вперёд.
+    var taxable = Math.max(0, net);
+    return {
+      year: year, trades: counted, profit: profit, loss: loss,
+      net: net, taxable: taxable, tax: taxable * rate, skipped: skipped
+    };
+  }
+
+  function summarizeTaxYears(rows, rate) {
+    var seen = {};
+    rows.forEach(function (row) {
+      var year = taxYearOf(row.date);
+      if (year !== null) seen[year] = true;
+    });
+    return Object.keys(seen)
+      .map(Number)
+      .sort(function (a, b) { return b - a; })
+      .map(function (year) { return summarizeTaxYear(rows, year, rate); });
+  }
+
+  window.__fxTaxSummary = function (rows) {
+    return summarizeTaxYears(rows || [], TAX_RATE);
+  };
 
   function detectDelimiter(line) {
     var options = [",", ";", "\t"];
@@ -1176,7 +1260,68 @@
     renderInsights(rows);
     renderWeeklyReport(rows);
     renderTrainingQueue();
+    renderTaxSummary(rows);
     renderTable(rows);
+  }
+
+  function renderTaxSummary(rows) {
+    // Считаем по ВСЕМ сделкам, а не по отфильтрованным: декларация не знает
+    // про фильтр по паре и датам, который человек поставил для анализа.
+    var years = summarizeTaxYears(state.rows, TAX_RATE);
+    if (!years.length) {
+      taxPanel.innerHTML = "";
+      taxPanel.hidden = true;
+      return;
+    }
+    taxPanel.hidden = false;
+
+    var money = function (value) { return F.money(value, 2); };
+    var rowsHtml = years.map(function (year) {
+      return '<tr><th scope="row">' + year.year + "</th>" +
+        "<td>" + year.trades + "</td>" +
+        "<td>" + money(year.profit) + "</td>" +
+        "<td>" + money(year.loss) + "</td>" +
+        '<td class="' + (year.net >= 0 ? "is-plus" : "is-minus") + '">' + money(year.net) + "</td>" +
+        "<td>" + money(year.tax) + "</td>" +
+        '<td><button type="button" class="journal-button secondary journal-tax-open"' +
+        ' data-year="' + year.year + '">' + escapeHtml(T.taxOpen) + "</button></td></tr>";
+    }).join("");
+
+    var skipped = years.reduce(function (sum, y) { return sum + y.skipped; }, 0);
+    taxPanel.innerHTML =
+      "<h3>" + escapeHtml(T.taxTitle) + "</h3>" +
+      "<p>" + escapeHtml(T.taxIntro) + "</p>" +
+      '<div class="journal-tax-scroll"><table class="journal-tax-table"><thead><tr>' +
+      "<th>" + escapeHtml(T.taxYear) + "</th><th>" + escapeHtml(T.taxTrades) + "</th>" +
+      "<th>" + escapeHtml(T.taxProfit) + "</th><th>" + escapeHtml(T.taxLoss) + "</th>" +
+      "<th>" + escapeHtml(T.taxNet) + "</th><th>" + escapeHtml(T.taxDue) + "</th><th></th>" +
+      "</tr></thead><tbody>" + rowsHtml + "</tbody></table></div>" +
+      (skipped ? "<p><strong>" + escapeHtml(T.taxSkipped(skipped)) + "</strong></p>" : "") +
+      '<p class="journal-tax-note">' + escapeHtml(T.taxNote) + "</p>";
+
+    taxPanel.querySelectorAll(".journal-tax-open").forEach(function (button) {
+      button.addEventListener("click", function () {
+        openTaxCalculator(parseInt(button.getAttribute("data-year"), 10));
+      });
+    });
+  }
+
+  function openTaxCalculator(year) {
+    var summary = summarizeTaxYear(state.rows, year, TAX_RATE);
+    try {
+      var settings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}");
+      settings.tax = {
+        source: "journal",
+        year: summary.year,
+        profit: summary.profit,
+        loss: summary.loss,
+        trades: summary.trades,
+        updatedAt: new Date().toISOString()
+      };
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    } catch (e) {}
+    if (window.fxTrack) window.fxTrack("journal_tax_summary_opened", { once: false });
+    window.location.href = "../../uz/tax-calculator/?journal=1";
   }
 
   function saveSource(text, name, kind, acceptedRows) {
