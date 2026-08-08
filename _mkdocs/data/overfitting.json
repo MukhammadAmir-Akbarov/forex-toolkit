@@ -1,0 +1,1226 @@
+{
+ "meta": {
+  "source": "EURUSD_1h.csv",
+  "pair": "EURUSD",
+  "timeframe": "1h",
+  "bars_total": 12346,
+  "bars_in": 7407,
+  "bars_out": 4939,
+  "from": "2024-05-20 00:00:00+01:00",
+  "split_at": "2025-07-30 15:00:00+01:00",
+  "to": "2026-05-19 21:00:00+01:00",
+  "grid": {
+   "rr": [
+    1.5,
+    2.0,
+    3.0
+   ],
+   "stop_buffer": [
+    2,
+    5,
+    10
+   ],
+   "ema_dist": [
+    5,
+    10,
+    20
+   ],
+   "rsi_low": [
+    40,
+    45
+   ]
+  },
+  "rsi_high": 65,
+  "min_trades": 20
+ },
+ "rows": [
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 2,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 5.529,
+    "trades": 49,
+    "win_rate": 44.9,
+    "profit_factor": 1.207,
+    "max_dd": 6.0
+   },
+   "out": {
+    "total_r": -3.599,
+    "trades": 44,
+    "win_rate": 36.36,
+    "profit_factor": 0.87,
+    "max_dd": 7.5
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 2,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 5.029,
+    "trades": 47,
+    "win_rate": 44.68,
+    "profit_factor": 1.196,
+    "max_dd": 6.0
+   },
+   "out": {
+    "total_r": 0.0,
+    "trades": 35,
+    "win_rate": 40.0,
+    "profit_factor": 1.0,
+    "max_dd": 6.5
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 2,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 3.27,
+    "trades": 102,
+    "win_rate": 42.16,
+    "profit_factor": 1.056,
+    "max_dd": 11.0
+   },
+   "out": {
+    "total_r": -15.099,
+    "trades": 73,
+    "win_rate": 31.51,
+    "profit_factor": 0.696,
+    "max_dd": 20.599
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 2,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": -1.23,
+    "trades": 94,
+    "win_rate": 40.43,
+    "profit_factor": 0.978,
+    "max_dd": 11.5
+   },
+   "out": {
+    "total_r": -10.0,
+    "trades": 65,
+    "win_rate": 33.85,
+    "profit_factor": 0.767,
+    "max_dd": 17.5
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 2,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": -7.681,
+    "trades": 146,
+    "win_rate": 38.36,
+    "profit_factor": 0.914,
+    "max_dd": 22.5
+   },
+   "out": {
+    "total_r": -22.099,
+    "trades": 100,
+    "win_rate": 31.0,
+    "profit_factor": 0.678,
+    "max_dd": 28.599
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 2,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": -12.681,
+    "trades": 136,
+    "win_rate": 36.76,
+    "profit_factor": 0.852,
+    "max_dd": 23.5
+   },
+   "out": {
+    "total_r": -15.0,
+    "trades": 90,
+    "win_rate": 33.33,
+    "profit_factor": 0.75,
+    "max_dd": 23.5
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 5,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 10.035,
+    "trades": 49,
+    "win_rate": 48.98,
+    "profit_factor": 1.409,
+    "max_dd": 4.5
+   },
+   "out": {
+    "total_r": -7.033,
+    "trades": 42,
+    "win_rate": 33.33,
+    "profit_factor": 0.745,
+    "max_dd": 13.5
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 5,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 9.535,
+    "trades": 47,
+    "win_rate": 48.94,
+    "profit_factor": 1.405,
+    "max_dd": 4.5
+   },
+   "out": {
+    "total_r": -2.975,
+    "trades": 35,
+    "win_rate": 37.14,
+    "profit_factor": 0.865,
+    "max_dd": 11.5
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 5,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 13.213,
+    "trades": 99,
+    "win_rate": 46.46,
+    "profit_factor": 1.251,
+    "max_dd": 8.5
+   },
+   "out": {
+    "total_r": -11.533,
+    "trades": 69,
+    "win_rate": 33.33,
+    "profit_factor": 0.747,
+    "max_dd": 20.033
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 5,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 8.713,
+    "trades": 91,
+    "win_rate": 45.05,
+    "profit_factor": 1.176,
+    "max_dd": 8.5
+   },
+   "out": {
+    "total_r": -5.975,
+    "trades": 63,
+    "win_rate": 36.51,
+    "profit_factor": 0.851,
+    "max_dd": 17.0
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 5,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 5.815,
+    "trades": 137,
+    "win_rate": 42.34,
+    "profit_factor": 1.074,
+    "max_dd": 17.5
+   },
+   "out": {
+    "total_r": -19.033,
+    "trades": 94,
+    "win_rate": 31.91,
+    "profit_factor": 0.701,
+    "max_dd": 28.533
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 5,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": -0.351,
+    "trades": 127,
+    "win_rate": 40.94,
+    "profit_factor": 0.995,
+    "max_dd": 21.0
+   },
+   "out": {
+    "total_r": -11.475,
+    "trades": 86,
+    "win_rate": 34.88,
+    "profit_factor": 0.795,
+    "max_dd": 22.975
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 10,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 3.373,
+    "trades": 44,
+    "win_rate": 43.18,
+    "profit_factor": 1.144,
+    "max_dd": 5.0
+   },
+   "out": {
+    "total_r": -6.177,
+    "trades": 38,
+    "win_rate": 34.21,
+    "profit_factor": 0.753,
+    "max_dd": 12.0
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 10,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 2.873,
+    "trades": 42,
+    "win_rate": 42.86,
+    "profit_factor": 1.128,
+    "max_dd": 5.0
+   },
+   "out": {
+    "total_r": -7.677,
+    "trades": 32,
+    "win_rate": 31.25,
+    "profit_factor": 0.651,
+    "max_dd": 10.677
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 10,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 2.671,
+    "trades": 91,
+    "win_rate": 42.86,
+    "profit_factor": 1.052,
+    "max_dd": 13.228
+   },
+   "out": {
+    "total_r": -7.677,
+    "trades": 62,
+    "win_rate": 35.48,
+    "profit_factor": 0.808,
+    "max_dd": 17.177
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 10,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": -0.329,
+    "trades": 84,
+    "win_rate": 41.67,
+    "profit_factor": 0.993,
+    "max_dd": 12.228
+   },
+   "out": {
+    "total_r": -7.677,
+    "trades": 57,
+    "win_rate": 35.09,
+    "profit_factor": 0.793,
+    "max_dd": 15.177
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 10,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 0.543,
+    "trades": 123,
+    "win_rate": 41.46,
+    "profit_factor": 1.008,
+    "max_dd": 19.728
+   },
+   "out": {
+    "total_r": -5.456,
+    "trades": 83,
+    "win_rate": 38.55,
+    "profit_factor": 0.892,
+    "max_dd": 16.178
+   }
+  },
+  {
+   "params": {
+    "rr": 1.5,
+    "stop_buffer": 10,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": -3.676,
+    "trades": 116,
+    "win_rate": 40.52,
+    "profit_factor": 0.946,
+    "max_dd": 20.228
+   },
+   "out": {
+    "total_r": -5.956,
+    "trades": 76,
+    "win_rate": 38.16,
+    "profit_factor": 0.872,
+    "max_dd": 13.956
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 2,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 12.169,
+    "trades": 49,
+    "win_rate": 42.86,
+    "profit_factor": 1.44,
+    "max_dd": 7.0
+   },
+   "out": {
+    "total_r": -6.397,
+    "trades": 42,
+    "win_rate": 28.57,
+    "profit_factor": 0.784,
+    "max_dd": 9.397
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 2,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 11.169,
+    "trades": 47,
+    "win_rate": 42.55,
+    "profit_factor": 1.419,
+    "max_dd": 7.0
+   },
+   "out": {
+    "total_r": -2.797,
+    "trades": 35,
+    "win_rate": 31.43,
+    "profit_factor": 0.883,
+    "max_dd": 7.0
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 2,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 11.41,
+    "trades": 101,
+    "win_rate": 38.61,
+    "profit_factor": 1.185,
+    "max_dd": 11.0
+   },
+   "out": {
+    "total_r": -14.397,
+    "trades": 71,
+    "win_rate": 26.76,
+    "profit_factor": 0.721,
+    "max_dd": 23.397
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 2,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 4.41,
+    "trades": 93,
+    "win_rate": 36.56,
+    "profit_factor": 1.075,
+    "max_dd": 11.0
+   },
+   "out": {
+    "total_r": -8.797,
+    "trades": 65,
+    "win_rate": 29.23,
+    "profit_factor": 0.809,
+    "max_dd": 19.797
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 2,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": -4.542,
+    "trades": 142,
+    "win_rate": 33.1,
+    "profit_factor": 0.952,
+    "max_dd": 27.0
+   },
+   "out": {
+    "total_r": -16.397,
+    "trades": 97,
+    "win_rate": 27.84,
+    "profit_factor": 0.764,
+    "max_dd": 27.397
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 2,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": -13.542,
+    "trades": 133,
+    "win_rate": 30.83,
+    "profit_factor": 0.852,
+    "max_dd": 30.0
+   },
+   "out": {
+    "total_r": -8.797,
+    "trades": 89,
+    "win_rate": 30.34,
+    "profit_factor": 0.858,
+    "max_dd": 21.797
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 5,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 13.035,
+    "trades": 49,
+    "win_rate": 42.86,
+    "profit_factor": 1.491,
+    "max_dd": 8.0
+   },
+   "out": {
+    "total_r": -8.533,
+    "trades": 41,
+    "win_rate": 26.83,
+    "profit_factor": 0.711,
+    "max_dd": 13.533
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 5,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 12.035,
+    "trades": 47,
+    "win_rate": 42.55,
+    "profit_factor": 1.471,
+    "max_dd": 8.0
+   },
+   "out": {
+    "total_r": -4.975,
+    "trades": 34,
+    "win_rate": 29.41,
+    "profit_factor": 0.793,
+    "max_dd": 10.975
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 5,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 22.213,
+    "trades": 97,
+    "win_rate": 42.27,
+    "profit_factor": 1.407,
+    "max_dd": 13.0
+   },
+   "out": {
+    "total_r": -10.533,
+    "trades": 67,
+    "win_rate": 28.36,
+    "profit_factor": 0.779,
+    "max_dd": 21.533
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 5,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 17.213,
+    "trades": 90,
+    "win_rate": 41.11,
+    "profit_factor": 1.334,
+    "max_dd": 13.0
+   },
+   "out": {
+    "total_r": -4.975,
+    "trades": 61,
+    "win_rate": 31.15,
+    "profit_factor": 0.882,
+    "max_dd": 17.975
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 5,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 13.838,
+    "trades": 132,
+    "win_rate": 37.88,
+    "profit_factor": 1.172,
+    "max_dd": 20.0
+   },
+   "out": {
+    "total_r": -18.559,
+    "trades": 89,
+    "win_rate": 26.97,
+    "profit_factor": 0.713,
+    "max_dd": 31.171
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 5,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 8.172,
+    "trades": 124,
+    "win_rate": 37.1,
+    "profit_factor": 1.107,
+    "max_dd": 20.0
+   },
+   "out": {
+    "total_r": -11.001,
+    "trades": 81,
+    "win_rate": 29.63,
+    "profit_factor": 0.807,
+    "max_dd": 25.613
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 10,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 8.303,
+    "trades": 44,
+    "win_rate": 40.91,
+    "profit_factor": 1.34,
+    "max_dd": 4.0
+   },
+   "out": {
+    "total_r": -0.177,
+    "trades": 38,
+    "win_rate": 34.21,
+    "profit_factor": 0.993,
+    "max_dd": 10.0
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 10,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 7.873,
+    "trades": 42,
+    "win_rate": 40.48,
+    "profit_factor": 1.336,
+    "max_dd": 4.0
+   },
+   "out": {
+    "total_r": -3.177,
+    "trades": 32,
+    "win_rate": 31.25,
+    "profit_factor": 0.856,
+    "max_dd": 8.0
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 10,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 14.101,
+    "trades": 90,
+    "win_rate": 41.11,
+    "profit_factor": 1.271,
+    "max_dd": 7.728
+   },
+   "out": {
+    "total_r": -2.616,
+    "trades": 62,
+    "win_rate": 32.26,
+    "profit_factor": 0.937,
+    "max_dd": 14.616
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 10,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 11.671,
+    "trades": 84,
+    "win_rate": 40.48,
+    "profit_factor": 1.238,
+    "max_dd": 7.728
+   },
+   "out": {
+    "total_r": -3.616,
+    "trades": 57,
+    "win_rate": 31.58,
+    "profit_factor": 0.906,
+    "max_dd": 12.438
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 10,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 11.519,
+    "trades": 123,
+    "win_rate": 39.02,
+    "profit_factor": 1.156,
+    "max_dd": 13.728
+   },
+   "out": {
+    "total_r": -0.868,
+    "trades": 81,
+    "win_rate": 35.8,
+    "profit_factor": 0.983,
+    "max_dd": 14.137
+   }
+  },
+  {
+   "params": {
+    "rr": 2.0,
+    "stop_buffer": 10,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 11.37,
+    "trades": 116,
+    "win_rate": 39.66,
+    "profit_factor": 1.165,
+    "max_dd": 12.728
+   },
+   "out": {
+    "total_r": -1.788,
+    "trades": 74,
+    "win_rate": 35.14,
+    "profit_factor": 0.962,
+    "max_dd": 11.056
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 2,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 21.169,
+    "trades": 48,
+    "win_rate": 37.5,
+    "profit_factor": 1.739,
+    "max_dd": 8.0
+   },
+   "out": {
+    "total_r": -14.397,
+    "trades": 41,
+    "win_rate": 17.07,
+    "profit_factor": 0.572,
+    "max_dd": 18.397
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 2,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 19.169,
+    "trades": 46,
+    "win_rate": 36.96,
+    "profit_factor": 1.693,
+    "max_dd": 8.0
+   },
+   "out": {
+    "total_r": -11.797,
+    "trades": 34,
+    "win_rate": 17.65,
+    "profit_factor": 0.579,
+    "max_dd": 17.797
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 2,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 29.41,
+    "trades": 99,
+    "win_rate": 34.34,
+    "profit_factor": 1.462,
+    "max_dd": 12.0
+   },
+   "out": {
+    "total_r": -15.399,
+    "trades": 69,
+    "win_rate": 20.29,
+    "profit_factor": 0.718,
+    "max_dd": 25.399
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 2,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 25.41,
+    "trades": 91,
+    "win_rate": 34.07,
+    "profit_factor": 1.433,
+    "max_dd": 12.0
+   },
+   "out": {
+    "total_r": -9.799,
+    "trades": 63,
+    "win_rate": 22.22,
+    "profit_factor": 0.8,
+    "max_dd": 20.799
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 2,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 19.395,
+    "trades": 140,
+    "win_rate": 30.0,
+    "profit_factor": 1.201,
+    "max_dd": 23.0
+   },
+   "out": {
+    "total_r": -23.181,
+    "trades": 90,
+    "win_rate": 21.11,
+    "profit_factor": 0.672,
+    "max_dd": 33.181
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 2,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 16.395,
+    "trades": 131,
+    "win_rate": 29.77,
+    "profit_factor": 1.181,
+    "max_dd": 20.0
+   },
+   "out": {
+    "total_r": -15.582,
+    "trades": 82,
+    "win_rate": 23.17,
+    "profit_factor": 0.753,
+    "max_dd": 27.576
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 5,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 14.038,
+    "trades": 46,
+    "win_rate": 34.78,
+    "profit_factor": 1.492,
+    "max_dd": 8.0
+   },
+   "out": {
+    "total_r": -13.232,
+    "trades": 40,
+    "win_rate": 17.5,
+    "profit_factor": 0.59,
+    "max_dd": 16.232
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 5,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 13.035,
+    "trades": 44,
+    "win_rate": 34.09,
+    "profit_factor": 1.473,
+    "max_dd": 8.0
+   },
+   "out": {
+    "total_r": -10.674,
+    "trades": 33,
+    "win_rate": 18.18,
+    "profit_factor": 0.6,
+    "max_dd": 15.674
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 5,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 29.638,
+    "trades": 92,
+    "win_rate": 35.87,
+    "profit_factor": 1.515,
+    "max_dd": 13.0
+   },
+   "out": {
+    "total_r": -12.512,
+    "trades": 66,
+    "win_rate": 21.21,
+    "profit_factor": 0.756,
+    "max_dd": 20.813
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 5,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 24.635,
+    "trades": 86,
+    "win_rate": 34.88,
+    "profit_factor": 1.452,
+    "max_dd": 13.0
+   },
+   "out": {
+    "total_r": -6.954,
+    "trades": 60,
+    "win_rate": 23.33,
+    "profit_factor": 0.848,
+    "max_dd": 17.255
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 5,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 26.134,
+    "trades": 127,
+    "win_rate": 33.07,
+    "profit_factor": 1.313,
+    "max_dd": 17.0
+   },
+   "out": {
+    "total_r": -18.482,
+    "trades": 86,
+    "win_rate": 22.09,
+    "profit_factor": 0.721,
+    "max_dd": 30.395
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 5,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 23.465,
+    "trades": 120,
+    "win_rate": 33.33,
+    "profit_factor": 1.299,
+    "max_dd": 16.0
+   },
+   "out": {
+    "total_r": -12.524,
+    "trades": 78,
+    "win_rate": 24.36,
+    "profit_factor": 0.787,
+    "max_dd": 25.437
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 10,
+    "ema_dist": 5,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 9.128,
+    "trades": 43,
+    "win_rate": 37.21,
+    "profit_factor": 1.359,
+    "max_dd": 4.0
+   },
+   "out": {
+    "total_r": 2.754,
+    "trades": 38,
+    "win_rate": 28.95,
+    "profit_factor": 1.104,
+    "max_dd": 9.0
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 10,
+    "ema_dist": 5,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 8.698,
+    "trades": 41,
+    "win_rate": 36.59,
+    "profit_factor": 1.356,
+    "max_dd": 4.0
+   },
+   "out": {
+    "total_r": -3.246,
+    "trades": 32,
+    "win_rate": 25.0,
+    "profit_factor": 0.862,
+    "max_dd": 8.246
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 10,
+    "ema_dist": 10,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 18.486,
+    "trades": 87,
+    "win_rate": 37.93,
+    "profit_factor": 1.354,
+    "max_dd": 6.538
+   },
+   "out": {
+    "total_r": -3.997,
+    "trades": 61,
+    "win_rate": 26.23,
+    "profit_factor": 0.909,
+    "max_dd": 14.289
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 10,
+    "ema_dist": 10,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 15.251,
+    "trades": 81,
+    "win_rate": 37.04,
+    "profit_factor": 1.31,
+    "max_dd": 6.538
+   },
+   "out": {
+    "total_r": -6.997,
+    "trades": 56,
+    "win_rate": 25.0,
+    "profit_factor": 0.829,
+    "max_dd": 12.289
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 10,
+    "ema_dist": 20,
+    "rsi_low": 40
+   },
+   "in": {
+    "total_r": 7.654,
+    "trades": 118,
+    "win_rate": 34.75,
+    "profit_factor": 1.102,
+    "max_dd": 14.78
+   },
+   "out": {
+    "total_r": 0.271,
+    "trades": 79,
+    "win_rate": 31.65,
+    "profit_factor": 1.005,
+    "max_dd": 12.068
+   }
+  },
+  {
+   "params": {
+    "rr": 3.0,
+    "stop_buffer": 10,
+    "ema_dist": 20,
+    "rsi_low": 45
+   },
+   "in": {
+    "total_r": 6.7,
+    "trades": 111,
+    "win_rate": 35.14,
+    "profit_factor": 1.095,
+    "max_dd": 13.78
+   },
+   "out": {
+    "total_r": -2.541,
+    "trades": 72,
+    "win_rate": 30.56,
+    "profit_factor": 0.948,
+    "max_dd": 9.879
+   }
+  }
+ ]
+}
