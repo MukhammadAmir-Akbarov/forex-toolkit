@@ -151,6 +151,8 @@ plugins:
             "🎴 Тренажёр карточек": "🎴 Flashcards"
             "🎯 Квиз — готов к реалу?": "🎯 Quiz — ready for real?"
             "🎲 Риск разорения": "🎲 Risk of ruin"
+            "💼 Жить с трейдинга": "💼 Treyding bilan yashash"
+            "💼 Жить с трейдинга": "💼 Living off trading"
             "🎓 Итоговый экзамен": "🎓 Final exam"
             "Tools README": "Tools README"
             "Bot README": "Bot README"
@@ -422,6 +424,7 @@ nav:
       - 🎴 Тренажёр карточек: tools/flashcards.md
       - "🎯 Квиз — готов к реалу?": tools/quiz.md
       - 🎲 Риск разорения: tools/risk-of-ruin.md
+      - 💼 Жить с трейдинга: tools/living-capital.md
       - 🎮 Тренажёр Replay: tools/replay-trainer.md
       - 🎓 Итоговый экзамен: tools/exam.md
       - Tools README: tools/README.md
