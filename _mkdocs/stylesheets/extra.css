@@ -2115,6 +2115,50 @@ label[for="__drawer"].fx-menu-hint::after {
   body.journal-print-weekly .journal-weekly-report .journal-actions { display: none !important; }
 }
 
+/* ── Перенос настройки между парами ───────────────────────────────────── */
+.mp-guesses { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.8rem 0; }
+.mp-guess {
+  font: inherit;
+  min-width: 2.6rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 8px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  cursor: pointer;
+}
+.mp-guess:hover { border-color: var(--md-primary-fg-color); }
+.mp-guess:focus-visible { outline: 2px solid var(--fx-accent); outline-offset: 2px; }
+.mp-scroll { overflow-x: auto; margin: 0.8rem 0; }
+.mp-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.mp-table th, .mp-table td {
+  padding: 0.3rem 0.6rem;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.mp-table thead th { text-align: left; }
+.mp-table .mp-num { text-align: right; font-variant-numeric: tabular-nums; }
+/* Опорная пара выделена не только цветом: рядом с ней стоит подпись
+   «опорная», иначе строка теряется при дальтонизме и в печати. */
+.mp-table .mp-home { background: color-mix(in srgb, var(--fx-accent) 10%, transparent); }
+/* «Мало сделок» — словами и приглушённо: это не результат, а его отсутствие,
+   и выглядеть как число оно не должно. */
+.mp-table .mp-thin {
+  color: var(--md-default-fg-color--light);
+  font-style: italic;
+  text-align: right;
+}
+.mp-table .mp-good { color: #15803d; font-weight: 600; }
+.mp-table .mp-bad { color: #b91c1c; font-weight: 600; }
+[data-md-color-scheme="slate"] .mp-table .mp-good { color: #4ade80; }
+[data-md-color-scheme="slate"] .mp-table .mp-bad { color: #f87171; }
+.mp-lesson {
+  font-weight: 600;
+  border-left: 3px solid var(--fx-accent);
+  padding-left: 0.8rem;
+  margin: 0.9rem 0;
+}
+
 /* ── Демонстрация переобучения ────────────────────────────────────────── */
 .of-period { font-size: 0.88rem; color: var(--md-default-fg-color--light); }
 /* Пятьдесят четыре строки не влезают в телефон по ширине — таблица едет вбок

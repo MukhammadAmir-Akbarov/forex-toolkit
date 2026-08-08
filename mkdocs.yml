@@ -170,6 +170,7 @@ plugins:
             "🎮 Тренажёр Replay": "🎮 Replay Trainer"
             "🕯️ Тренажёр паттернов": "🕯️ Pattern trainer"
             "🎣 Почему бэктест врёт": "🎣 Why a backtest lies"
+            "🌍 Перенос на другие пары": "🌍 Carrying over to other pairs"
         - locale: uz
           name: 🇺🇿 O'zbek
           build: true
@@ -277,6 +278,7 @@ plugins:
             "🎮 Тренажёр Replay": "🎮 Replay Mashqi"
             "🕯️ Тренажёр паттернов": "🕯️ Figuralar trenajyori"
             "🎣 Почему бэктест врёт": "🎣 Bektest nega yolg'on gapiradi"
+            "🌍 Перенос на другие пары": "🌍 Boshqa juftliklarga ko'chirish"
   # Дата последнего обновления страницы (из git-истории).
   # ВАЖНО: должен идти ПОСЛЕ i18n (i18n добавляет переменную locale).
   - git-revision-date-localized:
@@ -432,6 +434,7 @@ nav:
       - 🎮 Тренажёр Replay: tools/replay-trainer.md
       - 🕯️ Тренажёр паттернов: tools/pattern-trainer.md
       - 🎣 Почему бэктест врёт: tools/overfitting.md
+      - 🌍 Перенос на другие пары: tools/multipair.md
       - 🎓 Итоговый экзамен: tools/exam.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md

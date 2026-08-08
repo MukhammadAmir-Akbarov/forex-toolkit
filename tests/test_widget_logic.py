@@ -377,3 +377,52 @@ def test_overfitting_correlation_matches_python() -> None:
     ):
         got = call("overfitting", "__fxOverfitCorrelation", xs, ys)
         assert round(got, 9) == round(correlation(xs, ys), 9), (xs, ys)
+
+
+# ────────────── Перенос между парами: браузер == пакет ─────────────────────
+
+
+def test_multipair_summary_matches_python() -> None:
+    from forex_toolkit.multipair import summarize
+
+    document = json.loads(
+        (ROOT / "_mkdocs" / "data" / "multipair.json").read_text(encoding="utf-8")
+    )
+    got = call("multipair", "__fxMultiPair", document, 20)
+    expected = summarize(document, min_trades=20)
+
+    assert expected is not None
+    for field in ("pairs", "measurable", "thin", "profitable", "own_params_differ"):
+        assert got[field] == getattr(expected, field), field
+    assert got["best"]["pair"] == expected.best.pair
+    assert got["worst"]["pair"] == expected.worst.pair
+    assert round(got["median_r"], 3) == round(expected.median_r, 3)
+    assert round(got["spread"], 3) == round(expected.spread, 3)
+
+
+def test_multipair_keeps_thin_pairs_out_of_the_numbers_in_the_browser_too() -> None:
+    """Пара с четырьмя сделками не должна становиться результатом ни там, ни там."""
+    from forex_toolkit.multipair import summarize
+
+    document = {
+        "meta": {"home_pair": "EURUSD", "home_params": {"rr": 3.0}},
+        "pairs": [
+            {
+                "pair": "EURUSD",
+                "transferred": {"total_r": 20.0, "trades": 100},
+                "own_best": {"params": {"rr": 3.0}, "result": {"total_r": 20.0}},
+            },
+            {
+                "pair": "USDJPY",
+                "transferred": {"total_r": 4.0, "trades": 4},
+                "own_best": {"params": {}, "result": {}},
+            },
+        ],
+    }
+    got = call("multipair", "__fxMultiPair", document, 20)
+    expected = summarize(document, min_trades=20)
+
+    assert got["thin"] == expected.thin == 1
+    assert got["profitable"] == expected.profitable == 1
+    assert got["worst"]["pair"] == expected.worst.pair == "EURUSD"
+    assert got["results"][1]["own_best_r"] is None

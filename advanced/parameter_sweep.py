@@ -8,6 +8,7 @@ Parameter Sweep — автоматический подбор параметро
 ⚠️ ВНИМАНИЕ: «Оптимальные» параметры на истории — НЕ гарантия будущего.
 Это инструмент для понимания, какие диапазоны параметров устойчивы.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -52,14 +53,18 @@ def simulate(df: pd.DataFrame, signals, max_bars: int = 30) -> list[float]:
             high, low = df.iloc[j]["high"], df.iloc[j]["low"]
             if s.direction.value == "long":
                 if low <= s.stop:
-                    exit_idx, exit_price, outcome = j, s.stop, "loss"; break
+                    exit_idx, exit_price, outcome = j, s.stop, "loss"
+                    break
                 if high >= s.take:
-                    exit_idx, exit_price, outcome = j, s.take, "win"; break
+                    exit_idx, exit_price, outcome = j, s.take, "win"
+                    break
             else:
                 if high >= s.stop:
-                    exit_idx, exit_price, outcome = j, s.stop, "loss"; break
+                    exit_idx, exit_price, outcome = j, s.stop, "loss"
+                    break
                 if low <= s.take:
-                    exit_idx, exit_price, outcome = j, s.take, "win"; break
+                    exit_idx, exit_price, outcome = j, s.take, "win"
+                    break
         if s.direction.value == "long":
             pnl = (exit_price - s.entry) / risk
         else:
@@ -70,13 +75,22 @@ def simulate(df: pd.DataFrame, signals, max_bars: int = 30) -> list[float]:
 
 
 def evaluate(df: pd.DataFrame, params: dict) -> SweepResult:
-    """Прогоняет стратегию с заданными параметрами."""
+    """Прогоняет стратегию с заданными параметрами.
+
+    ``pip_size`` необязателен и по умолчанию прежний — 0.0001. Он нужен для пар
+    с иеной, где пункт равен 0.01, то есть в сто раз крупнее. Без него фильтр
+    «цена в пределах N пунктов от EMA» считается в стократно завышенных
+    единицах и почти не срабатывает: на USD/JPY выходило 4 сделки за два года,
+    на GBP/JPY — ноль. Это выглядело как «стратегия не работает на иене», хотя
+    было ошибкой измерения.
+    """
     df_prep = prepare_dataframe(df)
     signals = detect_signals(
         df_prep,
         rr=params["rr"],
         stop_buffer_pips=params["stop_buffer"],
         ema_distance_pips=params["ema_dist"],
+        pip_size=params.get("pip_size", 0.0001),
         rsi_long_range=(params["rsi_low"], params["rsi_high"]),
         rsi_short_range=(35, 60),
     )
@@ -118,8 +132,10 @@ def grid_search(df: pd.DataFrame, param_grid: dict) -> list[SweepResult]:
         result = evaluate(df, params)
         results.append(result)
         if i % 10 == 0 or i == len(combinations):
-            print(f"  Прогресс: {i}/{len(combinations)} "
-                  f"({i/len(combinations)*100:.0f}%)")
+            print(
+                f"  Прогресс: {i}/{len(combinations)} "
+                f"({i / len(combinations) * 100:.0f}%)"
+            )
     return results
 
 
@@ -137,17 +153,28 @@ def find_robust(results: list[SweepResult], min_trades: int = 30) -> SweepResult
     return qualified[0]
 
 
-def plot_heatmap(results: list[SweepResult], param_x: str, param_y: str,
-                 metric: str, out_path: Path) -> None:
+def plot_heatmap(
+    results: list[SweepResult], param_x: str, param_y: str, metric: str, out_path: Path
+) -> None:
     """Heatmap по двум параметрам, остальные усредняются."""
-    df = pd.DataFrame([
-        {**r.params, "total_r": r.total_r, "pf": r.profit_factor,
-         "win_rate": r.win_rate, "n_trades": r.n_trades}
-        for r in results
-    ])
+    df = pd.DataFrame(
+        [
+            {
+                **r.params,
+                "total_r": r.total_r,
+                "pf": r.profit_factor,
+                "win_rate": r.win_rate,
+                "n_trades": r.n_trades,
+            }
+            for r in results
+        ]
+    )
 
     pivot = df.pivot_table(
-        index=param_y, columns=param_x, values=metric, aggfunc="mean",
+        index=param_y,
+        columns=param_x,
+        values=metric,
+        aggfunc="mean",
     )
 
     fig, ax = plt.subplots(figsize=(10, 7))
@@ -159,15 +186,15 @@ def plot_heatmap(results: list[SweepResult], param_x: str, param_y: str,
     ax.set_yticklabels(pivot.index)
     ax.set_xlabel(param_x)
     ax.set_ylabel(param_y)
-    ax.set_title(f"Heatmap: {metric} по {param_x} × {param_y}",
-                 fontsize=12, weight="bold")
+    ax.set_title(
+        f"Heatmap: {metric} по {param_x} × {param_y}", fontsize=12, weight="bold"
+    )
 
     for i in range(len(pivot.index)):
         for j in range(len(pivot.columns)):
             v = pivot.values[i, j]
             if not pd.isna(v):
-                ax.text(j, i, f"{v:.2f}", ha="center", va="center",
-                        fontsize=9)
+                ax.text(j, i, f"{v:.2f}", ha="center", va="center", fontsize=9)
 
     fig.colorbar(im, ax=ax, label=metric)
     plt.tight_layout()
@@ -177,17 +204,17 @@ def plot_heatmap(results: list[SweepResult], param_x: str, param_y: str,
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Parameter sweep")
-    parser.add_argument("--csv", type=Path,
-                        default=Path(__file__).resolve().parent.parent
-                        / "data" / "EURUSD_1h.csv")
-    parser.add_argument("--out", type=Path,
-                        default=Path("sweep-heatmap.png"))
+    parser.add_argument(
+        "--csv",
+        type=Path,
+        default=Path(__file__).resolve().parent.parent / "data" / "EURUSD_1h.csv",
+    )
+    parser.add_argument("--out", type=Path, default=Path("sweep-heatmap.png"))
     args = parser.parse_args()
 
     if not args.csv.exists():
         print(f"Файл {args.csv} не найден.")
-        print("Сначала скачай данные: "
-              ".venv/bin/python advanced/data_downloader.py")
+        print("Сначала скачай данные: .venv/bin/python advanced/data_downloader.py")
         return 1
 
     print(f"Загружаю {args.csv}...")
@@ -222,16 +249,20 @@ def main() -> int:
     qualified = [r for r in results if r.n_trades >= 20]
     qualified.sort(key=lambda r: r.profit_factor, reverse=True)
 
-    print(f"\n{'RR':<6}{'SB':<5}{'ED':<5}{'RSI':<10}"
-          f"{'N':<7}{'WR':<8}{'PF':<8}{'Итого':<8}{'DD':<7}")
+    print(
+        f"\n{'RR':<6}{'SB':<5}{'ED':<5}{'RSI':<10}"
+        f"{'N':<7}{'WR':<8}{'PF':<8}{'Итого':<8}{'DD':<7}"
+    )
     print("─" * 70)
     for r in qualified[:10]:
         p = r.params
         rsi = f"{p['rsi_low']}-{p['rsi_high']}"
-        print(f"{p['rr']:<6}{p['stop_buffer']:<5}{p['ema_dist']:<5}"
-              f"{rsi:<10}{r.n_trades:<7}"
-              f"{r.win_rate:<6.1f}%  {r.profit_factor:<6.2f}  "
-              f"{r.total_r:+6.1f}R  {r.max_dd:5.1f}R")
+        print(
+            f"{p['rr']:<6}{p['stop_buffer']:<5}{p['ema_dist']:<5}"
+            f"{rsi:<10}{r.n_trades:<7}"
+            f"{r.win_rate:<6.1f}%  {r.profit_factor:<6.2f}  "
+            f"{r.total_r:+6.1f}R  {r.max_dd:5.1f}R"
+        )
 
     # Лучший «робастный»
     robust = find_robust(results, min_trades=30)
