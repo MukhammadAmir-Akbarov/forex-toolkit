@@ -229,9 +229,30 @@ html { scroll-behavior: smooth; }
   z-index: 4;
 }
 
-/* Исправление наложения переключателя языков над вкладками. */
+/* Переключатель языков.
+   Material центрирует выпадающий список по кнопке (left: 24px плюс
+   translateX(-50%)), из-за чего он свисает на 41px влево — на соседние вкладки,
+   и непонятно, чей он. Прижимаем левый край к кнопке, чтобы принадлежность была
+   очевидна. Вкладки липкие (z-index 4), поэтому список обязан быть выше. */
 .md-select__list {
   z-index: 10 !important;
+}
+/* Отступ от шапки и рамка нужны на любой ширине: без них панель начинается
+   ровно там, где строка вкладок, и сливается с ней в одну поверхность. */
+.md-select__inner {
+  margin-top: 0.5rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+/* А вот выравнивание меняем только там, где вкладки существуют. Ниже 1220px
+   их нет, зато кнопка стоит близко к правому краю: прижатая влево панель
+   вылезает за экран (замерено: 414px при окне 390px). */
+@media screen and (min-width: 76.25em) {
+  .md-select__inner,
+  .md-select:focus-within .md-select__inner,
+  .md-select:hover .md-select__inner {
+    left: 0;
+    transform: none;
+  }
 }
 .md-header[data-md-state="shadow"],
 .md-header--shadow { box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18); }
