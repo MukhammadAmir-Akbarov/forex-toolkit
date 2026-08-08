@@ -426,3 +426,39 @@ def test_multipair_keeps_thin_pairs_out_of_the_numbers_in_the_browser_too() -> N
     assert got["profitable"] == expected.profitable == 1
     assert got["worst"]["pair"] == expected.worst.pair == "EURUSD"
     assert got["results"][1]["own_best_r"] is None
+
+
+# ──────────── Устойчивость рейтинга стратегий: браузер == пакет ────────────
+
+
+def test_strategy_ranking_matches_python() -> None:
+    from forex_toolkit.strategy_ranking import summarize
+
+    document = json.loads(
+        (ROOT / "_mkdocs" / "data" / "strategies.json").read_text(encoding="utf-8")
+    )
+    got = call("strategy-ranking", "__fxStrategyRanking", document, 20)
+    expected = summarize(document, min_trades=20)
+
+    assert expected is not None
+    for field in ("considered", "kept_place", "skipped", "best_past_rank_future"):
+        assert got[field] == getattr(expected, field), field
+    assert got["best_past"]["name"] == expected.best_past.name
+    assert got["best_future"]["name"] == expected.best_future.name
+    assert round(got["rank_correlation"], 6) == round(expected.rank_correlation, 6)
+    assert got["order_held"] == expected.order_held
+
+
+def test_rank_correlation_matches_python_including_ties() -> None:
+    """Равные значения — место, где зеркала легче всего разъезжаются."""
+    from forex_toolkit.strategy_ranking import rank_correlation
+
+    for xs, ys in (
+        ([3.0, 2.0, 1.0], [30.0, 20.0, 10.0]),
+        ([3.0, 2.0, 1.0], [10.0, 20.0, 30.0]),
+        ([5.0, 5.0, 1.0], [1.0, 2.0, 3.0]),
+        ([1.0, 1.0, 1.0], [3.0, 2.0, 1.0]),
+        ([2.0, -4.6, 16.6, 22.2], [13.1, 11.9, -10.5, -8.3]),
+    ):
+        got = call("strategy-ranking", "__fxRankCorrelation", xs, ys)
+        assert round(got, 9) == round(rank_correlation(xs, ys), 9), (xs, ys)

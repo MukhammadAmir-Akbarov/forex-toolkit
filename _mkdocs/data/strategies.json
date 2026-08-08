@@ -1,0 +1,118 @@
+{
+ "meta": {
+  "source": "EURUSD_1h.csv",
+  "pair": "EURUSD",
+  "timeframe": "1h",
+  "bars_total": 12346,
+  "bars_past": 7407,
+  "bars_future": 4939,
+  "from": "2024-05-19 23:00:00+00:00",
+  "split_at": "2025-07-30 14:00:00+00:00",
+  "to": "2026-05-19 20:00:00+00:00",
+  "min_trades": 20
+ },
+ "strategies": [
+  {
+   "name": "EMA50 Pullback",
+   "past": {
+    "total_r": 22.213,
+    "trades": 97,
+    "win_rate": 42.27,
+    "profit_factor": 1.407,
+    "max_dd": 13.0
+   },
+   "future": {
+    "total_r": -10.533,
+    "trades": 67,
+    "win_rate": 28.36,
+    "profit_factor": 0.779,
+    "max_dd": 21.533
+   }
+  },
+  {
+   "name": "Mean Reversion",
+   "past": {
+    "total_r": 5.813,
+    "trades": 137,
+    "win_rate": 40.88,
+    "profit_factor": 1.074,
+    "max_dd": 11.622
+   },
+   "future": {
+    "total_r": -12.086,
+    "trades": 86,
+    "win_rate": 36.05,
+    "profit_factor": 0.78,
+    "max_dd": 14.657
+   }
+  },
+  {
+   "name": "Breakout",
+   "past": {
+    "total_r": 9.772,
+    "trades": 343,
+    "win_rate": 35.57,
+    "profit_factor": 1.045,
+    "max_dd": 21.471
+   },
+   "future": {
+    "total_r": -8.252,
+    "trades": 233,
+    "win_rate": 33.48,
+    "profit_factor": 0.945,
+    "max_dd": 23.764
+   }
+  },
+  {
+   "name": "Breakout v2",
+   "past": {
+    "total_r": -4.573,
+    "trades": 219,
+    "win_rate": 33.79,
+    "profit_factor": 0.968,
+    "max_dd": 23.0
+   },
+   "future": {
+    "total_r": 11.901,
+    "trades": 157,
+    "win_rate": 37.58,
+    "profit_factor": 1.124,
+    "max_dd": 12.0
+   }
+  },
+  {
+   "name": "Three Soldiers",
+   "past": {
+    "total_r": 16.572,
+    "trades": 246,
+    "win_rate": 46.34,
+    "profit_factor": 1.14,
+    "max_dd": 17.299
+   },
+   "future": {
+    "total_r": 13.097,
+    "trades": 172,
+    "win_rate": 44.19,
+    "profit_factor": 1.162,
+    "max_dd": 7.742
+   }
+  },
+  {
+   "name": "London Open Range",
+   "past": {
+    "total_r": -39.346,
+    "trades": 256,
+    "win_rate": 30.08,
+    "profit_factor": 0.771,
+    "max_dd": 55.57
+   },
+   "future": {
+    "total_r": 18.781,
+    "trades": 174,
+    "win_rate": 40.8,
+    "profit_factor": 1.192,
+    "max_dd": 11.122
+   }
+  }
+ ]
+}
