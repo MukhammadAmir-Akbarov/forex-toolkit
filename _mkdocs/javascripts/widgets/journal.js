@@ -34,6 +34,23 @@
       saved: "Журнал сохранён на этом устройстве.",
       restored: "Восстановлен последний журнал",
       cleared: "Сохранённый журнал удалён.",
+      habitsTitle: "💸 Три самые дорогие привычки за месяц",
+      habitsMonth: "Месяц:",
+      habitsNote: "Считается по всем сделкам журнала за выбранный месяц. Стоимость — это разница со своей же нормой: как ты торгуешь без этой привычки. Связь наблюдаемая, а не доказанная: на маленькой выборке разница может быть просто шумом, поэтому рядом стоит число сделок.",
+      habitsNone: function (n) {
+        return n < 5
+          ? "За этот месяц " + n + " сделок — слишком мало, чтобы говорить о привычках."
+          : "Дорогих привычек не нашлось: ни одна группа сделок не хуже остальных. Хороший месяц.";
+      },
+      habitDetail: function (n, withAvg, withoutAvg) {
+        return n + " сделок · в среднем " + withAvg + " против " + withoutAvg + " без этого";
+      },
+      habitNames: {
+        broke_rules: "Вход не по плану",
+        traded_tense: "Вход на эмоции (тревога, злость, FOMO)"
+      },
+      habitFields: { pair: "Пара", setup: "Сетап" },
+      habitGroup: function (field, name) { return field + ": " + name; },
       taxTitle: "🧾 Годовой итог для декларации",
       taxIntro: "Декларируется чистый годовой результат — прибыли минус убытки за календарный год, а не каждая сделка отдельно. Срок подачи — до 1 апреля следующего года.",
       taxYear: "Год", taxTrades: "Сделок", taxProfit: "Прибыли",
@@ -122,6 +139,23 @@
       saved: "Journal saved on this device.",
       restored: "Restored the latest journal",
       cleared: "Saved journal removed.",
+      habitsTitle: "💸 The three most expensive habits this month",
+      habitsMonth: "Month:",
+      habitsNote: "Calculated over every journal trade in the chosen month. The cost is the gap against your own norm — how you trade without the habit. The link is observed, not proven: on a small sample the gap can be noise, which is why the trade count sits next to it.",
+      habitsNone: function (n) {
+        return n < 5
+          ? "Only " + n + " trades this month — too few to talk about habits."
+          : "No expensive habits found: no group of trades did worse than the rest. A good month.";
+      },
+      habitDetail: function (n, withAvg, withoutAvg) {
+        return n + " trades · " + withAvg + " on average against " + withoutAvg + " without it";
+      },
+      habitNames: {
+        broke_rules: "Entering off-plan",
+        traded_tense: "Entering while tense (anxious, angry, FOMO)"
+      },
+      habitFields: { pair: "Pair", setup: "Setup" },
+      habitGroup: function (field, name) { return field + ": " + name; },
       taxTitle: "🧾 Annual total for the tax return",
       taxIntro: "What gets declared is the net annual result — profits minus losses over the calendar year, not each trade separately. The deadline is 1 April of the following year.",
       taxYear: "Year", taxTrades: "Trades", taxProfit: "Profits",
@@ -210,6 +244,23 @@
       saved: "Jurnal shu qurilmada saqlandi.",
       restored: "Oxirgi jurnal tiklandi",
       cleared: "Saqlangan jurnal o'chirildi.",
+      habitsTitle: "💸 Oyning eng qimmat uchta odati",
+      habitsMonth: "Oy:",
+      habitsNote: "Tanlangan oydagi barcha jurnal savdolari bo'yicha hisoblanadi. Narx — bu o'z me'yoringizdan farq: bu odatsiz qanday savdo qilasiz. Bog'liqlik kuzatilgan, isbotlangan emas: kichik tanlanmada farq shunchaki shovqin bo'lishi mumkin, shuning uchun yonida savdolar soni turadi.",
+      habitsNone: function (n) {
+        return n < 5
+          ? "Bu oyda " + n + " ta savdo — odatlar haqida gapirish uchun juda kam."
+          : "Qimmat odatlar topilmadi: hech bir savdo guruhi qolganlaridan yomon emas. Yaxshi oy.";
+      },
+      habitDetail: function (n, withAvg, withoutAvg) {
+        return n + " ta savdo · o'rtacha " + withAvg + ", busiz esa " + withoutAvg;
+      },
+      habitNames: {
+        broke_rules: "Rejadan tashqari kirish",
+        traded_tense: "Hissiyot bilan kirish (xavotir, jahl, FOMO)"
+      },
+      habitFields: { pair: "Juftlik", setup: "Setap" },
+      habitGroup: function (field, name) { return field + ": " + name; },
       taxTitle: "🧾 Deklaratsiya uchun yillik yakun",
       taxIntro: "Deklaratsiya qilinadigan narsa — sof yillik natija, ya'ni kalendar yil davomidagi foyda minus zarar, har bir savdo alohida emas. Topshirish muddati — keyingi yilning 1-apreligacha.",
       taxYear: "Yil", taxTrades: "Savdolar", taxProfit: "Foyda",
@@ -325,6 +376,12 @@
   taxPanel.className = "journal-tax-summary";
   trainingPanel.parentNode.insertBefore(taxPanel, trainingPanel.nextSibling);
 
+  var habitsPanel = document.createElement("section");
+  habitsPanel.id = "journal-habits";
+  habitsPanel.className = "journal-tax-summary journal-habits";
+  taxPanel.parentNode.insertBefore(habitsPanel, taxPanel);
+  var selectedMonth = null;
+
   // ── Годовой итог для декларации ────────────────────────────────────────
   // Зеркало forex_toolkit/tax_summary.py: это число человек перепишет в
   // декларацию, поэтому браузер и Python не имеют права разойтись. Сверку
@@ -376,6 +433,114 @@
   window.__fxTaxSummary = function (rows) {
     return summarizeTaxYears(rows || [], TAX_RATE);
   };
+
+  // ── Три самые дорогие привычки за месяц ────────────────────────────────
+  // Зеркало forex_toolkit/habits.py. Журнал знал дисциплину и эмоцию по
+  // отдельности, но никогда не отвечал, во что привычка обошлась в деньгах —
+  // а именно доллары меняют поведение, а не проценты.
+  var HABIT_MIN_TRADES = 3;
+  var TENSE = ["anxious", "frustrated", "fomo", "angry"];
+
+  function habitAmount(value) {
+    var amount = typeof value === "number" ? value : parseFloat(value);
+    return isFinite(amount) ? amount : null;
+  }
+
+  function habitCost(rows, matches) {
+    var withHabit = [], without = [];
+    rows.forEach(function (row) {
+      var amount = habitAmount(row.pnl);
+      if (amount === null) return;
+      (matches(row) ? withHabit : without).push(amount);
+    });
+    if (withHabit.length < HABIT_MIN_TRADES || !without.length) return null;
+    var sum = function (list) {
+      return list.reduce(function (a, b) { return a + b; }, 0);
+    };
+    var avgWith = sum(withHabit) / withHabit.length;
+    var avgWithout = sum(without) / without.length;
+    return {
+      key: "", trades: withHabit.length, total: sum(withHabit),
+      avg_with: avgWith, avg_without: avgWithout,
+      cost: (avgWith - avgWithout) * withHabit.length
+    };
+  }
+
+  function worstGroup(rows, field) {
+    var groups = {};
+    rows.forEach(function (row) {
+      var amount = habitAmount(row.pnl);
+      var name = String(row[field] || "").trim();
+      if (amount === null || !name) return;
+      (groups[name] = groups[name] || []).push(amount);
+    });
+    var names = Object.keys(groups);
+    var sum = function (list) {
+      return list.reduce(function (a, b) { return a + b; }, 0);
+    };
+    var candidates = names.filter(function (n) { return groups[n].length >= HABIT_MIN_TRADES; });
+    if (names.length < 2 || !candidates.length) return null;
+
+    var worst = candidates.reduce(function (best, n) {
+      return sum(groups[n]) < sum(groups[best]) ? n : best;
+    }, candidates[0]);
+    var inside = groups[worst];
+    var outside = [];
+    names.forEach(function (n) { if (n !== worst) outside = outside.concat(groups[n]); });
+    if (!outside.length) return null;
+
+    var avgWith = sum(inside) / inside.length;
+    var avgWithout = sum(outside) / outside.length;
+    var cost = (avgWith - avgWithout) * inside.length;
+    if (cost >= 0) return null;
+    return {
+      key: field + ":" + worst, trades: inside.length, total: sum(inside),
+      avg_with: avgWith, avg_without: avgWithout, cost: cost
+    };
+  }
+
+  function expensiveHabits(rows, limit) {
+    var found = [];
+    [
+      ["broke_rules", function (row) { return String(row.rules || "").toLowerCase() === "no"; }],
+      ["traded_tense", function (row) { return TENSE.indexOf(String(row.emotion || "").toLowerCase()) >= 0; }]
+    ].forEach(function (entry) {
+      var measured = habitCost(rows, entry[1]);
+      if (measured && measured.cost < 0) {
+        measured.key = entry[0];
+        found.push(measured);
+      }
+    });
+    ["pair", "setup"].forEach(function (field) {
+      var worst = worstGroup(rows, field);
+      if (worst) found.push(worst);
+    });
+    found.sort(function (a, b) { return a.cost - b.cost; });
+    return found.slice(0, limit || 3);
+  }
+
+  function monthOf(value) {
+    var text = String(value == null ? "" : value).trim();
+    if (text.length < 7 || text.charAt(4) !== "-") return null;
+    var year = text.slice(0, 4), month = text.slice(5, 7);
+    if (!/^\d{4}$/.test(year) || !/^\d{2}$/.test(month)) return null;
+    var n = parseInt(month, 10);
+    return n >= 1 && n <= 12 ? year + "-" + month : null;
+  }
+
+  function monthsIn(rows) {
+    var seen = {};
+    rows.forEach(function (row) {
+      var m = monthOf(row.date);
+      if (m) seen[m] = true;
+    });
+    return Object.keys(seen).sort().reverse();
+  }
+
+  window.__fxHabits = function (rows, limit) {
+    return expensiveHabits(rows || [], limit);
+  };
+  window.__fxMonths = function (rows) { return monthsIn(rows || []); };
 
   function detectDelimiter(line) {
     var options = [",", ";", "\t"];
@@ -1261,7 +1426,59 @@
     renderWeeklyReport(rows);
     renderTrainingQueue();
     renderTaxSummary(rows);
+    renderMonthlyHabits();
     renderTable(rows);
+  }
+
+  function habitLabel(key) {
+    if (T.habitNames[key]) return T.habitNames[key];
+    var parts = key.split(":");
+    return parts.length === 2 ? T.habitGroup(T.habitFields[parts[0]] || parts[0], parts[1]) : key;
+  }
+
+  function renderMonthlyHabits() {
+    // По всем сделкам журнала: месяц выбирается здесь, а не фильтром страницы.
+    var months = monthsIn(state.rows);
+    if (!months.length) {
+      habitsPanel.innerHTML = "";
+      habitsPanel.hidden = true;
+      return;
+    }
+    habitsPanel.hidden = false;
+    if (months.indexOf(selectedMonth) < 0) selectedMonth = months[0];
+
+    var options = months.map(function (month) {
+      return '<option value="' + month + '"' +
+        (month === selectedMonth ? " selected" : "") + ">" + month + "</option>";
+    }).join("");
+
+    var inMonth = state.rows.filter(function (row) { return monthOf(row.date) === selectedMonth; });
+    var habits = expensiveHabits(inMonth, 3);
+
+    var body;
+    if (!habits.length) {
+      body = "<p>" + escapeHtml(T.habitsNone(inMonth.length)) + "</p>";
+    } else {
+      body = '<ol class="journal-habits__list">' + habits.map(function (habit) {
+        return "<li><strong>" + escapeHtml(habitLabel(habit.key)) + "</strong>" +
+          '<span class="journal-habits__cost">' + F.money(habit.cost, 2) + "</span>" +
+          "<br><small>" + escapeHtml(T.habitDetail(
+            habit.trades, F.money(habit.avg_with, 2), F.money(habit.avg_without, 2)
+          )) + "</small></li>";
+      }).join("") + "</ol>";
+    }
+
+    habitsPanel.innerHTML =
+      "<h3>" + escapeHtml(T.habitsTitle) + "</h3>" +
+      '<label class="journal-habits__pick">' + escapeHtml(T.habitsMonth) +
+      ' <select id="journal-habits-month">' + options + "</select></label>" +
+      body +
+      '<p class="journal-tax-note">' + escapeHtml(T.habitsNote) + "</p>";
+
+    document.getElementById("journal-habits-month").addEventListener("change", function (event) {
+      selectedMonth = event.target.value;
+      renderMonthlyHabits();
+    });
   }
 
   function renderTaxSummary(rows) {
