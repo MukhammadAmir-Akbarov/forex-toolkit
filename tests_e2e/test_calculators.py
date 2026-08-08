@@ -347,7 +347,7 @@ def test_exam_certificate(pw_page, site_url, prefix):
     bank = page.evaluate(
         "() => JSON.parse(document.getElementById('exam-questions').textContent)"
     )
-    assert len(bank) == 30, f"[{prefix}] банк вопросов не 30"
+    assert len(bank) == 45, f"[{prefix}] банк вопросов не 45"
     draw = 20  # столько виджет достаёт из банка за попытку
     # Порядок вопросов и вариантов случаен, поэтому идём по тому, что реально
     # показано на экране, а не по индексам банка.

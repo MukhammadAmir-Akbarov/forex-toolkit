@@ -140,3 +140,64 @@ def test_python_and_browser_agree_on_an_empty_journal(pw_page, site_url):
     assert page.evaluate("() => window.__fxTaxSummary([])") == []
     assert summarize_all([]) == []
     assert json.dumps(page.evaluate("() => window.__fxTaxSummary(null)")) == "[]"
+
+
+# ── Стоимость вывода ───────────────────────────────────────────────────────
+# Журнал показывает прибыль, которой ещё нет на карте: комиссия за вывод и
+# конвертация её уменьшают. Модель комиссий живёт в гиде по выводу и сюда не
+# копируется — журнал передаёт туда сумму.
+
+
+def test_journal_hands_the_profit_to_the_withdrawal_calculator(pw_page, site_url):
+    page = pw_page
+    page.goto(f"{site_url}/journal/web-journal/")
+    page.click("#journal-demo")
+    page.wait_for_selector("#journal-tax-summary table")
+
+    link = page.locator(".journal-tax-link")
+    assert link.count() == 1, "нет ссылки на расчёт вывода"
+
+    href = link.first.get_attribute("href")
+    assert "withdrawal-guide" in href and "amount=" in href, href
+    amount = int(href.split("amount=")[1])
+    assert amount > 0, "передана неположительная сумма"
+
+    link.first.click()
+    page.wait_for_selector("#wd-amount")
+    assert int(float(page.input_value("#wd-amount"))) == amount
+    assert page.text_content("#wd-result").strip(), "калькулятор не посчитал"
+
+
+def test_no_withdrawal_link_when_the_year_is_a_loss(pw_page, site_url):
+    """Выводить нечего — предлагать расчёт вывода незачем.
+
+    Загружаем убыточный CSV штатным путём, а не подкладываем localStorage:
+    первая версия теста писала туда сырые строки, журнал их не поднимал, и
+    проверка «ссылок нет» проходила бы при любой реализации.
+    """
+    page = pw_page
+    page.goto(f"{site_url}/journal/web-journal/")
+    page.wait_for_selector("#journal-demo")
+
+    losing = (
+        "date,pair,direction,result_usd,risk_usd\n"
+        "2026-01-05,EURUSD,long,-100,50\n"
+        "2026-02-05,EURUSD,short,-50,50\n"
+        "2026-03-05,EURUSD,long,-30,50\n"
+    )
+    page.evaluate(
+        """text => {
+             const file = new DataTransfer();
+             file.items.add(new File([text], 'losing.csv', {type: 'text/csv'}));
+             document.getElementById('journal-file').files = file.files;
+             document.getElementById('journal-file').dispatchEvent(
+               new Event('change', {bubbles: true}));
+           }""",
+        losing,
+    )
+    page.click('[data-quality="valid"]')
+    page.wait_for_selector("#journal-tax-summary table")
+
+    net = page.text_content("#journal-tax-summary tbody tr")
+    assert "-" in net or "−" in net, f"год должен быть убыточным: {net!r}"
+    assert page.locator(".journal-tax-link").count() == 0

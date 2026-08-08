@@ -46,13 +46,13 @@ const QUIZ = [
   },
   {
     q: "What must you set BEFORE entering a trade?",
-    options: ["A large Take Profit", "A Stop Loss", "Leverage 1:500", "Telegram notifications"],
+    options: ["A bigger Take Profit — profit matters more", "A Stop Loss", "Position size, I will judge it as the trade goes", "The entry level; I will add a stop if it goes against me"],
     correct: 1,
     explain: "A stop loss is a pre-made decision about where you admit you were wrong. Without it, a single market reversal can wipe the account. The stop is set BEFORE entry — not 'by feel'."
   },
   {
     q: "How long should you trade on demo at minimum before using real money?",
-    options: ["A couple of days", "A week", "At least 3 months", "Demo is a waste of time"],
+    options: ["A couple of days — the mechanics are simple", "A week, if it trades in profit", "At least 3 months", "Until I get 20 winning trades in a row"],
     correct: 2,
     explain: "At least 3 months of consistent demo trading with a journal. Demo teaches platform mechanics and discipline without losing money. Rushing to live trading is the most common mistake."
   },
@@ -64,7 +64,7 @@ const QUIZ = [
   },
   {
     q: "A broker promises 'guaranteed profit of 30% per month'. This is…",
-    options: ["An excellent opportunity", "A sign of fraud", "Normal for forex", "Only for VIP clients"],
+    options: ["Possible, if they have their own trading system", "A sign of fraud", "Normal for managers with large capital", "Realistic with high leverage"],
     correct: 1,
     explain: "Guaranteed profit does not exist in the market. 74–89% of retail traders lose money. Any 'guaranteed return' is a red flag for fraud."
   },
@@ -82,13 +82,13 @@ const QUIZ = [
   },
   {
     q: "What is the main purpose of a trading journal?",
-    options: ["To show off your profits", "To find your own recurring mistakes", "A broker requirement", "To calculate taxes"],
+    options: ["Recording trades for the tax return", "To find your own recurring mistakes", "Adding up the monthly profit", "Keeping screenshots of good entries"],
     correct: 1,
     explain: "A journal reveals patterns: at what time, on which pairs, and in what mood you lose money. Without a journal you repeat the same mistakes without realising it."
   },
   {
     q: "You lost 3 trades in a row and want to 'get even' with a large position. This is…",
-    options: ["A sensible plan", "Tilt — a stop signal", "Normal risk management", "The martingale strategy — it works"],
+    options: ["Logical: after a losing streak a win is more likely", "Tilt — a stop signal", "Acceptable as long as the risk stays 1%", "A working method if you scale up gradually"],
     correct: 1,
     explain: "The urge to get even (revenge trading) while on tilt blows up deposits. After a losing streak the correct response is to reduce size or take a break — not to increase the stake."
   },
@@ -100,13 +100,13 @@ const QUIZ = [
   },
   {
     q: "Before a major news release (NFP, Fed meeting) the spread widens and price spikes. A beginner should…",
-    options: ["Go all-in", "Avoid entering", "Remove stop losses", "Increase leverage"],
+    options: ["Enter early in the expected direction", "Avoid entering", "Set a wider stop so it does not get hit", "Enter right after the numbers are released"],
     correct: 1,
     explain: "During news releases sharp moves and slippage knock out stops at the worst price. It is safer for beginners not to trade a few minutes before and after major news events."
   },
   {
     q: "How do you choose a broker?",
-    options: ["By the size of the deposit bonus", "By the presence of a regulator licence (FCA, CySEC, ASIC)", "By attractive advertising", "By promised leverage of 1:1000"],
+    options: ["By the lowest spread and commission", "By the presence of a regulator licence (FCA, CySEC, ASIC)", "By withdrawal speed mentioned in reviews", "By how convenient the platform and app are"],
     correct: 1,
     explain: "The main factor is regulation. An FCA/CySEC/ASIC licence means client fund segregation and oversight. Bonuses and massive leverage are marketing — often used by unregulated firms."
   },
@@ -130,7 +130,7 @@ const QUIZ = [
   },
   {
     q: "Can you trade with money set aside for rent or food?",
-    options: ["Yes, if you are confident in the trade", "Absolutely not", "Only with half of it", "If the leverage is small"],
+    options: ["Yes, if you return it before the payment is due", "Absolutely not", "Part of it, if the risk stays at 1%", "If it is a one-off trade with a tight stop"],
     correct: 1,
     explain: "Trade only with money whose loss you can absorb without affecting your daily life. 'Living-expense' money creates emotional pressure that destroys discipline."
   },

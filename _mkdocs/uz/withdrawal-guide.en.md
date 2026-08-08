@@ -222,6 +222,13 @@ verified: 2026-06-10
   };
 
   document.addEventListener('DOMContentLoaded', function() {
+    // Журнал знает прибыль за год и присылает её сюда: показанная там сумма
+    // не равна тому, что придёт на карту, а раньше это была только сноска.
+    var fromJournal = new URLSearchParams(window.location.search).get('amount');
+    var asNumber = parseFloat(fromJournal);
+    if (isFinite(asNumber) && asNumber > 0) {
+      document.getElementById('wd-amount').value = Math.min(asNumber, 100000).toFixed(0);
+    }
     window.calcWithdrawal();
     document.getElementById('wd-amount').addEventListener('input', window.calcWithdrawal);
     document.getElementById('wd-method').addEventListener('change', window.calcWithdrawal);
