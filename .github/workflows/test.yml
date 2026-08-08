@@ -78,6 +78,17 @@ jobs:
       - name: mypy (информационно, не блокирует)
         continue-on-error: true
         run: mypy
+      # ~6300 строк браузерных виджетов раньше не проверялись ничем: линт был
+      # только для Python. Опечатка в имени глобальной переменной доходила до
+      # браузера пользователя.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: eslint (браузерные виджеты)
+        run: |
+          npm ci
+          npx eslint _mkdocs/javascripts
 
   package:
     name: Wheel install + CLI smoke

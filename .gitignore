@@ -78,3 +78,6 @@ graphify-out/
 
 # артефакты отладки браузера
 .playwright-mcp/
+
+# Node — только для eslint браузерных виджетов, пакет не публикуется.
+node_modules/

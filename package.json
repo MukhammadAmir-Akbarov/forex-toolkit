@@ -1,0 +1,12 @@
+{
+  "name": "forex-toolkit-widgets",
+  "private": true,
+  "type": "module",
+  "description": "Линтер для браузерных виджетов сайта. Пакет не публикуется.",
+  "scripts": {
+    "lint": "eslint _mkdocs/javascripts"
+  },
+  "devDependencies": {
+    "eslint": "^9.18.0"
+  }
+}
