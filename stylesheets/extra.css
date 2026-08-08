@@ -2116,9 +2116,16 @@ label[for="__drawer"].fx-menu-hint::after {
   /* Крупная зона нажатия: основной сценарий — телефон. */
   min-height: 44px;
 }
-.risk-profile__option:hover,
+.risk-profile__option:hover {
+  border-color: var(--md-primary-fg-color);
+}
+/* Фокус нельзя оставлять таким же, как наведение мышью: с клавиатуры тогда
+   не видно, на каком варианте стоишь. Обводка — та же, что у ссылок и
+   кнопок выше, чтобы индикатор фокуса на сайте был один. */
 .risk-profile__option:focus-within {
   border-color: var(--md-primary-fg-color);
+  outline: 2px solid var(--fx-accent);
+  outline-offset: 2px;
 }
 .risk-profile__score {
   display: flex;
