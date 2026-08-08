@@ -3614,7 +3614,7 @@
 <h1 id="-yakuniy-imtihon--sertifikat">🎓 Yakuniy imtihon + sertifikat<a class="headerlink" href="#-yakuniy-imtihon--sertifikat" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Qanday ishlaydi</p>
-<p>Har bir urinishda <strong>30 talik bankdan 20 ta tasodifiy savol</strong> tushadi va
+<p>Har bir urinishda <strong>45 talik bankdan 20 ta tasodifiy savol</strong> tushadi va
 javob variantlari ham aralashtiriladi — tartibni yodlash ish bermaydi.
 Mavzular: risk-menejment, hajm hisobi, xarajatlar, psixologiya, bozor
 mexanikasi. O'tish bali — <strong>80%</strong> (20 dan 16 ta). O'tsangiz —
@@ -3639,7 +3639,7 @@ malakasini emas.</p>
       Sertifikat uchun ism
       <input type="text" id="exam-name" maxlength="40" placeholder="Masalan, Alisher Karimov" autocomplete="name">
     </label>
-    <button class="calc-button" id="exam-start-btn">▶ Imtihonni boshlash (30 ta savoldan 20 tasi)</button>
+    <button class="calc-button" id="exam-start-btn">▶ Imtihonni boshlash (45 ta savoldan 20 tasi)</button>
   </div>
 
   <div id="exam-play" style="display:none">
@@ -3993,6 +3993,171 @@ malakasini emas.</p>
     ],
     "answer": 3,
     "explain": "Yo'nalishni barqaror topa oladigan odam yo'q. Zararni cheklaydigan va o'z qoidalarini bajaradiganlar omon qoladi — bu butun imtihon aynan shuni tekshirdi."
+  },
+  {
+    "q": "USD/JPY = 150 bo'lsa, EUR/JPY bo'yicha bitta lotda punkt qancha turadi?",
+    "options": [
+      "$10 — barcha majorlardagidek",
+      "≈$6.67",
+      "≈$66.70",
+      "EUR/USD kursiga bog'liq"
+    ],
+    "answer": 1,
+    "explain": "Punkt narxini kotirovka valyutasi belgilaydi, bazaviy emas. Iyenali har qanday juftlikda punkt = 0.01 × 100 000 = 1000 ¥, dollarda esa 1000 ÷ 150 = $6.67. Shuning uchun EUR/JPY va USD/JPY da punkt bir xil turadi."
+  },
+  {
+    "q": "Depozit $1000, band marja $500, ochiq pozitsiyalarda joriy zarar $300. Marja darajasi qancha?",
+    "options": [
+      "200%",
+      "140%",
+      "70%",
+      "40%"
+    ],
+    "answer": 1,
+    "explain": "Marja darajasi = mablag' ÷ marja × 100% = (1000 − 300) ÷ 500 × 100% = 140%. Brokerlarda Stop Out odatda 20–50% da: majburiy yopilishgacha zaxira bor, lekin u zarar bilan birga kamayadi."
+  },
+  {
+    "q": "Komissiya lotiga $7 round-turn (kirish + chiqish). 0.5 lotlik savdo qancha turadi?",
+    "options": [
+      "$7.00",
+      "$3.50",
+      "$14.00",
+      "$0.70"
+    ],
+    "answer": 1,
+    "explain": "0.5 × $7 = $3.50, va bu hali spredsiz. Qisqa stoplarda komissiya riskning sezilarli ulushiga aylanadi — uni spred bilan birga sanang, alohida emas."
+  },
+  {
+    "q": "Depozit $1000, barqaror oyiga +2%. Bir yildan keyin butun foydani yechganda va yechmaganda:",
+    "options": [
+      "Bir xil — $1240",
+      "Yechmasa $1268; hammasini yechsa hisob $1000 bo'lib qoladi va $240 qo'lda",
+      "Yechmasa $1240; yechsa $1268",
+      "Farq bir dollardan kam"
+    ],
+    "answer": 1,
+    "explain": "1000 × 1.02¹² = $1268, ikkinchi holatda $1000 plyus qo'lda $240. Bir yilda farq kichik, mohiyati ham shunda: murakkab foiz yillar davomida ishlaydi, oylar emas. «Bir oyda ikki barobar» va'dasining bunga aloqasi yo'q."
+  },
+  {
+    "q": "Yillik foyda $500, uni SWIFT orqali $52 ga yechasiz. Yechish foydaning qancha qismini yeydi?",
+    "options": [
+      "10.4%",
+      "1.04%",
+      "5.2%",
+      "52%"
+    ],
+    "answer": 0,
+    "explain": "52 ÷ 500 = 10.4%. Qat'iy komissiya kichik summalarga eng qattiq uradi: $5000 da xuddi shu o'tkazma 1% bo'lardi. Qancha ishlaganingizni hal qilishdan oldin yechish narxini hisoblang."
+  },
+  {
+    "q": "Pozitsiyaning yarmini +1R da yopdingiz, qolganini zararsizga ko'chirdingiz va u yerda uchdi. Savdo natijasi qanday?",
+    "options": [
+      "+1R",
+      "+0.5R",
+      "0R",
+      "+2R"
+    ],
+    "answer": 1,
+    "explain": "Yarmi +1R berdi, qolgani nol: jami +0.5R. Qisman yopish natijalar tarqoqligini kamaytiradi, lekin yuqori chegarani ham kesadi: xotirjamlik uchun o'rtacha R bilan to'lanadi. Bu tanlov, bepul yaxshilanish emas."
+  },
+  {
+    "q": "Pozitsiya minusda, siz «kirishni o'rtachalash» uchun xuddi shuncha hajm qo'shasiz. Risk bilan nima bo'ldi?",
+    "options": [
+      "Risk ikki barobar oshdi, dastlabki stop endi rejani himoya qilmaydi",
+      "Risk o'zgarmadi — kirish narxi yaxshilandi",
+      "Risk kamaydi: o'rtacha narx bozorga yaqinroq",
+      "Risk uchdan biriga oshdi"
+    ],
+    "answer": 0,
+    "explain": "Hajm ikkilandi, demak sizga qarshi har bir punkt ikki barobar qimmat. O'rtacha narx haqiqatan yaxshilandi — tuzoq ham shunda: rejadan chetga chiqqan savdo endi rejadan ikki barobar katta."
+  },
+  {
+    "q": "Stop-loss qo'yilgan edi, lekin dushanba bozor undan ancha uzoqda gep bilan ochildi. Nima bo'ldi?",
+    "options": [
+      "Stop gepdan keyingi birinchi narxda ishladi — zarar rejadagidan katta",
+      "Broker stopni ko'rsatilgan narxda bajarishi shart",
+      "Stop keyingi haftaga o'tadi",
+      "Pozitsiya zararsizda yopildi"
+    ],
+    "answer": 0,
+    "explain": "Dam olish kunlari bozor savdo qilmaydi, yangiliklar esa chiqadi. Gep stop darajasidan sakrab o'tadi va u birinchi mavjud narxda bajariladi. Pozitsiyani dam olishdan o'tkazish — alohida riskli alohida qaror."
+  },
+  {
+    "q": "Demo-hisob savdolarni realdan yaxshiroq bajaradi. Nega?",
+    "options": [
+      "Demo sirg'anish, rekvot va spred kengayishini takrorlamaydi",
+      "Demoda komissiya pastroq",
+      "Demoda boshqa kotirovka provayderi",
+      "Farq yo'q, shunday tuyuladi xolos"
+    ],
+    "answer": 0,
+    "explain": "Demo kotirovka bo'yicha bir zumda bajaradi, real bozor esa mavjud likvidlik bo'yicha. Shuning uchun qisqa stopli va tez-tez savdo qiladigan strategiya demoda realda bo'lgandan yaxshiroq ko'rinadi."
+  },
+  {
+    "q": "Sakkizta sozlanadigan parametrli strategiya tarixda +300% ko'rsatdi. Ehtimoli ko'proq nima?",
+    "options": [
+      "Parametrlar o'tmishga moslangan va yangi ma'lumotlarda natija tarqaladi",
+      "Strategiya haqiqatan juda yaxshi",
+      "Realda yanada yaxshi bo'ladi — tarix kamaytirib ko'rsatadi",
+      "Shunchaki hajmni oshirish kerak"
+    ],
+    "answer": 0,
+    "explain": "Sozlagich qancha ko'p bo'lsa, egri chiziqni allaqachon bo'lgan narsaga moslash shunchalik oson. Yagona tekshiruv: strategiya sozlash paytida ko'rmagan ma'lumotlarda ishga tushirish. «Robotlar» aynan chiroyli bektestlar ustiga sotiladi."
+  },
+  {
+    "q": "Savdo uchinchi kun joyida turibdi — na stopga, na maqsadga. Nima oqilona?",
+    "options": [
+      "Vaqt qoidasi bo'yicha yopish, agar u rejada bo'lgan bo'lsa",
+      "Qancha kerak bo'lsa kutish — stop baribir himoya qiladi",
+      "Qo'shish, narx qarshi ketmayapti-ku",
+      "Maqsadni yaqinlashtirish"
+    ],
+    "answer": 0,
+    "explain": "To'xtab qolgan savdodagi pul band va ishlamaydi, risk esa osilib turadi. Vaqt cheklovi rejaning normal qismi, lekin u kirishdan OLDIN yozilgan bo'lishi kerak, aks holda bu shunchaki sabrsizlik."
+  },
+  {
+    "q": "30 punktlik stopda 2R olish uchun bozor…",
+    "options": [
+      "Yo'lda stopga tegmasdan siz tomonga 60 punkt yurishi kerak",
+      "30 punkt yurishi kerak",
+      "Istalgan tartibda 60 punkt yurishi kerak",
+      "Kirishdan yuqorida yopilishi kerak"
+    ],
+    "answer": 0,
+    "explain": "2R maqsadi — bu 60 punkt, va masofa qancha muhim bo'lsa, yo'l ham shuncha muhim: agar narx avval 30 punkt qarshi ketsa, savdo tugadi. Shuning uchun keng maqsadlar nafaqat harakatni, balki uning shaklini ham talab qiladi."
+  },
+  {
+    "q": "Svopsiz hisobda broker svop olmaydi. U o'zinikini qayerdan qaytaradi?",
+    "options": [
+      "Kengroq spred, oshirilgan komissiya yoki holat uchun to'lovdan",
+      "Hech qayerdan — bu xayriya",
+      "Boshqa mijozlar hajmidan",
+      "Depozit foizlaridan"
+    ],
+    "answer": 0,
+    "explain": "«Svopsiz» — xarajatni yo'q qilish emas, qayta taqsimlash. O'z stsenariyingizning to'liq narxini ikkala hisob turida solishtiring: tez-tez qisqa savdolarda svop deyarli yig'ilmaydi, kengaytirilgan spred esa har bir savdoda to'lanadi."
+  },
+  {
+    "q": "Hisob so'mda to'ldirilgan, brokerda esa dollarda. Qanday risk qo'shildi?",
+    "options": [
+      "Kurs riski: so'mdagi natija ham savdoga, ham USD/UZS kursiga bog'liq",
+      "Hech qanday, broker kursni qat'iylashtiradi",
+      "Faqat konvertatsiya komissiyasi",
+      "Soliq riski — summa ikki marta sanaladi"
+    ],
+    "answer": 0,
+    "explain": "Dollardagi foyda so'm mustahkamlanganda qadrsizlanishi mumkin va aksincha. Bu «savdo qilma» degani emas; bu natijani siz sarflaydigan valyutada sanash kerak degani — jurnal ikkalasini ham ko'rsata oladi."
+  },
+  {
+    "q": "Svopsiz hisobda spred 0.5 punktga kengroq. Oyiga 0.1 lotdan 40 ta savdoda bu…",
+    "options": [
+      "Oyiga $20 qo'shimcha xarajat",
+      "Oyiga $2",
+      "Oyiga $200",
+      "Hech narsa, yarim punkt sezilmaydi"
+    ],
+    "answer": 0,
+    "explain": "0.5 × punktiga $1 (0.1 lot) × 40 = $20. «Yarim punkt» arzimasdek eshitiladi, lekin har bir savdoga ko'payadi. Hisob turlarini bitta savdoda emas, o'z savdolaringiz soni bo'yicha solishtirish kerak."
   }
 ]
 </script>
@@ -4034,7 +4199,7 @@ savdo kapital yo'qotishning yuqori xavfi bilan bog'liq.</p>
     <span class="md-icon" title="Oxirgi yangilanish">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="8-avgust, 2026 06:11:41 UTC">8-avgust, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="8-avgust, 2026 08:24:45 UTC">8-avgust, 2026</span>
   </span>
 
     

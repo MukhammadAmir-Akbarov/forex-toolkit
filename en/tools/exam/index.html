@@ -3614,7 +3614,7 @@
 <h1 id="-final-exam--certificate">🎓 Final Exam + Certificate<a class="headerlink" href="#-final-exam--certificate" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">How it works</p>
-<p>Every attempt draws <strong>20 random questions from a bank of 30</strong>, and the
+<p>Every attempt draws <strong>20 random questions from a bank of 45</strong>, and the
 answer options are shuffled too — memorising the order will not work.
 Topics: risk management, position sizing, trading costs, psychology,
 market mechanics. Passing score — <strong>80%</strong> (16 out of 20). Pass it and
@@ -3638,7 +3638,7 @@ professional trading qualification.</p>
       Name for the certificate
       <input type="text" id="exam-name" maxlength="40" placeholder="e.g. John Smith" autocomplete="name">
     </label>
-    <button class="calc-button" id="exam-start-btn">▶ Start the exam (20 of 30 questions)</button>
+    <button class="calc-button" id="exam-start-btn">▶ Start the exam (20 of 45 questions)</button>
   </div>
 
   <div id="exam-play" style="display:none">
@@ -3992,6 +3992,171 @@ professional trading qualification.</p>
     ],
     "answer": 3,
     "explain": "Nobody predicts direction consistently. The survivors are the ones who cap the loss and follow their own rules — which is what this entire exam was testing."
+  },
+  {
+    "q": "What is a pip worth on EUR/JPY for one lot if USD/JPY is 150?",
+    "options": [
+      "$10 — the same as any major",
+      "About $6.67",
+      "About $66.70",
+      "It depends on the EUR/USD rate"
+    ],
+    "answer": 1,
+    "explain": "Pip value is set by the quote currency, not the base one. A pip on any yen pair is 0.01 × 100,000 = ¥1000, which in dollars is 1000 ÷ 150 = $6.67. That is why EUR/JPY and USD/JPY have the same pip value."
+  },
+  {
+    "q": "$1000 account, $500 of margin in use, current floating loss of $300. What is the margin level?",
+    "options": [
+      "200%",
+      "140%",
+      "70%",
+      "40%"
+    ],
+    "answer": 1,
+    "explain": "Margin level = equity ÷ margin × 100% = (1000 − 300) ÷ 500 × 100% = 140%. Brokers usually set Stop Out between 20% and 50%: there is still room before a forced close, but it shrinks together with the loss."
+  },
+  {
+    "q": "Commission is $7 per lot round turn (in and out). What does a 0.5-lot trade cost?",
+    "options": [
+      "$7.00",
+      "$3.50",
+      "$14.00",
+      "$0.70"
+    ],
+    "answer": 1,
+    "explain": "0.5 × $7 = $3.50, and that is before the spread. On tight stops the commission becomes a noticeable share of the risk — count it together with the spread, not separately."
+  },
+  {
+    "q": "$1000 account, a steady +2% a month. After a year, withdrawing everything versus withdrawing nothing:",
+    "options": [
+      "The same — $1240",
+      "Nothing withdrawn: $1268; everything withdrawn: the account stays $1000 and $240 is in hand",
+      "Nothing withdrawn: $1240; everything withdrawn: $1268",
+      "The difference is under a dollar"
+    ],
+    "answer": 1,
+    "explain": "1000 × 1.02¹² = $1268 against $1000 plus $240 in hand. Over one year the gap is small, and that is the point: compounding works over years, not months. Promises to double your money in a month have nothing to do with it."
+  },
+  {
+    "q": "You made $500 for the year and withdraw it by SWIFT for $52. What share of the profit does the withdrawal eat?",
+    "options": [
+      "10.4%",
+      "1.04%",
+      "5.2%",
+      "52%"
+    ],
+    "answer": 0,
+    "explain": "52 ÷ 500 = 10.4%. A flat fee hits small amounts hardest: on $5000 the same transfer would cost 1%. Work out the withdrawal cost before deciding how much you earned."
+  },
+  {
+    "q": "You closed half the position at +1R, moved the rest to break-even and got stopped there. What is the result?",
+    "options": [
+      "+1R",
+      "+0.5R",
+      "0R",
+      "+2R"
+    ],
+    "answer": 1,
+    "explain": "Half gave +1R, the rest gave zero: +0.5R in total. Partial closes cut the spread of outcomes, but they also cut the top: calm costs you average R. It is a choice, not a free upgrade."
+  },
+  {
+    "q": "The trade is in the red and you add the same size again to \"average the entry\". What happened to the risk?",
+    "options": [
+      "It doubled, and the original stop no longer protects the plan",
+      "It stayed the same — the entry price improved",
+      "It went down: the average price is closer to the market",
+      "It grew by a third"
+    ],
+    "answer": 0,
+    "explain": "The size doubled, so every pip against you now costs twice as much. The average price really did improve — and that is the trap: a trade that was already going wrong is now twice the size of the plan."
+  },
+  {
+    "q": "Your stop was in place, but Monday opened with a gap far beyond it. What happened?",
+    "options": [
+      "The stop filled at the first price after the gap — the loss is larger than planned",
+      "The broker must fill the stop at the price you set",
+      "The stop carries over to the next week",
+      "The position closed at break-even"
+    ],
+    "answer": 0,
+    "explain": "The market does not trade at the weekend, but the news keeps coming. A gap jumps over the stop level and it fills at the first available price. Holding through the weekend is a separate decision with a separate risk."
+  },
+  {
+    "q": "A demo account fills trades better than a live one. Why?",
+    "options": [
+      "Demo does not reproduce slippage, requotes or spread widening",
+      "Demo charges lower commission",
+      "Demo uses a different quote provider",
+      "There is no difference; it only feels that way"
+    ],
+    "answer": 0,
+    "explain": "Demo fills instantly at the quote; the real market fills against available liquidity. So a strategy with tight stops and frequent trades looks better on demo than it will turn out to be live."
+  },
+  {
+    "q": "A strategy with eight tunable parameters shows +300% on history. What is most likely?",
+    "options": [
+      "The parameters are fitted to the past and the result falls apart on new data",
+      "The strategy really is very good",
+      "Live will be even better — history understates it",
+      "You just need to increase the size"
+    ],
+    "answer": 0,
+    "explain": "The more knobs there are, the easier it is to fit the curve to what already happened. There is one test: run it on data the strategy did not see while being tuned. Beautiful backtests are exactly what \"robots\" are sold on."
+  },
+  {
+    "q": "A trade has gone nowhere for three days, neither to the stop nor to the target. What is reasonable?",
+    "options": [
+      "Close it on a time rule, if that rule was in the plan",
+      "Wait as long as it takes — the stop protects you anyway",
+      "Add to it, since price is not going against you",
+      "Move the target closer"
+    ],
+    "answer": 0,
+    "explain": "Money in a stalled trade is tied up and doing nothing while the risk stays on. A time limit is a normal part of a plan — but it has to be written down BEFORE the entry, otherwise it is just impatience."
+  },
+  {
+    "q": "To take 2R with a 30-pip stop, the market must…",
+    "options": [
+      "Travel 60 pips your way without touching the stop on the way",
+      "Travel 30 pips",
+      "Travel 60 pips in any order",
+      "Close above your entry"
+    ],
+    "answer": 0,
+    "explain": "A 2R target means 60 pips, and the path matters as much as the distance: if price first goes 30 pips against you, the trade is over. Wide targets need not just movement but a particular shape of it."
+  },
+  {
+    "q": "A swap-free account charges no swap. Where does the broker make it back?",
+    "options": [
+      "From a wider spread, a higher commission or a status fee",
+      "Nowhere — it is charity",
+      "From other clients' volume",
+      "From interest on your deposit"
+    ],
+    "answer": 0,
+    "explain": "\"Swap-free\" redistributes the cost rather than removing it. Compare the full cost of your own scenario on both account types: frequent short trades barely accrue swap anyway, while a wider spread is paid on every single trade."
+  },
+  {
+    "q": "You funded the account in UZS while the broker holds it in dollars. What risk was added?",
+    "options": [
+      "Currency risk: your result in UZS depends on both trading and the USD/UZS rate",
+      "None, the broker fixes the rate",
+      "Only the conversion fee",
+      "A tax one — the amount is counted twice"
+    ],
+    "answer": 0,
+    "explain": "A profit in dollars can lose value if the som strengthens, and the other way round. This does not mean \"do not trade\"; it means the result should be counted in the currency you actually spend — the journal can show both."
+  },
+  {
+    "q": "The swap-free account has a spread 0.5 pips wider. At 40 trades a month at 0.1 lots, that is…",
+    "options": [
+      "$20 a month of extra cost",
+      "$2 a month",
+      "$200 a month",
+      "Nothing, half a pip is invisible"
+    ],
+    "answer": 0,
+    "explain": "0.5 × $1 per pip (0.1 lots) × 40 = $20. \"Half a pip\" sounds trivial, but it multiplies by every trade. Account types have to be compared at your own trade count, not on a single trade."
   }
 ]
 </script>
@@ -4034,7 +4199,7 @@ profit. Forex trading carries a high risk of capital loss.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 8, 2026 06:11:41 UTC">August 8, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 8, 2026 08:24:45 UTC">August 8, 2026</span>
   </span>
 
     

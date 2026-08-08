@@ -51,6 +51,8 @@
       },
       habitFields: { pair: "Пара", setup: "Сетап" },
       habitGroup: function (field, name) { return field + ": " + name; },
+      withdrawHint: "Эта прибыль ещё не на карте: комиссия за вывод и конвертация её уменьшат.",
+      withdrawLink: function (year) { return "Посчитать вывод " + year + " года"; },
       taxTitle: "🧾 Годовой итог для декларации",
       taxIntro: "Декларируется чистый годовой результат — прибыли минус убытки за календарный год, а не каждая сделка отдельно. Срок подачи — до 1 апреля следующего года.",
       taxYear: "Год", taxTrades: "Сделок", taxProfit: "Прибыли",
@@ -156,6 +158,8 @@
       },
       habitFields: { pair: "Pair", setup: "Setup" },
       habitGroup: function (field, name) { return field + ": " + name; },
+      withdrawHint: "This profit is not on your card yet: the withdrawal fee and conversion will cut it.",
+      withdrawLink: function (year) { return "Work out the " + year + " withdrawal"; },
       taxTitle: "🧾 Annual total for the tax return",
       taxIntro: "What gets declared is the net annual result — profits minus losses over the calendar year, not each trade separately. The deadline is 1 April of the following year.",
       taxYear: "Year", taxTrades: "Trades", taxProfit: "Profits",
@@ -261,6 +265,8 @@
       },
       habitFields: { pair: "Juftlik", setup: "Setap" },
       habitGroup: function (field, name) { return field + ": " + name; },
+      withdrawHint: "Bu foyda hali kartada emas: yechish komissiyasi va konvertatsiya uni kamaytiradi.",
+      withdrawLink: function (year) { return year + " yil yechishini hisoblash"; },
       taxTitle: "🧾 Deklaratsiya uchun yillik yakun",
       taxIntro: "Deklaratsiya qilinadigan narsa — sof yillik natija, ya'ni kalendar yil davomidagi foyda minus zarar, har bir savdo alohida emas. Topshirish muddati — keyingi yilning 1-apreligacha.",
       taxYear: "Yil", taxTrades: "Savdolar", taxProfit: "Foyda",
@@ -1514,6 +1520,7 @@
       "<th>" + escapeHtml(T.taxNet) + "</th><th>" + escapeHtml(T.taxDue) + "</th><th></th>" +
       "</tr></thead><tbody>" + rowsHtml + "</tbody></table></div>" +
       (skipped ? "<p><strong>" + escapeHtml(T.taxSkipped(skipped)) + "</strong></p>" : "") +
+      withdrawalHint(years) +
       '<p class="journal-tax-note">' + escapeHtml(T.taxNote) + "</p>";
 
     taxPanel.querySelectorAll(".journal-tax-open").forEach(function (button) {
@@ -1521,6 +1528,17 @@
         openTaxCalculator(parseInt(button.getAttribute("data-year"), 10));
       });
     });
+  }
+
+  // Журнал показывает прибыль, которой нет на карте: комиссия за вывод и
+  // конвертация её уменьшают. Модель комиссий живёт в гиде по выводу — сюда её
+  // не копируем, чтобы не завести две версии, а передаём сумму туда.
+  function withdrawalHint(years) {
+    var best = years.filter(function (year) { return year.net > 0; })[0];
+    if (!best) return "";
+    return "<p>" + escapeHtml(T.withdrawHint) +
+      ' <a class="journal-tax-link" href="../../uz/withdrawal-guide/?amount=' +
+      Math.round(best.net) + '">' + escapeHtml(T.withdrawLink(best.year)) + "</a></p>";
   }
 
   function openTaxCalculator(year) {
