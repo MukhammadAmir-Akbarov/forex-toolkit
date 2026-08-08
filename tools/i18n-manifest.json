@@ -435,6 +435,13 @@
       },
       "ru_sha256": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971"
     },
+    "tools/living-capital.md": {
+      "locales": {
+        "en": "cde8e56e6d6c8d87fd9db8e9be5b8f2a3b38c75a12099045f6564d26f304ae1d",
+        "uz": "cde8e56e6d6c8d87fd9db8e9be5b8f2a3b38c75a12099045f6564d26f304ae1d"
+      },
+      "ru_sha256": "cde8e56e6d6c8d87fd9db8e9be5b8f2a3b38c75a12099045f6564d26f304ae1d"
+    },
     "tools/margin-calculator.md": {
       "locales": {
         "en": "d00c9949e2740ee2b1a5bbe9bcca81ae5914e38db7f59387a8816d8c9ea728c5",
