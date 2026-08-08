@@ -16,6 +16,7 @@
 
 from __future__ import annotations
 
+import errno
 import json
 import shutil
 import subprocess
@@ -206,28 +207,33 @@ def test_sandbox_reports_a_missing_function_instead_of_passing() -> None:
     assert "error" in payload and "не объявлена" in payload["error"]
 
 
-def test_sandbox_refuses_a_command_line_too_long_for_linux() -> None:
-    """Длинный аргумент должен отвергаться одинаково на всех системах.
+def test_a_command_line_too_long_never_passes_quietly() -> None:
+    """Длинный аргумент обязан отвергаться — но отказывают разные слои.
 
     Сверка на полном архиве занимает 278 КБ. В Linux один аргумент командной
-    строки ограничен 128 КБ, в macOS — нет. Пока песочница молчала, сверка
-    проходила локально и валила все ubuntu-джобы сразу; чинить приходилось по
-    логам CI. Теперь отказ приходит там же, где написан код.
+    строки ограничен 128 КБ: там процесс даже не запускается, `execve` отдаёт
+    E2BIG. В macOS предела нет, и молчаливый проход как раз и был причиной
+    того, что сверка зеленела локально и валила все ubuntu-джобы сразу —
+    поэтому песочница отказывает сама.
+
+    Годится любой из двух отказов. Не годится третий исход: тихо посчитать.
     """
-    completed = subprocess.run(
-        [
-            "node",
-            str(SANDBOX),
-            str(WIDGETS / "journal.js"),
-            "__fxTaxSummary",
-            json.dumps([[{"date": "2025-01-01", "pnl": 1.0}] * 4000]),
-            "ru",
-        ],
-        capture_output=True,
-        text=True,
-        timeout=30,
-    )
-    payload = json.loads(completed.stdout)
+    oversized = json.dumps([[{"date": "2025-01-01", "pnl": 1.0}] * 4000])
+    command = [
+        "node",
+        str(SANDBOX),
+        str(WIDGETS / "journal.js"),
+        "__fxTaxSummary",
+        oversized,
+        "ru",
+    ]
+    try:
+        completed = subprocess.run(command, capture_output=True, text=True, timeout=30)
+    except OSError as error:  # Linux: до Node дело не доходит
+        assert error.errno == errno.E2BIG, error
+        return
+
+    payload = json.loads(completed.stdout)  # macOS: отказывает песочница
     assert "stdin" in payload.get("error", ""), payload
 
 
