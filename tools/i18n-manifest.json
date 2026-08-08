@@ -472,10 +472,10 @@
     },
     "tools/quiz.md": {
       "locales": {
-        "en": "e5853887ed386088960ba81d466de1643667d5625346305631f103b7cb5bf643",
-        "uz": "e5853887ed386088960ba81d466de1643667d5625346305631f103b7cb5bf643"
+        "en": "59ade2750db668f2dc219bd9b3bdcda3385dbcca4c98ae75a402f5bdc1659254",
+        "uz": "59ade2750db668f2dc219bd9b3bdcda3385dbcca4c98ae75a402f5bdc1659254"
       },
-      "ru_sha256": "e5853887ed386088960ba81d466de1643667d5625346305631f103b7cb5bf643"
+      "ru_sha256": "59ade2750db668f2dc219bd9b3bdcda3385dbcca4c98ae75a402f5bdc1659254"
     },
     "tools/replay-trainer.md": {
       "locales": {
@@ -577,10 +577,10 @@
     },
     "uz/withdrawal-guide.md": {
       "locales": {
-        "en": "6974812508355197e00c4d117d8d13fe77012c65cf7873b4bdbef7d4703324fe",
-        "uz": "6974812508355197e00c4d117d8d13fe77012c65cf7873b4bdbef7d4703324fe"
+        "en": "cd6b6029220e8bc46b37659dc52e6287cca7f141841fd24f4be0f55c4df7ae36",
+        "uz": "cd6b6029220e8bc46b37659dc52e6287cca7f141841fd24f4be0f55c4df7ae36"
       },
-      "ru_sha256": "6974812508355197e00c4d117d8d13fe77012c65cf7873b4bdbef7d4703324fe"
+      "ru_sha256": "cd6b6029220e8bc46b37659dc52e6287cca7f141841fd24f4be0f55c4df7ae36"
     },
     "КАК-ПОЛЬЗОВАТЬСЯ.md": {
       "locales": {

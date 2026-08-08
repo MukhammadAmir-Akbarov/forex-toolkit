@@ -19,6 +19,12 @@
       exam: "Экзамен",
       replay: "Replay",
       journal: "Журнал",
+      declTitle: "🧾 Скоро срок налоговой декларации",
+      declBody: function (year, n) {
+        return "За " + year + " год в журнале " + n + " сделок. Декларацию по итогам года подают до 1 апреля " +
+          (year + 1) + " в кабинете my.soliq.uz. Годовой итог — прибыли минус убытки — журнал уже посчитал.";
+      },
+      declLink: "Открыть годовой итог в журнале",
       next: "Следующий шаг",
       profileTitle: "Тест готовности",
       profileMeta: "Отвечает на вопрос, стоит ли тебе торговать вообще.",
@@ -95,6 +101,12 @@
       exam: "Exam",
       replay: "Replay",
       journal: "Journal",
+      declTitle: "🧾 The tax return deadline is close",
+      declBody: function (year, n) {
+        return "Your journal holds " + n + " trades from " + year + ". The annual return is filed by 1 April " +
+          (year + 1) + " at my.soliq.uz. The journal has already worked out the annual total — profits minus losses.";
+      },
+      declLink: "Open the annual total in the journal",
       next: "Next step",
       profileTitle: "Readiness test",
       profileMeta: "Answers whether you should be trading at all.",
@@ -171,6 +183,12 @@
       exam: "Imtihon",
       replay: "Replay",
       journal: "Jurnal",
+      declTitle: "🧾 Soliq deklaratsiyasi muddati yaqin",
+      declBody: function (year, n) {
+        return year + " yil uchun jurnalda " + n + " ta savdo bor. Yillik deklaratsiya " + (year + 1) +
+          "-yil 1-aprelgacha my.soliq.uz kabinetida topshiriladi. Yillik yakunni — foyda minus zarar — jurnal allaqachon hisoblagan.";
+      },
+      declLink: "Jurnalda yillik yakunni ochish",
       next: "Keyingi qadam",
       profileTitle: "Tayyorlik testi",
       profileMeta: "Umuman savdo qilish kerakmi degan savolga javob beradi.",
@@ -379,6 +397,39 @@
     ].join("");
   }
 
+  // Декларация подаётся до 1 апреля за прошедший год, а узнаёт человек об этом
+  // из статьи, прочитанной полгода назад. Напоминание живёт только с января по
+  // март: в остальное время это шум, а не помощь. Логика вынесена и принимает
+  // дату, иначе тест зависел бы от того, в каком месяце его запустили.
+  function declarationDue(today, rows) {
+    var month = today.getMonth() + 1;
+    var year = today.getFullYear() - 1;
+    var counted = 0;
+    (rows || []).forEach(function (row) {
+      if (String(row && row.date ? row.date : "").slice(0, 4) === String(year)) counted++;
+    });
+    // Нет сделок за прошлый год — декларировать нечего, молчим.
+    return { due: month <= 3 && counted > 0, year: year, trades: counted };
+  }
+
+  window.__fxDeclarationDue = function (isoDate, rows) {
+    return declarationDue(new Date(isoDate), rows);
+  };
+
+  function declarationBlock() {
+    var data = readJSON("forex_journal_data_v2", {});
+    var state = declarationDue(new Date(), (data && data.rows) || []);
+    if (!state.due) return "";
+    return [
+      '<section class="sd-data-health is-warning" id="sd-declaration">',
+      '<h3>' + safeText(T.declTitle) + "</h3>",
+      "<p>" + safeText(T.declBody(state.year, state.trades)) + "</p>",
+      '<a class="sd-card__link" href="' + page("journal/web-journal/") + '">' +
+        safeText(T.declLink) + "</a>",
+      "</section>"
+    ].join("");
+  }
+
   function render() {
     var s = collect();
     var meta = readJSON("forex_data_meta_v1", {});
@@ -417,6 +468,7 @@
       card(T.replay, s.replay && s.replay.trades ? s.replay.trades + ' ' + T.trades : T.noData, replayMeta, page('tools/replay-trainer/'), T.links.replay, s.replay && s.replay.trades ? 'ok' : 'warn'),
       card(T.journal, s.journal && s.journal.trades ? s.journal.trades + ' ' + T.trades : T.noData, journalMeta, page('journal/web-journal/'), T.links.journal, s.journal && s.journal.trades ? 'ok' : 'warn'),
       '</div>',
+      declarationBlock(),
       '<div class="sd-next"><strong>' + safeText(T.next) + ':</strong> <span id="sd-next-text">' + safeText(s.next) + '</span></div>',
       '<div class="sd-actions">',
       '  <button type="button" id="sd-export">' + safeText(T.export) + '</button>',

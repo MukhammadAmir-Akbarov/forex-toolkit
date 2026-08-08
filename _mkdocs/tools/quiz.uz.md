@@ -46,13 +46,13 @@ const QUIZ = [
   },
   {
     q: "Savdoga kirishdan OLDIN nima albatta qo'yilishi kerak?",
-    options: ["Imkon qadar katta Take Profit", "Stop-loss", "1:500 kredit richagi", "Telegram bildirishnomalari"],
+    options: ["Kattaroq Take Profit — foyda muhimroq", "Stop-loss", "Hajmni savdo davomida tanlayman", "Kirish darajasi, stopni qarshi ketsa qo'yaman"],
     correct: 1,
     explain: "Stop-loss — bu sizning xato qilganingizni tan olish haqidagi oldindan qabul qilingan qaror. Usiz bozorning bitta burilishi hisobni nolga tushirishi mumkin. Stop kirish DAN OLDIN qo'yiladi, «vaziyatga qarab» emas."
   },
   {
     q: "Real pulga o'tishdan oldin demo-da kamida qancha savdo qilish kerak?",
-    options: ["Bir-ikki kun", "Bir hafta", "Kamida 3 oy", "Demo — vaqt isrof"],
+    options: ["Bir necha kun — mexanikasi oddiy", "Bir hafta, agar plyusda savdo qilinsa", "Kamida 3 oy", "Ketma-ket 20 ta foydali savdo bo'lguncha"],
     correct: 2,
     explain: "Jurnal bilan kamida 3 oy barqaror demo-savdo. Demo platforma mexanikasini va intizomni pulni yo'qotmay o'rgatadi. Realga shoshilish — eng keng tarqalgan xato."
   },
@@ -64,7 +64,7 @@ const QUIZ = [
   },
   {
     q: "Broker «oyiga 30% kafolatlangan foyda» va'da qilmoqda. Bu…",
-    options: ["Ajoyib imkoniyat", "Firibgarlik belgisi", "Forex uchun norma", "Faqat VIP-mijozlar uchun"],
+    options: ["Mumkin, agar uning o'z savdo tizimi bo'lsa", "Firibgarlik belgisi", "Katta kapitalli boshqaruvchilar uchun normal", "Yuqori yelkada real"],
     correct: 1,
     explain: "Bozorda kafolatlangan foyda mavjud emas. Chakana treyderlarning 74–89% pul yo'qotadi. Har qanday «daromad kafolati» — firibgarlikning qizil bayrog'i."
   },
@@ -82,13 +82,13 @@ const QUIZ = [
   },
   {
     q: "Savdo jurnalining asosiy maqsadi nima?",
-    options: ["Foydani ko'z-ko'z qilish", "O'zingizning takrorlanuvchi xatolaringizni topish", "Brokerning talabi", "Soliqlarni hisoblash"],
+    options: ["Soliq uchun savdolarni yozib borish", "O'zingizning takrorlanuvchi xatolaringizni topish", "Oylik yakuniy foydani hisoblash", "Muvaffaqiyatli kirishlar skrinshotini saqlash"],
     correct: 1,
     explain: "Jurnal patternlarni ko'rsatadi: qaysi vaqtda, qaysi juftliklarda, qaysi kayfiyatda pul yo'qotishingizni. Jurnalsiz bir xil xatolarni qayta-qayta takrorlaysiz va buni sezmaysiz."
   },
   {
     q: "Ketma-ket 3 ta savdoda yutqazdingiz va katta pozitsiya bilan «qaytarib olmoqchi» bo'lyapsiz. Bu…",
-    options: ["Oqilona reja", "Tilt — to'xtatish signali", "Oddiy risk-menejment", "Martingayl strategiyasi, u ishlaydi"],
+    options: ["Mantiqiy: zarar seriyasidan keyin yutuq ehtimoli yuqoriroq", "Tilt — to'xtatish signali", "Risk 1% bo'lib qolsa, joiz", "Bosqichma-bosqich oshirilsa ishlaydigan usul"],
     correct: 1,
     explain: "Qaytarib olish istagi (revenge trading) tilt holatida depozitlarni yo'q qiladi. Bir qator yo'qotishlardan keyin to'g'ri yo'l — hajmni kamaytirish yoki tanaffus olish, stavkani oshirish emas."
   },
@@ -100,13 +100,13 @@ const QUIZ = [
   },
   {
     q: "Muhim yangilik (NFP, FED yig'ilishi) oldidan spred kengayadi va narx keskin harakat qiladi. Yangi boshlovchiga yaxshisi…",
-    options: ["To'la pozitsiya bilan kirish", "Kirishdan saqlanish", "Stop-losslarni olib tashlash", "RichaGni oshirish"],
+    options: ["Kutilayotgan harakat tomoniga oldindan kirish", "Kirishdan saqlanish", "Stopni kengroq qo'yish, uchib ketmasligi uchun", "Raqamlar chiqishi bilan darhol kirish"],
     correct: 1,
     explain: "Yangilik chiqish paytida keskin harakatlar va siljishlar stoplarni eng yomon narxda urib chiqaradi. Muhim yangiliklar oldidan va keyin bir necha daqiqa savdo qilmaslik yangi boshlovchi uchun xavfsizroq."
   },
   {
     q: "Brokerni qanday tanlash kerak?",
-    options: ["Depozit bonusining hajmiga qarab", "Regulyator litsenziyasi mavjudligiga qarab (FCA, CySEC, ASIC)", "Chiroyli reklamaga qarab", "Va'da qilingan 1:1000 richaGga qarab"],
+    options: ["Eng past spred va komissiya bo'yicha", "Regulyator litsenziyasi mavjudligiga qarab (FCA, CySEC, ASIC)", "Sharhlardagi pul yechish tezligi bo'yicha", "Platforma va ilova qulayligi bo'yicha"],
     correct: 1,
     explain: "Asosiysi — regulyatsiya. FCA/CySEC/ASIC litsenziyasi mijozlar mablag'larini ajratish va nazoratni bildiradi. Bonuslar va katta richag — ko'pincha litsenziyasiz kompaniyalarda marketing."
   },
@@ -130,7 +130,7 @@ const QUIZ = [
   },
   {
     q: "Ijara/ovqat uchun ajratilgan pullarga savdo qilish mumkinmi?",
-    options: ["Ha, agar savdoga ishonchli bo'lsangiz", "Qat'iyan yo'q", "Faqat yarmiga", "Agar richag kichik bo'lsa"],
+    options: ["Ha, to'lov muddatigacha qaytarilsa", "Qat'iyan yo'q", "Bir qismini, agar risk 1% bo'lsa", "Agar bu qisqa stopli bir martalik savdo bo'lsa"],
     correct: 1,
     explain: "Faqat yo'qotilsa ham hayotingizga ta'sir qilmaydigan pullarga savdo qiling. «Tirikchilik pullari» intizomni buzadigan hissiy bosim yaratadi."
   },
