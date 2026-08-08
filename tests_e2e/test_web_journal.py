@@ -133,7 +133,18 @@ def test_web_journal_restores_and_clears_local_data(pw_page, site_url):
     assert page.text_content("#journal-m-trades").strip() == "2"
     assert "trading-journal-template.csv" in page.text_content("#journal-status")
 
+    # Отказ в подтверждении обязан сохранить журнал: данные лежат только в
+    # браузере, и раньше один клик стирал их молча.
+    page.once("dialog", lambda dialog: dialog.dismiss())
     page.click("#journal-clear")
+    assert page.is_visible("#journal-dashboard"), "отказ от подтверждения стёр журнал"
+    assert page.evaluate("() => localStorage.getItem('forex_journal_data_v2')")
+
+    asked = []
+    page.once("dialog", lambda dialog: (asked.append(dialog.message), dialog.accept()))
+    page.click("#journal-clear")
+    assert asked, "очистка журнала прошла без подтверждения"
+    assert "2" in asked[0], f"в вопросе нет числа сделок: {asked[0]!r}"
     assert not page.is_visible("#journal-dashboard")
     assert page.evaluate("() => localStorage.getItem('forex_journal_data_v2')") is None
 

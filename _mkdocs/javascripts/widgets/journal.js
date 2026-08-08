@@ -34,6 +34,14 @@
       saved: "Журнал сохранён на этом устройстве.",
       restored: "Восстановлен последний журнал",
       cleared: "Сохранённый журнал удалён.",
+      confirmClear: function (n) {
+        return (
+          "Удалить импортированные сделки (" + n + ")?\n\n" +
+          "Журнал хранится только в этом браузере — восстановить его можно " +
+          "будет только из своего backup.\n\n" +
+          "Планы из «Перед сделкой» останутся."
+        );
+      },
       noFile: "Файл ещё не выбран",
       exportReady: "Сводка экспортирована.",
       plansTitle: "Планы и открытые сделки",
@@ -105,6 +113,14 @@
       saved: "Journal saved on this device.",
       restored: "Restored the latest journal",
       cleared: "Saved journal removed.",
+      confirmClear: function (n) {
+        return (
+          "Delete the imported trades (" + n + ")?\n\n" +
+          "The journal is stored in this browser only — the only way back is " +
+          "your own backup.\n\n" +
+          "Plans from Trade Desk will stay."
+        );
+      },
       noFile: "No file selected",
       exportReady: "Summary exported.",
       plansTitle: "Plans and open trades",
@@ -176,6 +192,14 @@
       saved: "Jurnal shu qurilmada saqlandi.",
       restored: "Oxirgi jurnal tiklandi",
       cleared: "Saqlangan jurnal o'chirildi.",
+      confirmClear: function (n) {
+        return (
+          "Import qilingan savdolar (" + n + ") o'chirilsinmi?\n\n" +
+          "Jurnal faqat shu brauzerda saqlanadi — uni tiklashning yagona yo'li " +
+          "o'z backup faylingiz.\n\n" +
+          "«Savdo oldidan» rejalari saqlanib qoladi."
+        );
+      },
       noFile: "Fayl tanlanmagan",
       exportReady: "Hisobot eksport qilindi.",
       plansTitle: "Rejalar va ochiq savdolar",
@@ -1395,6 +1419,11 @@
     loadText(document.getElementById("journal-demo-data").textContent, T.demo, true, "csv");
   });
   document.getElementById("journal-clear").addEventListener("click", function () {
+    // Журнал лежит только в localStorage — после удаления восстановить его
+    // нечем, кроме собственного backup. Сброс в кабинете подтверждение
+    // спрашивает, здесь один клик стирал всё молча.
+    var saved = state.importedRows.length;
+    if (saved && !window.confirm(T.confirmClear(saved))) return;
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
     state = { rows: [], importedRows: [], sourceText: "", sourceName: "" };
     refreshFromPlans();

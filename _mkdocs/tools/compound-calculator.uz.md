@@ -1,3 +1,7 @@
+---
+widgets: [compound]
+---
+
 # 📈 Murakkab foiz kalkulyatori
 
 !!! abstract "Nima uchun bu kerak"

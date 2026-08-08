@@ -1,3 +1,7 @@
+---
+widgets: [risk-exposure]
+---
+
 # Umumiy risk kalkulyatori
 
 Bitta pozitsiya xavfsiz ko'rinishi mumkin, ammo bir nechta savdo bir xil valyuta

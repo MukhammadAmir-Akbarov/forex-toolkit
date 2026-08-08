@@ -1,3 +1,7 @@
+---
+widgets: [exam]
+---
+
 # 🎓 Yakuniy imtihon + sertifikat
 
 !!! abstract "Qanday ishlaydi"

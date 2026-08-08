@@ -1,3 +1,7 @@
+---
+widgets: [sessions]
+---
+
 # 🕐 Savdo sessiyalari va bozor soatlari
 
 !!! abstract "Nima uchun buni bilish muhim"

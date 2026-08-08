@@ -1,3 +1,7 @@
+---
+widgets: [position]
+---
+
 # 📐 Pozitsiya hajmi kalkulyatori
 
 !!! abstract "Nima uchun bu kerak"

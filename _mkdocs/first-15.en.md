@@ -1,3 +1,7 @@
+---
+widgets: [first-15]
+---
+
 # First 15 minutes
 
 A short route that prevents a new user from getting lost in the full handbook.

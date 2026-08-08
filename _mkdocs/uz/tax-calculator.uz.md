@@ -1,5 +1,6 @@
 ---
 verified: 2026-08-05
+widgets: [tax]
 ---
 
 # 🧾 Soliq kalkulyatori (O'zbekiston)

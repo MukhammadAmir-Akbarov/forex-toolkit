@@ -1,3 +1,7 @@
+---
+widgets: [first-15]
+---
+
 # Dastlabki 15 daqiqa
 
 Katta qo'llanmada adashib qolmaslik uchun qisqa yo'nalish. Maqsad "15 daqiqada

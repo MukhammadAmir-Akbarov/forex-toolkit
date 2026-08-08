@@ -1,3 +1,7 @@
+---
+widgets: [monte-carlo]
+---
+
 # Monte Carlo in the Browser
 
 Even a positive-expectancy strategy can produce a painful streak. The simulator

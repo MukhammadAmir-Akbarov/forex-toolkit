@@ -1,3 +1,7 @@
+---
+widgets: [pip]
+---
+
 # 💲 Pip Value Calculator
 
 !!! abstract "Why it matters"

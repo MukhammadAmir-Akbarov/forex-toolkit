@@ -1,3 +1,7 @@
+---
+widgets: [winrate]
+---
+
 # 📊 Win Rate × Risk-Reward — калькулятор прибыльности
 
 !!! abstract "Главная математика трейдинга"

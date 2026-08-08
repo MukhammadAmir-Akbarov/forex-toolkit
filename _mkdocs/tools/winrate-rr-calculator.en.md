@@ -1,3 +1,7 @@
+---
+widgets: [winrate]
+---
+
 # 📊 Win Rate × Risk-Reward — Profitability Calculator
 
 !!! abstract "The Core Mathematics of Trading"

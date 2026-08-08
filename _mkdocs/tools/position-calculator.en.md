@@ -1,3 +1,7 @@
+---
+widgets: [position]
+---
+
 # 📐 Position Size Calculator
 
 !!! abstract "Why this matters"

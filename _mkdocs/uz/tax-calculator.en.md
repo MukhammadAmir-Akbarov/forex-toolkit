@@ -1,5 +1,6 @@
 ---
 verified: 2026-08-05
+widgets: [tax]
 ---
 
 # 🧾 Tax Calculator (Uzbekistan)

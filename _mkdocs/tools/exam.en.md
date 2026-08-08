@@ -1,3 +1,7 @@
+---
+widgets: [exam]
+---
+
 # 🎓 Final Exam + Certificate
 
 !!! abstract "How it works"

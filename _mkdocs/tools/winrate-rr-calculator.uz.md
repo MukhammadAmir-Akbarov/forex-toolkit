@@ -1,3 +1,7 @@
+---
+widgets: [winrate]
+---
+
 # 📊 Win Rate × Risk-Reward — daromadlilik kalkulyatori
 
 !!! abstract "Trejdingning asosiy matematikasi"

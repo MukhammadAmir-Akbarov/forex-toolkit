@@ -220,10 +220,10 @@
     },
     "first-15.md": {
       "locales": {
-        "en": "11b59407c24a0a3a027d6d05756e6d5e68e1ef1cafdc7558a39ebb3a60851803",
-        "uz": "11b59407c24a0a3a027d6d05756e6d5e68e1ef1cafdc7558a39ebb3a60851803"
+        "en": "3fb74d1d5612c4ae5661a1beecd23d82a0a0fa979996da976e387c24212f2855",
+        "uz": "3fb74d1d5612c4ae5661a1beecd23d82a0a0fa979996da976e387c24212f2855"
       },
-      "ru_sha256": "11b59407c24a0a3a027d6d05756e6d5e68e1ef1cafdc7558a39ebb3a60851803"
+      "ru_sha256": "3fb74d1d5612c4ae5661a1beecd23d82a0a0fa979996da976e387c24212f2855"
     },
     "forex-guide.md": {
       "locales": {
@@ -374,10 +374,10 @@
     },
     "practice/trading-sessions.md": {
       "locales": {
-        "en": "1431f39927edabfb9f6bb71335de6516453677a73760f5812f423dc371be24a2",
-        "uz": "1431f39927edabfb9f6bb71335de6516453677a73760f5812f423dc371be24a2"
+        "en": "c8c6e9ffc993a47924eff0e6be597c97e5fce3ca9d388d01bfc8883cc96845a2",
+        "uz": "c8c6e9ffc993a47924eff0e6be597c97e5fce3ca9d388d01bfc8883cc96845a2"
       },
-      "ru_sha256": "1431f39927edabfb9f6bb71335de6516453677a73760f5812f423dc371be24a2"
+      "ru_sha256": "c8c6e9ffc993a47924eff0e6be597c97e5fce3ca9d388d01bfc8883cc96845a2"
     },
     "privacy.md": {
       "locales": {
@@ -409,24 +409,24 @@
     },
     "tools/compound-calculator.md": {
       "locales": {
-        "en": "96ad85e06cf0f0d0c81ef8ec57b3ebed5e9b74c7923b9d0e1589c1be1d9f2533",
-        "uz": "96ad85e06cf0f0d0c81ef8ec57b3ebed5e9b74c7923b9d0e1589c1be1d9f2533"
+        "en": "addac39f8629266c529ff8a64b523876481bf3c35cc1ca97bf48db1f6c713498",
+        "uz": "addac39f8629266c529ff8a64b523876481bf3c35cc1ca97bf48db1f6c713498"
       },
-      "ru_sha256": "96ad85e06cf0f0d0c81ef8ec57b3ebed5e9b74c7923b9d0e1589c1be1d9f2533"
+      "ru_sha256": "addac39f8629266c529ff8a64b523876481bf3c35cc1ca97bf48db1f6c713498"
     },
     "tools/cost-calculator.md": {
       "locales": {
-        "en": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee",
-        "uz": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee"
+        "en": "9f587599700f07c576faf5751310e527e78f098a7e68256992a626c977a6533b",
+        "uz": "9f587599700f07c576faf5751310e527e78f098a7e68256992a626c977a6533b"
       },
-      "ru_sha256": "ef5c22fa6adb0693c24e04eb90caff5c130ccf8e0f6d7330f9bda2716062afee"
+      "ru_sha256": "9f587599700f07c576faf5751310e527e78f098a7e68256992a626c977a6533b"
     },
     "tools/exam.md": {
       "locales": {
-        "en": "e71232b6c067dad3d59df587c07a6d2136c8afef3d8092e754062383df87ce4c",
-        "uz": "e71232b6c067dad3d59df587c07a6d2136c8afef3d8092e754062383df87ce4c"
+        "en": "41f0572a2a04f6e3f243a3536130fa8f470942390297943eb940ea6042104df5",
+        "uz": "41f0572a2a04f6e3f243a3536130fa8f470942390297943eb940ea6042104df5"
       },
-      "ru_sha256": "e71232b6c067dad3d59df587c07a6d2136c8afef3d8092e754062383df87ce4c"
+      "ru_sha256": "41f0572a2a04f6e3f243a3536130fa8f470942390297943eb940ea6042104df5"
     },
     "tools/flashcards.md": {
       "locales": {
@@ -437,31 +437,31 @@
     },
     "tools/margin-calculator.md": {
       "locales": {
-        "en": "ea4adca897ed3ea3326d76d5d90624d246151cb44eeff2c36ce5aaff4906aabb",
-        "uz": "ea4adca897ed3ea3326d76d5d90624d246151cb44eeff2c36ce5aaff4906aabb"
+        "en": "d00c9949e2740ee2b1a5bbe9bcca81ae5914e38db7f59387a8816d8c9ea728c5",
+        "uz": "d00c9949e2740ee2b1a5bbe9bcca81ae5914e38db7f59387a8816d8c9ea728c5"
       },
-      "ru_sha256": "ea4adca897ed3ea3326d76d5d90624d246151cb44eeff2c36ce5aaff4906aabb"
+      "ru_sha256": "d00c9949e2740ee2b1a5bbe9bcca81ae5914e38db7f59387a8816d8c9ea728c5"
     },
     "tools/monte-carlo.md": {
       "locales": {
-        "en": "c5b1976ebe48d43d2c3af2a3d4992f0946360e5b5bb72413965dd7d36c369e7e",
-        "uz": "c5b1976ebe48d43d2c3af2a3d4992f0946360e5b5bb72413965dd7d36c369e7e"
+        "en": "931d9e8c170deee09d424b17c3ece1f786e0b5813ae1a9ee25a044849d367b5f",
+        "uz": "931d9e8c170deee09d424b17c3ece1f786e0b5813ae1a9ee25a044849d367b5f"
       },
-      "ru_sha256": "c5b1976ebe48d43d2c3af2a3d4992f0946360e5b5bb72413965dd7d36c369e7e"
+      "ru_sha256": "931d9e8c170deee09d424b17c3ece1f786e0b5813ae1a9ee25a044849d367b5f"
     },
     "tools/pip-calculator.md": {
       "locales": {
-        "en": "794a14308910a26391bedf250aa913640d1f863fdca477286fb0f9b4bfc0f136",
-        "uz": "794a14308910a26391bedf250aa913640d1f863fdca477286fb0f9b4bfc0f136"
+        "en": "388c1ad1f81d5695652cda39be0132a0e79964f27692f4b0756e5c0d83808fc7",
+        "uz": "388c1ad1f81d5695652cda39be0132a0e79964f27692f4b0756e5c0d83808fc7"
       },
-      "ru_sha256": "794a14308910a26391bedf250aa913640d1f863fdca477286fb0f9b4bfc0f136"
+      "ru_sha256": "388c1ad1f81d5695652cda39be0132a0e79964f27692f4b0756e5c0d83808fc7"
     },
     "tools/position-calculator.md": {
       "locales": {
-        "en": "18753cd4c1cb2f4e7fe85b87de8f1837a3ff7e987367e29da2cfe34300b2d7e1",
-        "uz": "18753cd4c1cb2f4e7fe85b87de8f1837a3ff7e987367e29da2cfe34300b2d7e1"
+        "en": "052eed5da8c3f7100d0e70f61fd12752e39bac6c5f2cb7a90cb2f6d0c44b3673",
+        "uz": "052eed5da8c3f7100d0e70f61fd12752e39bac6c5f2cb7a90cb2f6d0c44b3673"
       },
-      "ru_sha256": "18753cd4c1cb2f4e7fe85b87de8f1837a3ff7e987367e29da2cfe34300b2d7e1"
+      "ru_sha256": "052eed5da8c3f7100d0e70f61fd12752e39bac6c5f2cb7a90cb2f6d0c44b3673"
     },
     "tools/quiz.md": {
       "locales": {
@@ -479,10 +479,10 @@
     },
     "tools/risk-exposure-calculator.md": {
       "locales": {
-        "en": "c1773222981a0ff81b6436f781e61fab908895f9253f063e90a9ce0b04321d2e",
-        "uz": "c1773222981a0ff81b6436f781e61fab908895f9253f063e90a9ce0b04321d2e"
+        "en": "0fc049addbf10906af3af944c2c4b2b2708c929b6d7ecc331b89fb2a7600bfd6",
+        "uz": "0fc049addbf10906af3af944c2c4b2b2708c929b6d7ecc331b89fb2a7600bfd6"
       },
-      "ru_sha256": "c1773222981a0ff81b6436f781e61fab908895f9253f063e90a9ce0b04321d2e"
+      "ru_sha256": "0fc049addbf10906af3af944c2c4b2b2708c929b6d7ecc331b89fb2a7600bfd6"
     },
     "tools/risk-of-ruin.md": {
       "locales": {
@@ -507,10 +507,10 @@
     },
     "tools/winrate-rr-calculator.md": {
       "locales": {
-        "en": "d068337dbc3bbae79960ff6ee247febab7fb27121f1688956e3ec070680a0d54",
-        "uz": "d068337dbc3bbae79960ff6ee247febab7fb27121f1688956e3ec070680a0d54"
+        "en": "a177b8a3671a667d33fc5678ec2468e584dc2bdecea131dde5aeaaae1bf3127b",
+        "uz": "a177b8a3671a667d33fc5678ec2468e584dc2bdecea131dde5aeaaae1bf3127b"
       },
-      "ru_sha256": "d068337dbc3bbae79960ff6ee247febab7fb27121f1688956e3ec070680a0d54"
+      "ru_sha256": "a177b8a3671a667d33fc5678ec2468e584dc2bdecea131dde5aeaaae1bf3127b"
     },
     "uz/brokers-uz.md": {
       "locales": {
@@ -556,10 +556,10 @@
     },
     "uz/tax-calculator.md": {
       "locales": {
-        "en": "820e541891a79849930f3710f6f071c2b86ca3bbe75b96d9736495664daf8afc",
-        "uz": "820e541891a79849930f3710f6f071c2b86ca3bbe75b96d9736495664daf8afc"
+        "en": "ea987b1c4d7d32ae9138ab4c46ae29b7151d6ede5c242377ac56d4f3b65c8dba",
+        "uz": "ea987b1c4d7d32ae9138ab4c46ae29b7151d6ede5c242377ac56d4f3b65c8dba"
       },
-      "ru_sha256": "820e541891a79849930f3710f6f071c2b86ca3bbe75b96d9736495664daf8afc"
+      "ru_sha256": "ea987b1c4d7d32ae9138ab4c46ae29b7151d6ede5c242377ac56d4f3b65c8dba"
     },
     "uz/trading-vs-deposit.md": {
       "locales": {

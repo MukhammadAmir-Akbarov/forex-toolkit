@@ -1,3 +1,7 @@
+---
+widgets: [pip]
+---
+
 # 💲 Pip qiymati kalkulyatori
 
 !!! abstract "Nima uchun bu kerak"
