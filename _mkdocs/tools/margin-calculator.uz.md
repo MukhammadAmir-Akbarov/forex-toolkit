@@ -1,3 +1,7 @@
+---
+widgets: [margin]
+---
+
 # 💰 Marja kalkulyatori
 
 !!! abstract "Nima uchun bu kerak"

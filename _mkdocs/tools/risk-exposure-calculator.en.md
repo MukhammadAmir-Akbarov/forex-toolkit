@@ -1,3 +1,7 @@
+---
+widgets: [risk-exposure]
+---
+
 # Aggregate Risk Calculator
 
 One position may look safe while several trades repeat the same currency bet.

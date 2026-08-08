@@ -1,3 +1,7 @@
+---
+widgets: [margin]
+---
+
 # 💰 Margin Calculator
 
 !!! abstract "Why this matters"

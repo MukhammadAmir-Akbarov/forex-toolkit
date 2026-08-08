@@ -1,3 +1,7 @@
+---
+widgets: [cost]
+---
+
 # 💸 Trading Cost Calculator
 
 !!! abstract "Why this matters"

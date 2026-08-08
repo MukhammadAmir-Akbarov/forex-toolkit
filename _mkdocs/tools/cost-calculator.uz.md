@@ -1,3 +1,7 @@
+---
+widgets: [cost]
+---
+
 # 💸 Savdo xarajatlari kalkulyatori
 
 !!! abstract "Nima uchun bu kerak"

@@ -1,3 +1,7 @@
+---
+widgets: [sessions]
+---
+
 # 🕐 Trading Sessions and Market Hours
 
 !!! abstract "Why this matters"

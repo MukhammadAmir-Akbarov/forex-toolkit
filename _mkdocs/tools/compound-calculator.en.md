@@ -1,3 +1,7 @@
+---
+widgets: [compound]
+---
+
 # 📈 Compound Interest Calculator
 
 !!! abstract "Why it matters"

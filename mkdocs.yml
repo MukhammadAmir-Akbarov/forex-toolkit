@@ -35,28 +35,13 @@ extra_javascript:
   - javascripts/a11y.js
   # Переключатель письма лотин ⇄ кирилл — активен только на узбекской локали.
   - javascripts/translit.js
-  # Виджеты-калькуляторы: общая логика, локаль берётся из <html lang>.
-  # _i18n.js ОБЯЗАТЕЛЬНО первым — он определяет window.FXW. Каждый виджет
-  # сам проверяет наличие своего контейнера и активируется только на своей
-  # странице, поэтому загружать их глобально безопасно.
+  # Глобально остаётся только то, что нужно нескольким страницам:
+  # _i18n.js (определяет window.FXW, обязан идти первым) и очередь тренировок.
+  # Все виджеты-калькуляторы подключаются постранично через `widgets:` во
+  # front matter (см. overrides/main.html). Раньше они висели глобально:
+  # безопасно, но 38 KB gzip на каждой странице против 2.4 KB сейчас.
   - javascripts/widgets/_i18n.js
   - javascripts/widgets/_training-queue.js
-  - javascripts/widgets/margin.js
-  - javascripts/widgets/compound.js
-  - javascripts/widgets/pip.js
-  - javascripts/widgets/position.js
-  - javascripts/widgets/winrate.js
-  - javascripts/widgets/tax.js
-  - javascripts/widgets/cost.js
-  - javascripts/widgets/sessions.js
-  - javascripts/widgets/exam.js
-  - javascripts/widgets/risk-exposure.js
-  - javascripts/widgets/monte-carlo.js
-  # journal / replay / dashboard / strategy-lab / trade-desk НЕ здесь: каждый
-  # нужен ровно на одной странице и подключается через `widgets:` в её front
-  # matter (см. overrides/main.html). Так со страниц учебника уходит ~45 KB
-  # gzip. Добавляя виджет сюда, проверь, правда ли он нужен всему сайту.
-  - javascripts/widgets/first-15.js
   - javascripts/hero.js
 
 plugins:
@@ -142,6 +127,9 @@ plugins:
             "Сравнение брокеров": "Broker comparison"
             "📡 Источники данных и сигналов": "📡 Data & signal sources"
             "Mind map": "Mind map"
+            "🎥 Видео-скрипты для самозаписи": "🎥 Video scripts to record yourself"
+            "🎥 Скрипт 1 целиком": "🎥 Script 1 in full"
+            "🎥 Скрипт 4 целиком": "🎥 Script 4 in full"
             "Шаблон": "Template"
             "Расширенный": "Extended"
             "📅 Еженедельный отчёт": "📅 Weekly report"
@@ -243,6 +231,9 @@ plugins:
             "Сравнение брокеров": "Brokerlarni taqqoslash"
             "📡 Источники данных и сигналов": "📡 Ma'lumot va signal manbalari"
             "Mind map": "Fikr xaritasi"
+            "🎥 Видео-скрипты для самозаписи": "🎥 O'zingiz yozish uchun video-skriptlar"
+            "🎥 Скрипт 1 целиком": "🎥 1-skript to'liq"
+            "🎥 Скрипт 4 целиком": "🎥 4-skript to'liq"
             "Шаблон": "Shablon"
             "Расширенный": "Kengaytirilgan"
             "📅 Еженедельный отчёт": "📅 Haftalik hisobot"
@@ -403,6 +394,11 @@ nav:
       - Сравнение брокеров: extras/brokers-comparison.md
       - 📡 Источники данных и сигналов: extras/market-data-sources.md
       - Mind map: extras/mind-map.md
+      # Три страницы существовали в сборке, но не были достижимы из меню и
+      # ссылались только друг на друга.
+      - 🎥 Видео-скрипты для самозаписи: extras/video-scripts.md
+      - 🎥 Скрипт 1 целиком: extras/video-script-1-full.md
+      - 🎥 Скрипт 4 целиком: extras/video-script-4-full.md
   - Журнал:
       - 📊 Веб-журнал: journal/web-journal.md
       - Шаблон: journal/trading-journal-template.md

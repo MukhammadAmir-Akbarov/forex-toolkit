@@ -1,3 +1,7 @@
+---
+widgets: [monte-carlo]
+---
+
 # Brauzerda Monte Carlo
 
 Ijobiy kutilmali strategiyada ham og'ir seriya bo'lishi mumkin. Simulyator
