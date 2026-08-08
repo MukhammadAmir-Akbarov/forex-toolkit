@@ -529,6 +529,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/monte-carlo/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/multipair/</loc>
+        <lastmod>2026-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/multipair/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/multipair/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/multipair/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/overfitting/</loc>
         <lastmod>2026-08-08</lastmod>
         <changefreq>daily</changefreq>
@@ -1217,6 +1225,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/monte-carlo/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/multipair/</loc>
+        <lastmod>2026-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/multipair/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/multipair/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/multipair/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/overfitting/</loc>
         <lastmod>2026-08-08</lastmod>
         <changefreq>daily</changefreq>
@@ -1903,6 +1919,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/monte-carlo/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/monte-carlo/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/monte-carlo/"/>
+    </url>
+    <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/multipair/</loc>
+        <lastmod>2026-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/multipair/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/multipair/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/multipair/"/>
     </url>
     <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/overfitting/</loc>
@@ -2652,6 +2676,13 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/monte-carlo/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/monte-carlo/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/monte-carlo/"/>
+    </url><url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/multipair/</loc>
+        <lastmod>2026-08-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/multipair/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/multipair/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/multipair/"/>
     </url><url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/overfitting/</loc>
         <lastmod>2026-08-08</lastmod>
