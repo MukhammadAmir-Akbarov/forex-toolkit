@@ -78,6 +78,9 @@ function buildSandbox(locale) {
     },
     addEventListener() {},
     location: { search: "", href: "", pathname: "/" },
+    // Виджеты, которые подгружают данные, обязаны дойти до конца и объявить
+    // свои функции. Данные в песочнице не нужны: расчёт вызывается напрямую.
+    fetch: () => Promise.reject(new Error("сеть в песочнице недоступна")),
   };
   sandbox.window = sandbox;
 

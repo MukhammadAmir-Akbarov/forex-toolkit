@@ -224,3 +224,55 @@ def test_sandbox_runs_every_widget_that_exposes_logic() -> None:
         assert "виджет не выполнился" not in payload.get("error", ""), (
             f"{widget}: {payload.get('error')}"
         )
+
+
+# ─────────────────────── Свечные паттерны и их исход ────────────────────────
+# Проверяем не только совпадение, но и то, что тренажёр не приукрашивает:
+# доля отработавших должна оставаться около половины.
+
+
+def _archive_series():
+    from forex_toolkit.pattern_outcomes import decode_episode
+
+    episodes = json.loads(
+        (ROOT / "_mkdocs" / "data" / "replay-episodes.json").read_text(encoding="utf-8")
+    )["episodes"]
+    return [decode_episode(episode) for episode in episodes]
+
+
+def test_pattern_stats_match_python_on_the_real_archive():
+    from forex_toolkit.pattern_outcomes import collect_stats
+
+    series = _archive_series()
+    got = call("pattern-trainer", "__fxPatternStats", series, 5)
+    expected = {key: stat.as_dict() for key, stat in collect_stats(series).items()}
+
+    assert set(got) == set(expected), "разный набор паттернов"
+    for key, python in expected.items():
+        browser = got[key]
+        assert browser["found"] == python["found"], f"{key}: разное число находок"
+        assert browser["worked"] == python["worked"], (
+            f"{key}: разное число отработавших"
+        )
+        assert browser["flat"] == python["flat"], f"{key}: разное число ничьих"
+        assert round(browser["rate"], 4) == python["rate"], f"{key}: разная доля"
+
+
+def test_browser_finds_the_same_patterns_in_a_single_series():
+    from forex_toolkit.pattern_outcomes import find_patterns
+
+    candles = _archive_series()[0]
+    got = call("pattern-trainer", "__fxFindPatterns", candles)
+    expected = [{"index": m.index, "key": m.key} for m in find_patterns(candles)]
+
+    assert got == expected
+
+
+@pytest.mark.parametrize("index", [10, 20, 30])
+def test_outcome_matches_python(index: int) -> None:
+    from forex_toolkit.pattern_outcomes import outcome_after
+
+    candles = _archive_series()[0]
+    got = call("pattern-trainer", "__fxPatternOutcome", candles, index, 5)
+
+    assert got == outcome_after(candles, index, horizon=5)
