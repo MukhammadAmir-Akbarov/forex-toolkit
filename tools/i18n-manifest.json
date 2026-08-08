@@ -456,6 +456,13 @@
       },
       "ru_sha256": "931d9e8c170deee09d424b17c3ece1f786e0b5813ae1a9ee25a044849d367b5f"
     },
+    "tools/pattern-trainer.md": {
+      "locales": {
+        "en": "1af0609e6b1c43588735513eef30d648a5958c3033c9a516f72eca5ca060cfec",
+        "uz": "1af0609e6b1c43588735513eef30d648a5958c3033c9a516f72eca5ca060cfec"
+      },
+      "ru_sha256": "1af0609e6b1c43588735513eef30d648a5958c3033c9a516f72eca5ca060cfec"
+    },
     "tools/pip-calculator.md": {
       "locales": {
         "en": "388c1ad1f81d5695652cda39be0132a0e79964f27692f4b0756e5c0d83808fc7",

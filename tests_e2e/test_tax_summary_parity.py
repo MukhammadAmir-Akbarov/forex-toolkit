@@ -83,7 +83,13 @@ def test_journal_hands_the_year_over_to_the_tax_calculator(pw_page, site_url):
     assert years, "в демо-журнале нет ни одного года"
     newest = years[0]
 
-    page.click("#journal-tax-summary .journal-tax-open")
+    # Кнопка уводит на другую страницу. Без явного ожидания перехода
+    # wait_for_selector может успеть отработать на ещё не сменившейся странице —
+    # тест тогда падает через раз и только под нагрузкой.
+    with page.expect_navigation(wait_until="domcontentloaded"):
+        page.locator("#journal-tax-summary tbody tr").first.locator(
+            ".journal-tax-open"
+        ).click()
     page.wait_for_selector("#tax-from-journal")
 
     handed = page.evaluate(

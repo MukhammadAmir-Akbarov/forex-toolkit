@@ -151,7 +151,6 @@ plugins:
             "🎴 Тренажёр карточек": "🎴 Flashcards"
             "🎯 Квиз — готов к реалу?": "🎯 Quiz — ready for real?"
             "🎲 Риск разорения": "🎲 Risk of ruin"
-            "💼 Жить с трейдинга": "💼 Treyding bilan yashash"
             "💼 Жить с трейдинга": "💼 Living off trading"
             "🎓 Итоговый экзамен": "🎓 Final exam"
             "Tools README": "Tools README"
@@ -169,6 +168,7 @@ plugins:
             "🚨 Защита от скама": "🚨 Scam protection"
             "Сообщества": "Communities"
             "🎮 Тренажёр Replay": "🎮 Replay Trainer"
+            "🕯️ Тренажёр паттернов": "🕯️ Pattern trainer"
         - locale: uz
           name: 🇺🇿 O'zbek
           build: true
@@ -257,6 +257,7 @@ plugins:
             "🎴 Тренажёр карточек": "🎴 Kartochka mashqi"
             "🎯 Квиз — готов к реалу?": "🎯 Kviz — real hisobga tayyormisan?"
             "🎲 Риск разорения": "🎲 Vayron bo'lish xavfi"
+            "💼 Жить с трейдинга": "💼 Treyding bilan yashash"
             "🎓 Итоговый экзамен": "🎓 Yakuniy imtihon"
             "Tools README": "Tools README"
             "Bot README": "Bot README"
@@ -273,6 +274,7 @@ plugins:
             "🚨 Защита от скама": "🚨 Firibgarlikdan himoya"
             "Сообщества": "Hamjamiyatlar"
             "🎮 Тренажёр Replay": "🎮 Replay Mashqi"
+            "🕯️ Тренажёр паттернов": "🕯️ Figuralar trenajyori"
   # Дата последнего обновления страницы (из git-истории).
   # ВАЖНО: должен идти ПОСЛЕ i18n (i18n добавляет переменную locale).
   - git-revision-date-localized:
@@ -426,6 +428,7 @@ nav:
       - 🎲 Риск разорения: tools/risk-of-ruin.md
       - 💼 Жить с трейдинга: tools/living-capital.md
       - 🎮 Тренажёр Replay: tools/replay-trainer.md
+      - 🕯️ Тренажёр паттернов: tools/pattern-trainer.md
       - 🎓 Итоговый экзамен: tools/exam.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
