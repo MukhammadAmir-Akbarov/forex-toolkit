@@ -477,18 +477,16 @@ extra:
 
   # Комментарии giscus (поверх GitHub Discussions, без бэкенда и без cookie).
   # Рендерятся внизу страниц из overrides/partials/comments.html, когда задан
-  # этот блок. ID получены через GitHub API для репозитория forex-toolkit.
-  # ⚠️ Чтобы комментарии РАБОТАЛИ, владелец репо должен один раз установить
-  # giscus app: https://github.com/apps/giscus → Install → выбрать forex-toolkit.
-  # До установки виджет покажет «giscus is not installed». Чтобы выключить
-  # комментарии — закомментируй весь блок giscus ниже.
-  # giscus: (закомментировано — установи giscus app на репо чтобы включить:
-  #   https://github.com/apps/giscus → Install → forex-toolkit)
-  # giscus:
-  #   repo: MukhammadAmir-Akbarov/forex-toolkit
-  #   repo_id: R_kgDOSi9ouA
-  #   category: Announcements
-  #   category_id: DIC_kwDOSi9ouM4C9qBu
+  # этот блок. Приложение giscus установлено на репозиторий 2026-08-09 —
+  # до установки виджет показывал бы читателю «giscus is not installed».
+  # Категория Announcements выбрана по рекомендации giscus: обсуждения в ней
+  # заводят только мейнтейнер и само приложение, поэтому спамом новых веток
+  # страницу не завалить. Чтобы выключить комментарии — закомментируй блок.
+  giscus:
+    repo: MukhammadAmir-Akbarov/forex-toolkit
+    repo_id: R_kgDOSi9ouA
+    category: Announcements
+    category_id: DIC_kwDOSi9ouM4C9qBu
 
   social:
     - icon: fontawesome/brands/github
