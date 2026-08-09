@@ -1,15 +1,13 @@
-# giscus setup
+# giscus: комментарии поверх GitHub Discussions
 
-The repository and category IDs are already prepared in `mkdocs.yml`. One owner
-action is still required:
+**Статус: включено 2026-08-09.** Приложение giscus установлено на репозиторий,
+блок `extra.giscus` в `mkdocs.yml` активен, комментарии рендерятся внизу
+каждой страницы на всех трёх локалях.
 
-1. Open <https://github.com/apps/giscus> while signed in as the repository owner.
-2. Choose **Install** and grant access only to `forex-toolkit`.
-3. Confirm GitHub Discussions is enabled for the repository.
-4. Uncomment the `extra.giscus` block in `mkdocs.yml`.
-5. Run `mkdocs build --strict`, open a page and post one test comment.
+Файл оставлен как справка: что настроено, почему именно так и что делать,
+если понадобится выключить или перенастроить.
 
-Prepared values:
+## Что настроено
 
 ```yaml
 giscus:
@@ -19,5 +17,50 @@ giscus:
   category_id: DIC_kwDOSi9ouM4C9qBu
 ```
 
-Do not enable the block before the app is installed: the embedded widget would
-only show an installation error to readers.
+Разметку отдаёт `overrides/partials/comments.html`.
+
+## Принятые решения
+
+**Категория `Announcements`.** Рекомендация самого giscus: в такой категории
+новые обсуждения заводят только мейнтейнер и приложение, поэтому читатель не
+может насоздавать веток — он комментирует в существующей. Каждой странице
+соответствует своя ветка (`mapping: pathname`), у каждой локали — своя.
+
+**Ленивая загрузка.** Клиент giscus тянет за собой iframe с giscus.app и
+данными GitHub. Подключён он на 365 страницах из 366, то есть эагерная
+загрузка означала бы внешний запрос на каждой странице учебника — ровно тот
+вес, ради снятия которого калькуляторы разнесли по своим страницам.
+Поэтому скрипт создаётся из `IntersectionObserver`, когда читатель долистал
+до блока комментариев. Держит это `tests_e2e/test_comments_lazy.py`: один
+тест проверяет, что до прокрутки запроса нет, другой — что после прокрутки
+он появляется.
+
+**Язык интерфейса.** Берётся из локали страницы. У giscus нет узбекского, для
+UZ-страниц отдаётся английский — молчаливый русский читатель UZ-версии не
+заказывал.
+
+**Тема.** Следует за палитрой Material: переключение светлая/тёмная уходит в
+iframe через `postMessage`.
+
+## Как выключить
+
+Закомментируй блок `extra.giscus` в `mkdocs.yml` — партиал сам проверяет его
+наличие и без него не рендерит ничего. Тесты в `tests_e2e/test_comments_lazy.py`
+после этого упадут: удали их вместе с блоком.
+
+## Если менять репозиторий или категорию
+
+Актуальные ID берутся так:
+
+```bash
+gh api graphql -f query='{repository(owner:"OWNER",name:"REPO"){
+  id discussionCategories(first:10){nodes{id name}}}}'
+```
+
+Проверить, установлено ли приложение на репозиторий:
+
+```bash
+curl -s "https://giscus.app/api/discussions?repo=OWNER%2FREPO&term=x&category=Announcements&number=0&strict=0&first=1"
+# "giscus is not installed on this repository" — не установлено
+# "Discussion not found" — установлено, просто ветки с таким именем ещё нет
+```
