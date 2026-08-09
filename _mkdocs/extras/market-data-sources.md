@@ -43,7 +43,7 @@
 | **[ForexLive.com](https://www.forexlive.com/)** | Лучшая агрегация breaking news для форекса. Бесплатно. |
 | **[Reuters Markets](https://www.reuters.com/markets/)** | Официальная аналитика. |
 | **[Federal Reserve calendar](https://www.federalreserve.gov/newsevents/calendar.htm)** | Расписание выступлений Fed. ECB / BoE / BoJ имеют аналогичные. |
-| **[CentralBanks.io](https://www.centralbanks.io/)** | Все ключевые ставки центробанков в одном месте. |
+| **[TradingEconomics: ставки](https://tradingeconomics.com/country-list/interest-rate)** | Текущая ставка каждой страны и дата последнего изменения. |
 
 ## 🔗 5. Корреляции
 
@@ -68,8 +68,8 @@
 
 | Сайт | Описание |
 |---|---|
-| **[ForexLive Central Bank section](https://www.forexlive.com/CentralBank/)** | Кто и когда выступает, что говорят. |
-| **[CentralBanks.io](https://www.centralbanks.io/)** | Все текущие ставки. |
+| **[Календарь ЕЦБ](https://www.ecb.europa.eu/press/calendars/html/index.en.html)** | Кто и когда выступает. У Fed / BoE / BoJ есть такие же. |
+| **[BIS: ставки центробанков](https://www.bis.org/statistics/cbpol.htm)** | Официальная сводка ставок от Банка международных расчётов. |
 
 ---
 

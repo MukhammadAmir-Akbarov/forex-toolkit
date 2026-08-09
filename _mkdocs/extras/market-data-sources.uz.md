@@ -43,7 +43,7 @@
 | **[ForexLive.com](https://www.forexlive.com/)** | Forex uchun eng yaxshi breaking news. Bepul. |
 | **[Reuters Markets](https://www.reuters.com/markets/)** | Rasmiy bozor tahlili. |
 | **[Federal Reserve calendar](https://www.federalreserve.gov/newsevents/calendar.htm)** | Fed nutqlari jadvali. ECB / BoE / BoJ ham mavjud. |
-| **[CentralBanks.io](https://www.centralbanks.io/)** | Barcha markaziy banklarning kalit stavkalari bir joyda. |
+| **[TradingEconomics: stavkalar](https://tradingeconomics.com/country-list/interest-rate)** | Har bir davlatning joriy stavkasi va oxirgi o'zgarish sanasi. |
 
 ## 🔗 5. Korrelyatsiyalar
 
@@ -68,8 +68,8 @@ Juda muhim, lekin baholanmagan mavzu. **Agar EURUSD long va GBPUSD long savdo qi
 
 | Sayt | Tavsif |
 |---|---|
-| **[ForexLive Central Bank section](https://www.forexlive.com/CentralBank/)** | Kim va qachon nutq so'zlaydi, nima deydi. |
-| **[CentralBanks.io](https://www.centralbanks.io/)** | Joriy stavkalar. |
+| **[YeMB kalendari](https://www.ecb.europa.eu/press/calendars/html/index.en.html)** | Kim qachon chiqish qiladi. Fed / BoE / BoJ ham shunday e'lon qiladi. |
+| **[BIS: markaziy bank stavkalari](https://www.bis.org/statistics/cbpol.htm)** | Xalqaro hisob-kitoblar bankining rasmiy jamlanmasi. |
 
 ---
 

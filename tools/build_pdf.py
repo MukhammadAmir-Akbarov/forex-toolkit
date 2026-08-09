@@ -30,6 +30,12 @@ from reportlab.platypus import (
     Spacer,
 )
 
+try:
+    import handbook_chapters
+except ModuleNotFoundError:  # запуск не из каталога tools/
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import handbook_chapters
+
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "_mkdocs"  # единственный источник правды для контента доков
@@ -85,40 +91,12 @@ def register_cyrillic_fonts() -> None:
     )
 
 
-# Главы в нужном порядке (RU). Источник — _mkdocs/ (единственный источник правды).
-CHAPTERS_RU = [
-    ("Введение", SRC / "КАК-ПОЛЬЗОВАТЬСЯ.md"),
-    ("Основной гайд", SRC / "forex-guide.md"),
-    ("Технический анализ", SRC / "docs" / "technical-analysis.md"),
-    ("Учебная стратегия", SRC / "docs" / "strategy-details.md"),
-    ("Психология трейдинга", SRC / "extras" / "psychology.md"),
-    ("Глоссарий", SRC / "extras" / "glossary.md"),
-    ("FAQ", SRC / "extras" / "faq.md"),
-    ("Сравнение брокеров", SRC / "extras" / "brokers-comparison.md"),
-    ("Личный торговый план", SRC / "extras" / "trading-plan-template.md"),
-    ("Первые 100 дней", SRC / "extras" / "first-100-days.md"),
-    ("Anti-Tilt протокол", SRC / "extras" / "anti-tilt-protocol.md"),
-    ("Daily Routine", SRC / "extras" / "daily-routine.md"),
-    ("Чек-лист", SRC / "extras" / "checklist-printable.md"),
-    ("Emergency Card", SRC / "extras" / "emergency-card.md"),
-]
-
-# Chapters in the right order (EN). Источник — _mkdocs/.
-CHAPTERS_EN = [
-    ("How to use", SRC / "КАК-ПОЛЬЗОВАТЬСЯ.en.md"),
-    ("Main guide", SRC / "forex-guide.en.md"),
-    ("Psychology", SRC / "extras" / "psychology.en.md"),
-]
-
-# Boblar to'g'ri tartibda (UZ). Manba — _mkdocs/ (.uz.md suffiksli tarjimalar).
-# Отсутствующие файлы build() пропустит автоматически (path.exists()).
-CHAPTERS_UZ = [
-    ("Qanday foydalanish", SRC / "КАК-ПОЛЬЗОВАТЬСЯ.uz.md"),
-    ("Asosiy qo'llanma", SRC / "forex-guide.uz.md"),
-    ("Treyding psixologiyasi", SRC / "extras" / "psychology.uz.md"),
-    ("Lug'at", SRC / "extras" / "glossary.uz.md"),
-    ("Savol-javob", SRC / "extras" / "faq.uz.md"),
-]
+# Состав глав живёт в отдельном модуле без зависимости от reportlab, чтобы его
+# можно было проверять тестами в обычном прогоне (см. handbook_chapters.py).
+# Отсутствующие файлы build() пропускает автоматически (path.exists()).
+CHAPTERS_RU = handbook_chapters.chapters("ru")
+CHAPTERS_EN = handbook_chapters.chapters("en")
+CHAPTERS_UZ = handbook_chapters.chapters("uz")
 
 LANG_CONFIGS = {
     "ru": {

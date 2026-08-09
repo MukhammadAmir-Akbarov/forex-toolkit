@@ -43,7 +43,7 @@
 | **[ForexLive.com](https://www.forexlive.com/)** | Best aggregation of forex breaking news. Free. |
 | **[Reuters Markets](https://www.reuters.com/markets/)** | Official market analysis. |
 | **[Federal Reserve calendar](https://www.federalreserve.gov/newsevents/calendar.htm)** | Schedule of Fed speeches. ECB / BoE / BoJ have equivalents. |
-| **[CentralBanks.io](https://www.centralbanks.io/)** | All central bank rates in one place. |
+| **[TradingEconomics: rates](https://tradingeconomics.com/country-list/interest-rate)** | Current rate per country and the date it last changed. |
 
 ## 🔗 5. Correlations
 
@@ -68,8 +68,8 @@ Underrated topic. **If you're long EURUSD AND long GBPUSD — that's essentially
 
 | Site | Description |
 |---|---|
-| **[ForexLive Central Bank section](https://www.forexlive.com/CentralBank/)** | Who's speaking when, and what they say. |
-| **[CentralBanks.io](https://www.centralbanks.io/)** | Current rates. |
+| **[ECB calendar](https://www.ecb.europa.eu/press/calendars/html/index.en.html)** | Who speaks when. Fed / BoE / BoJ publish the same. |
+| **[BIS: central bank policy rates](https://www.bis.org/statistics/cbpol.htm)** | The official summary from the Bank for International Settlements. |
 
 ---
 

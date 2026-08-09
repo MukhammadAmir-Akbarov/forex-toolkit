@@ -39,7 +39,9 @@ jobs:
 
       - name: Build PDF and DOCX handbooks (из _mkdocs/)
         run: |
-          python tools/build_pdf.py
+          # --lang all: RU/EN/UZ. Раньше собирался только русский, хотя
+          # переводы всех глав лежат рядом в _mkdocs/.
+          python tools/build_pdf.py --lang all
           python tools/build_docx.py
           # имя под ссылку для скачивания в документации
           cp -f "forex-guide-полный.docx" "forex-guide-rus.docx"
@@ -57,6 +59,8 @@ jobs:
             dist/*.whl \
             dist/*.tar.gz \
             forex-handbook.pdf \
+            forex-handbook-en.pdf \
+            forex-handbook-uz.pdf \
             forex-guide-rus.docx \
             --title "${{ github.ref_name }}" \
             --generate-notes
