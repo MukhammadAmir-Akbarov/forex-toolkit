@@ -38,10 +38,10 @@
     },
     "bot/README.md": {
       "locales": {
-        "en": "85ea78eca388bec4e5e5a34ad4a2eb1fe4df94622a65c69410812755db9d0f77",
-        "uz": "85ea78eca388bec4e5e5a34ad4a2eb1fe4df94622a65c69410812755db9d0f77"
+        "en": "f5a3098e21fa69113a3e7f494dbc7c9dd921100444ac0d13462a7773d22e3d6a",
+        "uz": "f5a3098e21fa69113a3e7f494dbc7c9dd921100444ac0d13462a7773d22e3d6a"
       },
-      "ru_sha256": "85ea78eca388bec4e5e5a34ad4a2eb1fe4df94622a65c69410812755db9d0f77"
+      "ru_sha256": "f5a3098e21fa69113a3e7f494dbc7c9dd921100444ac0d13462a7773d22e3d6a"
     },
     "docs/broker-mechanics-101.md": {
       "locales": {
@@ -150,10 +150,10 @@
     },
     "extras/market-data-sources.md": {
       "locales": {
-        "en": "02c18090af311ce9d4084ed3285c3159a5c628caac171582cc9fd6648d085e0c",
-        "uz": "02c18090af311ce9d4084ed3285c3159a5c628caac171582cc9fd6648d085e0c"
+        "en": "bec26e89aa606d19b664830d05bfeede03badb38eadbd57995b4ba8bc7454331",
+        "uz": "bec26e89aa606d19b664830d05bfeede03badb38eadbd57995b4ba8bc7454331"
       },
-      "ru_sha256": "02c18090af311ce9d4084ed3285c3159a5c628caac171582cc9fd6648d085e0c"
+      "ru_sha256": "bec26e89aa606d19b664830d05bfeede03badb38eadbd57995b4ba8bc7454331"
     },
     "extras/mind-map.md": {
       "locales": {

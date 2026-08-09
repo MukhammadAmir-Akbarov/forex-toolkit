@@ -55,9 +55,10 @@ Maks. drawdown:       1.00R
 
 ## Equity curve
 
-Ishga tushirilgandan so'ng `equity-curve.png` fayli kumulyativ natija bilan yaratiladi:
-
-![Equity curve namunasi](https://raw.githubusercontent.com/MukhammadAmir-Akbarov/forex-toolkit/main/bot/equity-curve.png)
+Ishga tushirilgandan so'ng skript yonida `bot/equity-curve.png` fayli kumulyativ
+natija bilan paydo bo'ladi. Bu yerda rasm ataylab yo'q: egri chiziq sening
+ma'lumotlaring bo'yicha hisoblanadi va repozitoriyga qo'shilmaydi — birovnikiga
+emas, o'zingnikiga qara.
 
 Yaxshi equity curve **chapdan pastdan o'ngga yuqoriga boshqariladigan drawdownlar bilan ketadi**. Keskin tushishlar, nol yoki salbiy dinamika — strategiya ishlamayotganining belgisi.
 

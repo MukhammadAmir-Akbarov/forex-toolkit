@@ -55,9 +55,10 @@ Max drawdown:         1.00R
 
 ## Equity Curve
 
-After running, a file `equity-curve.png` is created with the cumulative result:
-
-![Equity curve example](https://raw.githubusercontent.com/MukhammadAmir-Akbarov/forex-toolkit/main/bot/equity-curve.png)
+After running, `bot/equity-curve.png` appears next to the script with the
+cumulative result. There is no picture here on purpose: the curve is computed
+from your own data and is not committed to the repository — look at yours,
+not at someone else's.
 
 A good equity curve **goes from bottom-left to top-right with manageable drawdowns**. Sharp drops, flat or negative dynamics — a signal that the strategy is not working.
 

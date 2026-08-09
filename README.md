@@ -7,12 +7,14 @@
 [![License: content CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey)](LICENSE-CONTENT.md)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 
-> Самодостаточный набор материалов: **80 страниц на RU + EN + UZ**, 20+ учебных графиков, 25+ Python-инструментов, 15+ браузерных инструментов, offline PWA, 6 стратегий, MT5 EA, Telegram-бот, Coach-бот, Streamlit-приложение, Word-документ и PDF-учебник.
+> Самодостаточный набор материалов: **89 страниц на RU + EN + UZ**, 21 учебный график, 34 Python-инструмента, 25 браузерных инструментов, offline PWA, 6 стратегий, MT5 EA, Telegram-бот, Coach-бот, Streamlit-приложение, Word-документ и PDF-учебник на трёх языках.
 >
 > **⚠️ Образовательный материал. Не финансовый совет.** Forex — высокорисковая деятельность. 74–89% розничных трейдеров теряют деньги.
 
 **📥 Скачать готовые материалы:**
-- 📕 [PDF-учебник](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-handbook.pdf) (1.1 MB) — для печати
+- 📕 [PDF-учебник (RU)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-handbook.pdf) — 14 глав, для печати
+- 📗 [PDF handbook (EN)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-handbook-en.pdf) — те же 14 глав
+- 📘 [PDF qo'llanma (UZ)](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-handbook-uz.pdf) — o'sha 14 bob
 - 📄 [Word-версия](https://github.com/MukhammadAmir-Akbarov/forex-toolkit/releases/latest/download/forex-guide-rus.docx) (962 KB)
 - 🌐 [Онлайн-сайт](https://mukhammadamir-akbarov.github.io/forex-toolkit/) — учебник в браузере с поиском и тёмной темой
 
@@ -51,7 +53,7 @@ trading/
 ├── strategies/                    ← учебные стратегии + сравнительный бэктест
 ├── advanced/                      ← MT5, Telegram, Streamlit, walk-forward, broker_api/
 ├── uz/                            ← tax-calculator.py (локальные скрипты)
-├── tests/                         ← 156 unit-тестов + 32 браузерных e2e
+├── tests/                         ← unit + браузерные e2e (счётчик — на главной сайта)
 ├── dist/                          ← собранный wheel
 ├── mkdocs.yml · pyproject.toml · CLAUDE.md
 ├── data/                          ← скачанные котировки (gitignored)
@@ -167,7 +169,7 @@ streamlit run advanced/streamlit_app.py
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -e ".[dev]"     # ядро + тесты/линт/mkdocs
-.venv/bin/pytest -q                    # должны пройти все 156 unit-тестов
+.venv/bin/pytest -q                    # все unit-тесты должны пройти
 ```
 
 Опциональные группы зависимостей (extras):
