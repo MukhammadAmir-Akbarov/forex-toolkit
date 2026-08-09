@@ -133,9 +133,7 @@ def simulate(
             break
 
         # 2. Цель.
-        hit_take = (
-            favourable >= take if direction == LONG else favourable <= take
-        )
+        hit_take = favourable >= take if direction == LONG else favourable <= take
         if hit_take:
             state.booked += state.remaining * _r_of(take, entry, risk, direction)
             state.remaining = 0.0

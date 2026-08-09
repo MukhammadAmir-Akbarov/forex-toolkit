@@ -170,9 +170,7 @@ def test_no_room_to_trade_returns_none():
 def test_comparison_says_whether_management_helped():
     plan = Plan(breakeven_at=1.0)
     bars = [bar(ENTRY, ENTRY, ENTRY), bar(112, 99), bar(101, 95, close=96)]
-    got = compare(
-        bars, entry_index=0, entry=ENTRY, stop=STOP, take=TAKE, plan=plan
-    )
+    got = compare(bars, entry_index=0, entry=ENTRY, stop=STOP, take=TAKE, plan=plan)
     assert got.helped is True
     assert got.difference == pytest.approx(0.4)
 
@@ -211,9 +209,7 @@ def test_management_can_make_things_worse_and_that_is_reported():
     plan = Plan(breakeven_at=1.0)
     # Цена сходила на +1.2R, вернулась к входу, а потом дошла бы до цели.
     bars = [bar(ENTRY, ENTRY, ENTRY), bar(112, 99), bar(105, 99), bar(125, 104)]
-    got = compare(
-        bars, entry_index=0, entry=ENTRY, stop=STOP, take=TAKE, plan=plan
-    )
+    got = compare(bars, entry_index=0, entry=ENTRY, stop=STOP, take=TAKE, plan=plan)
     assert got.plain.total_r == pytest.approx(2.0)
     assert got.managed.total_r == pytest.approx(0.0)
     assert got.helped is False
