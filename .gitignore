@@ -81,3 +81,8 @@ graphify-out/
 
 # Node — только для eslint браузерных виджетов, пакет не публикуется.
 node_modules/
+
+# Мутационное тестирование: mutmut копирует проект сюда и держит свою базу.
+mutants/
+.mutmut-cache
+mutmut-stats.json

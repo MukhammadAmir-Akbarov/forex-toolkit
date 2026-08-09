@@ -61,6 +61,9 @@ mt5 = ["MetaTrader5; sys_platform == 'win32'"]
 crypto = ["python-binance>=1.0,<2"]
 # Браузерные тесты виджетов (tests_e2e/). Нужен ещё `playwright install chromium`.
 e2e = ["playwright>=1.40,<2"]
+# Мутационное тестирование финансового ядра: проверяет не код, а тесты —
+# упадут ли они, если подменить знак или `<` на `<=`. См. tools/mutation.md.
+mutation = ["mutmut>=3.0,<4"]
 all = [
     "forex-toolkit[dev,docs,web,crypto]",
 ]
@@ -155,3 +158,14 @@ select = ["E", "F"]
 [tool.mypy]
 files = ["forex_toolkit"]
 ignore_missing_imports = true
+
+# Мутационное тестирование. Мутируем не весь пакет, а два модуля, где ошибка
+# стоит денег пользователя: формулы пункта и лота (fx_math) и лимиты риска
+# (risk_budget). Смысл — проверить тесты, а не код: если подменить знак или
+# `<` на `<=`, тесты обязаны покраснеть. Запуск — см. tools/mutation.md.
+[tool.mutmut]
+source_paths = ["forex_toolkit/fx_math.py", "forex_toolkit/risk_budget.py"]
+# Только тесты, которые импортируют ПАКЕТ напрямую. Остальные ходят в tools/
+# по голому имени через conftest, а mutmut копирует проект в mutants/ — там
+# соседних каталогов нет, и сборка падает ещё до первого мутанта.
+pytest_add_cli_args_test_selection = ["tests/test_fx_math.py", "tests/test_risk_budget.py"]
