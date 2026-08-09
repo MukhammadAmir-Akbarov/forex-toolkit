@@ -4022,6 +4022,89 @@
   </form>
 
 
+  <h2 id="__comments">💬 Комментарии</h2>
+  <div id="__giscus-mount" data-giscus-lang="en"></div>
+
+  <script>
+    (function () {
+      var mount = document.getElementById("__giscus-mount");
+      if (!mount) return;
+
+      // Скрипт giscus тянет за собой iframe с giscus.app и данными GitHub.
+      // Эагерная загрузка означала бы этот запрос на КАЖДОЙ из 365 страниц —
+      // ровно тот вес, ради снятия которого калькуляторы разнесли по своим
+      // страницам. Поэтому грузим, только когда читатель долистал до блока.
+      var loaded = false;
+      function load() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement("script");
+        s.src = "https://giscus.app/client.js";
+        var attrs = {
+          "data-repo": "MukhammadAmir-Akbarov/forex-toolkit",
+          "data-repo-id": "R_kgDOSi9ouA",
+          "data-category": "Announcements",
+          "data-category-id": "DIC_kwDOSi9ouM4C9qBu",
+          "data-mapping": "pathname",
+          "data-strict": "1",
+          "data-reactions-enabled": "1",
+          "data-emit-metadata": "0",
+          "data-input-position": "top",
+          "data-theme": "preferred_color_scheme",
+          "data-lang": mount.getAttribute("data-giscus-lang") || "en",
+        };
+        for (var key in attrs) s.setAttribute(key, attrs[key]);
+        s.crossOrigin = "anonymous";
+        s.async = true;
+        mount.appendChild(s);
+      }
+
+      // Без IntersectionObserver грузим сразу: лучше вес, чем нет комментариев.
+      if (!("IntersectionObserver" in window)) {
+        load();
+        return;
+      }
+      var observer = new IntersectionObserver(
+        function (entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (entries[i].isIntersecting) {
+              observer.disconnect();
+              load();
+              return;
+            }
+          }
+        },
+        { rootMargin: "300px" }
+      );
+      // Наблюдаем за заголовком, а не за точкой монтирования: пустой div
+      // имеет нулевую высоту, а пересечение прямоугольника нулевой площади
+      // браузер считает нестабильно — тест ловил это как «то грузится, то
+      // нет». У заголовка коробка настоящая.
+      observer.observe(document.getElementById("__comments") || mount);
+
+      // Тема giscus следует за палитрой Material. Работает и после ленивой
+      // загрузки: iframe ищется в момент отправки, а не при подписке.
+      function giscusTheme() {
+        var scheme = document.body.getAttribute("data-md-color-scheme");
+        return scheme === "slate" ? "dark" : "light";
+      }
+      function sendTheme() {
+        var frame = document.querySelector("iframe.giscus-frame");
+        if (!frame) return;
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: giscusTheme() } } },
+          "https://giscus.app"
+        );
+      }
+      if (document.querySelector("[data-md-component=palette]")) {
+        new MutationObserver(sendTheme).observe(document.body, {
+          attributes: true,
+          attributeFilter: ["data-md-color-scheme"],
+        });
+      }
+    })();
+  </script>
+
                 
               </article>
             </div>
