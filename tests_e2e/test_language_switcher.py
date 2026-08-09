@@ -189,3 +189,30 @@ def test_switching_from_uzbek_back_to_russian_actually_works(pw_page, site_url):
         f"ушли не на ту страницу: {page.url}"
     )
     assert page.locator('html[lang="ru"]').count() == 1, "язык страницы не русский"
+
+
+@pytest.mark.parametrize("width", [1280, 1440, 1648, 1920])
+def test_dropdown_does_not_cover_the_tabs(pw_page, site_url, width):
+    """Список открывается ПОД строкой вкладок, а не поверх неё.
+
+    Одного z-index было мало. С ним пункт стал нажиматься, но панель ложилась
+    на вкладки и закрывала их подписи: формально работает, глазами — каша, и
+    первый пункт всё равно читался как «наполовину». Жалоба была именно про
+    «непонятно», а не только про «не нажимается».
+    """
+    page = pw_page
+    page.set_viewport_size({"width": width, "height": 1000})
+    page.goto(f"{site_url}/uz/extras/psychology/")
+    page.wait_for_selector(".md-select")
+    page.hover(".md-select")
+    page.wait_for_timeout(400)
+
+    state = page.evaluate("""() => {
+      const p = document.querySelector('.md-select__inner').getBoundingClientRect();
+      const t = document.querySelector('.md-tabs').getBoundingClientRect();
+      return {panel_top: Math.round(p.top), tabs_bottom: Math.round(t.bottom)};
+    }""")
+    assert state["panel_top"] >= state["tabs_bottom"], (
+        f"[{width}px] панель начинается на {state['panel_top']}px, "
+        f"а вкладки кончаются на {state['tabs_bottom']}px — список их накрывает"
+    )
