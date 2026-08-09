@@ -462,3 +462,107 @@ def test_rank_correlation_matches_python_including_ties() -> None:
     ):
         got = call("strategy-ranking", "__fxRankCorrelation", xs, ys)
         assert round(got, 9) == round(rank_correlation(xs, ys), 9), (xs, ys)
+
+
+# ─────────── Ведение открытой позиции: браузер == пакет ────────────────────
+
+# Сделка-линейка: вход 100, стоп 90 (риск 10), цель 120 (+2R).
+_PM_TRADE = {"entryIndex": 0, "entry": 100.0, "stop": 90.0, "take": 120.0}
+
+
+def _bar(high, low, close=None):
+    return {"open": low, "high": high, "low": low, "close": close or low}
+
+
+PM_CASES = {
+    "цель": ([_bar(100, 100, 100), _bar(125, 99)], {}),
+    "стоп": ([_bar(100, 100, 100), _bar(105, 85)], {}),
+    "и стоп, и цель в одной свече": ([_bar(100, 100, 100), _bar(125, 85)], {}),
+    "безубыток спас": (
+        [_bar(100, 100, 100), _bar(112, 99), _bar(101, 95, 96)],
+        {"breakeven_at": 1},
+    ),
+    "половина и стоп": (
+        [_bar(100, 100, 100), _bar(112, 99), _bar(105, 85)],
+        {"partial_at": 1, "partial_fraction": 0.5},
+    ),
+    "трейл": (
+        [_bar(100, 100, 100), _bar(115, 99), _bar(116, 104)],
+        {"trail_r": 1},
+    ),
+    "таймаут": ([_bar(100, 100, 100), _bar(105, 99, 104)], {}),
+}
+
+
+@pytest.mark.parametrize("name", list(PM_CASES), ids=list(PM_CASES))
+def test_position_management_matches_python(name: str) -> None:
+    from forex_toolkit.position_management import Plan, simulate
+
+    candles, plan = PM_CASES[name]
+    got = call(
+        "position-management",
+        "__fxManagePosition",
+        candles,
+        dict(_PM_TRADE, direction="long", plan=plan),
+    )
+    expected = simulate(
+        candles,
+        entry_index=0,
+        entry=100.0,
+        stop=90.0,
+        take=120.0,
+        direction="long",
+        plan=Plan(**plan),
+    )
+
+    assert expected is not None
+    assert round(got["total_r"], 6) == round(expected.total_r, 6), name
+    assert got["reason"] == expected.reason, name
+    assert got["moved_to_breakeven"] == expected.moved_to_breakeven, name
+    assert got["partial_taken"] == expected.partial_taken, name
+
+
+def test_position_management_verdict_matches_python() -> None:
+    """Свод по многим сделкам — то число, ради которого страница написана."""
+    from forex_toolkit.position_management import Plan, compare, summarize
+
+    plan = {"breakeven_at": 1}
+    sets = [candles for candles, _ in PM_CASES.values()]
+
+    browser = []
+    for candles in sets:
+        got = call(
+            "position-management",
+            "__fxComparePosition",
+            candles,
+            dict(_PM_TRADE, direction="long", plan=plan),
+        )
+        if got:
+            browser.append(got)
+    got_verdict = call("position-management", "__fxManageVerdict", browser)
+
+    expected = summarize(
+        [
+            c
+            for c in (
+                compare(
+                    candles,
+                    entry_index=0,
+                    entry=100.0,
+                    stop=90.0,
+                    take=120.0,
+                    direction="long",
+                    plan=Plan(**plan),
+                )
+                for candles in sets
+            )
+            if c
+        ]
+    )
+
+    assert expected is not None
+    assert got_verdict["trades"] == expected.trades
+    assert got_verdict["helped"] == expected.helped
+    assert got_verdict["hurt"] == expected.hurt
+    assert got_verdict["same"] == expected.same
+    assert round(got_verdict["difference"], 6) == round(expected.difference, 6)

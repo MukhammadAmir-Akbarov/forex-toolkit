@@ -2432,3 +2432,28 @@ label[for="__drawer"].fx-menu-hint::after {
   font-size: 0.88rem;
   color: var(--md-default-fg-color--light);
 }
+
+/* ── Ведение открытой позиции ─────────────────────────────────────────── */
+.pm-plans { display: flex; flex-direction: column; gap: 0.5rem; margin: 0.8rem 0; }
+.pm-plan {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  font: inherit;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 8px;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  cursor: pointer;
+}
+.pm-plan:hover { border-color: var(--md-primary-fg-color); }
+.pm-plan:focus-visible { outline: 2px solid var(--fx-accent); outline-offset: 2px; }
+.pm-overall { font-variant-numeric: tabular-nums; }
+.pm-lesson {
+  font-weight: 600;
+  border-left: 3px solid var(--fx-accent);
+  padding-left: 0.8rem;
+  margin: 0.9rem 0;
+}
+/* Правило подсчёта набрано мельче, но остаётся на виду: без него числа
+   выглядели бы точнее, чем они есть. */
+.pm-note { font-size: 0.85rem; color: var(--md-default-fg-color--light); }

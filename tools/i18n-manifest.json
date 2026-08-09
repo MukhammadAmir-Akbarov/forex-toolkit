@@ -491,6 +491,13 @@
       },
       "ru_sha256": "052eed5da8c3f7100d0e70f61fd12752e39bac6c5f2cb7a90cb2f6d0c44b3673"
     },
+    "tools/position-management.md": {
+      "locales": {
+        "en": "fbb2a8155e9b17ad0ff24d16dfb4259d95c10805d9a799c9e751bb275ad2546b",
+        "uz": "fbb2a8155e9b17ad0ff24d16dfb4259d95c10805d9a799c9e751bb275ad2546b"
+      },
+      "ru_sha256": "fbb2a8155e9b17ad0ff24d16dfb4259d95c10805d9a799c9e751bb275ad2546b"
+    },
     "tools/quiz.md": {
       "locales": {
         "en": "59ade2750db668f2dc219bd9b3bdcda3385dbcca4c98ae75a402f5bdc1659254",

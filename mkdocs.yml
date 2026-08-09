@@ -172,6 +172,7 @@ plugins:
             "🎣 Почему бэктест врёт": "🎣 Why a backtest lies"
             "🌍 Перенос на другие пары": "🌍 Carrying over to other pairs"
             "🏁 Какая стратегия лучше": "🏁 Which strategy is better"
+            "🎚️ Ведение открытой позиции": "🎚️ Managing an open trade"
         - locale: uz
           name: 🇺🇿 O'zbek
           build: true
@@ -281,6 +282,7 @@ plugins:
             "🎣 Почему бэктест врёт": "🎣 Bektest nega yolg'on gapiradi"
             "🌍 Перенос на другие пары": "🌍 Boshqa juftliklarga ko'chirish"
             "🏁 Какая стратегия лучше": "🏁 Qaysi strategiya yaxshiroq"
+            "🎚️ Ведение открытой позиции": "🎚️ Ochiq savdoni boshqarish"
   # Дата последнего обновления страницы (из git-истории).
   # ВАЖНО: должен идти ПОСЛЕ i18n (i18n добавляет переменную locale).
   - git-revision-date-localized:
@@ -438,6 +440,7 @@ nav:
       - 🎣 Почему бэктест врёт: tools/overfitting.md
       - 🌍 Перенос на другие пары: tools/multipair.md
       - 🏁 Какая стратегия лучше: tools/strategy-ranking.md
+      - 🎚️ Ведение открытой позиции: tools/position-management.md
       - 🎓 Итоговый экзамен: tools/exam.md
       - Tools README: tools/README.md
       - Bot README: bot/README.md
