@@ -43,3 +43,11 @@ jobs:
       - name: External links (не блокирует, отчёт для глаз)
         continue-on-error: true
         run: python tools/check_external_links.py
+
+      # В отличие от ссылок — блокирует. Уязвимость в зависимости не рассосётся
+      # сама, а еженедельная проверка для того и нужна, чтобы её заметили.
+      # Dependabot обновляет версии, но молчит про CVE в уже стоящих.
+      - name: pip-audit (уязвимости в зависимостях)
+        uses: pypa/gh-action-pip-audit@v1
+        with:
+          inputs: .
