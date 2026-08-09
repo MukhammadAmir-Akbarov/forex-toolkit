@@ -575,11 +575,19 @@
 }
 .journal-heatmap-cell.is-positive { background: #16a34a; color: #fff; }
 .journal-heatmap-cell.is-negative { background: #dc2626; color: #fff; }
+/* minmax(0, 1fr), а не 1fr. Колонка `1fr` не умеет сжиматься ниже
+   минимальной ширины содержимого: внутри лежит таблица с min-width 680px,
+   и трек растягивался до 478px внутри контейнера в 300px. Прокрутки при этом
+   нет — у html стоит overflow-x: hidden, — то есть часть разбора на телефоне
+   была просто обрезана и недоступна. Замерено на 390px. */
 .journal-breakdowns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
+/* Элемент сетки тоже обязан разрешить себе сжиматься: у грид-элементов
+   min-width по умолчанию равен auto, то есть минимальной ширине содержимого. */
+.journal-breakdown { min-width: 0; }
 #journal-equity {
   display: block;
   width: 100%;
@@ -616,15 +624,15 @@
 @media (max-width: 900px) {
   .journal-filters { grid-template-columns: repeat(2, 1fr); }
   .journal-metrics { grid-template-columns: repeat(2, 1fr); }
-  .journal-breakdowns { grid-template-columns: 1fr; }
+  .journal-breakdowns { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 520px) {
   .journal-widget { padding: 0.8rem; }
   .journal-filters,
   .journal-metrics,
   .journal-rules-grid,
-  .journal-breakdowns,
   .journal-review-grid { grid-template-columns: 1fr; }
+  .journal-breakdowns { grid-template-columns: minmax(0, 1fr); }
   .journal-review-wide { grid-column: auto; }
 }
 
