@@ -1,0 +1,50 @@
+name: CodeQL
+
+# Проект принимает недоверенный ввод в двух местах: чужие отчёты MT5
+# (`forex_toolkit/mt5_statement.py`) и чужой backup журнала, который
+# восстанавливается в браузере. Второй уже приносил XSS (PR #52): имя стратегии
+# из файла попадало в разметку и выполнялось как код. Ловил это ревью, а не
+# инструмент — ruff и eslint такой класс ошибок не ищут.
+#
+# CodeQL смотрит на поток данных «источник → приёмник» и ловит именно это.
+# Гоняем по обоим языкам: Python-пакет и ~6300 строк браузерных виджетов.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # По понедельникам, через час после weekly-health: правила CodeQL
+    # обновляются сами, и вчера чистый код сегодня может дать находку.
+    - cron: "0 7 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  analyze:
+    name: Analyze ${{ matrix.language }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [python, javascript-typescript]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          language: ${{ matrix.language }}
+          # security-and-quality шумит на учебных скриптах в tools/;
+          # нам нужны именно уязвимости.
+          queries: security-extended
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:${{ matrix.language }}"

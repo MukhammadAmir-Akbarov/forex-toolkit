@@ -12,6 +12,7 @@
 
 from __future__ import annotations
 
+import gzip
 import re
 from pathlib import Path
 
@@ -19,11 +20,20 @@ import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 MKDOCS = ROOT / "mkdocs.yml"
+OVERRIDES = ROOT / "overrides" / "main.html"
 DOCS = ROOT / "_mkdocs"
-WIDGETS = DOCS / "javascripts" / "widgets"
+JS = DOCS / "javascripts"
+WIDGETS = JS / "widgets"
 
 # Служебные файлы: не виджеты страницы, нужны нескольким и живут в глобальных.
 SHARED = {"_i18n", "_training-queue"}
+
+# Бюджет на JS, который грузится на КАЖДОЙ странице, в килобайтах gzip.
+# Сейчас ~17.9 KB; запас оставлен небольшой намеренно — самый лёгкий виджет
+# весит около 2 KB, то есть гейт сработает раньше, чем одностраничный
+# калькулятор снова уедет в глобальные. Поднимать число можно, но осознанно:
+# аудитория проекта сидит на мобильном интернете.
+GLOBAL_JS_BUDGET_KB = 20.0
 
 
 def global_widgets() -> set[str]:
@@ -104,6 +114,76 @@ def test_declared_widgets_are_actually_needed(widget: Path) -> None:
         and widget.stem not in {"strategy-lab"}
     ]
     assert not extra, f"{widget.stem}: объявлен без надобности на {extra}"
+
+
+def global_scripts() -> list[Path]:
+    """Файлы, которые получает читатель любой страницы.
+
+    Источников два: `extra_javascript` в mkdocs.yml и тема-override, куда
+    постранично подставляются виджеты. Внешние `//gc.zgo.at/count.js` и
+    подобные сюда не попадают — они не наш вес и не наша забота.
+    """
+    text = MKDOCS.read_text(encoding="utf-8")
+    listed = re.findall(r"^\s*-\s+javascripts/([\w/-]+\.js)\s*$", text, re.MULTILINE)
+    return [JS / name for name in dict.fromkeys(listed)]
+
+
+def test_global_javascript_stays_under_budget() -> None:
+    """Вес на каждой странице не должен расти незаметно.
+
+    Прошлый заход срезал глобальный JS с 38 KB gzip, вынеся калькуляторы на
+    свои страницы. Ничто не мешало приехать обратно: сборка не считает вес,
+    а глазами разницу в пару килобайт не видно.
+    """
+    scripts = global_scripts()
+    assert scripts, (
+        "не нашёл ни одного глобального скрипта — сломался разбор mkdocs.yml"
+    )
+
+    sizes = {p.name: len(gzip.compress(p.read_bytes(), 9)) / 1024 for p in scripts}
+    total = sum(sizes.values())
+    breakdown = "\n".join(
+        f"    {kb:6.2f} KB  {name}"
+        for name, kb in sorted(sizes.items(), key=lambda kv: -kv[1])
+    )
+    assert total <= GLOBAL_JS_BUDGET_KB, (
+        f"глобальный JS вырос до {total:.2f} KB gzip при бюджете "
+        f"{GLOBAL_JS_BUDGET_KB} KB:\n{breakdown}\n"
+        "Вынеси скрипт на свою страницу через `widgets:` во front matter "
+        "или подними бюджет осознанно."
+    )
+
+
+def test_every_global_script_file_exists() -> None:
+    """Опечатка в имени = молчаливый 404 на каждой странице."""
+    missing = [p.name for p in global_scripts() if not p.exists()]
+    assert missing == [], f"в mkdocs.yml перечислены несуществующие скрипты: {missing}"
+
+
+def test_no_orphan_site_scripts() -> None:
+    """Скрипт, который никто не грузит, — мёртвый код в каждой сборке.
+
+    Так тихо перестала работать подсказка меню на телефоне: файл выпал из
+    `extra_javascript`, CSS для неё продолжал ездить на всех страницах, а
+    класс `.fx-menu-hint` ставить стало некому. Сборка при этом зелёная.
+    """
+    referenced = MKDOCS.read_text(encoding="utf-8") + OVERRIDES.read_text(
+        encoding="utf-8"
+    )
+    orphans = [p.name for p in sorted(JS.glob("*.js")) if p.name not in referenced]
+    assert orphans == [], (
+        f"скрипты не подключены ниоткуда: {orphans}. "
+        "Либо добавь в extra_javascript, либо удали."
+    )
+
+
+def test_no_orphan_widget_files() -> None:
+    """Виджет без страницы — тоже мёртвый код, только в другой папке."""
+    used: set[str] = set()
+    for page in ALL_PAGES:
+        used |= declared_widgets(page)
+    orphans = sorted({w.stem for w in WIDGET_FILES} - used)
+    assert orphans == [], f"виджеты не объявлены ни одной страницей: {orphans}"
 
 
 def test_all_locales_declare_the_same_widgets() -> None:
