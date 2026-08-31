@@ -56,7 +56,7 @@ dev = [
     "mkdocs-git-revision-date-localized-plugin>=1.2",
 ]
 docs = ["python-docx>=0.8,<2", "reportlab>=3.6,<6"]
-web = ["streamlit>=1.20,<2", "plotly>=5.0,<7"]
+web = ["streamlit>=1.20,<2", "plotly>=5.0,<8"]
 mt5 = ["MetaTrader5; sys_platform == 'win32'"]
 crypto = ["python-binance>=1.0,<2"]
 # Браузерные тесты виджетов (tests_e2e/). Нужен ещё `playwright install chromium`.
