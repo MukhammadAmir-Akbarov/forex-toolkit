@@ -9,24 +9,25 @@
   "from": "2024-05-19 23:00:00+00:00",
   "split_at": "2025-07-30 14:00:00+00:00",
   "to": "2026-05-19 20:00:00+00:00",
-  "min_trades": 20
+  "min_trades": 20,
+  "generated_at": "2026-11-01"
  },
  "strategies": [
   {
    "name": "EMA50 Pullback",
    "past": {
-    "total_r": 22.213,
-    "trades": 97,
-    "win_rate": 42.27,
-    "profit_factor": 1.407,
+    "total_r": 24.213,
+    "trades": 98,
+    "win_rate": 42.86,
+    "profit_factor": 1.444,
     "max_dd": 13.0
    },
    "future": {
-    "total_r": -10.533,
-    "trades": 67,
-    "win_rate": 28.36,
-    "profit_factor": 0.779,
-    "max_dd": 21.533
+    "total_r": -5.533,
+    "trades": 65,
+    "win_rate": 30.77,
+    "profit_factor": 0.876,
+    "max_dd": 16.533
    }
   },
   {
@@ -83,18 +84,18 @@
   {
    "name": "Three Soldiers",
    "past": {
-    "total_r": 16.572,
-    "trades": 246,
-    "win_rate": 46.34,
-    "profit_factor": 1.14,
-    "max_dd": 17.299
+    "total_r": 17.572,
+    "trades": 245,
+    "win_rate": 46.53,
+    "profit_factor": 1.15,
+    "max_dd": 16.513
    },
    "future": {
-    "total_r": 13.097,
-    "trades": 172,
-    "win_rate": 44.19,
-    "profit_factor": 1.162,
-    "max_dd": 7.742
+    "total_r": 12.597,
+    "trades": 170,
+    "win_rate": 44.12,
+    "profit_factor": 1.157,
+    "max_dd": 9.242
    }
   },
   {
