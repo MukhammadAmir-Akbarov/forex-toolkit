@@ -86,3 +86,4 @@ node_modules/
 mutants/
 .mutmut-cache
 mutmut-stats.json
+.venv-docs/
