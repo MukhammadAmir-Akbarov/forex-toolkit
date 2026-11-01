@@ -50,6 +50,9 @@ dependencies = [
 dev = [
     "pytest>=7.0,<10",
     "pytest-cov>=4.0,<8",
+    # Property-based тесты финансового ядра (tests/test_fx_math_property.py, L2):
+    # проверяют инварианты на случайных входах, а не только запомненные точки.
+    "hypothesis>=6.0,<7",
     "mkdocs>=1.5,<2",
     "mkdocs-material>=9.0,<10",
     "mkdocs-static-i18n>=1.2,<2",

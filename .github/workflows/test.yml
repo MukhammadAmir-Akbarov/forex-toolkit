@@ -51,6 +51,10 @@ jobs:
         # Покрытие меряется по пакету forex_toolkit (см. pyproject [tool.coverage]),
         # фактически ~98%. Порог можно только повышать.
         run: pytest --cov --cov-report=term-missing --cov-fail-under=90 -q
+      - name: Per-module coverage floor
+        # Гейт M5: ни один модуль пакета не должен проседать ниже 85%,
+        # даже если общее покрытие остаётся высоким.
+        run: python tools/check_coverage_by_module.py
 
   mutation:
     name: Mutation gate (финансовое ядро)
