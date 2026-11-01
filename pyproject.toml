@@ -54,9 +54,17 @@ dev = [
     # проверяют инварианты на случайных входах, а не только запомненные точки.
     "hypothesis>=6.0,<7",
     "mkdocs>=1.5,<2",
-    "mkdocs-material>=9.0,<10",
+    # Жёсткий пин: mkdocs.yml использует pymdownx.slugs.uslugify (кириллические
+    # якоря), а из pymdown-extensions 10+ его выпилили. 9.1.21 — последняя
+    # material, совместимая с pymdown-extensions 9.11. Миграция на новые
+    # версии = замена slugify в mkdocs.yml + проверка всех якорей.
+    "mkdocs-material==9.1.21",
+    "pymdown-extensions==9.11",
     "mkdocs-static-i18n>=1.2,<2",
     "mkdocs-git-revision-date-localized-plugin>=1.2",
+    # social-плагину (Open Graph-карточки) нужны pillow и cairosvg.
+    "pillow",
+    "cairosvg",
 ]
 docs = ["python-docx>=0.8,<2", "reportlab>=3.6,<6"]
 web = ["streamlit>=1.20,<2", "plotly>=5.0,<7"]
