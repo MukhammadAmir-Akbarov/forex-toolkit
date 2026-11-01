@@ -43,8 +43,45 @@ def test_risk_budget_tracks_day_week_and_latest_loss_streak() -> None:
 
 
 def test_risk_limits_reject_invalid_values() -> None:
-    with pytest.raises(ValueError):
+    """match= обязателен: без него выживают мутанты, подменяющие текст ошибки
+    на None или «XX…XX» (mutmut ≥3.3 мутирует аргументы исключений)."""
+    with pytest.raises(
+        ValueError, match=r"^risk limits must be positive finite numbers$"
+    ):
         RiskLimits(max_open_percent=0)
+
+
+@pytest.mark.parametrize(
+    "kwargs",
+    [
+        {"max_open_percent": -1},
+        {"daily_loss_r": 0},
+        {"weekly_loss_r": float("nan")},
+    ],
+)
+def test_risk_limits_message_on_each_guarded_field(kwargs) -> None:
+    with pytest.raises(
+        ValueError, match=r"^risk limits must be positive finite numbers$"
+    ):
+        RiskLimits(**kwargs)
+
+
+def test_pause_after_losses_message() -> None:
+    with pytest.raises(ValueError, match=r"^pause_after_losses must be positive$"):
+        RiskLimits(pause_after_losses=0)
+
+
+def test_pause_after_losses_one_is_allowed() -> None:
+    """Пауза после одной сделки — крайний, но легальный режим.
+
+    Убивает граничных мутантов `< 1` → `<= 1` и `< 1` → `< 2`."""
+    limits = RiskLimits(pause_after_losses=1)
+    assert limits.pause_after_losses == 1
+
+
+def test_closed_trade_rejects_non_finite_result() -> None:
+    with pytest.raises(ValueError, match=r"^result_r must be finite$"):
+        ClosedTrade(date(2026, 8, 6), float("inf"))
 
 
 # ── Границы, которые нашло мутационное тестирование ────────────────────────
