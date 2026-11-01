@@ -1,5 +1,5 @@
 ---
-verified: 2026-08-05
+verified: 2026-11-01
 widgets: [tax]
 ---
 
@@ -14,7 +14,7 @@ widgets: [tax]
     The calculation is **simplified and educational**. Rates and filing procedures change —
     always verify the current rules at [soliq.uz](https://soliq.uz) and in your personal
     account at [my.soliq.uz](https://my.soliq.uz); for large amounts consult an accountant.
-    NDFL rate 12% — verified as of 2026-08-05.
+    NDFL rate 12% — verified as of 2026-11-01.
 
 ## Formula
 

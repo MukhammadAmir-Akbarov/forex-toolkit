@@ -1,3 +1,7 @@
+---
+verified: 2026-11-01
+---
+
 # 📡 Market data sources
 
 !!! warning "Important about "signals""

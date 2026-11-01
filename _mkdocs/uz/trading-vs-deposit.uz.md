@@ -1,10 +1,10 @@
 ---
-verified: 2026-06-18
+verified: 2026-11-01
 ---
 
 # Treyding vs 20% bank depoziti: halol matematik hisob
 
-> ⚠️ O'quv materiali, moliyaviy maslahat emas. Tekshirilgan: **2026-06-18**.
+> ⚠️ O'quv materiali, moliyaviy maslahat emas. Tekshirilgan: **2026-11-01**.
 > Omonat stavkalari o'zgaradi — qaror qabul qilishdan oldin [cbu.uz](https://cbu.uz)
 > va o'z bankingizni tekshiring.
 

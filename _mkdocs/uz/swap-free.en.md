@@ -1,11 +1,11 @@
 ---
-verified: 2026-06-18
+verified: 2026-11-01
 ---
 
 # Swap-Free (Islamic) Accounts: How Not to Overpay on a "Halal Account"
 
 > ⚠️ Educational material about **cost mechanics**, not financial and **not
-> religious** advice. Last verified: **2026-06-18**. Whether trading is
+> religious** advice. Last verified: **2026-11-01**. Whether trading is
 > permissible from a religious standpoint is outside the scope of a calculator —
 > consult a knowledgeable person on that question. This page is only about
 > money and fees.

@@ -1,10 +1,10 @@
 ---
-verified: 2026-06-10
+verified: 2026-11-01
 ---
 
 # Brokerdan O'zbekistonga pul yechib olish qo'llanmasi
 
-> ⚠️ Ma'lumot umumiy, tuzilgan sanada (tekshirildi 2026-06-10). Aniq komissiyalar, muddatlar va **huquqiy holat** o'zgarib turadi — operatsiyadan oldin tekshirib oling.
+> ⚠️ Ma'lumot umumiy, tuzilgan sanada (tekshirildi 2026-11-01). Aniq komissiyalar, muddatlar va **huquqiy holat** o'zgarib turadi — operatsiyadan oldin tekshirib oling.
 
 !!! danger "Muhim: O'zbekistonda P2P-kripto almashuvi noqonuniy"
     **2025-yil 26-may**dan Binance O'zbekiston rezidentlari uchun P2P ni o'chirib qo'ydi, va Milliy
@@ -14,8 +14,9 @@ verified: 2026-06-10
 
     **USDT ni so'mga qonuniy almashtirish faqat** NAPP tomonidan litsenziyalangan provayderlar orqali mumkin:
     Binance — hamkor **CoinPay** ([coinpay.uz](https://coinpay.uz)) orqali,
-    **Telegram Wallet**, shuningdek **Kobea, Coinpay, Asterium** birjalari va litsenziyalangan
-    kripto-do'konlar. Dolzarb reyestr — [napp.uz](https://napp.uz) saytida.
+    **Telegram ichidagi hamyon**, shuningdek **Asterium** birjasi va litsenziyalangan
+    kripto-do'konlar. **UzNEX (Kobea) 2026-yil 25-mayda litsenziyadan mahrum bo'ldi** —
+    reyestr o'zgarib turadi, dolzarb ro'yxatni [napp.uz](https://napp.uz) saytidan tekshiring.
     NAPP tushuntirishlariga ko'ra, litsenziyalangan provayderlar orqali olingan daromad soliqdan ozod.
 
     Kripto bilan shug'ullanishni xohlamasangiz — quyidagi bank kanallaridan foydalaning
@@ -106,7 +107,7 @@ verified: 2026-06-10
       feePct: 0,
       exchangeSpread: 0.02,
       speed: '15–60 daqiqa',
-      note: 'Broker komissiyasi ~$3 + TRC-20 tarmog\'i ~$1. USDT ni so\'mga sotish — faqat NAPP litsenziyalangan provayder orqali (CoinPay/Kobea/Asterium, reyestr napp.uz), spred ~2%. P2P O\'z rezidentlari uchun yopiq va noqonuniy.'
+      note: 'Broker komissiyasi ~$3 + TRC-20 tarmog\'i ~$1. USDT ni so\'mga sotish — faqat NAPP litsenziyalangan provayder orqali (CoinPay/Asterium, reyestr napp.uz), spred ~2%. P2P O\'z rezidentlari uchun yopiq va noqonuniy.'
     },
     visa: {
       label: 'Visa / Mastercard',
@@ -252,12 +253,12 @@ verified: 2026-06-10
 | 🏦 SWIFT O'zbekiston bankiga | 3-7 kun | $25-50 | $1k+ | 🟡 o'rta | ✅ bank kanali |
 | 📲 Wise | 1-3 kun | 1-2% | $10k gacha | 🟡 o'rta | ✅ bank kanali |
 | 💵 Skrill / Neteller | 1-2 kun | 2-3% | $5k gacha | 🟢 oddiy | ⚠️ bankdan so'mda kiritishni aniqlang |
-| 💰 USDT → litsenziyalangan birja | 15-60 daqiqa | ~2% + $4 | limitsiz | 🟡 o'rta | ✅ faqat CoinPay/Kobea/Asterium orqali |
+| 💰 USDT → litsenziyalangan birja | 15-60 daqiqa | ~2% + $4 | limitsiz | 🟡 o'rta | ✅ faqat CoinPay/Asterium orqali |
 | ❌ USDT → P2P (Binance va boshq.) | — | — | — | — | 🚫 26.05.2025 yopildi, **noqonuniy** |
 
 ---
 
-## 1-usul: Litsenziyalangan birja orqali USDT (CoinPay/Kobea/Asterium)
+## 1-usul: Litsenziyalangan birja orqali USDT (CoinPay/Asterium)
 
 Tez kripto yo'li, lekin USDT ni so'mga almashtirish **faqat** NAPP tomonidan
 litsenziyalangan provayder orqali mumkin. Binance va boshqa xorijiy maydonchalar orqali P2P
@@ -276,9 +277,10 @@ O'zbekiston rezidentlari uchun yopiq va **noqonuniy** — bu qadam quyida qonuni
 - Broker odatda 1-5 USD komissiya oladi + TRC-20 tarmoq komissiyasi ≈ $1
 - Muddat: odatda **15–60 daqiqa**, ba'zan 24 soatgacha
 
-#### 2. Litsenziyalangan provayder (CoinPay / Kobea / Asterium / Telegram Wallet)
+#### 2. Litsenziyalangan provayder (CoinPay / Asterium / Telegram ichidagi hamyon)
 - NAPP litsenziyalangan maydonchada ro'yxatdan o'ting va verifikatsiyadan (KYC) o'ting.
-  Binance faqat hamkor **CoinPay** ([coinpay.uz](https://coinpay.uz)) orqali qonuniy ishlaydi
+  Binance faqat hamkor **CoinPay** ([coinpay.uz](https://coinpay.uz)) orqali qonuniy ishlaydi.
+  UzNEX (Kobea) 2026-yil may oyida litsenziyadan mahrum bo'ldi — savdodan oldin [napp.uz](https://napp.uz) reyestrini tekshiring.
 - Maydoncha hamyonida → Deposit → USDT TRC-20 → manzilni nusxalang
 - Bu manzilni brokerga bering
 

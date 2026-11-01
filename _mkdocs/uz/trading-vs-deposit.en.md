@@ -1,10 +1,10 @@
 ---
-verified: 2026-06-18
+verified: 2026-11-01
 ---
 
 # Trading vs a 20% Bank Deposit: Honest Maths
 
-> ⚠️ Educational material, not financial advice. Verified: **2026-06-18**.
+> ⚠️ Educational material, not financial advice. Verified: **2026-11-01**.
 > Deposit rates change — check [cbu.uz](https://cbu.uz) and your own bank
 > before making any decisions.
 

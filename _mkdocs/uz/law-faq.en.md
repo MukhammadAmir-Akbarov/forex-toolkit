@@ -1,11 +1,11 @@
 ---
-verified: 2026-06-18
+verified: 2026-11-01
 ---
 
 # Law and Forex in Uzbekistan: FAQ for Beginners
 
 > ⚠️ Educational material, **not legal or tax advice**.
-> Verified: **2026-06-18**. Laws and regulations change — before taking any
+> Verified: **2026-11-01**. Laws and regulations change — before taking any
 > action check primary sources: [lex.uz](https://lex.uz), [cbu.uz](https://cbu.uz),
 > [napp.uz](https://napp.uz), [soliq.uz](https://soliq.uz).
 
@@ -38,7 +38,7 @@ verified: 2026-06-18
     separate forex-dealer registry in Uzbekistan; do not take such claims at
     face value.
 
-_Verified 2026-06-18 · sources: [napp.uz](https://napp.uz), [cbu.uz](https://cbu.uz), [lex.uz](https://lex.uz). Confidence: crypto — high; forex oversight — noted as uncertainty._
+_Verified 2026-11-01 · sources: [napp.uz](https://napp.uz), [cbu.uz](https://cbu.uz), [lex.uz](https://lex.uz). Confidence: crypto — high; forex oversight — noted as uncertainty._
 
 ## Is it legal for me, as a resident, to trade forex?
 
@@ -58,13 +58,14 @@ What you **cannot** do:
   **FCA / CySEC / ASIC** and verify the number **on the regulator's own website**
   — see [Brokers for Uzbekistan](brokers-uz.md).
 
-_Verified 2026-06-18 · sources: [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz)._
+_Verified 2026-11-01 · sources: [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz)._
 
 ## What about crypto (USDT etc.)?
 
 - Exchanging USDT for soums is **legal only through licensed NAPP providers**:
-  CoinPay ([coinpay.uz](https://coinpay.uz)), Telegram Wallet, exchanges Kobea,
-  Coinpay, Asterium. Current registry — [napp.uz](https://napp.uz).
+  CoinPay ([coinpay.uz](https://coinpay.uz)), Wallet in Telegram, the Asterium
+  exchange. UzNEX (Kobea) lost its licence on 25 May 2026.
+  Current registry — [napp.uz](https://napp.uz).
 - **P2P** (Binance and other platforms) for Uzbekistan residents has been
   **closed since 26 May 2025 and is outside the law** — according to NAPP
   clarifications, citizens' operations through P2P are illegal and carry
@@ -75,7 +76,7 @@ _Verified 2026-06-18 · sources: [cbu.uz](https://cbu.uz), [napp.uz](https://nap
 
 👉 Step-by-step (legal channels) — in the [Money Withdrawal Guide](withdrawal-guide.md).
 
-_Verified 2026-06-18 · sources: [napp.uz](https://napp.uz), [spot.uz](https://www.spot.uz/ru/2025/05/28/blocked-p2p/), [gazeta.uz](https://www.gazeta.uz/en/2025/01/17/binance/). Confidence: high._
+_Verified 2026-11-01 · sources: [napp.uz](https://napp.uz), [spot.uz](https://www.spot.uz/ru/2025/05/28/blocked-p2p/), [gazeta.uz](https://www.gazeta.uz/en/2025/01/17/binance/). Confidence: high._
 
 ## Do I need to pay tax on trading income?
 
@@ -90,7 +91,7 @@ Yes. In brief:
 
 🧮 Calculate your tax amount: [Tax Calculator](tax-calculator.md).
 
-_Verified 2026-06-18 · sources: [soliq.uz](https://soliq.uz), [my.soliq.uz](https://my.soliq.uz). Always verify the rate and procedure at soliq.uz._
+_Verified 2026-11-01 · sources: [soliq.uz](https://soliq.uz), [my.soliq.uz](https://my.soliq.uz). Always verify the rate and procedure at soliq.uz._
 
 ## How to deposit and withdraw money legally?
 
@@ -101,7 +102,7 @@ _Verified 2026-06-18 · sources: [soliq.uz](https://soliq.uz), [my.soliq.uz](htt
   wallet — this creates problems rather than solving them. Full breakdown of
   channels and fees — [Money Withdrawal Guide](withdrawal-guide.md).
 
-_Verified 2026-06-18 · sources: [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz)._
+_Verified 2026-11-01 · sources: [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz)._
 
 ## Is "trust management", "investment funds", "PAMM" from private individuals legal?
 
@@ -119,7 +120,7 @@ If you have already transferred money to a fraudster: gather evidence and file a
 report with law enforcement (service **102**) and/or the prosecutor's office —
 the sooner the better.
 
-_Verified 2026-06-18 · sources: [napp.uz](https://napp.uz), service 102._
+_Verified 2026-11-01 · sources: [napp.uz](https://napp.uz), service 102._
 
 ## Where to check primary sources
 

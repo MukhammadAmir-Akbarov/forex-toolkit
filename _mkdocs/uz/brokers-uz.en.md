@@ -1,5 +1,5 @@
 ---
-verified: 2026-06-11
+verified: 2026-11-01
 ---
 
 # 🏦 Brokers for Traders from Uzbekistan
@@ -51,7 +51,7 @@ See [Withdrawal Guide](withdrawal-guide.md) (detailed).
 
 In brief:
 - **Visa/Mastercard**: works both ways, fee 1–3%
-- **USDT (Tether)**: cheapest and fastest — via Binance / Bybit
+- **USDT (Tether)**: cheapest and fastest — but exchange to soums only via NAPP-licensed providers (see the [withdrawal guide](withdrawal-guide.md)); P2P is illegal
 - **Wise / Payeer**: intermediary, limits apply
 - **SWIFT transfer**: only for large amounts ($5,000+)
 

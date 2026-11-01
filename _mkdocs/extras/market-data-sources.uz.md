@@ -1,3 +1,7 @@
+---
+verified: 2026-11-01
+---
+
 # 📡 Ma'lumotlar va signallar manbalari
 
 !!! warning "«Signallar» haqida muhim"

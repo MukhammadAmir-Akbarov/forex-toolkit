@@ -1,3 +1,7 @@
+---
+verified: 2026-11-01
+---
+
 # Brokerlarni taqqoslash — tanlov uchun yo'riqnoma
 
 > **⚠️ Muhim:** Bu reklama yoki tavsiya emas. Aniq shartlar o'zgarib turadi — **ro'yxatdan o'tishdan oldin broker saytida o'zingiz tekshiring**. Men hech qaysi brokerdan komissiya olmayman.
@@ -24,18 +28,18 @@
 
 | Broker | Regulator | Min. depozit | EUR/USD spredi (dan) | USDT | RU qo'llab-quvvatlash | Yillar |
 |---|---|---|---|---|---|---|
-| **IC Markets** | ASIC, CySEC | $200 | 0.0 (ECN) | Ha | Ha | 17 |
-| **Pepperstone** | FCA, ASIC, CySEC | $200 | 0.6 | Ha | Ha | 14 |
-| **FxPro** | FCA, CySEC, SCB | $100 | 1.2 | Ha | Ha | 19 |
-| **Tickmill** | FCA, CySEC, FSCA | $100 | 0.1 (Pro) | Ha | Ha | 10 |
-| **Exness** | CySEC, FCA, FSCA | $10 | 0.6 | Ha | Ha | 17 |
-| **FP Markets** | ASIC, CySEC | $100 | 0.0 (ECN) | Ha | Ha | 19 |
-| **OANDA** | FCA, CFTC, ASIC | $0 | 1.0 | Yo'q | Qisman | 28 |
-| **Saxo Bank** | DFSA, FCA | $2 000 | 0.4 | Yo'q | Ha | 33 |
-| **XM** | CySEC, ASIC, IFSC | $5 | 1.0 | Ha | Ha | 14 |
-| **AMarkets** | FSA, TFC | $100 | 1.3 | Ha | Ha | 17 |
-| **RoboForex** | IFSC | $10 | 1.3 | Ha | Ha | 16 |
-| **InstaForex** | BVI FSC | $1 | 3.0 | Ha | Ha | 18 |
+| **IC Markets** | ASIC, CySEC | $200 | 0.0 (ECN) | Ha | Ha | 19 |
+| **Pepperstone** | FCA, ASIC, CySEC | $200 | 0.6 | Ha | Ha | 16 |
+| **FxPro** | FCA, CySEC, SCB | $100 | 1.2 | Ha | Ha | 20 |
+| **Tickmill** | FCA, CySEC, FSCA | $100 | 0.0 (Pro) | Ha | Ha | 12 |
+| **Exness** | CySEC, FCA, FSCA | $10 | 0.6 | Ha | Ha | 18 |
+| **FP Markets** | ASIC, CySEC | $100 | 0.0 (ECN) | Ha | Ha | 21 |
+| **OANDA** | FCA, CFTC, ASIC | $0 | 1.0 | Yo'q | Qisman | 30 |
+| **Saxo Bank** | DFSA, FCA | $2 000 | 0.4 | Yo'q | Ha | 34 |
+| **XM** | CySEC, ASIC, IFSC | $5 | 1.0 | Ha | Ha | 17 |
+| **AMarkets** | FSA, TFC | $100 | 1.3 | Ha | Ha | 19 |
+| **RoboForex** | IFSC | $10 | 1.3 | Ha | Ha | 17 |
+| **InstaForex** | BVI FSC | $1 | 3.0 | Ha | Ha | 19 |
 
 > **Yashil zona** (FCA / CySEC / ASIC) — eng ishonchli regulyatorlar.
 > **Sariq zona** (SCB Bagama, FSCA Janubiy Afrika, IFSC Belize) — qabul qilinadi, lekin himoya kamroq.
@@ -99,7 +103,7 @@
 ### FxPro
 
 **Afzalliklari:**
-- Bozorda 19 yil
+- Bozorda 20 yil
 - FCA + CySEC + DFSA
 - cTrader, MT4, MT5 qo'llab-quvvatlash
 - Yaxshi rus tilidagi qo'llab-quvvatlash

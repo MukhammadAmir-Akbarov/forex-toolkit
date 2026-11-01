@@ -1,3 +1,7 @@
+---
+verified: 2026-11-01
+---
+
 # Broker Comparison — A Guide to Choosing
 
 > **⚠️ Important:** This is not an advertisement or recommendation. Specific conditions change — **check the broker's website yourself** before registering. I receive no commission from any broker.
@@ -24,18 +28,18 @@
 
 | Broker | Regulator | Min. deposit | EUR/USD spread (from) | USDT | RU support | Years |
 |---|---|---|---|---|---|---|
-| **IC Markets** | ASIC, CySEC | $200 | 0.0 (ECN) | Yes | Yes | 17 |
-| **Pepperstone** | FCA, ASIC, CySEC | $200 | 0.6 | Yes | Yes | 14 |
-| **FxPro** | FCA, CySEC, SCB | $100 | 1.2 | Yes | Yes | 19 |
-| **Tickmill** | FCA, CySEC, FSCA | $100 | 0.1 (Pro) | Yes | Yes | 10 |
-| **Exness** | CySEC, FCA, FSCA | $10 | 0.6 | Yes | Yes | 17 |
-| **FP Markets** | ASIC, CySEC | $100 | 0.0 (ECN) | Yes | Yes | 19 |
-| **OANDA** | FCA, CFTC, ASIC | $0 | 1.0 | No | Partial | 28 |
-| **Saxo Bank** | DFSA, FCA | $2 000 | 0.4 | No | Yes | 33 |
-| **XM** | CySEC, ASIC, IFSC | $5 | 1.0 | Yes | Yes | 14 |
-| **AMarkets** | FSA, TFC | $100 | 1.3 | Yes | Yes | 17 |
-| **RoboForex** | IFSC | $10 | 1.3 | Yes | Yes | 16 |
-| **InstaForex** | BVI FSC | $1 | 3.0 | Yes | Yes | 18 |
+| **IC Markets** | ASIC, CySEC | $200 | 0.0 (ECN) | Yes | Yes | 19 |
+| **Pepperstone** | FCA, ASIC, CySEC | $200 | 0.6 | Yes | Yes | 16 |
+| **FxPro** | FCA, CySEC, SCB | $100 | 1.2 | Yes | Yes | 20 |
+| **Tickmill** | FCA, CySEC, FSCA | $100 | 0.0 (Pro) | Yes | Yes | 12 |
+| **Exness** | CySEC, FCA, FSCA | $10 | 0.6 | Yes | Yes | 18 |
+| **FP Markets** | ASIC, CySEC | $100 | 0.0 (ECN) | Yes | Yes | 21 |
+| **OANDA** | FCA, CFTC, ASIC | $0 | 1.0 | No | Partial | 30 |
+| **Saxo Bank** | DFSA, FCA | $2 000 | 0.4 | No | Yes | 34 |
+| **XM** | CySEC, ASIC, IFSC | $5 | 1.0 | Yes | Yes | 17 |
+| **AMarkets** | FSA, TFC | $100 | 1.3 | Yes | Yes | 19 |
+| **RoboForex** | IFSC | $10 | 1.3 | Yes | Yes | 17 |
+| **InstaForex** | BVI FSC | $1 | 3.0 | Yes | Yes | 19 |
 
 > **Green zone** (FCA / CySEC / ASIC) — the most reliable regulators.
 > **Yellow zone** (SCB Bahamas, FSCA South Africa, IFSC Belize) — acceptable, but with less protection.
@@ -99,7 +103,7 @@
 ### FxPro
 
 **Pros:**
-- 19 years on the market
+- 20 years on the market
 - FCA + CySEC + DFSA
 - cTrader, MT4, MT5 support
 - Good Russian-language customer support

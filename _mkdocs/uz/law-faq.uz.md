@@ -1,11 +1,11 @@
 ---
-verified: 2026-06-18
+verified: 2026-11-01
 ---
 
 # O'zbekistonda qonun va foreks: yangi boshlovchilar uchun FAQ
 
 > ⚠️ O'quv materiali, **yuridik yoki soliq maslahati emas**.
-> Tekshirildi: **2026-06-18**. Qonunlar va qoidalar o'zgaradi — har qanday
+> Tekshirildi: **2026-11-01**. Qonunlar va qoidalar o'zgaradi — har qanday
 > harakatdan oldin birlamchi manbalarga murojaat qiling: [lex.uz](https://lex.uz),
 > [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz), [soliq.uz](https://soliq.uz).
 
@@ -38,7 +38,7 @@ verified: 2026-06-18
     va u ko'rsatgan regulyatorda tekshiring. Biz O'zbekistonda alohida
     foreks-dilerlar reyestrini topmadik; bunday da'volarga ishonmaslik kerak.
 
-_Tekshirildi 2026-06-18 · manbalar: [napp.uz](https://napp.uz), [cbu.uz](https://cbu.uz), [lex.uz](https://lex.uz). Ishonch darajasi: kripto — yuqori; foreks nazorati — noaniqlik sifatida qayd etilgan._
+_Tekshirildi 2026-11-01 · manbalar: [napp.uz](https://napp.uz), [cbu.uz](https://cbu.uz), [lex.uz](https://lex.uz). Ishonch darajasi: kripto — yuqori; foreks nazorati — noaniqlik sifatida qayd etilgan._
 
 ## Men, rezident sifatida, foreksda savdo qilishim qonuniymi?
 
@@ -58,13 +58,14 @@ Nima qilish **mumkin emas**:
   ega brokerni tanlang va raqamni **regulyatorning o'z saytida** tekshiring —
   [O'zbekiston uchun brokerlar](brokers-uz.md) ga qarang.
 
-_Tekshirildi 2026-06-18 · manbalar: [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz)._
+_Tekshirildi 2026-11-01 · manbalar: [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz)._
 
 ## Kripto (USDT va boshqalar) bilan nima?
 
 - USDT'ni so'mga almashtirish **faqat NAPP litsenziyalangan provayderlar orqali
-  qonuniy**: CoinPay ([coinpay.uz](https://coinpay.uz)), Telegram Wallet, Kobea,
-  Coinpay, Asterium birjalari. Joriy reyestr — [napp.uz](https://napp.uz).
+  qonuniy**: CoinPay ([coinpay.uz](https://coinpay.uz)), Telegram ichidagi hamyon,
+  Asterium birjasi. UzNEX (Kobea) 2026-yil 25-mayda litsenziyadan mahrum bo'lgan.
+  Joriy reyestr — [napp.uz](https://napp.uz).
 - **P2P** (Binance va boshqa platformalar) O'zbekiston rezidenatlari uchun
   **2025-yil 26-maydan yopilgan va qonundan tashqari** — NAPP tushuntirishlariga
   ko'ra fuqarolarning P2P orqali operatsiyalari noqonuniy va javobgarlikka
@@ -75,7 +76,7 @@ _Tekshirildi 2026-06-18 · manbalar: [cbu.uz](https://cbu.uz), [napp.uz](https:/
 
 👉 Bosqichma-bosqich (qonuniy kanallar) — [Pul yechib olish bo'yicha qo'llanma](withdrawal-guide.md)da.
 
-_Tekshirildi 2026-06-18 · manbalar: [napp.uz](https://napp.uz), [spot.uz](https://www.spot.uz/ru/2025/05/28/blocked-p2p/), [gazeta.uz](https://www.gazeta.uz/en/2025/01/17/binance/). Ishonch darajasi: yuqori._
+_Tekshirildi 2026-11-01 · manbalar: [napp.uz](https://napp.uz), [spot.uz](https://www.spot.uz/ru/2025/05/28/blocked-p2p/), [gazeta.uz](https://www.gazeta.uz/en/2025/01/17/binance/). Ishonch darajasi: yuqori._
 
 ## Treyding daromadidan soliq to'lash kerakmi?
 
@@ -91,7 +92,7 @@ Ha. Qisqacha:
 
 🧮 Soliq miqdorini hisoblash: [Soliq kalkulyatori](tax-calculator.md).
 
-_Tekshirildi 2026-06-18 · manbalar: [soliq.uz](https://soliq.uz), [my.soliq.uz](https://my.soliq.uz). Stavka va tartibni har doim soliq.uz da tekshiring._
+_Tekshirildi 2026-11-01 · manbalar: [soliq.uz](https://soliq.uz), [my.soliq.uz](https://my.soliq.uz). Stavka va tartibni har doim soliq.uz da tekshiring._
 
 ## Pulni qonuniy ravishda qanday kiritish va yechib olish mumkin?
 
@@ -103,7 +104,7 @@ _Tekshirildi 2026-06-18 · manbalar: [soliq.uz](https://soliq.uz), [my.soliq.uz]
   yaratadi. Kanallar va komissiyalarning to'liq tahlili —
   [Pul yechib olish bo'yicha qo'llanma](withdrawal-guide.md).
 
-_Tekshirildi 2026-06-18 · manbalar: [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz)._
+_Tekshirildi 2026-11-01 · manbalar: [cbu.uz](https://cbu.uz), [napp.uz](https://napp.uz)._
 
 ## Jismoniy shaxslardan «ishonchli boshqaruv», «investitsiya fondlari», «PAMM» — bu qonuniymi?
 
@@ -121,7 +122,7 @@ Agar siz allaqachon firibgarga pul o'tkazgan bo'lsangiz: dalillarni to'plang va
 ichki ishlar organlariga (**102** xizmati) va/yoki prokuraturaga ariza bering —
 qanchalik erta bo'lsa, shuncha yaxshi.
 
-_Tekshirildi 2026-06-18 · manbalar: [napp.uz](https://napp.uz), 102 xizmati._
+_Tekshirildi 2026-11-01 · manbalar: [napp.uz](https://napp.uz), 102 xizmati._
 
 ## Birlamchi manbalarni qayerdan tekshirish mumkin
 

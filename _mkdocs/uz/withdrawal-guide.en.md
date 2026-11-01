@@ -1,10 +1,10 @@
 ---
-verified: 2026-06-10
+verified: 2026-11-01
 ---
 
 # Guide to Withdrawing Money from a Broker to Uzbekistan
 
-> ⚠️ This information is general, as of the date of compilation (verified 2026-06-10). Specific fees, timelines and **legal status** change — verify before making any transaction.
+> ⚠️ This information is general, as of the date of compilation (verified 2026-11-01). Specific fees, timelines and **legal status** change — verify before making any transaction.
 
 !!! danger "Important: P2P crypto exchange is illegal in Uzbekistan"
     Since **26 May 2025** Binance has disabled P2P for Uzbekistan residents, and the National
@@ -15,8 +15,9 @@ verified: 2026-06-10
 
     **The only legal way to exchange USDT for soums is through** NAPP-licensed providers:
     Binance — via partner **CoinPay** ([coinpay.uz](https://coinpay.uz)),
-    **Telegram Wallet**, and exchanges **Kobea, Coinpay, Asterium** and licensed
-    crypto shops. The current registry is at [napp.uz](https://napp.uz).
+    **Wallet in Telegram**, and the **Asterium** exchange and licensed
+    crypto shops. **UzNEX (Kobea) lost its licence on 25 May 2026** —
+    the registry changes; check the current list at [napp.uz](https://napp.uz).
     Income through licensed providers, according to NAPP clarifications, is exempt from tax.
 
     If you don't want to deal with crypto — use the bank channels below
@@ -107,7 +108,7 @@ verified: 2026-06-10
       feePct: 0,
       exchangeSpread: 0.02,
       speed: '15–60 min',
-      note: 'Broker fee ~$3 + TRC-20 network ~$1. Selling USDT for soums — only via a NAPP-licensed provider (CoinPay/Kobea/Asterium, registry napp.uz), spread ~2%. P2P for UZ residents is closed and illegal.'
+      note: 'Broker fee ~$3 + TRC-20 network ~$1. Selling USDT for soums — only via a NAPP-licensed provider (CoinPay/Asterium, registry napp.uz), spread ~2%. P2P for UZ residents is closed and illegal.'
     },
     visa: {
       label: 'Visa / Mastercard',
@@ -253,12 +254,12 @@ verified: 2026-06-10
 | 🏦 SWIFT to UZ bank | 3–7 days | $25–50 | $1k+ | 🟡 moderate | ✅ bank channel |
 | 📲 Wise | 1–3 days | 1–2% | up to $10k | 🟡 moderate | ✅ bank channel |
 | 💵 Skrill / Neteller | 1–2 days | 2–3% | up to $5k | 🟢 easy | ⚠️ confirm with your bank upon deposit in UZ |
-| 💰 USDT → licensed exchange | 15–60 min | ~2% + $4 | no limit | 🟡 moderate | ✅ only via CoinPay/Kobea/Asterium |
+| 💰 USDT → licensed exchange | 15–60 min | ~2% + $4 | no limit | 🟡 moderate | ✅ only via CoinPay/Asterium |
 | ❌ USDT → P2P (Binance etc.) | — | — | — | — | 🚫 closed 26.05.2025, **illegal** |
 
 ---
 
-## Method 1: USDT via Licensed Exchange (CoinPay/Kobea/Asterium)
+## Method 1: USDT via Licensed Exchange (CoinPay/Asterium)
 
 Fast crypto route, but converting USDT to soums is **only** possible through a NAPP-licensed
 provider. P2P on Binance and other foreign platforms for Uzbekistan residents
@@ -277,9 +278,10 @@ is closed and **illegal** — the step below replaces the old route with the leg
 - The broker typically charges a $1–5 fee + TRC-20 network fee ≈ $1
 - Timeline: usually **15–60 minutes**, sometimes up to 24 hours
 
-#### 2. Licensed provider (CoinPay / Kobea / Asterium / Telegram Wallet)
+#### 2. Licensed provider (CoinPay / Asterium / Wallet in Telegram)
 - Register and complete verification (KYC) on a NAPP-licensed platform.
-  Binance works legally only via partner **CoinPay** ([coinpay.uz](https://coinpay.uz))
+  Binance works legally only via partner **CoinPay** ([coinpay.uz](https://coinpay.uz)).
+  UzNEX (Kobea) lost its licence in May 2026 — check the registry at [napp.uz](https://napp.uz) before trading.
 - In the platform wallet → Deposit → USDT TRC-20 → copy the address
 - Give this address to your broker
 

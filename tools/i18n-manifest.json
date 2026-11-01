@@ -94,10 +94,10 @@
     },
     "extras/brokers-comparison.md": {
       "locales": {
-        "en": "d5ee85579e291ff5691c69744ff302bd7119365cbda6d483bcdd1e5509bcca90",
-        "uz": "d5ee85579e291ff5691c69744ff302bd7119365cbda6d483bcdd1e5509bcca90"
+        "en": "199d76c9f9e3dabb71cd7a9c4f6a51233646a3d7d798ce35f1669ed0f162faf1",
+        "uz": "199d76c9f9e3dabb71cd7a9c4f6a51233646a3d7d798ce35f1669ed0f162faf1"
       },
-      "ru_sha256": "d5ee85579e291ff5691c69744ff302bd7119365cbda6d483bcdd1e5509bcca90"
+      "ru_sha256": "199d76c9f9e3dabb71cd7a9c4f6a51233646a3d7d798ce35f1669ed0f162faf1"
     },
     "extras/checklist-printable.md": {
       "locales": {
@@ -150,10 +150,10 @@
     },
     "extras/market-data-sources.md": {
       "locales": {
-        "en": "bec26e89aa606d19b664830d05bfeede03badb38eadbd57995b4ba8bc7454331",
-        "uz": "bec26e89aa606d19b664830d05bfeede03badb38eadbd57995b4ba8bc7454331"
+        "en": "225a3467dea4a28736b63af88a83dfaff7762967a25f8e2b40126577b862bc1c",
+        "uz": "225a3467dea4a28736b63af88a83dfaff7762967a25f8e2b40126577b862bc1c"
       },
-      "ru_sha256": "bec26e89aa606d19b664830d05bfeede03badb38eadbd57995b4ba8bc7454331"
+      "ru_sha256": "225a3467dea4a28736b63af88a83dfaff7762967a25f8e2b40126577b862bc1c"
     },
     "extras/mind-map.md": {
       "locales": {
@@ -430,10 +430,10 @@
     },
     "tools/flashcards.md": {
       "locales": {
-        "en": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971",
-        "uz": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971"
+        "en": "8215f3ec293a561916e500ada119d4183d1ec59270a4522feb10b96fae6a3a8f",
+        "uz": "8215f3ec293a561916e500ada119d4183d1ec59270a4522feb10b96fae6a3a8f"
       },
-      "ru_sha256": "0a28ec906e03c7581d79aa4c0c38cfe8d89d031a76c8a90b99856c0dd39c8971"
+      "ru_sha256": "8215f3ec293a561916e500ada119d4183d1ec59270a4522feb10b96fae6a3a8f"
     },
     "tools/living-capital.md": {
       "locales": {
@@ -556,10 +556,10 @@
     },
     "uz/brokers-uz.md": {
       "locales": {
-        "en": "bd59a0de1c23079894c9217f4fa1e86d3a98092831400ab7b37f5f681ae52827",
-        "uz": "bd59a0de1c23079894c9217f4fa1e86d3a98092831400ab7b37f5f681ae52827"
+        "en": "e72b689be2a4b0394c4bc54cd33193d95a34d60cd8cbc76cdaadf8bb1589e59f",
+        "uz": "e72b689be2a4b0394c4bc54cd33193d95a34d60cd8cbc76cdaadf8bb1589e59f"
       },
-      "ru_sha256": "bd59a0de1c23079894c9217f4fa1e86d3a98092831400ab7b37f5f681ae52827"
+      "ru_sha256": "e72b689be2a4b0394c4bc54cd33193d95a34d60cd8cbc76cdaadf8bb1589e59f"
     },
     "uz/communities.md": {
       "locales": {
@@ -577,10 +577,10 @@
     },
     "uz/law-faq.md": {
       "locales": {
-        "en": "3597e317e7d804c642d3acf502dcb2882e68b9ebc7a4924c2ef7242faf3616a8",
-        "uz": "3597e317e7d804c642d3acf502dcb2882e68b9ebc7a4924c2ef7242faf3616a8"
+        "en": "dda56ef091b4bd1d51d914e61fd45bb1b3027ffd3f672cf67a2084e2c1929273",
+        "uz": "dda56ef091b4bd1d51d914e61fd45bb1b3027ffd3f672cf67a2084e2c1929273"
       },
-      "ru_sha256": "3597e317e7d804c642d3acf502dcb2882e68b9ebc7a4924c2ef7242faf3616a8"
+      "ru_sha256": "dda56ef091b4bd1d51d914e61fd45bb1b3027ffd3f672cf67a2084e2c1929273"
     },
     "uz/scam-protection.md": {
       "locales": {
@@ -591,31 +591,31 @@
     },
     "uz/swap-free.md": {
       "locales": {
-        "en": "bd9de5ba5dc88f053b9938a4a71ba3fde5193082a413782836eb706bfb1cb4c3",
-        "uz": "bd9de5ba5dc88f053b9938a4a71ba3fde5193082a413782836eb706bfb1cb4c3"
+        "en": "a8b93695c0626e9b6dde37fcf0ba43fab20cfe788145084802fb29661281dbd8",
+        "uz": "a8b93695c0626e9b6dde37fcf0ba43fab20cfe788145084802fb29661281dbd8"
       },
-      "ru_sha256": "bd9de5ba5dc88f053b9938a4a71ba3fde5193082a413782836eb706bfb1cb4c3"
+      "ru_sha256": "a8b93695c0626e9b6dde37fcf0ba43fab20cfe788145084802fb29661281dbd8"
     },
     "uz/tax-calculator.md": {
       "locales": {
-        "en": "ea987b1c4d7d32ae9138ab4c46ae29b7151d6ede5c242377ac56d4f3b65c8dba",
-        "uz": "ea987b1c4d7d32ae9138ab4c46ae29b7151d6ede5c242377ac56d4f3b65c8dba"
+        "en": "e8dcf0a7510010b53c2c4dfea35bdefc019d5cb2df2ce642606e291eb1d24598",
+        "uz": "e8dcf0a7510010b53c2c4dfea35bdefc019d5cb2df2ce642606e291eb1d24598"
       },
-      "ru_sha256": "ea987b1c4d7d32ae9138ab4c46ae29b7151d6ede5c242377ac56d4f3b65c8dba"
+      "ru_sha256": "e8dcf0a7510010b53c2c4dfea35bdefc019d5cb2df2ce642606e291eb1d24598"
     },
     "uz/trading-vs-deposit.md": {
       "locales": {
-        "en": "ef88f6dff08a6f575d3a260f39db1aac310b1aa89088993301bfa817ffe1b6af",
-        "uz": "ef88f6dff08a6f575d3a260f39db1aac310b1aa89088993301bfa817ffe1b6af"
+        "en": "2e4435dc8ff81b5749260fbf7cb96847bcec74e8ac66db2858bfa3c745c48a0e",
+        "uz": "2e4435dc8ff81b5749260fbf7cb96847bcec74e8ac66db2858bfa3c745c48a0e"
       },
-      "ru_sha256": "ef88f6dff08a6f575d3a260f39db1aac310b1aa89088993301bfa817ffe1b6af"
+      "ru_sha256": "2e4435dc8ff81b5749260fbf7cb96847bcec74e8ac66db2858bfa3c745c48a0e"
     },
     "uz/withdrawal-guide.md": {
       "locales": {
-        "en": "cd6b6029220e8bc46b37659dc52e6287cca7f141841fd24f4be0f55c4df7ae36",
-        "uz": "cd6b6029220e8bc46b37659dc52e6287cca7f141841fd24f4be0f55c4df7ae36"
+        "en": "2ce831535962848c2f48a5e7646f45175b0b8cfb7c2cf56ed8596b1cd87e98b1",
+        "uz": "2ce831535962848c2f48a5e7646f45175b0b8cfb7c2cf56ed8596b1cd87e98b1"
       },
-      "ru_sha256": "cd6b6029220e8bc46b37659dc52e6287cca7f141841fd24f4be0f55c4df7ae36"
+      "ru_sha256": "2ce831535962848c2f48a5e7646f45175b0b8cfb7c2cf56ed8596b1cd87e98b1"
     },
     "КАК-ПОЛЬЗОВАТЬСЯ.md": {
       "locales": {

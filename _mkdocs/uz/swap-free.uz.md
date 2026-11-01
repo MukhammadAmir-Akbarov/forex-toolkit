@@ -1,11 +1,11 @@
 ---
-verified: 2026-06-18
+verified: 2026-11-01
 ---
 
 # Svop-siz (islomiy) hisoblar: «halal account»da ortiqcha to'lamaslik
 
 > ⚠️ Bu **xarajatlar mexanikasi** haqidagi o'quv materiali — moliyaviy va **diniy
-> maslahat emas**. Tekshirilgan: **2026-06-18**. Savdoning diniy jihatdan
+> maslahat emas**. Tekshirilgan: **2026-11-01**. Savdoning diniy jihatdan
 > joizligi masalasi kalkulyator doirasidan tashqarida: bu haqda bilimdon
 > kishiga murojaat qiling. Bu yerda — faqat pul va komissiyalar haqida.
 

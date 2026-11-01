@@ -1,5 +1,5 @@
 ---
-verified: 2026-08-05
+verified: 2026-11-01
 widgets: [tax]
 ---
 
@@ -14,7 +14,7 @@ widgets: [tax]
     Hisob **soddalashtirilgan va o'quv maqsadli**. Stavkalar va deklaratsiya tartibi o'zgarib turadi —
     dolzarb ma'lumotni [soliq.uz](https://soliq.uz) va shaxsiy kabinetingizda
     [my.soliq.uz](https://my.soliq.uz) tekshiring; katta summalar bo'lsa — buxgalterga murojaat qiling.
-    JShDS stavkasi 12% — tekshirildi 2026-08-05.
+    JShDS stavkasi 12% — tekshirildi 2026-11-01.
 
 ## Formula
 

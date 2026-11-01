@@ -1,5 +1,5 @@
 ---
-verified: 2026-06-11
+verified: 2026-11-01
 ---
 
 # 🏦 O'zbekistonlik treyderlar uchun brokerlar
@@ -51,7 +51,7 @@ O'zbekistonda **maxsus forex-regulyator yo'q**. Mahalliy banklar to'g'ridan-to'g
 
 Qisqacha:
 - **Visa/Mastercard**: ikki tomonlama ishlaydi, komissiya 1-3%
-- **USDT (Tether)**: eng arzon va tez — Binance / Bybit orqali
+- **USDT (Tether)**: eng arzon va tez — lekin so'mga faqat NAPP litsenziyalangan provayderlar orqali almashtiring ([pul yechish qo'llanmasi](withdrawal-guide.md)ga qarang), P2P noqonuniy
 - **Wise / Payeer**: vositachi, limitlar bor
 - **SWIFT-o'tkazma**: faqat katta summalar uchun ($5000+)
 
