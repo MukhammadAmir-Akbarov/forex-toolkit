@@ -1,11 +1,11 @@
 # 🎴 Kartochkalar trenajyori (forex atamalari)
 
 !!! abstract "Trenajyor qanday ishlaydi"
-    Oldingizda foreks bo'yicha 105 ta kartochka bor: atamalar, patternlar, psixologiya.
+    Oldingizda foreks bo'yicha 104 ta kartochka bor: atamalar, patternlar, psixologiya.
     **«Javobni ko'rsatish»** tugmasini bosing, keyin halol baholang — «Bildim» yoki «Bilmadim».
     Dastur brauzeringizda progressingizni saqlab, qiyin kartochkalarni ko'proq ko'rsatadi.
 
-    **Maqsad:** 105/105 o'rganilgan kartochkaga yetish (ketma-ket ≥3 to'g'ri javob).
+    **Maqsad:** 104/104 o'rganilgan kartochkaga yetish (ketma-ket ≥3 to'g'ri javob).
 
 !!! warning "O'quv materiali — moliyaviy maslahat emas"
     Barcha atamalar faqat o'quv maqsadida taqdim etilgan. Foreksda savdo qilish yuqori xavf bilan bog'liq.
@@ -228,7 +228,7 @@
   <!-- Progress -->
   <div class="ftk-progress-wrap">
     <div class="ftk-progress-label">
-      <span>Progress: <span id="ftk-learned-count">0</span> / <span id="ftk-total-count">105</span> o'rganildi</span>
+      <span>Progress: <span id="ftk-learned-count">0</span> / <span id="ftk-total-count">104</span> o'rganildi</span>
       <span id="ftk-pct">0%</span>
     </div>
     <div class="ftk-progress-track">
@@ -251,7 +251,7 @@
       <div class="ftk-stat-lbl">«Bilmadim» sessiyada</div>
     </div>
     <div class="ftk-stat">
-      <div class="ftk-stat-num" id="ftk-remaining">105</div>
+      <div class="ftk-stat-num" id="ftk-remaining">104</div>
       <div class="ftk-stat-lbl">hali o'rganilmagan</div>
     </div>
   </div>
@@ -260,7 +260,7 @@
   <div class="ftk-filter-row">
     <label for="ftk-tag-select">Mavzu bo'yicha filtr:</label>
     <select id="ftk-tag-select">
-      <option value="all">Barcha kartochkalar (105)</option>
+      <option value="all">Barcha kartochkalar (104)</option>
     </select>
     <button class="ftk-btn-reset" id="ftk-reset-btn" title="Barcha kartochkalar bo'yicha progressni tiklash">Progressni tiklash</button>
   </div>
@@ -286,6 +286,10 @@
     <button class="ftk-btn ftk-btn-show" id="ftk-show-btn">Javobni ko'rsatish</button>
     <button class="ftk-btn ftk-btn-knew" id="ftk-knew-btn" disabled>Bildim ✓</button>
     <button class="ftk-btn ftk-btn-didnt" id="ftk-didnt-btn" disabled>Bilmadim ✗</button>
+  </div>
+
+  <div class="ftk-btn-row" style="margin-top:0.6rem">
+    <button class="ftk-btn ftk-btn-show" id="ftk-anki-btn" type="button">⬇ Anki uchun kolodani yuklab olish (.csv)</button>
   </div>
 
   <div class="ftk-empty" id="ftk-empty" style="display:none">
@@ -700,6 +704,22 @@
     advance();
   });
 
+  /* ─────────── Anki eksporti (CSV) ─────────── */
+  document.getElementById('ftk-anki-btn').addEventListener('click', function () {
+    function csvField(s) { return '"' + String(s).replace(/"/g, '""') + '"'; }
+    var lines = CARDS.map(function (c) {
+      return [csvField(c.front), csvField(c.back), csvField(c.tags.join(' '))].join(',');
+    });
+    var blob = new Blob(['﻿' + lines.join('\n')], {type: 'text/csv;charset=utf-8'}); // ﻿ = UTF-8 BOM
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'forex-flashcards-anki.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  });
+
   /* ─────────── инициализация ─────────── */
   rebuildActive();
   currentIdx = pickNext(activeIndices, -1);
@@ -716,7 +736,7 @@
 1. **Har kuni 10-15 daqiqa** — haftada bir marta bir soatdan yaxshiroq.
 2. **Halol bo'ling**: «Bildim» tugmasini faqat kartochkani ag'darishdan oldin ta'rifni rostdan eslagan bo'lsangiz bosing.
 3. **Algoritm o'zi ustuvorliklarni belgilaydi**: nol strikli kartochkalar eng ko'p ko'rsatiladi.
-4. **Maqsad**: 105/105 kartochka ketma-ket 3+ to'g'ri javob bilan.
+4. **Maqsad**: 104/104 kartochka ketma-ket 3+ to'g'ri javob bilan.
 
 !!! tip "Kartochkalardan keyingi qadam"
     Barcha atamalarni bilgach — strategiya matematikasini tushunish uchun [WinRate × RR kalkulyatoriga](winrate-rr-calculator.md) o'ting.

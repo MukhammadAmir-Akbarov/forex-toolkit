@@ -1,11 +1,11 @@
 # 🎴 Тренажёр карточек (форекс-термины)
 
 !!! abstract "Как работает тренажёр"
-    Перед тобой 105 карточек по форексу: термины, паттерны, психология.
+    Перед тобой 104 карточек по форексу: термины, паттерны, психология.
     Нажимай **«Показать ответ»**, потом честно оцени — «Знал» или «Не знал».
     Программа запоминает твой прогресс в браузере и показывает сложные карточки чаще.
 
-    **Цель:** дойти до 105/105 выученных карточек (≥3 правильных подряд).
+    **Цель:** дойти до 104/104 выученных карточек (≥3 правильных подряд).
 
 !!! warning "Образовательный материал — не финансовый совет"
     Все термины предоставлены в учебных целях. Торговля на форекс сопряжена с высоким риском.
@@ -228,7 +228,7 @@
   <!-- Progress -->
   <div class="ftk-progress-wrap">
     <div class="ftk-progress-label">
-      <span>Прогресс: <span id="ftk-learned-count">0</span> / <span id="ftk-total-count">105</span> выучено</span>
+      <span>Прогресс: <span id="ftk-learned-count">0</span> / <span id="ftk-total-count">104</span> выучено</span>
       <span id="ftk-pct">0%</span>
     </div>
     <div class="ftk-progress-track">
@@ -251,7 +251,7 @@
       <div class="ftk-stat-lbl">«Не знал» за сессию</div>
     </div>
     <div class="ftk-stat">
-      <div class="ftk-stat-num" id="ftk-remaining">105</div>
+      <div class="ftk-stat-num" id="ftk-remaining">104</div>
       <div class="ftk-stat-lbl">ещё не выучено</div>
     </div>
   </div>
@@ -260,7 +260,7 @@
   <div class="ftk-filter-row">
     <label for="ftk-tag-select">Фильтр по теме:</label>
     <select id="ftk-tag-select">
-      <option value="all">Все карточки (105)</option>
+      <option value="all">Все карточки (104)</option>
     </select>
     <button class="ftk-btn-reset" id="ftk-reset-btn" title="Сбросить прогресс по всем карточкам">Сбросить прогресс</button>
   </div>
@@ -286,6 +286,10 @@
     <button class="ftk-btn ftk-btn-show" id="ftk-show-btn">Показать ответ</button>
     <button class="ftk-btn ftk-btn-knew" id="ftk-knew-btn" disabled>Знал ✓</button>
     <button class="ftk-btn ftk-btn-didnt" id="ftk-didnt-btn" disabled>Не знал ✗</button>
+  </div>
+
+  <div class="ftk-btn-row" style="margin-top:0.6rem">
+    <button class="ftk-btn ftk-btn-show" id="ftk-anki-btn" type="button">⬇ Скачать колоду для Anki (.csv)</button>
   </div>
 
   <div class="ftk-empty" id="ftk-empty" style="display:none">
@@ -700,6 +704,22 @@
     advance();
   });
 
+  /* ─────────── экспорт колоды в Anki (CSV) ─────────── */
+  document.getElementById('ftk-anki-btn').addEventListener('click', function () {
+    function csvField(s) { return '"' + String(s).replace(/"/g, '""') + '"'; }
+    var lines = CARDS.map(function (c) {
+      return [csvField(c.front), csvField(c.back), csvField(c.tags.join(' '))].join(',');
+    });
+    var blob = new Blob(['﻿' + lines.join('\n')], {type: 'text/csv;charset=utf-8'}); // ﻿ = BOM для кириллицы
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'forex-flashcards-anki.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  });
+
   /* ─────────── инициализация ─────────── */
   rebuildActive();
   currentIdx = pickNext(activeIndices, -1);
@@ -716,7 +736,7 @@
 1. **Каждый день по 10-15 минут** — лучше, чем раз в неделю час.
 2. **Будь честен**: нажимай «Знал» только если действительно вспомнил определение ДО переворота.
 3. **Алгоритм сам расставит приоритеты**: карточки с нулевым стриком показываются чаще всего.
-4. **Цель**: 105/105 карточек с 3+ правильными ответами подряд.
+4. **Цель**: 104/104 карточек с 3+ правильными ответами подряд.
 
 !!! tip "Следующий шаг после карточек"
     Когда знаешь все термины — переходи к [калькулятору WinRate × RR](winrate-rr-calculator.md), чтобы понять математику стратегии.

@@ -1,11 +1,11 @@
 # 🎴 Flashcard Trainer (Forex Terms)
 
 !!! abstract "How the trainer works"
-    105 forex flashcards covering terms, patterns, and psychology.
+    104 forex flashcards covering terms, patterns, and psychology.
     Click **"Show Answer"**, then honestly rate yourself — "Knew It" or "Didn't Know".
     The app saves your progress in the browser and shows difficult cards more often.
 
-    **Goal:** reach 105/105 learned cards (≥3 correct in a row).
+    **Goal:** reach 104/104 learned cards (≥3 correct in a row).
 
 !!! warning "Educational material — not financial advice"
     All terms are provided for educational purposes only. Trading forex carries a high level of risk.
@@ -228,7 +228,7 @@
   <!-- Progress -->
   <div class="ftk-progress-wrap">
     <div class="ftk-progress-label">
-      <span>Progress: <span id="ftk-learned-count">0</span> / <span id="ftk-total-count">105</span> learned</span>
+      <span>Progress: <span id="ftk-learned-count">0</span> / <span id="ftk-total-count">104</span> learned</span>
       <span id="ftk-pct">0%</span>
     </div>
     <div class="ftk-progress-track">
@@ -251,7 +251,7 @@
       <div class="ftk-stat-lbl">"Didn't Know" this session</div>
     </div>
     <div class="ftk-stat">
-      <div class="ftk-stat-num" id="ftk-remaining">105</div>
+      <div class="ftk-stat-num" id="ftk-remaining">104</div>
       <div class="ftk-stat-lbl">not yet learned</div>
     </div>
   </div>
@@ -260,7 +260,7 @@
   <div class="ftk-filter-row">
     <label for="ftk-tag-select">Filter by topic:</label>
     <select id="ftk-tag-select">
-      <option value="all">All cards (105)</option>
+      <option value="all">All cards (104)</option>
     </select>
     <button class="ftk-btn-reset" id="ftk-reset-btn" title="Reset progress for all cards">Reset Progress</button>
   </div>
@@ -286,6 +286,10 @@
     <button class="ftk-btn ftk-btn-show" id="ftk-show-btn">Show Answer</button>
     <button class="ftk-btn ftk-btn-knew" id="ftk-knew-btn" disabled>Knew It ✓</button>
     <button class="ftk-btn ftk-btn-didnt" id="ftk-didnt-btn" disabled>Didn't Know ✗</button>
+  </div>
+
+  <div class="ftk-btn-row" style="margin-top:0.6rem">
+    <button class="ftk-btn ftk-btn-show" id="ftk-anki-btn" type="button">⬇ Download the deck for Anki (.csv)</button>
   </div>
 
   <div class="ftk-empty" id="ftk-empty" style="display:none">
@@ -700,6 +704,22 @@
     advance();
   });
 
+  /* ─────────── Anki export (CSV) ─────────── */
+  document.getElementById('ftk-anki-btn').addEventListener('click', function () {
+    function csvField(s) { return '"' + String(s).replace(/"/g, '""') + '"'; }
+    var lines = CARDS.map(function (c) {
+      return [csvField(c.front), csvField(c.back), csvField(c.tags.join(' '))].join(',');
+    });
+    var blob = new Blob(['﻿' + lines.join('\n')], {type: 'text/csv;charset=utf-8'}); // ﻿ = UTF-8 BOM
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'forex-flashcards-anki.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  });
+
   /* ─────────── инициализация ─────────── */
   rebuildActive();
   currentIdx = pickNext(activeIndices, -1);
@@ -716,7 +736,7 @@
 1. **10–15 minutes every day** — better than one hour once a week.
 2. **Be honest**: click "Knew It" only if you genuinely recalled the definition BEFORE flipping.
 3. **The algorithm sets priorities for you**: cards with a zero streak are shown most often.
-4. **Goal**: 105/105 cards with 3+ correct answers in a row.
+4. **Goal**: 104/104 cards with 3+ correct answers in a row.
 
 !!! tip "Next step after flashcards"
     Once you know all the terms, move on to the [WinRate × RR Calculator](winrate-rr-calculator.md) to understand the math behind a strategy.
