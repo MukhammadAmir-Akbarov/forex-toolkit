@@ -1,3 +1,7 @@
+---
+widgets: [roadmap-diag]
+---
+
 # 🗺️ O'qish yo'l xaritasi
 
 !!! abstract "Ushbu sahifadan qanday foydalanish"
@@ -10,24 +14,400 @@
 
     Nazorat nuqtalarini yopmaguningizcha **keyingi darajaga o'tmang**. Aks holda pulingizni behuda yo'qotasiz.
 
+<div id="roadmap-diag"></div>
+
+<script type="application/json" id="diag-questions">
+[
+  {
+    "level": 0,
+    "q": "EUR/USD uchun pips nima?",
+    "options": [
+      "0.01 — verguldan keyingi ikkinchi belgi",
+      "0.0001 — verguldan keyingi to'rtinchi belgi",
+      "Narxning bir sent harakati",
+      "Narxning 1% i"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 0,
+    "q": "Spred — bu…",
+    "options": [
+      "pul chiqarish uchun broker komissiyasi",
+      "pozitsiyani ertaga o'tkazish to'lovi",
+      "sotib olish (Ask) va sotish (Bid) narxi orasidagi farq",
+      "depozitni ko'paytiradigan kaldıraç"
+    ],
+    "answer": 2
+  },
+  {
+    "level": 0,
+    "q": "Depozit $1000, kaldıraç 1:100. Broker qanday hajmli pozitsiya ochishga ruxsat beradi?",
+    "options": [
+      "$100 000 gacha",
+      "$10 000 gacha",
+      "$1100 gacha",
+      "$1000 gacha"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 0,
+    "q": "Foreksdagi standart lot — bu…",
+    "options": [
+      "bazaviy valyutaning 10 000 birligi",
+      "bazaviy valyutaning 100 000 birligi",
+      "$100",
+      "1000 unsiya"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 1,
+    "q": "Ko'tarilish trendi — bu … seriyasi",
+    "options": [
+      "pastroq maksimumlar va minimumlar",
+      "bir xil o'lchamdagi shamlar",
+      "yuqoriroq maksimumlar va minimumlar",
+      "o'sib boruvchi hajmlar"
+    ],
+    "answer": 2
+  },
+  {
+    "level": 1,
+    "q": "Qo'llab-quvvatlash darajasi — narx ilgari … hudud",
+    "options": [
+      "to'xtab, yuqoriga burilgan",
+      "har doim yumaloq sonda turgan",
+      "tarixiy maksimum qo'ygan",
+      "indikatorni kesib o'tgan"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 1,
+    "q": "Narx o'sib borayotgan EMA 50 dan yuqorida. Bu odatda qanday o'qiladi?",
+    "options": [
+      "Ayiq fon — sotish izlanadi",
+      "Buqа fon — sotib olish ustuvor",
+      "Kafolatlangan flet",
+      "Darhol sotish signali"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 1,
+    "q": "Qo'llab-quvvatlash darajasida uzun pastki fitilli sham ko'pincha nimani bildiradi?",
+    "options": [
+      "sotuvchilar bozorni to'liq nazorat qiladi",
+      "hajm bozordan ketgan",
+      "xaridorlar pasayishni qaytarib bergan",
+      "tez orada gep bo'ladi"
+    ],
+    "answer": 2
+  },
+  {
+    "level": 2,
+    "q": "Bitim uchun 1% xavfda ketma-ket o'n ta zarar taxminan qanchasini oladi?",
+    "options": [
+      "butun hisobni",
+      "hisobning yarmi",
+      "hisobning taxminan 10% i",
+      "hisobning aynan 1% i"
+    ],
+    "answer": 2
+  },
+  {
+    "level": 2,
+    "q": "Ketma-ket uchta zararli bitim. Jarayon nima deydi?",
+    "options": [
+      "Lotni ikki baravar qilib, qaytarib olish",
+      "To'xtash va bitimlarni jurnalda tahlil qilish",
+      "Darhol strategiyani almashtirish",
+      "«Seriya tugamagunicha» yana bitta bitim ochish"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 2,
+    "q": "Treydingdagi FOMO — bu…",
+    "options": [
+      "harakatni o'tkazib yuborish qo'rquvi, signalsiz kirish",
+      "kechiktirilgan order turi",
+      "tungi pozitsiya to'lovi",
+      "broker ochko'zligi"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 2,
+    "q": "Savdo rejasi nima uchun kerak?",
+    "options": [
+      "Brokerimizni hayratda qoldirish uchun",
+      "Qarorlar bitimdan oldin, hissiyotda emas, qabul qilinishi uchun",
+      "Kamroq soliq to'lash uchun",
+      "Yangiliklarni taxmin qilish uchun"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 3,
+    "q": "Bektest — bu…",
+    "options": [
+      "demo hisobda savdo",
+      "strategiya qoidalarini tarixiy ma'lumotlarda tekshirish",
+      "maksimal foyda uchun parametrlarni sozlash",
+      "real hisobda mikrolot bilan savdo"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 3,
+    "q": "Nega bektestdagi «ideal» parametrlar xavfli?",
+    "options": [
+      "Broker ularni taqiqlaydi",
+      "Ular o'tmishga moslangan va kelajakda yemirilishi mumkin",
+      "Spred ularni buzadi",
+      "Ular terminal xotirasini ko'p egallaydi"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 3,
+    "q": "Real hisobdan oldin nega 50+ demo bitim kerak?",
+    "options": [
+      "Strategiyani besh bitim bilan emas, statistika bilan baholash uchun",
+      "Terminalni «qizdirish» uchun",
+      "Bu brokerlarning talabi",
+      "Kaldıraçni oshirish uchun"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 3,
+    "q": "Qanday birinchi strategiya to'g'ri?",
+    "options": [
+      "Ishonchlilik uchun o'n indikatorli",
+      "Pullik signal chatidan olingan",
+      "Martingejl — har qanday zararni qaytaradi",
+      "Kirish, stop va chiqishning aniq yozma qoidalari bilan"
+    ],
+    "answer": 3
+  },
+  {
+    "level": 4,
+    "q": "Savdo jurnali nima uchun yuritiladi?",
+    "options": [
+      "Takrorlanadigan xatolarni topish uchun",
+      "Faqat soliq hisoboti uchun",
+      "Chiroyli skrinshotlar uchun",
+      "Signallarni sotish uchun"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 4,
+    "q": "WinRate 40%, o'rtacha RR 1:2. Bu qanday tizim?",
+    "options": [
+      "Zararli: g'alabalar yarmidan kam",
+      "Nolga teng",
+      "Hech narsa deyib bo'lmaydi",
+      "Foydali: bitimiga +0.2R kutilma"
+    ],
+    "answer": 3
+  },
+  {
+    "level": 4,
+    "q": "Nega o'rtacha R bitta bitim natijasidan muhimroq?",
+    "options": [
+      "Bitta bitim — shovqin, seriya tizimni ko'rsatadi",
+      "Shunga hisoblash tezroq",
+      "Jurnal shart talab qiladi",
+      "Stoplar qisqaradi"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 4,
+    "q": "Xuddi shu xato jurnalda uchinchi marta takrorlandi. Nimani o'zgartirish kerak?",
+    "options": [
+      "Jarayon va chek-listni, «ehtiyotkorroq bo'lishga harakat» emas",
+      "Qoplash uchun xavfni oshirish",
+      "Valyuta juftligini almashtirish",
+      "O'qishni tashlash — meniki emas"
+    ],
+    "answer": 0
+  }
+]
+</script>
+
 ## Umumiy ko'rinish
 
-```mermaid
-graph TD
-    A[🎬 Start: Forex o'rganishni xohlayman] --> B{0-bosqich: Tayyorgarlik<br/>1 hafta}
-    B --> |✅| C{1-bosqich: Nazariya<br/>2-4 hafta}
-    C --> |✅| D{2-bosqich: Psixologiya + Xavf<br/>1-2 hafta}
-    D --> |✅| E{3-bosqich: Birinchi strategiya<br/>1-2 oy}
-    E --> |✅| F{4-bosqich: Tahlil + Yaxshilash<br/>1 oy}
-    F --> G{5-bosqich: Real hisobga tayyormisan?}
-    G --> |❌ Yo'q| F
-    G --> |✅ Ha| H[💵 5-bosqich: Real hisob<br/>$100-300, 0.5% xavf]
-    H --> I[📈 6-bosqich: Rivojlanish<br/>1 yildan keyin]
+<div class="fx-rm">
 
-    style A fill:#10b981,color:#fff
-    style H fill:#3b82f6,color:#fff
-    style I fill:#8b5cf6,color:#fff
-```
+  <!-- Boshlanish -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--start">🏁</div>
+    <div class="fx-rm__card">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Start: forexni o'rganmoqchiman</div>
+      </div>
+      <p class="fx-rm__goal">Birinchi qadam — noldan demo hisobda ishonchli treydergacha bo'lgan yo'l.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Yangi boshlovchi</span>
+        <a href="../" class="fx-rm__tag">Bosh sahifa →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1-faza -->
+  <div class="fx-rm__phase fx-rm__phase--beginner">🌱 1-faza — Asoslar</div>
+
+  <!-- 0-bosqich -->
+  <div class="fx-rm__item" data-level="0">
+    <div class="fx-rm__badge fx-rm__badge--phase1">0</div>
+    <div class="fx-rm__card fx-rm__card--phase1">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">0-bosqich: Tayyorgarlik</div>
+        <span class="fx-rm__time">~1 hafta</span>
+      </div>
+      <p class="fx-rm__goal">Foreks nima ekanini tushunish va u sizga to'g'ri kelishini tekshirish.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Pips · Lot · Spred · Kaldıraç</span>
+        <a href="../КАК-ПОЛЬЗОВАТЬСЯ/" class="fx-rm__tag">Qanday foydalanish →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1-bosqich -->
+  <div class="fx-rm__item" data-level="1">
+    <div class="fx-rm__badge fx-rm__badge--phase1">1</div>
+    <div class="fx-rm__card fx-rm__card--phase1">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">1-bosqich: Nazariya asoslari</div>
+        <span class="fx-rm__time">2–4 hafta</span>
+      </div>
+      <p class="fx-rm__goal">Treyderning asosiy tilini o'zlashtirish: trendlar, qo'llab-quvvatlash/qarshilik, indikatorlar, shamlar.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">EMA · RSI · S/R</span>
+        <a href="../forex-guide/" class="fx-rm__tag">Darslik →</a>
+        <a href="../docs/technical-analysis/" class="fx-rm__tag">Texnik tahlil →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2-faza -->
+  <div class="fx-rm__phase fx-rm__phase--middle">⚡ 2-faza — Psixologiya va strategiya</div>
+
+  <!-- 2-bosqich -->
+  <div class="fx-rm__item" data-level="2">
+    <div class="fx-rm__badge fx-rm__badge--phase2">2</div>
+    <div class="fx-rm__card fx-rm__card--phase2">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">2-bosqich: Psixologiya va xavf-menejment</div>
+        <span class="fx-rm__time">1–2 hafta</span>
+      </div>
+      <p class="fx-rm__goal">Asosiy raqib — o'zingiz ekanini tushunish. Pozitsiya kalkulyatori, savdo rejasi.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Anti-Tilt · Trading Plan</span>
+        <a href="../extras/psychology/" class="fx-rm__tag">Psixologiya →</a>
+        <a href="../tools/position-calculator/" class="fx-rm__tag">Kalkulyator →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-bosqich -->
+  <div class="fx-rm__item" data-level="3">
+    <div class="fx-rm__badge fx-rm__badge--phase2">3</div>
+    <div class="fx-rm__card fx-rm__card--phase2">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">3-bosqich: Birinchi strategiya</div>
+        <span class="fx-rm__time">1–2 oy</span>
+      </div>
+      <p class="fx-rm__goal">Bitta strategiya tanlash, bektestni o'zlashtirish va demoda 50+ bitim qilish.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">50+ demo bitim</span>
+        <a href="../docs/strategy-details/" class="fx-rm__tag">Strategiya →</a>
+        <a href="../tools/replay-trainer/" class="fx-rm__tag">Replay →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-faza -->
+  <div class="fx-rm__phase fx-rm__phase--advanced">🚀 3-faza — Ilg'or</div>
+
+  <!-- 4-bosqich -->
+  <div class="fx-rm__item" data-level="4">
+    <div class="fx-rm__badge fx-rm__badge--phase3">4</div>
+    <div class="fx-rm__card fx-rm__card--phase3">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">4-bosqich: Tahlil va yaxshilash</div>
+        <span class="fx-rm__time">~1 oy</span>
+      </div>
+      <p class="fx-rm__goal">Natijalarni tahlil qilish, savdo jurnalini yuritish, xatolarni takroriy tuzatish.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Winrate > 50% · RR ≥ 1.5</span>
+        <a href="../journal/web-journal/" class="fx-rm__tag">Jurnal →</a>
+        <a href="../tools/winrate-rr-calculator/" class="fx-rm__tag">WinRate × RR →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carra nuqtasi -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge" style="color:#ef4444;border-color:#ef4444;">?</div>
+    <div class="fx-rm__card fx-rm__card--decision">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">5-bosqich: Real hisobga tayyormisiz?</div>
+      </div>
+      <p class="fx-rm__goal">Yakuniy imtihondan o'ting. Natija chegaradan past bo'lsa — 4-bosqichga qayting.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">❌ Yo'q → 4-bosqich</span>
+        <a href="../tools/exam/" class="fx-rm__tag">🎓 Yakuniy imtihon →</a>
+        <a href="../tools/quiz/" class="fx-rm__tag">Kviz →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real hisob fazasi -->
+  <div class="fx-rm__phase fx-rm__phase--real">💵 Real hisob</div>
+
+  <!-- 5-bosqich Real -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--accent">5</div>
+    <div class="fx-rm__card fx-rm__card--accent">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">5-bosqich: Real hisob</div>
+        <span class="fx-rm__time">$100–300</span>
+      </div>
+      <p class="fx-rm__goal">Minimal depozit bilan real hisob ochish. Bitimga 0.5% xavf, istisnosiz.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">0.5% xavf · Mini lotlar</span>
+        <a href="../extras/brokers-comparison/" class="fx-rm__tag">Brokerlar →</a>
+        <a href="../uz/brokers-uz/" class="fx-rm__tag">O'zbekiston uchun brokerlar →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6-bosqich -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--gold">6</div>
+    <div class="fx-rm__card fx-rm__card--gold">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">6-bosqich: Bir yildan keyingi rivojlanish</div>
+        <span class="fx-rm__time">12 oydan keyin</span>
+      </div>
+      <p class="fx-rm__goal">Instrumentlarni kengaytirish: Order Flow, kripto, aksiyalar, portfel tafakkuri.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Daromad > 0</span>
+        <a href="../growth/order-flow-volume-profile/" class="fx-rm__tag">Order Flow →</a>
+        <a href="../growth/crypto-trading-guide/" class="fx-rm__tag">Kripto →</a>
+        <a href="../growth/stocks-basics/" class="fx-rm__tag">Aksiyalar →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 ---
 

@@ -1,3 +1,7 @@
+---
+widgets: [roadmap-diag]
+---
+
 # 🗺️ Learning Roadmap
 
 !!! abstract "How to use this page"
@@ -10,24 +14,400 @@
 
     **Don't skip ahead** until you've closed the checkpoints. Otherwise you'll lose money for nothing.
 
+<div id="roadmap-diag"></div>
+
+<script type="application/json" id="diag-questions">
+[
+  {
+    "level": 0,
+    "q": "What is a pip for EUR/USD?",
+    "options": [
+      "0.01 — the second decimal place",
+      "0.0001 — the fourth decimal place",
+      "One cent of price movement",
+      "1% of the price"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 0,
+    "q": "The spread is…",
+    "options": [
+      "a broker's withdrawal fee",
+      "the charge for holding a position overnight",
+      "the difference between the buy (Ask) and sell (Bid) price",
+      "leverage that multiplies your deposit"
+    ],
+    "answer": 2
+  },
+  {
+    "level": 0,
+    "q": "Deposit $1000, leverage 1:100. What position size does the broker allow?",
+    "options": [
+      "Up to $100,000",
+      "Up to $10,000",
+      "Up to $1,100",
+      "Up to $1,000"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 0,
+    "q": "A standard lot in forex is…",
+    "options": [
+      "10,000 units of the base currency",
+      "100,000 units of the base currency",
+      "$100",
+      "1,000 ounces"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 1,
+    "q": "An uptrend is a series of…",
+    "options": [
+      "lower highs and lower lows",
+      "equal-sized candles",
+      "higher highs and higher lows",
+      "rising volumes"
+    ],
+    "answer": 2
+  },
+  {
+    "level": 1,
+    "q": "A support level is an area where price previously…",
+    "options": [
+      "stopped and reversed upward",
+      "always sat on a round number",
+      "set its all-time high",
+      "crossed an indicator"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 1,
+    "q": "Price is above a rising EMA 50. How is this usually read?",
+    "options": [
+      "Bearish backdrop — look for sells",
+      "Bullish backdrop — buys have priority",
+      "A guaranteed flat market",
+      "An immediate sell signal"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 1,
+    "q": "A candle with a long lower wick at a support level most often means…",
+    "options": [
+      "sellers fully control the market",
+      "volume has left the market",
+      "buyers fought off the decline",
+      "a gap is coming"
+    ],
+    "answer": 2
+  },
+  {
+    "level": 2,
+    "q": "Ten losses in a row at 1% risk per trade take roughly…",
+    "options": [
+      "the whole account",
+      "half the account",
+      "about 10% of the account",
+      "exactly 1% of the account"
+    ],
+    "answer": 2
+  },
+  {
+    "level": 2,
+    "q": "Three losing trades in a row. What does the process say?",
+    "options": [
+      "Double the lot and win it back",
+      "Stop and review the trades in the journal",
+      "Change the strategy immediately",
+      "Open one more trade before the streak ends"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 2,
+    "q": "FOMO in trading is…",
+    "options": [
+      "the fear of missing a move, entering without a signal",
+      "a type of pending order",
+      "an overnight position fee",
+      "broker greed"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 2,
+    "q": "Why do you need a trading plan?",
+    "options": [
+      "To impress the broker",
+      "So decisions are made before the trade, not in emotion",
+      "To pay less tax",
+      "To guess the news"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 3,
+    "q": "A backtest is…",
+    "options": [
+      "trading on a demo account",
+      "checking a strategy's rules on historical data",
+      "tuning parameters for maximum profit",
+      "trading micro lots on a real account"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 3,
+    "q": "Why are “perfect” backtest parameters dangerous?",
+    "options": [
+      "The broker will ban them",
+      "They are fitted to the past and may not survive the future",
+      "The spread will break them",
+      "They take too much terminal memory"
+    ],
+    "answer": 1
+  },
+  {
+    "level": 3,
+    "q": "Why trade 50+ demo trades before going live?",
+    "options": [
+      "To build statistics instead of judging a strategy by five trades",
+      "To “warm up” the terminal",
+      "It is a broker requirement",
+      "To raise the leverage"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 3,
+    "q": "What makes a good first strategy?",
+    "options": [
+      "Ten indicators for reliability",
+      "One from a paid signal chat",
+      "Martingale — you win back any loss",
+      "Clear written rules for entry, stop and exit"
+    ],
+    "answer": 3
+  },
+  {
+    "level": 4,
+    "q": "Why keep a trading journal?",
+    "options": [
+      "To spot recurring mistakes",
+      "Only for the tax report",
+      "To make pretty screenshots",
+      "To sell signals"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 4,
+    "q": "WinRate 40%, average RR 1:2. What kind of system is this?",
+    "options": [
+      "Losing: wins are below half",
+      "Break-even",
+      "Impossible to tell",
+      "Profitable: expectancy +0.2R per trade"
+    ],
+    "answer": 3
+  },
+  {
+    "level": 4,
+    "q": "Why does average R matter more than one trade's result?",
+    "options": [
+      "One trade is noise; a series shows the system",
+      "It is faster to compute",
+      "The journal requires it",
+      "Stops become shorter"
+    ],
+    "answer": 0
+  },
+  {
+    "level": 4,
+    "q": "The same mistake shows up in the journal a third time. What do you change?",
+    "options": [
+      "The process and the checklist — not “try to be more careful”",
+      "Increase risk to compensate",
+      "Switch the currency pair",
+      "Quit learning — not for me"
+    ],
+    "answer": 0
+  }
+]
+</script>
+
 ## The big picture
 
-```mermaid
-graph TD
-    A[🎬 Start: I want to learn forex] --> B{Level 0: Preparation<br/>1 week}
-    B --> |✅| C{Level 1: Theory basics<br/>2-4 weeks}
-    C --> |✅| D{Level 2: Psychology + Risk<br/>1-2 weeks}
-    D --> |✅| E{Level 3: First strategy<br/>1-2 months}
-    E --> |✅| F{Level 4: Review + Refine<br/>1 month}
-    F --> G{Level 5: Ready for real?}
-    G --> |❌ No| F
-    G --> |✅ Yes| H[💵 Level 5: Real account<br/>$100-300, 0.5% risk]
-    H --> I[📈 Level 6: Growth<br/>after 1 year]
+<div class="fx-rm">
 
-    style A fill:#10b981,color:#fff
-    style H fill:#3b82f6,color:#fff
-    style I fill:#8b5cf6,color:#fff
-```
+  <!-- Start -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--start">🏁</div>
+    <div class="fx-rm__card">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Start: I want to learn forex</div>
+      </div>
+      <p class="fx-rm__goal">The first step — walk the path from zero to a confident demo trader.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Beginner</span>
+        <a href="../" class="fx-rm__tag">Home →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="fx-rm__phase fx-rm__phase--beginner">🌱 Phase 1 — Fundamentals</div>
+
+  <!-- Level 0 -->
+  <div class="fx-rm__item" data-level="0">
+    <div class="fx-rm__badge fx-rm__badge--phase1">0</div>
+    <div class="fx-rm__card fx-rm__card--phase1">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Level 0: Preparation</div>
+        <span class="fx-rm__time">~1 week</span>
+      </div>
+      <p class="fx-rm__goal">Understand what forex is — and check whether it suits you at all.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Pip · Lot · Spread · Leverage</span>
+        <a href="../КАК-ПОЛЬЗОВАТЬСЯ/" class="fx-rm__tag">How to use →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 1 -->
+  <div class="fx-rm__item" data-level="1">
+    <div class="fx-rm__badge fx-rm__badge--phase1">1</div>
+    <div class="fx-rm__card fx-rm__card--phase1">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Level 1: Theory basics</div>
+        <span class="fx-rm__time">2–4 weeks</span>
+      </div>
+      <p class="fx-rm__goal">Master the trader's basic language: trends, support/resistance, indicators, candles.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">EMA · RSI · S/R</span>
+        <a href="../forex-guide/" class="fx-rm__tag">Textbook →</a>
+        <a href="../docs/technical-analysis/" class="fx-rm__tag">Technical analysis →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="fx-rm__phase fx-rm__phase--middle">⚡ Phase 2 — Psychology and strategy</div>
+
+  <!-- Level 2 -->
+  <div class="fx-rm__item" data-level="2">
+    <div class="fx-rm__badge fx-rm__badge--phase2">2</div>
+    <div class="fx-rm__card fx-rm__card--phase2">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Level 2: Psychology and risk management</div>
+        <span class="fx-rm__time">1–2 weeks</span>
+      </div>
+      <p class="fx-rm__goal">Understand that the main opponent is yourself. Position calculator, trading plan.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Anti-Tilt · Trading Plan</span>
+        <a href="../extras/psychology/" class="fx-rm__tag">Psychology →</a>
+        <a href="../tools/position-calculator/" class="fx-rm__tag">Calculator →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 3 -->
+  <div class="fx-rm__item" data-level="3">
+    <div class="fx-rm__badge fx-rm__badge--phase2">3</div>
+    <div class="fx-rm__card fx-rm__card--phase2">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Level 3: First strategy</div>
+        <span class="fx-rm__time">1–2 months</span>
+      </div>
+      <p class="fx-rm__goal">Pick one strategy, master backtesting and trade 50+ demo trades.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">50+ demo trades</span>
+        <a href="../docs/strategy-details/" class="fx-rm__tag">Strategy →</a>
+        <a href="../tools/replay-trainer/" class="fx-rm__tag">Replay →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="fx-rm__phase fx-rm__phase--advanced">🚀 Phase 3 — Advanced</div>
+
+  <!-- Level 4 -->
+  <div class="fx-rm__item" data-level="4">
+    <div class="fx-rm__badge fx-rm__badge--phase3">4</div>
+    <div class="fx-rm__card fx-rm__card--phase3">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Level 4: Review and refine</div>
+        <span class="fx-rm__time">~1 month</span>
+      </div>
+      <p class="fx-rm__goal">Analyse results, keep a trading journal, fix mistakes iteratively.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Winrate > 50% · RR ≥ 1.5</span>
+        <a href="../journal/web-journal/" class="fx-rm__tag">Journal →</a>
+        <a href="../tools/winrate-rr-calculator/" class="fx-rm__tag">WinRate × RR →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decision point -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge" style="color:#ef4444;border-color:#ef4444;">?</div>
+    <div class="fx-rm__card fx-rm__card--decision">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Level 5: Ready for real?</div>
+      </div>
+      <p class="fx-rm__goal">Take the final exam. If the score is below the bar — go back to level 4.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">❌ No → level 4</span>
+        <a href="../tools/exam/" class="fx-rm__tag">🎓 Final exam →</a>
+        <a href="../tools/quiz/" class="fx-rm__tag">Quiz →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real account phase -->
+  <div class="fx-rm__phase fx-rm__phase--real">💵 Real account</div>
+
+  <!-- Level 5 Real -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--accent">5</div>
+    <div class="fx-rm__card fx-rm__card--accent">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Level 5: Real account</div>
+        <span class="fx-rm__time">$100–300</span>
+      </div>
+      <p class="fx-rm__goal">Open a real account with a minimal deposit. 0.5% risk per trade, no exceptions.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">0.5% risk · Mini lots</span>
+        <a href="../extras/brokers-comparison/" class="fx-rm__tag">Brokers →</a>
+        <a href="../uz/brokers-uz/" class="fx-rm__tag">Brokers for UZ →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 6 -->
+  <div class="fx-rm__item">
+    <div class="fx-rm__badge fx-rm__badge--gold">6</div>
+    <div class="fx-rm__card fx-rm__card--gold">
+      <div class="fx-rm__header">
+        <div class="fx-rm__title">Level 6: Growth after one year</div>
+        <span class="fx-rm__time">After 12 months</span>
+      </div>
+      <p class="fx-rm__goal">Expand the toolkit: Order Flow, crypto, stocks, portfolio thinking.</p>
+      <div class="fx-rm__tags">
+        <span class="fx-rm__tag">Return > 0</span>
+        <a href="../growth/order-flow-volume-profile/" class="fx-rm__tag">Order Flow →</a>
+        <a href="../growth/crypto-trading-guide/" class="fx-rm__tag">Crypto →</a>
+        <a href="../growth/stocks-basics/" class="fx-rm__tag">Stocks →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 ---
 
