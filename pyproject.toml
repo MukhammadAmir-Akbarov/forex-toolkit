@@ -59,7 +59,7 @@ dev = [
     # material, совместимая с pymdown-extensions 9.11. Миграция на новые
     # версии = замена slugify в mkdocs.yml + проверка всех якорей.
     "mkdocs-material==9.1.21",
-    "pymdown-extensions==9.11",
+    "pymdown-extensions==12.3",
     "mkdocs-static-i18n>=1.2,<2",
     "mkdocs-git-revision-date-localized-plugin>=1.2",
     # social-плагину (Open Graph-карточки) нужны pillow и cairosvg.
