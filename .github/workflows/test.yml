@@ -162,7 +162,11 @@ jobs:
     name: Docs build + duplication guard
     runs-on: ubuntu-latest
     steps:
+      # fetch-depth: 0 — git-revision-date-плагин предупреждает о shallow clone,
+      # а --strict превращает предупреждение в ошибку (как в deploy-docs.yml).
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"

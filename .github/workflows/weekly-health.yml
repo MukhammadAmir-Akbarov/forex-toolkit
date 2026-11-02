@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0  # как в docs job: иначе git-revision-date-плагин ворнит
 
       - name: Set up Python
         uses: actions/setup-python@v7
