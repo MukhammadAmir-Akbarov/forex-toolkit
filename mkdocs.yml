@@ -13,6 +13,9 @@ site_dir: site
 # Хук подставляет языковой словарь подсказок (includes/abbreviations.<lang>.md)
 # на каждую страницу по её локали — RU/EN/UZ получают термины на своём языке.
 hooks:
+  # Unicode-slugify для toc (кириллические якоря) — замена выпиленного
+  # pymdownx.slugs.uslugify. Должен идти первым: задаёт конфиг до рендера.
+  - hooks/slugify_unicode.py
   - hooks/glossary_tooltips.py
   # Счётчики страниц, инструментов, стратегий и тестов берутся из репозитория.
   - hooks/project_stats.py
@@ -361,9 +364,10 @@ markdown_extensions:
   - footnotes
   - toc:
       permalink: true
-      # Unicode-slugify: кириллические заголовки дают кириллические якоря,
-      # иначе оглавления (#что-такое-forex …) не совпадают с заголовками.
-      slugify: !!python/name:pymdownx.slugs.uslugify
+      # Unicode-slugify (кириллические заголовки → кириллические якоря)
+      # задаётся хуком hooks/slugify_unicode.py: pymdownx 10+ убрал uslugify,
+      # а !!python/name требует установленный модуль — хук ставит функцию
+      # напрямую в mdx_configs ещё до рендера страниц.
 
 nav:
   - Начало:

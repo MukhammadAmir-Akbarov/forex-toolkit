@@ -38,8 +38,8 @@ jobs:
           python -m pip install --upgrade pip
           # pillow+cairosvg явно: extra [imaging] у 9.1.21 их не тянет,
           # а social-плагину они нужны для карточек Open Graph.
-          pip install "mkdocs>=1.5,<2" "mkdocs-material[imaging]==9.1.21" \
-                      "pymdown-extensions==9.11" "mkdocs-static-i18n>=1.2,<2" \
+          pip install "mkdocs>=1.5,<2" "mkdocs-material[imaging]>=9.0,<10" \
+                      "mkdocs-static-i18n>=1.2,<2" \
                       "mkdocs-git-revision-date-localized-plugin>=1.2" \
                       "pillow" "cairosvg"
 
