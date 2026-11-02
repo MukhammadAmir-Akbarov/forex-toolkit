@@ -2487,3 +2487,62 @@ label[for="__drawer"].fx-menu-hint::after {
 .pm-note { font-size: 0.85rem; color: var(--md-default-fg-color--light); }
 /* Пермалинк ¶ отключён в mkdocs.yml (toc.permalink: false, 2026-11-02) —
    правил для .headerlink здесь больше нет, потому что самого элемента нет. */
+
+/* ── Печать (чек-листы, emergency card, планы) ───────────────────────────
+   Чек-листы созданы, чтобы висеть на стене: при печати убираем навигацию,
+   прогресс-виджеты и интерактив, оставляя только содержимое страницы. */
+@media print {
+  /* Хром сайта: шапка, вкладки, обе колонки навигации, подвал, поиск */
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer,
+  .md-feedback,
+  .md-consent,
+  .giscus,
+  #comments,
+  .md-dialog,
+  .fx-progress,
+  .md-typeset .fx-reading-meta,
+  .md-content__button,
+  .md-top {
+    display: none !important;
+  }
+
+  /* Контент на всю ширину листа */
+  .md-main,
+  .md-main__inner,
+  .md-content,
+  .md-content__inner {
+    display: block !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Читаемая бумажная типографика */
+  .md-typeset {
+    font-size: 11pt;
+    color: #000;
+  }
+  .md-typeset h1 { font-size: 20pt; }
+  .md-typeset h2 { font-size: 15pt; break-after: avoid; }
+  .md-typeset a { color: #000; text-decoration: none; }
+
+  /* Чекбоксы чек-листов — квадратики для галочек ручкой */
+  .md-typeset .task-list-control .task-list-indicator::before {
+    border: 1.5pt solid #000;
+  }
+
+  /* Не рвать важные блоки между страницами */
+  .admonition,
+  .md-typeset table,
+  .md-typeset ul.task-list,
+  .pm-note,
+  blockquote {
+    break-inside: avoid;
+  }
+
+  /* Не печатать URL после ссылок (поведение некоторых браузеров) */
+  .md-typeset a[href^="http"]::after { content: none !important; }
+}
