@@ -554,6 +554,13 @@
       },
       "ru_sha256": "0c9ed2bb3bf0dcc75159c0f8a7467c029dfd1dfea9abf73b547e7ab8b3adbbf7"
     },
+    "tools/weekly-review.md": {
+      "locales": {
+        "en": "1c2f243799d8e6e1fb8111803cbbb96e04f66499a0a73bd21319d726c4e0b9b6",
+        "uz": "1c2f243799d8e6e1fb8111803cbbb96e04f66499a0a73bd21319d726c4e0b9b6"
+      },
+      "ru_sha256": "1c2f243799d8e6e1fb8111803cbbb96e04f66499a0a73bd21319d726c4e0b9b6"
+    },
     "tools/winrate-rr-calculator.md": {
       "locales": {
         "en": "a177b8a3671a667d33fc5678ec2468e584dc2bdecea131dde5aeaaae1bf3127b",

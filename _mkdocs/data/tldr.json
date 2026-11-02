@@ -433,5 +433,10 @@
   "ru": "Экскурсия по проекту: что где лежит и в каком порядке открывать. Начни здесь, если сайт кажется большим.",
   "en": "A tour of the project: what lives where and in what order to open it. Start here if the site feels big.",
   "uz": "Loyiha bo'ylab ekskursiya: nima qayerda va qaysi tartibda ochish kerak. Sayt katta tuyulsa, shu yerdan boshlang."
+ },
+ "tools/weekly-review": {
+  "ru": "Три крупнейших движения последней недели по восьми парам — с графиками и ходом в ATR. Плюс метод, как за 15 минут найти причину движения в календаре новостей.",
+  "en": "The three biggest moves of the last week across eight pairs — with charts and the move in ATR. Plus a method to find the move's cause in the news calendar in 15 minutes.",
+  "uz": "Sakkiz juftlik bo'yicha o'tgan haftaning uchta eng katta harakati — grafiklar va ATR dagi xod bilan. Plyus 15 daqiqada yangiliklar kalendaridan harakat sababini topish usuli."
  }
 }
