@@ -741,6 +741,14 @@
 !!! tip "Kartochkalardan keyingi qadam"
     Barcha atamalarni bilgach — strategiya matematikasini tushunish uchun [WinRate × RR kalkulyatoriga](winrate-rr-calculator.md) o'ting.
 
+!!! info "Telegram'da kun kartochkasi"
+    Har ertalab bitta kartochkani shaxsiy xabar yoki kanalda xohlaysizmi — javobi
+    spoyler ostida? Repozitoriyada `tools/daily_card.py` skripti bor: u shu bankdan
+    kun kartochkasini oladi (tanlov sanaga qattiq bog'langan) va botingiz orqali
+    yuboradi. Sozlash — `TELEGRAM_BOT_TOKEN` va `TELEGRAM_CHAT_ID` o'zgaruvchilari
+    hamda cron yozuvi. Tafsilotlar skript docstringida va
+    [Telegram bot qo'llanmasida](../advanced/SETUP-telegram.md).
+
 ---
 
 ## Interval takrorlash algoritmi (qisqacha)

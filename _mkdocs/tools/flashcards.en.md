@@ -741,6 +741,14 @@
 !!! tip "Next step after flashcards"
     Once you know all the terms, move on to the [WinRate × RR Calculator](winrate-rr-calculator.md) to understand the math behind a strategy.
 
+!!! info "Card of the day in Telegram"
+    Want one card every morning in your DMs or channel — with the answer under
+    a spoiler? The repo has `tools/daily_card.py`: it picks the day's card from
+    this very bank (deterministically by date) and sends it through your bot.
+    Setup is two variables, `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`, plus a
+    cron entry. Details are in the script's docstring and the
+    [Telegram bot guide](../advanced/SETUP-telegram.md).
+
 ---
 
 ## Spaced repetition algorithm (brief)
