@@ -3861,7 +3861,7 @@
   
 
 
-<h1 id="-why-a-beautiful-backtest-promises-nothing">🎣 Why a beautiful <abbr title="Testing a strategy on historical data.">backtest</abbr> promises nothing<a class="headerlink" href="#-why-a-beautiful-backtest-promises-nothing" title="Permanent link">&para;</a></h1>
+<h1 id="-why-a-beautiful-backtest-promises-nothing">🎣 Why a beautiful <abbr title="Testing a strategy on historical data.">backtest</abbr> promises nothing</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Not a slogan — a measurement</p>
 <p>Below is a real sweep of 54 parameter combinations of one strategy on
@@ -3874,7 +3874,7 @@ half and stay quiet about the second.</p>
 <div id="overfitting" data-src="../../../data/overfitting.json"></div>
 
 <hr />
-<h2 id="what-came-out-on-this-sample">What came out on this sample<a class="headerlink" href="#what-came-out-on-this-sample" title="Permanent link">&para;</a></h2>
+<h2 id="what-came-out-on-this-sample">What came out on this sample</h2>
 <table>
 <thead>
 <tr>
@@ -3910,7 +3910,7 @@ tells you <strong>nothing</strong> about the result ahead. Not "little" — noth
 this sample.</p>
 <p>The combination that looked best turned out worse than forty others. Choosing
 "by the <abbr title="Testing a strategy on historical data.">backtest</abbr>" did <strong>worse</strong> here than choosing at random.</p>
-<h2 id="an-honest-caveat">An honest caveat<a class="headerlink" href="#an-honest-caveat" title="Permanent link">&para;</a></h2>
+<h2 id="an-honest-caveat">An honest caveat</h2>
 <p>The median on the future is negative too: −7.7R. In this period the strategy
 lost money under any parameters, not only the "best" ones. That does <strong>not</strong>
 mean the strategy is bad, and it does not mean it is good — the period is short
@@ -3918,7 +3918,7 @@ and there is one pair.</p>
 <p>The lesson of this page is different and does not depend on the period:
 <strong>tuning the parameters did not improve the outcome.</strong> The best of the past did
 not become the best of the future.</p>
-<h2 id="why-this-happens">Why this happens<a class="headerlink" href="#why-this-happens" title="Permanent link">&para;</a></h2>
+<h2 id="why-this-happens">Why this happens</h2>
 <p>Sweeping 54 combinations means tossing a coin 54 times and keeping the best
 toss. It will look excellent — but looking excellent and being good are
 different things.</p>
@@ -3930,7 +3930,7 @@ means.</p>
 <p>That is why "a robot with 300% on history" is not an achievement but a
 description of a selection procedure. One question checks it: <strong>how many
 variants did you try before you found this one?</strong></p>
-<h2 id="what-to-do-about-it">What to do about it<a class="headerlink" href="#what-to-do-about-it" title="Permanent link">&para;</a></h2>
+<h2 id="what-to-do-about-it">What to do about it</h2>
 <ol>
 <li><strong>Split the history.</strong> Choose parameters on one part, verify on another you
    have not seen. That is what is done above.</li>
@@ -3940,14 +3940,14 @@ variants did you try before you found this one?</strong></p>
 <li><strong>Run the skill-or-luck check.</strong> The project has a
    <a href="../monte-carlo/">Monte Carlo check</a> for that.</li>
 </ol>
-<h2 id="how-to-recompute-it-yourself">How to recompute it yourself<a class="headerlink" href="#how-to-recompute-it-yourself" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-recompute-it-yourself">How to recompute it yourself</h2>
 <p>The quotes are not in the repository (they are large and not ours), so the set
 was computed once and frozen. If you have your own CSV files:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>tools/overfit_scan.py<span class="w"> </span>--csv<span class="w"> </span>data/EURUSD_1h.csv<span class="w"> </span>--out<span class="w"> </span>_mkdocs/data/overfitting.json
 </code></pre></div>
 <p>A test holds the numbers on this page: if a recomputation changes the
 conclusion, it fails instead of leaving a stale claim on the site.</p>
-<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h2>
+<h2 id="next">Next</h2>
 <ul>
 <li><a href="../monte-carlo/">Skill or luck</a> — the same idea about randomness, applied to
   your own series of trades.</li>

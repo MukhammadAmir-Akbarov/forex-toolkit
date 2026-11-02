@@ -3917,14 +3917,14 @@
   
 
 
-<h1 id="-risk-of-ruin-monte-carlo">🎲 Risk of Ruin (Monte Carlo)<a class="headerlink" href="#-risk-of-ruin-monte-carlo" title="Permanent link">&para;</a></h1>
+<h1 id="-risk-of-ruin-monte-carlo">🎲 Risk of Ruin (Monte Carlo)</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Why this matters</p>
 <p>A profitability calculator shows <strong>average expectation</strong>. But averages are an illusion: two traders with the same strategy can get completely different results over 100 trades simply because of the <strong>order of wins and losses</strong>.</p>
 <p>Monte Carlo runs your strategy <strong>2,000 times</strong> with a different trade order each time and shows you the <strong>range of realistic outcomes</strong>: from best-case to worst-case. This is an honest picture of risk.</p>
 </div>
 <hr />
-<h2 id="-monte-carlo-simulator">🧮 Monte Carlo Simulator<a class="headerlink" href="#-monte-carlo-simulator" title="Permanent link">&para;</a></h2>
+<h2 id="-monte-carlo-simulator">🧮 Monte Carlo Simulator</h2>
 <style>
 .mc-canvas-wrap {
   margin-top: 1.2rem;
@@ -4351,7 +4351,7 @@
 </script>
 
 <hr />
-<h2 id="-how-to-read-the-results">📖 How to read the results<a class="headerlink" href="#-how-to-read-the-results" title="Permanent link">&para;</a></h2>
+<h2 id="-how-to-read-the-results">📖 How to read the results</h2>
 <table>
 <thead>
 <tr>
@@ -4383,7 +4383,7 @@
 <p>Due to multiplicative equity growth (geometric compounding) <strong>the mean is always inflated</strong>. Example: if in 90% of cases you lose −10%, and in 10% of cases you gain +100%, the mean = +1%, but the median = −10%. <strong>Look at the median</strong> — that is the real experience of a typical trader.</p>
 </div>
 <hr />
-<h2 id="-the-math-exact-replica-of-monte_carlopy">🧮 The math (exact replica of monte_carlo.py)<a class="headerlink" href="#-the-math-exact-replica-of-monte_carlopy" title="Permanent link">&para;</a></h2>
+<h2 id="-the-math-exact-replica-of-monte_carlopy">🧮 The math (exact replica of monte_carlo.py)</h2>
 <p>Each simulation starts with <code>equity = 1.0</code> and on every trade:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>if random() &lt; win_rate:
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    equity = equity × (1 + risk × rr)   # win
@@ -4396,18 +4396,18 @@
 </code></pre></div></p>
 <p>This is a direct translation of <code>simulate_one()</code> from <code>tools/monte_carlo.py</code>.</p>
 <hr />
-<h2 id="-key-takeaways-for-beginners">💡 Key takeaways for beginners<a class="headerlink" href="#-key-takeaways-for-beginners" title="Permanent link">&para;</a></h2>
-<h3 id="1-risking-25-per-trade-is-not-moderate">1. Risking 2–5% per trade is NOT "moderate"<a class="headerlink" href="#1-risking-25-per-trade-is-not-moderate" title="Permanent link">&para;</a></h3>
+<h2 id="-key-takeaways-for-beginners">💡 Key takeaways for beginners</h2>
+<h3 id="1-risking-25-per-trade-is-not-moderate">1. Risking 2–5% per trade is NOT "moderate"</h3>
 <div class="admonition danger">
 <p class="admonition-title">5% risk is aggressive</p>
 <p>With 5% risk per trade and Win Rate 50% / <abbr title="Risk/Reward — ratio of risk to potential profit (1:2 = $2 aimed per $1 risked).">RR</abbr> 2.0, the <strong>expected median <abbr title="The decline in account balance from its peak.">drawdown</abbr></strong> over 100 trades exceeds 25–35%. Most beginners cannot take this and close their account. The professional standard is 0.5–1% per trade.</p>
 </div>
-<h3 id="2-trade-order-matters">2. Trade order matters<a class="headerlink" href="#2-trade-order-matters" title="Permanent link">&para;</a></h3>
+<h3 id="2-trade-order-matters">2. Trade order matters</h3>
 <div class="admonition info">
 <p class="admonition-title">A bad streak kills you before the good streak arrives</p>
 <p>Even with positive EV, if the first 10–20 trades are all losses (which happens regularly), the <abbr title="The decline in account balance from its peak.">drawdown</abbr> can scare you into quitting. Monte Carlo shows just how wide this spread really is.</p>
 </div>
-<h3 id="3-a-profitable-strategy--steady-growth">3. A profitable strategy ≠ steady growth<a class="headerlink" href="#3-a-profitable-strategy--steady-growth" title="Permanent link">&para;</a></h3>
+<h3 id="3-a-profitable-strategy--steady-growth">3. A profitable strategy ≠ steady growth</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>WR = 55%, <abbr title="Risk/Reward — ratio of risk to potential profit (1:2 = $2 aimed per $1 risked).">RR</abbr> = 2.0, risk = 2% per trade:</p>
@@ -4419,7 +4419,7 @@
 <p>This is <strong>normal</strong> — but you need to know this in advance so you do not panic.</p>
 </div>
 <hr />
-<h2 id="-what-to-read-next">🔗 What to read next<a class="headerlink" href="#-what-to-read-next" title="Permanent link">&para;</a></h2>
+<h2 id="-what-to-read-next">🔗 What to read next</h2>
 <ul>
 <li><a href="../winrate-rr-calculator/">WinRate × <abbr title="Risk/Reward — ratio of risk to potential profit (1:2 = $2 aimed per $1 risked).">RR</abbr> calculator</a> — understand expected value</li>
 <li><a href="../../practice/lot-discipline/">LOT discipline</a> — why position size is critical</li>

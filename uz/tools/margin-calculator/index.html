@@ -3939,13 +3939,13 @@
   
 
 
-<h1 id="-marja-kalkulyatori">💰 Marja kalkulyatori<a class="headerlink" href="#-marja-kalkulyatori" title="Permanent link">&para;</a></h1>
+<h1 id="-marja-kalkulyatori">💰 Marja kalkulyatori</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Nima uchun bu kerak</p>
 <p>Marja — broker ochiq pozitsiya uchun hisobingizda <strong>muzlatib qo'yadigan garov</strong>. U yo'qolmaydi, lekin boshqa maqsadlar uchun ham ishlatib bo'lmaydi: pozitsiya ochiq bo'lganda u shu yerda bog'liq turadi.</p>
 <p>Bu kalkulyator pozitsiyani ochishda <strong>qancha mablag' muzlatilishini</strong> va bu depozitning qancha foizini tashkil etishini ko'rsatadi — shunda siz juda katta hajmda ochib Margin Call olmasligingiz uchun.</p>
 </div>
-<h2 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h2>
+<h2 id="formula">Formula</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Marja ($)          =  Lotlar × Kontrakt × Narx / Richak
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Foydalanish (%)    =  Marja / Depozit × 100
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -4137,13 +4137,13 @@
 </div>
 
 <hr />
-<h2 id="asosiy-tushunchalar">Asosiy tushunchalar<a class="headerlink" href="#asosiy-tushunchalar" title="Permanent link">&para;</a></h2>
-<h3 id="marja-nima">Marja nima?<a class="headerlink" href="#marja-nima" title="Permanent link">&para;</a></h3>
+<h2 id="asosiy-tushunchalar">Asosiy tushunchalar</h2>
+<h3 id="marja-nima">Marja nima?</h3>
 <p><strong>Talab qilinadigan marja</strong> (Required Margin) — broker ochiq pozitsiya uchun garov sifatida muzlatib qo'yadigan summa. Savdo yopilganda hisobga to'liq qaytariladi. Marja <strong>yo'qotish emas</strong> — savdo zarardan yopilmaguncha pul yo'qolmaydi.</p>
-<h3 id="erkin-marja">Erkin marja<a class="headerlink" href="#erkin-marja" title="Permanent link">&para;</a></h3>
+<h3 id="erkin-marja">Erkin marja</h3>
 <p><strong>Erkin marja</strong> = Balans - Foydalanilgan marja</p>
 <p>Bu sizga hozir <strong>mavjud</strong> bo'lgan pul: yangi pozitsiyalar ochish yoki mavjud pozitsiyalar bo'yicha suzuvchi zararni qoplash uchun.</p>
-<h3 id="marja-darajasi">Marja darajasi<a class="headerlink" href="#marja-darajasi" title="Permanent link">&para;</a></h3>
+<h3 id="marja-darajasi">Marja darajasi</h3>
 <p><strong>Marja darajasi</strong> = (Kapital / Foydalanilgan marja) × 100%</p>
 <p>Bunda Kapital = Balans + Suzuvchi P&amp;L.</p>
 <p>Odatiy broker chegaralari:</p>
@@ -4151,7 +4151,7 @@
 <li><strong>Margin Call</strong> — daraja ~100%: broker mablag'lar tugayotganini ogohlantiradi. Yangi pozitsiyalar ochib bo'lmaydi.</li>
 <li><strong>Stop Out</strong> — daraja ~50%: broker eng zararli pozitsiyadan boshlab <strong>majburiy yopadi</strong>.</li>
 </ul>
-<h3 id="margin-call-va-stop-out">Margin Call va Stop Out<a class="headerlink" href="#margin-call-va-stop-out" title="Permanent link">&para;</a></h3>
+<h3 id="margin-call-va-stop-out">Margin Call va Stop Out</h3>
 <table>
 <thead>
 <tr>
@@ -4172,7 +4172,7 @@
 </table>
 <p>Aniq darajalarni o'z brokeringizda tekshirib oling — ular har xil bo'lishi mumkin.</p>
 <hr />
-<h2 id="hisob-misoli">Hisob misoli<a class="headerlink" href="#hisob-misoli" title="Permanent link">&para;</a></h2>
+<h2 id="hisob-misoli">Hisob misoli</h2>
 <p>Boshlang'ich sharoitlar:</p>
 <ul>
 <li>Depozit: <strong>$1 000</strong></li>
@@ -4190,7 +4190,7 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># → Marja foydalanishi: 3.60%</span>
 </code></pre></div>
 <hr />
-<h2 id="qanday-foydalanish-kerak">Qanday foydalanish kerak<a class="headerlink" href="#qanday-foydalanish-kerak" title="Permanent link">&para;</a></h2>
+<h2 id="qanday-foydalanish-kerak">Qanday foydalanish kerak</h2>
 <ol>
 <li><strong>Balans</strong> — joriy hisob balansi USD da.</li>
 <li><strong>Lotlar</strong> — ochmoqchi bo'lgan pozitsiya hajmi.</li>
@@ -4205,7 +4205,7 @@
 <li>50% dan yuqori — xavfli; Stop Out ehtimoli yuqori.</li>
 </ul>
 <hr />
-<h2 id="python-versiyasi">Python versiyasi<a class="headerlink" href="#python-versiyasi" title="Permanent link">&para;</a></h2>
+<h2 id="python-versiyasi">Python versiyasi</h2>
 <p>Bu <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/margin_calculator.py"><code>tools/margin_calculator.py</code></a> ning aniq JS portidir. Bir xil formula, bir xil chegaralar. Terminaldan:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv/bin/python<span class="w"> </span>tools/margin_calculator.py<span class="w"> </span>--lots<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>--price<span class="w"> </span><span class="m">1</span>.08<span class="w"> </span>--leverage<span class="w"> </span><span class="m">30</span><span class="w"> </span>--deposit<span class="w"> </span><span class="m">1000</span>
 </code></pre></div>

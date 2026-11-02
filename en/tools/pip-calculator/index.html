@@ -3817,12 +3817,12 @@
   
 
 
-<h1 id="-pip-value-calculator">💲 Pip Value Calculator<a class="headerlink" href="#-pip-value-calculator" title="Permanent link">&para;</a></h1>
+<h1 id="-pip-value-calculator">💲 Pip Value Calculator</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Why it matters</p>
 <p>A <abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr> is the <strong>smallest unit of price movement</strong>. How much money you win or lose per <abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr> depends on your <strong>position size</strong> and the <strong>pair</strong>. Without understanding <abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr> value, you can't correctly calculate risk.</p>
 </div>
-<h2 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h2>
+<h2 id="formula">Formula</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Lot size       =  100,000 base-currency units
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Pip size       =  0.0001 for most pairs, 0.01 for JPY pairs
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Pip value (USD)=  pip_size × lot × position_size  /  rate (if USD is quote or base)
@@ -3886,7 +3886,7 @@
 </div>
 
 <hr />
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h2 id="examples">Examples</h2>
 <table>
 <thead>
 <tr>
@@ -3928,13 +3928,13 @@
 </tr>
 </tbody>
 </table>
-<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">&para;</a></h2>
+<h2 id="why-it-matters">Why it matters</h2>
 <ul>
 <li><strong>Verify broker calculator</strong> — some platforms display inaccurate <abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr> value</li>
 <li><strong>Compare pairs</strong> — why the same 25-<abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr> stop costs less on USDJPY than on EURUSD</li>
 <li><strong>Account currency conversion</strong> — if your account isn't in USD, an extra step is needed</li>
 </ul>
-<h2 id="python-equivalent">Python equivalent<a class="headerlink" href="#python-equivalent" title="Permanent link">&para;</a></h2>
+<h2 id="python-equivalent">Python equivalent</h2>
 <p>See <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/pip_calculator.py"><code>tools/pip_calculator.py</code></a>.</p>
 <!-- EN tooltip dictionary. Injected by hooks/glossary_tooltips.py on English pages.
      Only unambiguous trading terms are used as keys — common English words

@@ -4393,8 +4393,8 @@
   
 
 
-<h1 id="mt5-setup-guide--step-by-step-metatrader-5-installation">MT5 Setup Guide — Step-by-Step MetaTrader 5 Installation<a class="headerlink" href="#mt5-setup-guide--step-by-step-metatrader-5-installation" title="Permanent link">&para;</a></h1>
-<h2 id="step-1-register-with-a-broker">Step 1: Register with a Broker<a class="headerlink" href="#step-1-register-with-a-broker" title="Permanent link">&para;</a></h2>
+<h1 id="mt5-setup-guide--step-by-step-metatrader-5-installation">MT5 Setup Guide — Step-by-Step MetaTrader 5 Installation</h1>
+<h2 id="step-1-register-with-a-broker">Step 1: Register with a Broker</h2>
 <ol>
 <li>Choose a regulated broker (see <a href="../../extras/brokers-comparison/">extras/brokers-comparison.md</a>)</li>
 <li>On the broker's website → <strong>"Open a Demo Account"</strong> (not a real one!)</li>
@@ -4407,8 +4407,8 @@
 <blockquote>
 <p>⚠️ Save these credentials. You will need them to log into MT5.</p>
 </blockquote>
-<h2 id="step-2-download-mt5">Step 2: Download MT5<a class="headerlink" href="#step-2-download-mt5" title="Permanent link">&para;</a></h2>
-<h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
+<h2 id="step-2-download-mt5">Step 2: Download MT5</h2>
+<h3 id="macos">macOS</h3>
 <p>MetaTrader 5 for Mac comes in two variants:</p>
 <p><strong>Option A: native (recommended)</strong>
 1. Open your broker's website → <strong>"Download MT5"</strong> section → <strong>Mac</strong>
@@ -4419,17 +4419,17 @@
 1. Download <strong>MetaTrader 5</strong> from metaquotes.net
 2. Install Wine: <code>brew install --cask wine-stable</code>
 3. Open the .exe file through Wine</p>
-<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<h3 id="windows">Windows</h3>
 <ol>
 <li>Broker's website → Download → Windows</li>
 <li>Run the .exe → install</li>
 </ol>
-<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<h3 id="linux">Linux</h3>
 <ol>
 <li>WINE: <code>sudo apt install wine</code></li>
 <li>Download the Windows .exe → run it through Wine</li>
 </ol>
-<h2 id="step-3-first-login">Step 3: First Login<a class="headerlink" href="#step-3-first-login" title="Permanent link">&para;</a></h2>
+<h2 id="step-3-first-login">Step 3: First Login</h2>
 <ol>
 <li>Launch MT5</li>
 <li>Menu: <strong>File → Login to Trade Account</strong></li>
@@ -4442,18 +4442,18 @@
 <li>Click <strong>Login</strong></li>
 </ol>
 <p>✅ In the bottom-right corner you will see green numbers — balance, equity, <abbr title="Money frozen as collateral for an open position.">margin</abbr>.</p>
-<h2 id="step-4-chart-setup">Step 4: Chart Setup<a class="headerlink" href="#step-4-chart-setup" title="Permanent link">&para;</a></h2>
-<h3 id="enable-candlestick-chart">Enable Candlestick Chart<a class="headerlink" href="#enable-candlestick-chart" title="Permanent link">&para;</a></h3>
+<h2 id="step-4-chart-setup">Step 4: Chart Setup</h2>
+<h3 id="enable-candlestick-chart">Enable Candlestick Chart</h3>
 <ul>
 <li>Right-click on the chart → <strong>Candlesticks</strong></li>
 <li>Or click the "candles" button in the top toolbar</li>
 </ul>
-<h3 id="switch-the-timeframe-to-h1">Switch the Timeframe to H1<a class="headerlink" href="#switch-the-timeframe-to-h1" title="Permanent link">&para;</a></h3>
+<h3 id="switch-the-timeframe-to-h1">Switch the Timeframe to H1</h3>
 <ul>
 <li>Top toolbar: M1, M5, M15, M30, <strong>H1</strong>, H4, D1, W1</li>
 <li>Click <strong>H1</strong></li>
 </ul>
-<h3 id="add-ema-50">Add <abbr title="Exponential Moving Average — recent candles weigh more than older ones.">EMA</abbr> 50<a class="headerlink" href="#add-ema-50" title="Permanent link">&para;</a></h3>
+<h3 id="add-ema-50">Add <abbr title="Exponential Moving Average — recent candles weigh more than older ones.">EMA</abbr> 50</h3>
 <ol>
 <li><strong>Insert → Indicators → Trend → Moving Average</strong></li>
 <li>Parameters:</li>
@@ -4463,21 +4463,21 @@
 <li>Style: colour — <strong>blue</strong>, thickness <strong>2</strong></li>
 <li>OK</li>
 </ol>
-<h3 id="add-ema-200">Add <abbr title="Exponential Moving Average — recent candles weigh more than older ones.">EMA</abbr> 200<a class="headerlink" href="#add-ema-200" title="Permanent link">&para;</a></h3>
+<h3 id="add-ema-200">Add <abbr title="Exponential Moving Average — recent candles weigh more than older ones.">EMA</abbr> 200</h3>
 <p>Repeat the same steps, but set Period = <strong>200</strong>, colour — <strong>red</strong>.</p>
-<h3 id="add-rsi">Add <abbr title="A 0–100 oscillator measuring overbought / oversold conditions.">RSI</abbr><a class="headerlink" href="#add-rsi" title="Permanent link">&para;</a></h3>
+<h3 id="add-rsi">Add <abbr title="A 0–100 oscillator measuring overbought / oversold conditions.">RSI</abbr></h3>
 <ol>
 <li><strong>Insert → Indicators → Oscillators → Relative Strength Index</strong></li>
 <li>Period: <strong>14</strong></li>
 <li>Apply to: <strong>Close</strong></li>
 <li>OK</li>
 </ol>
-<h3 id="save-a-template">Save a Template<a class="headerlink" href="#save-a-template" title="Permanent link">&para;</a></h3>
+<h3 id="save-a-template">Save a Template</h3>
 <p>So you don't have to configure this every time:
 - Right-click on the chart → <strong>Templates → Save Template</strong> → name it "MyTemplate"
 - Next time: right-click → Templates → MyTemplate</p>
-<h2 id="step-5-opening-a-trade">Step 5: Opening a Trade<a class="headerlink" href="#step-5-opening-a-trade" title="Permanent link">&para;</a></h2>
-<h3 id="the-correct-way-to-open-a-trade-with-sltp-from-the-start">The Correct Way to Open a Trade (with <abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr>/<abbr title="Take Profit — an order that auto-closes a trade at a target profit.">TP</abbr> from the start)<a class="headerlink" href="#the-correct-way-to-open-a-trade-with-sltp-from-the-start" title="Permanent link">&para;</a></h3>
+<h2 id="step-5-opening-a-trade">Step 5: Opening a Trade</h2>
+<h3 id="the-correct-way-to-open-a-trade-with-sltp-from-the-start">The Correct Way to Open a Trade (with <abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr>/<abbr title="Take Profit — an order that auto-closes a trade at a target profit.">TP</abbr> from the start)</h3>
 <ol>
 <li>Press <strong>F9</strong> (or click the "New Order" button in the top toolbar)</li>
 <li>Order window:
@@ -4489,27 +4489,27 @@
 </code></pre></div></li>
 <li>Click <strong>Buy by Market</strong> (long) or <strong>Sell by Market</strong> (short)</li>
 </ol>
-<h3 id="common-mistakes">Common Mistakes<a class="headerlink" href="#common-mistakes" title="Permanent link">&para;</a></h3>
+<h3 id="common-mistakes">Common Mistakes</h3>
 <p>❌ <strong>Opening without a <abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr></strong> → Never. Enter a <abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr> first.
 ❌ <strong>Guessing the volume by eye</strong> → use the calculator.
 ❌ <strong>"Type: Pending"</strong> → this is a pending order; you are waiting for the price to reach a level. You don't need this right now.</p>
-<h2 id="step-6-checking-the-trade">Step 6: Checking the Trade<a class="headerlink" href="#step-6-checking-the-trade" title="Permanent link">&para;</a></h2>
+<h2 id="step-6-checking-the-trade">Step 6: Checking the Trade</h2>
 <p>After opening, in the bottom panel under <strong>Trade</strong>:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Symbol  Type  Volume  Open Price  S/L      T/P      Profit
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>EURUSD  buy   0.01    1.08520    1.08270  1.09020  +$1.50
 </code></pre></div></p>
 <p>✓ S/L and T/P are <strong>not empty</strong> — protection is in place.</p>
-<h2 id="step-7-closing-a-trade">Step 7: Closing a Trade<a class="headerlink" href="#step-7-closing-a-trade" title="Permanent link">&para;</a></h2>
+<h2 id="step-7-closing-a-trade">Step 7: Closing a Trade</h2>
 <p><strong>Best option:</strong> don't close manually. Wait for the <abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr> or <abbr title="Take Profit — an order that auto-closes a trade at a target profit.">TP</abbr> to be hit.</p>
 <p><strong>If you need to close early</strong> (exceptional circumstances only):
 - Right-click on the trade in the bottom panel → <strong>Close Order</strong></p>
-<h2 id="step-8-trade-journal-in-mt5">Step 8: Trade Journal in MT5<a class="headerlink" href="#step-8-trade-journal-in-mt5" title="Permanent link">&para;</a></h2>
+<h2 id="step-8-trade-journal-in-mt5">Step 8: Trade Journal in MT5</h2>
 <p>MT5 keeps its own log automatically:
 - Bottom panel → <strong>History</strong>
 - You can see all closed trades with their results
 - Export via: right-click → <strong>Report → Save as Report (HTML)</strong></p>
 <p>It is worth <strong>also</strong> copying this history into your own Markdown/CSV journal, because MT5 has no fields for "emotions", "did I follow the rules", etc.</p>
-<h2 id="step-9-frequently-used-keyboard-shortcuts">Step 9: Frequently Used Keyboard Shortcuts<a class="headerlink" href="#step-9-frequently-used-keyboard-shortcuts" title="Permanent link">&para;</a></h2>
+<h2 id="step-9-frequently-used-keyboard-shortcuts">Step 9: Frequently Used Keyboard Shortcuts</h2>
 <table>
 <thead>
 <tr>
@@ -4548,7 +4548,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="step-10-installing-our-expert-advisor">Step 10: Installing Our Expert Advisor<a class="headerlink" href="#step-10-installing-our-expert-advisor" title="Permanent link">&para;</a></h2>
+<h2 id="step-10-installing-our-expert-advisor">Step 10: Installing Our Expert Advisor</h2>
 <p>If you want to run our <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/advanced/EMA50Pullback.mq5">EMA50Pullback.mq5</a> on a demo account:</p>
 <ol>
 <li>In MT5: <strong>File → Open Data Folder</strong></li>
@@ -4564,7 +4564,7 @@
 <li>In the top-right corner of the chart you will see 😀 (running) or ❌ (not running)</li>
 </ol>
 <p><strong>⚠️ IMPORTANT:</strong> The EA is protected by a "demo only" check. It will refuse to run on a live account.</p>
-<h2 id="step-11-demo-account-vs-live--key-differences">Step 11: Demo Account vs Live — Key Differences<a class="headerlink" href="#step-11-demo-account-vs-live--key-differences" title="Permanent link">&para;</a></h2>
+<h2 id="step-11-demo-account-vs-live--key-differences">Step 11: Demo Account vs Live — Key Differences</h2>
 <table>
 <thead>
 <tr>
@@ -4601,7 +4601,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="step-12-first-month-strategy-on-mt5">Step 12: First-Month Strategy on MT5<a class="headerlink" href="#step-12-first-month-strategy-on-mt5" title="Permanent link">&para;</a></h2>
+<h2 id="step-12-first-month-strategy-on-mt5">Step 12: First-Month Strategy on MT5</h2>
 <p>Week 1:
 - Installation, getting familiar with the interface
 - 5–10 trial trades with the minimum volume of 0.01 lot
@@ -4610,25 +4610,25 @@
 - Trade according to the strategy rules (1–3 trades per day)
 - Keep a journal in parallel
 - Use the calculator before every trade</p>
-<h2 id="additional-tips">Additional Tips<a class="headerlink" href="#additional-tips" title="Permanent link">&para;</a></h2>
-<h3 id="if-the-terminal-freezes">If the Terminal Freezes<a class="headerlink" href="#if-the-terminal-freezes" title="Permanent link">&para;</a></h3>
+<h2 id="additional-tips">Additional Tips</h2>
+<h3 id="if-the-terminal-freezes">If the Terminal Freezes</h3>
 <ul>
 <li>Close all unnecessary chart tabs</li>
 <li>Bottom-right corner: right-click → <strong>Connect Status</strong> → it should show "Connected"</li>
 <li>If not — reconnect via File → Login</li>
 </ul>
-<h3 id="if-quotes-stop-updating">If Quotes Stop Updating<a class="headerlink" href="#if-quotes-stop-updating" title="Permanent link">&para;</a></h3>
+<h3 id="if-quotes-stop-updating">If Quotes Stop Updating</h3>
 <ul>
 <li>Your broker may restrict quotes on weekends</li>
 <li>Check whether it is Saturday/Sunday (the market is closed)</li>
 </ul>
-<h3 id="backing-up-your-settings">Backing Up Your Settings<a class="headerlink" href="#backing-up-your-settings" title="Permanent link">&para;</a></h3>
+<h3 id="backing-up-your-settings">Backing Up Your Settings</h3>
 <ul>
 <li>File → Open Data Folder → copy the <code>config/</code> folder</li>
 <li>In the future you can restore it by clicking "Restore"</li>
 </ul>
 <hr />
-<h2 id="mt5-trading-readiness-checklist">MT5 Trading Readiness Checklist<a class="headerlink" href="#mt5-trading-readiness-checklist" title="Permanent link">&para;</a></h2>
+<h2 id="mt5-trading-readiness-checklist">MT5 Trading Readiness Checklist</h2>
 <ul>
 <li>[ ] MT5 is installed and connected to a demo account</li>
 <li>[ ] I can see my balance in the bottom-right corner</li>

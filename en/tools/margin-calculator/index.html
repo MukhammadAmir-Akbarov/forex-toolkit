@@ -3939,13 +3939,13 @@
   
 
 
-<h1 id="-margin-calculator">💰 Margin Calculator<a class="headerlink" href="#-margin-calculator" title="Permanent link">&para;</a></h1>
+<h1 id="-margin-calculator">💰 Margin Calculator</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Why this matters</p>
 <p>Margin is the <strong>collateral</strong> your broker locks up while a trade is open. It isn't lost — but it isn't available either: while it's tied to the position, you can't use it for other trades or to cover losses.</p>
 <p>This calculator shows <strong>exactly how much cash gets locked</strong> when you open a position and what share of your account that represents — so you never open too large and hit a Margin Call.</p>
 </div>
-<h2 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h2>
+<h2 id="formula">Formula</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Margin ($)       =  Lots × Contract × Price / Leverage
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Usage (%)        =  Margin / Balance × 100
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -4137,13 +4137,13 @@
 </div>
 
 <hr />
-<h2 id="key-concepts">Key concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="what-is-margin">What is <abbr title="Money frozen as collateral for an open position.">margin</abbr>?<a class="headerlink" href="#what-is-margin" title="Permanent link">&para;</a></h3>
+<h2 id="key-concepts">Key concepts</h2>
+<h3 id="what-is-margin">What is <abbr title="Money frozen as collateral for an open position.">margin</abbr>?</h3>
 <p><strong>Required Margin</strong> is the amount your broker locks up as collateral for an open position. It is returned to your account in full when the trade closes. Margin is <strong>not a loss</strong> — you only lose money when the trade closes at a loss.</p>
-<h3 id="free-margin">Free <abbr title="Money frozen as collateral for an open position.">margin</abbr><a class="headerlink" href="#free-margin" title="Permanent link">&para;</a></h3>
+<h3 id="free-margin">Free <abbr title="Money frozen as collateral for an open position.">margin</abbr></h3>
 <p><strong>Free Margin</strong> = Balance − Used Margin</p>
 <p>This is the cash available to you right now: to open new positions or to absorb floating losses on existing ones.</p>
-<h3 id="margin-level">Margin level<a class="headerlink" href="#margin-level" title="Permanent link">&para;</a></h3>
+<h3 id="margin-level">Margin level</h3>
 <p><strong>Margin Level</strong> = (Equity / Used Margin) × 100%</p>
 <p>Where Equity = Balance + Floating P&amp;L.</p>
 <p>Typical broker thresholds:</p>
@@ -4151,7 +4151,7 @@
 <li><strong>Margin Call</strong> — level ~100%: broker warns that funds are running low; no new positions can be opened.</li>
 <li><strong>Stop Out</strong> — level ~50%: broker <strong>forcibly closes</strong> your positions, starting with the most losing one.</li>
 </ul>
-<h3 id="margin-call-and-stop-out">Margin Call and Stop Out<a class="headerlink" href="#margin-call-and-stop-out" title="Permanent link">&para;</a></h3>
+<h3 id="margin-call-and-stop-out">Margin Call and Stop Out</h3>
 <table>
 <thead>
 <tr>
@@ -4172,7 +4172,7 @@
 </table>
 <p>Check the exact levels with your broker — they vary.</p>
 <hr />
-<h2 id="worked-example">Worked example<a class="headerlink" href="#worked-example" title="Permanent link">&para;</a></h2>
+<h2 id="worked-example">Worked example</h2>
 <p>Starting conditions:</p>
 <ul>
 <li>Balance: <strong>$1,000</strong></li>
@@ -4190,7 +4190,7 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># → Margin usage: 3.60%</span>
 </code></pre></div>
 <hr />
-<h2 id="how-to-use">How to use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-use">How to use</h2>
 <ol>
 <li><strong>Balance</strong> — current account balance in USD.</li>
 <li><strong>Lot size</strong> — size of the position you plan to open.</li>
@@ -4205,7 +4205,7 @@
 <li>Above 50% — dangerous; Stop Out risk is real.</li>
 </ul>
 <hr />
-<h2 id="python-equivalent">Python equivalent<a class="headerlink" href="#python-equivalent" title="Permanent link">&para;</a></h2>
+<h2 id="python-equivalent">Python equivalent</h2>
 <p>This is an exact JS port of <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/margin_calculator.py"><code>tools/margin_calculator.py</code></a>. Same formula, same thresholds. From the terminal:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv/bin/python<span class="w"> </span>tools/margin_calculator.py<span class="w"> </span>--lots<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>--price<span class="w"> </span><span class="m">1</span>.08<span class="w"> </span>--leverage<span class="w"> </span><span class="m">30</span><span class="w"> </span>--deposit<span class="w"> </span><span class="m">1000</span>
 </code></pre></div>

@@ -3917,7 +3917,7 @@
   
 
 
-<h1 id="-trading-cost-calculator">💸 Trading Cost Calculator<a class="headerlink" href="#-trading-cost-calculator" title="Permanent link">&para;</a></h1>
+<h1 id="-trading-cost-calculator">💸 Trading Cost Calculator</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Why this matters</p>
 <p>Every trade costs money <strong>before the market moves at all</strong>: the spread,
@@ -3926,7 +3926,7 @@ Over hundreds of trades — this is the <strong>silent killer of your deposit</s
 <p>This calculator shows how much you pay per trade, how many pips the price
 must move <strong>just to break even</strong>, and what overtrading costs you per month.</p>
 </div>
-<h2 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h2>
+<h2 id="formula">Formula</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Spread        =  Spread (pips) × Pip value × Lots
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Commission    =  Commission per lot × Lots × 2   (entry + exit)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Swap          =  Swap per lot/night × Lots × Nights
@@ -4010,17 +4010,17 @@ must move <strong>just to break even</strong>, and what overtrading costs you pe
 </div>
 
 <hr />
-<h2 id="key-concepts">Key concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="spread">Spread<a class="headerlink" href="#spread" title="Permanent link">&para;</a></h3>
+<h2 id="key-concepts">Key concepts</h2>
+<h3 id="spread">Spread</h3>
 <p><strong>Spread</strong> — the difference between the Ask (buy) price and the Bid (sell) price. This is the first and most frequent cost: the moment you open a trade you are already in the red by the spread amount. A tight spread on EUR/USD is around 0.1–1.0 <abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr>; on exotic pairs and around news releases it can widen several times over.</p>
-<h3 id="commission">Commission<a class="headerlink" href="#commission" title="Permanent link">&para;</a></h3>
+<h3 id="commission">Commission</h3>
 <p>On <strong><abbr title="An account routing orders straight to market: raw spread plus commission.">ECN</abbr>/Raw</strong> accounts the spread is near zero, but the broker charges a fixed commission — typically around <strong>$3.5 per lot per side</strong> (≈ $7 round-trip). On <strong>Market</strong> accounts there is no commission, but the spread is wider. Always compare by <strong>total</strong> cost, not by a single parameter.</p>
-<h3 id="swap-overnight">Swap (overnight)<a class="headerlink" href="#swap-overnight" title="Permanent link">&para;</a></h3>
+<h3 id="swap-overnight">Swap (overnight)</h3>
 <p><strong>Swap</strong> — the fee for holding a position overnight (on Wednesdays it is often triple — covering the weekend). It depends on the interest-rate differential between the two currencies. It can be negative (you pay) or positive (you receive). For intraday trading swap = 0.</p>
-<h3 id="break-even">Break-even<a class="headerlink" href="#break-even" title="Permanent link">&para;</a></h3>
+<h3 id="break-even">Break-even</h3>
 <p><strong>Break-even</strong> — how many pips the price must travel in your direction just to <strong>cover trading costs</strong>. If break-even is 3 pips and your take-profit is 10, then 30% of your potential gain is consumed by costs before counting any losing trades.</p>
 <hr />
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<h2 id="example">Example</h2>
 <p>Deposit <strong>$1,000</strong>, EUR/USD, <strong>0.10 lots</strong>, spread <strong>1.0</strong> <abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr>, commission <strong>0</strong>,
 <strong>40</strong> trades per month, intraday:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Pip value (0.10 lots) = $1.00
@@ -4034,7 +4034,7 @@ must move <strong>just to break even</strong>, and what overtrading costs you pe
 </code></pre></div>
 <p>Forty small trades per month "eat up" nearly half the deposit per year <strong>in costs alone</strong> — even if you didn't lose on a single trade. This is exactly why overtrading is dangerous.</p>
 <hr />
-<h2 id="how-to-use">How to use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-use">How to use</h2>
 <ol>
 <li>Enter your account parameters (take the spread and commission from your broker's instrument specification).</li>
 <li>Look at <strong>"Break-even"</strong> — if it is close to your average take-profit, the strategy is not viable: costs are too high.</li>

@@ -3895,7 +3895,7 @@
   
 
 
-<h1 id="tools--utilities">Tools — utilities<a class="headerlink" href="#tools--utilities" title="Permanent link">&para;</a></h1>
+<h1 id="tools--utilities">Tools — utilities</h1>
 <table>
 <thead>
 <tr>
@@ -3918,9 +3918,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="position_calculatorpy">position_calculator.py<a class="headerlink" href="#position_calculatorpy" title="Permanent link">&para;</a></h2>
+<h2 id="position_calculatorpy">position_calculator.py</h2>
 <p>Calculates position size in lots based on your risk management settings.</p>
-<h3 id="interactive-mode">Interactive mode<a class="headerlink" href="#interactive-mode" title="Permanent link">&para;</a></h3>
+<h3 id="interactive-mode">Interactive mode</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== Position Size Calculator ===
@@ -3948,10 +3948,10 @@
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
 <a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>→ Set in terminal: 0.02 lots
 </code></pre></div>
-<h3 id="one-line-mode">One-line mode<a class="headerlink" href="#one-line-mode" title="Permanent link">&para;</a></h3>
+<h3 id="one-line-mode">One-line mode</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py<span class="w"> </span>--balance<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--risk<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>--stop<span class="w"> </span><span class="m">25</span><span class="w"> </span>--pair<span class="w"> </span>EURUSD
 </code></pre></div>
-<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<h3 id="parameters">Parameters</h3>
 <table>
 <thead>
 <tr>
@@ -3982,16 +3982,16 @@
 </tr>
 </tbody>
 </table>
-<h3 id="rounding-logic">Rounding logic<a class="headerlink" href="#rounding-logic" title="Permanent link">&para;</a></h3>
+<h3 id="rounding-logic">Rounding logic</h3>
 <p>The size is always rounded <strong>down</strong> to 0.01 (the minimum step for most brokers). This means the <strong>actual risk is less</strong> than planned, which is safer.</p>
 <p>Minimum 0.01 lots. If the calculation yields less (small deposit + large stop), the script warns you: the actual risk may exceed the planned value.</p>
-<h3 id="warnings">Warnings<a class="headerlink" href="#warnings" title="Permanent link">&para;</a></h3>
+<h3 id="warnings">Warnings</h3>
 <ul>
 <li>⚠️ If actual risk &gt; planned risk (due to rounding) — it will suggest reducing the position manually.</li>
 <li>⚠️ If actual risk &gt; 2% of deposit — a warning that this is a lot for a beginner.</li>
 </ul>
 <hr />
-<h2 id="chart_generatorpy">chart_generator.py<a class="headerlink" href="#chart_generatorpy" title="Permanent link">&para;</a></h2>
+<h2 id="chart_generatorpy">chart_generator.py</h2>
 <p>Generates PNG images for the documentation. It is run once — all images are already generated in <code>docs/images/</code>. Re-running is only needed if you want to change the visual style or add new illustrations.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv/bin/python<span class="w"> </span>tools/chart_generator.py
 </code></pre></div>

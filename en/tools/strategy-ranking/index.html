@@ -3861,7 +3861,7 @@
   
 
 
-<h1 id="-which-strategy-is-better--and-does-that-answer-hold">🏁 Which strategy is better — and does that answer hold<a class="headerlink" href="#-which-strategy-is-better--and-does-that-answer-hold" title="Permanent link">&para;</a></h1>
+<h1 id="-which-strategy-is-better--and-does-that-answer-hold">🏁 Which strategy is better — and does that answer hold</h1>
 <div class="admonition abstract">
 <p class="admonition-title">The third question of the same family</p>
 <p><a href="../overfitting/">Overfitting</a> — does the tuning carry through time.
@@ -3873,7 +3873,7 @@ half of the history is shown. Pick who will come first on the second.</p>
 <div id="strategy-ranking" data-src="../../../data/strategies.json"></div>
 
 <hr />
-<h2 id="what-came-out">What came out<a class="headerlink" href="#what-came-out" title="Permanent link">&para;</a></h2>
+<h2 id="what-came-out">What came out</h2>
 <table>
 <thead>
 <tr>
@@ -3924,7 +3924,7 @@ half of the history is shown. Pick who will come first on the second.</p>
 </table>
 <p>The best of the past became <strong>fifth out of six</strong>. The worst of the past became
 <strong>first</strong>. One strategy out of six kept its place. Order agreement: <strong>−0.43</strong>.</p>
-<h2 id="what-this-means-and-what-it-does-not">What this means and what it does not<a class="headerlink" href="#what-this-means-and-what-it-does-not" title="Permanent link">&para;</a></h2>
+<h2 id="what-this-means-and-what-it-does-not">What this means and what it does not</h2>
 <p><strong>It means:</strong> a ranking of strategies built on history gives you no ground for
 choosing. Neither first place nor last said anything about the next year.</p>
 <p><strong>It does not mean:</strong> that the order always inverts and you should pick the
@@ -3934,12 +3934,12 @@ ranking.</strong></p>
 <p>This is the very same trap as on the overfitting page. Picking the best of six
 strategies is the same selection as picking the best of 54 parameter sets. The
 beautiful result goes to whoever tried more variants.</p>
-<h2 id="why-not-comparison-on-synthetic-data">Why not "comparison on synthetic data"<a class="headerlink" href="#why-not-comparison-on-synthetic-data" title="Permanent link">&para;</a></h2>
+<h2 id="why-not-comparison-on-synthetic-data">Why not "comparison on synthetic data"</h2>
 <p>The repository has <code>strategies/compare.py</code>, which compares the same strategies
 on <strong>generated</strong> candles. For illustrating the mechanics that is fine; for the
 claim "this strategy is better" it is not — the numbers would be invented. So
 here it is a real archive, with the time split stated explicitly.</p>
-<h2 id="the-mistake-i-nearly-published">The mistake I nearly published<a class="headerlink" href="#the-mistake-i-nearly-published" title="Permanent link">&para;</a></h2>
+<h2 id="the-mistake-i-nearly-published">The mistake I nearly published</h2>
 <p>The first run produced <strong>zero trades</strong> for London Open Range on both halves. It
 looked like a property of the strategy: "it finds no signals."</p>
 <p>In fact <code>london_open.detect</code> first checks that the data index is a datetime
@@ -3951,7 +3951,7 @@ page exists for.</p>
 measurement than a property of the thing measured.</strong> The test
 <code>test_every_strategy_actually_traded</code> now fails if a strategy stops receiving
 the data it needs.</p>
-<h2 id="what-to-do-about-it">What to do about it<a class="headerlink" href="#what-to-do-about-it" title="Permanent link">&para;</a></h2>
+<h2 id="what-to-do-about-it">What to do about it</h2>
 <ol>
 <li><strong>Do not choose a strategy from one <abbr title="Testing a strategy on historical data.">backtest</abbr>.</strong> One run is one sample.</li>
 <li><strong>Look at the logic, not the bottom line.</strong> A clear reason why a trade should
@@ -3959,7 +3959,7 @@ the data it needs.</p>
 <li><strong>Check stability.</strong> Different periods, different pairs, different
    parameters. A result that holds in only one combination is not a result.</li>
 </ol>
-<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h2>
+<h2 id="next">Next</h2>
 <ul>
 <li><a href="../overfitting/">Why a <abbr title="Testing a strategy on historical data.">backtest</abbr> lies</a> — the same trap on parameters.</li>
 <li><a href="../multipair/">Carrying over to other pairs</a> — the same on markets.</li>

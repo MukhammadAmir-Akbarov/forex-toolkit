@@ -3895,7 +3895,7 @@
   
 
 
-<h1 id="tools--yordamchi-skriptlar">Tools — yordamchi skriptlar<a class="headerlink" href="#tools--yordamchi-skriptlar" title="Permanent link">&para;</a></h1>
+<h1 id="tools--yordamchi-skriptlar">Tools — yordamchi skriptlar</h1>
 <table>
 <thead>
 <tr>
@@ -3918,9 +3918,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="position_calculatorpy">position_calculator.py<a class="headerlink" href="#position_calculatorpy" title="Permanent link">&para;</a></h2>
+<h2 id="position_calculatorpy">position_calculator.py</h2>
 <p>Risk-menedjmentingizga asoslanib pozitsiya hajmini lotlarda hisoblaydi.</p>
-<h3 id="interaktiv-rejim">Interaktiv rejim<a class="headerlink" href="#interaktiv-rejim" title="Permanent link">&para;</a></h3>
+<h3 id="interaktiv-rejim">Interaktiv rejim</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== Kalькулятор размера позиции ===
@@ -3948,10 +3948,10 @@
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
 <a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>→ Выстави в терминале: 0.02 лота
 </code></pre></div>
-<h3 id="bir-qatorli-rejim">Bir qatorli rejim<a class="headerlink" href="#bir-qatorli-rejim" title="Permanent link">&para;</a></h3>
+<h3 id="bir-qatorli-rejim">Bir qatorli rejim</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py<span class="w"> </span>--balance<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--risk<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>--stop<span class="w"> </span><span class="m">25</span><span class="w"> </span>--pair<span class="w"> </span>EURUSD
 </code></pre></div>
-<h3 id="parametrlar">Parametrlar<a class="headerlink" href="#parametrlar" title="Permanent link">&para;</a></h3>
+<h3 id="parametrlar">Parametrlar</h3>
 <table>
 <thead>
 <tr>
@@ -3982,16 +3982,16 @@
 </tr>
 </tbody>
 </table>
-<h3 id="yaxlitlash-mantigi">Yaxlitlash mantig'i<a class="headerlink" href="#yaxlitlash-mantigi" title="Permanent link">&para;</a></h3>
+<h3 id="yaxlitlash-mantigi">Yaxlitlash mantig'i</h3>
 <p>Hajm har doim <strong>pastga</strong> 0.01 gacha yaxlitlanadi (ko'pchilik brokerlardagi minimal qadam). Bu <strong>real xavf rejalanganidan kamroq</strong> bo'lishini anglatadi — bu xavfsizroq.</p>
 <p>Minimum 0.01 <abbr title="Savdo hajmi birligi. 1 standart lot = 100 000 bazis valyuta birligi.">lot</abbr>. Agar hisoblash undan kichik natija bersa (kichik <abbr title="Savdo hisobingizdagi pul miqdori.">depozit</abbr> + katta stop), skript ogohlantiradi: real xavf belgilangan chegaradan oshib ketishi mumkin.</p>
-<h3 id="ogohlantirishlar">Ogohlantirishlar<a class="headerlink" href="#ogohlantirishlar" title="Permanent link">&para;</a></h3>
+<h3 id="ogohlantirishlar">Ogohlantirishlar</h3>
 <ul>
 <li>⚠️ Agar real xavf rejalanganidan katta bo'lsa (yaxlitlash tufayli) — pozitsiyani qo'lda kamaytirish taklif qilinadi.</li>
 <li>⚠️ Agar real xavf depozitning 2% dan oshsa — yangi boshlovchilar uchun bu ko'p ekanligiga doir ogohlantirish chiqadi.</li>
 </ul>
 <hr />
-<h2 id="chart_generatorpy">chart_generator.py<a class="headerlink" href="#chart_generatorpy" title="Permanent link">&para;</a></h2>
+<h2 id="chart_generatorpy">chart_generator.py</h2>
 <p>Hujjatlar uchun PNG-rasmlar yaratadi. Bir marta ishlatiladi — barcha rasmlar allaqachon <code>docs/images/</code> papkasida yaratilgan. Qayta ishga tushirish faqat vizual uslubni o'zgartirmoqchi bo'lsangiz yoki yangi illyustratsiyalar qo'shmoqchi bo'lsangiz kerak bo'ladi.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv/bin/python<span class="w"> </span>tools/chart_generator.py
 </code></pre></div>

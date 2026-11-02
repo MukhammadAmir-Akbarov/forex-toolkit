@@ -4339,17 +4339,17 @@
   
 
 
-<h1 id="order-flow-и-volume-profile--продвинутый-теханализ">Order Flow и Volume Profile — продвинутый теханализ<a class="headerlink" href="#order-flow-и-volume-profile--продвинутый-теханализ" title="Permanent link">&para;</a></h1>
+<h1 id="order-flow-и-volume-profile--продвинутый-теханализ">Order Flow и Volume Profile — продвинутый теханализ</h1>
 <blockquote>
 <p>Это уровень <strong>«после базы»</strong>. Сначала освой свечи, <abbr title="Экспоненциальная скользящая средняя — свежие свечи весят больше.">EMA</abbr>, <abbr title="Осциллятор 0–100: показывает перекупленность и перепроданность.">RSI</abbr> и базовую стратегию. Этот раздел открывай через <strong>6+ месяцев</strong> практики, когда захочешь глубже понять, что происходит в стакане.</p>
 </blockquote>
-<h2 id="зачем-это-нужно">Зачем это нужно<a class="headerlink" href="#зачем-это-нужно" title="Permanent link">&para;</a></h2>
+<h2 id="зачем-это-нужно">Зачем это нужно</h2>
 <p>Классический ТА (свечи, индикаторы) — это <strong>что произошло с ценой</strong>.
 Order Flow / Volume Profile — это <strong>кто торговал и в каких объёмах</strong>.</p>
 <p>Профессиональные трейдеры <strong>смотрят на объёмы</strong>, потому что цена без объёма — иллюзия. Прорыв уровня без объёма часто ложный, прорыв с большим объёмом — настоящий.</p>
 <hr />
-<h2 id="1-концепции">1. Концепции<a class="headerlink" href="#1-концепции" title="Permanent link">&para;</a></h2>
-<h3 id="11-order-book-стакан">1.1 Order Book (стакан)<a class="headerlink" href="#11-order-book-стакан" title="Permanent link">&para;</a></h3>
+<h2 id="1-концепции">1. Концепции</h2>
+<h3 id="11-order-book-стакан">1.1 Order Book (стакан)</h3>
 <p>В реальном времени биржа показывает <strong>bid/ask по уровням цен</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                ASK (продавцы)
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   1.0855  ┃ 2 500 000 лотов
@@ -4367,7 +4367,7 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 <li><strong>Тонкая <abbr title="Насколько легко купить/продать актив без сдвига цены.">ликвидность</abbr></strong> → цена быстро пройдёт уровень</li>
 </ul>
 <p>⚠️ <strong>Важно:</strong> В forex стакан <strong>не доступен</strong> для розничных трейдеров (это OTC-рынок). В отличие от криптобирж и фондового рынка.</p>
-<h3 id="12-volume-profile-профиль-объёма">1.2 Volume Profile (профиль объёма)<a class="headerlink" href="#12-volume-profile-профиль-объёма" title="Permanent link">&para;</a></h3>
+<h3 id="12-volume-profile-профиль-объёма">1.2 Volume Profile (профиль объёма)</h3>
 <p>Vertical histogram на правой стороне графика, показывает <strong>сколько объёма прошло на каждом уровне цены</strong> за период:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Цена │
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1.090 ┃▓▓
@@ -4385,7 +4385,7 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 - <strong>Value Area Low (VAL)</strong> — низ Value Area
 - <strong>HVN (High Volume Node)</strong> — зона с высоким объёмом — поддержка/сопротивление
 - <strong>LVN (Low Volume Node)</strong> — зона с низким объёмом — цена пробегает быстро</p>
-<h3 id="13-ict-концепции-inner-circle-trader">1.3 ICT концепции (Inner Circle Trader)<a class="headerlink" href="#13-ict-концепции-inner-circle-trader" title="Permanent link">&para;</a></h3>
+<h3 id="13-ict-концепции-inner-circle-trader">1.3 ICT концепции (Inner Circle Trader)</h3>
 <p>Популярная методология (Майкл Хаддлстон). Ключевые понятия:</p>
 <ul>
 <li><strong>Liquidity</strong> — где стоят стопы массы трейдеров (выше swing high / ниже swing low)</li>
@@ -4396,26 +4396,26 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 </ul>
 <p>⚠️ <strong>ICT — противоречивая школа.</strong> Многие критикуют как «слишком сложное объяснение простых вещей». Изучай критически.</p>
 <hr />
-<h2 id="2-где-получить-volume-в-forex">2. Где получить Volume в forex<a class="headerlink" href="#2-где-получить-volume-в-forex" title="Permanent link">&para;</a></h2>
+<h2 id="2-где-получить-volume-в-forex">2. Где получить Volume в forex</h2>
 <p>Поскольку forex децентрализован, <strong>истинного объёма нет</strong>. Используют прокси:</p>
-<h3 id="21-tick-volume">2.1 Tick Volume<a class="headerlink" href="#21-tick-volume" title="Permanent link">&para;</a></h3>
+<h3 id="21-tick-volume">2.1 Tick Volume</h3>
 <p>Каждое изменение цены = 1 тик. Тик-объём = количество тиков за свечу. Это <strong>косвенный</strong> показатель активности.</p>
 <p>В MT5: правая кнопка по графику → <strong>Volumes</strong> → <strong>Tick Volume</strong>.</p>
-<h3 id="22-futures-volume-точнее">2.2 Futures Volume (точнее)<a class="headerlink" href="#22-futures-volume-точнее" title="Permanent link">&para;</a></h3>
+<h3 id="22-futures-volume-точнее">2.2 Futures Volume (точнее)</h3>
 <p>Реальный объём с <strong>фьючерсного рынка</strong> (CME):
 - <strong>6E</strong> — фьючерс на EUR/USD
 - <strong>6B</strong> — на GBP/USD
 - <strong>6J</strong> — на JPY</p>
 <p>Можно скачать через CME data (платно) или через TradingView (Pro подписка).</p>
-<h3 id="23-aggregator-данных">2.3 Aggregator данных<a class="headerlink" href="#23-aggregator-данных" title="Permanent link">&para;</a></h3>
+<h3 id="23-aggregator-данных">2.3 Aggregator данных</h3>
 <p>Сервисы, агрегирующие объёмы от нескольких брокеров:
 - <strong>Volfix</strong> (платно)
 - <strong>ATAS</strong> (платно, для проп-трейдеров)
 - <strong>Sierra Chart</strong> (платно, более доступно)</p>
 <p>Для большинства розничных трейдеров — <strong>достаточно tick volume</strong>.</p>
 <hr />
-<h2 id="3-простые-стратегии-с-volume-profile">3. Простые стратегии с Volume Profile<a class="headerlink" href="#3-простые-стратегии-с-volume-profile" title="Permanent link">&para;</a></h2>
-<h3 id="31-poc-magnet">3.1 POC Magnet<a class="headerlink" href="#31-poc-magnet" title="Permanent link">&para;</a></h3>
+<h2 id="3-простые-стратегии-с-volume-profile">3. Простые стратегии с Volume Profile</h2>
+<h3 id="31-poc-magnet">3.1 POC Magnet</h3>
 <p><strong>Идея:</strong> Цена «магнетит» к POC предыдущего дня/недели.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Действия:
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>1. Постройте Volume Profile за вчерашний день (D1)
@@ -4423,7 +4423,7 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>3. Если сегодня цена далеко от POC — ждать возврата
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>4. Вход у POC после теста + свечного паттерна
 </code></pre></div>
-<h3 id="32-value-area-rejection">3.2 Value Area Rejection<a class="headerlink" href="#32-value-area-rejection" title="Permanent link">&para;</a></h3>
+<h3 id="32-value-area-rejection">3.2 Value Area Rejection</h3>
 <p><strong>Идея:</strong> Цена отбивается от VAH / VAL.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Действия:
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>1. Найдите VAH и VAL вчерашнего дня
@@ -4432,7 +4432,7 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>4. Стоп за пределами VA
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>5. Цель — POC
 </code></pre></div>
-<h3 id="33-lvn-breakout">3.3 LVN Breakout<a class="headerlink" href="#33-lvn-breakout" title="Permanent link">&para;</a></h3>
+<h3 id="33-lvn-breakout">3.3 LVN Breakout</h3>
 <p><strong>Идея:</strong> Цена быстро пробегает зоны с низким объёмом.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Действия:
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1. Найдите LVN (зоны с тонкими столбиками)
@@ -4441,29 +4441,29 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>4. Стоп под последним свингом
 </code></pre></div>
 <hr />
-<h2 id="4-как-добавить-volume-profile-в-mt5">4. Как добавить Volume Profile в MT5<a class="headerlink" href="#4-как-добавить-volume-profile-в-mt5" title="Permanent link">&para;</a></h2>
+<h2 id="4-как-добавить-volume-profile-в-mt5">4. Как добавить Volume Profile в MT5</h2>
 <p>В MT5 нет встроенного Volume Profile. Нужно:</p>
-<h3 id="вариант-а-бесплатный-индикатор">Вариант А: бесплатный индикатор<a class="headerlink" href="#вариант-а-бесплатный-индикатор" title="Permanent link">&para;</a></h3>
+<h3 id="вариант-а-бесплатный-индикатор">Вариант А: бесплатный индикатор</h3>
 <ol>
 <li>Скачать с mql5.com: «Volume Profile» (есть бесплатные версии)</li>
 <li>Через MetaEditor: File → Open Data Folder → MQL5/Indicators</li>
 <li>Положить .mq5 / .ex5 файл</li>
 <li>В MT5: Refresh → перетащить на график</li>
 </ol>
-<h3 id="вариант-б-tradingview-рекомендую">Вариант Б: TradingView (рекомендую)<a class="headerlink" href="#вариант-б-tradingview-рекомендую" title="Permanent link">&para;</a></h3>
+<h3 id="вариант-б-tradingview-рекомендую">Вариант Б: TradingView (рекомендую)</h3>
 <ol>
 <li>На TradingView: Indicators → Volume Profile Visible Range</li>
 <li>Бесплатно для базовой версии</li>
 <li>Намного более наглядно, чем в MT5</li>
 </ol>
-<h3 id="вариант-в-atas--sierra-chart">Вариант В: ATAS / Sierra Chart<a class="headerlink" href="#вариант-в-atas--sierra-chart" title="Permanent link">&para;</a></h3>
+<h3 id="вариант-в-atas--sierra-chart">Вариант В: ATAS / Sierra Chart</h3>
 <ul>
 <li>Профессиональные платформы</li>
 <li>$50-200/мес</li>
 <li>Полный Order Flow + Volume Profile + Footprint</li>
 </ul>
 <hr />
-<h2 id="5-footprint-charts-order-flow-bars">5. Footprint Charts (Order Flow Bars)<a class="headerlink" href="#5-footprint-charts-order-flow-bars" title="Permanent link">&para;</a></h2>
+<h2 id="5-footprint-charts-order-flow-bars">5. Footprint Charts (Order Flow Bars)</h2>
 <p>Это эволюция свечей: внутри каждой свечи показано, <strong>сколько было покупок и продаж на каждом уровне</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>EUR/USD H1 — Footprint:
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
@@ -4475,15 +4475,15 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 <p>Помогает увидеть <strong>дисбаланс</strong> покупателей и продавцов <strong>внутри свечи</strong>, а не только её результат.</p>
 <p>Доступно: <strong>ATAS, Sierra Chart, TradingView (Pro+)</strong>.</p>
 <hr />
-<h2 id="6-стоит-ли-тебе-это-изучать">6. Стоит ли тебе это изучать?<a class="headerlink" href="#6-стоит-ли-тебе-это-изучать" title="Permanent link">&para;</a></h2>
-<h3 id="-да-если">✅ Да, если:<a class="headerlink" href="#-да-если" title="Permanent link">&para;</a></h3>
+<h2 id="6-стоит-ли-тебе-это-изучать">6. Стоит ли тебе это изучать?</h2>
+<h3 id="-да-если">✅ Да, если:</h3>
 <ul>
 <li>Прошёл 1+ год успешной торговли по базе</li>
 <li>Чувствуешь, что классические индикаторы дают мало</li>
 <li>Готов изучать новую систему 6+ месяцев</li>
 <li>Готов платить $50-200/мес за качественные данные</li>
 </ul>
-<h3 id="-нет-если">❌ Нет, если:<a class="headerlink" href="#-нет-если" title="Permanent link">&para;</a></h3>
+<h3 id="-нет-если">❌ Нет, если:</h3>
 <ul>
 <li>Ты новичок (&lt; 6 месяцев опыта)</li>
 <li>Базовые стратегии ещё не дают плюс</li>
@@ -4491,7 +4491,7 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 <li>Не готов учиться долго</li>
 </ul>
 <hr />
-<h2 id="7-книги-по-order-flow--volume-profile">7. Книги по Order Flow / Volume Profile<a class="headerlink" href="#7-книги-по-order-flow--volume-profile" title="Permanent link">&para;</a></h2>
+<h2 id="7-книги-по-order-flow--volume-profile">7. Книги по Order Flow / Volume Profile</h2>
 <ol>
 <li><strong>«Mind Over Markets»</strong> — Peter Steidlmayer (создатель Market Profile)</li>
 <li><strong>«Trading with Market Statistics»</strong> — Tom Alexander</li>
@@ -4499,7 +4499,7 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 <li><strong>«Reading Price Charts Bar by Bar»</strong> — Al Brooks</li>
 </ol>
 <hr />
-<h2 id="8-бесплатные-ресурсы">8. Бесплатные ресурсы<a class="headerlink" href="#8-бесплатные-ресурсы" title="Permanent link">&para;</a></h2>
+<h2 id="8-бесплатные-ресурсы">8. Бесплатные ресурсы</h2>
 <ul>
 <li><strong>YouTube канал «AxiaFutures»</strong> — институциональные взгляды</li>
 <li><strong>Volumetrica blog</strong> — статьи по объёмам</li>
@@ -4507,7 +4507,7 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 <li><strong>TradingView Education</strong></li>
 </ul>
 <hr />
-<h2 id="9-реалистичные-ожидания">9. Реалистичные ожидания<a class="headerlink" href="#9-реалистичные-ожидания" title="Permanent link">&para;</a></h2>
+<h2 id="9-реалистичные-ожидания">9. Реалистичные ожидания</h2>
 <p>Order Flow и Volume Profile — это <strong>инструменты</strong>, не магия.</p>
 <p>❌ Они НЕ дают:
 - «Чёткие сигналы вход/выход»
@@ -4520,7 +4520,7 @@ Order Flow / Volume Profile — это <strong>кто торговал и в к�
 - Дополнительный фильтр для классических сетапов
 - Уверенность в принятии решений (после долгого изучения)</p>
 <hr />
-<h2 id="10-шаги-если-хочешь-начать">10. Шаги если хочешь начать<a class="headerlink" href="#10-шаги-если-хочешь-начать" title="Permanent link">&para;</a></h2>
+<h2 id="10-шаги-если-хочешь-начать">10. Шаги если хочешь начать</h2>
 <ol>
 <li><strong>Сегодня:</strong> установи TradingView, добавь Volume Profile Visible Range на EUR/USD</li>
 <li><strong>Неделя:</strong> наблюдай — где POC, VAH, VAL каждый день. Запиши уровни.</li>

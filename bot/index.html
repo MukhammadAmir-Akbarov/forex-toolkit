@@ -3927,7 +3927,7 @@
   
 
 
-<h1 id="bot--детектор-сигналов-и-бэктестер">Bot — детектор сигналов и бэктестер<a class="headerlink" href="#bot--детектор-сигналов-и-бэктестер" title="Permanent link">&para;</a></h1>
+<h1 id="bot--детектор-сигналов-и-бэктестер">Bot — детектор сигналов и бэктестер</h1>
 <blockquote>
 <p><strong>⚠️ ВАЖНО: это НЕ живой торговый бот.</strong></p>
 <p>Этот код не подключается к брокеру и не открывает реальных ордеров. Это <strong>учебный инструмент</strong> для:
@@ -3936,7 +3936,7 @@
 - Расчёта статистики: win rate, profit factor, expectancy, drawdown</p>
 <p>Прежде чем подключать что-либо к реальному счёту, нужно как минимум: год опыта на демо, понимание API брокера, обработка ошибок, защита от багов, ограничители риска, тесты.</p>
 </blockquote>
-<h2 id="что-внутри">Что внутри<a class="headerlink" href="#что-внутри" title="Permanent link">&para;</a></h2>
+<h2 id="что-внутри">Что внутри</h2>
 <table>
 <thead>
 <tr>
@@ -3955,7 +3955,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="запуск">Запуск<a class="headerlink" href="#запуск" title="Permanent link">&para;</a></h2>
+<h2 id="запуск">Запуск</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Из корня проекта, после активации venv</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>.venv/bin/python<span class="w"> </span>bot/backtest.py
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -3968,7 +3968,7 @@
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># С другим R:R</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>.venv/bin/python<span class="w"> </span>bot/backtest.py<span class="w"> </span>--rr<span class="w"> </span><span class="m">3</span>.0
 </code></pre></div>
-<h2 id="что-значит-вывод">Что значит вывод<a class="headerlink" href="#что-значит-вывод" title="Permanent link">&para;</a></h2>
+<h2 id="что-значит-вывод">Что значит вывод</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Всего сделок:         9
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Прибыльных:           5
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Убыточных:            4
@@ -3987,12 +3987,12 @@
 <li><strong>Expectancy +0.67R</strong> — ожидаемый результат <strong>одной</strong> сделки. На 100 сделках = +67R прибыли.</li>
 <li><strong>Max drawdown 1.00R</strong> — максимальная <abbr title="Снижение баланса счёта от достигнутого максимума.">просадка</abbr> от пика.</li>
 </ul>
-<h2 id="equity-curve">Equity curve<a class="headerlink" href="#equity-curve" title="Permanent link">&para;</a></h2>
+<h2 id="equity-curve">Equity curve</h2>
 <p>После запуска рядом со скриптом появляется файл <code>bot/equity-curve.png</code> с
 кумулятивным результатом. Картинки здесь нет намеренно: она считается по твоим
 данным и в репозиторий не коммитится, поэтому смотри свою, а не чужую.</p>
 <p>Хорошая equity curve <strong>идёт слева вниз направо вверх с управляемыми просадками</strong>. Резкие падения, нулевая или отрицательная динамика — сигнал, что стратегия не работает.</p>
-<h2 id="что-не-делает-этот-бот-намеренно">Что НЕ делает этот бот (намеренно)<a class="headerlink" href="#что-не-делает-этот-бот-намеренно" title="Permanent link">&para;</a></h2>
+<h2 id="что-не-делает-этот-бот-намеренно">Что НЕ делает этот бот (намеренно)</h2>
 <ul>
 <li>❌ Не подключается к MetaTrader / cTrader / API брокера</li>
 <li>❌ Не открывает реальные <abbr title="Приказ брокеру открыть или закрыть позицию.">ордера</abbr></li>
@@ -4001,7 +4001,7 @@
 <li>❌ Не имеет новостного фильтра</li>
 </ul>
 <p>Эти ограничения важны: <strong>реальный результат на счёте всегда хуже бэктеста</strong>. Учитывай это.</p>
-<h2 id="как-улучшать-бэктест-честно">Как «улучшать» <abbr title="Проверка стратегии на исторических данных.">бэктест</abbr> честно<a class="headerlink" href="#как-улучшать-бэктест-честно" title="Permanent link">&para;</a></h2>
+<h2 id="как-улучшать-бэктест-честно">Как «улучшать» <abbr title="Проверка стратегии на исторических данных.">бэктест</abbr> честно</h2>
 <ol>
 <li><strong>Не подгоняй параметры</strong>. Если ты крутишь <abbr title="Осциллятор 0–100: показывает перекупленность и перепроданность.">RSI</abbr> пороги, пока не получишь идеальный график — это <strong>overfitting</strong>, в реальности не сработает.</li>
 <li><strong>In-sample / out-of-sample</strong>: настраивай на одной половине данных, проверяй на второй.</li>
@@ -4009,7 +4009,7 @@
 <li><strong>Учти <abbr title="Разница между ценой покупки (Ask) и продажи (Bid) — скрытая комиссия.">спред</abbr></strong>: вычти 1–2 <abbr title="Минимальное изменение цены (4-й знак; для JPY-пар — 2-й).">пипса</abbr> от прибыли каждой сделки.</li>
 <li><strong>Реальный win rate на демо обычно на 5–10% хуже</strong> бэктеста из-за психологии и исполнения.</li>
 </ol>
-<h2 id="формат-csv-для-своих-данных">Формат CSV для своих данных<a class="headerlink" href="#формат-csv-для-своих-данных" title="Permanent link">&para;</a></h2>
+<h2 id="формат-csv-для-своих-данных">Формат CSV для своих данных</h2>
 <p>Скачать исторические данные можно бесплатно с:
 - <a href="https://www.dukascopy.com/swiss/english/marketwatch/historical/">Dukascopy Historical Data</a>
 - В терминале MT5: F2 → выгрузить в CSV
@@ -4020,7 +4020,7 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2026-01-01 01:00:00,1.08590,1.08650,1.08550,1.08610
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>...
 </code></pre></div>
-<h2 id="путь-от-этого-скрипта-к-реальному-боту">Путь от этого скрипта к реальному боту<a class="headerlink" href="#путь-от-этого-скрипта-к-реальному-боту" title="Permanent link">&para;</a></h2>
+<h2 id="путь-от-этого-скрипта-к-реальному-боту">Путь от этого скрипта к реальному боту</h2>
 <p><strong>Это длинный путь.</strong> Если когда-нибудь решишь:</p>
 <ol>
 <li><strong>Минимум 6–12 месяцев</strong> ручной торговли на демо с этой же стратегией. Если ручная не приносит плюса — алгоритм не спасёт.</li>
@@ -4029,7 +4029,7 @@
 <li><strong>Только после стабильной плюсовой торговли на демо-боте</strong> — реальный счёт с минимальным депозитом.</li>
 <li><strong>Никогда</strong> не оставляй бота без присмотра. Краши, обновления MT5, баги в коде — всё это может слить депозит за час.</li>
 </ol>
-<h2 id="дисклеймер">Дисклеймер<a class="headerlink" href="#дисклеймер" title="Permanent link">&para;</a></h2>
+<h2 id="дисклеймер">Дисклеймер</h2>
 <p>Образовательный код. Не использовать на реальных счетах в текущем виде. Прошлая статистика бэктеста не гарантирует будущие результаты. Автор кода не несёт ответственности за решения, принятые на его основе.</p>
 <hr />
 <p><a href="../forex-guide/">← Назад к основному гайду</a></p>

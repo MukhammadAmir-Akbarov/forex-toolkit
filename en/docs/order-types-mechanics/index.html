@@ -4161,7 +4161,7 @@
   
 
 
-<h1 id="-order-types-and-trade-entry-mechanics">📋 Order Types and Trade Entry Mechanics<a class="headerlink" href="#-order-types-and-trade-entry-mechanics" title="Permanent link">&para;</a></h1>
+<h1 id="-order-types-and-trade-entry-mechanics">📋 Order Types and Trade Entry Mechanics</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Why this matters</p>
 <p>Beginners often confuse Market and Limit orders, don't understand the difference between
@@ -4172,7 +4172,7 @@ Stop-Loss and Stop-Limit, and open positions "however it happens." This page cov
 <p><strong>Educational material.</strong> Price examples are synthetic, for illustrative purposes only.</p>
 </blockquote>
 <hr />
-<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-market-order">Market Order</a></li>
 <li><a href="#2-limit-order">Limit Order</a></li>
@@ -4183,7 +4183,7 @@ Stop-Loss and Stop-Limit, and open positions "however it happens." This page cov
 <li><a href="#7-choosing-order-type-quick-reference">Choosing Order Type: Quick Reference</a></li>
 </ol>
 <hr />
-<h2 id="1-market-order">1. Market Order<a class="headerlink" href="#1-market-order" title="Permanent link">&para;</a></h2>
+<h2 id="1-market-order">1. Market Order</h2>
 <p><strong>Buy/sell immediately at the current price</strong> — more precisely, at the best available price
 at the time of execution.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Current EUR/USD price: Bid 1.08450 / Ask 1.08463
@@ -4205,7 +4205,7 @@ This is normal on an <abbr title="An account routing orders straight to market: 
 - On exotic pairs with wide spreads
 - When price has already moved past your entry point</p>
 <hr />
-<h2 id="2-limit-order">2. Limit Order<a class="headerlink" href="#2-limit-order" title="Permanent link">&para;</a></h2>
+<h2 id="2-limit-order">2. Limit Order</h2>
 <p><strong>Enter at no worse than the specified price</strong> — the order sits in the book waiting for the
 market to come to you.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>EUR/USD now: 1.08463
@@ -4230,14 +4230,14 @@ order, filling on any tick.</p>
 - Trading from support/resistance
 - You want a <strong>better price</strong> and are willing to wait</p>
 <hr />
-<h2 id="3-stop-order">3. Stop Order<a class="headerlink" href="#3-stop-order" title="Permanent link">&para;</a></h2>
+<h2 id="3-stop-order">3. Stop Order</h2>
 <p><strong>Enter/exit when price breaks through a level</strong> — triggered "with the market" when reached.</p>
-<h3 id="buy-stop">Buy Stop<a class="headerlink" href="#buy-stop" title="Permanent link">&para;</a></h3>
+<h3 id="buy-stop">Buy Stop</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>EUR/USD now: 1.08463
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Place Buy Stop at 1.08600 → fires as Market BUY when price RISES to 1.08600
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Logic: buying the breakout upward, expecting continuation
 </code></pre></div>
-<h3 id="sell-stop">Sell Stop<a class="headerlink" href="#sell-stop" title="Permanent link">&para;</a></h3>
+<h3 id="sell-stop">Sell Stop</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Place Sell Stop at 1.08300 → fires as Market SELL when price FALLS to 1.08300
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Logic: selling the downward breakout
 </code></pre></div>
@@ -4248,7 +4248,7 @@ the <strong>Bid</strong>. Example: level at 1.08300, spread 1.3 pips.
 - Bid = 1.08300 → order triggers
 - But Ask at that moment = 1.08313 — position already "underwater" by the spread + possible slippage</p>
 </div>
-<h3 id="stop-loss-and-take-profit">Stop-Loss and Take-Profit<a class="headerlink" href="#stop-loss-and-take-profit" title="Permanent link">&para;</a></h3>
+<h3 id="stop-loss-and-take-profit">Stop-Loss and Take-Profit</h3>
 <p>These are <strong>protective orders</strong> on an open position:</p>
 <table>
 <thead>
@@ -4281,7 +4281,7 @@ the <strong>Bid</strong>. Example: level at 1.08300, spread 1.3 pips.
 can wipe out weeks of gains.</p>
 </div>
 <hr />
-<h2 id="4-pending-orders-in-mt5">4. Pending Orders in MT5<a class="headerlink" href="#4-pending-orders-in-mt5" title="Permanent link">&para;</a></h2>
+<h2 id="4-pending-orders-in-mt5">4. Pending Orders in MT5</h2>
 <p>MT5 offers 6 types of pending orders:</p>
 <table>
 <thead>
@@ -4324,7 +4324,7 @@ can wipe out weeks of gains.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="buy-stop-limit--advanced-tool">Buy Stop Limit — Advanced Tool<a class="headerlink" href="#buy-stop-limit--advanced-tool" title="Permanent link">&para;</a></h3>
+<h3 id="buy-stop-limit--advanced-tool">Buy Stop Limit — Advanced Tool</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>EUR/USD now: 1.08463
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Place Buy Stop Limit: Stop = 1.08600, Limit = 1.08560
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
@@ -4334,7 +4334,7 @@ can wipe out weeks of gains.</p>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>3. If price keeps going higher without pulling back — order doesn't fill
 </code></pre></div>
 <p>Idea: enter a <abbr title="A price move through a support or resistance level.">breakout</abbr> but at a <strong>better price</strong> on the <abbr title="A temporary move against the primary trend.">pullback</abbr>.</p>
-<h3 id="how-to-place-orders-in-mt5">How to Place Orders in MT5<a class="headerlink" href="#how-to-place-orders-in-mt5" title="Permanent link">&para;</a></h3>
+<h3 id="how-to-place-orders-in-mt5">How to Place Orders in MT5</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Right-click on chart → "Trading" → "New Order"
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Or press F9 (fast)
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Select type: Market Execution / Pending Order
@@ -4347,7 +4347,7 @@ You can set a date/time expiry. Tip: before weekends or major news,
 <strong>cancel unfilled orders</strong> — price may gap right into your entry.</p>
 </div>
 <hr />
-<h2 id="5-trailing-stop">5. Trailing Stop<a class="headerlink" href="#5-trailing-stop" title="Permanent link">&para;</a></h2>
+<h2 id="5-trailing-stop">5. Trailing Stop</h2>
 <p><strong>Automatically moves Stop-Loss with the price</strong>, locking in profit.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Opened BUY EUR/USD at 1.08463, SL = 1.08363 (−10 pips)
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Set Trailing Stop = 20 pips
@@ -4369,35 +4369,35 @@ You can set a date/time expiry. Tip: before weekends or major news,
 </div>
 <p><strong>Alternative:</strong> manually moving <abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr> to key levels — more reliable but requires discipline.</p>
 <hr />
-<h2 id="6-common-order-placement-mistakes">6. Common Order Placement Mistakes<a class="headerlink" href="#6-common-order-placement-mistakes" title="Permanent link">&para;</a></h2>
-<h3 id="-mistake-1-enter-market-because-price-already-moved">❌ Mistake 1: "Enter market because price already moved"<a class="headerlink" href="#-mistake-1-enter-market-because-price-already-moved" title="Permanent link">&para;</a></h3>
+<h2 id="6-common-order-placement-mistakes">6. Common Order Placement Mistakes</h2>
+<h3 id="-mistake-1-enter-market-because-price-already-moved">❌ Mistake 1: "Enter market because price already moved"</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>You wanted to buy EUR/USD at 1.08300 (pullback to support).
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Price bounced to 1.08550, you "missed" it.
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>You open Market Buy at 1.08550 — chasing price.
 </code></pre></div>
 <p>Better: <strong>skip the entry</strong> or place a limit for the next possible <abbr title="A temporary move against the primary trend.">pullback</abbr>.</p>
-<h3 id="-mistake-2-stop-too-close-to-price">❌ Mistake 2: Stop too close to price<a class="headerlink" href="#-mistake-2-stop-too-close-to-price" title="Permanent link">&para;</a></h3>
+<h3 id="-mistake-2-stop-too-close-to-price">❌ Mistake 2: Stop too close to price</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>EUR/USD: 1.08463, average hourly move (ATR H1) = 15 pips
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>You place SL = 1.08443 (only 2 pips!) — market noise will hit it for certain
 </code></pre></div>
 <p>Rule: <strong><abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr> ≥ <abbr title="Average True Range — an indicator of average volatility.">ATR</abbr> of current timeframe</strong> over the last 14 candles (check <abbr title="Average True Range — an indicator of average volatility.">ATR</abbr> indicator in MT5).</p>
-<h3 id="-mistake-3-limit-order-ignoring-spread">❌ Mistake 3: Limit order ignoring spread<a class="headerlink" href="#-mistake-3-limit-order-ignoring-spread" title="Permanent link">&para;</a></h3>
+<h3 id="-mistake-3-limit-order-ignoring-spread">❌ Mistake 3: Limit order ignoring spread</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Want to enter BUY at support 1.08300
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Place Buy Limit at 1.08300
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>On ECN spread can be 2-3 pips during Asian session
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Actual entry = 1.08300 + 0.00003 = 1.08303 (minor impact)
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>But if you want entry at EXACT level — place Limit slightly below
 </code></pre></div>
-<h3 id="-mistake-4-holding-a-losing-position-without-sl-hoping">❌ Mistake 4: Holding a losing position without <abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr> "hoping"<a class="headerlink" href="#-mistake-4-holding-a-losing-position-without-sl-hoping" title="Permanent link">&para;</a></h3>
+<h3 id="-mistake-4-holding-a-losing-position-without-sl-hoping">❌ Mistake 4: Holding a losing position without <abbr title="Stop Loss — an order that auto-closes a trade at a preset loss level.">SL</abbr> "hoping"</h3>
 <p>This is called a "mental stop" — and it is <strong>not a stop</strong>. The market doesn't know where
 you entered, and won't come back to save you.</p>
-<h3 id="-mistake-5-tp-right-on-resistance-level">❌ Mistake 5: <abbr title="Take Profit — an order that auto-closes a trade at a target profit.">TP</abbr> right on resistance level<a class="headerlink" href="#-mistake-5-tp-right-on-resistance-level" title="Permanent link">&para;</a></h3>
+<h3 id="-mistake-5-tp-right-on-resistance-level">❌ Mistake 5: <abbr title="Take Profit — an order that auto-closes a trade at a target profit.">TP</abbr> right on resistance level</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Opened BUY, TP is exactly at strong resistance 1.09000.
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Reality: price often falls "short" by 2–5 pips of a round level.
 </code></pre></div>
 <p>Tip: place <abbr title="Take Profit — an order that auto-closes a trade at a target profit.">TP</abbr> <strong>3–5 pips below</strong> the nearest resistance (for longs).</p>
 <hr />
-<h2 id="7-choosing-order-type-quick-reference">7. Choosing Order Type: Quick Reference<a class="headerlink" href="#7-choosing-order-type-quick-reference" title="Permanent link">&para;</a></h2>
+<h2 id="7-choosing-order-type-quick-reference">7. Choosing Order Type: Quick Reference</h2>
 <table>
 <thead>
 <tr>

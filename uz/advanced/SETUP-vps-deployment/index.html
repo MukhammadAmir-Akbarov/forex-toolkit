@@ -4551,24 +4551,24 @@
   
 
 
-<h1 id="vps-deployment-guide--botlarni-247-ishlatish">VPS Deployment Guide — botlarni 24/7 ishlatish<a class="headerlink" href="#vps-deployment-guide--botlarni-247-ishlatish" title="Permanent link">&para;</a></h1>
+<h1 id="vps-deployment-guide--botlarni-247-ishlatish">VPS Deployment Guide — botlarni 24/7 ishlatish</h1>
 <blockquote>
 <p>Telegram-bot, MT5 EA yoki Streamlit <strong>doimo ishlashi</strong> uchun server kerak. Bu qo'llanma — <strong>VPS (Virtual Private Server)</strong> ni arzon narxda qanday sozlash haqida.</p>
 </blockquote>
-<h2 id="vps-qachon-kerak">VPS qachon kerak<a class="headerlink" href="#vps-qachon-kerak" title="Permanent link">&para;</a></h2>
+<h2 id="vps-qachon-kerak">VPS qachon kerak</h2>
 <ul>
 <li>✅ 24/7 signal yuboradigan Telegram-bot</li>
 <li>✅ Siz uxlayotganingizda kechasi savdo qiladigan MT5 EA</li>
 <li>✅ Ochiq kirish imkoniyatli Streamlit-ilova</li>
 <li>✅ Cron-vazifalar (har kuni bektestlash, har hafta hisobot)</li>
 </ul>
-<h2 id="vps-qachon-kerak-emas">VPS qachon KERAK EMAS<a class="headerlink" href="#vps-qachon-kerak-emas" title="Permanent link">&para;</a></h2>
+<h2 id="vps-qachon-kerak-emas">VPS qachon KERAK EMAS</h2>
 <ul>
 <li>❌ Faqat demo-o'rganish</li>
 <li>❌ Qo'l bilan savdo qilasiz (noutbuk har doim yoningizda)</li>
 <li>❌ Oyiga 100 USD dan kam sarflashga tayyor (VPS — infratuzilma xarajati)</li>
 </ul>
-<h2 id="qancha-turadi">Qancha turadi<a class="headerlink" href="#qancha-turadi" title="Permanent link">&para;</a></h2>
+<h2 id="qancha-turadi">Qancha turadi</h2>
 <table>
 <thead>
 <tr>
@@ -4607,9 +4607,9 @@
 </table>
 <p><strong>Tavsiya:</strong> Hetzner yoki DigitalOcean. Oddiy, ishonchli.</p>
 <hr />
-<h2 id="1-qism-python-botlar-uchun-linux-vps">1-qism: Python-botlar uchun Linux VPS<a class="headerlink" href="#1-qism-python-botlar-uchun-linux-vps" title="Permanent link">&para;</a></h2>
-<h3 id="1-qadam-royxatdan-otish-va-vps-yaratish">1-qadam: Ro'yxatdan o'tish va VPS yaratish<a class="headerlink" href="#1-qadam-royxatdan-otish-va-vps-yaratish" title="Permanent link">&para;</a></h3>
-<h4 id="hetzner-misol">Hetzner (misol)<a class="headerlink" href="#hetzner-misol" title="Permanent link">&para;</a></h4>
+<h2 id="1-qism-python-botlar-uchun-linux-vps">1-qism: Python-botlar uchun Linux VPS</h2>
+<h3 id="1-qadam-royxatdan-otish-va-vps-yaratish">1-qadam: Ro'yxatdan o'tish va VPS yaratish</h3>
+<h4 id="hetzner-misol">Hetzner (misol)</h4>
 <ol>
 <li>https://www.hetzner.com/cloud</li>
 <li>Ro'yxatdan o'tish → email tasdiqlash</li>
@@ -4621,18 +4621,18 @@
 <li>Name: <code>forex-bot-server</code></li>
 <li><strong>Create</strong> tugmasini bosing → 30 soniyadan keyin server tayyor</li>
 </ol>
-<h4 id="ssh-kalitini-yaratish-macingizda">SSH kalitini yaratish (Mac'ingizda)<a class="headerlink" href="#ssh-kalitini-yaratish-macingizda" title="Permanent link">&para;</a></h4>
+<h4 id="ssh-kalitini-yaratish-macingizda">SSH kalitini yaratish (Mac'ingizda)</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">"your_email@example.com"</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Enter, Enter, Enter (parol ixtiyoriy)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Chiqishni nusxalang → server yaratishda Hetzner'ga joylashtiring</span>
 </code></pre></div>
-<h3 id="2-qadam-serverga-ulanish">2-qadam: Serverga ulanish<a class="headerlink" href="#2-qadam-serverga-ulanish" title="Permanent link">&para;</a></h3>
+<h3 id="2-qadam-serverga-ulanish">2-qadam: Serverga ulanish</h3>
 <p>Yaratilgandan so'ng <strong>IP-manzil</strong> olasiz, masalan <code>116.203.45.67</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>root@116.203.45.67
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># birinchi marta tasdiqlash so'raldi, yes deb javob bering</span>
 </code></pre></div>
-<h3 id="3-qadam-serverni-asosiy-sozlash">3-qadam: Serverni asosiy sozlash<a class="headerlink" href="#3-qadam-serverni-asosiy-sozlash" title="Permanent link">&para;</a></h3>
+<h3 id="3-qadam-serverni-asosiy-sozlash">3-qadam: Serverni asosiy sozlash</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Paketlarni yangilash</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -4666,7 +4666,7 @@
 <p>Bundan keyin <code>trader</code> sifatida ulaning:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>trader@116.203.45.67
 </code></pre></div></p>
-<h3 id="4-qadam-botni-joylashtirish">4-qadam: Botni joylashtirish<a class="headerlink" href="#4-qadam-botni-joylashtirish" title="Permanent link">&para;</a></h3>
+<h3 id="4-qadam-botni-joylashtirish">4-qadam: Botni joylashtirish</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># VPS da</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>~
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/trading.git
@@ -4686,7 +4686,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>/Users/mukhammadamir/Sites/WORK/trading
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>.venv/bin/pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
 </code></pre></div>
-<h3 id="5-qadam-telegram-botni-servis-sifatida-ishga-tushirish">5-qadam: Telegram-botni servis sifatida ishga tushirish<a class="headerlink" href="#5-qadam-telegram-botni-servis-sifatida-ishga-tushirish" title="Permanent link">&para;</a></h3>
+<h3 id="5-qadam-telegram-botni-servis-sifatida-ishga-tushirish">5-qadam: Telegram-botni servis sifatida ishga tushirish</h3>
 <p>Systemd-unit yarating — bu xizmat nosozlikda qayta ishga tushadi va qayta yuklaganda ham boshlanadi:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/telegram-alerts.service
 </code></pre></div>
@@ -4728,7 +4728,7 @@
 <a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>systemctl<span class="w"> </span>status<span class="w"> </span>telegram-alerts.timer
 <a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>telegram-alerts.service<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span>
 </code></pre></div></p>
-<h3 id="6-qadam-streamlit-servis-sifatida">6-qadam: Streamlit servis sifatida<a class="headerlink" href="#6-qadam-streamlit-servis-sifatida" title="Permanent link">&para;</a></h3>
+<h3 id="6-qadam-streamlit-servis-sifatida">6-qadam: Streamlit servis sifatida</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/systemd/system/streamlit-forex.service
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">[Unit]</span>
@@ -4750,9 +4750,9 @@
 </code></pre></div>
 <p>Brauzerde oching: <code>http://116.203.45.67:8501</code></p>
 <hr />
-<h2 id="2-qism-mt5-uchun-vps-windows">2-qism: MT5 uchun VPS (Windows)<a class="headerlink" href="#2-qism-mt5-uchun-vps-windows" title="Permanent link">&para;</a></h2>
+<h2 id="2-qism-mt5-uchun-vps-windows">2-qism: MT5 uchun VPS (Windows)</h2>
 <p>⚠️ MT5 — Windows-ilova. Ishlatish uchun <strong>Windows VPS</strong> kerak, Linux emas.</p>
-<h3 id="windows-bilan-provayderlar">Windows bilan provayderlar<a class="headerlink" href="#windows-bilan-provayderlar" title="Permanent link">&para;</a></h3>
+<h3 id="windows-bilan-provayderlar">Windows bilan provayderlar</h3>
 <table>
 <thead>
 <tr>
@@ -4779,7 +4779,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="forex-vps--asosiy-afzalligi">Forex VPS — asosiy afzalligi<a class="headerlink" href="#forex-vps--asosiy-afzalligi" title="Permanent link">&para;</a></h3>
+<h3 id="forex-vps--asosiy-afzalligi">Forex VPS — asosiy afzalligi</h3>
 <p>Serverlar broker serverlariga yaqin → <strong>kamroq latency</strong> (kechikish). Ayniqsa skalping uchun muhim. Ko'pchilik taklif etadi:
 - Tayyor Windows 10
 - MT5 / MT4 o'rnatilgan holda
@@ -4790,7 +4790,7 @@
 - <strong>ForexVPS.net</strong>
 - <strong>BeeksFX</strong>
 - <strong>CNS</strong> (Commercial Network Services)</p>
-<h3 id="windows-vps-ga-mt5-ornatish">Windows VPS ga MT5 o'rnatish<a class="headerlink" href="#windows-vps-ga-mt5-ornatish" title="Permanent link">&para;</a></h3>
+<h3 id="windows-vps-ga-mt5-ornatish">Windows VPS ga MT5 o'rnatish</h3>
 <ol>
 <li>RDP (Remote Desktop, Windows'ga o'rnatilgan) orqali ulaning</li>
 <li>MT5 ni broker saytidan yuklab oling</li>
@@ -4800,7 +4800,7 @@
 <li>Oynani <strong>kichiklashtiring</strong> (yopmang!) — MT5 ishlashda davom etadi</li>
 <li>RDP dan uzing — MT5 mustaqil ishlaydi</li>
 </ol>
-<h3 id="windows-vps-xavfsizligi">Windows VPS xavfsizligi<a class="headerlink" href="#windows-vps-xavfsizligi" title="Permanent link">&para;</a></h3>
+<h3 id="windows-vps-xavfsizligi">Windows VPS xavfsizligi</h3>
 <ul>
 <li>✅ Antivirus o'rnating</li>
 <li>✅ <strong>Windows Firewall</strong> ni yoqing</li>
@@ -4809,14 +4809,14 @@
 <li>✅ Bu serverda <strong>saytlarni ochimang</strong> — u faqat MT5 uchun</li>
 </ul>
 <hr />
-<h2 id="3-qism-zaxiralash-va-monitoring">3-qism: Zaxiralash va monitoring<a class="headerlink" href="#3-qism-zaxiralash-va-monitoring" title="Permanent link">&para;</a></h2>
-<h3 id="zaxiralash-backup">Zaxiralash (Backup)<a class="headerlink" href="#zaxiralash-backup" title="Permanent link">&para;</a></h3>
+<h2 id="3-qism-zaxiralash-va-monitoring">3-qism: Zaxiralash va monitoring</h2>
+<h3 id="zaxiralash-backup">Zaxiralash (Backup)</h3>
 <p>Konfiguratsiyalar va jurnallarni zaxiralash muhim.</p>
-<h4 id="xuddi-shu-vpsga-cron-zaxiralash">Xuddi shu VPS'ga cron-zaxiralash<a class="headerlink" href="#xuddi-shu-vpsga-cron-zaxiralash" title="Permanent link">&para;</a></h4>
+<h4 id="xuddi-shu-vpsga-cron-zaxiralash">Xuddi shu VPS'ga cron-zaxiralash</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># crontab -e ichida</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>~/backups/trading-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>~/trading
 </code></pre></div>
-<h4 id="s3--backblazega-zaxiralash-tashqi">S3 / Backblaze'ga zaxiralash (tashqi)<a class="headerlink" href="#s3--backblazega-zaxiralash-tashqi" title="Permanent link">&para;</a></h4>
+<h4 id="s3--backblazega-zaxiralash-tashqi">S3 / Backblaze'ga zaxiralash (tashqi)</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># rclone o'rnatish</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>curl<span class="w"> </span>https://rclone.org/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>bash
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>rclone<span class="w"> </span>config<span class="w">  </span><span class="c1"># Backblaze B2 / AWS S3 sozlash</span>
@@ -4824,7 +4824,7 @@
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># cron da</span>
 <a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="m">0</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>rclone<span class="w"> </span>sync<span class="w"> </span>~/trading/journal/<span class="w"> </span>remote:forex-backup/journal/
 </code></pre></div>
-<h3 id="uptime-monitoringi">Uptime monitoringi<a class="headerlink" href="#uptime-monitoringi" title="Permanent link">&para;</a></h3>
+<h3 id="uptime-monitoringi">Uptime monitoringi</h3>
 <p>Serveringizni <strong>ping</strong> qilib, yiqilsa xabar yuboradigan bepul xizmatlar:</p>
 <ul>
 <li><strong>UptimeRobot</strong> — 50 ta monitor bepul</li>
@@ -4837,7 +4837,7 @@
 3. URL: <code>http://YOUR_IP:8501</code> (Streamlit)
 4. Interval: 5 daqiqa
 5. Xabar: email / Telegram</p>
-<h3 id="loglar">Loglar<a class="headerlink" href="#loglar" title="Permanent link">&para;</a></h3>
+<h3 id="loglar">Loglar</h3>
 <p>Barcha tizim servislari loglari:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Oxirgi 100 qator</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>telegram-alerts.service<span class="w"> </span>-n<span class="w"> </span><span class="m">100</span>
@@ -4849,8 +4849,8 @@
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>journalctl<span class="w"> </span>--since<span class="w"> </span><span class="s2">"24 hours ago"</span><span class="w"> </span>-u<span class="w"> </span>telegram-alerts.service
 </code></pre></div></p>
 <hr />
-<h2 id="4-qism-xavfsizlik">4-qism: Xavfsizlik<a class="headerlink" href="#4-qism-xavfsizlik" title="Permanent link">&para;</a></h2>
-<h3 id="asosiy-qoidalar">Asosiy qoidalar<a class="headerlink" href="#asosiy-qoidalar" title="Permanent link">&para;</a></h3>
+<h2 id="4-qism-xavfsizlik">4-qism: Xavfsizlik</h2>
+<h3 id="asosiy-qoidalar">Asosiy qoidalar</h3>
 <ol>
 <li><strong>Kodda parol bo'lmasin.</strong> <code>.env</code>-fayllar yoki systemd Environment ishlating.</li>
 <li><strong>SSH faqat kalit orqali.</strong> Parollarni o'chiring:
@@ -4869,7 +4869,7 @@
 </code></pre></div></li>
 <li><strong>Hech qanday skriptga root-kirish bermang.</strong></li>
 </ol>
-<h3 id="nima-qilmaslik-kerak">Nima QILMASLIK kerak<a class="headerlink" href="#nima-qilmaslik-kerak" title="Permanent link">&para;</a></h3>
+<h3 id="nima-qilmaslik-kerak">Nima QILMASLIK kerak</h3>
 <ul>
 <li>❌ <strong>Broker parollaringizni</strong> VPS da ochiq saqlang</li>
 <li>❌ MT5 ingizga <strong>ommaviy kirish</strong> bering</li>
@@ -4877,15 +4877,15 @@
 <li>❌ Bir serverni bir nechta mijoz / do'stlar uchun ishlating</li>
 </ul>
 <hr />
-<h2 id="5-qism-tejash">5-qism: Tejash<a class="headerlink" href="#5-qism-tejash" title="Permanent link">&para;</a></h2>
-<h3 id="kamroq-tolash-yollari">Kamroq to'lash yo'llari<a class="headerlink" href="#kamroq-tolash-yollari" title="Permanent link">&para;</a></h3>
+<h2 id="5-qism-tejash">5-qism: Tejash</h2>
+<h3 id="kamroq-tolash-yollari">Kamroq to'lash yo'llari</h3>
 <ol>
 <li><strong>Hetzner</strong>: soatbay to'lov → kerak bo'lmaganda o'chirib qo'ying</li>
 <li><strong>DigitalOcean credits</strong> — yangi foydalanuvchilar uchun $100-200 promo-kodlar mavjud</li>
 <li><strong>AWS Free Tier</strong> — 1 yil bepul (t2.micro)</li>
 <li><strong>Oracle Free Tier</strong> — ARM-server umrbod bepul (4 CPU, 24GB RAM!)</li>
 </ol>
-<h3 id="telegram-bot-uchun-minimal-konfiguratsiya">Telegram-bot uchun minimal konfiguratsiya<a class="headerlink" href="#telegram-bot-uchun-minimal-konfiguratsiya" title="Permanent link">&para;</a></h3>
+<h3 id="telegram-bot-uchun-minimal-konfiguratsiya">Telegram-bot uchun minimal konfiguratsiya</h3>
 <ul>
 <li>1 vCPU</li>
 <li>512 MB RAM (yetarli)</li>
@@ -4897,8 +4897,8 @@
 - 4 GB RAM
 - Windows = +$10-20/oy</p>
 <hr />
-<h2 id="6-qism-vps-muqobillar">6-qism: VPS muqobillar<a class="headerlink" href="#6-qism-vps-muqobillar" title="Permanent link">&para;</a></h2>
-<h3 id="bepul--shartli-bepul">Bepul / shartli bepul<a class="headerlink" href="#bepul--shartli-bepul" title="Permanent link">&para;</a></h3>
+<h2 id="6-qism-vps-muqobillar">6-qism: VPS muqobillar</h2>
+<h3 id="bepul--shartli-bepul">Bepul / shartli bepul</h3>
 <table>
 <thead>
 <tr>
@@ -4935,7 +4935,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="faqat-telegram-bot-bolsa">Faqat Telegram-bot bo'lsa<a class="headerlink" href="#faqat-telegram-bot-bolsa" title="Permanent link">&para;</a></h3>
+<h3 id="faqat-telegram-bot-bolsa">Faqat Telegram-bot bo'lsa</h3>
 <p>VPS sotib olmasangiz ham bo'ladi — <strong>GitHub Actions</strong> dan foydalaning:</p>
 <p><code>.github/workflows/telegram-alerts.yml</code>:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Telegram Alerts</span>
@@ -4960,7 +4960,7 @@
 </code></pre></div></p>
 <p>GitHub'ga joylang → Settings → Secrets → tokenlarni qo'shing → tayyor, bepul.</p>
 <hr />
-<h2 id="vps-tayyor-bolish-nazorat-royxati">VPS tayyor bo'lish nazorat ro'yxati<a class="headerlink" href="#vps-tayyor-bolish-nazorat-royxati" title="Permanent link">&para;</a></h2>
+<h2 id="vps-tayyor-bolish-nazorat-royxati">VPS tayyor bo'lish nazorat ro'yxati</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>☐ VPS yaratildi va SSH ishlayapti
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>☐ Root bo'lmagan foydalanuvchi yaratildi
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>☐ Root SSH o'chirildi

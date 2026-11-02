@@ -4297,7 +4297,7 @@
   
 
 
-<h1 id="-real-broker-mechanics--what-happens-behind-the-scenes">⚙️ Real Broker Mechanics — What Happens "Behind the Scenes"<a class="headerlink" href="#-real-broker-mechanics--what-happens-behind-the-scenes" title="Permanent link">&para;</a></h1>
+<h1 id="-real-broker-mechanics--what-happens-behind-the-scenes">⚙️ Real Broker Mechanics — What Happens "Behind the Scenes"</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Why this matters</p>
 <p>Most beginners think: "I bought EUR/USD — the market reacted." In reality, your order
@@ -4310,7 +4310,7 @@ choose a broker by real conditions, not flashy advertising.</p>
 about specific brokers.</p>
 </blockquote>
 <hr />
-<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<h2 id="table-of-contents">Table of Contents</h2>
 <ol>
 <li><a href="#1-two-execution-models-mm-vs-ecnstp">Two Execution Models: MM vs <abbr title="An account routing orders straight to market: raw spread plus commission.">ECN</abbr>/STP</a></li>
 <li><a href="#2-slippage-where-it-comes-from-and-why">Slippage: Where It Comes From and Why</a></li>
@@ -4322,8 +4322,8 @@ about specific brokers.</p>
 <li><a href="#8-how-to-choose-a-broker-by-objective-criteria">How to Choose a Broker by Objective Criteria</a></li>
 </ol>
 <hr />
-<h2 id="1-two-execution-models-mm-vs-ecnstp">1. Two Execution Models: MM vs <abbr title="An account routing orders straight to market: raw spread plus commission.">ECN</abbr>/STP<a class="headerlink" href="#1-two-execution-models-mm-vs-ecnstp" title="Permanent link">&para;</a></h2>
-<h3 id="market-maker-mm--the-kitchen">Market Maker (MM) — "the Kitchen"<a class="headerlink" href="#market-maker-mm--the-kitchen" title="Permanent link">&para;</a></h3>
+<h2 id="1-two-execution-models-mm-vs-ecnstp">1. Two Execution Models: MM vs <abbr title="An account routing orders straight to market: raw spread plus commission.">ECN</abbr>/STP</h2>
+<h3 id="market-maker-mm--the-kitchen">Market Maker (MM) — "the Kitchen"</h3>
 <p>The broker <strong>takes the opposite side</strong> of your trade itself. You buy EUR/USD — broker sells.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You: Buy 0.1 lot EUR/USD at 1.08463
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Broker internally: "accepted" the sell of 0.1 lot
@@ -4337,7 +4337,7 @@ about specific brokers.</p>
 - Requotes in fast markets
 - Minimum deposit $10–50
 - "Instant Execution"</p>
-<h3 id="ecn-electronic-communication-network"><abbr title="An account routing orders straight to market: raw spread plus commission.">ECN</abbr> (Electronic Communication Network)<a class="headerlink" href="#ecn-electronic-communication-network" title="Permanent link">&para;</a></h3>
+<h3 id="ecn-electronic-communication-network"><abbr title="An account routing orders straight to market: raw spread plus commission.">ECN</abbr> (Electronic Communication Network)</h3>
 <p>Your order <strong>actually goes to market</strong> — into a <abbr title="How easily an asset trades without moving the price much.">liquidity</abbr> pool from banks, other brokers,
 institutional players.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>You: Buy 0.1 lot EUR/USD
@@ -4350,7 +4350,7 @@ institutional players.</p>
 - No requotes (always Market Execution)
 - Minimum deposit $200–1000
 - Transparent pricing</p>
-<h3 id="stp-straight-through-processing">STP (Straight Through Processing)<a class="headerlink" href="#stp-straight-through-processing" title="Permanent link">&para;</a></h3>
+<h3 id="stp-straight-through-processing">STP (Straight Through Processing)</h3>
 <p>Hybrid: orders pass automatically to <abbr title="How easily an asset trades without moving the price much.">liquidity</abbr> provider, but broker may add
 <strong>markup to spread</strong> instead of commission.</p>
 <table>
@@ -4390,9 +4390,9 @@ institutional players.</p>
 </tbody>
 </table>
 <hr />
-<h2 id="2-slippage-where-it-comes-from-and-why">2. Slippage: Where It Comes From and Why<a class="headerlink" href="#2-slippage-where-it-comes-from-and-why" title="Permanent link">&para;</a></h2>
+<h2 id="2-slippage-where-it-comes-from-and-why">2. Slippage: Where It Comes From and Why</h2>
 <p><strong>Slippage</strong> — the difference between the price when you sent the order and the execution price.</p>
-<h3 id="causes">Causes:<a class="headerlink" href="#causes" title="Permanent link">&para;</a></h3>
+<h3 id="causes">Causes:</h3>
 <ol>
 <li><strong>Speed</strong>: market moves faster than your order travels (10–100 ms)</li>
 <li><strong>Liquidity</strong>: with large volume, not enough counterparties at one price</li>
@@ -4408,7 +4408,7 @@ institutional players.</p>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Executed at 1.08481 → 1.8 pips worse
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>(Price jumped while order was processing)
 </code></pre></div>
-<h3 id="how-to-minimise-slippage">How to minimise slippage:<a class="headerlink" href="#how-to-minimise-slippage" title="Permanent link">&para;</a></h3>
+<h3 id="how-to-minimise-slippage">How to minimise slippage:</h3>
 <ul>
 <li>Trade during <strong>liquid hours</strong> (London/New York, not Asian session)</li>
 <li>Use <strong>Limit instead of Market</strong> — guarantees price but not execution</li>
@@ -4416,26 +4416,26 @@ institutional players.</p>
 <li>Check broker's average slippage in their <strong>execution quality reports</strong></li>
 </ul>
 <hr />
-<h2 id="3-requotes--what-they-are-and-how-to-avoid-them">3. Requotes — What They Are and How to Avoid Them<a class="headerlink" href="#3-requotes--what-they-are-and-how-to-avoid-them" title="Permanent link">&para;</a></h2>
+<h2 id="3-requotes--what-they-are-and-how-to-avoid-them">3. Requotes — What They Are and How to Avoid Them</h2>
 <p><strong>Requote</strong> — broker rejects your price and offers a new one.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>You click "Buy" at 1.08463
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Pop-up: "Price has changed. New price: 1.08471. Accept?"
 </code></pre></div>
 <p>This is typical of <strong>Instant Execution</strong> at MM brokers. With Market Execution there are no
 requotes — the order always executes, but at market price.</p>
-<h3 id="how-to-avoid-requotes">How to avoid requotes:<a class="headerlink" href="#how-to-avoid-requotes" title="Permanent link">&para;</a></h3>
+<h3 id="how-to-avoid-requotes">How to avoid requotes:</h3>
 <ol>
 <li>Choose a broker with <strong>Market Execution</strong></li>
 <li>Don't trade <strong>Market at news release moments</strong></li>
 <li>Check statistics: brokers are required to publish their requote percentage</li>
 </ol>
 <hr />
-<h2 id="4-spread-fixed-vs-floating">4. Spread: Fixed vs Floating<a class="headerlink" href="#4-spread-fixed-vs-floating" title="Permanent link">&para;</a></h2>
+<h2 id="4-spread-fixed-vs-floating">4. Spread: Fixed vs Floating</h2>
 <p><strong>Spread</strong> — the difference between Ask (buy) and Bid (sell). The main "tax" of trading.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>EUR/USD: Bid = 1.08450, Ask = 1.08453
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Spread = 0.3 pip (or $0.30 per 0.1 lot)
 </code></pre></div>
-<h3 id="when-spread-widens">When spread widens:<a class="headerlink" href="#when-spread-widens" title="Permanent link">&para;</a></h3>
+<h3 id="when-spread-widens">When spread widens:</h3>
 <table>
 <thead>
 <tr>
@@ -4466,7 +4466,7 @@ requotes — the order always executes, but at market price.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="real-cost-of-spread">Real cost of spread<a class="headerlink" href="#real-cost-of-spread" title="Permanent link">&para;</a></h3>
+<h3 id="real-cost-of-spread">Real cost of spread</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Strategy: 10 trades per day, 0.1 lot EUR/USD, spread = 0.5 pip
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Spread cost per trade = 0.5 pip × $1 = $0.50
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Per day = $0.50 × 10 = $5.00
@@ -4474,7 +4474,7 @@ requotes — the order always executes, but at market price.</p>
 </code></pre></div>
 <p>This is the <strong>breakeven cost on every trade</strong> — price must move at least the spread to return to zero.</p>
 <hr />
-<h2 id="5-swap--the-cost-of-holding-a-position-overnight">5. Swap — The Cost of Holding a Position Overnight<a class="headerlink" href="#5-swap--the-cost-of-holding-a-position-overnight" title="Permanent link">&para;</a></h2>
+<h2 id="5-swap--the-cost-of-holding-a-position-overnight">5. Swap — The Cost of Holding a Position Overnight</h2>
 <p><strong>Swap (Rollover)</strong> — payment or credit for <strong>holding a position past midnight (22:00 UTC)</strong>.</p>
 <p>Logic: you hold one currency and "borrowed" another. The difference in interest rates is the swap.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Long EUR/USD (holding EUR, borrowed USD):
@@ -4486,7 +4486,7 @@ requotes — the order always executes, but at market price.</p>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>You receive 5.5%, pay 4.0%
 <a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>Swap = positive (you receive)
 </code></pre></div>
-<h3 id="triple-swap-on-wednesday">Triple swap on Wednesday<a class="headerlink" href="#triple-swap-on-wednesday" title="Permanent link">&para;</a></h3>
+<h3 id="triple-swap-on-wednesday">Triple swap on Wednesday</h3>
 <p>Forex settles on T+2 (two business days). A position held through Wednesday 22:00 carries
 three days of swap (Wed + Sat + Sun). Important for scalpers.</p>
 <div class="admonition warning">
@@ -4494,18 +4494,18 @@ three days of swap (Wed + Sat + Sun). Important for scalpers.</p>
 <p>On pairs like USD/TRY, USD/ZAR, USD/BRL swaps can reach <strong>−$10–30 per lot per day</strong>
 for a long. Holding 10+ days creates significant losses even without price movement.</p>
 </div>
-<h3 id="swap-free-accounts-islamic">Swap-free accounts (Islamic)<a class="headerlink" href="#swap-free-accounts-islamic" title="Permanent link">&para;</a></h3>
+<h3 id="swap-free-accounts-islamic">Swap-free accounts (Islamic)</h3>
 <p>Brokers offer <strong>swap-free</strong> accounts (no swap) for Muslims. But usually replace swaps with
 <strong>an administrative fee</strong> after holding 3+ days. Always check the actual conditions.</p>
 <hr />
-<h2 id="6-margin-and-margin-call-the-mechanics">6. Margin and Margin Call: The Mechanics<a class="headerlink" href="#6-margin-and-margin-call-the-mechanics" title="Permanent link">&para;</a></h2>
+<h2 id="6-margin-and-margin-call-the-mechanics">6. Margin and Margin Call: The Mechanics</h2>
 <p><strong>Margin</strong> — the deposit the broker blocks when you open a position.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Account: $1000, leverage 1:100, open 0.1 lot EUR/USD
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Position value = 10,000 EUR ≈ $10,800
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Margin = $10,800 / 100 = $108 → broker blocks $108 of $1000
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Free margin = $1000 − $108 = $892
 </code></pre></div>
-<h3 id="margin-call-vs-stop-out">Margin Call vs Stop Out<a class="headerlink" href="#margin-call-vs-stop-out" title="Permanent link">&para;</a></h3>
+<h3 id="margin-call-vs-stop-out">Margin Call vs Stop Out</h3>
 <table>
 <thead>
 <tr>
@@ -4535,8 +4535,8 @@ for a long. Holding 10+ days creates significant losses even without price movem
 <p>Rule: one position's <abbr title="Money frozen as collateral for an open position.">margin</abbr> ≤ 2–5% of deposit. Otherwise a few extreme moves → Stop Out.</p>
 </div>
 <hr />
-<h2 id="7-the-real-conflict-of-interest">7. The Real Conflict of Interest<a class="headerlink" href="#7-the-real-conflict-of-interest" title="Permanent link">&para;</a></h2>
-<h3 id="b-book-vs-a-book">"B-book" vs "A-book"<a class="headerlink" href="#b-book-vs-a-book" title="Permanent link">&para;</a></h3>
+<h2 id="7-the-real-conflict-of-interest">7. The Real Conflict of Interest</h2>
+<h3 id="b-book-vs-a-book">"B-book" vs "A-book"</h3>
 <p>Every broker internally divides clients:</p>
 <p><strong>A-book</strong> — profitable, experienced traders. Their orders go to the real market.
 Broker earns on commission/spread.</p>
@@ -4552,7 +4552,7 @@ Broker earns on commission/spread.</p>
 providers. The conflict is in <strong>motivation</strong>: MM benefits when you lose. <abbr title="An account routing orders straight to market: raw spread plus commission.">ECN</abbr> is
 indifferent to your outcome (earns on volume).</p>
 </div>
-<h3 id="how-to-identify-an-honest-broker">How to identify an honest broker<a class="headerlink" href="#how-to-identify-an-honest-broker" title="Permanent link">&para;</a></h3>
+<h3 id="how-to-identify-an-honest-broker">How to identify an honest broker</h3>
 <ol>
 <li><strong>Regulation</strong> — FCA (UK), ASIC (Australia), CySEC (Cyprus).
    No licence = offshore = risk of total loss.</li>
@@ -4561,7 +4561,7 @@ indifferent to your outcome (earns on volume).</p>
 <li><strong>Independent reviews</strong> — Trustpilot, WikiFX, trader forums.</li>
 </ol>
 <hr />
-<h2 id="8-how-to-choose-a-broker-by-objective-criteria">8. How to Choose a Broker by Objective Criteria<a class="headerlink" href="#8-how-to-choose-a-broker-by-objective-criteria" title="Permanent link">&para;</a></h2>
+<h2 id="8-how-to-choose-a-broker-by-objective-criteria">8. How to Choose a Broker by Objective Criteria</h2>
 <table>
 <thead>
 <tr>

@@ -3895,7 +3895,7 @@
   
 
 
-<h1 id="tools--утилиты">Tools — утилиты<a class="headerlink" href="#tools--утилиты" title="Permanent link">&para;</a></h1>
+<h1 id="tools--утилиты">Tools — утилиты</h1>
 <table>
 <thead>
 <tr>
@@ -3918,9 +3918,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="position_calculatorpy">position_calculator.py<a class="headerlink" href="#position_calculatorpy" title="Permanent link">&para;</a></h2>
+<h2 id="position_calculatorpy">position_calculator.py</h2>
 <p>Считает размер позиции в лотах на основе твоего риск-менеджмента.</p>
-<h3 id="интерактивный-режим">Интерактивный режим<a class="headerlink" href="#интерактивный-режим" title="Permanent link">&para;</a></h3>
+<h3 id="интерактивный-режим">Интерактивный режим</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>=== Калькулятор размера позиции ===
@@ -3948,10 +3948,10 @@
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
 <a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>→ Выстави в терминале: 0.02 лота
 </code></pre></div>
-<h3 id="однострочный-режим">Однострочный режим<a class="headerlink" href="#однострочный-режим" title="Permanent link">&para;</a></h3>
+<h3 id="однострочный-режим">Однострочный режим</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py<span class="w"> </span>--balance<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--risk<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>--stop<span class="w"> </span><span class="m">25</span><span class="w"> </span>--pair<span class="w"> </span>EURUSD
 </code></pre></div>
-<h3 id="параметры">Параметры<a class="headerlink" href="#параметры" title="Permanent link">&para;</a></h3>
+<h3 id="параметры">Параметры</h3>
 <table>
 <thead>
 <tr>
@@ -3982,16 +3982,16 @@
 </tr>
 </tbody>
 </table>
-<h3 id="логика-округления">Логика округления<a class="headerlink" href="#логика-округления" title="Permanent link">&para;</a></h3>
+<h3 id="логика-округления">Логика округления</h3>
 <p>Размер всегда округляется <strong>вниз</strong> до 0.01 (минимальный шаг у большинства брокеров). Это значит <strong>реальный риск меньше</strong> запланированного, что безопаснее.</p>
 <p>Минимум 0.01 <abbr title="Единица объёма сделки. 1 стандартный лот = 100 000 единиц базовой валюты.">лота</abbr>. Если расчёт даёт меньше (маленький депозит + большой стоп), скрипт предупреждает: реальный риск может превысить заданный.</p>
-<h3 id="предупреждения">Предупреждения<a class="headerlink" href="#предупреждения" title="Permanent link">&para;</a></h3>
+<h3 id="предупреждения">Предупреждения</h3>
 <ul>
 <li>⚠️ Если реальный риск &gt; запланированного (из-за округления) — предложит уменьшить ручную позицию.</li>
 <li>⚠️ Если реальный риск &gt; 2% депозита — предупреждение, что это много для новичка.</li>
 </ul>
 <hr />
-<h2 id="chart_generatorpy">chart_generator.py<a class="headerlink" href="#chart_generatorpy" title="Permanent link">&para;</a></h2>
+<h2 id="chart_generatorpy">chart_generator.py</h2>
 <p>Генерирует PNG-картинки для документации. Используется один раз — все картинки уже сгенерированы в <code>docs/images/</code>. Перезапуск нужен только если ты хочешь изменить визуальный стиль или добавить новые иллюстрации.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv/bin/python<span class="w"> </span>tools/chart_generator.py
 </code></pre></div>

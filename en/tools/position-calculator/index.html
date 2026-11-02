@@ -3839,13 +3839,13 @@
   
 
 
-<h1 id="-position-size-calculator">📐 Position Size Calculator<a class="headerlink" href="#-position-size-calculator" title="Permanent link">&para;</a></h1>
+<h1 id="-position-size-calculator">📐 Position Size Calculator</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Why this matters</p>
 <p>Position size is <strong>the single biggest factor</strong> in whether you survive in the market. If you risk 0.5% of your account per trade, you can lose 10 trades in a row and only lose 5%. If you risk 5%, that same 10-loss streak <strong>wipes you out</strong>.</p>
 <p>This calculator guarantees you risk <strong>exactly</strong> what you planned — no improvisation, no emotion.</p>
 </div>
-<h2 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h2>
+<h2 id="formula">Formula</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Risk amount ($)  =  Balance × Risk% / 100
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Lots             =  Risk amount / (Stop in pips × Pip value)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Round            ←  down to 0.01 (broker minimum) so actual risk never
@@ -4034,7 +4034,7 @@
 </div>
 
 <hr />
-<h2 id="how-to-use">How to use<a class="headerlink" href="#how-to-use" title="Permanent link">&para;</a></h2>
+<h2 id="how-to-use">How to use</h2>
 <ol>
 <li><strong>Balance</strong> — current account balance in USD (or equivalent of your account currency).</li>
 <li><strong>Risk per trade</strong> — % of balance you accept to lose on one trade. Beginner: <strong>0.5%</strong>.</li>
@@ -4044,7 +4044,7 @@
 </ol>
 <p>Type <strong>only the rounded lot value</strong> into your broker terminal — that's what you can actually open.</p>
 <hr />
-<h2 id="worked-example">Worked example<a class="headerlink" href="#worked-example" title="Permanent link">&para;</a></h2>
+<h2 id="worked-example">Worked example</h2>
 <table>
 <thead>
 <tr>
@@ -4077,7 +4077,7 @@
 </table>
 <p>If stopped out: 25 pips × $10/<abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr> × 0.02 lot = <strong>$5</strong> = 0.5% of balance. Exact.</p>
 <hr />
-<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h2 id="best-practices">Best practices</h2>
 <div class="admonition warning">
 <p class="admonition-title">No stop, no size</p>
 <p>If you don't know <strong>where</strong> your stop is, you can't size the position. That means you don't understand your trade. Don't open it.</p>
@@ -4091,7 +4091,7 @@
 <p>If you want more potential profit — adjust the <strong>take-profit</strong> or use pyramiding. Position size is a function of risk, not of confidence.</p>
 </div>
 <hr />
-<h2 id="python-equivalent">Python equivalent<a class="headerlink" href="#python-equivalent" title="Permanent link">&para;</a></h2>
+<h2 id="python-equivalent">Python equivalent</h2>
 <p>This calculator is an exact JS port of <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/position_calculator.py"><code>tools/position_calculator.py</code></a>. Same formula, same values, same warnings. From the terminal:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py<span class="w"> </span>--balance<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--risk<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>--stop<span class="w"> </span><span class="m">25</span><span class="w"> </span>--pair<span class="w"> </span>EURUSD
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># or with live rate:</span>

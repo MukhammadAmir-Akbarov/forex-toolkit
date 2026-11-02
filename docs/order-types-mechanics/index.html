@@ -4161,7 +4161,7 @@
   
 
 
-<h1 id="-типы-ордеров-и-механика-входа">📋 Типы ордеров и механика входа<a class="headerlink" href="#-типы-ордеров-и-механика-входа" title="Permanent link">&para;</a></h1>
+<h1 id="-типы-ордеров-и-механика-входа">📋 Типы ордеров и механика входа</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Зачем это знать</p>
 <p>Новички часто путают Market и Limit, не понимают разницы между Stop-Loss и Stop-Limit,
@@ -4172,7 +4172,7 @@
 <p><strong>Учебный материал.</strong> Примеры цен — синтетические, для иллюстрации механики.</p>
 </blockquote>
 <hr />
-<h2 id="оглавление">Оглавление<a class="headerlink" href="#оглавление" title="Permanent link">&para;</a></h2>
+<h2 id="оглавление">Оглавление</h2>
 <ol>
 <li><a href="#1-рыночный-ордер-market-order">Рыночный <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> (Market Order)</a></li>
 <li><a href="#2-лимитный-ордер-limit-order">Лимитный <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> (Limit Order)</a></li>
@@ -4183,7 +4183,7 @@
 <li><a href="#7-выбор-типа-ордера-шпаргалка">Выбор типа <abbr title="Приказ брокеру открыть или закрыть позицию.">ордера</abbr>: шпаргалка</a></li>
 </ol>
 <hr />
-<h2 id="1-рыночный-ордер-market-order">1. Рыночный <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> (Market Order)<a class="headerlink" href="#1-рыночный-ордер-market-order" title="Permanent link">&para;</a></h2>
+<h2 id="1-рыночный-ордер-market-order">1. Рыночный <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> (Market Order)</h2>
 <p><strong>Купить/продать немедленно по текущей цене</strong> — точнее, по лучшей доступной цене в момент
 исполнения.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Текущая цена EUR/USD: Bid 1.08450 / Ask 1.08463
@@ -4205,7 +4205,7 @@
 - На экзотических парах с широким спредом
 - Если цена уже прошла твою точку входа</p>
 <hr />
-<h2 id="2-лимитный-ордер-limit-order">2. Лимитный <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> (Limit Order)<a class="headerlink" href="#2-лимитный-ордер-limit-order" title="Permanent link">&para;</a></h2>
+<h2 id="2-лимитный-ордер-limit-order">2. Лимитный <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> (Limit Order)</h2>
 <p><strong>Войти по цене не хуже указанной</strong> — <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> висит в стакане и ждёт, пока рынок не придёт.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>EUR/USD сейчас: 1.08463
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Ставишь Buy Limit по 1.08300 — ордер сработает, только если цена УПАДЁТ до 1.08300
@@ -4229,14 +4229,14 @@
 - Торговля от поддержки/сопротивления
 - Хочешь <strong>лучшую цену</strong>, готов ждать</p>
 <hr />
-<h2 id="3-стоп-ордер-stop-order">3. Стоп-<abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> (Stop Order)<a class="headerlink" href="#3-стоп-ордер-stop-order" title="Permanent link">&para;</a></h2>
+<h2 id="3-стоп-ордер-stop-order">3. Стоп-<abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> (Stop Order)</h2>
 <p><strong>Войти/выйти, когда цена пробивает уровень</strong> — срабатывает «с рынком» при достижении цены.</p>
-<h3 id="buy-stop">Buy Stop<a class="headerlink" href="#buy-stop" title="Permanent link">&para;</a></h3>
+<h3 id="buy-stop">Buy Stop</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>EUR/USD сейчас: 1.08463
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Ставишь Buy Stop по 1.08600 → сработает как Market BUY, когда цена ВЫРАСТЕТ до 1.08600
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Логика: покупаешь пробой уровня, ждёшь продолжения движения вверх
 </code></pre></div>
-<h3 id="sell-stop">Sell Stop<a class="headerlink" href="#sell-stop" title="Permanent link">&para;</a></h3>
+<h3 id="sell-stop">Sell Stop</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Ставишь Sell Stop по 1.08300 → сработает как Market SELL, когда цена УПАДЁТ до 1.08300
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Логика: продаёшь пробой уровня вниз
 </code></pre></div>
@@ -4247,7 +4247,7 @@
 - Bid = 1.08300 → <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> срабатывает
 - Но Ask в этот момент = 1.08313 — позиция уже «в минусе» на <abbr title="Разница между ценой покупки (Ask) и продажи (Bid) — скрытая комиссия.">спред</abbr> + возможный слиппедж</p>
 </div>
-<h3 id="stop-loss-и-take-profit">Stop-Loss и Take-Profit<a class="headerlink" href="#stop-loss-и-take-profit" title="Permanent link">&para;</a></h3>
+<h3 id="stop-loss-и-take-profit">Stop-Loss и Take-Profit</h3>
 <p>Это <strong>защитные <abbr title="Приказ брокеру открыть или закрыть позицию.">ордера</abbr></strong> на открытую позицию:</p>
 <table>
 <thead>
@@ -4280,7 +4280,7 @@
 может уничтожить недели прибыли.</p>
 </div>
 <hr />
-<h2 id="4-отложенные-ордера-в-mt5">4. Отложенные <abbr title="Приказ брокеру открыть или закрыть позицию.">ордера</abbr> в MT5<a class="headerlink" href="#4-отложенные-ордера-в-mt5" title="Permanent link">&para;</a></h2>
+<h2 id="4-отложенные-ордера-в-mt5">4. Отложенные <abbr title="Приказ брокеру открыть или закрыть позицию.">ордера</abbr> в MT5</h2>
 <p>В MT5 есть 6 типов отложенных ордеров:</p>
 <table>
 <thead>
@@ -4323,7 +4323,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="buy-stop-limit--продвинутый-инструмент">Buy Stop Limit — продвинутый инструмент<a class="headerlink" href="#buy-stop-limit--продвинутый-инструмент" title="Permanent link">&para;</a></h3>
+<h3 id="buy-stop-limit--продвинутый-инструмент">Buy Stop Limit — продвинутый инструмент</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>EUR/USD сейчас: 1.08463
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Ставишь Buy Stop Limit: Stop = 1.08600, Limit = 1.08560
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
@@ -4333,7 +4333,7 @@
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>3. Если цена уходит выше и не возвращается — ордер не заполняется
 </code></pre></div>
 <p>Идея: войти в <abbr title="Выход цены за уровень поддержки или сопротивления.">пробой</abbr>, но <strong>по лучшей цене</strong> на откате.</p>
-<h3 id="как-выставить-ордер-в-mt5">Как выставить <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> в MT5<a class="headerlink" href="#как-выставить-ордер-в-mt5" title="Permanent link">&para;</a></h3>
+<h3 id="как-выставить-ордер-в-mt5">Как выставить <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> в MT5</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Правый клик на графике → «Торговля» → «Новый ордер»
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Или: клавиша F9 (быстро)
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Выбрать тип: Market Execution / Pending Order
@@ -4346,7 +4346,7 @@
 <strong>удаляй незаполненные <abbr title="Приказ брокеру открыть или закрыть позицию.">ордера</abbr></strong> — цена может гэпнуть прямо на твой вход.</p>
 </div>
 <hr />
-<h2 id="5-трейлинг-стоп">5. Трейлинг-стоп<a class="headerlink" href="#5-трейлинг-стоп" title="Permanent link">&para;</a></h2>
+<h2 id="5-трейлинг-стоп">5. Трейлинг-стоп</h2>
 <p><strong>Автоматически передвигает Stop-Loss вслед за ценой</strong>, фиксируя прибыль.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Открыл BUY EUR/USD по 1.08463, SL = 1.08363 (−10 пипсов)
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Ставишь Trailing Stop = 20 пипсов
@@ -4368,35 +4368,35 @@
 </div>
 <p><strong>Альтернатива:</strong> ручное передвижение <abbr title="Stop Loss — ордер, автоматически закрывающий сделку при убытке.">SL</abbr> на ключевые уровни — надёжнее, но требует дисциплины.</p>
 <hr />
-<h2 id="6-типичные-ошибки-при-постановке-ордеров">6. Типичные ошибки при постановке ордеров<a class="headerlink" href="#6-типичные-ошибки-при-постановке-ордеров" title="Permanent link">&para;</a></h2>
-<h3 id="-ошибка-1-войти-рынком-потому-что-цена-уже-ушла">❌ Ошибка 1: «Войти рынком потому что цена уже ушла»<a class="headerlink" href="#-ошибка-1-войти-рынком-потому-что-цена-уже-ушла" title="Permanent link">&para;</a></h3>
+<h2 id="6-типичные-ошибки-при-постановке-ордеров">6. Типичные ошибки при постановке ордеров</h2>
+<h3 id="-ошибка-1-войти-рынком-потому-что-цена-уже-ушла">❌ Ошибка 1: «Войти рынком потому что цена уже ушла»</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Ты хотел купить EUR/USD по 1.08300 (откат к поддержке).
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Цена отскочила до 1.08550, ты «не успел».
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Открываешь Market Buy по 1.08550 — гонишься за ценой.
 </code></pre></div>
 <p>Лучше: <strong>пропустить вход</strong> или поставить лимит на следующий возможный <abbr title="Временное движение против основного тренда.">откат</abbr>.</p>
-<h3 id="-ошибка-2-стоп-слишком-близко-к-цене">❌ Ошибка 2: Стоп слишком близко к цене<a class="headerlink" href="#-ошибка-2-стоп-слишком-близко-к-цене" title="Permanent link">&para;</a></h3>
+<h3 id="-ошибка-2-стоп-слишком-близко-к-цене">❌ Ошибка 2: Стоп слишком близко к цене</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>EUR/USD: 1.08463, среднее движение в час (ATR H1) = 15 пипсов
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Ставишь SL = 1.08443 (всего 2 пипса!) — рыночный шум выбьет его гарантированно
 </code></pre></div>
 <p>Правило: <strong><abbr title="Stop Loss — ордер, автоматически закрывающий сделку при убытке.">SL</abbr> ≥ <abbr title="Average True Range — индикатор средней волатильности.">ATR</abbr> текущего таймфрейма</strong> за последние 14 свечей (смотри индикатор <abbr title="Average True Range — индикатор средней волатильности.">ATR</abbr> в MT5).</p>
-<h3 id="-ошибка-3-limit-ордер-без-учёта-спреда">❌ Ошибка 3: Limit <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> без учёта <abbr title="Разница между ценой покупки (Ask) и продажи (Bid) — скрытая комиссия.">спреда</abbr><a class="headerlink" href="#-ошибка-3-limit-ордер-без-учёта-спреда" title="Permanent link">&para;</a></h3>
+<h3 id="-ошибка-3-limit-ордер-без-учёта-спреда">❌ Ошибка 3: Limit <abbr title="Приказ брокеру открыть или закрыть позицию.">ордер</abbr> без учёта <abbr title="Разница между ценой покупки (Ask) и продажи (Bid) — скрытая комиссия.">спреда</abbr></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Хочешь войти в BUY на уровне поддержки 1.08300
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Ставишь Buy Limit по 1.08300
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>На ECN спред EUR/USD в азиатскую сессию может быть 2-3 пипса
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Реальный вход = 1.08300 + 0.00003 = 1.08303 (незначительно)
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Но если хочешь войти по ТОЧНОМУ уровню — ставь Limit чуть ниже уровня
 </code></pre></div>
-<h3 id="-ошибка-4-удерживать-убыточную-позицию-без-sl-в-надежде">❌ Ошибка 4: Удерживать убыточную позицию без <abbr title="Stop Loss — ордер, автоматически закрывающий сделку при убытке.">SL</abbr> «в надежде»<a class="headerlink" href="#-ошибка-4-удерживать-убыточную-позицию-без-sl-в-надежде" title="Permanent link">&para;</a></h3>
+<h3 id="-ошибка-4-удерживать-убыточную-позицию-без-sl-в-надежде">❌ Ошибка 4: Удерживать убыточную позицию без <abbr title="Stop Loss — ордер, автоматически закрывающий сделку при убытке.">SL</abbr> «в надежде»</h3>
 <p>Это называется «психологическим стопом» — и это <strong>не стоп</strong>. Рынок не знает, где ты вошёл,
 и не вернётся, чтобы тебя спасти.</p>
-<h3 id="-ошибка-5-tp-прямо-на-уровне-сопротивления">❌ Ошибка 5: <abbr title="Take Profit — ордер, фиксирующий прибыль на заданном уровне.">TP</abbr> прямо на уровне сопротивления<a class="headerlink" href="#-ошибка-5-tp-прямо-на-уровне-сопротивления" title="Permanent link">&para;</a></h3>
+<h3 id="-ошибка-5-tp-прямо-на-уровне-сопротивления">❌ Ошибка 5: <abbr title="Take Profit — ордер, фиксирующий прибыль на заданном уровне.">TP</abbr> прямо на уровне сопротивления</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Открыл BUY, TP стоит ровно на сильном сопротивлении 1.09000.
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Реальность: цена часто «не доходит» 2–5 пипсов до круглого уровня.
 </code></pre></div>
 <p>Совет: ставь <abbr title="Take Profit — ордер, фиксирующий прибыль на заданном уровне.">TP</abbr> <strong>на 3–5 <abbr title="Минимальное изменение цены (4-й знак; для JPY-пар — 2-й).">пипсов</abbr> ниже</strong> ближайшего сопротивления (для лонга).</p>
 <hr />
-<h2 id="7-выбор-типа-ордера-шпаргалка">7. Выбор типа <abbr title="Приказ брокеру открыть или закрыть позицию.">ордера</abbr>: шпаргалка<a class="headerlink" href="#7-выбор-типа-ордера-шпаргалка" title="Permanent link">&para;</a></h2>
+<h2 id="7-выбор-типа-ордера-шпаргалка">7. Выбор типа <abbr title="Приказ брокеру открыть или закрыть позицию.">ордера</abbr>: шпаргалка</h2>
 <table>
 <thead>
 <tr>

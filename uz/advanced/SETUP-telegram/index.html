@@ -4283,8 +4283,8 @@
   
 
 
-<h1 id="telegram-bot-sozlash-boyicha-qollanma--signallarni-telegramda-oling">Telegram Bot sozlash bo'yicha qo'llanma — signallarni Telegramda oling<a class="headerlink" href="#telegram-bot-sozlash-boyicha-qollanma--signallarni-telegramda-oling" title="Permanent link">&para;</a></h1>
-<h2 id="bu-nima-beradi">Bu nima beradi<a class="headerlink" href="#bu-nima-beradi" title="Permanent link">&para;</a></h2>
+<h1 id="telegram-bot-sozlash-boyicha-qollanma--signallarni-telegramda-oling">Telegram Bot sozlash bo'yicha qo'llanma — signallarni Telegramda oling</h1>
+<h2 id="bu-nima-beradi">Bu nima beradi</h2>
 <p>Har soatda (yoki jadval bo'yicha) skript:
 1. EUR/USD shamlarini yuklab oladi (yfinance)
 2. Bizning strategiyamizni qo'llaydi
@@ -4304,7 +4304,7 @@
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>⚠️ Bu savdo tavsiyasi emas. Kirishdan oldin chek-listni tekshiring.
 </code></pre></div></p>
-<h2 id="1-qadam-telegram-bot-yaratish">1-qadam: Telegram-bot yaratish<a class="headerlink" href="#1-qadam-telegram-bot-yaratish" title="Permanent link">&para;</a></h2>
+<h2 id="1-qadam-telegram-bot-yaratish">1-qadam: Telegram-bot yaratish</h2>
 <ol>
 <li>Telegramni oching, <strong>@BotFather</strong> kontaktini toping</li>
 <li><code>/newbot</code> yozing</li>
@@ -4315,9 +4315,9 @@
 </code></pre></div>
    <strong>Bu sizning <code>TELEGRAM_BOT_TOKEN</code>. Hech kimga ko'rsatmang.</strong></li>
 </ol>
-<h2 id="2-qadam-chat_id-olish">2-qadam: chat_id olish<a class="headerlink" href="#2-qadam-chat_id-olish" title="Permanent link">&para;</a></h2>
+<h2 id="2-qadam-chat_id-olish">2-qadam: chat_id olish</h2>
 <p>Bu sizning shaxsiy ID'ingiz — bot kimga yozishini bilishi uchun kerak.</p>
-<h3 id="1-usul-osonroq">1-usul (osonroq)<a class="headerlink" href="#1-usul-osonroq" title="Permanent link">&para;</a></h3>
+<h3 id="1-usul-osonroq">1-usul (osonroq)</h3>
 <ol>
 <li>Telegramda <strong>@userinfobot</strong> ni toping</li>
 <li><code>/start</code> yozing</li>
@@ -4327,7 +4327,7 @@
 </code></pre></div></li>
 </ol>
 <p>Bu sizning <code>TELEGRAM_CHAT_ID</code>.</p>
-<h3 id="2-usul-api-orqali">2-usul (API orqali)<a class="headerlink" href="#2-usul-api-orqali" title="Permanent link">&para;</a></h3>
+<h3 id="2-usul-api-orqali">2-usul (API orqali)</h3>
 <ol>
 <li>Yaratilgan botga Telegramda <strong>biror narsa</strong> yozing (istalgan xabar, masalan «salom»)</li>
 <li>Brauzerda oching:
@@ -4336,7 +4336,7 @@
    (<code>&lt;TWOI_TOKEN&gt;</code> o'rniga 1-qadamdagi tokenni kiriting)</li>
 <li>JSON-javobda <code>"chat":{"id":123456789,...}</code> ni toping — bu sizning chat_id</li>
 </ol>
-<h2 id="3-qadam-muhit-ozgaruvchilarini-sozlash">3-qadam: Muhit o'zgaruvchilarini sozlash<a class="headerlink" href="#3-qadam-muhit-ozgaruvchilarini-sozlash" title="Permanent link">&para;</a></h2>
+<h2 id="3-qadam-muhit-ozgaruvchilarini-sozlash">3-qadam: Muhit o'zgaruvchilarini sozlash</h2>
 <p>Loyiha terminalini oching:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>/Users/mukhammadamir/Sites/WORK/trading
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
@@ -4349,7 +4349,7 @@
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'export TELEGRAM_CHAT_ID="123456789"'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc
 </code></pre></div>
-<h2 id="4-qadam-sinov-ishga-tushirish">4-qadam: Sinov ishga tushirish<a class="headerlink" href="#4-qadam-sinov-ishga-tushirish" title="Permanent link">&para;</a></h2>
+<h2 id="4-qadam-sinov-ishga-tushirish">4-qadam: Sinov ishga tushirish</h2>
 <p>Avval — <strong>dry-run</strong> (Telegramga yubormasdan):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.venv/bin/python<span class="w"> </span>advanced/telegram_alerts.py<span class="w"> </span>--symbol<span class="w"> </span>EURUSD<span class="w"> </span>--dry-run
 </code></pre></div>
@@ -4358,8 +4358,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.venv/bin/python<span class="w"> </span>advanced/telegram_alerts.py<span class="w"> </span>--symbol<span class="w"> </span>EURUSD
 </code></pre></div>
 <p>Telegramni oching → signal kelishi kerak (agar so'nggi soatlarda mavjud bo'lsa).</p>
-<h2 id="5-qadam-har-soatda-avtomatik-ishga-tushirish">5-qadam: Har soatda avtomatik ishga tushirish<a class="headerlink" href="#5-qadam-har-soatda-avtomatik-ishga-tushirish" title="Permanent link">&para;</a></h2>
-<h3 id="a-variant-cron-macos--linux">A-variant: cron (macOS / Linux)<a class="headerlink" href="#a-variant-cron-macos--linux" title="Permanent link">&para;</a></h3>
+<h2 id="5-qadam-har-soatda-avtomatik-ishga-tushirish">5-qadam: Har soatda avtomatik ishga tushirish</h2>
+<h3 id="a-variant-cron-macos--linux">A-variant: cron (macOS / Linux)</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>crontab<span class="w"> </span>-e
 </code></pre></div>
 <p>Qatorni qo'shing:
@@ -4370,7 +4370,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>0 * * * * cd /Users/mukhammadamir/Sites/WORK/trading &amp;&amp; TELEGRAM_BOT_TOKEN="123..." TELEGRAM_CHAT_ID="123..." /Users/mukhammadamir/Sites/WORK/trading/.venv/bin/python advanced/telegram_alerts.py &gt;&gt; /tmp/telegram_alerts.log 2&gt;&amp;1
 </code></pre></div></p>
 <p>Yoki <code>.env</code> faylidan foydalaning (quyida ko'ring).</p>
-<h3 id="b-variant-launchd-macos-togriroq-usul">B-variant: launchd (macOS, to'g'riroq usul)<a class="headerlink" href="#b-variant-launchd-macos-togriroq-usul" title="Permanent link">&para;</a></h3>
+<h3 id="b-variant-launchd-macos-togriroq-usul">B-variant: launchd (macOS, to'g'riroq usul)</h3>
 <p><code>~/Library/LaunchAgents/com.amir.forex-alerts.plist</code> faylini yarating:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="cp">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"</span>
@@ -4410,14 +4410,14 @@
 <p>To'xtatish:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>launchctl<span class="w"> </span>unload<span class="w"> </span>~/Library/LaunchAgents/com.amir.forex-alerts.plist
 </code></pre></div></p>
-<h3 id="v-variant-bulutli-server-doimiy-ishlash-uchun">V-variant: bulutli server (doimiy ishlash uchun)<a class="headerlink" href="#v-variant-bulutli-server-doimiy-ishlash-uchun" title="Permanent link">&para;</a></h3>
+<h3 id="v-variant-bulutli-server-doimiy-ishlash-uchun">V-variant: bulutli server (doimiy ishlash uchun)</h3>
 <p>Quyidagilarda joylashtirish mumkin:
 - <strong>Heroku</strong> (bepul tarif — 550 soat/oy)
 - <strong>PythonAnywhere</strong> (bepul, oddiy cron sozlash)
 - <strong>Render</strong> (bepul tarif)
 - <strong>VPS-dagi konteyner</strong> (agar mavjud bo'lsa)</p>
 <p>Hozircha mahalliy ishga tushirishni o'zlashtirib oling — chuqurroq kirmaymiz.</p>
-<h2 id="6-qadam-tokenni-xavfsiz-saqlash">6-qadam: Tokenni xavfsiz saqlash<a class="headerlink" href="#6-qadam-tokenni-xavfsiz-saqlash" title="Permanent link">&para;</a></h2>
+<h2 id="6-qadam-tokenni-xavfsiz-saqlash">6-qadam: Tokenni xavfsiz saqlash</h2>
 <p><strong>⚠️ Tokenni hech qachon Git'ga pushmang!</strong></p>
 <p>Ildizda <code>.env</code> faylini yarating:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nv">TELEGRAM_BOT_TOKEN</span><span class="o">=</span><span class="m">123456789</span>:ABCdef...
@@ -4431,14 +4431,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">load_dotenv</span><span class="p">()</span>
 </code></pre></div></p>
-<h2 id="7-qadam-funksionallikni-kengaytirish">7-qadam: Funksionallikni kengaytirish<a class="headerlink" href="#7-qadam-funksionallikni-kengaytirish" title="Permanent link">&para;</a></h2>
+<h2 id="7-qadam-funksionallikni-kengaytirish">7-qadam: Funksionallikni kengaytirish</h2>
 <p>Botni kengaytirish mumkin:</p>
-<h3 id="bir-nechta-juftlar">Bir nechta juftlar<a class="headerlink" href="#bir-nechta-juftlar" title="Permanent link">&para;</a></h3>
+<h3 id="bir-nechta-juftlar">Bir nechta juftlar</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">for</span><span class="w"> </span>pair<span class="w"> </span><span class="k">in</span><span class="w"> </span>EURUSD<span class="w"> </span>GBPUSD<span class="w"> </span>USDJPY<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span>.venv/bin/python<span class="w"> </span>advanced/telegram_alerts.py<span class="w"> </span>--symbol<span class="w"> </span><span class="nv">$pair</span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">done</span>
 </code></pre></div>
-<h3 id="bot-buyruqlari-ikki-tomonlama-aloqa">Bot buyruqlari (ikki tomonlama aloqa)<a class="headerlink" href="#bot-buyruqlari-ikki-tomonlama-aloqa" title="Permanent link">&para;</a></h3>
+<h3 id="bot-buyruqlari-ikki-tomonlama-aloqa">Bot buyruqlari (ikki tomonlama aloqa)</h3>
 <p>Botga yozish imkoniyati:
 - <code>/status</code> → joriy ochiq signal
 - <code>/stats</code> → so'nggi signallar statistikasi
@@ -4446,7 +4446,7 @@
 <p>Bu <code>python-telegram-bot</code> kutubxonasini talab qiladi:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>python-telegram-bot
 </code></pre></div></p>
-<h3 id="dostlar-bilan-signal-guruhi">Do'stlar bilan signal guruhi<a class="headerlink" href="#dostlar-bilan-signal-guruhi" title="Permanent link">&para;</a></h3>
+<h3 id="dostlar-bilan-signal-guruhi">Do'stlar bilan signal guruhi</h3>
 <ol>
 <li>Telegramda guruh yarating</li>
 <li>Botingizni guruhga qo'shing</li>
@@ -4454,7 +4454,7 @@
 <li>Guruh chat_id ni oling (<code>/getUpdates</code> orqali, JSON da manfiy ID bo'ladi)</li>
 <li>Bu ID ni <code>TELEGRAM_CHAT_ID</code> sifatida ishlating</li>
 </ol>
-<h2 id="8-qadam-signallar-bilan-nima-qilish-kerak">8-qadam: Signallar bilan nima qilish kerak<a class="headerlink" href="#8-qadam-signallar-bilan-nima-qilish-kerak" title="Permanent link">&para;</a></h2>
+<h2 id="8-qadam-signallar-bilan-nima-qilish-kerak">8-qadam: Signallar bilan nima qilish kerak</h2>
 <p>Bot signal yubordi — bu savdo qilish <strong>buyrug'i emas</strong>. Bu <strong>bildirishnoma</strong> — skriptimiz setap topganini anglatadi.</p>
 <p>Savdoni ochishdan oldin:
 1. ✅ MT5 ni oching → setap haqiqatan borligini tekshiring (bot xato qilishi mumkin)
@@ -4463,29 +4463,29 @@
 4. ✅ Ochishdan OLDIN rejalashtirilgan parametrlarni jurnalga yozing
 5. ✅ <abbr title="Stop Loss — belgilangan zararda savdoni avtomatik yopadigan order.">SL</abbr> va <abbr title="Take Profit — belgilangan daromadda savdoni avtomatik yopadigan order.">TP</abbr> bilan savdoni oching</p>
 <p><strong>Hech qachon signaldan darhol tekshiruvsiz savdo oching.</strong></p>
-<h2 id="muammolarni-bartaraf-etish">Muammolarni bartaraf etish<a class="headerlink" href="#muammolarni-bartaraf-etish" title="Permanent link">&para;</a></h2>
-<h3 id="bot-start-ga-javob-bermayapti">Bot /start ga javob bermayapti<a class="headerlink" href="#bot-start-ga-javob-bermayapti" title="Permanent link">&para;</a></h3>
+<h2 id="muammolarni-bartaraf-etish">Muammolarni bartaraf etish</h2>
+<h3 id="bot-start-ga-javob-bermayapti">Bot /start ga javob bermayapti</h3>
 <ul>
 <li>Ehtimol, token noto'g'ri</li>
 <li>Bot bloklanmaganligini tekshiring</li>
 </ul>
-<h3 id="xabarlar-kelmayapti">Xabarlar kelmayapti<a class="headerlink" href="#xabarlar-kelmayapti" title="Permanent link">&para;</a></h3>
+<h3 id="xabarlar-kelmayapti">Xabarlar kelmayapti</h3>
 <ul>
 <li>chat_id ni tekshiring — bu <strong>sizning</strong> ID'ingiz bo'lishi kerak, username emas</li>
 <li><code>--dry-run</code> bilan ishga tushiring — signallar umuman generatsiya qilinayotganligini ko'rasiz</li>
 </ul>
-<h3 id="yfinance-ishlamay-qoldi">yfinance ishlamay qoldi<a class="headerlink" href="#yfinance-ishlamay-qoldi" title="Permanent link">&para;</a></h3>
+<h3 id="yfinance-ishlamay-qoldi">yfinance ishlamay qoldi</h3>
 <ul>
 <li>yfinance ba'zan tez-tez so'rovlarni bloklaydi → 10 daqiqa kuting</li>
 <li>Ehtimol, internet yo'q</li>
 </ul>
-<h3 id="signallar-eskirgan-korinadi">Signallar «eskirgan» ko'rinadi<a class="headerlink" href="#signallar-eskirgan-korinadi" title="Permanent link">&para;</a></h3>
+<h3 id="signallar-eskirgan-korinadi">Signallar «eskirgan» ko'rinadi</h3>
 <ul>
 <li>yfinance kotirovkalarni 15-30 daqiqa kechikish bilan beradi</li>
 <li>Real vaqtda savdo uchun broker API yoki pullik ma'lumotlar tasmasi kerak</li>
 </ul>
 <hr />
-<h2 id="yakuniy-eslatma">Yakuniy eslatma<a class="headerlink" href="#yakuniy-eslatma" title="Permanent link">&para;</a></h2>
+<h2 id="yakuniy-eslatma">Yakuniy eslatma</h2>
 <p>🚨 <strong>Telegram-bot — bu faqat bildirishnomalar.</strong> Hech qanday avtomatik orderlar yo'q. Har bir savdo bo'yicha qarorni o'zingiz qabul qilasiz. Bot setaplarni <strong>aniqlash</strong> jarayonini tezlashtiradi, lekin sizning tahlil va intizomingizni almashtirmaydi.</p>
 <hr />
 <p><a href="../../forex-guide/">← Asosiy qo'llanmaga qaytish</a></p>

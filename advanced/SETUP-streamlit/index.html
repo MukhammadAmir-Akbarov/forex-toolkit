@@ -4227,20 +4227,20 @@
   
 
 
-<h1 id="streamlit-setup-guide--интерактивный-бэктест-в-браузере">Streamlit Setup Guide — интерактивный <abbr title="Проверка стратегии на исторических данных.">бэктест</abbr> в браузере<a class="headerlink" href="#streamlit-setup-guide--интерактивный-бэктест-в-браузере" title="Permanent link">&para;</a></h1>
-<h2 id="что-это-даёт">Что это даёт<a class="headerlink" href="#что-это-даёт" title="Permanent link">&para;</a></h2>
+<h1 id="streamlit-setup-guide--интерактивный-бэктест-в-браузере">Streamlit Setup Guide — интерактивный <abbr title="Проверка стратегии на исторических данных.">бэктест</abbr> в браузере</h1>
+<h2 id="что-это-даёт">Что это даёт</h2>
 <p>После запуска ты получишь <strong>веб-страницу со слайдерами</strong>, где можешь:
 - Выбрать стратегию из выпадающего списка
 - Двигать слайдер <abbr title="Соотношение риск/прибыль (1:2 — на $1 риска целишься в $2 прибыли).">R:R</abbr>, win rate, число свечей
 - Сразу видеть <strong>обновлённую</strong> equity curve, метрики, таблицу сделок
 - График цены с маркерами сигналов</p>
 <p>Это намного удобнее, чем перезапускать Python-скрипт с разными параметрами.</p>
-<h2 id="шаг-1-установка-streamlit">Шаг 1: Установка Streamlit<a class="headerlink" href="#шаг-1-установка-streamlit" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-1-установка-streamlit">Шаг 1: Установка Streamlit</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>/Users/mukhammadamir/Sites/WORK/trading
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>streamlit<span class="w"> </span>plotly
 </code></pre></div>
 <p>Это установит Streamlit (~30 МБ).</p>
-<h2 id="шаг-2-запуск">Шаг 2: Запуск<a class="headerlink" href="#шаг-2-запуск" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-2-запуск">Шаг 2: Запуск</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.venv/bin/streamlit<span class="w"> </span>run<span class="w"> </span>advanced/streamlit_app.py
 </code></pre></div>
 <p>Что произойдёт:
@@ -4250,8 +4250,8 @@
 </code></pre></div>
 2. <strong>Браузер сам откроется</strong> на http://localhost:8501
 3. Если не открылся — открой ссылку вручную</p>
-<h2 id="шаг-3-использование">Шаг 3: Использование<a class="headerlink" href="#шаг-3-использование" title="Permanent link">&para;</a></h2>
-<h3 id="левая-панель-сайдбар--параметры">Левая панель (сайдбар) — параметры<a class="headerlink" href="#левая-панель-сайдбар--параметры" title="Permanent link">&para;</a></h3>
+<h2 id="шаг-3-использование">Шаг 3: Использование</h2>
+<h3 id="левая-панель-сайдбар--параметры">Левая панель (сайдбар) — параметры</h3>
 <ul>
 <li><strong>Стратегия</strong> — выбор из 4 стратегий</li>
 <li><strong>Свечей в выборке</strong> — сколько H1-свечей сгенерировать (больше = больше сделок)</li>
@@ -4259,7 +4259,7 @@
 <li><strong>Random seed</strong> — для воспроизводимости (одно и то же число = одни и те же данные)</li>
 <li><strong>Риск на сделку</strong> — для расчёта итогового %</li>
 </ul>
-<h3 id="главная-часть-страницы">Главная часть страницы<a class="headerlink" href="#главная-часть-страницы" title="Permanent link">&para;</a></h3>
+<h3 id="главная-часть-страницы">Главная часть страницы</h3>
 <ol>
 <li><strong>Метрики</strong> сверху (4 карточки):</li>
 <li>Сделок</li>
@@ -4282,37 +4282,37 @@
 <p><strong>Ценовой график со свечами</strong> — увидишь маркеры сигналов (▲ long, ▼ short)</p>
 </li>
 </ol>
-<h2 id="шаг-4-эксперименты">Шаг 4: Эксперименты<a class="headerlink" href="#шаг-4-эксперименты" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-4-эксперименты">Шаг 4: Эксперименты</h2>
 <p>Попробуй:</p>
-<h3 id="эксперимент-1-влияние-rr">Эксперимент 1: Влияние <abbr title="Соотношение риск/прибыль (1:2 — на $1 риска целишься в $2 прибыли).">R:R</abbr><a class="headerlink" href="#эксперимент-1-влияние-rr" title="Permanent link">&para;</a></h3>
+<h3 id="эксперимент-1-влияние-rr">Эксперимент 1: Влияние <abbr title="Соотношение риск/прибыль (1:2 — на $1 риска целишься в $2 прибыли).">R:R</abbr></h3>
 <ul>
 <li>Двинь <abbr title="Соотношение риск/прибыль (1:2 — на $1 риска целишься в $2 прибыли).">R:R</abbr> с 1.0 на 5.0</li>
 <li>Смотри, как меняется итоговая прибыль</li>
 <li><strong>Вывод:</strong> при больших <abbr title="Соотношение риск/прибыль (1:2 — на $1 риска целишься в $2 прибыли).">R:R</abbr> меньше сделок успешны, но каждая выгоднее</li>
 </ul>
-<h3 id="эксперимент-2-сравнение-стратегий">Эксперимент 2: Сравнение стратегий<a class="headerlink" href="#эксперимент-2-сравнение-стратегий" title="Permanent link">&para;</a></h3>
+<h3 id="эксперимент-2-сравнение-стратегий">Эксперимент 2: Сравнение стратегий</h3>
 <ul>
 <li>Меняй стратегию (EMA50 → Mean Reversion → Breakout → Three Soldiers)</li>
 <li>Один и тот же seed = одни и те же данные</li>
 <li><strong>Вывод:</strong> какая лучше на этих данных?</li>
 </ul>
-<h3 id="эксперимент-3-зависимость-от-данных">Эксперимент 3: Зависимость от данных<a class="headerlink" href="#эксперимент-3-зависимость-от-данных" title="Permanent link">&para;</a></h3>
+<h3 id="эксперимент-3-зависимость-от-данных">Эксперимент 3: Зависимость от данных</h3>
 <ul>
 <li>Меняй random seed (1, 42, 100, 9999)</li>
 <li>Одна и та же стратегия будет давать <strong>очень разные</strong> результаты</li>
 <li><strong>Вывод:</strong> результат зависит от удачи + кол-ва данных</li>
 </ul>
-<h2 id="шаг-5-остановка-приложения">Шаг 5: Остановка приложения<a class="headerlink" href="#шаг-5-остановка-приложения" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-5-остановка-приложения">Шаг 5: Остановка приложения</h2>
 <p>В терминале нажми <strong>Ctrl+C</strong> — Streamlit остановится.</p>
 <p>Чтобы запустить снова — повторить шаг 2.</p>
-<h2 id="запуск-на-фоне-опционально">Запуск на фоне (опционально)<a class="headerlink" href="#запуск-на-фоне-опционально" title="Permanent link">&para;</a></h2>
+<h2 id="запуск-на-фоне-опционально">Запуск на фоне (опционально)</h2>
 <p>Если хочешь, чтобы Streamlit работал постоянно:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv/bin/streamlit<span class="w"> </span>run<span class="w"> </span>advanced/streamlit_app.py<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
 <p>И закроешь, когда не нужно:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pkill<span class="w"> </span>-f<span class="w"> </span>streamlit
 </code></pre></div></p>
-<h2 id="доступ-с-другого-устройства-опционально">Доступ с другого устройства (опционально)<a class="headerlink" href="#доступ-с-другого-устройства-опционально" title="Permanent link">&para;</a></h2>
+<h2 id="доступ-с-другого-устройства-опционально">Доступ с другого устройства (опционально)</h2>
 <p>По умолчанию Streamlit виден только на твоём ноуте. Чтобы открыть с телефона в той же Wi-Fi сети:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.venv/bin/streamlit<span class="w"> </span>run<span class="w"> </span>advanced/streamlit_app.py<span class="w"> </span>--server.address<span class="w"> </span><span class="m">0</span>.0.0.0
 </code></pre></div>
@@ -4320,31 +4320,31 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>http://&lt;IP-твоего-Mac&gt;:8501
 </code></pre></div></p>
 <p>IP узнать: <code>ifconfig | grep "inet 192"</code></p>
-<h2 id="развёртывание-в-облаке-для-продвинутых">Развёртывание в облаке (для продвинутых)<a class="headerlink" href="#развёртывание-в-облаке-для-продвинутых" title="Permanent link">&para;</a></h2>
+<h2 id="развёртывание-в-облаке-для-продвинутых">Развёртывание в облаке (для продвинутых)</h2>
 <p>Streamlit Cloud (бесплатно) или Render / Railway:
 1. Загрузи проект на GitHub
 2. Зарегистрируйся на streamlit.io/cloud
 3. Подключи репозиторий → выбери <code>advanced/streamlit_app.py</code>
 4. Получишь публичный URL</p>
 <p><strong>⚠️</strong> Не выкладывай журнал сделок с реальными данными в публичный репозиторий.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="streamlit-command-not-found"><code>streamlit: command not found</code><a class="headerlink" href="#streamlit-command-not-found" title="Permanent link">&para;</a></h3>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="streamlit-command-not-found"><code>streamlit: command not found</code></h3>
 <p>Запускай через <code>.venv/bin/streamlit</code>, а не просто <code>streamlit</code>.</p>
-<h3 id="браузер-не-открылся">Браузер не открылся<a class="headerlink" href="#браузер-не-открылся" title="Permanent link">&para;</a></h3>
+<h3 id="браузер-не-открылся">Браузер не открылся</h3>
 <p>Открой вручную: http://localhost:8501</p>
-<h3 id="порт-8501-занят">Порт 8501 занят<a class="headerlink" href="#порт-8501-занят" title="Permanent link">&para;</a></h3>
+<h3 id="порт-8501-занят">Порт 8501 занят</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.venv/bin/streamlit<span class="w"> </span>run<span class="w"> </span>advanced/streamlit_app.py<span class="w"> </span>--server.port<span class="w"> </span><span class="m">8502</span>
 </code></pre></div>
-<h3 id="streamlit-падает-с-ошибкой-импорта">Streamlit падает с ошибкой импорта<a class="headerlink" href="#streamlit-падает-с-ошибкой-импорта" title="Permanent link">&para;</a></h3>
+<h3 id="streamlit-падает-с-ошибкой-импорта">Streamlit падает с ошибкой импорта</h3>
 <p>Проверь, что все зависимости установлены:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>streamlit<span class="w"> </span>plotly<span class="w"> </span>pandas<span class="w"> </span>numpy<span class="w"> </span>matplotlib
 </code></pre></div></p>
-<h3 id="графики-не-обновляются">Графики не обновляются<a class="headerlink" href="#графики-не-обновляются" title="Permanent link">&para;</a></h3>
+<h3 id="графики-не-обновляются">Графики не обновляются</h3>
 <ul>
 <li>Очисти кэш: в правом верхнем углу страницы → меню → <strong>Clear cache</strong></li>
 <li>Перезагрузи страницу (Cmd+R)</li>
 </ul>
-<h2 id="что-внутри-для-интересующихся">Что внутри (для интересующихся)<a class="headerlink" href="#что-внутри-для-интересующихся" title="Permanent link">&para;</a></h2>
+<h2 id="что-внутри-для-интересующихся">Что внутри (для интересующихся)</h2>
 <p>Файл <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/advanced/streamlit_app.py">streamlit_app.py</a> — это веб-приложение в ~150 строк Python:
 - <code>st.sidebar</code> — левая панель
 - <code>st.slider</code>, <code>st.selectbox</code> — элементы управления

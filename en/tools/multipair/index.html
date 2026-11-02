@@ -3839,7 +3839,7 @@
   
 
 
-<h1 id="-does-the-tuning-carry-over-to-other-pairs">🌍 Does the tuning carry over to other pairs<a class="headerlink" href="#-does-the-tuning-carry-over-to-other-pairs" title="Permanent link">&para;</a></h1>
+<h1 id="-does-the-tuning-carry-over-to-other-pairs">🌍 Does the tuning carry over to other pairs</h1>
 <div class="admonition abstract">
 <p class="admonition-title">The neighbouring question to overfitting</p>
 <p>On the <a href="../overfitting/">previous page</a> the tuning did not survive a move
@@ -3851,7 +3851,7 @@ a single change to seven other pairs. Answer first — then look at the table.</
 <div id="multipair" data-src="../../../data/multipair.json"></div>
 
 <hr />
-<h2 id="what-came-out">What came out<a class="headerlink" href="#what-came-out" title="Permanent link">&para;</a></h2>
+<h2 id="what-came-out">What came out</h2>
 <p>Eight pairs, hourly candles, two years, 103 to 211 trades per pair.</p>
 <table>
 <thead>
@@ -3904,7 +3904,7 @@ a single change to seven other pairs. Answer first — then look at the table.</
 </tr>
 </tbody>
 </table>
-<h2 id="the-answer-turned-out-subtler-than-expected">The answer turned out subtler than expected<a class="headerlink" href="#the-answer-turned-out-subtler-than-expected" title="Permanent link">&para;</a></h2>
+<h2 id="the-answer-turned-out-subtler-than-expected">The answer turned out subtler than expected</h2>
 <p>Honestly: I expected a collapse. It did not happen — <strong>seven pairs out of eight
 stayed positive</strong>. The tuning carried over better than one might assume, and
 that is a useful observation in itself: not everything that was fitted must
@@ -3922,7 +3922,7 @@ exactly the beautiful number shown in advertising — obtained by choosing after
 the fact, which is what the <a href="../overfitting/">overfitting page</a> is about.</p>
 <p><strong>Six pairs out of eight prefer their own parameters.</strong> If every pair has its
 own "best", then "best" is a property of the sample, not of the strategy.</p>
-<h2 id="the-mistake-i-nearly-published">The mistake I nearly published<a class="headerlink" href="#the-mistake-i-nearly-published" title="Permanent link">&para;</a></h2>
+<h2 id="the-mistake-i-nearly-published">The mistake I nearly published</h2>
 <p>The first run produced zero and four trades over two years on the JPY pairs. It
 looked like a ready-made conclusion: "the strategy does not work on yen pairs."</p>
 <p>The conclusion would have been false. The <abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr> on JPY pairs is 0.01, not 0.0001,
@@ -3933,7 +3933,7 @@ the fix GBP/JPY produced 103 trades and <strong>+20.4R</strong>.</p>
 of the market, check whether the measurement is at fault. The test
 <code>test_jpy_pairs_were_measured_with_their_own_pip</code> now fails if the <abbr title="The standard unit of price change (usually the 4th decimal; 2nd for JPY).">pip</abbr> size
 becomes shared again.</p>
-<h2 id="what-to-do-about-it">What to do about it<a class="headerlink" href="#what-to-do-about-it" title="Permanent link">&para;</a></h2>
+<h2 id="what-to-do-about-it">What to do about it</h2>
 <ol>
 <li><strong>Check a strategy on several pairs.</strong> One pair is one sample.</li>
 <li><strong>Do not tune parameters per pair.</strong> It doubles the beauty of the report and
@@ -3941,7 +3941,7 @@ becomes shared again.</p>
 <li><strong>Look at the worst pair, not the average one.</strong> You do not trade the
    average; you trade a specific pair.</li>
 </ol>
-<h2 id="next">Next<a class="headerlink" href="#next" title="Permanent link">&para;</a></h2>
+<h2 id="next">Next</h2>
 <ul>
 <li><a href="../overfitting/">Why a <abbr title="Testing a strategy on historical data.">backtest</abbr> lies</a> — the same trap along the time axis.</li>
 <li><a href="../monte-carlo/">Skill or luck</a> — a check on your own series of trades.</li>

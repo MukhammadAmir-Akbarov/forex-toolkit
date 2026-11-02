@@ -4227,20 +4227,20 @@
   
 
 
-<h1 id="streamlit-setup-guide--interactive-backtest-in-the-browser">Streamlit Setup Guide — interactive <abbr title="Testing a strategy on historical data.">backtest</abbr> in the browser<a class="headerlink" href="#streamlit-setup-guide--interactive-backtest-in-the-browser" title="Permanent link">&para;</a></h1>
-<h2 id="what-you-get">What you get<a class="headerlink" href="#what-you-get" title="Permanent link">&para;</a></h2>
+<h1 id="streamlit-setup-guide--interactive-backtest-in-the-browser">Streamlit Setup Guide — interactive <abbr title="Testing a strategy on historical data.">backtest</abbr> in the browser</h1>
+<h2 id="what-you-get">What you get</h2>
 <p>Once launched you will have a <strong>web page with sliders</strong> where you can:
 - Choose a strategy from a drop-down list
 - Move the <abbr title="Risk/Reward ratio (1:2 = you aim for $2 of profit for every $1 risked).">R:R</abbr>, win rate, and candle-count sliders
 - Instantly see the <strong>updated</strong> equity curve, metrics, and trade table
 - A price chart with signal markers</p>
 <p>This is far more convenient than re-running a Python script with different parameters each time.</p>
-<h2 id="step-1-install-streamlit">Step 1: Install Streamlit<a class="headerlink" href="#step-1-install-streamlit" title="Permanent link">&para;</a></h2>
+<h2 id="step-1-install-streamlit">Step 1: Install Streamlit</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>/Users/mukhammadamir/Sites/WORK/trading
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>streamlit<span class="w"> </span>plotly
 </code></pre></div>
 <p>This installs Streamlit (~30 MB).</p>
-<h2 id="step-2-launch">Step 2: Launch<a class="headerlink" href="#step-2-launch" title="Permanent link">&para;</a></h2>
+<h2 id="step-2-launch">Step 2: Launch</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.venv/bin/streamlit<span class="w"> </span>run<span class="w"> </span>advanced/streamlit_app.py
 </code></pre></div>
 <p>What happens:
@@ -4250,8 +4250,8 @@
 </code></pre></div>
 2. <strong>The browser opens automatically</strong> at http://localhost:8501
 3. If it did not open — navigate to the URL manually</p>
-<h2 id="step-3-using-the-app">Step 3: Using the app<a class="headerlink" href="#step-3-using-the-app" title="Permanent link">&para;</a></h2>
-<h3 id="left-panel-sidebar--parameters">Left panel (sidebar) — parameters<a class="headerlink" href="#left-panel-sidebar--parameters" title="Permanent link">&para;</a></h3>
+<h2 id="step-3-using-the-app">Step 3: Using the app</h2>
+<h3 id="left-panel-sidebar--parameters">Left panel (sidebar) — parameters</h3>
 <ul>
 <li><strong>Strategy</strong> — choose from 4 strategies</li>
 <li><strong>Candles in sample</strong> — how many H1 candles to generate (more = more trades)</li>
@@ -4259,7 +4259,7 @@
 <li><strong>Random seed</strong> — for reproducibility (same number = same data)</li>
 <li><strong>Risk per trade</strong> — used to calculate the final %</li>
 </ul>
-<h3 id="main-page-area">Main page area<a class="headerlink" href="#main-page-area" title="Permanent link">&para;</a></h3>
+<h3 id="main-page-area">Main page area</h3>
 <ol>
 <li><strong>Metrics</strong> at the top (4 cards):</li>
 <li>Trades</li>
@@ -4282,37 +4282,37 @@
 <p><strong>Candlestick price chart</strong> — shows signal markers (▲ long, ▼ short)</p>
 </li>
 </ol>
-<h2 id="step-4-experiments">Step 4: Experiments<a class="headerlink" href="#step-4-experiments" title="Permanent link">&para;</a></h2>
+<h2 id="step-4-experiments">Step 4: Experiments</h2>
 <p>Try these:</p>
-<h3 id="experiment-1-impact-of-rr">Experiment 1: Impact of <abbr title="Risk/Reward ratio (1:2 = you aim for $2 of profit for every $1 risked).">R:R</abbr><a class="headerlink" href="#experiment-1-impact-of-rr" title="Permanent link">&para;</a></h3>
+<h3 id="experiment-1-impact-of-rr">Experiment 1: Impact of <abbr title="Risk/Reward ratio (1:2 = you aim for $2 of profit for every $1 risked).">R:R</abbr></h3>
 <ul>
 <li>Move <abbr title="Risk/Reward ratio (1:2 = you aim for $2 of profit for every $1 risked).">R:R</abbr> from 1.0 to 5.0</li>
 <li>Watch how the final profit changes</li>
 <li><strong>Takeaway:</strong> with a higher <abbr title="Risk/Reward ratio (1:2 = you aim for $2 of profit for every $1 risked).">R:R</abbr> fewer trades win, but each winner is more profitable</li>
 </ul>
-<h3 id="experiment-2-comparing-strategies">Experiment 2: Comparing strategies<a class="headerlink" href="#experiment-2-comparing-strategies" title="Permanent link">&para;</a></h3>
+<h3 id="experiment-2-comparing-strategies">Experiment 2: Comparing strategies</h3>
 <ul>
 <li>Switch the strategy (EMA50 → Mean Reversion → Breakout → Three Soldiers)</li>
 <li>Same seed = same data</li>
 <li><strong>Takeaway:</strong> which one performs best on this data?</li>
 </ul>
-<h3 id="experiment-3-data-dependency">Experiment 3: Data dependency<a class="headerlink" href="#experiment-3-data-dependency" title="Permanent link">&para;</a></h3>
+<h3 id="experiment-3-data-dependency">Experiment 3: Data dependency</h3>
 <ul>
 <li>Change the random seed (1, 42, 100, 9999)</li>
 <li>The same strategy will produce <strong>very different</strong> results</li>
 <li><strong>Takeaway:</strong> the outcome depends on luck + the amount of data</li>
 </ul>
-<h2 id="step-5-stopping-the-app">Step 5: Stopping the app<a class="headerlink" href="#step-5-stopping-the-app" title="Permanent link">&para;</a></h2>
+<h2 id="step-5-stopping-the-app">Step 5: Stopping the app</h2>
 <p>Press <strong>Ctrl+C</strong> in the terminal — Streamlit will stop.</p>
 <p>To restart — repeat Step 2.</p>
-<h2 id="running-in-the-background-optional">Running in the background (optional)<a class="headerlink" href="#running-in-the-background-optional" title="Permanent link">&para;</a></h2>
+<h2 id="running-in-the-background-optional">Running in the background (optional)</h2>
 <p>If you want Streamlit to keep running:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv/bin/streamlit<span class="w"> </span>run<span class="w"> </span>advanced/streamlit_app.py<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
 <p>When you no longer need it:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>pkill<span class="w"> </span>-f<span class="w"> </span>streamlit
 </code></pre></div></p>
-<h2 id="access-from-another-device-optional">Access from another device (optional)<a class="headerlink" href="#access-from-another-device-optional" title="Permanent link">&para;</a></h2>
+<h2 id="access-from-another-device-optional">Access from another device (optional)</h2>
 <p>By default Streamlit is only visible on your own machine. To open it from a phone on the same Wi-Fi network:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.venv/bin/streamlit<span class="w"> </span>run<span class="w"> </span>advanced/streamlit_app.py<span class="w"> </span>--server.address<span class="w"> </span><span class="m">0</span>.0.0.0
 </code></pre></div>
@@ -4320,31 +4320,31 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>http://&lt;your-Mac-IP&gt;:8501
 </code></pre></div></p>
 <p>To find your IP: <code>ifconfig | grep "inet 192"</code></p>
-<h2 id="cloud-deployment-advanced">Cloud deployment (advanced)<a class="headerlink" href="#cloud-deployment-advanced" title="Permanent link">&para;</a></h2>
+<h2 id="cloud-deployment-advanced">Cloud deployment (advanced)</h2>
 <p>Streamlit Cloud (free) or Render / Railway:
 1. Upload the project to GitHub
 2. Sign up at streamlit.io/cloud
 3. Connect your repository → select <code>advanced/streamlit_app.py</code>
 4. You will receive a public URL</p>
 <p><strong>⚠️</strong> Do not publish a trade journal containing real trading data in a public repository.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="streamlit-command-not-found"><code>streamlit: command not found</code><a class="headerlink" href="#streamlit-command-not-found" title="Permanent link">&para;</a></h3>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="streamlit-command-not-found"><code>streamlit: command not found</code></h3>
 <p>Launch via <code>.venv/bin/streamlit</code>, not just <code>streamlit</code>.</p>
-<h3 id="browser-did-not-open">Browser did not open<a class="headerlink" href="#browser-did-not-open" title="Permanent link">&para;</a></h3>
+<h3 id="browser-did-not-open">Browser did not open</h3>
 <p>Open manually: http://localhost:8501</p>
-<h3 id="port-8501-is-busy">Port 8501 is busy<a class="headerlink" href="#port-8501-is-busy" title="Permanent link">&para;</a></h3>
+<h3 id="port-8501-is-busy">Port 8501 is busy</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.venv/bin/streamlit<span class="w"> </span>run<span class="w"> </span>advanced/streamlit_app.py<span class="w"> </span>--server.port<span class="w"> </span><span class="m">8502</span>
 </code></pre></div>
-<h3 id="streamlit-crashes-with-an-import-error">Streamlit crashes with an import error<a class="headerlink" href="#streamlit-crashes-with-an-import-error" title="Permanent link">&para;</a></h3>
+<h3 id="streamlit-crashes-with-an-import-error">Streamlit crashes with an import error</h3>
 <p>Check that all dependencies are installed:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>streamlit<span class="w"> </span>plotly<span class="w"> </span>pandas<span class="w"> </span>numpy<span class="w"> </span>matplotlib
 </code></pre></div></p>
-<h3 id="charts-are-not-updating">Charts are not updating<a class="headerlink" href="#charts-are-not-updating" title="Permanent link">&para;</a></h3>
+<h3 id="charts-are-not-updating">Charts are not updating</h3>
 <ul>
 <li>Clear the cache: top-right corner of the page → menu → <strong>Clear cache</strong></li>
 <li>Reload the page (Cmd+R)</li>
 </ul>
-<h2 id="whats-inside-for-the-curious">What's inside (for the curious)<a class="headerlink" href="#whats-inside-for-the-curious" title="Permanent link">&para;</a></h2>
+<h2 id="whats-inside-for-the-curious">What's inside (for the curious)</h2>
 <p>The file <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/advanced/streamlit_app.py">streamlit_app.py</a> is a web app in ~150 lines of Python:
 - <code>st.sidebar</code> — left panel
 - <code>st.slider</code>, <code>st.selectbox</code> — controls

@@ -4283,8 +4283,8 @@
   
 
 
-<h1 id="telegram-bot-setup-guide--получай-сигналы-в-telegram">Telegram Bot Setup Guide — получай сигналы в Telegram<a class="headerlink" href="#telegram-bot-setup-guide--получай-сигналы-в-telegram" title="Permanent link">&para;</a></h1>
-<h2 id="что-это-даёт">Что это даёт<a class="headerlink" href="#что-это-даёт" title="Permanent link">&para;</a></h2>
+<h1 id="telegram-bot-setup-guide--получай-сигналы-в-telegram">Telegram Bot Setup Guide — получай сигналы в Telegram</h1>
+<h2 id="что-это-даёт">Что это даёт</h2>
 <p>Каждый час (или по расписанию) скрипт:
 1. Скачивает свечи EUR/USD (yfinance)
 2. Применяет нашу стратегию
@@ -4304,7 +4304,7 @@
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>⚠️ Это не торговая рекомендация. Проверь чек-лист перед входом.
 </code></pre></div></p>
-<h2 id="шаг-1-создание-telegram-бота">Шаг 1: Создание Telegram-бота<a class="headerlink" href="#шаг-1-создание-telegram-бота" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-1-создание-telegram-бота">Шаг 1: Создание Telegram-бота</h2>
 <ol>
 <li>Открой Telegram, найди контакт <strong>@BotFather</strong></li>
 <li>Напиши <code>/newbot</code></li>
@@ -4315,9 +4315,9 @@
 </code></pre></div>
    <strong>Это твой <code>TELEGRAM_BOT_TOKEN</code>. Никому не показывай.</strong></li>
 </ol>
-<h2 id="шаг-2-получение-chat_id">Шаг 2: Получение chat_id<a class="headerlink" href="#шаг-2-получение-chat_id" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-2-получение-chat_id">Шаг 2: Получение chat_id</h2>
 <p>Это твой персональный ID, чтобы бот знал, кому писать.</p>
-<h3 id="способ-1-проще">Способ 1 (проще)<a class="headerlink" href="#способ-1-проще" title="Permanent link">&para;</a></h3>
+<h3 id="способ-1-проще">Способ 1 (проще)</h3>
 <ol>
 <li>В Telegram найди <strong>@userinfobot</strong></li>
 <li>Напиши ему <code>/start</code></li>
@@ -4327,7 +4327,7 @@
 </code></pre></div></li>
 </ol>
 <p>Это твой <code>TELEGRAM_CHAT_ID</code>.</p>
-<h3 id="способ-2-через-api">Способ 2 (через API)<a class="headerlink" href="#способ-2-через-api" title="Permanent link">&para;</a></h3>
+<h3 id="способ-2-через-api">Способ 2 (через API)</h3>
 <ol>
 <li>Напиши <strong>что-нибудь</strong> созданному боту в Telegram (любое сообщение, например «привет»)</li>
 <li>Открой в браузере:
@@ -4336,7 +4336,7 @@
    (вместо <code>&lt;TWOI_TOKEN&gt;</code> подставь токен из шага 1)</li>
 <li>В JSON-ответе найди <code>"chat":{"id":123456789,...}</code> — это твой chat_id</li>
 </ol>
-<h2 id="шаг-3-установка-переменных-окружения">Шаг 3: Установка переменных окружения<a class="headerlink" href="#шаг-3-установка-переменных-окружения" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-3-установка-переменных-окружения">Шаг 3: Установка переменных окружения</h2>
 <p>Открой терминал в проекте:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>/Users/mukhammadamir/Sites/WORK/trading
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
@@ -4349,7 +4349,7 @@
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'export TELEGRAM_CHAT_ID="123456789"'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc
 </code></pre></div>
-<h2 id="шаг-4-тестовый-запуск">Шаг 4: Тестовый запуск<a class="headerlink" href="#шаг-4-тестовый-запуск" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-4-тестовый-запуск">Шаг 4: Тестовый запуск</h2>
 <p>Сначала — <strong>dry-run</strong> (без отправки в Telegram):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.venv/bin/python<span class="w"> </span>advanced/telegram_alerts.py<span class="w"> </span>--symbol<span class="w"> </span>EURUSD<span class="w"> </span>--dry-run
 </code></pre></div>
@@ -4358,8 +4358,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.venv/bin/python<span class="w"> </span>advanced/telegram_alerts.py<span class="w"> </span>--symbol<span class="w"> </span>EURUSD
 </code></pre></div>
 <p>Открой Telegram → должен прийти сигнал (если он есть в последних часах).</p>
-<h2 id="шаг-5-автоматический-запуск-каждый-час">Шаг 5: Автоматический запуск каждый час<a class="headerlink" href="#шаг-5-автоматический-запуск-каждый-час" title="Permanent link">&para;</a></h2>
-<h3 id="вариант-а-cron-macos--linux">Вариант А: cron (macOS / Linux)<a class="headerlink" href="#вариант-а-cron-macos--linux" title="Permanent link">&para;</a></h3>
+<h2 id="шаг-5-автоматический-запуск-каждый-час">Шаг 5: Автоматический запуск каждый час</h2>
+<h3 id="вариант-а-cron-macos--linux">Вариант А: cron (macOS / Linux)</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>crontab<span class="w"> </span>-e
 </code></pre></div>
 <p>Добавь строку:
@@ -4370,7 +4370,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>0 * * * * cd /Users/mukhammadamir/Sites/WORK/trading &amp;&amp; TELEGRAM_BOT_TOKEN="123..." TELEGRAM_CHAT_ID="123..." /Users/mukhammadamir/Sites/WORK/trading/.venv/bin/python advanced/telegram_alerts.py &gt;&gt; /tmp/telegram_alerts.log 2&gt;&amp;1
 </code></pre></div></p>
 <p>Или используй файл <code>.env</code> (см. ниже).</p>
-<h3 id="вариант-б-launchd-macos-более-правильный-способ">Вариант Б: launchd (macOS, более правильный способ)<a class="headerlink" href="#вариант-б-launchd-macos-более-правильный-способ" title="Permanent link">&para;</a></h3>
+<h3 id="вариант-б-launchd-macos-более-правильный-способ">Вариант Б: launchd (macOS, более правильный способ)</h3>
 <p>Создай файл <code>~/Library/LaunchAgents/com.amir.forex-alerts.plist</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="cp">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"</span>
@@ -4410,14 +4410,14 @@
 <p>Остановить:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>launchctl<span class="w"> </span>unload<span class="w"> </span>~/Library/LaunchAgents/com.amir.forex-alerts.plist
 </code></pre></div></p>
-<h3 id="вариант-в-облачный-сервер-для-постоянной-работы">Вариант В: облачный сервер (для постоянной работы)<a class="headerlink" href="#вариант-в-облачный-сервер-для-постоянной-работы" title="Permanent link">&para;</a></h3>
+<h3 id="вариант-в-облачный-сервер-для-постоянной-работы">Вариант В: облачный сервер (для постоянной работы)</h3>
 <p>Можно развернуть на:
 - <strong>Heroku</strong> (бесплатный план — 550 часов/месяц)
 - <strong>PythonAnywhere</strong> (бесплатно, простая настройка cron)
 - <strong>Render</strong> (бесплатный план)
 - <strong>Контейнер на VPS</strong> (если есть)</p>
 <p>Не буду углубляться — сначала разберись с локальным запуском.</p>
-<h2 id="шаг-6-хранение-токена-безопасно">Шаг 6: Хранение токена безопасно<a class="headerlink" href="#шаг-6-хранение-токена-безопасно" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-6-хранение-токена-безопасно">Шаг 6: Хранение токена безопасно</h2>
 <p><strong>⚠️ Никогда не пушь токен в Git!</strong></p>
 <p>Создай файл <code>.env</code> в корне:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nv">TELEGRAM_BOT_TOKEN</span><span class="o">=</span><span class="m">123456789</span>:ABCdef...
@@ -4431,14 +4431,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">load_dotenv</span><span class="p">()</span>
 </code></pre></div></p>
-<h2 id="шаг-7-расширение-функциональности">Шаг 7: Расширение функциональности<a class="headerlink" href="#шаг-7-расширение-функциональности" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-7-расширение-функциональности">Шаг 7: Расширение функциональности</h2>
 <p>Можно расширить бота:</p>
-<h3 id="несколько-пар">Несколько пар<a class="headerlink" href="#несколько-пар" title="Permanent link">&para;</a></h3>
+<h3 id="несколько-пар">Несколько пар</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">for</span><span class="w"> </span>pair<span class="w"> </span><span class="k">in</span><span class="w"> </span>EURUSD<span class="w"> </span>GBPUSD<span class="w"> </span>USDJPY<span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span>.venv/bin/python<span class="w"> </span>advanced/telegram_alerts.py<span class="w"> </span>--symbol<span class="w"> </span><span class="nv">$pair</span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">done</span>
 </code></pre></div>
-<h3 id="команды-бота-двусторонняя-связь">Команды бота (двусторонняя связь)<a class="headerlink" href="#команды-бота-двусторонняя-связь" title="Permanent link">&para;</a></h3>
+<h3 id="команды-бота-двусторонняя-связь">Команды бота (двусторонняя связь)</h3>
 <p>Сделать так, чтобы ты мог писать боту:
 - <code>/status</code> → текущий открытый сигнал
 - <code>/stats</code> → статистика последних сигналов
@@ -4446,7 +4446,7 @@
 <p>Это требует библиотеки <code>python-telegram-bot</code>:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>python-telegram-bot
 </code></pre></div></p>
-<h3 id="группа-сигналов-с-друзьями">Группа сигналов с друзьями<a class="headerlink" href="#группа-сигналов-с-друзьями" title="Permanent link">&para;</a></h3>
+<h3 id="группа-сигналов-с-друзьями">Группа сигналов с друзьями</h3>
 <ol>
 <li>Создай группу в Telegram</li>
 <li>Добавь твоего бота в группу</li>
@@ -4454,7 +4454,7 @@
 <li>Получи group chat_id (тоже через <code>/getUpdates</code>, в JSON будет отрицательный ID)</li>
 <li>Используй этот ID как <code>TELEGRAM_CHAT_ID</code></li>
 </ol>
-<h2 id="шаг-8-что-делать-с-сигналами">Шаг 8: Что делать с сигналами<a class="headerlink" href="#шаг-8-что-делать-с-сигналами" title="Permanent link">&para;</a></h2>
+<h2 id="шаг-8-что-делать-с-сигналами">Шаг 8: Что делать с сигналами</h2>
 <p>Бот шлёт сигнал — <strong>это не команда</strong> торговать. Это <strong>уведомление</strong>, что наш скрипт нашёл сетап.</p>
 <p>Перед открытием сделки:
 1. ✅ Открой MT5 → проверь, действительно ли есть сетап (бот может ошибаться)
@@ -4463,29 +4463,29 @@
 4. ✅ Запиши планируемые параметры в журнал ДО открытия
 5. ✅ Открой сделку с <abbr title="Stop Loss — ордер, автоматически закрывающий сделку при убытке.">SL</abbr> и <abbr title="Take Profit — ордер, фиксирующий прибыль на заданном уровне.">TP</abbr></p>
 <p><strong>Никогда не открывай сделку сразу по сигналу без проверки.</strong></p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="бот-не-отвечает-на-start">Бот не отвечает на /start<a class="headerlink" href="#бот-не-отвечает-на-start" title="Permanent link">&para;</a></h3>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="бот-не-отвечает-на-start">Бот не отвечает на /start</h3>
 <ul>
 <li>Возможно, неправильный токен</li>
 <li>Проверь, что бот не заблокирован</li>
 </ul>
-<h3 id="сообщения-не-приходят">Сообщения не приходят<a class="headerlink" href="#сообщения-не-приходят" title="Permanent link">&para;</a></h3>
+<h3 id="сообщения-не-приходят">Сообщения не приходят</h3>
 <ul>
 <li>Проверь chat_id — должен быть <strong>твой</strong> ID, не username</li>
 <li>Запусти с <code>--dry-run</code> — увидишь, генерируются ли сигналы вообще</li>
 </ul>
-<h3 id="yfinance-падает">yfinance падает<a class="headerlink" href="#yfinance-падает" title="Permanent link">&para;</a></h3>
+<h3 id="yfinance-падает">yfinance падает</h3>
 <ul>
 <li>yfinance иногда блокирует частые запросы → жди 10 минут</li>
 <li>Возможно, нет интернета</li>
 </ul>
-<h3 id="сигналы-кажутся-не-свежими">Сигналы кажутся «не свежими»<a class="headerlink" href="#сигналы-кажутся-не-свежими" title="Permanent link">&para;</a></h3>
+<h3 id="сигналы-кажутся-не-свежими">Сигналы кажутся «не свежими»</h3>
 <ul>
 <li>yfinance отдаёт <abbr title="Текущая цена пары в формате Bid / Ask.">котировки</abbr> с задержкой 15-30 минут</li>
 <li>Для торговли в реальном времени нужен API брокера или платный data feed</li>
 </ul>
 <hr />
-<h2 id="финальное-напоминание">Финальное напоминание<a class="headerlink" href="#финальное-напоминание" title="Permanent link">&para;</a></h2>
+<h2 id="финальное-напоминание">Финальное напоминание</h2>
 <p>🚨 <strong>Telegram-бот — это просто уведомления.</strong> Никаких автоматических ордеров. Ты сам принимаешь решение по каждой сделке. Бот ускоряет процесс <strong>обнаружения</strong> сетапов, но не заменяет твой анализ и дисциплину.</p>
 <hr />
 <p><a href="../../forex-guide/">← К главному гайду</a></p>

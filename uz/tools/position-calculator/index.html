@@ -3839,13 +3839,13 @@
   
 
 
-<h1 id="-pozitsiya-hajmi-kalkulyatori">📐 Pozitsiya hajmi kalkulyatori<a class="headerlink" href="#-pozitsiya-hajmi-kalkulyatori" title="Permanent link">&para;</a></h1>
+<h1 id="-pozitsiya-hajmi-kalkulyatori">📐 Pozitsiya hajmi kalkulyatori</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Nima uchun bu kerak</p>
 <p>Pozitsiya hajmi — bozorda <strong>tirik qolish-qolmasligingizning</strong> asosiy omili. Agar har savdoda depozitning 0.5% xavf ostiga qo'ysangiz, ketma-ket 10 marta yo'qotsangiz ham faqat 5% yo'qotasiz. Agar 5% xavf ostiga qo'ysangiz, xuddi shu 10 yo'qotish <strong>hisobni nolga tushiradi</strong>.</p>
 <p>Bu kalkulyator siz xohlagan miqdorda <strong>aniq</strong> xavf ostiga qo'yishingizni kafolatlaydi — improvizatsiya va his-tuyg'ularsiz.</p>
 </div>
-<h2 id="formula">Formula<a class="headerlink" href="#formula" title="Permanent link">&para;</a></h2>
+<h2 id="formula">Formula</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Xavf miqdori ($)  =  Depozit × Xavf% / 100
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Lotlar            =  Xavf miqdori / (Stop pipsda × Pip qiymati)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Yumalash          ←  pastga 0.01 gacha (broker minimumi) — real xavf
@@ -4034,7 +4034,7 @@
 </div>
 
 <hr />
-<h2 id="qanday-foydalanish-kerak">Qanday foydalanish kerak<a class="headerlink" href="#qanday-foydalanish-kerak" title="Permanent link">&para;</a></h2>
+<h2 id="qanday-foydalanish-kerak">Qanday foydalanish kerak</h2>
 <ol>
 <li><strong>Balans</strong> — joriy hisob balansi USD da (yoki valyutangizning USD ekvivalenti).</li>
 <li><strong>Savdoga xavf</strong> — bir savdoda yo'qotishga tayyor bo'lgan balans foizi. Yangi boshlovchi: <strong>0.5%</strong>.</li>
@@ -4044,7 +4044,7 @@
 </ol>
 <p>Terminalda <strong>faqat yumalangan <abbr title="Savdo hajmi birligi. 1 standart lot = 100 000 bazis valyuta birligi.">lot</abbr> qiymatini</strong> kiriting — bu real ochish mumkin bo'lgan miqdor.</p>
 <hr />
-<h2 id="misol">Misol<a class="headerlink" href="#misol" title="Permanent link">&para;</a></h2>
+<h2 id="misol">Misol</h2>
 <table>
 <thead>
 <tr>
@@ -4077,7 +4077,7 @@
 </table>
 <p>Yo'qotish vaqtida: 25 pips × $10/<abbr title="Narx o'zgarishining standart birligi (odatda 4-xona; JPY juftlarida 2-xona).">pip</abbr> × 0.02 <abbr title="Savdo hajmi birligi. 1 standart lot = 100 000 bazis valyuta birligi.">lot</abbr> = <strong>$5</strong> = balansning 0.5%. Aniq.</p>
 <hr />
-<h2 id="eng-yaxshi-amaliyot">Eng yaxshi amaliyot<a class="headerlink" href="#eng-yaxshi-amaliyot" title="Permanent link">&para;</a></h2>
+<h2 id="eng-yaxshi-amaliyot">Eng yaxshi amaliyot</h2>
 <div class="admonition warning">
 <p class="admonition-title">Stopsiz hisoblamang</p>
 <p>Agar <strong>qayerda</strong> stopingiz ekanini bilmasangiz, pozitsiya hajmini hisoblay olmaysiz. Bu — savdongizni tushunmasligingiz degani. Ochmang.</p>
@@ -4091,7 +4091,7 @@
 <p>Ko'proq potensial foyda istasangiz — <strong>take-profit</strong> ni o'zgartiring yoki piramidlash usulidan foydalaning. Pozitsiya hajmi — xavf funksiyasi, ishonchnikidan emas.</p>
 </div>
 <hr />
-<h2 id="python-versiyasi">Python versiyasi<a class="headerlink" href="#python-versiyasi" title="Permanent link">&para;</a></h2>
+<h2 id="python-versiyasi">Python versiyasi</h2>
 <p>Bu kalkulyator <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/position_calculator.py"><code>tools/position_calculator.py</code></a> ning aniq JS portidir. Xuddi shu formula, qiymatlar va ogohlantirishlar. Terminaldan:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py<span class="w"> </span>--balance<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--risk<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>--stop<span class="w"> </span><span class="m">25</span><span class="w"> </span>--pair<span class="w"> </span>EURUSD
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># yoki jonli kurs bilan:</span>

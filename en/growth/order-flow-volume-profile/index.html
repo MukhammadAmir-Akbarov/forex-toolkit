@@ -4339,17 +4339,17 @@
   
 
 
-<h1 id="order-flow-and-volume-profile--advanced-technical-analysis">Order Flow and Volume Profile — Advanced Technical Analysis<a class="headerlink" href="#order-flow-and-volume-profile--advanced-technical-analysis" title="Permanent link">&para;</a></h1>
+<h1 id="order-flow-and-volume-profile--advanced-technical-analysis">Order Flow and Volume Profile — Advanced Technical Analysis</h1>
 <blockquote>
 <p>This is an <strong>"after the basics"</strong> level topic. Master candlesticks, <abbr title="Exponential Moving Average — recent candles weigh more than older ones.">EMA</abbr>, <abbr title="A 0–100 oscillator measuring overbought / oversold conditions.">RSI</abbr>, and a core strategy first. Come back to this section after <strong>6+ months</strong> of practice, when you want to understand market depth more deeply.</p>
 </blockquote>
-<h2 id="why-this-matters">Why This Matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h2>
+<h2 id="why-this-matters">Why This Matters</h2>
 <p>Classical TA (candles, indicators) tells you <strong>what happened to price</strong>.
 Order Flow / Volume Profile tells you <strong>who was trading and at what volumes</strong>.</p>
 <p>Professional traders <strong>watch volume</strong> because price without volume is an illusion. A level <abbr title="A price move through a support or resistance level.">breakout</abbr> without volume is often false; a <abbr title="A price move through a support or resistance level.">breakout</abbr> with heavy volume is real.</p>
 <hr />
-<h2 id="1-concepts">1. Concepts<a class="headerlink" href="#1-concepts" title="Permanent link">&para;</a></h2>
-<h3 id="11-order-book">1.1 Order Book<a class="headerlink" href="#11-order-book" title="Permanent link">&para;</a></h3>
+<h2 id="1-concepts">1. Concepts</h2>
+<h3 id="11-order-book">1.1 Order Book</h3>
 <p>The exchange shows <strong>bids/asks at each price level</strong> in real time:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>                ASK (sellers)
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   1.0855  ┃ 2 500 000 lots
@@ -4367,7 +4367,7 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 <li><strong>Thin <abbr title="How easily an asset trades without moving the price much.">liquidity</abbr></strong> → price will move through the level quickly</li>
 </ul>
 <p>⚠️ <strong>Important:</strong> In forex the order book is <strong>not available</strong> to retail traders (it is an OTC market), unlike crypto exchanges and stock markets.</p>
-<h3 id="12-volume-profile">1.2 Volume Profile<a class="headerlink" href="#12-volume-profile" title="Permanent link">&para;</a></h3>
+<h3 id="12-volume-profile">1.2 Volume Profile</h3>
 <p>A vertical histogram on the right side of the chart showing <strong>how much volume traded at each price level</strong> over a period:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Price │
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1.090 ┃▓▓
@@ -4385,7 +4385,7 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 - <strong>Value Area Low (VAL)</strong> — the bottom of the Value Area
 - <strong>HVN (High Volume Node)</strong> — a zone with high volume — acts as support/resistance
 - <strong>LVN (Low Volume Node)</strong> — a zone with low volume — price moves through it quickly</p>
-<h3 id="13-ict-concepts-inner-circle-trader">1.3 ICT Concepts (Inner Circle Trader)<a class="headerlink" href="#13-ict-concepts-inner-circle-trader" title="Permanent link">&para;</a></h3>
+<h3 id="13-ict-concepts-inner-circle-trader">1.3 ICT Concepts (Inner Circle Trader)</h3>
 <p>A popular methodology (Michael Huddleston). Key ideas:</p>
 <ul>
 <li><strong>Liquidity</strong> — where the stop-losses of the majority of traders are sitting (above swing highs / below swing lows)</li>
@@ -4396,26 +4396,26 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 </ul>
 <p>⚠️ <strong>ICT is a controversial school of thought.</strong> Many critics call it "an overly complex explanation of simple things." Study it critically.</p>
 <hr />
-<h2 id="2-where-to-get-volume-data-in-forex">2. Where to Get Volume Data in Forex<a class="headerlink" href="#2-where-to-get-volume-data-in-forex" title="Permanent link">&para;</a></h2>
+<h2 id="2-where-to-get-volume-data-in-forex">2. Where to Get Volume Data in Forex</h2>
 <p>Because forex is decentralised, <strong>true volume data does not exist</strong>. Proxies are used instead:</p>
-<h3 id="21-tick-volume">2.1 Tick Volume<a class="headerlink" href="#21-tick-volume" title="Permanent link">&para;</a></h3>
+<h3 id="21-tick-volume">2.1 Tick Volume</h3>
 <p>Each price change = 1 tick. Tick volume = the number of ticks per candle. This is an <strong>indirect</strong> measure of activity.</p>
 <p>In MT5: right-click on the chart → <strong>Volumes</strong> → <strong>Tick Volume</strong>.</p>
-<h3 id="22-futures-volume-more-accurate">2.2 Futures Volume (More Accurate)<a class="headerlink" href="#22-futures-volume-more-accurate" title="Permanent link">&para;</a></h3>
+<h3 id="22-futures-volume-more-accurate">2.2 Futures Volume (More Accurate)</h3>
 <p>Real volume from the <strong>futures market</strong> (CME):
 - <strong>6E</strong> — EUR/USD futures
 - <strong>6B</strong> — GBP/USD futures
 - <strong>6J</strong> — JPY futures</p>
 <p>Available via CME data (paid) or TradingView (Pro subscription).</p>
-<h3 id="23-data-aggregators">2.3 Data Aggregators<a class="headerlink" href="#23-data-aggregators" title="Permanent link">&para;</a></h3>
+<h3 id="23-data-aggregators">2.3 Data Aggregators</h3>
 <p>Services that aggregate volume from multiple brokers:
 - <strong>Volfix</strong> (paid)
 - <strong>ATAS</strong> (paid, aimed at prop traders)
 - <strong>Sierra Chart</strong> (paid, more affordable)</p>
 <p>For most retail traders — <strong>tick volume is enough</strong>.</p>
 <hr />
-<h2 id="3-simple-strategies-using-volume-profile">3. Simple Strategies Using Volume Profile<a class="headerlink" href="#3-simple-strategies-using-volume-profile" title="Permanent link">&para;</a></h2>
-<h3 id="31-poc-magnet">3.1 POC Magnet<a class="headerlink" href="#31-poc-magnet" title="Permanent link">&para;</a></h3>
+<h2 id="3-simple-strategies-using-volume-profile">3. Simple Strategies Using Volume Profile</h2>
+<h3 id="31-poc-magnet">3.1 POC Magnet</h3>
 <p><strong>Idea:</strong> Price is "magnetised" toward the previous day's/week's POC.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Steps:
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>1. Build a Volume Profile for yesterday (D1)
@@ -4423,7 +4423,7 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>3. If today's price is far from the POC — wait for a return
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>4. Enter near the POC after a test + candlestick pattern
 </code></pre></div>
-<h3 id="32-value-area-rejection">3.2 Value Area Rejection<a class="headerlink" href="#32-value-area-rejection" title="Permanent link">&para;</a></h3>
+<h3 id="32-value-area-rejection">3.2 Value Area Rejection</h3>
 <p><strong>Idea:</strong> Price bounces off VAH / VAL.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Steps:
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>1. Find yesterday's VAH and VAL
@@ -4432,7 +4432,7 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>4. Stop outside the VA
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>5. Target — POC
 </code></pre></div>
-<h3 id="33-lvn-breakout">3.3 LVN Breakout<a class="headerlink" href="#33-lvn-breakout" title="Permanent link">&para;</a></h3>
+<h3 id="33-lvn-breakout">3.3 LVN Breakout</h3>
 <p><strong>Idea:</strong> Price moves quickly through low-volume zones.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Steps:
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1. Find LVNs (zones with thin bars)
@@ -4441,29 +4441,29 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>4. Stop below the last swing
 </code></pre></div>
 <hr />
-<h2 id="4-how-to-add-volume-profile-in-mt5">4. How to Add Volume Profile in MT5<a class="headerlink" href="#4-how-to-add-volume-profile-in-mt5" title="Permanent link">&para;</a></h2>
+<h2 id="4-how-to-add-volume-profile-in-mt5">4. How to Add Volume Profile in MT5</h2>
 <p>MT5 does not have a built-in Volume Profile. Options:</p>
-<h3 id="option-a-free-indicator">Option A: Free Indicator<a class="headerlink" href="#option-a-free-indicator" title="Permanent link">&para;</a></h3>
+<h3 id="option-a-free-indicator">Option A: Free Indicator</h3>
 <ol>
 <li>Download from mql5.com: "Volume Profile" (free versions are available)</li>
 <li>In MetaEditor: File → Open Data Folder → MQL5/Indicators</li>
 <li>Place the .mq5 / .ex5 file there</li>
 <li>In MT5: Refresh → drag onto the chart</li>
 </ol>
-<h3 id="option-b-tradingview-recommended">Option B: TradingView (Recommended)<a class="headerlink" href="#option-b-tradingview-recommended" title="Permanent link">&para;</a></h3>
+<h3 id="option-b-tradingview-recommended">Option B: TradingView (Recommended)</h3>
 <ol>
 <li>On TradingView: Indicators → Volume Profile Visible Range</li>
 <li>Free in the basic version</li>
 <li>Much more visual than MT5</li>
 </ol>
-<h3 id="option-c-atas--sierra-chart">Option C: ATAS / Sierra Chart<a class="headerlink" href="#option-c-atas--sierra-chart" title="Permanent link">&para;</a></h3>
+<h3 id="option-c-atas--sierra-chart">Option C: ATAS / Sierra Chart</h3>
 <ul>
 <li>Professional platforms</li>
 <li>$50–200/month</li>
 <li>Full Order Flow + Volume Profile + Footprint</li>
 </ul>
 <hr />
-<h2 id="5-footprint-charts-order-flow-bars">5. Footprint Charts (Order Flow Bars)<a class="headerlink" href="#5-footprint-charts-order-flow-bars" title="Permanent link">&para;</a></h2>
+<h2 id="5-footprint-charts-order-flow-bars">5. Footprint Charts (Order Flow Bars)</h2>
 <p>This is an evolution of the standard candle: inside each bar you can see <strong>how many buys and sells occurred at each level</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>EUR/USD H1 — Footprint:
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
@@ -4475,15 +4475,15 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 <p>This reveals the <strong>imbalance</strong> between buyers and sellers <strong>inside the candle</strong>, not just its final result.</p>
 <p>Available on: <strong>ATAS, Sierra Chart, TradingView (Pro+)</strong>.</p>
 <hr />
-<h2 id="6-should-you-learn-this">6. Should You Learn This?<a class="headerlink" href="#6-should-you-learn-this" title="Permanent link">&para;</a></h2>
-<h3 id="-yes-if">✅ Yes, if:<a class="headerlink" href="#-yes-if" title="Permanent link">&para;</a></h3>
+<h2 id="6-should-you-learn-this">6. Should You Learn This?</h2>
+<h3 id="-yes-if">✅ Yes, if:</h3>
 <ul>
 <li>You have 1+ year of successful trading using the basics</li>
 <li>You feel that classical indicators are giving you little edge</li>
 <li>You are willing to study a new system for 6+ months</li>
 <li>You are willing to pay $50–200/month for quality data</li>
 </ul>
-<h3 id="-no-if">❌ No, if:<a class="headerlink" href="#-no-if" title="Permanent link">&para;</a></h3>
+<h3 id="-no-if">❌ No, if:</h3>
 <ul>
 <li>You are a beginner (&lt; 6 months of experience)</li>
 <li>Basic strategies are not yet profitable for you</li>
@@ -4491,7 +4491,7 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 <li>You are not ready to study for a long time</li>
 </ul>
 <hr />
-<h2 id="7-books-on-order-flow--volume-profile">7. Books on Order Flow / Volume Profile<a class="headerlink" href="#7-books-on-order-flow--volume-profile" title="Permanent link">&para;</a></h2>
+<h2 id="7-books-on-order-flow--volume-profile">7. Books on Order Flow / Volume Profile</h2>
 <ol>
 <li><strong>"Mind Over Markets"</strong> — Peter Steidlmayer (the creator of Market Profile)</li>
 <li><strong>"Trading with Market Statistics"</strong> — Tom Alexander</li>
@@ -4499,7 +4499,7 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 <li><strong>"Reading Price Charts Bar by Bar"</strong> — Al Brooks</li>
 </ol>
 <hr />
-<h2 id="8-free-resources">8. Free Resources<a class="headerlink" href="#8-free-resources" title="Permanent link">&para;</a></h2>
+<h2 id="8-free-resources">8. Free Resources</h2>
 <ul>
 <li><strong>YouTube channel "AxiaFutures"</strong> — institutional perspective</li>
 <li><strong>Volumetrica blog</strong> — articles on volume analysis</li>
@@ -4507,7 +4507,7 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 <li><strong>TradingView Education</strong></li>
 </ul>
 <hr />
-<h2 id="9-realistic-expectations">9. Realistic Expectations<a class="headerlink" href="#9-realistic-expectations" title="Permanent link">&para;</a></h2>
+<h2 id="9-realistic-expectations">9. Realistic Expectations</h2>
 <p>Order Flow and Volume Profile are <strong>tools</strong>, not magic.</p>
 <p>❌ They do NOT provide:
 - "Clear entry/exit signals"
@@ -4520,7 +4520,7 @@ Order Flow / Volume Profile tells you <strong>who was trading and at what volume
 - An additional filter for classical setups
 - Confidence in decision-making (after extended study)</p>
 <hr />
-<h2 id="10-steps-to-get-started">10. Steps to Get Started<a class="headerlink" href="#10-steps-to-get-started" title="Permanent link">&para;</a></h2>
+<h2 id="10-steps-to-get-started">10. Steps to Get Started</h2>
 <ol>
 <li><strong>Today:</strong> install TradingView, add Volume Profile Visible Range on EUR/USD</li>
 <li><strong>One week:</strong> observe — where is the POC, VAH, VAL each day. Write down the levels.</li>

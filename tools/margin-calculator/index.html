@@ -3939,13 +3939,13 @@
   
 
 
-<h1 id="-калькулятор-маржи">💰 Калькулятор <abbr title="Средства, замороженные брокером под открытую позицию.">маржи</abbr><a class="headerlink" href="#-калькулятор-маржи" title="Permanent link">&para;</a></h1>
+<h1 id="-калькулятор-маржи">💰 Калькулятор <abbr title="Средства, замороженные брокером под открытую позицию.">маржи</abbr></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Зачем это нужно</p>
 <p>Маржа — это <strong>залог</strong>, который брокер «замораживает» на твоём счёте, пока сделка открыта. Она не теряется, но она не работает: пока она «под позицией», ты не можешь использовать её для других сделок.</p>
 <p>Этот калькулятор показывает, <strong>сколько денег заморозится</strong> при открытии позиции и какую долю депозита это составляет — чтобы ты не открылся слишком крупно и не получил Margin Call.</p>
 </div>
-<h2 id="формула">Формула<a class="headerlink" href="#формула" title="Permanent link">&para;</a></h2>
+<h2 id="формула">Формула</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Маржа ($)          =  Лоты × Контракт × Цена / Плечо
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Использование (%)  =  Маржа / Депозит × 100
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -4137,13 +4137,13 @@
 </div>
 
 <hr />
-<h2 id="ключевые-понятия">Ключевые понятия<a class="headerlink" href="#ключевые-понятия" title="Permanent link">&para;</a></h2>
-<h3 id="что-такое-маржа">Что такое <abbr title="Средства, замороженные брокером под открытую позицию.">маржа</abbr>?<a class="headerlink" href="#что-такое-маржа" title="Permanent link">&para;</a></h3>
+<h2 id="ключевые-понятия">Ключевые понятия</h2>
+<h3 id="что-такое-маржа">Что такое <abbr title="Средства, замороженные брокером под открытую позицию.">маржа</abbr>?</h3>
 <p><strong>Маржа</strong> (Required Margin) — сумма, которую брокер «замораживает» как залог за открытую позицию. Она возвращается на счёт полностью после закрытия сделки. Маржа — это <strong>не потеря</strong>: ты не теряешь маржу, пока сделка не закрыта с убытком.</p>
-<h3 id="свободная-маржа">Свободная <abbr title="Средства, замороженные брокером под открытую позицию.">маржа</abbr><a class="headerlink" href="#свободная-маржа" title="Permanent link">&para;</a></h3>
+<h3 id="свободная-маржа">Свободная <abbr title="Средства, замороженные брокером под открытую позицию.">маржа</abbr></h3>
 <p><strong>Свободная <abbr title="Средства, замороженные брокером под открытую позицию.">маржа</abbr></strong> = Баланс − Использованная <abbr title="Средства, замороженные брокером под открытую позицию.">маржа</abbr></p>
 <p>Это деньги, которые <strong>доступны</strong> тебе прямо сейчас: для открытия новых позиций или для покрытия плавающего убытка по уже открытым.</p>
-<h3 id="уровень-маржи">Уровень <abbr title="Средства, замороженные брокером под открытую позицию.">маржи</abbr><a class="headerlink" href="#уровень-маржи" title="Permanent link">&para;</a></h3>
+<h3 id="уровень-маржи">Уровень <abbr title="Средства, замороженные брокером под открытую позицию.">маржи</abbr></h3>
 <p><strong>Уровень <abbr title="Средства, замороженные брокером под открытую позицию.">маржи</abbr></strong> = (Equity / Использованная <abbr title="Средства, замороженные брокером под открытую позицию.">маржа</abbr>) × 100%</p>
 <p>Где Equity = Баланс + Плавающий P&amp;L.</p>
 <p>Брокеры обычно устанавливают:</p>
@@ -4151,7 +4151,7 @@
 <li><strong>Margin Call</strong> — уровень ~100%: брокер предупреждает, что деньги кончаются.</li>
 <li><strong>Stop Out</strong> — уровень ~50%: брокер <strong>принудительно закрывает</strong> позиции, начиная с наиболее убыточной.</li>
 </ul>
-<h3 id="margin-call-и-stop-out">Margin Call и Stop Out<a class="headerlink" href="#margin-call-и-stop-out" title="Permanent link">&para;</a></h3>
+<h3 id="margin-call-и-stop-out">Margin Call и Stop Out</h3>
 <table>
 <thead>
 <tr>
@@ -4172,7 +4172,7 @@
 </table>
 <p>Проверь конкретные уровни у своего брокера — они различаются.</p>
 <hr />
-<h2 id="пример-расчёта">Пример расчёта<a class="headerlink" href="#пример-расчёта" title="Permanent link">&para;</a></h2>
+<h2 id="пример-расчёта">Пример расчёта</h2>
 <p>Допустим, у тебя:</p>
 <ul>
 <li>Депозит: <strong>$1 000</strong></li>
@@ -4190,7 +4190,7 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># → Использование маржи: 3.60%</span>
 </code></pre></div>
 <hr />
-<h2 id="как-пользоваться">Как пользоваться<a class="headerlink" href="#как-пользоваться" title="Permanent link">&para;</a></h2>
+<h2 id="как-пользоваться">Как пользоваться</h2>
 <ol>
 <li><strong>Депозит</strong> — текущий баланс в USD.</li>
 <li><strong>Лотов</strong> — объём позиции, которую планируешь открыть.</li>
@@ -4205,7 +4205,7 @@
 <li>Выше 50% — опасно, риск Stop Out велик.</li>
 </ul>
 <hr />
-<h2 id="связь-с-python-версией">Связь с Python-версией<a class="headerlink" href="#связь-с-python-версией" title="Permanent link">&para;</a></h2>
+<h2 id="связь-с-python-версией">Связь с Python-версией</h2>
 <p>Это точная JS-копия <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/margin_calculator.py"><code>tools/margin_calculator.py</code></a>. Одинаковая формула, одинаковые пороги. Из терминала:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venv/bin/python<span class="w"> </span>tools/margin_calculator.py<span class="w"> </span>--lots<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>--price<span class="w"> </span><span class="m">1</span>.08<span class="w"> </span>--leverage<span class="w"> </span><span class="m">30</span><span class="w"> </span>--deposit<span class="w"> </span><span class="m">1000</span>
 </code></pre></div>

@@ -3839,13 +3839,13 @@
   
 
 
-<h1 id="-калькулятор-размера-позиции">📐 Калькулятор размера позиции<a class="headerlink" href="#-калькулятор-размера-позиции" title="Permanent link">&para;</a></h1>
+<h1 id="-калькулятор-размера-позиции">📐 Калькулятор размера позиции</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Зачем это нужно</p>
 <p>Размер позиции — главное, что определяет, <strong>выживешь ли ты на рынке</strong>. Если рискуешь 0.5% депозита на сделку, ты можешь проиграть 10 раз подряд и потерять только 5%. Если рискуешь 5%, та же серия 10 убытков <strong>обнулит счёт</strong>.</p>
 <p>Этот калькулятор гарантирует, что ты ставишь <strong>именно то</strong>, что запланировал — никаких импровизаций и эмоций.</p>
 </div>
-<h2 id="формула">Формула<a class="headerlink" href="#формула" title="Permanent link">&para;</a></h2>
+<h2 id="формула">Формула</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Размер риска ($)  =  Депозит × Риск% / 100
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Лотов            =  Размер риска / (Стоп в пипсах × Стоимость пипса)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Округление       ←  вниз до 0.01 (минимум брокера) — реальный риск никогда
@@ -4034,7 +4034,7 @@
 </div>
 
 <hr />
-<h2 id="как-пользоваться">Как пользоваться<a class="headerlink" href="#как-пользоваться" title="Permanent link">&para;</a></h2>
+<h2 id="как-пользоваться">Как пользоваться</h2>
 <ol>
 <li><strong>Депозит</strong> — текущий баланс счёта в USD (или эквивалент твоей валюты счёта в USD).</li>
 <li><strong>Риск на сделку</strong> — какой процент депозита ты готов потерять на одной сделке. Новичку: <strong>0.5%</strong>.</li>
@@ -4044,7 +4044,7 @@
 </ol>
 <p>В результат пиши <strong>только округлённое значение <abbr title="Единица объёма сделки. 1 стандартный лот = 100 000 единиц базовой валюты.">лотов</abbr></strong> в терминал брокера — это то, что реально можно открыть.</p>
 <hr />
-<h2 id="пример-расчёта">Пример расчёта<a class="headerlink" href="#пример-расчёта" title="Permanent link">&para;</a></h2>
+<h2 id="пример-расчёта">Пример расчёта</h2>
 <table>
 <thead>
 <tr>
@@ -4077,7 +4077,7 @@
 </table>
 <p>При проигрыше: 25 <abbr title="Минимальное изменение цены (4-й знак; для JPY-пар — 2-й).">пипсов</abbr> × $10/<abbr title="Минимальное изменение цены (4-й знак; для JPY-пар — 2-й).">пипс</abbr> × 0.02 <abbr title="Единица объёма сделки. 1 стандартный лот = 100 000 единиц базовой валюты.">лот</abbr> = <strong>$5</strong> = 0.5% депозита. Всё точно.</p>
 <hr />
-<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h2 id="best-practices">Best practices</h2>
 <div class="admonition warning">
 <p class="admonition-title">Без стопа не считай</p>
 <p>Если ты не знаешь, <strong>где</strong> твой стоп, ты не можешь посчитать размер позиции. Это значит: ты не понимаешь свою сделку. Не открывай.</p>
@@ -4091,7 +4091,7 @@
 <p>Если хочешь больше потенциальной прибыли — двигай не размер позиции, а <strong>тейк-профит</strong> или используй пирамидинг. Размер позиции — функция от риска, не от уверенности.</p>
 </div>
 <hr />
-<h2 id="связь-с-python-версией">Связь с Python-версией<a class="headerlink" href="#связь-с-python-версией" title="Permanent link">&para;</a></h2>
+<h2 id="связь-с-python-версией">Связь с Python-версией</h2>
 <p>Этот калькулятор — точная JS-копия <a href="https://github.com/MukhammadAmir-Akbarov/forex-toolkit/blob/main/tools/position_calculator.py"><code>tools/position_calculator.py</code></a> из репозитория. Та же формула, те же значения, те же предупреждения. Из терминала:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.venv/bin/python<span class="w"> </span>tools/position_calculator.py<span class="w"> </span>--balance<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--risk<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>--stop<span class="w"> </span><span class="m">25</span><span class="w"> </span>--pair<span class="w"> </span>EURUSD
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># или с актуальным курсом:</span>
