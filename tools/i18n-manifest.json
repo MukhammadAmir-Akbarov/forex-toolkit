@@ -514,10 +514,10 @@
     },
     "tools/replay-trainer.md": {
       "locales": {
-        "en": "943b1ce89ab4fd5320e8639f8eb184014bf8cac172b74bfa31024bd0079d0cac",
-        "uz": "943b1ce89ab4fd5320e8639f8eb184014bf8cac172b74bfa31024bd0079d0cac"
+        "en": "2c216c68e5a42b81e94d925dae8623a751c50d3e06435c19fe2a9162754cb138",
+        "uz": "2c216c68e5a42b81e94d925dae8623a751c50d3e06435c19fe2a9162754cb138"
       },
-      "ru_sha256": "943b1ce89ab4fd5320e8639f8eb184014bf8cac172b74bfa31024bd0079d0cac"
+      "ru_sha256": "2c216c68e5a42b81e94d925dae8623a751c50d3e06435c19fe2a9162754cb138"
     },
     "tools/risk-exposure-calculator.md": {
       "locales": {

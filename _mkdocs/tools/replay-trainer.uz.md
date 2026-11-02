@@ -19,6 +19,13 @@ widgets: [replay]
     3. Replayni boshlashdan oldin darajalar tartibini tekshiring
     4. Sessiyadan keyin zararli epizodlarni alohida tugma bilan takrorlang
 
+!!! tip "Vaqtli rejim — haqiqiy bozor kabi"
+    Yuqori paneldagi **«Vaqtli»** belgisini yoqing: shamlar o'zi yura boshlaydi
+    (1 sham / 2 soniya), qarorni — Buy/Sell va uchala daraja — epizod
+    tugaguncha qabul qilish kerak. Birinchi to'g'ri qaror avtomatik
+    qayd etiladi, o'zgartirib bo'lmaydi. Oxirgi shamgacha qaror qilinmasa —
+    o'tkazish deb yoziladi: bozorda qarorsizlik ham qarordir.
+
 !!! warning "Ta'limiy material — moliyaviy maslahat emas"
     Barcha epizodlar arxiv ma'lumotlaridan olingan. O'tgan samaradorlik kelajakdagi
     natijalarni kafolatlamaydi. Forex savdosi katta yo'qotish xavfi bilan birga keladi.

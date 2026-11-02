@@ -19,6 +19,14 @@ widgets: [replay]
     3. Check the level order before starting Replay
     4. After the session, repeat losing episodes with one button
 
+!!! tip "Timed mode — like the real market"
+    Turn on the **"Timed"** checkbox in the top panel: candles start advancing
+    on their own (1 candle / 2 seconds), and the decision — Buy/Sell plus all
+    three levels — must be made before the episode ends. The first valid
+    decision locks in automatically; there is no changing your mind. No
+    decision by the last candle counts as a skip: on the market, indecision
+    is a decision too.
+
 !!! warning "Educational material — not financial advice"
     All episodes are taken from historical data. Past performance does not guarantee
     future results. Forex trading carries high risk of loss.
