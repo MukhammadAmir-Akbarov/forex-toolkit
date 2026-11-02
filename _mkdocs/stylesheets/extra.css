@@ -2492,6 +2492,8 @@ label[for="__drawer"].fx-menu-hint::after {
 .md-typeset h1 .headerlink,
 .md-typeset h2 .headerlink,
 .md-typeset h3 .headerlink {
-  margin-left: 0.75rem;
+  /* !important: у темы в 9.8 есть правило с большей специфичностью
+     (margin-left: .625rem), letter-spacing перебивается и без него. */
+  margin-left: 0.75rem !important;
   letter-spacing: normal;
 }
