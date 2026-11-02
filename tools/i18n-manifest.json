@@ -449,6 +449,13 @@
       },
       "ru_sha256": "d00c9949e2740ee2b1a5bbe9bcca81ae5914e38db7f59387a8816d8c9ea728c5"
     },
+    "tools/market-analytics.md": {
+      "locales": {
+        "en": "faaf01698ddfd1bd91148b526ca3297d7f157f68a40995f11a2f11a20e88093a",
+        "uz": "faaf01698ddfd1bd91148b526ca3297d7f157f68a40995f11a2f11a20e88093a"
+      },
+      "ru_sha256": "faaf01698ddfd1bd91148b526ca3297d7f157f68a40995f11a2f11a20e88093a"
+    },
     "tools/monte-carlo.md": {
       "locales": {
         "en": "931d9e8c170deee09d424b17c3ece1f786e0b5813ae1a9ee25a044849d367b5f",

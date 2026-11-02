@@ -56,8 +56,12 @@ def site_url(tmp_path_factory) -> str:
         http.server.SimpleHTTPRequestHandler, directory=str(site)
     )
 
-    class Quiet(socketserver.TCPServer):
+    class Quiet(socketserver.ThreadingTCPServer):
+        # Потоковый сервер: однопоточный TCPServer держит одно keep-alive
+        # соединение браузера и не отвечает на остальные — страница грузит
+        # ~30 JS-файлов параллельно и случайные тесты умирают по таймауту.
         allow_reuse_address = True
+        daemon_threads = True
 
     httpd = Quiet(("127.0.0.1", 0), handler)
     port = httpd.server_address[1]

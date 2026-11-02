@@ -45,6 +45,7 @@ SHOWCASE_DATA = (
     "multipair.json",
     "strategies.json",
     "replay-episodes.json",
+    "market-analytics.json",
 )
 
 

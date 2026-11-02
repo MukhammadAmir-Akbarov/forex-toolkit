@@ -450,6 +450,7 @@ nav:
       - 🕯️ Тренажёр паттернов: tools/pattern-trainer.md
       - 🎣 Почему бэктест врёт: tools/overfitting.md
       - 🌍 Перенос на другие пары: tools/multipair.md
+      - 📊 Волатильность и корреляции: tools/market-analytics.md
       - 🏁 Какая стратегия лучше: tools/strategy-ranking.md
       - 🎚️ Ведение открытой позиции: tools/position-management.md
       - 🎓 Итоговый экзамен: tools/exam.md
