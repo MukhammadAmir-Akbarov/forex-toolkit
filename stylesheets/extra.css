@@ -2485,3 +2485,13 @@ label[for="__drawer"].fx-menu-hint::after {
 /* Правило подсчёта набрано мельче, но остаётся на виду: без него числа
    выглядели бы точнее, чем они есть. */
 .pm-note { font-size: 0.85rem; color: var(--md-default-fg-color--light); }
+
+/* Пермалинк ¶ в крупных заголовках: letter-spacing темы (-0.02em) визуально
+   «склеивает» его с последним словом, а у h1 со стандартным margin-left
+   зазор почти не читается. Даём явный воздух и нормальный трекинг. */
+.md-typeset h1 .headerlink,
+.md-typeset h2 .headerlink,
+.md-typeset h3 .headerlink {
+  margin-left: 0.75rem;
+  letter-spacing: normal;
+}
