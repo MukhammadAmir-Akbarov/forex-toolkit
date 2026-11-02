@@ -65,7 +65,12 @@
       chartDescription: "Текстовое описание графика", candle: "Свеча", open: "Open", high: "High", low: "Low", close: "Close",
       queue: "Персональная тренировка", queueNone: "Очередь журнала выполнена или ещё не создана.",
       queueStop: "Постановка стопа до входа", queueFomo: "Осознанный пропуск без FOMO",
-      queueRules: "Решение строго по процессу", queueStructure: "Слабая структура рынка"
+      queueRules: "Решение строго по процессу", queueStructure: "Слабая структура рынка",
+      timed: "На время: свечи идут сами (1 / 2 сек)",
+      timedTick: function (n, total) {
+        return "⏱ Свеча " + n + " из " + total + " — решение до конца эпизода, рынок не ждёт.";
+      },
+      timedOut: "Время вышло — не решился. Записано как пропуск"
     },
     en: {
       loading: "Loading episodes...",
@@ -118,7 +123,12 @@
       chartDescription: "Text chart description", candle: "Candle", open: "Open", high: "High", low: "Low", close: "Close",
       queue: "Personal practice", queueNone: "The journal queue is complete or has not been created yet.",
       queueStop: "Place the stop before entry", queueFomo: "Intentional skip without FOMO",
-      queueRules: "Decision strictly by process", queueStructure: "Weak market structure"
+      queueRules: "Decision strictly by process", queueStructure: "Weak market structure",
+      timed: "Timed: candles advance on their own (1 / 2 sec)",
+      timedTick: function (n, total) {
+        return "⏱ Candle " + n + " of " + total + " — decide before the episode ends; the market will not wait.";
+      },
+      timedOut: "Time is up — no decision. Counted as a skip"
     },
     uz: {
       loading: "Epizodlar yuklanmoqda...",
@@ -171,7 +181,12 @@
       chartDescription: "Grafikning matnli tavsifi", candle: "Sham", open: "Open", high: "High", low: "Low", close: "Close",
       queue: "Shaxsiy mashq", queueNone: "Jurnal navbati bajarilgan yoki hali yaratilmagan.",
       queueStop: "Kirishdan oldin stop qo'yish", queueFomo: "FOMOsiz ongli o'tkazish",
-      queueRules: "Jarayon bo'yicha qaror", queueStructure: "Zaif bozor tuzilmasi"
+      queueRules: "Jarayon bo'yicha qaror", queueStructure: "Zaif bozor tuzilmasi",
+      timed: "Vaqtli: shamlar o'zi yuradi (1 / 2 soniya)",
+      timedTick: function (n, total) {
+        return "⏱ Sham " + n + " / " + total + " — epizod tugaguncha qaror qiling, bozor kutmaydi.";
+      },
+      timedOut: "Vaqt tugadi — qaror qabul qilinmadi. O'tkazish deb yozildi"
     },
   };
   var T = I18N[lang];
@@ -198,6 +213,8 @@
     ".rp-level-value{font-family:monospace;font-size:.8rem;min-width:6.5rem}",
     ".rp-level-entry{color:#facc15}.rp-level-sl{color:#f87171}.rp-level-tp{color:#2dd4bf}",
     ".rp-hint,.rp-meta,.rp-progress{font-size:.8rem;color:var(--md-default-fg-color--light)}",
+    ".rp-timed{display:flex;align-items:center;gap:.3rem;font-size:.78rem;color:var(--md-default-fg-color--light);cursor:pointer}",
+    ".rp-timer{font-size:.8rem;color:#facc15;min-height:1.2rem;margin-top:.4rem;font-weight:600}",
     ".rp-hint{min-height:1.3rem;margin:.5rem 0}",
     ".rp-error{color:#f87171}",
     ".rp-result{margin-top:.85rem;padding:.75rem 1rem;border-radius:7px;font-weight:650}",
@@ -230,6 +247,8 @@
   var placement = "entry";
   var levels = { entry: null, sl: null, tp: null };
   var running = false;
+  var timedTimer = null;
+  var timedIndex = 0;
   var chartScale = null;
   var stats = newStats();
   var repeatQueue = null;
@@ -300,6 +319,8 @@
       '<select class="rp-select" id="rp-pair">' + options(pairs) + "</select>",
       '<label for="rp-tf">' + T.timeframe + "</label>",
       '<select class="rp-select" id="rp-tf">' + options(timeframes) + "</select>",
+      '<label class="rp-timed" for="rp-timed"><input type="checkbox" id="rp-timed"> ' +
+        T.timed + "</label>",
       "</div>",
       '<div class="rp-meta" id="rp-meta"></div>',
       '<canvas id="replay-canvas" height="340" tabindex="0" role="img" aria-describedby="rp-chart-description"></canvas>',
@@ -320,6 +341,7 @@
       levelButton("tp", T.tp),
       "</div>",
       '<div class="rp-hint" id="rp-hint">' + T.chooseDirection + "</div>",
+      '<div class="rp-timer" id="rp-timerline"></div>',
       '<button class="rp-btn rp-start" id="rp-start" disabled>' + T.start + "</button>",
       '<div id="rp-result" style="display:none"></div>',
       '<div class="rp-progress" id="rp-progress"></div>',
@@ -327,6 +349,7 @@
 
     document.getElementById("rp-pair").addEventListener("change", resetFiltered);
     document.getElementById("rp-tf").addEventListener("change", resetFiltered);
+    document.getElementById("rp-timed").addEventListener("change", resetFiltered);
     document.getElementById("rp-buy").addEventListener("click", function () {
       chooseDirection("buy");
     });
@@ -419,7 +442,7 @@
       var ep = currentEpisode();
       if (levels[placement] === null) levels[placement] = price(ep, ep.k[ep.ctx - 1][3]);
       levels[placement] = roundToPip(levels[placement] + (key === "arrowup" ? ep.pip : -ep.pip), ep.pip);
-      updateLevelUI(); validateLevels(false); drawChart(ep, ep.ctx - 1, false, null);
+      updateLevelUI(); validateLevels(false); drawChart(ep, decisionUpTo(ep), timedMode(), null);
       return;
     } else return;
     event.preventDefault();
@@ -427,6 +450,7 @@
 
   function resetFiltered() {
     if (running) return;
+    stopDecisionTimer();
     repeatQueue = null;
     stats = newStats();
     idx = 0;
@@ -455,8 +479,53 @@
     return order[idx];
   }
 
+  function timedMode() {
+    var box = document.getElementById("rp-timed");
+    return Boolean(box && box.checked);
+  }
+
+  function stopDecisionTimer() {
+    if (timedTimer !== null) {
+      window.clearInterval(timedTimer);
+      timedTimer = null;
+    }
+    var line = document.getElementById("rp-timerline");
+    if (line) line.textContent = "";
+  }
+
+  /* Режим «на время»: будущие свечи идут сами (1 / 2 сек), уровни ставятся
+     в темпе, пока эпизод не кончился. Первое валидное решение фиксируется
+     само — на реальном рынке «передумать» не предлагают. Не решился до
+     последней свечи — пропуск: отсутствие решения тоже решение. */
+  function startDecisionTimer(ep) {
+    timedIndex = ep.ctx;
+    var total = ep.k.length - ep.ctx;
+    timedTimer = window.setInterval(function () {
+      if (running) return stopDecisionTimer();
+      if (validationMessage() === "") {
+        stopDecisionTimer();
+        startReplay();
+        return;
+      }
+      if (timedIndex >= ep.k.length) {
+        stopDecisionTimer();
+        stats.skips++;
+        stats.history.push(historyItem("timeout", 0));
+        setControlsEnabled(false);
+        drawChart(ep, ep.k.length - 1, true, null);
+        showResult("timeout", 0);
+        return;
+      }
+      var line = document.getElementById("rp-timerline");
+      if (line) line.textContent = T.timedTick(timedIndex - ep.ctx + 1, total);
+      drawChart(ep, timedIndex, true, null);
+      timedIndex++;
+    }, 2000);
+  }
+
   function showEpisode() {
     if (!order.length) return showError();
+    stopDecisionTimer();
     running = false;
     action = null;
     placement = "entry";
@@ -477,6 +546,7 @@
     updateLevelUI();
     updateProgress();
     drawChart(ep, ep.ctx - 1, false, null);
+    if (timedMode()) startDecisionTimer(ep);
   }
 
   function chooseDirection(direction) {
@@ -505,6 +575,14 @@
     });
   }
 
+  /* Куда дорисовывать график при правке уровней: в режиме «на время» —
+     до последней показанной свечи, иначе таймер перерисует через тик. */
+  function decisionUpTo(ep) {
+    return timedMode() && timedTimer !== null
+      ? Math.max(timedIndex - 1, ep.ctx - 1)
+      : ep.ctx - 1;
+  }
+
   function placeLevel(event) {
     if (running) return;
     if (!action) return setHint(T.chooseDirection, true);
@@ -519,7 +597,8 @@
     else if (placement === "sl") selectPlacement("tp");
     updateLevelUI();
     validateLevels(false);
-    drawChart(currentEpisode(), currentEpisode().ctx - 1, false, null);
+    var ep = currentEpisode();
+    drawChart(ep, decisionUpTo(ep), timedMode(), null);
   }
 
   function roundToPip(price, pip) {
@@ -586,6 +665,7 @@
 
   function skipEpisode() {
     if (running) return;
+    stopDecisionTimer();
     stats.skips++;
     stats.history.push(historyItem("skip", 0));
     setControlsEnabled(false);
@@ -595,13 +675,17 @@
   function startReplay() {
     if (!validateLevels(true)) return;
     running = true;
+    stopDecisionTimer();
     setControlsEnabled(false);
-    replayFuture();
+    // В режиме «на время» решение фиксируется на текущей свече — вход и
+    // выходы оцениваются только с неё, прошлое эпизода не переигрывается.
+    var ep = currentEpisode();
+    replayFuture(timedMode() ? Math.max(timedIndex, ep.ctx) : ep.ctx);
   }
 
-  function replayFuture() {
+  function replayFuture(startAt) {
     var ep = currentEpisode();
-    var current = ep.ctx;
+    var current = startAt;
     var entered = false;
     var result = null;
     var resultR = 0;
@@ -686,7 +770,8 @@
 
   function showResult(type, resultR) {
     if (window.FXTrainingQueue) {
-      window.FXTrainingQueue.advance(type === "skip" ? "skip" : (action || "trade"), currentEpisode().cat);
+      var queueOutcome = type === "skip" || type === "timeout" ? "skip" : (action || "trade");
+      window.FXTrainingQueue.advance(queueOutcome, currentEpisode().cat);
       renderTraining();
     }
     var element = document.getElementById("rp-result");
@@ -697,7 +782,9 @@
         ? T.loss
         : type === "not_triggered"
           ? T.notTriggered
-          : T.skipped;
+          : type === "timeout"
+            ? T.timedOut
+            : T.skipped;
     var className = type === "win"
       ? "rp-result-win"
       : type === "loss"
