@@ -2485,19 +2485,5 @@ label[for="__drawer"].fx-menu-hint::after {
 /* Правило подсчёта набрано мельче, но остаётся на виду: без него числа
    выглядели бы точнее, чем они есть. */
 .pm-note { font-size: 0.85rem; color: var(--md-default-fg-color--light); }
-
-/* Пермалинк ¶ в заголовках всех уровней: letter-spacing темы (-0.02em)
-   визуально «склеивает» его с последним словом, а со стандартным
-   margin-left зазор почти не читается. Даём явный воздух и нормальный
-   трекинг. Правило глобальное: действует на все разделы и языки. */
-.md-typeset h1 .headerlink,
-.md-typeset h2 .headerlink,
-.md-typeset h3 .headerlink,
-.md-typeset h4 .headerlink,
-.md-typeset h5 .headerlink,
-.md-typeset h6 .headerlink {
-  /* !important: у темы в 9.8 есть правило с большей специфичностью
-     (margin-left: .625rem), letter-spacing перебивается и без него. */
-  margin-left: 0.75rem !important;
-  letter-spacing: normal;
-}
+/* Пермалинк ¶ отключён в mkdocs.yml (toc.permalink: false, 2026-11-02) —
+   правил для .headerlink здесь больше нет, потому что самого элемента нет. */
