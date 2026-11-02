@@ -11,10 +11,15 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import pytest
 
 LOCALES = ["", "en/", "uz/"]
 PLANS = ["hold", "be", "partial", "trail"]
+
+DATA = Path(__file__).resolve().parent.parent / "_mkdocs" / "data"
 
 
 def _open(page, site_url, prefix):
@@ -59,9 +64,11 @@ def test_the_verdict_counts_the_whole_archive(pw_page, site_url):
     page.wait_for_selector(".pm-overall")
 
     overall = page.text_content(".pm-overall")
-    # 80 эпизодов в обе стороны — сводка обязана быть по 160 сделкам, а не по
-    # одной показанной.
-    assert "160" in overall, overall
+    # Все эпизоды в обе стороны — сводка обязана быть по episodes×2 сделкам,
+    # а не по одной показанной.
+    document = json.loads((DATA / "replay-episodes.json").read_text(encoding="utf-8"))
+    expected = len(document["episodes"]) * 2
+    assert str(expected) in overall, overall
 
 
 def test_browser_matches_python_on_the_whole_archive(pw_page, site_url):

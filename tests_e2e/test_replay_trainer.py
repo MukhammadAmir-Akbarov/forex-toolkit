@@ -1,6 +1,17 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import pytest
+
+DATA = Path(__file__).resolve().parent.parent / "_mkdocs" / "data"
+
+
+def _expected_pair_count() -> int:
+    """Селектор пар строится из replay-episodes.json — ждём столько же опций."""
+    document = json.loads((DATA / "replay-episodes.json").read_text(encoding="utf-8"))
+    return len({episode["pair"] for episode in document["episodes"]})
 
 
 @pytest.mark.parametrize("prefix", ["", "en/", "uz/"])
@@ -9,7 +20,7 @@ def test_replay_2_loads_market_catalog(site_url, pw_page, prefix):
     page.goto(f"{site_url}/{prefix}tools/replay-trainer/")
     page.wait_for_selector("#rp-pair")
 
-    assert page.locator("#rp-pair option").count() == 4
+    assert page.locator("#rp-pair option").count() == _expected_pair_count()
     assert page.locator("#rp-tf option").count() == 2
     assert page.locator("#replay-canvas").is_visible()
 
