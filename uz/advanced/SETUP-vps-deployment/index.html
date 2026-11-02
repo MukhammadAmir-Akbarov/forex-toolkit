@@ -31,7 +31,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -39,10 +39,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -4622,21 +4622,21 @@
 <li><strong>Create</strong> tugmasini bosing → 30 soniyadan keyin server tayyor</li>
 </ol>
 <h4 id="ssh-kalitini-yaratish-macingizda">SSH kalitini yaratish (Mac'ingizda)<a class="headerlink" href="#ssh-kalitini-yaratish-macingizda" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">"your_email@example.com"</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Enter, Enter, Enter (parol ixtiyoriy)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Chiqishni nusxalang → server yaratishda Hetzner&#39;ga joylashtiring</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Chiqishni nusxalang → server yaratishda Hetzner'ga joylashtiring</span>
 </code></pre></div>
 <h3 id="2-qadam-serverga-ulanish">2-qadam: Serverga ulanish<a class="headerlink" href="#2-qadam-serverga-ulanish" title="Permanent link">&para;</a></h3>
 <p>Yaratilgandan so'ng <strong>IP-manzil</strong> olasiz, masalan <code>116.203.45.67</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>root@116.203.45.67
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># birinchi marta tasdiqlash so&#39;raldi, yes deb javob bering</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># birinchi marta tasdiqlash so'raldi, yes deb javob bering</span>
 </code></pre></div>
 <h3 id="3-qadam-serverni-asosiy-sozlash">3-qadam: Serverni asosiy sozlash<a class="headerlink" href="#3-qadam-serverni-asosiy-sozlash" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Paketlarni yangilash</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Asboblarni o&#39;rnatish</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Asboblarni o'rnatish</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv<span class="w"> </span>git<span class="w"> </span>tmux<span class="w"> </span>htop<span class="w"> </span>curl
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Foydalanuvchi yaratish (root ostida ishlamang!)</span>
@@ -4651,16 +4651,16 @@
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># Root kirish imkonini yopish (xavfsizlik)</span>
 <a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>nano<span class="w"> </span>/etc/ssh/sshd_config
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1"># Topib o&#39;zgartiring: PermitRootLogin no</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="c1"># Topib o'zgartiring: PermitRootLogin no</span>
 <a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>ssh
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="c1"># Xavfsizlik devori</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>apt<span class="w"> </span>install<span class="w"> </span>ufw<span class="w"> </span>-y
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>ufw<span class="w"> </span>allow<span class="w"> </span>OpenSSH
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">8501</span><span class="w">  </span><span class="c1"># streamlit (agar kerak bo&#39;lsa)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">8501</span><span class="w">  </span><span class="c1"># streamlit (agar kerak bo'lsa)</span>
 <a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>ufw<span class="w"> </span><span class="nb">enable</span>
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="c1"># Root&#39;dan chiqish</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="c1"># Root'dan chiqish</span>
 <a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="nb">exit</span>
 </code></pre></div>
 <p>Bundan keyin <code>trader</code> sifatida ulaning:
@@ -4670,7 +4670,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># VPS da</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>~
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/trading.git
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># YOKI fayllarni Mac&#39;ingizdan scp orqali ko&#39;chiring:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># YOKI fayllarni Mac'ingizdan scp orqali ko'chiring:</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># scp -r /Users/mukhammadamir/Sites/WORK/trading trader@116.203.45.67:~/</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nb">cd</span><span class="w"> </span>trading
@@ -4678,7 +4678,7 @@
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Virtual muhit</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># pastga qarang</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Yoki qo&#39;lda:</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Yoki qo'lda:</span>
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>matplotlib<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>python-docx<span class="w"> </span>jinja2<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span>yfinance<span class="w"> </span>requests<span class="w"> </span>beautifulsoup4<span class="w"> </span>reportlab
 </code></pre></div>
@@ -4699,8 +4699,8 @@
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="na">Type</span><span class="o">=</span><span class="s">oneshot</span>
 <a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="na">User</span><span class="o">=</span><span class="s">trader</span>
 <a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/home/trader/trading</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="na">Environment</span><span class="o">=</span><span class="s">&quot;TELEGRAM_BOT_TOKEN=YOUR_TOKEN_HERE&quot;</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="na">Environment</span><span class="o">=</span><span class="s">&quot;TELEGRAM_CHAT_ID=YOUR_CHAT_ID&quot;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="na">Environment</span><span class="o">=</span><span class="s">"TELEGRAM_BOT_TOKEN=YOUR_TOKEN_HERE"</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="na">Environment</span><span class="o">=</span><span class="s">"TELEGRAM_CHAT_ID=YOUR_CHAT_ID"</span>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/home/trader/trading/.venv/bin/python advanced/telegram_alerts.py --symbol EURUSD</span>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="k">[Install]</span>
@@ -4817,7 +4817,7 @@
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="m">0</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>~/backups/trading-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>~/trading
 </code></pre></div>
 <h4 id="s3--backblazega-zaxiralash-tashqi">S3 / Backblaze'ga zaxiralash (tashqi)<a class="headerlink" href="#s3--backblazega-zaxiralash-tashqi" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># rclone o&#39;rnatish</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># rclone o'rnatish</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>curl<span class="w"> </span>https://rclone.org/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>bash
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>rclone<span class="w"> </span>config<span class="w">  </span><span class="c1"># Backblaze B2 / AWS S3 sozlash</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
@@ -4846,7 +4846,7 @@
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>streamlit-forex.service<span class="w"> </span>-f
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
 <a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Oxirgi 24 soat uchun</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>journalctl<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;24 hours ago&quot;</span><span class="w"> </span>-u<span class="w"> </span>telegram-alerts.service
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>journalctl<span class="w"> </span>--since<span class="w"> </span><span class="s2">"24 hours ago"</span><span class="w"> </span>-u<span class="w"> </span>telegram-alerts.service
 </code></pre></div></p>
 <hr />
 <h2 id="4-qism-xavfsizlik">4-qism: Xavfsizlik<a class="headerlink" href="#4-qism-xavfsizlik" title="Permanent link">&para;</a></h2>
@@ -4941,7 +4941,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Telegram Alerts</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nt">on</span><span class="p">:</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&#39;</span><span class="w">  </span><span class="c1"># har soat</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">'0</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*'</span><span class="w">  </span><span class="c1"># har soat</span>
 <a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
 <a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
 <a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="nt">jobs</span><span class="p">:</span>
@@ -4951,7 +4951,7 @@
 <a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
 <a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v5</span>
 <a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.11'</span>
 <a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
 <a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">env</span><span class="p">:</span>
 <a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="w">          </span><span class="nt">TELEGRAM_BOT_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.TELEGRAM_BOT_TOKEN }}</span>
@@ -4962,12 +4962,12 @@
 <hr />
 <h2 id="vps-tayyor-bolish-nazorat-royxati">VPS tayyor bo'lish nazorat ro'yxati<a class="headerlink" href="#vps-tayyor-bolish-nazorat-royxati" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>☐ VPS yaratildi va SSH ishlayapti
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>☐ Root bo&#39;lmagan foydalanuvchi yaratildi
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>☐ Root SSH o&#39;chirildi
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>☐ Root bo'lmagan foydalanuvchi yaratildi
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>☐ Root SSH o'chirildi
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>☐ Xavfsizlik devori (ufw / Windows Firewall) sozlandi
 <a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>☐ Loyiha klonlandi
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>☐ venv yaratildi, bog&#39;liqliklar o&#39;rnatildi
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>☐ .env fayli tokenlar bilan joyida (Git&#39;da emas!)
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>☐ venv yaratildi, bog'liqliklar o'rnatildi
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>☐ .env fayli tokenlar bilan joyida (Git'da emas!)
 <a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>☐ Systemd-servis sozlandi va ishga tushirildi
 <a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>☐ Loglar tekshirildi
 <a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>☐ UptimeRobot sozlandi
@@ -5262,11 +5262,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.tooltips", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Buferga nusxalandi", "clipboard.copy": "Buferga nusxalash", "search.result.more.one": "Ushbu sahifada yana 1 ta natija", "search.result.more.other": "Bu sahifada yana # ta natija", "search.result.none": "Mos natijalar yo\u0027q", "search.result.one": "1 ta mos natija", "search.result.other": "# ta mos keladigan natijalar", "search.result.placeholder": "Qidiruvni boshlash uchun kiriting", "search.result.term.missing": "To\u0027ldirilmagan", "select.version": "Versiyani tanlang"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.tooltips", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Buferga nusxalandi", "clipboard.copy": "Buferga nusxalash", "search.result.more.one": "Ushbu sahifada yana 1 ta natija", "search.result.more.other": "Bu sahifada yana # ta natija", "search.result.none": "Mos natijalar yo\u0027q", "search.result.one": "1 ta mos natija", "search.result.other": "# ta mos keladigan natijalar", "search.result.placeholder": "Qidiruvni boshlash uchun kiriting", "search.result.term.missing": "To\u0027ldirilmagan", "select.version": "Versiyani tanlang"}, "version": null}</script>
     
     
   
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../javascripts/analytics.js"></script>
       

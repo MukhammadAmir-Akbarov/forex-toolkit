@@ -31,7 +31,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -39,10 +39,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -3910,13 +3910,13 @@
 <li>Импорт тури: «Варақни алмаштириш»</li>
 <li>Иккинчи варақда таҳлил учун формула сарлавҳаларини яратинг:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>B2: =COUNTIF(Trades!U:U,&quot;Win&quot;)                 // g&#39;alabalar soni
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>B3: =COUNTIF(Trades!U:U,&quot;Loss&quot;)                // yutqiziqlar soni
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>B2: =COUNTIF(Trades!U:U,"Win")                 // g'alabalar soni
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>B3: =COUNTIF(Trades!U:U,"Loss")                // yutqiziqlar soni
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>B4: =B2/(B2+B3)                                // win rate
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>B5: =SUMIF(Trades!U:U,&quot;Win&quot;,Trades!S:S)        // foydalar yig&#39;indisi
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>B6: =-SUMIF(Trades!U:U,&quot;Loss&quot;,Trades!S:S)      // zararlar yig&#39;indisi (mutlaq qiymat)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>B5: =SUMIF(Trades!U:U,"Win",Trades!S:S)        // foydalar yig'indisi
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>B6: =-SUMIF(Trades!U:U,"Loss",Trades!S:S)      // zararlar yig'indisi (mutlaq qiymat)
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>B7: =B5/B6                                     // profit factor
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>B8: =B5+SUMIF(Trades!U:U,&quot;Loss&quot;,Trades!S:S)    // sof P&amp;L
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>B8: =B5+SUMIF(Trades!U:U,"Loss",Trades!S:S)    // sof P&amp;L
 </code></pre></div>
 <h3 id="2-variant-obsidian--vscodeda-markdown">2-вариант: Обсидиан / ВССодеъда Маркдовн<a class="headerlink" href="#2-variant-obsidian--vscodeda-markdown" title="Permanent link">&para;</a></h3>
 <ol>
@@ -4344,11 +4344,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.tooltips", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Buferga nusxalandi", "clipboard.copy": "Buferga nusxalash", "search.result.more.one": "Ushbu sahifada yana 1 ta natija", "search.result.more.other": "Bu sahifada yana # ta natija", "search.result.none": "Mos natijalar yo\u0027q", "search.result.one": "1 ta mos natija", "search.result.other": "# ta mos keladigan natijalar", "search.result.placeholder": "Qidiruvni boshlash uchun kiriting", "search.result.term.missing": "To\u0027ldirilmagan", "select.version": "Versiyani tanlang"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.highlight", "search.suggest", "search.share", "content.tooltips", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Buferga nusxalandi", "clipboard.copy": "Buferga nusxalash", "search.result.more.one": "Ushbu sahifada yana 1 ta natija", "search.result.more.other": "Bu sahifada yana # ta natija", "search.result.none": "Mos natijalar yo\u0027q", "search.result.one": "1 ta mos natija", "search.result.other": "# ta mos keladigan natijalar", "search.result.placeholder": "Qidiruvni boshlash uchun kiriting", "search.result.term.missing": "To\u0027ldirilmagan", "select.version": "Versiyani tanlang"}, "version": null}</script>
     
     
   
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../javascripts/analytics.js"></script>
       
