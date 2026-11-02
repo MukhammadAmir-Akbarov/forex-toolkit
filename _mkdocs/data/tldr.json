@@ -1,0 +1,437 @@
+{
+ "about": {
+  "ru": "Проект бесплатный и без продаж: один автор делится тем, что узнал о форексе за годы практики, — чтобы новичок не платил за «курсы» то, что должно быть открытым.",
+  "en": "The project is free with nothing to sell: one author shares what years of practice taught him about forex — so a beginner doesn't pay for “courses” what should be open.",
+  "uz": "Loyiha bepul va sotuvlarsiz: bitta muallif ko'p yillik amaliyotidan bilganlarini bo'lishadi — boshlovchi ochiq bo'lishi kerak bo'lgan narsaga «kurslar» uchun to'lamasin."
+ },
+ "advanced/SETUP-mt5": {
+  "ru": "Пошаговая установка MetaTrader 5: скачивание, вход в счёт, график, первая сделка. Держи под рукой, пока ставишь терминал.",
+  "en": "Step-by-step MetaTrader 5 setup: download, account login, chart, first trade. Keep it at hand while installing the terminal.",
+  "uz": "MetaTrader 5 ni bosqichma-bosqich o'rnatish: yuklab olish, hisobga kirish, grafik, birinchi bitim. Terminalni o'rnatayotganda yonida tursin."
+ },
+ "advanced/SETUP-streamlit": {
+  "ru": "Запуск локального бэктестера на Streamlit: одна команда — и стратегию можно гонять по истории в браузере с графиками.",
+  "en": "Run the local Streamlit backtester: one command — and you can replay a strategy on history in the browser with charts.",
+  "uz": "Streamlit'dagi lokal bektesterni ishga tushirish: bitta buyruq — va strategiyani tarixda brauzerda grafiklar bilan sinaysiz."
+ },
+ "advanced/SETUP-telegram": {
+  "ru": "Подключение Telegram-бота проекта: токен, chat id, запуск — и сигналы стратегии приходят в мессенджер.",
+  "en": "Connect the project's Telegram bot: token, chat id, launch — and strategy signals arrive in your messenger.",
+  "uz": "Loyihaning Telegram-botini ulash: token, chat id, ishga tushirish — va strategiya signallari messenjerga keladi."
+ },
+ "advanced/SETUP-vps-deployment": {
+  "ru": "Как держать бота работающим 24/7: аренда VPS, перенос файлов, автозапуск. Нужен, только когда стратегия уже проверена.",
+  "en": "How to keep a bot running 24/7: rent a VPS, move the files, autostart. You need this only after the strategy is proven.",
+  "uz": "Botni 24/7 ishlatish: VPS ijarasi, fayllarni ko'chirish, avtoyuklash. Bu faqat strategiya tekshirilgandan keyin kerak."
+ },
+ "bot/README": {
+  "ru": "Детектор сигналов по стратегии EMA50: скрипт смотрит свежие свечи и шлёт сигнал в Telegram. Это помощник, не «машина денег» — правила решаешь ты.",
+  "en": "A signal detector for the EMA50 strategy: the script watches fresh candles and sends signals to Telegram. It's an assistant, not a “money machine” — you make the rules.",
+  "uz": "EMA50 strategiyasi bo'yicha signal detektori: skript yangi shamlarni kuzatadi va Telegram'ga signal yuboradi. Bu yordamchi, «pul mashinasi» emas — qoidalarni siz belgilaysiz."
+ },
+ "docs/broker-mechanics-101": {
+  "ru": "Что брокер делает на самом деле: где берётся цена, почему спред растёт на новостях и как твой стоп становится чьей-то ликвидностью. Читать до первого реального счёта.",
+  "en": "What a broker actually does: where the price comes from, why spreads widen on news, and how your stop becomes someone's liquidity. Read before your first real account.",
+  "uz": "Broker aslida nima qiladi: narx qayerdan olinadi, yangiliklarda spred nega o'sadi va stopingiz qanday qilib kimningdir likvidligiga aylanadi. Birinchi real hisobdan oldin o'qing."
+ },
+ "docs/fundamental-analysis-guide": {
+  "ru": "Экономика, которая двигает валюты: ставки, инфляция, отчёты. Для новичка достаточно календаря и правила «не стоять в сделке в красные новости».",
+  "en": "The economics that moves currencies: rates, inflation, reports. For a beginner, a calendar plus “don't hold trades through red news” is enough.",
+  "uz": "Valyutalarni harakatlantiradigan iqtisod: stavkalar, inflyatsiya, hisobotlar. Boshlovchiga kalendar va «qizil yangiliklarda bitimda turma» qoidasi kifoya."
+ },
+ "docs/order-types-mechanics": {
+  "ru": "Market, limit, stop и отложенные ордера: чем отличаются и когда какой ставить. Главное — вход всегда заранее известен, стоп — тоже.",
+  "en": "Market, limit, stop and pending orders: how they differ and when to use which. The key point — the entry is always known in advance, and so is the stop.",
+  "uz": "Market, limit, stop va kechiktirilgan orderlar: farqi va qachon qaysi birini qo'yish. Asosiysi — kirish har doim oldindan ma'lum, stop ham."
+ },
+ "docs/real-analysis": {
+  "ru": "Разбор реального графика EUR/USD по шагам: тренд, уровни, точка входа. Показывает, как теория превращается в конкретное решение.",
+  "en": "A step-by-step walkthrough of a real EUR/USD chart: trend, levels, entry point. Shows how theory turns into a concrete decision.",
+  "uz": "Haqiqiy EUR/USD grafigini bosqichma-bosqich tahlil: trend, darajalar, kirish nuqtasi. Nazariya qanday aniq qarorga aylanishini ko'rsatadi."
+ },
+ "docs/strategy-details": {
+  "ru": "Единственная стратегия проекта во всех деталях: вход на откате к EMA50 по тренду, стоп, тейк, фильтры. Читать до конца прежде, чем искать «ещё одну».",
+  "en": "The project's single strategy in full detail: entry on a pullback to EMA50 with the trend, stop, target, filters. Read it to the end before hunting for “one more”.",
+  "uz": "Loyihaning yagona strategiyasi to'liq: trend bo'yicha EMA50 ga otkatda kirish, stop, teyk, filtrlar. «Yana bittasini» izlashdan oldin oxirigacha o'qing."
+ },
+ "docs/technical-analysis": {
+  "ru": "Расширенный теханализ: тренды, уровни, индикаторы, объёмы. Не зубрить, а держать как справочник рядом с графиком.",
+  "en": "Extended technical analysis: trends, levels, indicators, volumes. Don't memorize it — keep it as a reference next to your chart.",
+  "uz": "Kengaytirilgan texnik tahlil: trendlar, darajalar, indikatorlar, hajmlar. Yodlamang — grafik yonida qo'llanma sifatida tursin."
+ },
+ "extras/anti-tilt-protocol": {
+  "ru": "Что делать, когда накрывает после серии убытков: остановиться, выйти из терминала, разобрать по чек-листу. Тилт убивает счёт быстрее плохой стратегии.",
+  "en": "What to do when a losing streak gets to you: stop, leave the terminal, review with the checklist. Tilt kills an account faster than a bad strategy.",
+  "uz": "Zararlar seriyasi bosib olganda nima qilish kerak: to'xtash, terminaldan chiqish, chek-list bo'yicha tahlil. Tilt hisobni yomon strategiyadan tezroq o'ldiradi."
+ },
+ "extras/brokers-comparison": {
+  "ru": "Ориентиры для выбора брокера: регуляция, спреды, вывод денег. Не реклама конкретных имён — рамка, по которой проверяешь любого.",
+  "en": "Guidelines for choosing a broker: regulation, spreads, withdrawals. Not an ad for specific names — a frame to check any broker against.",
+  "uz": "Broker tanlash mezonlari: regulyatsiya, spredlar, pul chiqarish. Muayyan nomlarning reklamasi emas — istalgan brokerni tekshirish ramkasi."
+ },
+ "extras/checklist-printable": {
+  "ru": "Одностраничный чек-лист перед сделкой для печати: риск посчитан, уровень есть, новостей нет, план записан. Повесь рядом с монитором.",
+  "en": "A one-page pre-trade checklist for printing: risk computed, level marked, no red news, plan written down. Hang it next to your monitor.",
+  "uz": "Bitimdan oldingi bir varaqli chop etiladigan chek-list: xavf hisoblangan, daraja bor, qizil yangilik yo'q, reja yozilgan. Monitor yoniga osib qo'ying."
+ },
+ "extras/daily-routine": {
+  "ru": "Режим дня трейдера: короткая подготовка утром, сессия по плану, журнал вечером. Рутина — то, что отличает процесс от азарта.",
+  "en": "A trader's daily routine: short morning prep, a session by plan, journal in the evening. Routine is what separates process from gambling.",
+  "uz": "Treyderning kun tartibi: ertalab qisqa tayyorgarlik, reja bo'yicha sessiya, kechqurun jurnal. Tartib — jarayonni qimordan ajratadigan narsa."
+ },
+ "extras/dashboard": {
+  "ru": "Личный кабинет: весь твой прогресс по сайту в одном месте — страницы, карточки, привычки, экзамен. Плюс экспорт прогресса в файл для переноса на другое устройство.",
+  "en": "Your dashboard: all site progress in one place — pages, flashcards, habits, exam. Plus progress export to a file for moving to another device.",
+  "uz": "Shaxsiy kabinet: saytdagi butun taraqqiyot bir joyda — sahifalar, kartochkalar, odatlar, imtihon. Plyus boshqa qurilmaga ko'chirish uchun faylga eksport."
+ },
+ "extras/emergency-card": {
+  "ru": "Аварийная карточка «всё горит»: номера, действия при маржин-коле и тильте. Распечатай до того, как понадобится, — потом будет поздно читать.",
+  "en": "An emergency card for “everything is on fire”: numbers, margin-call and tilt actions. Print it before you need it — reading it later will be too late.",
+  "uz": "«Hammasi yonmoqda» favqulodda kartochkasi: raqamlar, marjin-kol va tiltdagi harakatlar. Kerak bo'lishidan oldin chop eting — keyin o'qish kech bo'ladi."
+ },
+ "extras/faq": {
+  "ru": "Ответы на частые вопросы новичка: сколько нужно денег, когда ждать прибыль, стоит ли платить за сигналы. Коротко и честно.",
+  "en": "Answers to common beginner questions: how much money you need, when to expect profit, whether to pay for signals. Short and honest.",
+  "uz": "Boshlovchilarning tez-tez savollariga javoblar: qancha pul kerak, foydani qachon kutish kerak, signallarga to'lash arziydimi. Qisqa va halol."
+ },
+ "extras/first-100-days": {
+  "ru": "План на первые сто дней по неделям: учёба, демо, журнал. Не ускоряй — сто дней это минимум, а не задержка.",
+  "en": "A week-by-week plan for the first hundred days: study, demo, journal. Don't rush — a hundred days is a minimum, not a delay.",
+  "uz": "Birinchi yuz kunga haftalik reja: o'qish, demo, jurnal. Shoshilmang — yuz kun minimal muddat, kechikish emas."
+ },
+ "extras/glossary": {
+  "ru": "Все термины форекса в одном месте, от пипса до свопа. Не читается целиком — открывается, когда встретил незнакомое слово.",
+  "en": "Every forex term in one place, from pip to swap. Don't read it cover to cover — open it when you hit an unfamiliar word.",
+  "uz": "Barcha foreks atamalari bir joyda, pipsdan svopgacha. Butunlay o'qilmaydi — notanish so'z uchraganda ochiladi."
+ },
+ "extras/market-data-sources": {
+  "ru": "Где брать котировки, календарь новостей и сигналы проекта: список источников с пояснениями, чему можно верить.",
+  "en": "Where to get quotes, the news calendar and the project's signals: a list of sources with notes on what can be trusted.",
+  "uz": "Kotirovkalar, yangiliklar kalendari va loyiha signallarini qayerdan olish: izohlar bilan manbalar ro'yxati, nimaga ishonish mumkin."
+ },
+ "extras/mind-map": {
+  "ru": "Весь проект на одной схеме: как учебник, инструменты и практика связаны между собой. Полезно, когда потерялся в разделах.",
+  "en": "The whole project on one map: how the textbook, tools and practice connect. Useful when you're lost among the sections.",
+  "uz": "Butun loyiha bitta sxemada: darslik, asboblar va amaliyot qanday bog'langan. Bo'limlar orasida adashganda foydali."
+ },
+ "extras/pre-trade-check": {
+  "ru": "Интерактивный «зелёный свет» перед входом: шесть вопросов, и только потом кнопка Buy. Пропустил хоть один — сделки нет.",
+  "en": "An interactive “green light” before entry: six questions, and only then the Buy button. Miss even one — no trade.",
+  "uz": "Kirishdan oldingi interaktiv «yashil chiroq»: olti savol va faqat shundan keyin Buy tugmasi. Bittasini o'tkazsan — bitim yo'q."
+ },
+ "extras/progress": {
+  "ru": "Трекер пути новичка: галочки по этапам от первого урока до реала. Прогресс хранится в браузере и мотивирует не бросить на середине.",
+  "en": "A beginner's path tracker: checkboxes for each stage from first lesson to real account. Progress lives in the browser and keeps you from quitting halfway.",
+  "uz": "Boshlovchi yo'l trekkeri: birinchi darsdan realgacha bosqichlar belgilari. Taraqqiyot brauzerda saqlanadi va yo'lda tashlamaslikka undaydi."
+ },
+ "extras/psychology": {
+  "ru": "Главный навык трейдера — не анализ, а самоконтроль: FOMO, месть рынку, страх входа. Страница про то, как не быть своим же врагом.",
+  "en": "A trader's core skill is not analysis but self-control: FOMO, revenge trading, fear of entry. A page about not being your own enemy.",
+  "uz": "Treyderning asosiy mahorati — tahlil emas, o'zini boshqarish: FOMO, bozordan qasos, kirish qo'rquvi. O'z dushmaning bo'lmaslik haqida sahifa."
+ },
+ "extras/responsible-trading": {
+  "ru": "Граница между торговлей и игровой зависимостью: признаки, лимиты, куда обращаться. Если узнал себя — остановись, это важнее стратегии.",
+  "en": "The line between trading and gambling addiction: signs, limits, where to get help. If you recognize yourself — stop; this matters more than any strategy.",
+  "uz": "Savdo va qimor bog'liqligi orasidagi chegara: belgilar, limitlar, qayerga murojaat qilish. O'zingizni taniysiz — to'xtang, bu strategiyadan muhimroq."
+ },
+ "extras/trading-plan-template": {
+  "ru": "Готовый шаблон торгового плана: рынки, часы, риск, правила входа и выхода. Заполни один раз — и половина импульсивных сделок исчезнет.",
+  "en": "A ready trading-plan template: markets, hours, risk, entry and exit rules. Fill it once — and half of your impulsive trades disappear.",
+  "uz": "Tayyor savdo rejasi shabloni: bozorlar, soatlar, xavf, kirish va chiqish qoidalari. Bir marta to'ldiring — impulsiv bitimlarning yarmi yo'qoladi."
+ },
+ "extras/video-script-1-full": {
+  "ru": "Готовый текст видео «Что такое Forex и почему 80% теряют»: читай в камеру или бери структуру для своего ролика.",
+  "en": "A ready script for the video “What is Forex and why 80% lose”: read it on camera or borrow the structure for your own clip.",
+  "uz": "«Foreks nima va nega 80% yo'qotadi» videosining tayyor matni: kameraga o'qing yoki o'z roligingiz uchun tuzilmani oling."
+ },
+ "extras/video-script-4-full": {
+  "ru": "Готовый текст видео-разбора первой сделки автора: ошибки, выводы, формат подачи.",
+  "en": "A ready script for the breakdown of the author's first trade: mistakes, lessons, presentation format.",
+  "uz": "Muallifning birinchi bitimi tahlili videosining tayyor matni: xatolar, xulosalar, taqdimot formati."
+ },
+ "extras/video-scripts": {
+  "ru": "Серия коротких сценариев для самозаписи: темы, хуки, структура. Для тех, кто учится, объясняя другим.",
+  "en": "A series of short scripts for self-recording: topics, hooks, structure. For those who learn by explaining to others.",
+  "uz": "O'zi yozib olish uchun qisqa ssenariylar seriyasi: mavzular, huklar, tuzilma. Boshqalarga tushuntirib o'rganadiganlar uchun."
+ },
+ "first-15": {
+  "ru": "Что сделать в первые 15 минут на сайте: прочитать главное, открыть демо, посчитать риск. Быстрый старт без блужданий.",
+  "en": "What to do in your first 15 minutes on the site: read the essentials, open a demo, compute risk. A fast start without wandering.",
+  "uz": "Saytdagi birinchi 15 daqiqada nima qilish kerak: asosiyini o'qish, demo ochish, xavfni hisoblash. Adashmagan holda tezkor start."
+ },
+ "forex-guide": {
+  "ru": "Главный учебник проекта: от «что такое валютная пара» до первой стратегии. Читается по порядку, остальное — приложения к нему.",
+  "en": "The project's main textbook: from “what is a currency pair” to your first strategy. Read it in order; everything else is an appendix to it.",
+  "uz": "Loyihaning asosiy darsligi: «valyuta juftligi nima»dan birinchi strategiyagacha. Ketma-ket o'qiladi, qolgan hamma narsa unga ilova."
+ },
+ "growth/crypto-trading-guide": {
+  "ru": "Крипта после форекса: что переносится (риск, уровни), а что другое (волатильность, выходные). Не лезь туда, пока не стабилен на валюте.",
+  "en": "Crypto after forex: what carries over (risk, levels) and what differs (volatility, weekends). Don't go there until you're stable on currencies.",
+  "uz": "Foreksdan keyin kripto: nima ko'chadi (xavf, darajalar), nima farq qiladi (volatillik, dam olish kunlari). Valyutada barqaror bo'lmaguncha u yerga kirmang."
+ },
+ "growth/order-flow-volume-profile": {
+  "ru": "Продвинутый взгляд на цену: где реально стояли объёмы и кто кого переиграл. Тема «после года» — сначала закрой базу.",
+  "en": "An advanced look at price: where volume actually sat and who outplayed whom. A “after one year” topic — close the basics first.",
+  "uz": "Narxga ilg'or nigoh: hajm aslida qayerda turgan va kim kimni yenggan. «Bir yildan keyin» mavzusi — avval bazani yoping."
+ },
+ "growth/stocks-basics": {
+  "ru": "Акции как вторая нога портфеля: индексы, дивиденды, долгий горизонт. Способ не держать всё в высокорисковом форексе.",
+  "en": "Stocks as the portfolio's second leg: indices, dividends, long horizons. A way not to keep everything in high-risk forex.",
+  "uz": "Portfelning ikkinchi oyoqchasi sifatida aksiyalar: indekslar, dividendlar, uzoq gorizont. Hammasini yuqori xavfli foreksda saqlamaslik usuli."
+ },
+ "journal/README": {
+  "ru": "Как вести журнал сделок проекта: что записывать, какие метрики смотреть и когда журнал окупается (спойлер: с первой недели).",
+  "en": "How to keep the project's trading journal: what to record, which metrics to watch, and when it pays off (spoiler: week one).",
+  "uz": "Loyihaning savdo jurnalini qanday yuritish: nimalarni yozish, qaysi ko'rsatkichlarni ko'rish va qachon o'zini oqlaydi (spoyler: birinchi haftadan)."
+ },
+ "journal/demo-vs-real-comparison": {
+  "ru": "Почему на демо зарабатываешь, а на реале сливаешь: сравнительный разбор психологии и исполнения. Помогает понять, готов ли переходить.",
+  "en": "Why you earn on demo but lose on real: a comparative look at psychology and execution. Helps you judge whether you're ready to switch.",
+  "uz": "Nega demoda ishlayapsiz, realda esa yo'qotyapsiz: psixologiya va ijroning qiyosiy tahlili. O'tishga tayyorligingizni baholashga yordam beradi."
+ },
+ "journal/journal-extended": {
+  "ru": "Журнал с отслеживанием психологии: не только входы-выходы, но и состояние, в котором ты торговал. Именно оно чаще всего объясняет результат.",
+  "en": "A journal with psychology tracking: not just entries and exits, but the state you traded in. Most often, that's what explains the result.",
+  "uz": "Psixologiyani kuzatadigan jurnal: faqat kirish-chiqishlar emas, savdo qilgan holatingiz ham. Natijani ko'pincha aynan u tushuntiradi."
+ },
+ "journal/mistakes-log": {
+  "ru": "Отдельный журнал повторяющихся ошибок: одна ошибка — одна строка, пока не исчезнет. Три повтора — меняешь процесс, а не «стараешься лучше».",
+  "en": "A separate log for recurring mistakes: one mistake — one row, until it's gone. Three repeats — change the process, don't just “try harder”.",
+  "uz": "Takrorlanadigan xatolar uchun alohida jurnal: bitta xato — bitta qator, yo'qolguncha. Uch takror — jarayonni o'zgartirasiz, «yaxshiroq harakat» emas."
+ },
+ "journal/trading-journal-template": {
+  "ru": "Шаблон простого журнала: дата, сетап, результат в R, вывод. Минимум полей — чтобы вёлся каждый день, а не только в понедельник.",
+  "en": "A simple journal template: date, setup, result in R, takeaway. Minimal fields — so it gets filled daily, not just on Mondays.",
+  "uz": "Oddiy jurnal shabloni: sana, setap, R dagi natija, xulosa. Minimal maydonlar — har kuni to'ldirilishi uchun, faqat dushanba emas."
+ },
+ "journal/web-journal": {
+  "ru": "Онлайн-журнал прямо на сайте: вносишь сделки, считает winrate и средний R, всё в браузере. Начни с него, а не с «идеальной таблицы».",
+  "en": "An online journal right on the site: log trades, it computes winrate and average R, all in the browser. Start here, not with a “perfect spreadsheet”.",
+  "uz": "Saytning o'zidagi onlayn jurnal: bitimlarni kiritasiz, winrate va o'rtacha R ni hisoblaydi, hammasi brauzerda. «Ideal jadval» bilan emas, shundan boshlang."
+ },
+ "journal/weekly-report-template": {
+  "ru": "Шаблон еженедельного отчёта: цифры недели, лучшая и худшая сделка, одно изменение на следующую. Неделя — минимальный честный срез.",
+  "en": "A weekly report template: the week's numbers, best and worst trade, one change for the next. A week is the smallest honest sample.",
+  "uz": "Haftalik hisobot shabloni: hafta raqamlari, eng yaxshi va eng yomon bitim, keyingisi uchun bitta o'zgarish. Hafta — eng kichik halol kesim."
+ },
+ "practice/README": {
+  "ru": "Раздел про реальную торговлю автора: что работает за пределами учебника — сессии, новости, доливка, сейф. Читать после основ.",
+  "en": "The section on the author's real trading: what works beyond the textbook — sessions, news, scaling in, breakeven. Read after the basics.",
+  "uz": "Muallifning real savdosi haqidagi bo'lim: darslikdan tashqarida nima ishlaydi — sessiyalar, yangiliklar, dolivka, seyf. Asoslardan keyin o'qing."
+ },
+ "practice/breakeven-protocol": {
+  "ru": "Когда переносить стоп в безубыток: не сразу (выбьет шумом) и не поздно. Чёткие правила +R, при которых сделка становится «бесплатной».",
+  "en": "When to move a stop to breakeven: not immediately (noise will take it) and not late. Clear +R rules that make a trade “free”.",
+  "uz": "Stopni zararsizlikka qachon ko'chirish: darhol emas (shovqin uradi) va kech emas. Bitimni «bepul» qiladigan aniq +R qoidalari."
+ },
+ "practice/cycle-theory": {
+  "ru": "Рынок движется волнами накопления и распределения, а не случайно. Понимание фазы помогает не покупать на вершине чужого цикла.",
+  "en": "The market moves in waves of accumulation and distribution, not randomly. Reading the phase keeps you from buying the top of someone else's cycle.",
+  "uz": "Bozor tasodifiy emas, to'plash va taqsimlash to'lqinlari bilan yuradi. Fazani tushunish begona siklning cho'qqisida sotib olishdan saqlaydi."
+ },
+ "practice/gold-trading": {
+  "ru": "Золото — не «тот же EUR/USD»: шире стопы, сильнее реакция на новости, другой характер движения. Переходить с отдельными правилами риска.",
+  "en": "Gold is not “just another EUR/USD”: wider stops, stronger news reactions, a different movement character. Switch with separate risk rules.",
+  "uz": "Oltin — «xuddi shu EUR/USD» emas: stoplar kengroq, yangiliklarga reaksiya kuchayiroq, harakat xarakteri boshqacha. Alohida xavf qoidalari bilan o'ting."
+ },
+ "practice/lot-discipline": {
+  "ru": "Главный текст про объём: лот считается от стопа и процента риска, а не «по чуйке». Один неправильный лот стирает месяц правильных входов.",
+  "en": "The key text on position size: the lot is derived from the stop and risk percent, not “by feel”. One wrong lot erases a month of good entries.",
+  "uz": "Hajm haqidagi asosiy matn: lot stop va xavf foizidan hisoblanadi, «ichki his» bilan emas. Bitta noto'g'ri lot bir oylik to'g'ri kirishlarni o'chiradi."
+ },
+ "practice/market-structure": {
+  "ru": "Кто реально двигает цену: банки, маркет-мейкеры, ликвидность. Помогает перестать верить, что рынок «охотится» лично за твоим стопом.",
+  "en": "Who really moves price: banks, market makers, liquidity. Helps you stop believing the market is “hunting” your stop personally.",
+  "uz": "Narxni kim haqiqatda harakatlantiradi: banklar, market-meykerlar, likvidlik. Bozor aynan sizning stopingizga «ov qilayotganiga» ishonishni to'xtatadi."
+ },
+ "practice/news-trading-protocol": {
+  "ru": "Как вести себя в красные новости: новичку — вне рынка, опытному — по протоколу с уменьшенным риском. Спонтанный вход на новости не отличается от рулетки.",
+  "en": "How to behave during red news: beginners stay out, experienced traders follow a protocol with reduced risk. A spontaneous news entry is no different from roulette.",
+  "uz": "Qizil yangiliklarda qanday harakat qilish: boshlovchi — bozordan tashqarida, tajribali — kamaytirilgan xavf bilan protokol bo'yicha. Yangilikdagi spontan kirish ruletkadan farq qilmaydi."
+ },
+ "practice/scaling-in": {
+  "ru": "Доливка к прибыльной позиции: добавляться только по плану, с пересчётом общего риска. Доливка «на эмоциях» превращает один риск в три.",
+  "en": "Adding to a winning position: add only by plan, with total risk recomputed. Emotional adds turn one risk into three.",
+  "uz": "Foydali pozitsiyaga dolivka: faqat reja bo'yicha, umumiy xavfni qayta hisoblab. «Hissiyot bilan» dolivka bitta xavfni uchtaga aylantiradi."
+ },
+ "practice/trading-sessions": {
+  "ru": "Часы рынка: Токио тихий, Лондон и Нью-Йорк двигают цену, пересечение — пик дня. Торгуй свою сессию, а не «когда освободился».",
+  "en": "Market hours: Tokyo is quiet, London and New York move price, the overlap is the day's peak. Trade your session, not “whenever you're free”.",
+  "uz": "Bozor soatlari: Tokio tinch, London va Nyu-York narxni harakatlantiradi, kesishma — kun cho'qqisi. «Bo'sh bo'lganingda» emas, o'z sessiyangda savdo qil."
+ },
+ "roadmap": {
+  "ru": "Пошаговый маршрут с нуля до реала: 7 уровней с контрольными точками. Есть диагностика на 20 вопросов — вычёркивает уровни, которые уже знаешь.",
+  "en": "A step-by-step route from zero to real trading: 7 levels with checkpoints. Includes a 20-question diagnostic that crosses out the levels you already know.",
+  "uz": "Noldan realgacha bosqichma-bosqich marshrut: nazorat nuqtali 7 bosqich. 20 savolli diagnostika bor — bilgan bosqichlaringizni chizib tashlaydi."
+ },
+ "tools/README": {
+  "ru": "Обзор всех браузерных инструментов проекта: калькуляторы, тренажёры, экзамен. Страница-карта, если не знаешь, с чего начать.",
+  "en": "An overview of all the project's browser tools: calculators, trainers, the exam. A map page if you don't know where to start.",
+  "uz": "Loyihaning barcha brauzer asboblari sharhi: kalkulyatorlar, trenajorlar, imtihon. Qayerdan boshlashni bilmasangiz, xarita-sahifa."
+ },
+ "tools/broker-check": {
+  "ru": "Чек-лист проверки брокера перед депозитом: лицензия, спреды, отзывы о выводе. Пять минут проверки дешевле одного «застрявшего» вывода.",
+  "en": "A broker check before depositing: license, spreads, withdrawal reviews. Five minutes of checking is cheaper than one “stuck” withdrawal.",
+  "uz": "Depozitdan oldin broker tekshiruvi: litsenziya, spredlar, pul chiqarish sharhlari. Besh daqiqalik tekshiruv bitta «qotgan» chiqaruvdan arzon."
+ },
+ "tools/compound-calculator": {
+  "ru": "Сложный процент на твоих цифрах: как растёт счёт при фиксированном проценте в месяц. Отрезвляет: +5% в месяц — это очень хорошо, а не «мало».",
+  "en": "Compound interest on your numbers: how an account grows at a fixed monthly percent. Sobering: +5% a month is very good, not “too little”.",
+  "uz": "O'z raqamlaringizda murakkab foiz: hisob oylik qat'iy foizda qanday o'sadi. Hushyorlik: oyiga +5% — bu juda yaxshi, «kam» emas."
+ },
+ "tools/cost-calculator": {
+  "ru": "Сколько на самом деле стоит торговля: спред + своп + комиссия по каждой сделке и за месяц. Издержки — тихий минус, который надо знать в лицо.",
+  "en": "What trading really costs: spread + swap + commission per trade and per month. Costs are a quiet minus you need to know by sight.",
+  "uz": "Savdo aslida qancha turadi: har bitim va oyiga spred + svop + komissiya. Xarajatlar — tanib olish kerak bo'lgan jim minus."
+ },
+ "tools/exam": {
+  "ru": "Итоговый экзамен: 20 случайных вопросов из 45, проходной 80%. Сдал — именной сертификат и право идти на реал маленьким объёмом.",
+  "en": "The final exam: 20 random questions out of 45, passing score 80%. Pass — a personalized certificate and the right to go live with a small size.",
+  "uz": "Yakuniy imtihon: 45 savoldan 20 tasodifiy savol, o'tish chegarasi 80%. O'tsangiz — nominal sertifikat va kichik hajm bilan realga o'tish huquqi."
+ },
+ "tools/flashcards": {
+  "ru": "Карточки терминов с интервальным повторением: сложные слова возвращаются чаще. Пять минут в день закрывают весь словарь за месяц.",
+  "en": "Term flashcards with spaced repetition: hard words come back more often. Five minutes a day covers the whole vocabulary in a month.",
+  "uz": "Interval takrorlash bilan atama kartochkalari: qiyin so'zlar tez-tez qaytadi. Kuniga besh daqiqa bir oyda butun lug'atni yopadi."
+ },
+ "tools/living-capital": {
+  "ru": "Сколько капитала нужно, чтобы жить с трейдинга: честная формула от расходов и реалистичной доходности. Цифра обычно больше, чем мечтается.",
+  "en": "How much capital it takes to live off trading: an honest formula from expenses and realistic returns. The number is usually bigger than the dream.",
+  "uz": "Treyding bilan yashash uchun qancha kapital kerak: xarajatlar va real daromadlilikdan halol formula. Raqam odatda orzu qilinganidan katta."
+ },
+ "tools/margin-calculator": {
+  "ru": "Маржа и плечо на пальцах: сколько денег заморозит брокер под позицию и где граница маржин-кола.",
+  "en": "Margin and leverage made tangible: how much money the broker freezes for a position and where the margin-call line is.",
+  "uz": "Marja va kaldıraç oddiy tilda: broker pozitsiya ostiga qancha pul muzlatadi va marjin-kol chegarasi qayerda."
+ },
+ "tools/market-analytics": {
+  "ru": "Две карты из реальных котировок: в какие часы пары реально двигаются и какие пары ходят вместе. Отвечает «когда садиться» и «сколько позиций у меня на самом деле».",
+  "en": "Two maps from real quotes: which hours pairs actually move and which pairs move together. Answers “when to sit down” and “how many positions I really have”.",
+  "uz": "Haqiqiy kotirovkalardan ikki xarita: qaysi soatlarda juftliklar haqiqatan yuradi va qaysilari birga yuradi. «Qachon o'tirish» va «aslida nechta pozitsiyam bor» savollariga javob."
+ },
+ "tools/monte-carlo": {
+  "ru": "Твоя серия сделок прогоняется тысячей перемешанных жизней: насколько результат — навык, а насколько везение. Лучший ответ на «я же зарабатывал!»",
+  "en": "Your trade series is replayed through a thousand shuffled lives: how much of the result is skill and how much is luck. The best answer to “but I was earning!”",
+  "uz": "Bitimlar seriyangiz minglab aralashtirilgan hayotda o'ynatiladi: natijada qancha mahorat, qancha omad. «Lekin ishlayotgandim!» ga eng yaxshi javob."
+ },
+ "tools/multipair": {
+  "ru": "Одна настройка прогоняется по восьми парам: переносится хуже, чем хочется, и у каждой пары своё «лучшее». Урок: не подгоняй параметры под одну выборку.",
+  "en": "One setup is run across eight pairs: it transfers worse than you'd like, and each pair has its own “best”. Lesson: don't fit parameters to one sample.",
+  "uz": "Bitta sozlama sakkiz juftlikda sinanadi: xohlaganday yomonroq ko'chadi va har juftlikning o'z «eng yaxshisi» bor. Saboq: parametrlarni bitta tanlanmaga moslama."
+ },
+ "tools/overfitting": {
+  "ru": "Почему красивый бэктест ничего не обещает: 54 прогона, лучший даёт +40R — и сдувается вне выборки. Самая важная страница перед покупкой любой «системы».",
+  "en": "Why a pretty backtest promises nothing: 54 runs, the best shows +40R — and deflates out of sample. The most important page before buying any “system”.",
+  "uz": "Nega chiroyli bektest hech narsa va'da qilmaydi: 54 sinov, eng yaxshisi +40R — va tanlanmadan tashqarida so'nadi. Har qanday «tizim» xariddan oldingi eng muhim sahifa."
+ },
+ "tools/pattern-trainer": {
+  "ru": "Тренажёр свечных паттернов с честной статистикой: угадываешь формации и видишь, что они дают на самом деле. Паттерн — контекст, а не сигнал.",
+  "en": "A candlestick-pattern trainer with honest statistics: you guess formations and see what they actually deliver. A pattern is context, not a signal.",
+  "uz": "Halol statistikali sham patternlari trenajori: formasiyalarni topasiz va ular aslida nimani berishini ko'rasiz. Pattern — kontekst, signal emas."
+ },
+ "tools/pip-calculator": {
+  "ru": "Стоимость пипса для любой пары и лота: базовый расчёт, без которого нельзя считать ни риск, ни цель.",
+  "en": "The pip value for any pair and lot size: the basic computation without which you can't count risk or target.",
+  "uz": "Har qanday juftlik va lot uchun pips qiymati: xavf va maqsadni hisoblab bo'lmaydigan asosiy hisob."
+ },
+ "tools/position-calculator": {
+  "ru": "Главный калькулятор проекта: лот от депозита, стопа и процента риска. Каждая сделка начинается здесь, а не с кнопки Buy.",
+  "en": "The project's main calculator: lot size from deposit, stop and risk percent. Every trade starts here, not with the Buy button.",
+  "uz": "Loyihaning asosiy kalkulyatori: depozit, stop va xavf foizidan lot. Har bir bitim Buy tugmasidan emas, shu yerdan boshlanadi."
+ },
+ "tools/position-management": {
+  "ru": "Что делать, пока сделка открыта: трал, сейф, частичная фиксация — на эпизодах реального рынка. Решения репетируются здесь, а не при живом минусе.",
+  "en": "What to do while a trade is open: trailing, breakeven, partial close — on real market episodes. Decisions get rehearsed here, not during a live drawdown.",
+  "uz": "Bitim ochiq turganda nima qilish: tral, seyf, qisman yopish — real bozor epizodlarida. Qarorlar jonli minusda emas, shu yerda mashq qilinadi."
+ },
+ "tools/quiz": {
+  "ru": "Быстрый квиз «готов ли к реалу»: десять вопросов о риске и дисциплине. Честнее, чем самооценка.",
+  "en": "A quick “ready for real?” quiz: ten questions on risk and discipline. More honest than self-assessment.",
+  "uz": "«Realga tayyormisiz» tezkor kvizi: xavf va intizom haqida o'n savol. O'z bahodan halolroq."
+ },
+ "tools/replay-trainer": {
+  "ru": "Торгуешь прошлый рынок: ставишь Entry/SL/TP на архивных свечах и смотришь итог в R. Есть режим «на время» — свечи идут сами, как вживую.",
+  "en": "Trade the market's past: place Entry/SL/TP on archived candles and see the result in R. There's a timed mode — candles advance on their own, like live.",
+  "uz": "O'tmish bozori bilan savdo: arxiv shamlarda Entry/SL/TP qo'yasiz va R dagi natijani ko'rasiz. «Vaqtli» rejim bor — shamlar jonlidek o'zi yuradi."
+ },
+ "tools/risk-exposure-calculator": {
+  "ru": "Совокупный риск по всем открытым сделкам с учётом общих валют: три «разные» позиции часто оказываются одной. Смотри перед тем, как добавить ещё.",
+  "en": "Total risk across all open trades counting shared currencies: three “different” positions are often one. Check before adding another.",
+  "uz": "Umumiy valyutalarni hisobga olgan holda barcha ochiq bitimlar bo'yicha jamlanma xavf: uchta «turli» pozitsiya ko'pincha bitta bo'lib chiqadi. Yana qo'shishdan oldin qarang."
+ },
+ "tools/risk-of-ruin": {
+  "ru": "Риск разорения на твоих цифрах: вероятность слить счёт при текущих winrate, RR и риске на сделку. Лучший аргумент против «поставлю 10%».",
+  "en": "Risk of ruin on your numbers: the probability of blowing the account at your current winrate, RR and per-trade risk. The best argument against “I'll risk 10%”.",
+  "uz": "O'z raqamlaringizda bankrotlik xavfi: joriy winrate, RR va bitim xavfiga hisobni yo'qotish ehtimoli. «10% qo'yaman» ga qarshi eng yaxshi dalil."
+ },
+ "tools/risk-profile": {
+  "ru": "Тест готовности к реальной торговле: психология, деньги, процесс. Показывает, какую именно дверь ты ещё не закрыл.",
+  "en": "A readiness test for real trading: psychology, money, process. Shows exactly which door you haven't closed yet.",
+  "uz": "Real savdogа tayyorlik testi: psixologiya, pul, jarayon. Qaysi eshikni hali yopmaganingizni aynan ko'rsatadi."
+ },
+ "tools/strategy-ranking": {
+  "ru": "Шесть стратегий честно сравнены на одном периоде: лидер меняется от периода к периоду. Вывод: «лучшая стратегия» — функция выборки, а не вечная истина.",
+  "en": "Six strategies honestly compared on one period: the leader changes from period to period. Takeaway: the “best strategy” is a function of the sample, not eternal truth.",
+  "uz": "Oltita strategiya bir davrda halol taqqoslangan: yetakchi davrdan davrga o'zgaradi. Xulosa: «eng yaxshi strategiya» — tanlanma funksiyasi, mangu haqiqat emas."
+ },
+ "tools/trade-desk": {
+  "ru": "Рабочий стол сделки: перед входом собираешь все расчёты и чек-листы на одном экране. Заменяет десять открытых вкладок.",
+  "en": "A trade desk: before entry you gather every calculation and checklist on one screen. Replaces ten open tabs.",
+  "uz": "Bitim ish stoli: kirishdan oldin barcha hisob-kitoblar va chek-listlar bir ekranda. O'nlab ochiq vkladkani almashtiradi."
+ },
+ "tools/winrate-rr-calculator": {
+  "ru": "WinRate × RR: какие сочетания дают плюс на дистанции. Показывает, что 40% побед с 1:2 — прибыльная система, а «80% побед» можно слить.",
+  "en": "WinRate × RR: which combinations are profitable over distance. Shows that 40% wins at 1:2 is a winning system, while “80% wins” can still lose.",
+  "uz": "WinRate × RR: qaysi kombinatsiyalar masofada plyus beradi. 1:2 da 40% g'alaba — foydali tizim, «80% g'alaba» bilan esa yo'qotish mumkinligini ko'rsatadi."
+ },
+ "uz/brokers-uz": {
+  "ru": "Брокеры для трейдеров из Узбекистана: какие принимают, как заводить и выводить сумы. Проверяй дату свежести — правила меняются.",
+  "en": "Brokers for traders from Uzbekistan: which ones accept you, how to deposit and withdraw som. Check the freshness date — the rules change.",
+  "uz": "O'zbekistonlik treyderlar uchun brokerlar: qaysilari qabul qiladi, so'mni qanday kiritish va chiqarish. Yangilik sanasini tekshiring — qoidalar o'zgaradi."
+ },
+ "uz/communities": {
+  "ru": "Где общаться с трейдерами из Узбекистана и СНГ: каналы, чаты, ресурсы. Плюс предупреждение, где чаще всего прячутся скамеры.",
+  "en": "Where to talk with traders from Uzbekistan and the CIS: channels, chats, resources. Plus a warning about where scammers hide most.",
+  "uz": "O'zbekiston va MDH treyderlari bilan qayerda muloqot qilish: kanallar, chatlar, resurslar. Plyus firibgarlar eng ko'p qayerda yashirinishi haqida ogohlantirish."
+ },
+ "uz/forex-nima": {
+  "ru": "Что такое форекс простыми словами — для читателя из Узбекистана: обмен валют, курс, заработок на разнице. Точка входа для полного новичка.",
+  "en": "What forex is in plain words — for a reader from Uzbekistan: currency exchange, rates, earning on the difference. The entry point for a total beginner.",
+  "uz": "Foreks nima oddiy so'zlar bilan — O'zbekistonlik o'quvchi uchun: valyuta almashinuvi, kurs, farqdan daromad. To'liq boshlovchi uchun kirish nuqtasi."
+ },
+ "uz/law-faq": {
+  "ru": "Легальность форекса в Узбекистане: что можно, что в серой зоне, что с налогами. Не юридическая консультация, но честная карта вопроса.",
+  "en": "Forex legality in Uzbekistan: what's allowed, what's grey-zone, what's up with taxes. Not legal advice, but an honest map of the question.",
+  "uz": "O'zbekistonda foreks qonuniyligi: nima mumkin, nima kulrang zonada, soliqlar qanday. Yuridik maslahat emas, lekin savolning halol xaritasi."
+ },
+ "uz/scam-protection": {
+  "ru": "Как не отдать деньги мошенникам: признаки «гарантированной прибыли», проверка брокера, типичные схемы в Узбекистане. Прочти раньше, чем тебе напишут в Telegram.",
+  "en": "How not to hand money to scammers: signs of “guaranteed profit”, broker checks, schemes common in Uzbekistan. Read before they message you on Telegram.",
+  "uz": "Firibgarlarga pul bermaslik: «kafolatlangan foyda» belgilari, broker tekshiruvi, O'zbekistondagi odatiy sxemalar. Telegram'da yozishishidan oldin o'qing."
+ },
+ "uz/swap-free": {
+  "ru": "Исламские (swap-free) счета: что именно отменяется, чем брокер компенсирует и когда «без свопа» дороже обычного. Считай, а не верь названию.",
+  "en": "Islamic (swap-free) accounts: what exactly is removed, how the broker compensates, and when “no swap” costs more than normal. Count, don't trust the label.",
+  "uz": "Islomiy (swap-free) hisoblar: aynan nima bekor qilinadi, broker nimani qoplaydi va qachon «svopsiz» oddiy hisobdan qimmatroq. Nomga ishonmang, hisoblang."
+ },
+ "uz/tax-calculator": {
+  "ru": "Налог с прибыли форекса в Узбекистане: как считать базу, ставку и когда подавать. Калькулятор + пояснения к декларации.",
+  "en": "Tax on forex profits in Uzbekistan: how to compute the base, the rate, and when to file. Calculator plus declaration notes.",
+  "uz": "O'zbekistonda foreks foydasidan soliq: baza, stavka va qachon topshirish kerak. Kalkulyator va deklaratsiya izohlari."
+ },
+ "uz/trading-vs-deposit": {
+  "ru": "Трейдинг против банковского вклада под 20%: честная математика риска и доходности. Вклад не скучный — он база, с которой сравниваешь всё остальное.",
+  "en": "Trading versus a 20% bank deposit: honest math of risk and return. A deposit isn't boring — it's the baseline you compare everything else against.",
+  "uz": "Treyding yoki 20% lik bank depoziti: xavf va daromadlilikning halol matematikasi. Depozit zerikarli emas — qolgan hammasini solishtiradigan baza."
+ },
+ "uz/withdrawal-guide": {
+  "ru": "Как вывести деньги от брокера в Узбекистан: карты, платёжки, сроки, подводные камни с конвертацией. Читай до первого депозита, а не когда «зависло».",
+  "en": "How to withdraw money from a broker to Uzbekistan: cards, payment systems, timelines, conversion pitfalls. Read before your first deposit, not when it's “stuck”.",
+  "uz": "Brokerdan O'zbekistonga pul chiqarish: kartalar, to'lov tizimlari, muddatlar, konvertatsiya tuzoqlari. Birinchi depozitdan oldin o'qing, «qotib qolganda» emas."
+ },
+ "КАК-ПОЛЬЗОВАТЬСЯ": {
+  "ru": "Экскурсия по проекту: что где лежит и в каком порядке открывать. Начни здесь, если сайт кажется большим.",
+  "en": "A tour of the project: what lives where and in what order to open it. Start here if the site feels big.",
+  "uz": "Loyiha bo'ylab ekskursiya: nima qayerda va qaysi tartibda ochish kerak. Sayt katta tuyulsa, shu yerdan boshlang."
+ }
+}

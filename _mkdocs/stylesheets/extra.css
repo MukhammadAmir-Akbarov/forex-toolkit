@@ -2132,6 +2132,13 @@ label[for="__drawer"].fx-menu-hint::after {
   .journal-weekly__findings { grid-template-columns: 1fr; }
   .fx-update-banner { left: 0.7rem; right: 0.7rem; bottom: 0.7rem; }
 }
+/* ── TL;DR-блок «за 30 секунд» ─────────────────────────────────────────── */
+/* Фиолетовый акцент вместо стандартного tip-зелёного: блок есть на каждой
+   странице, и его должно быть видно отдельно от учебных подсказок в тексте. */
+.fx-tldr { border-color: #8b5cf6; }
+.fx-tldr > .admonition-title { background-color: rgba(139, 92, 246, .12); }
+.fx-tldr > .admonition-title::before { background-color: #8b5cf6; }
+
 @media print {
   body.journal-print-weekly .md-header,
   body.journal-print-weekly .md-sidebar,
