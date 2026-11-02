@@ -241,10 +241,10 @@
     },
     "growth/order-flow-volume-profile.md": {
       "locales": {
-        "en": "ebb192ec4bf8b059aae49a50bbdad898ccecccb53571032bd3fd9b116adeddf1",
-        "uz": "ebb192ec4bf8b059aae49a50bbdad898ccecccb53571032bd3fd9b116adeddf1"
+        "en": "96cd9d0e986543492dcce0463118907bb2e6389ddff0a23bba99059fbabdefb6",
+        "uz": "96cd9d0e986543492dcce0463118907bb2e6389ddff0a23bba99059fbabdefb6"
       },
-      "ru_sha256": "ebb192ec4bf8b059aae49a50bbdad898ccecccb53571032bd3fd9b116adeddf1"
+      "ru_sha256": "96cd9d0e986543492dcce0463118907bb2e6389ddff0a23bba99059fbabdefb6"
     },
     "growth/stocks-basics.md": {
       "locales": {
@@ -420,6 +420,13 @@
         "uz": "9f587599700f07c576faf5751310e527e78f098a7e68256992a626c977a6533b"
       },
       "ru_sha256": "9f587599700f07c576faf5751310e527e78f098a7e68256992a626c977a6533b"
+    },
+    "tools/dom-trainer.md": {
+      "locales": {
+        "en": "98dbe13826263465e03aa6e6015153ffa75ef2dd08da134dae113b20eca8922c",
+        "uz": "98dbe13826263465e03aa6e6015153ffa75ef2dd08da134dae113b20eca8922c"
+      },
+      "ru_sha256": "98dbe13826263465e03aa6e6015153ffa75ef2dd08da134dae113b20eca8922c"
     },
     "tools/exam.md": {
       "locales": {

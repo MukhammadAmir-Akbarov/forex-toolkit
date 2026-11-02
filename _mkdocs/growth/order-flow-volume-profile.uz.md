@@ -244,6 +244,10 @@ Ular BERADI:
 4. **3 oy:** oddiy strategiyani sinab ko'ring (masalan, POC Magnet) demoda
 5. **6 oy:** agar ishlasa — asosiy strategiyangizga **filtr** sifatida qo'shing
 
+Lenta va stakanni o'qish alohida mashq qilinadi —
+[DOM/lenta trenajyorida](../tools/dom-trainer.md): 25 tik kuzatuv, 5 tikka
+prognoz va tangaga qarshi halol hisob.
+
 **Shoshilmang.** Volume Profile sizda ishlayotgan narsani almashtirmasdan, **to'ldirishi** kerak.
 
 ---

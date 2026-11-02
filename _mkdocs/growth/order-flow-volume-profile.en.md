@@ -244,6 +244,10 @@ Order Flow and Volume Profile are **tools**, not magic.
 4. **3 months:** try a simple strategy (e.g., POC Magnet) on a demo account
 5. **6 months:** if it works — incorporate it as a **filter** within your main strategy
 
+Tape and book reading is trained separately — in the
+[DOM/tape trainer](../tools/dom-trainer.md): 25 ticks of watching, a 5-tick
+prediction, and an honest score against a coin flip.
+
 **Do not rush to implement.** Volume Profile should **supplement**, not replace, what is already working for you.
 
 ---
