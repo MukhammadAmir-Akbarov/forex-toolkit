@@ -25,12 +25,16 @@ widgets: [dashboard]
 4. Upload a CSV to the web journal to see discipline and results.
 5. Come back here: the dashboard will suggest your next step.
 
-## Backup
+## Backup and moving to your phone
 
 **Export JSON** saves the full journal, trade plans and drafts, strategy versions,
-training queue, risk limits, progress, exam, Replay, and tool settings. Import
-first shows the backup contents and version; nothing is overwritten until you
-confirm the restore.
+training queue, risk limits, page progress, exam, Replay, all 104 flashcards,
+quiz scores, and tool settings. Import first shows the backup contents and
+version; nothing is overwritten until you confirm the restore.
+
+**Moving to another device:** export the JSON, send the file to yourself
+(e.g. Telegram Saved Messages) and import it in the dashboard on the second
+device — your entire progress moves over.
 
 The dashboard shows the last backup date and reminds you after 30 days. It also
 reports storage status and can ask the browser for persistent storage; the

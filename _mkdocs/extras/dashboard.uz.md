@@ -25,12 +25,17 @@ widgets: [dashboard]
 4. Intizom va natijani ko'rish uchun veb-jurnalga CSV yuklang.
 5. Bu yerga qayting: kabinet keyingi qadamni tavsiya qiladi.
 
-## Zaxira nusxasi
+## Zaxira nusxasi va telefonga ko'chirish
 
 **JSON eksport** to'liq jurnal, savdo rejalari va qoralamalar, strategiya
-versiyalari, mashqlar navbati, risk limitlari, progress, imtihon, Replay va asbob
-sozlamalarini saqlaydi. Import avval backup tarkibi va versiyasini ko'rsatadi;
+versiyalari, mashqlar navbati, risk limitlari, sahifalar progressi, imtihon,
+Replay, barcha 104 flesha-karta, viktorina natijalari va asbob sozlamalarini
+saqlaydi. Import avval backup tarkibi va versiyasini ko'rsatadi;
 tasdiqlamaguningizcha hech narsa almashtirilmaydi.
+
+**Boshqa qurilmaga ko'chirish:** JSON'ni eksport qiling, faylni o'zingizga
+yuboring (masalan, Telegram «Saqlangan xabarlar») va ikkinchi qurilmadagi
+kabinetda import qiling — butun progress to'liq ko'chadi.
 
 Kabinet oxirgi backup sanasini ko'rsatadi va 30 kundan keyin eslatadi. Shuningdek
 u xotira holatini ko'rsatadi va brauzerdan doimiy saqlashni so'rashi mumkin;

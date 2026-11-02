@@ -115,10 +115,10 @@
     },
     "extras/dashboard.md": {
       "locales": {
-        "en": "df44dd00eb6baf6a9139e62d89c4f92735b00cfea84d91ca2691fbe4136712f1",
-        "uz": "df44dd00eb6baf6a9139e62d89c4f92735b00cfea84d91ca2691fbe4136712f1"
+        "en": "7e47e0591d3e1f9e6f7e89fecd8e73986e5d501323351f5f7c11e9fac603168c",
+        "uz": "7e47e0591d3e1f9e6f7e89fecd8e73986e5d501323351f5f7c11e9fac603168c"
       },
-      "ru_sha256": "df44dd00eb6baf6a9139e62d89c4f92735b00cfea84d91ca2691fbe4136712f1"
+      "ru_sha256": "7e47e0591d3e1f9e6f7e89fecd8e73986e5d501323351f5f7c11e9fac603168c"
     },
     "extras/emergency-card.md": {
       "locales": {

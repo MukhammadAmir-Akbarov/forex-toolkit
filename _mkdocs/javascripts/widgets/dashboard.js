@@ -258,7 +258,7 @@
     }
   }[lang];
 
-  var BACKUP_VERSION = 3;
+  var BACKUP_VERSION = 4;
   var KEYS = [
     "fx-progress-v1",
     "forex_exam_passed",
@@ -273,8 +273,16 @@
     "forex_strategy_playbooks_v1",
     "forex_training_queue_v1",
     "forex_data_meta_v1",
-    "fx-uz-script"
+    "fx-uz-script",
+    "forex_quiz_best",
+    "ftk-mc-last",
+    "ftk-flash-session",
+    "ftk-flash-streak",
+    "ftk-flash-lastday"
   ];
+  // Динамические ключи: состояние каждой из 104 карточек (ftk-flash-<idx>).
+  // Захардкодить их все нельзя — колода растёт; собираем по префиксу.
+  var KEY_PREFIXES = ["ftk-flash-"];
   var JSON_KEYS = {
     "fx-progress-v1": "array",
     "forex_replay_stats": "object",
@@ -510,6 +518,29 @@
     if (window.fxTrack) window.fxTrack("storage_persistence_requested");
   }
 
+  function collectDynamicKeys(data) {
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (!key || Object.prototype.hasOwnProperty.call(data, key)) continue;
+        for (var p = 0; p < KEY_PREFIXES.length; p++) {
+          if (key.indexOf(KEY_PREFIXES[p]) === 0) {
+            data[key] = localStorage.getItem(key);
+            break;
+          }
+        }
+      }
+    } catch (e) {}
+  }
+
+  function isBackupKey(key) {
+    if (KEYS.indexOf(key) !== -1) return true;
+    for (var p = 0; p < KEY_PREFIXES.length; p++) {
+      if (key.indexOf(KEY_PREFIXES[p]) === 0) return true;
+    }
+    return false;
+  }
+
   function exportData() {
     var exportedAt = new Date().toISOString();
     try {
@@ -521,6 +552,7 @@
     KEYS.forEach(function (key) {
       try { data[key] = localStorage.getItem(key); } catch (e) { data[key] = null; }
     });
+    collectDynamicKeys(data);
     var blob = new Blob([JSON.stringify({ schema: "forex-toolkit-backup", version: BACKUP_VERSION, exported_at: exportedAt, localStorage: data }, null, 2)], { type: "application/json" });
     var url = URL.createObjectURL(blob);
     var a = document.createElement("a");
@@ -550,6 +582,12 @@
       var expected = JSON_KEYS[key];
       if (expected === "array" && !Array.isArray(value)) throw new Error("invalid " + key);
       if (expected === "object" && (!value || typeof value !== "object" || Array.isArray(value))) throw new Error("invalid " + key);
+    });
+    // Динамические ключи карточек: обязаны быть валидным JSON-объектом.
+    Object.keys(data).forEach(function (key) {
+      if (!isBackupKey(key) || KEYS.indexOf(key) !== -1 || data[key] == null) return;
+      var value = JSON.parse(String(data[key]));
+      if (!value || typeof value !== "object") throw new Error("invalid " + key);
     });
     return { version: version, exportedAt: payload.exported_at || "-", data: data };
   }
@@ -613,8 +651,8 @@
   function restoreData() {
     if (!pendingRestore) return;
     var data = pendingRestore.data;
-    KEYS.forEach(function (key) {
-      if (!Object.prototype.hasOwnProperty.call(data, key)) return;
+    Object.keys(data).forEach(function (key) {
+      if (!isBackupKey(key)) return;
       try {
         if (data[key] == null) localStorage.removeItem(key);
         else localStorage.setItem(key, String(data[key]));
@@ -628,7 +666,14 @@
 
   function resetData() {
     if (!window.confirm(T.confirmReset)) return;
-    KEYS.forEach(function (key) {
+    var doomed = KEYS.slice();
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key && isBackupKey(key) && doomed.indexOf(key) === -1) doomed.push(key);
+      }
+    } catch (e) {}
+    doomed.forEach(function (key) {
       try { localStorage.removeItem(key); } catch (e) {}
     });
     render();

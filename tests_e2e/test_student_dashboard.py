@@ -55,7 +55,7 @@ def test_student_dashboard_reads_existing_local_state(pw_page, site_url):
     assert "флэт" in page.text_content("#sd-next-text")
 
 
-@pytest.mark.parametrize("backup_version", [1, 2, 3])
+@pytest.mark.parametrize("backup_version", [1, 2, 3, 4])
 def test_dashboard_full_backup_requires_preview_confirmation(
     pw_page, site_url, backup_version
 ):
@@ -128,13 +128,34 @@ def test_dashboard_export_contains_full_local_data(pw_page, site_url):
     with page.expect_download() as download_info:
         page.click("#sd-export")
     payload = json.loads(download_info.value.path().read_text())
-    assert payload["version"] == 3
+    assert payload["version"] == 4
     assert payload["schema"] == "forex-toolkit-backup"
     assert payload["localStorage"]["forex_journal_data_v2"]
     assert payload["localStorage"]["forex_trade_drafts_v1"]
     assert payload["localStorage"]["forex_tool_settings_v1"]
     assert payload["localStorage"]["forex_data_meta_v1"]
     assert json.loads(payload["localStorage"]["forex_data_meta_v1"])["lastBackupAt"]
+
+
+def test_dashboard_backup_covers_flashcards(pw_page, site_url):
+    """Прогресс 104 карточек — часть backup: динамические ключи ftk-flash-*."""
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    page.evaluate(
+        """
+        () => {
+          localStorage.setItem('ftk-flash-3', JSON.stringify({s: 2}));
+          localStorage.setItem('ftk-flash-streak', '7');
+          localStorage.setItem('unrelated-key', 'не трогать');
+        }
+        """
+    )
+    with page.expect_download() as download_info:
+        page.click("#sd-export")
+    storage = json.loads(download_info.value.path().read_text())["localStorage"]
+    assert json.loads(storage["ftk-flash-3"]) == {"s": 2}
+    assert storage["ftk-flash-streak"] == "7"
+    assert "unrelated-key" not in storage
 
 
 def test_dashboard_shows_readiness_test_and_leads_newcomers_to_it(pw_page, site_url):
