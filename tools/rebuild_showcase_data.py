@@ -99,6 +99,13 @@ SHOWCASES = [
         "out": "market-analytics.json",
         "stamp": "meta",
     },
+    {
+        "name": "weekly-review",
+        "script": "tools/build_weekly_review.py",
+        "args": [],
+        "out": "weekly-review.json",
+        "stamp": "meta",
+    },
 ]
 
 
