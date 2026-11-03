@@ -3,116 +3,116 @@
   "source": "EURUSD_1h.csv",
   "pair": "EURUSD",
   "timeframe": "1h",
-  "bars_total": 17163,
-  "bars_past": 10297,
-  "bars_future": 6866,
-  "from": "2024-01-18 00:00:00+00:00",
-  "split_at": "2025-09-17 05:00:00+00:00",
-  "to": "2026-11-03 09:00:00+00:00",
+  "bars_total": 12346,
+  "bars_past": 7407,
+  "bars_future": 4939,
+  "from": "2024-05-19 23:00:00+00:00",
+  "split_at": "2025-07-30 14:00:00+00:00",
+  "to": "2026-05-19 20:00:00+00:00",
   "min_trades": 20,
-  "generated_at": "2026-11-03"
+  "generated_at": "2026-11-01"
  },
  "strategies": [
   {
    "name": "EMA50 Pullback",
    "past": {
-    "total_r": 31.214,
-    "trades": 141,
-    "win_rate": 41.84,
-    "profit_factor": 1.391,
+    "total_r": 24.213,
+    "trades": 98,
+    "win_rate": 42.86,
+    "profit_factor": 1.444,
     "max_dd": 13.0
    },
    "future": {
-    "total_r": 20.467,
-    "trades": 99,
-    "win_rate": 40.4,
-    "profit_factor": 1.35,
-    "max_dd": 12.533
+    "total_r": -5.533,
+    "trades": 65,
+    "win_rate": 30.77,
+    "profit_factor": 0.876,
+    "max_dd": 16.533
    }
   },
   {
    "name": "Mean Reversion",
    "past": {
-    "total_r": 2.537,
-    "trades": 192,
-    "win_rate": 40.1,
-    "profit_factor": 1.023,
+    "total_r": 5.813,
+    "trades": 137,
+    "win_rate": 40.88,
+    "profit_factor": 1.074,
     "max_dd": 11.622
    },
    "future": {
-    "total_r": 9.065,
-    "trades": 112,
-    "win_rate": 44.64,
-    "profit_factor": 1.146,
-    "max_dd": 10.157
+    "total_r": -12.086,
+    "trades": 86,
+    "win_rate": 36.05,
+    "profit_factor": 0.78,
+    "max_dd": 14.657
    }
   },
   {
    "name": "Breakout",
    "past": {
-    "total_r": -6.645,
-    "trades": 480,
-    "win_rate": 34.38,
-    "profit_factor": 0.979,
-    "max_dd": 25.638
+    "total_r": 9.772,
+    "trades": 343,
+    "win_rate": 35.57,
+    "profit_factor": 1.045,
+    "max_dd": 21.471
    },
    "future": {
-    "total_r": -43.458,
-    "trades": 317,
-    "win_rate": 29.65,
-    "profit_factor": 0.8,
-    "max_dd": 47.612
+    "total_r": -8.252,
+    "trades": 233,
+    "win_rate": 33.48,
+    "profit_factor": 0.945,
+    "max_dd": 23.764
    }
   },
   {
    "name": "Breakout v2",
    "past": {
-    "total_r": -26.798,
-    "trades": 305,
-    "win_rate": 31.8,
-    "profit_factor": 0.87,
-    "max_dd": 30.494
+    "total_r": -4.573,
+    "trades": 219,
+    "win_rate": 33.79,
+    "profit_factor": 0.968,
+    "max_dd": 23.0
    },
    "future": {
-    "total_r": -10.908,
-    "trades": 189,
-    "win_rate": 32.28,
-    "profit_factor": 0.914,
-    "max_dd": 30.428
+    "total_r": 11.901,
+    "trades": 157,
+    "win_rate": 37.58,
+    "profit_factor": 1.124,
+    "max_dd": 12.0
    }
   },
   {
    "name": "Three Soldiers",
    "past": {
-    "total_r": -1.335,
-    "trades": 343,
-    "win_rate": 43.44,
-    "profit_factor": 0.993,
-    "max_dd": 23.585
+    "total_r": 17.572,
+    "trades": 245,
+    "win_rate": 46.53,
+    "profit_factor": 1.15,
+    "max_dd": 16.513
    },
    "future": {
-    "total_r": -1.157,
-    "trades": 226,
-    "win_rate": 41.59,
-    "profit_factor": 0.989,
-    "max_dd": 14.812
+    "total_r": 12.597,
+    "trades": 170,
+    "win_rate": 44.12,
+    "profit_factor": 1.157,
+    "max_dd": 9.242
    }
   },
   {
    "name": "London Open Range",
    "past": {
-    "total_r": -33.662,
-    "trades": 359,
-    "win_rate": 32.87,
-    "profit_factor": 0.856,
-    "max_dd": 53.937
+    "total_r": -39.346,
+    "trades": 256,
+    "win_rate": 30.08,
+    "profit_factor": 0.771,
+    "max_dd": 55.57
    },
    "future": {
-    "total_r": 2.813,
-    "trades": 245,
-    "win_rate": 36.73,
-    "profit_factor": 1.019,
-    "max_dd": 22.191
+    "total_r": 18.781,
+    "trades": 174,
+    "win_rate": 40.8,
+    "profit_factor": 1.192,
+    "max_dd": 11.122
    }
   }
  ]
