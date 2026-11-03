@@ -741,6 +741,13 @@
 !!! tip "Next step after flashcards"
     Once you know all the terms, move on to the [WinRate × RR Calculator](winrate-rr-calculator.md) to understand the math behind a strategy.
 
+!!! tip "Review reminder"
+    The **“🔔 Remind me to review”** button above the trainer enables a daily
+    reminder: until the cards are reviewed, the site shows a banner, and with
+    the browser's permission — a system notification too. Honest limitation:
+    the site has no server, so the reminder fires when you open the site;
+    the “Later” button hides the banner until tomorrow.
+
 !!! info "Card of the day in Telegram"
     Want one card every morning in your DMs or channel — with the answer under
     a spoiler? The repo has `tools/daily_card.py`: it picks the day's card from

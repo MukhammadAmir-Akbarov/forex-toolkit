@@ -741,6 +741,13 @@
 !!! tip "Kartochkalardan keyingi qadam"
     Barcha atamalarni bilgach — strategiya matematikasini tushunish uchun [WinRate × RR kalkulyatoriga](winrate-rr-calculator.md) o'ting.
 
+!!! tip "Takrorlash eslatmasi"
+    Trenajyor ustidagi **«🔔 Takrorlashni eslat»** tugmasi kunlik eslatmani
+    yoqadi: kartochkalar takrorlanmaganicha saytda banner ko'rinadi, brauzer
+    ruxsati bilan esa tizimli bildirishnoma ham keladi. Halol cheklov: saytning
+    serveri yo'q, shuning uchun eslatma saytni ochganingizda ishlaydi;
+    «Keyin» tugmasi bannerni ertaga qadar yashiradi.
+
 !!! info "Telegram'da kun kartochkasi"
     Har ertalab bitta kartochkani shaxsiy xabar yoki kanalda xohlaysizmi — javobi
     spoyler ostida? Repozitoriyada `tools/daily_card.py` skripti bor: u shu bankdan
