@@ -46,11 +46,20 @@ def test_thin_cells_are_dimmed(site_url, pw_page):
     page = pw_page
     _open(page, site_url)
 
-    threshold = _document()["meta"]["thin_sample_below"]
-    thin_count = page.locator(".fx-season-cell.fx-season-thin").count()
-    assert thin_count > 0, (
-        f"при пороге {threshold} лет ни одна ячейка не помечена тонкой — "
-        "либо данных вдруг стало много, либо пометка сломалась"
+    # Тонких ячеек может и не быть (после удлинения истории все месяцы
+    # наблюдались 20+ лет) — ожидание считаем из данных, а не из предположения.
+    document = _document()
+    threshold = document["meta"]["thin_sample_below"]
+    expected = sum(
+        1
+        for pair in document["pairs"]
+        for cell in document["stats"][pair]
+        if 0 < cell["n"] < threshold
+    )
+
+    assert page.locator(".fx-season-cell.fx-season-thin").count() == expected, (
+        f"в данных {expected} тонких ячеек (n < {threshold}), "
+        "а на карте приглушено другое число"
     )
 
 

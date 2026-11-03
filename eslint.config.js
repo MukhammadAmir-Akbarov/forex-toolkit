@@ -15,6 +15,7 @@ const BROWSER_GLOBALS = {
   navigator: "readonly",
   localStorage: "readonly",
   sessionStorage: "readonly",
+  Notification: "readonly",
   location: "readonly",
   console: "readonly",
   fetch: "readonly",
