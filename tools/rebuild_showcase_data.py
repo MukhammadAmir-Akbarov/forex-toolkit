@@ -106,6 +106,13 @@ SHOWCASES = [
         "out": "weekly-review.json",
         "stamp": "meta",
     },
+    {
+        "name": "seasonality",
+        "script": "tools/build_seasonality.py",
+        "args": [],
+        "out": "seasonality.json",
+        "stamp": "meta",
+    },
 ]
 
 

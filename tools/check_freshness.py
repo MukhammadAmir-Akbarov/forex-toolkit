@@ -47,6 +47,7 @@ SHOWCASE_DATA = (
     "replay-episodes.json",
     "market-analytics.json",
     "weekly-review.json",
+    "seasonality.json",
 )
 
 
