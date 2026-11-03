@@ -633,6 +633,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/risk-profile/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/seasonality/</loc>
+        <lastmod>2026-11-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/seasonality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/seasonality/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/seasonality/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/strategy-ranking/</loc>
         <lastmod>2026-11-03</lastmod>
         <changefreq>daily</changefreq>
@@ -1369,6 +1377,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/risk-profile/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/seasonality/</loc>
+        <lastmod>2026-11-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/seasonality/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/seasonality/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/seasonality/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/strategy-ranking/</loc>
         <lastmod>2026-11-03</lastmod>
         <changefreq>daily</changefreq>
@@ -2103,6 +2119,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/risk-profile/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/risk-profile/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/risk-profile/"/>
+    </url>
+    <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/seasonality/</loc>
+        <lastmod>2026-11-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/seasonality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/seasonality/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/seasonality/"/>
     </url>
     <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/strategy-ranking/</loc>
@@ -2887,6 +2911,13 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/risk-profile/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/risk-profile/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/risk-profile/"/>
+    </url><url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/seasonality/</loc>
+        <lastmod>2026-11-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/seasonality/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/seasonality/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/seasonality/"/>
     </url><url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/strategy-ranking/</loc>
         <lastmod>2026-11-03</lastmod>

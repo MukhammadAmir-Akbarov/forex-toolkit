@@ -443,5 +443,10 @@
     "ru": "Симулятор стакана и ленты: 25 тиков наблюдения → прогноз на 5. Дисбаланс даёт слабый, но настоящий сигнал; 7/10 — уже умение.",
     "en": "Book & tape simulator: watch 25 ticks → predict the next 5. Imbalance carries a weak but real signal; 7/10 already means skill.",
     "uz": "Stakan va lenta simulyatori: 25 tik kuzatuv → 5 tikka prognoz. Disbalans zaif, lekin haqiqiy signal beradi; 10 dan 7 — mahorat."
+  },
+  "tools/seasonality": {
+    "ru": "Карта 8 пар × 12 месяцев из дневных свечей: средний ход месяца, медиана и доля плюсовых лет. Тонкие ячейки приглушены — это фон для плана, а не сигнал.",
+    "en": "8 pairs × 12 months map from daily candles: average month move, median and share of positive years. Thin cells are dimmed — background for planning, not a signal.",
+    "uz": "Kunlik shamchalardan 8 juftlik × 12 oy xaritasi: oyning o'rtacha xodi, mediana va ijobiy yillar ulushi. Ingichka kataklar o'chiq — bu reja uchun fon, signal emas."
   }
 }
