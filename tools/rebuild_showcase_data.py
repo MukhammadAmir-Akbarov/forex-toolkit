@@ -152,16 +152,35 @@ def _stamp(out_path: Path, where: str, when: str) -> dict:
 
 
 def _describe(document: dict) -> str:
-    """Одна строка: пара, таймфрейм, период, дата расчёта."""
+    """Одна строка: пара, таймфрейм, период, дата расчёта.
+
+    У витрин разные meta: сканеры пишут from/to, «Неделя на рынке» — week
+    {from, to}, мультипарный прогон — только home_pair. Строка отчёта обязана
+    пережить любой из этих наборов: падение здесь роняло бы весь прогон уже
+    после успешной пересборки.
+    """
     meta = document.get("meta", {})
     pair = (
-        meta.get("home_pair") or meta.get("pair") or "/".join(document.get("pairs", []))
+        meta.get("home_pair")
+        or meta.get("pair")
+        or "/".join(document.get("pairs", []))
+        or "—"
     )
-    timeframe = meta.get("timeframe") or "/".join(document.get("timeframes", []))
-    period = f"{str(meta.get('from', '?'))[:10]} → {str(meta.get('to', '?'))[:10]}"
-    if not meta.get("from"):
-        starts = [e.get("t", ["?"])[0] for e in document.get("episodes", [])]
-        period = f"эпизодов: {len(document.get('episodes', []))}, с {min(starts)[:10]}"
+    timeframe = meta.get("timeframe") or "/".join(document.get("timeframes", [])) or "—"
+
+    period_source = meta if meta.get("from") else meta.get("week", {})
+    start, end = period_source.get("from"), period_source.get("to")
+    if start or end:
+        period = f"{str(start or '?')[:10]} → {str(end or '?')[:10]}"
+    else:
+        episodes = document.get("episodes", [])
+        starts = [e.get("t", ["?"])[0] for e in episodes]
+        period = (
+            f"эпизодов: {len(episodes)}, с {min(starts)[:10]}"
+            if starts
+            else "без периода"
+        )
+
     stamp = meta.get("generated_at") or document.get("generated_at", "?")
     return f"{pair} · {timeframe} · {period} · расчёт {stamp}"
 
