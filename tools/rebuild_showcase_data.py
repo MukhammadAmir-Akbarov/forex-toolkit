@@ -202,6 +202,16 @@ def main() -> int:
         help="не перезаписывать витрины, а проверить их воспроизводимость",
     )
     ap.add_argument("--out-dir", type=Path, default=OUT_DIR, help=argparse.SUPPRESS)
+    ap.add_argument(
+        "--only",
+        default=None,
+        help="пересобрать только перечисленные витрины (через запятую). "
+        "Так работает еженедельный workflow: «живые» страницы (market-analytics, "
+        "weekly-review, seasonality) обновляются из свежих котировок сами, а "
+        "страницы-уроки (overfitting, multipair, strategies) и банк эпизодов "
+        "заморожены на зафиксированном эксперименте — их числа залочены "
+        "тестами на вывод урока, и молчаливое обновление меняло бы урок.",
+    )
     args = ap.parse_args()
 
     missing = [
@@ -217,8 +227,15 @@ def main() -> int:
     workdir = Path(tempfile.mkdtemp(prefix="showcase-")) if args.check else args.out_dir
     workdir.mkdir(parents=True, exist_ok=True)
 
+    only = set(args.only.split(",")) if args.only else None
+    showcases = [s for s in SHOWCASES if only is None or s["name"] in only]
+    if only is not None:
+        unknown = only - {s["name"] for s in SHOWCASES}
+        if unknown:
+            sys.exit(f"❌ Неизвестные витрины в --only: {', '.join(sorted(unknown))}")
+
     failures = 0
-    for spec in SHOWCASES:
+    for spec in showcases:
         out_path = workdir / spec["out"]
         print(f"⚙️  {spec['name']}: {spec['script']} …")
         _run_generator(spec, out_path)

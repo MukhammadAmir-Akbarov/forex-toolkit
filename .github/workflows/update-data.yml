@@ -35,8 +35,17 @@ jobs:
       - name: Fetch quotes
         run: python tools/fetch_quotes.py
 
+      # Пересобираем только «живые» страницы: неделя, теплокарта, сезонность.
+      # Страницы-уроки (overfitting, multipair, strategies) и банк эпизодов
+      # заморожены: их числа залочены тестами на вывод урока, и молчаливое
+      # обновление меняло бы сам урок. Пересчёт уроков — руками и глазами.
       - name: Rebuild showcases
-        run: python tools/rebuild_showcase_data.py
+        run: python tools/rebuild_showcase_data.py --only market-analytics,weekly-review,seasonality
+
+      # Данные обязаны проходить те же тесты, что и код: если свежие котировки
+      # ломают проверку, лучше красный прогон без коммита, чем красный main.
+      - name: Validate
+        run: pytest -q
 
       # Нет изменений — нет коммита: пустые «обновления» только шумят
       # в истории и зря гоняют деплой.
