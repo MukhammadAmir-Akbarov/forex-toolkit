@@ -1,10 +1,11 @@
 /*
- * «Неделя на рынке»: три крупнейших движения последней полной недели.
+ * «Неделя на рынке»: архив последних полных недель с топ-3 движениями.
  *
- * Рендерит data/weekly-review.json (tools/build_weekly_review.py): карточка
- * на движение — мини-график часовых свечей недели, ход в пипсах и в ATR,
- * день пика. Ход в ATR, а не в пипсах: 260 пипсов по GBP и по AUD —
- * разные события, а сравнивать недели хочется честно.
+ * Рендерит data/weekly-review.json (tools/build_weekly_review.py): кнопки
+ * ← → листают недели архива, карточка на движение — мини-график часовых
+ * свечей недели, ход в пипсах и в ATR, день пика. Ход в ATR, а не в пипсах:
+ * 260 пипсов по GBP и по AUD — разные события, а сравнивать недели хочется
+ * честно.
  */
 (function () {
   var root = document.getElementById("weekly-review");
@@ -17,6 +18,8 @@
       loading: "Считаю движения недели…",
       loadError: "Не удалось загрузить обзор. Обнови страницу.",
       week: function (from, to) { return "Неделя " + from + " → " + to; },
+      prev: "← Неделей раньше",
+      next: "Неделей позже →",
       move: "Ход недели",
       inAtr: "в ATR",
       peakDay: "День пика",
@@ -32,6 +35,8 @@
       loading: "Computing the week's moves…",
       loadError: "Could not load the review. Refresh the page.",
       week: function (from, to) { return "Week " + from + " → " + to; },
+      prev: "← One week back",
+      next: "One week later →",
       move: "Weekly move",
       inAtr: "in ATR",
       peakDay: "Peak day",
@@ -47,6 +52,8 @@
       loading: "Hafta harakatlari hisoblanmoqda…",
       loadError: "Sharhni yuklab bo'lmadi. Sahifani yangilang.",
       week: function (from, to) { return from + " → " + to + " hafta"; },
+      prev: "← Oldingi hafta",
+      next: "Keyingi hafta →",
       move: "Hafta xodi",
       inAtr: "ATR da",
       peakDay: "Pik kuni",
@@ -63,6 +70,9 @@
   var style = document.createElement("style");
   style.textContent = [
     ".wr-week{font-size:.85rem;color:var(--md-default-fg-color--light);margin:.2rem 0 .8rem}",
+    ".wr-nav{display:flex;justify-content:space-between;align-items:center;gap:.7rem;flex-wrap:wrap;margin-bottom:.4rem}",
+    ".wr-btn{padding:.4rem .9rem;border-radius:6px;cursor:pointer;font-weight:600;font-size:.82rem;border:1px solid var(--md-default-fg-color--lighter);background:transparent;color:inherit}",
+    ".wr-btn:disabled{opacity:.35;cursor:not-allowed}",
     ".wr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.9rem;margin:.8rem 0}",
     ".wr-card{border:1px solid var(--md-default-fg-color--lighter);border-radius:10px;padding:.8rem .9rem;background:var(--md-code-bg-color)}",
     ".wr-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}",
@@ -150,45 +160,71 @@
 
   function render(document_) {
     var meta = document_.meta || {};
-    var week = meta.week || {};
-    var moves = document_.moves || [];
+    // Архив недель: старые → новые. Плоский формат (moves/others в корне)
+    // доархивных версий поддерживаем как архив из одной недели.
+    var weeks = document_.weeks || [
+      {
+        from: (meta.week || {}).from || "?",
+        to: (meta.week || {}).to || "?",
+        moves: document_.moves || [],
+        others: document_.others || [],
+      },
+    ];
+    var selected = weeks.length - 1;
 
-    root.innerHTML =
-      '<p class="wr-week"><strong>' + F.escape(T.week(week.from || "?", week.to || "?")) +
-      "</strong></p>" +
-      '<div class="wr-grid">' +
-      moves.map(function (move, i) {
-        var cls = move.change_pips >= 0 ? "wr-up" : "wr-down";
-        return (
-          '<div class="wr-card"><div class="wr-head"><span class="wr-pair">' +
-          F.escape(move.pair) + '</span><span class="wr-change ' + cls + '">' +
-          fmtPips(move.change_pips) + " " + F.escape(T.pips) + " · " +
-          fmtPips(move.move_in_atr) + " " + F.escape(T.inAtr) + "</span></div>" +
-          '<canvas class="wr-chart" id="wr-chart-' + i + '"></canvas>' +
-          '<div class="wr-stats">' +
-          "<span>" + F.escape(T.peakDay) + "</span><b>" + F.escape(move.biggest_day) + "</b>" +
-          "<span>" + F.escape(T.range) + "</span><b>" +
-          F.int(Math.round((move.high - move.low) / (move.pair.endsWith("JPY") ? 0.01 : 0.0001))) +
-          " " + F.escape(T.pips) + "</b>" +
-          "</div></div>"
-        );
-      }).join("") +
-      "</div>" +
-      '<div class="wr-others"><table><thead><tr><th>' + F.escape(T.colPair) +
-      "</th><th>" + F.escape(T.colMove) + "</th><th>" + F.escape(T.colAtr) +
-      "</th></tr></thead><tbody>" +
-      (document_.others || []).map(function (m) {
-        var cls = m.change_pips >= 0 ? "wr-up" : "wr-down";
-        return '<tr><td>' + F.escape(m.pair) + '</td><td class="' + cls + '">' +
-          fmtPips(m.change_pips) + '</td><td class="' + cls + '">' +
-          fmtPips(m.move_in_atr) + "</td></tr>";
-      }).join("") +
-      "</tbody></table></div>" +
-      '<p class="wr-fresh">' + F.escape(T.fresh(meta.generated_at || "?")) + "</p>";
+    function renderWeek() {
+      var week = weeks[selected];
+      var moves = week.moves || [];
 
-    moves.forEach(function (move, i) {
-      drawChart(document.getElementById("wr-chart-" + i), move.candles || []);
-    });
+      root.innerHTML =
+        '<div class="wr-nav">' +
+        '<button type="button" class="wr-btn" id="wr-prev"' + (selected === 0 ? " disabled" : "") +
+        ">" + F.escape(T.prev) + "</button>" +
+        '<p class="wr-week"><strong>' + F.escape(T.week(week.from, week.to)) + "</strong></p>" +
+        '<button type="button" class="wr-btn" id="wr-next"' + (selected === weeks.length - 1 ? " disabled" : "") +
+        ">" + F.escape(T.next) + "</button>" +
+        "</div>" +
+        '<div class="wr-grid">' +
+        moves.map(function (move, i) {
+          var cls = move.change_pips >= 0 ? "wr-up" : "wr-down";
+          return (
+            '<div class="wr-card"><div class="wr-head"><span class="wr-pair">' +
+            F.escape(move.pair) + '</span><span class="wr-change ' + cls + '">' +
+            fmtPips(move.change_pips) + " " + F.escape(T.pips) + " · " +
+            fmtPips(move.move_in_atr) + " " + F.escape(T.inAtr) + "</span></div>" +
+            '<canvas class="wr-chart" id="wr-chart-' + i + '"></canvas>' +
+            '<div class="wr-stats">' +
+            "<span>" + F.escape(T.peakDay) + "</span><b>" + F.escape(move.biggest_day) + "</b>" +
+            "<span>" + F.escape(T.range) + "</span><b>" +
+            F.int(Math.round((move.high - move.low) / (move.pair.endsWith("JPY") ? 0.01 : 0.0001))) +
+            " " + F.escape(T.pips) + "</b>" +
+            "</div></div>"
+          );
+        }).join("") +
+        "</div>" +
+        '<div class="wr-others"><table><thead><tr><th>' + F.escape(T.colPair) +
+        "</th><th>" + F.escape(T.colMove) + "</th><th>" + F.escape(T.colAtr) +
+        "</th></tr></thead><tbody>" +
+        (week.others || []).map(function (m) {
+          var cls = m.change_pips >= 0 ? "wr-up" : "wr-down";
+          return '<tr><td>' + F.escape(m.pair) + '</td><td class="' + cls + '">' +
+            fmtPips(m.change_pips) + '</td><td class="' + cls + '">' +
+            fmtPips(m.move_in_atr) + "</td></tr>";
+        }).join("") +
+        "</tbody></table></div>" +
+        '<p class="wr-fresh">' + F.escape(T.fresh(meta.generated_at || "?")) + "</p>";
+
+      moves.forEach(function (move, i) {
+        drawChart(document.getElementById("wr-chart-" + i), move.candles || []);
+      });
+
+      var prev = document.getElementById("wr-prev");
+      var next = document.getElementById("wr-next");
+      if (prev) prev.addEventListener("click", function () { selected--; renderWeek(); });
+      if (next) next.addEventListener("click", function () { selected++; renderWeek(); });
+    }
+
+    renderWeek();
     if (window.fxTrack) window.fxTrack("weekly_review_viewed", { once: true });
   }
 })();

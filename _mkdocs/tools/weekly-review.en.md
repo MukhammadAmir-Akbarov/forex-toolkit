@@ -5,10 +5,11 @@ widgets: [weekly-review]
 # 📅 The week on the market: three biggest moves
 
 !!! abstract "What this is"
-    A review of the last full week across eight pairs: who moved the most,
+    An archive of recent full weeks across eight pairs: who moved the most,
     how big that is **in units of the pair's own volatility (ATR)**, and on
-    which day it happened. Charts and numbers are computed by a script from
-    real quotes — these are measurements, not impressions.
+    which day it happened. The ← → buttons page through the weeks. Charts and
+    numbers are computed by a script from real quotes — these are
+    measurements, not impressions.
 
 <div id="weekly-review" data-src="../../../data/weekly-review.json"></div>
 

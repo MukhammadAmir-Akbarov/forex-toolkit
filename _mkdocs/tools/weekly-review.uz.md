@@ -5,10 +5,11 @@ widgets: [weekly-review]
 # 📅 Bozorda hafta: uchta eng katta harakat
 
 !!! abstract "Bu nima"
-    Sakkiz juftlik bo'yicha oxirgi to'liq hafta tahlili: kim eng ko'p yurdi,
+    Sakkiz juftlik bo'yicha oxirgi to'liq haftalar arxivi: kim eng ko'p yurdi,
     bu **juftlikning o'z volatilligi (ATR) birliklarida** qancha katta va
-    qaysi kuni sodir bo'ldi. Grafik va raqamlar haqiqiy kotirovkalardan
-    skript bilan hisoblanadi — bu taassurot emas, o'lchov.
+    qaysi kuni sodir bo'ldi. ← → tugmalari haftalarni varaqlaydi. Grafik va
+    raqamlar haqiqiy kotirovkalardan skript bilan hisoblanadi — bu
+    taassurot emas, o'lchov.
 
 <div id="weekly-review" data-src="../../../data/weekly-review.json"></div>
 

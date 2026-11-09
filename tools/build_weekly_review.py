@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-"""Обзор «Неделя на рынке»: три крупнейших движения последней полной недели.
+"""Обзор «Неделя на рынке»: архив последних полных недель с топ-3 движениями.
 
-Читает data/<PAIR>_1h.csv (те же восемь пар, что у Replay и аналитики),
-находит последнюю ПОЛНУЮ неделю (пн–вс) в данных и считает по каждой паре:
-ход недели в пипсах и в ATR, день пика, контекст «что было до» (прошлая
-неделя) и «что после». Топ-3 по |ход| в ATR — это «движения недели»:
-пипсы у пар разные, а ход в единицах собственной волатильности сравним.
+Читает data/<PAIR>_1h.csv (те же восемь пар, что у Replay и аналитики) и для
+каждой из последних N полных недель (пн–вс, по умолчанию 8) считает по каждой
+паре: ход недели в пипсах и в ATR, день пика, часовые свечи для мини-графика.
+Топ-3 по |ход| в ATR — это «движения недели»: пипсы у пар разные, а ход в
+единицах собственной волатильности сравним.
 
 Результат — _mkdocs/data/weekly-review.json для страницы
-tools/weekly-review.md. Обновление раз в неделю:
-    python tools/build_weekly_review.py
-(данные в data/ статичны — пока котировки не перекачаны, неделя одна и та же;
-это честно: обзор живёт от свежих данных, а не от ручных правок текста).
+tools/weekly-review.md; виджет листает недели кнопками. Обновление раз в
+неделю делает workflow update-data: архив катается вперёд сам.
+    python tools/build_weekly_review.py [--weeks 8]
 """
 
 from __future__ import annotations
@@ -141,40 +140,26 @@ def week_stats(pair: str, candles: list[dict], atr_price: float) -> dict:
     }
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--out", type=Path, default=OUT_PATH)
-    parser.add_argument("--stamp", default=None, help="дата generated_at (YYYY-MM-DD)")
-    args = parser.parse_args()
-
-    weeks_by_pair = {pair: load_weeks(pair) for pair in PAIRS}
-    week = min(last_complete_week(weeks) for weeks in weeks_by_pair.values())
+def build_week(
+    weeks_by_pair: dict[str, dict[dt.date, list[dict]]], week: dt.date
+) -> dict:
+    """Одна неделя: топ-N движений в ATR + остальные пары."""
     sunday = week + dt.timedelta(days=6)
 
     moves = []
-    for pair in PAIRS:
-        candles = weeks_by_pair[pair].get(week, [])
+    for pair, pair_weeks in weeks_by_pair.items():
+        candles = pair_weeks.get(week, [])
         if not candles:
             continue
-        history = [
-            c
-            for monday, cs in weeks_by_pair[pair].items()
-            if monday <= week
-            for c in cs
-        ]
+        history = [c for monday, cs in pair_weeks.items() if monday <= week for c in cs]
         atr_price = daily_atr(history)
         moves.append(week_stats(pair, candles, atr_price))
 
     moves.sort(key=lambda m: abs(m["move_in_atr"] or 0), reverse=True)
-    top = moves[:TOP_N]
-
-    document = {
-        "meta": {
-            "generated_at": args.stamp or dt.date.today().isoformat(),
-            "source": "tools/build_weekly_review.py",
-            "week": {"from": week.isoformat(), "to": sunday.isoformat()},
-        },
-        "moves": top,
+    return {
+        "from": week.isoformat(),
+        "to": sunday.isoformat(),
+        "moves": moves[:TOP_N],
         "others": [
             {
                 "pair": m["pair"],
@@ -184,17 +169,58 @@ def main() -> int:
             for m in moves[TOP_N:]
         ],
     }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--out", type=Path, default=OUT_PATH)
+    parser.add_argument("--stamp", default=None, help="дата generated_at (YYYY-MM-DD)")
+    parser.add_argument(
+        "--weeks",
+        type=int,
+        default=8,
+        help="сколько последних полных недель держать в архиве (виджет листает)",
+    )
+    args = parser.parse_args()
+
+    weeks_by_pair = {pair: load_weeks(pair) for pair in PAIRS}
+    latest = min(last_complete_week(weeks) for weeks in weeks_by_pair.values())
+    # Архив идёт назад от последней общей полной недели: неделя попадает
+    # в обзор, только если она есть у всех пар, — иначе сравнение нечестное.
+    mondays = []
+    cursor = latest
+    while len(mondays) < args.weeks:
+        if all(cursor in weeks for weeks in weeks_by_pair.values()):
+            mondays.append(cursor)
+        cursor -= dt.timedelta(days=7)
+    if not mondays:
+        sys.exit("❌ Ни одной общей полной недели у всех восьми пар")
+
+    archive = [build_week(weeks_by_pair, monday) for monday in reversed(mondays)]
+
+    document = {
+        "meta": {
+            "generated_at": args.stamp or dt.date.today().isoformat(),
+            "source": "tools/build_weekly_review.py",
+            "week": {"from": archive[-1]["from"], "to": archive[-1]["to"]},
+            "weeks_count": len(archive),
+        },
+        "weeks": archive,
+    }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(
         json.dumps(document, ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
-    for move in top:
+    for move in archive[-1]["moves"]:
         print(
             f"  {move['pair']}: {move['change_pips']:+.1f} пипсов "
             f"({move['move_in_atr']:+.2f} ATR), пик {move['biggest_day']}"
         )
-    print(f"✅ {args.out}: неделя {week} → {sunday}, топ-{TOP_N} из {len(moves)} пар")
+    print(
+        f"✅ {args.out}: архив {len(archive)} нед., последняя "
+        f"{archive[-1]['from']} → {archive[-1]['to']}, топ-{TOP_N} из {len(PAIRS)} пар"
+    )
     return 0
 
 
