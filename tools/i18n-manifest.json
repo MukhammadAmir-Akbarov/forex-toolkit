@@ -554,6 +554,13 @@
       },
       "ru_sha256": "e157d0c9a13e15febedc80d82ccedc8f47314cc78f1b0190402a72e20f254620"
     },
+    "tools/sizing-drill.md": {
+      "locales": {
+        "en": "61c251bb02c0dd99d320de73783df7678b0aa2b3ad51378a0b5413b4a236deb9",
+        "uz": "61c251bb02c0dd99d320de73783df7678b0aa2b3ad51378a0b5413b4a236deb9"
+      },
+      "ru_sha256": "61c251bb02c0dd99d320de73783df7678b0aa2b3ad51378a0b5413b4a236deb9"
+    },
     "tools/strategy-ranking.md": {
       "locales": {
         "en": "9a7004c3d12ff36f6a5dbe49fb3fbebed94e54afc90ca1890619bc8993ac49e0",

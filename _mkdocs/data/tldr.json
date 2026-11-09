@@ -448,5 +448,10 @@
     "ru": "Карта 8 пар × 12 месяцев из дневных свечей: средний ход месяца, медиана и доля плюсовых лет. Тонкие ячейки приглушены — это фон для плана, а не сигнал.",
     "en": "8 pairs × 12 months map from daily candles: average month move, median and share of positive years. Thin cells are dimmed — background for planning, not a signal.",
     "uz": "Kunlik shamchalardan 8 juftlik × 12 oy xaritasi: oyning o'rtacha xodi, mediana va ijobiy yillar ulushi. Ingichka kataklar o'chiq — bu reja uchun fon, signal emas."
+  },
+  "tools/sizing-drill": {
+    "ru": "10 задач по 20 секунд: депозит, риск%, стоп — назови лот. Лот = (депозит × риск%) ÷ (стоп × $10); типовые ошибки ×10 и ÷10 разбираются после каждого ответа.",
+    "en": "10 problems, 20 seconds each: deposit, risk%, stop — name the lot. Lot = (deposit × risk%) ÷ (stop × $10); the classic ×10 and ÷10 mistakes are broken down after each answer.",
+    "uz": "10 ta masala, har biri 20 soniya: depozit, risk%, stop — lotni ayting. Lot = (depozit × risk%) ÷ (stop × $10); ×10 va ÷10 odatiy xatolar har javobdan keyin tahlil qilinadi."
   }
 }
