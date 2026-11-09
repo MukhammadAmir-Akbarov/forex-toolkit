@@ -17,7 +17,7 @@ not mixed.
 
 ## New trade plan
 
-<div id="trade-desk-widget" class="fx-tool"></div>
+<div id="trade-desk-widget" class="fx-tool" data-corr-src="../../../data/market-analytics.json"></div>
 
 !!! tip "After saving"
     Select **Open plan in journal**. Move the trade from **Plan** to **Open**,

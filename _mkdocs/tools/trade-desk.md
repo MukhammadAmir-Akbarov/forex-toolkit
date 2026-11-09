@@ -17,7 +17,7 @@ widgets: [strategy-lab, trade-desk]
 
 ## План новой сделки
 
-<div id="trade-desk-widget" class="fx-tool"></div>
+<div id="trade-desk-widget" class="fx-tool" data-corr-src="../../data/market-analytics.json"></div>
 
 !!! tip "После сохранения"
     Нажми **«Открыть план в журнале»**. Там переведи сделку из статуса

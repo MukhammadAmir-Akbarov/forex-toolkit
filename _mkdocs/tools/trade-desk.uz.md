@@ -17,7 +17,7 @@ natijalarni yangi natijalar bilan aralashtirmaydi.
 
 ## Yangi savdo rejasi
 
-<div id="trade-desk-widget" class="fx-tool"></div>
+<div id="trade-desk-widget" class="fx-tool" data-corr-src="../../../data/market-analytics.json"></div>
 
 !!! tip "Saqlagandan keyin"
     **Rejani jurnalda ochish** tugmasini bosing. Savdoni **Plan** holatidan

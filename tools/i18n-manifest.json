@@ -570,10 +570,10 @@
     },
     "tools/trade-desk.md": {
       "locales": {
-        "en": "0c9ed2bb3bf0dcc75159c0f8a7467c029dfd1dfea9abf73b547e7ab8b3adbbf7",
-        "uz": "0c9ed2bb3bf0dcc75159c0f8a7467c029dfd1dfea9abf73b547e7ab8b3adbbf7"
+        "en": "d11ca75cbab0b7ef64a0bc573b015bea78cc30a2cece8e61e0215c49fd30fa36",
+        "uz": "d11ca75cbab0b7ef64a0bc573b015bea78cc30a2cece8e61e0215c49fd30fa36"
       },
-      "ru_sha256": "0c9ed2bb3bf0dcc75159c0f8a7467c029dfd1dfea9abf73b547e7ab8b3adbbf7"
+      "ru_sha256": "d11ca75cbab0b7ef64a0bc573b015bea78cc30a2cece8e61e0215c49fd30fa36"
     },
     "tools/weekly-review.md": {
       "locales": {

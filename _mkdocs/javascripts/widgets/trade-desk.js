@@ -27,7 +27,9 @@
       budgetWarn: "Один или несколько лимитов превышены. Сделай паузу и перепроверь план.",
       override: "Я вижу предупреждение и осознанно подтверждаю превышение лимита.",
       needOverride: "Лимит риска превышен. Подтверди превышение галочкой, чтобы сохранить план.",
-      streakNote: "Серия убытков считается подряд по всей истории и не обнуляется в понедельник: три убытка в пятницу останутся серией и на следующей неделе. Прерывает её только сделка с результатом 0R или лучше."
+      streakNote: "Серия убытков считается подряд по всей истории и не обнуляется в понедельник: три убытка в пятницу останутся серией и на следующей неделе. Прерывает её только сделка с результатом 0R или лучше.",
+      corrDouble: function (pair, corr) { return "⚠ Уже открыта " + pair + " с корреляцией " + corr + " — по сути та же ставка: риск почти удваивается."; },
+      corrHedge: function (pair, corr) { return "ℹ " + pair + " открыта против движения (корреляция " + corr + "): сделки частично гасят друг друга, чистый риск меньше суммы."; }
     },
     en: {
       balance: "Balance, USD", risk: "Risk, %", pair: "Pair", direction: "Direction",
@@ -47,7 +49,9 @@
       budgetWarn: "One or more limits are exceeded. Pause and review the plan.",
       override: "I understand the warning and explicitly confirm exceeding the limit.",
       needOverride: "Risk limit exceeded. Tick the confirmation box to save the plan.",
-      streakNote: "The losing streak runs across the whole history and does not reset on Monday: three losses on Friday still count next week. Only a trade at 0R or better breaks it."
+      streakNote: "The losing streak runs across the whole history and does not reset on Monday: three losses on Friday still count next week. Only a trade at 0R or better breaks it.",
+      corrDouble: function (pair, corr) { return "⚠ " + pair + " is already open with a correlation of " + corr + " — effectively the same bet: the risk nearly doubles."; },
+      corrHedge: function (pair, corr) { return "ℹ " + pair + " is open against the move (correlation " + corr + "): the trades partly cancel, net risk is below the sum."; }
     },
     uz: {
       balance: "Depozit, USD", risk: "Risk, %", pair: "Juftlik", direction: "Yo'nalish",
@@ -67,7 +71,9 @@
       budgetWarn: "Bir yoki bir nechta limit oshdi. Tanaffus qiling va rejani qayta tekshiring.",
       override: "Ogohlantirishni ko'rdim va limit oshishini ongli ravishda tasdiqlayman.",
       needOverride: "Risk limiti oshdi. Rejani saqlash uchun tasdiq katagini belgilang.",
-      streakNote: "Zarar seriyasi butun tarix bo'yicha ketma-ket sanaladi va dushanbada nolga tushmaydi: juma kunidagi uchta zarar keyingi haftada ham seriya bo'lib qoladi. Uni faqat 0R yoki undan yaxshi natijali savdo uzadi."
+      streakNote: "Zarar seriyasi butun tarix bo'yicha ketma-ket sanaladi va dushanbada nolga tushmaydi: juma kunidagi uchta zarar keyingi haftada ham seriya bo'lib qoladi. Uni faqat 0R yoki undan yaxshi natijali savdo uzadi.",
+      corrDouble: function (pair, corr) { return "⚠ " + pair + " allaqachon ochiq, korrelyatsiya " + corr + " — aslida o'sha garov: risk deyarli ikki baravar oshadi."; },
+      corrHedge: function (pair, corr) { return "ℹ " + pair + " harakatga qarshi ochiq (korrelyatsiya " + corr + "): savdolar qisman bir-birini yutadi, sof risk yig'indidan kam."; }
     }
   });
 
@@ -116,6 +122,8 @@
   var current = null;
   var currentBudget = null;
   var currentStrategy = null;
+  var corrMatrix = null;
+  var corrRequested = false;
 
   function field(label, control) {
     return '<label><span>' + label + '</span>' + control + '</label>';
@@ -248,7 +256,10 @@
       metric(T.lossStreak, String(streak)) +
       '</div><p><strong>' + (reasons.length ? T.budgetWarn : T.budgetOk) + '</strong></p>' +
       '<p>' + T.remaining + ': ' + remainingOpen.toFixed(2) + '% / ' +
-      remainingDay.toFixed(2) + 'R / ' + remainingWeek.toFixed(2) + 'R</p>';
+      remainingDay.toFixed(2) + 'R / ' + remainingWeek.toFixed(2) + 'R</p>' +
+      corrWarnings().map(function (warning) {
+        return '<p class="td-corr td-corr--' + warning.kind + '">' + warning.text + '</p>';
+      }).join("");
     var override = document.getElementById("td-risk-override-wrap");
     override.hidden = !reasons.length;
     if (!reasons.length) document.getElementById("td-risk-override").checked = false;
@@ -261,6 +272,56 @@
 
   function metric(label, result) {
     return '<div><span>' + label + '</span><strong>' + result + '</strong></div>';
+  }
+
+  function loadCorrelations() {
+    if (corrRequested) return;
+    corrRequested = true;
+    var src = root.getAttribute("data-corr-src");
+    if (!src || typeof fetch !== "function") return;
+    fetch(src)
+      .then(function (response) { return response.ok ? response.json() : null; })
+      .then(function (doc) {
+        var data = doc && doc.correlations;
+        if (data && Array.isArray(data.pairs) && Array.isArray(data.values)) {
+          corrMatrix = data;
+          renderRiskBudget();
+        }
+      })
+      .catch(function () { /* предупреждения о корреляции просто не появятся */ });
+  }
+
+  function corrValue(pairA, pairB) {
+    var ia = corrMatrix.pairs.indexOf(pairA);
+    var ib = corrMatrix.pairs.indexOf(pairB);
+    if (ia < 0 || ib < 0) return null;
+    var row = corrMatrix.values[ia];
+    var c = row ? Number(row[ib]) : NaN;
+    return isFinite(c) ? c : null;
+  }
+
+  // Открытая сделка в том же направлении по сильно связанной паре — тот же
+  // риск дважды; в противоположном — сделки частично гасят друг друга.
+  function corrWarnings() {
+    if (!corrMatrix) return [];
+    var pair = document.getElementById("td-pair").value.toUpperCase().replace("/", "").trim();
+    var direction = document.getElementById("td-direction").value;
+    if (!pair || corrMatrix.pairs.indexOf(pair) < 0) return [];
+    var warnings = [];
+    readArray(STORAGE_KEY).forEach(function (plan) {
+      if (plan.status !== "open" || !plan.pair) return;
+      var openPair = String(plan.pair).toUpperCase().replace("/", "").trim();
+      if (openPair === pair) return;
+      var c = corrValue(pair, openPair);
+      if (c === null) return;
+      var eff = plan.direction === direction ? c : -c;
+      if (eff >= 0.7) {
+        warnings.push({ kind: "double", text: T.corrDouble(openPair, eff.toFixed(2)) });
+      } else if (eff <= -0.7) {
+        warnings.push({ kind: "hedge", text: T.corrHedge(openPair, eff.toFixed(2)) });
+      }
+    });
+    return warnings;
   }
 
   function calculate() {
@@ -430,7 +491,12 @@
   ["td-balance", "td-risk", "td-limit-open", "td-limit-day", "td-limit-week", "td-limit-streak"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", renderRiskBudget);
   });
+  ["td-pair", "td-direction"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", renderRiskBudget);
+    document.getElementById(id).addEventListener("change", renderRiskBudget);
+  });
   restoreSettings();
   refreshStrategies();
+  loadCorrelations();
   renderRiskBudget();
 })();
