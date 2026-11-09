@@ -2056,6 +2056,16 @@ label[for="__drawer"].fx-menu-hint::after {
   border-left: 4px solid #22c55e;
   background: rgba(34, 197, 94, 0.08);
 }
+.td-corr {
+  margin: 0.4rem 0 0;
+  font-weight: 600;
+}
+.td-corr--double {
+  color: #d97706;
+}
+.td-corr--hedge {
+  color: #2563eb;
+}
 .risk-budget__override {
   display: flex;
   gap: 0.5rem;
