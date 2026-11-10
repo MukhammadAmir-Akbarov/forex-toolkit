@@ -214,3 +214,22 @@ def test_all_locales_declare_the_same_widgets() -> None:
                     f"{other.name} {sorted(declared_widgets(other))}"
                 )
     assert not mismatched, "\n".join(mismatched)
+
+
+# Самый тяжёлый виджет сейчас — journal.js (~25.6 KB gzip). Бюджет с запасом
+# ~10%: попageвый вес тоже не должен расти незаметно — Lighthouse платит за
+# каждый килобайт на мобильных.
+PER_WIDGET_BUDGET_KB = 28.0
+
+
+def test_every_widget_stays_under_size_budget() -> None:
+    """Постраничный виджет тяжелеет медленно и незаметно — ловим порогом."""
+    over = []
+    for path in sorted(WIDGET_FILES):
+        kb = len(gzip.compress(path.read_bytes(), 9)) / 1024
+        if kb > PER_WIDGET_BUDGET_KB:
+            over.append(f"{path.name}: {kb:.2f} KB")
+    assert over == [], (
+        f"виджеты выше бюджета {PER_WIDGET_BUDGET_KB} KB gzip: {over}. "
+        "Разбей на модули или подними бюджет осознанно."
+    )
