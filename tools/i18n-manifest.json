@@ -428,6 +428,13 @@
       },
       "ru_sha256": "98dbe13826263465e03aa6e6015153ffa75ef2dd08da134dae113b20eca8922c"
     },
+    "tools/drawdown-recovery.md": {
+      "locales": {
+        "en": "22633c3fd3f22eb996125a4fc3764b6eeae961b16b2282fea58269ac31f4e422",
+        "uz": "22633c3fd3f22eb996125a4fc3764b6eeae961b16b2282fea58269ac31f4e422"
+      },
+      "ru_sha256": "22633c3fd3f22eb996125a4fc3764b6eeae961b16b2282fea58269ac31f4e422"
+    },
     "tools/exam.md": {
       "locales": {
         "en": "7eddd0efa6cb5f7a4ea2c392ced3ab27ebf950390f60d0c20daaf7d0a4592044",
@@ -612,24 +619,24 @@
     },
     "uz/law-faq.md": {
       "locales": {
-        "en": "dda56ef091b4bd1d51d914e61fd45bb1b3027ffd3f672cf67a2084e2c1929273",
-        "uz": "dda56ef091b4bd1d51d914e61fd45bb1b3027ffd3f672cf67a2084e2c1929273"
+        "en": "a8300d98e2ccbb91312ae73472a2b188134401431fbe754a61b0f042f9a7e5b3",
+        "uz": "a8300d98e2ccbb91312ae73472a2b188134401431fbe754a61b0f042f9a7e5b3"
       },
-      "ru_sha256": "dda56ef091b4bd1d51d914e61fd45bb1b3027ffd3f672cf67a2084e2c1929273"
+      "ru_sha256": "a8300d98e2ccbb91312ae73472a2b188134401431fbe754a61b0f042f9a7e5b3"
     },
     "uz/scam-protection.md": {
       "locales": {
-        "en": "52bddf98b9815ed3dbdb318638451632736fadff4f87082f50fd5924c4ba581a",
-        "uz": "52bddf98b9815ed3dbdb318638451632736fadff4f87082f50fd5924c4ba581a"
+        "en": "981089bf0cdae739d47fe78126722e6a128df17ba9b045b353d0a20714f9d215",
+        "uz": "981089bf0cdae739d47fe78126722e6a128df17ba9b045b353d0a20714f9d215"
       },
-      "ru_sha256": "52bddf98b9815ed3dbdb318638451632736fadff4f87082f50fd5924c4ba581a"
+      "ru_sha256": "981089bf0cdae739d47fe78126722e6a128df17ba9b045b353d0a20714f9d215"
     },
     "uz/swap-free.md": {
       "locales": {
-        "en": "a8b93695c0626e9b6dde37fcf0ba43fab20cfe788145084802fb29661281dbd8",
-        "uz": "a8b93695c0626e9b6dde37fcf0ba43fab20cfe788145084802fb29661281dbd8"
+        "en": "d4d3fed8af0dc771d9452f1a13ff22ae7d19af4c4cb22477199a8bf736636f4e",
+        "uz": "d4d3fed8af0dc771d9452f1a13ff22ae7d19af4c4cb22477199a8bf736636f4e"
       },
-      "ru_sha256": "a8b93695c0626e9b6dde37fcf0ba43fab20cfe788145084802fb29661281dbd8"
+      "ru_sha256": "d4d3fed8af0dc771d9452f1a13ff22ae7d19af4c4cb22477199a8bf736636f4e"
     },
     "uz/tax-calculator.md": {
       "locales": {
@@ -647,10 +654,10 @@
     },
     "uz/withdrawal-guide.md": {
       "locales": {
-        "en": "2ce831535962848c2f48a5e7646f45175b0b8cfb7c2cf56ed8596b1cd87e98b1",
-        "uz": "2ce831535962848c2f48a5e7646f45175b0b8cfb7c2cf56ed8596b1cd87e98b1"
+        "en": "2c03f116e703618b08bbe88cd958d8736b6df87a013cc73285a1db12d7e8ce8b",
+        "uz": "2c03f116e703618b08bbe88cd958d8736b6df87a013cc73285a1db12d7e8ce8b"
       },
-      "ru_sha256": "2ce831535962848c2f48a5e7646f45175b0b8cfb7c2cf56ed8596b1cd87e98b1"
+      "ru_sha256": "2c03f116e703618b08bbe88cd958d8736b6df87a013cc73285a1db12d7e8ce8b"
     },
     "КАК-ПОЛЬЗОВАТЬСЯ.md": {
       "locales": {

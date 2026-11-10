@@ -163,6 +163,7 @@ plugins:
             "🎴 Тренажёр карточек": "🎴 Flashcards"
             "🎯 Квиз — готов к реалу?": "🎯 Quiz — ready for real?"
             "🎲 Риск разорения": "🎲 Risk of ruin"
+            "🩹 Восстановление просадки": "🩹 Drawdown recovery"
             "💼 Жить с трейдинга": "💼 Living off trading"
             "🎓 Итоговый экзамен": "🎓 Final exam"
             "Tools README": "Tools README"
@@ -273,6 +274,7 @@ plugins:
             "🎴 Тренажёр карточек": "🎴 Kartochka mashqi"
             "🎯 Квиз — готов к реалу?": "🎯 Kviz — real hisobga tayyormisan?"
             "🎲 Риск разорения": "🎲 Vayron bo'lish xavfi"
+            "🩹 Восстановление просадки": "🩹 Tushishdan tiklanish"
             "💼 Жить с трейдинга": "💼 Treyding bilan yashash"
             "🎓 Итоговый экзамен": "🎓 Yakuniy imtihon"
             "Tools README": "Tools README"
@@ -450,6 +452,7 @@ nav:
       - 🎴 Тренажёр карточек: tools/flashcards.md
       - "🎯 Квиз — готов к реалу?": tools/quiz.md
       - 🎲 Риск разорения: tools/risk-of-ruin.md
+      - 🩹 Восстановление просадки: tools/drawdown-recovery.md
       - 💼 Жить с трейдинга: tools/living-capital.md
       - 🎮 Тренажёр Replay: tools/replay-trainer.md
       - 🕯️ Тренажёр паттернов: tools/pattern-trainer.md
