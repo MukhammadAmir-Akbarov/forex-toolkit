@@ -21,6 +21,15 @@
       journal: "Журнал",
       quizzes: "Квизы",
       quizzesMeta: "глав сдано на 3/3",
+      streak: "Стрик обучения",
+      streakDays: function (n) {
+        var m = n % 10, h = n % 100;
+        if (m === 1 && h !== 11) return "день";
+        if (m >= 2 && m <= 4 && (h < 12 || h > 14)) return "дня";
+        return "дней";
+      },
+      streakMeta: "всего активных дней",
+      streakZero: "Отметь страницу прочитанной или сдай квиз — стрик начнётся.",
       declTitle: "🧾 Скоро срок налоговой декларации",
       declBody: function (year, n) {
         return "За " + year + " год в журнале " + n + " сделок. Декларацию по итогам года подают до 1 апреля " +
@@ -106,6 +115,10 @@
       journal: "Journal",
       quizzes: "Quizzes",
       quizzesMeta: "chapters passed 3/3",
+      streak: "Learning streak",
+      streakDays: function (n) { return n === 1 ? "day" : "days"; },
+      streakMeta: "total active days",
+      streakZero: "Mark a page as read or pass a quiz to start your streak.",
       declTitle: "🧾 The tax return deadline is close",
       declBody: function (year, n) {
         return "Your journal holds " + n + " trades from " + year + ". The annual return is filed by 1 April " +
@@ -191,6 +204,10 @@
       journal: "Jurnal",
       quizzes: "Viktorinalar",
       quizzesMeta: "ta bob 3/3 ga topshirilgan",
+      streak: "O'qish seriyasi",
+      streakDays: function () { return "kun"; },
+      streakMeta: "jami faol kunlar",
+      streakZero: "Seriyani boshlash uchun sahifani o'qilgan deb belgilang yoki viktorina topshiring.",
       declTitle: "🧾 Soliq deklaratsiyasi muddati yaqin",
       declBody: function (year, n) {
         return year + " yil uchun jurnalda " + n + " ta savdo bor. Yillik deklaratsiya " + (year + 1) +
@@ -274,6 +291,7 @@
   var KEYS = [
     "fx-progress-v1",
     "fx-quiz-v1",
+    "fx-activity-v1",
     "forex_exam_passed",
     "forex_exam_best",
     "forex_replay_stats",
@@ -299,6 +317,7 @@
   var JSON_KEYS = {
     "fx-progress-v1": "array",
     "fx-quiz-v1": "object",
+    "fx-activity-v1": "array",
     "forex_replay_stats": "object",
     "forex_journal_summary": "object",
     "forex_journal_data_v2": "object",
@@ -410,7 +429,10 @@
     }
     else if (level === T.liveCaution || level === T.riskReady) next = T.steps.risk;
 
-    return { done: done, total: total, progressPct: progressPct, examBest: examBest, examPassed: examPassed, replay: replay, journal: journal, profile: profile, readiness: readiness, level: level, next: next, quizPassed: quizPassed, quizTotal: QUIZ_CHAPTERS };
+    var activity = readJSON("fx-activity-v1", []);
+    if (!Array.isArray(activity)) activity = [];
+
+    return { done: done, total: total, progressPct: progressPct, examBest: examBest, examPassed: examPassed, replay: replay, journal: journal, profile: profile, readiness: readiness, level: level, next: next, quizPassed: quizPassed, quizTotal: QUIZ_CHAPTERS, streak: streakFromDays(activity, new Date()), activeDays: activity.length };
   }
 
   function card(title, value, meta, href, linkText, status) {
@@ -441,6 +463,35 @@
 
   window.__fxDeclarationDue = function (isoDate, rows) {
     return declarationDue(new Date(isoDate), rows);
+  };
+
+  function dayStamp(d) {
+    return (
+      d.getFullYear() + "-" +
+      String(d.getMonth() + 1).padStart(2, "0") + "-" +
+      String(d.getDate()).padStart(2, "0")
+    );
+  }
+
+  // Дни подряд, заканчивающиеся сегодням или вчера: если сегодня активности
+  // ещё не было, стрик не обрывается — он просто ждёт первого действия дня.
+  function streakFromDays(days, today) {
+    var set = {};
+    (days || []).forEach(function (d) {
+      if (typeof d === "string" && /^\d{4}-\d{2}-\d{2}$/.test(d)) set[d] = true;
+    });
+    var cursor = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    if (!set[dayStamp(cursor)]) cursor.setDate(cursor.getDate() - 1);
+    var n = 0;
+    while (set[dayStamp(cursor)]) {
+      n++;
+      cursor.setDate(cursor.getDate() - 1);
+    }
+    return n;
+  }
+
+  window.__fxStreakFromDays = function (days, isoDate) {
+    return streakFromDays(days, new Date(isoDate));
   };
 
   function declarationBlock() {
@@ -495,6 +546,11 @@
       card(T.replay, s.replay && s.replay.trades ? s.replay.trades + ' ' + T.trades : T.noData, replayMeta, page('tools/replay-trainer/'), T.links.replay, s.replay && s.replay.trades ? 'ok' : 'warn'),
       card(T.journal, s.journal && s.journal.trades ? s.journal.trades + ' ' + T.trades : T.noData, journalMeta, page('journal/web-journal/'), T.links.journal, s.journal && s.journal.trades ? 'ok' : 'warn'),
       card(T.quizzes, s.quizPassed + ' / ' + s.quizTotal, T.quizzesMeta, page('forex-guide/'), T.links.quizzes, s.quizPassed * 2 >= s.quizTotal ? 'ok' : 'warn'),
+      card(T.streak,
+        '🔥 ' + s.streak + ' ' + T.streakDays(s.streak),
+        s.streak > 0 ? T.streakMeta + ': ' + s.activeDays : T.streakZero,
+        null, null,
+        s.streak > 0 ? 'ok' : 'warn'),
       '</div>',
       declarationBlock(),
       '<div class="sd-next"><strong>' + safeText(T.next) + ':</strong> <span id="sd-next-text">' + safeText(s.next) + '</span></div>',

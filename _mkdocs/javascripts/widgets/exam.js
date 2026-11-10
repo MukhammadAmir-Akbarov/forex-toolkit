@@ -289,6 +289,7 @@
       if (passed) localStorage.setItem("forex_exam_passed", "1");
     } catch (e) {}
     if (window.fxTrack) window.fxTrack("exam_completed");
+    if (window.fxActivity) window.fxActivity();
 
     var name = (el("exam-name").value || "").trim();
     // Экзамен стал строже, поэтому провал должен называть темы, а не просто

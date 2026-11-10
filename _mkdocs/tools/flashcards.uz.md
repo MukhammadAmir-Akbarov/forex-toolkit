@@ -457,6 +457,7 @@
       localStorage.setItem('ftk-flash-streak', String(newStreak));
       localStorage.setItem('ftk-flash-lastday', today);
     } catch(e) {}
+    if (window.fxActivity) window.fxActivity();
   }
 
   /* ─────────── SM-2-подобный приоритет ─────────── */

@@ -930,6 +930,7 @@
     } catch (error) {
       // localStorage can be disabled; Replay itself should still work.
     }
+    if (window.fxActivity) window.fxActivity();
     try {
       var first15 = JSON.parse(localStorage.getItem("forex_first15_v1") || "{}");
       first15.replay = true;

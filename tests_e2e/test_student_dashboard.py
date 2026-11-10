@@ -13,8 +13,8 @@ def test_student_dashboard_empty_state(pw_page, site_url, prefix):
     page.goto(f"{site_url}/{prefix}extras/dashboard/")
     page.wait_for_selector("#student-dashboard .sd-hero")
 
-    # Шесть карточек: тест готовности, обучение, экзамен, Replay, журнал, квизы.
-    assert page.locator(".sd-card").count() == 6
+    # Семь карточек: тест готовности, обучение, экзамен, Replay, журнал, квизы, стрик.
+    assert page.locator(".sd-card").count() == 7
     assert "0%" in page.text_content(".sd-hero")
     assert page.text_content("#sd-next-text").strip()
 
@@ -185,3 +185,54 @@ def test_dashboard_shows_readiness_test_and_leads_newcomers_to_it(pw_page, site_
     card = page.locator(".sd-card").first
     assert "31.7%" in card.inner_text()
     assert "пока не начинай" in card.inner_text()
+
+
+def test_dashboard_streak_counts_consecutive_days(pw_page, site_url):
+    """Стрик — дни подряд по fx-activity-v1, включая сегодня."""
+    from datetime import date, timedelta
+
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    today = date.today()
+    days = [(today - timedelta(days=i)).isoformat() for i in range(4)]
+    page.evaluate(
+        "(d) => localStorage.setItem('fx-activity-v1', JSON.stringify(d))", days
+    )
+    page.reload()
+    page.wait_for_selector("#student-dashboard .sd-hero")
+    card = page.locator(".sd-card", has_text="Стрик")
+    assert "4" in card.inner_text()
+
+
+def test_dashboard_streak_survives_today_without_activity(pw_page, site_url):
+    """Сегодня ещё ничего не делал — стрик со вчерашнего дня не обрывается."""
+    from datetime import date, timedelta
+
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    today = date.today()
+    days = [(today - timedelta(days=i)).isoformat() for i in range(1, 4)]
+    page.evaluate(
+        "(d) => localStorage.setItem('fx-activity-v1', JSON.stringify(d))", days
+    )
+    page.reload()
+    page.wait_for_selector("#student-dashboard .sd-hero")
+    card = page.locator(".sd-card", has_text="Стрик")
+    assert "3" in card.inner_text()
+
+
+def test_mark_read_records_activity_day(pw_page, site_url):
+    """Кнопка «прочитано» пишет день в fx-activity-v1 — база стрика."""
+    from datetime import date
+
+    page = pw_page
+    page.goto(f"{site_url}/docs/technical-analysis/")
+    page.wait_for_selector(".fx-progress__btn")
+    page.click(".fx-progress__btn")
+    days = page.evaluate("JSON.parse(localStorage.getItem('fx-activity-v1') || '[]')")
+    assert date.today().isoformat() in days
+    # Повторный клик (снятие отметки) не должен плодить дубликаты.
+    page.click(".fx-progress__btn")
+    page.click(".fx-progress__btn")
+    days = page.evaluate("JSON.parse(localStorage.getItem('fx-activity-v1') || '[]')")
+    assert days.count(date.today().isoformat()) == 1
