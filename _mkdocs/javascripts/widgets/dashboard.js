@@ -30,6 +30,9 @@
       },
       streakMeta: "всего активных дней",
       streakZero: "Отметь страницу прочитанной или сдай квиз — стрик начнётся.",
+      weekGoal: "недельная цель",
+      retakeTitle: "🔁 Пора повторить квизы",
+      retakeMeta: "Прошло 3+ недели со сдачи — повторение закрепляет материал.",
       declTitle: "🧾 Скоро срок налоговой декларации",
       declBody: function (year, n) {
         return "За " + year + " год в журнале " + n + " сделок. Декларацию по итогам года подают до 1 апреля " +
@@ -119,6 +122,9 @@
       streakDays: function (n) { return n === 1 ? "day" : "days"; },
       streakMeta: "total active days",
       streakZero: "Mark a page as read or pass a quiz to start your streak.",
+      weekGoal: "weekly goal",
+      retakeTitle: "🔁 Time to retake these quizzes",
+      retakeMeta: "Passed 3+ weeks ago — spaced review locks the material in.",
       declTitle: "🧾 The tax return deadline is close",
       declBody: function (year, n) {
         return "Your journal holds " + n + " trades from " + year + ". The annual return is filed by 1 April " +
@@ -208,6 +214,9 @@
       streakDays: function () { return "kun"; },
       streakMeta: "jami faol kunlar",
       streakZero: "Seriyani boshlash uchun sahifani o'qilgan deb belgilang yoki viktorina topshiring.",
+      weekGoal: "haftalik maqsad",
+      retakeTitle: "🔁 Bu viktorinalarni qayta topshiring",
+      retakeMeta: "3+ hafta oldin topshirilgan — takrorlash materialni mustahkamlaydi.",
       declTitle: "🧾 Soliq deklaratsiyasi muddati yaqin",
       declBody: function (year, n) {
         return year + " yil uchun jurnalda " + n + " ta savdo bor. Yillik deklaratsiya " + (year + 1) +
@@ -432,7 +441,7 @@
     var activity = readJSON("fx-activity-v1", []);
     if (!Array.isArray(activity)) activity = [];
 
-    return { done: done, total: total, progressPct: progressPct, examBest: examBest, examPassed: examPassed, replay: replay, journal: journal, profile: profile, readiness: readiness, level: level, next: next, quizPassed: quizPassed, quizTotal: QUIZ_CHAPTERS, streak: streakFromDays(activity, new Date()), activeDays: activity.length };
+    return { done: done, total: total, progressPct: progressPct, examBest: examBest, examPassed: examPassed, replay: replay, journal: journal, profile: profile, readiness: readiness, level: level, next: next, quizPassed: quizPassed, quizTotal: QUIZ_CHAPTERS, streak: streakFromDays(activity, new Date()), activeDays: activity.length, weekActive: weekActiveDays(activity, new Date()) };
   }
 
   function card(title, value, meta, href, linkText, status) {
@@ -494,6 +503,107 @@
     return streakFromDays(days, new Date(isoDate));
   };
 
+  var WEEK_GOAL = 5;
+  var DAY_MS = 24 * 60 * 60 * 1000;
+
+  function mondayOf(d) {
+    var c = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    c.setDate(c.getDate() - ((c.getDay() + 6) % 7)); // неделя начинается с пн
+    return c;
+  }
+
+  function weekActiveDays(days, today) {
+    var monday = dayStamp(mondayOf(today));
+    var todayStamp = dayStamp(today);
+    var seen = {};
+    (days || []).forEach(function (d) {
+      if (typeof d === "string" && d >= monday && d <= todayStamp) seen[d] = true;
+    });
+    return Object.keys(seen).length;
+  }
+
+  window.__fxWeekActiveDays = function (days, isoDate) {
+    return weekActiveDays(days, new Date(isoDate));
+  };
+
+  // Ключ квиза → путь главы от корня локали. Заголовки не дублируем: берём
+  // локализованный текст ссылки из левой навигации (unit-тест сверяет ключи).
+  var CHAPTER_PATHS = {
+    "technical-analysis": "docs/technical-analysis/",
+    "strategy-details": "docs/strategy-details/",
+    "real-analysis": "docs/real-analysis/",
+    "order-types-mechanics": "docs/order-types-mechanics/",
+    "fundamental-analysis-guide": "docs/fundamental-analysis-guide/",
+    "broker-mechanics-101": "docs/broker-mechanics-101/",
+    "crypto-trading-guide": "growth/crypto-trading-guide/",
+    "order-flow-volume-profile": "growth/order-flow-volume-profile/",
+    "stocks-basics": "growth/stocks-basics/",
+    "breakeven-protocol": "practice/breakeven-protocol/",
+    "cycle-theory": "practice/cycle-theory/",
+    "gold-trading": "practice/gold-trading/",
+    "lot-discipline": "practice/lot-discipline/",
+    "market-structure": "practice/market-structure/",
+    "news-trading-protocol": "practice/news-trading-protocol/",
+    "scaling-in": "practice/scaling-in/",
+    "trading-sessions": "practice/trading-sessions/",
+    "scam-protection": "uz/scam-protection/",
+    "withdrawal-guide": "uz/withdrawal-guide/",
+    "swap-free": "uz/swap-free/",
+    "law-faq": "uz/law-faq/"
+  };
+
+  var RETAKE_AFTER_DAYS = 21;
+
+  function navLink(path) {
+    var plain = path.replace(/\/+$/, "");
+    var anchors = document.querySelectorAll(".md-nav--primary .md-nav__link[href]");
+    for (var i = 0; i < anchors.length; i++) {
+      try {
+        var url = new URL(anchors[i].getAttribute("href"), location.href);
+        if (url.host === location.host &&
+            url.pathname.replace(/\/+$/, "").slice(-plain.length) === plain) {
+          return { href: url.pathname, title: anchors[i].textContent.trim() };
+        }
+      } catch (e) {}
+    }
+    return { href: page(path), title: plain };
+  }
+
+  // Сданные 3+ недели назад квизы: интервальное повторение закрепляет материал.
+  function staleQuizzes(now) {
+    var quiz = readJSON("fx-quiz-v1", {});
+    var out = [];
+    Object.keys(CHAPTER_PATHS).forEach(function (key) {
+      var r = quiz[key];
+      if (!r || !r.passed || !r.updatedAt) return;
+      var when = new Date(r.updatedAt).getTime();
+      if (isFinite(when) && now - when > RETAKE_AFTER_DAYS * DAY_MS) out.push(key);
+    });
+    return out;
+  }
+
+  window.__fxStaleQuizzes = function (isoDate) {
+    return staleQuizzes(new Date(isoDate).getTime());
+  };
+
+  function retakeBlock() {
+    var keys = staleQuizzes(Date.now());
+    if (!keys.length) return "";
+    var items = keys
+      .map(function (key) {
+        var link = navLink(CHAPTER_PATHS[key]);
+        return '<li><a href="' + link.href + '">' + safeText(link.title) + "</a></li>";
+      })
+      .join("");
+    return [
+      '<section class="sd-data-health" id="sd-retake">',
+      "<h3>" + safeText(T.retakeTitle) + "</h3>",
+      "<p>" + safeText(T.retakeMeta) + "</p>",
+      "<ul>" + items + "</ul>",
+      "</section>"
+    ].join("");
+  }
+
   function declarationBlock() {
     var data = readJSON("forex_journal_data_v2", {});
     var state = declarationDue(new Date(), (data && data.rows) || []);
@@ -548,11 +658,14 @@
       card(T.quizzes, s.quizPassed + ' / ' + s.quizTotal, T.quizzesMeta, page('forex-guide/'), T.links.quizzes, s.quizPassed * 2 >= s.quizTotal ? 'ok' : 'warn'),
       card(T.streak,
         '🔥 ' + s.streak + ' ' + T.streakDays(s.streak),
-        s.streak > 0 ? T.streakMeta + ': ' + s.activeDays : T.streakZero,
+        s.streak > 0
+          ? T.streakMeta + ': ' + s.activeDays + ' · ' + T.weekGoal + ': ' + Math.min(s.weekActive, WEEK_GOAL) + '/' + WEEK_GOAL
+          : T.streakZero,
         null, null,
         s.streak > 0 ? 'ok' : 'warn'),
       '</div>',
       declarationBlock(),
+      retakeBlock(),
       '<div class="sd-next"><strong>' + safeText(T.next) + ':</strong> <span id="sd-next-text">' + safeText(s.next) + '</span></div>',
       '<div class="sd-actions">',
       '  <button type="button" id="sd-export">' + safeText(T.export) + '</button>',

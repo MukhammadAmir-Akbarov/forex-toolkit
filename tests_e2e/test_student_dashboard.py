@@ -236,3 +236,70 @@ def test_mark_read_records_activity_day(pw_page, site_url):
     page.click(".fx-progress__btn")
     days = page.evaluate("JSON.parse(localStorage.getItem('fx-activity-v1') || '[]')")
     assert days.count(date.today().isoformat()) == 1
+
+
+def test_dashboard_weekly_goal_counts_days_of_current_week(pw_page, site_url):
+    """Недельная цель 5/7: считаются активные дни текущей недели (с понедельника)."""
+    from datetime import date, timedelta
+
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    today = date.today()
+    monday = today - timedelta(days=today.weekday())
+    # Нельзя ссылаться на дни позже сегодняшнего — они не считаются.
+    days = [
+        (monday + timedelta(days=i)).isoformat() for i in range(today.weekday() + 1)
+    ]
+    expected = len(days)
+    page.evaluate(
+        """
+        (days) => {
+          localStorage.setItem('fx-activity-v1', JSON.stringify(days));
+        }
+        """,
+        days,
+    )
+    page.reload()
+    page.wait_for_selector("#student-dashboard .sd-hero")
+    card = page.locator(".sd-card", has_text="Стрик")
+    assert f"{expected}/5" in card.inner_text()
+
+
+def test_dashboard_suggests_retaking_quizzes_after_three_weeks(pw_page, site_url):
+    """Сданный 30 дней назад квиз попадает в блок «Пора повторить»."""
+    from datetime import datetime, timedelta, timezone
+
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    old = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+    page.evaluate(
+        """
+        (old) => localStorage.setItem('fx-quiz-v1', JSON.stringify({
+          'breakeven-protocol': {score: 3, total: 3, passed: true, updatedAt: old}
+        }))
+        """,
+        old,
+    )
+    page.reload()
+    page.wait_for_selector("#student-dashboard .sd-hero")
+    block = page.locator("#sd-retake")
+    block.wait_for(state="visible")
+    link = block.locator("a").first
+    assert "breakeven-protocol" in (link.get_attribute("href") or "")
+
+
+def test_dashboard_no_retake_block_for_fresh_quizzes(pw_page, site_url):
+    """Свежесданный квиз не должен попадать в повторение."""
+    page = pw_page
+    page.goto(f"{site_url}/extras/dashboard/")
+    page.evaluate(
+        """
+        () => localStorage.setItem('fx-quiz-v1', JSON.stringify({
+          'breakeven-protocol': {score: 3, total: 3, passed: true,
+                                 updatedAt: new Date().toISOString()}
+        }))
+        """
+    )
+    page.reload()
+    page.wait_for_selector("#student-dashboard .sd-hero")
+    assert page.locator("#sd-retake").count() == 0

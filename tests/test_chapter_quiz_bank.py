@@ -143,3 +143,13 @@ def test_widget_shuffles_options_without_mutating_the_bank() -> None:
     assert "function shuffled(list)" in source, "функция перемешивания пропала"
     assert "list.slice()" in source, "перемешивание мутирует исходный массив"
     assert "shuffled(item.options)" in source, "варианты ответа не перемешиваются"
+
+
+def test_dashboard_chapter_paths_match_quiz_pages() -> None:
+    """Блок «пора повторить квизы» в кабинете использует свою карту
+    CHAPTER_PATHS — она обязана покрывать все страницы с квизами."""
+    source = DASHBOARD.read_text(encoding="utf-8")
+    for chapter in CHAPTERS:
+        key = quiz_key(chapter)
+        assert f'"{key}":' in source, f"dashboard.js: нет пути для квиза {key}"
+        assert f'"{chapter}/"' in source, f"dashboard.js: неверный путь у {key}"
