@@ -45,45 +45,45 @@
     },
     "docs/broker-mechanics-101.md": {
       "locales": {
-        "en": "1b4a604797c30c46593c58c0ac08d87586d797895d262690a91cf39e2257e40a",
-        "uz": "1b4a604797c30c46593c58c0ac08d87586d797895d262690a91cf39e2257e40a"
+        "en": "bb6b8f096dadb7e77b0e2a8733a45841b5fd14aea24eb25c99838c01d0a8cbb5",
+        "uz": "bb6b8f096dadb7e77b0e2a8733a45841b5fd14aea24eb25c99838c01d0a8cbb5"
       },
-      "ru_sha256": "1b4a604797c30c46593c58c0ac08d87586d797895d262690a91cf39e2257e40a"
+      "ru_sha256": "bb6b8f096dadb7e77b0e2a8733a45841b5fd14aea24eb25c99838c01d0a8cbb5"
     },
     "docs/fundamental-analysis-guide.md": {
       "locales": {
-        "en": "4bb680f093e31d662c8fd545d259cbc4291d112042a02d876755bc9d4df2f083",
-        "uz": "4bb680f093e31d662c8fd545d259cbc4291d112042a02d876755bc9d4df2f083"
+        "en": "feb00a4752db86f57190f06b5d127dd926ec89b9935dd028233748a8aaa6580d",
+        "uz": "feb00a4752db86f57190f06b5d127dd926ec89b9935dd028233748a8aaa6580d"
       },
-      "ru_sha256": "4bb680f093e31d662c8fd545d259cbc4291d112042a02d876755bc9d4df2f083"
+      "ru_sha256": "feb00a4752db86f57190f06b5d127dd926ec89b9935dd028233748a8aaa6580d"
     },
     "docs/order-types-mechanics.md": {
       "locales": {
-        "en": "447278f488daedf5d50c091972d32dc5c940edab92d755e40a61ef6881497548",
-        "uz": "447278f488daedf5d50c091972d32dc5c940edab92d755e40a61ef6881497548"
+        "en": "3853d7d76d8fb2273950a04e13be93b614b28b52d87881a07518c68ba17254d9",
+        "uz": "3853d7d76d8fb2273950a04e13be93b614b28b52d87881a07518c68ba17254d9"
       },
-      "ru_sha256": "447278f488daedf5d50c091972d32dc5c940edab92d755e40a61ef6881497548"
+      "ru_sha256": "3853d7d76d8fb2273950a04e13be93b614b28b52d87881a07518c68ba17254d9"
     },
     "docs/real-analysis.md": {
       "locales": {
-        "en": "97ab12f3fa70c4624291a6a639704616afa32a921f749b300cefe2cc84709413",
-        "uz": "97ab12f3fa70c4624291a6a639704616afa32a921f749b300cefe2cc84709413"
+        "en": "282c635e7a2241681d0d8b41da3dbb3f1f5ca6a3339ae28907895903dbd99e59",
+        "uz": "282c635e7a2241681d0d8b41da3dbb3f1f5ca6a3339ae28907895903dbd99e59"
       },
-      "ru_sha256": "97ab12f3fa70c4624291a6a639704616afa32a921f749b300cefe2cc84709413"
+      "ru_sha256": "282c635e7a2241681d0d8b41da3dbb3f1f5ca6a3339ae28907895903dbd99e59"
     },
     "docs/strategy-details.md": {
       "locales": {
-        "en": "07a9708239b138e364b95cf3439a3bee447e0852330a9bc6a7c9a719b435e0bf",
-        "uz": "07a9708239b138e364b95cf3439a3bee447e0852330a9bc6a7c9a719b435e0bf"
+        "en": "6323f08d37a26441033136a39c3473fafea1ab07be094e793e205b1994481c42",
+        "uz": "6323f08d37a26441033136a39c3473fafea1ab07be094e793e205b1994481c42"
       },
-      "ru_sha256": "07a9708239b138e364b95cf3439a3bee447e0852330a9bc6a7c9a719b435e0bf"
+      "ru_sha256": "6323f08d37a26441033136a39c3473fafea1ab07be094e793e205b1994481c42"
     },
     "docs/technical-analysis.md": {
       "locales": {
-        "en": "c3a19ee185712b3df91a77d40d5cd9525236fbcb5b9bbdc455cf579ca9462350",
-        "uz": "c3a19ee185712b3df91a77d40d5cd9525236fbcb5b9bbdc455cf579ca9462350"
+        "en": "8b739eda219bb8f7a8beea0929ede86817f363acf3998451d2a2a9958b16bf8a",
+        "uz": "8b739eda219bb8f7a8beea0929ede86817f363acf3998451d2a2a9958b16bf8a"
       },
-      "ru_sha256": "c3a19ee185712b3df91a77d40d5cd9525236fbcb5b9bbdc455cf579ca9462350"
+      "ru_sha256": "8b739eda219bb8f7a8beea0929ede86817f363acf3998451d2a2a9958b16bf8a"
     },
     "extras/anti-tilt-protocol.md": {
       "locales": {

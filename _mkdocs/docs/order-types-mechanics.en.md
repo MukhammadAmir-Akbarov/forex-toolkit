@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 📋 Order Types and Trade Entry Mechanics
 
 !!! abstract "Why this matters"
@@ -259,5 +263,47 @@ Tip: place TP **3–5 pips below** the nearest resistance (for longs).
     For real trading a connected broker account is required.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="order-types-mechanics"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "EUR/USD is at 1.08463. You want to buy a pullback to 1.08300. Which order?",
+    "options": [
+      "Buy Market — enter right now",
+      "Buy Stop at 1.08300",
+      "Buy Limit at 1.08300",
+      "Sell Limit at 1.08300"
+    ],
+    "answer": 2,
+    "explain": "Limit means entering at your price or better: the order waits for price to return to the level. A Buy Stop would trigger above the current price, not on a pullback."
+  },
+  {
+    "q": "Mechanically, a Stop-Loss on a position is which order type?",
+    "options": [
+      "Limit",
+      "Stop",
+      "A Market order sent in advance",
+      "Trailing"
+    ],
+    "answer": 1,
+    "explain": "The SL behaves as a stop order: once touched, it becomes a market close. Take-Profit, conversely, is a limit order."
+  },
+  {
+    "q": "The main pitfall of the MT5 trailing stop:",
+    "options": [
+      "It only works while the terminal is open — it is a local feature",
+      "It always fills exactly at the stated price",
+      "It cannot be used on EUR/USD",
+      "It widens the broker's spread"
+    ],
+    "answer": 0,
+    "explain": "Close MT5 and the trailing freezes. On noisy markets it also gets shaken out early."
+  }
+]
+</script>
 
 *← [Technical analysis](technical-analysis.en.md) · [Market structure →](../practice/market-structure.en.md)*

@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🌍 Fundamental tahlil — iqtisodiyot orqali bozorni o'qish
 
 !!! abstract "Fundamental tahlil nima"
@@ -270,5 +274,47 @@ Texnik deydi: EUR/USD asosiy qarshilikda, RSI haddan tashqari sotib olingan
     Qisqa muddatli tuzatishlarni savdo qilish mumkin, lekin asosiy trend sizga qarshi.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="fundamental-analysis-guide"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "AQSHda inflyatsiya 2% maqsaddan barqaror yuqori. Bob mantiq'iga ko'ra USD bilan nima bo'lishi ehtimoli yuqori?",
+    "options": [
+      "Susayadi — yuqori inflyatsiya valyuta uchun har doim yomon",
+      "Mustahkamlanadi: bozor FRS stavka oshirishini kutadi, yuqori stavkali valyuta jozibadorroq",
+      "O'zgarmaydi — fundamental kurslarni harakatlantirmaydi",
+      "Xarid qobiliyati yemirilishi tufayli o'sha haftada tushadi"
+    ],
+    "answer": 1,
+    "explain": "Qisqa muddatda foreks stavka kutilmalarini savdo qiladi: inflyatsiya maqsaddan yuqori → MB oshirishga intiladi → valyuta o'sadi. Yemirilish — haftalar emas, yillar effekti."
+  },
+  {
+    "q": "NFP (Non-Farm Payrolls) qachon chiqadi?",
+    "options": [
+      "Har oyning birinchi juma kuni",
+      "Har dushanba ertalab",
+      "Har chorakda bir marta",
+      "Oyning oxirgi savdo kunida"
+    ],
+    "answer": 0,
+    "explain": "NFP — oyning birinchi jumasida, 13:30 UTC. AQSH iqtisodiyoti oy davomida qancha ish o'rni yaratganini ko'rsatadi."
+  },
+  {
+    "q": "Bozorda Risk OFF rejimi (qo'rquv, riskdan qochish). Odatda nima mustahkamlanadi?",
+    "options": [
+      "AUD, NZD, CAD",
+      "Yuqori daromadli valyutalar",
+      "Hech narsa — valyutalar risk-appetitga javob bermaydi",
+      "USD, JPY, CHF"
+    ],
+    "answer": 3,
+    "explain": "Qo'rquvda kapital «xavfsiz baxnalarga» — USD, JPY, CHF ga qochadi. Xomashyo va yuqori daromadli valyutalar bu payt susayadi."
+  }
+]
+</script>
 
 *← [O'quv strategiyasi](strategy-details.uz.md) · [Order turlari →](order-types-mechanics.uz.md)*

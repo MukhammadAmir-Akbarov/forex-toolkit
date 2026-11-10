@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Real Technical Analysis EUR/USD
 
 > All charts below are built on **real historical EUR/USD H1 data** (1-hour candles) downloaded via yfinance. No synthetic data.
@@ -126,3 +130,44 @@ Events with a red icon (high impact) are the most important. These include:
 
 !!! tip "Beginner's Rule"
     Do not trade 30 minutes before or 30 minutes after red events. Volatility spikes sharply and a stop-loss can be triggered without any meaningful price movement.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="real-analysis"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Backtesting one strategy on 8 pairs gave an average Profit Factor of 1.07. The key takeaway?",
+    "options": [
+      "The strategy works equally well on every pair",
+      "Results on one pair do not guarantee performance on others",
+      "Backtests are useless altogether",
+      "EUR/USD is the only pair worth trading"
+    ],
+    "answer": 1,
+    "explain": "PF 1.07 is near breakeven; no pair reached ≥ 1.5. That is why a single-pair backtest cannot be trusted."
+  },
+  {
+    "q": "Price touches the upper Bollinger Band. This is…",
+    "options": [
+      "A sell signal",
+      "A guaranteed return to the middle line within an hour",
+      "A squeeze sign and an imminent volatility burst",
+      "A range extreme — it needs confirmation, not an entry"
+    ],
+    "answer": 3,
+    "explain": "Touching the band ≠ signal. In a trend price can 'walk the band' — a sign of strength, not reversal."
+  },
+  {
+    "q": "The beginner rule for red-folder news (NFP, CPI, rate decisions):",
+    "options": [
+      "Stay flat 30 minutes before and 30 minutes after the event",
+      "Trade only the news — that is where the big moves are",
+      "Double the lot before NFP to capture the profit",
+      "News does not affect technical analysis"
+    ],
+    "answer": 0,
+    "explain": "Red events spike volatility; a stop can be taken out by a spike without any real move."
+  }
+]
+</script>

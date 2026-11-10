@@ -13,8 +13,8 @@ def test_student_dashboard_empty_state(pw_page, site_url, prefix):
     page.goto(f"{site_url}/{prefix}extras/dashboard/")
     page.wait_for_selector("#student-dashboard .sd-hero")
 
-    # Пять карточек: тест готовности, обучение, экзамен, Replay, журнал.
-    assert page.locator(".sd-card").count() == 5
+    # Шесть карточек: тест готовности, обучение, экзамен, Replay, журнал, квизы.
+    assert page.locator(".sd-card").count() == 6
     assert "0%" in page.text_content(".sd-hero")
     assert page.text_content("#sd-next-text").strip()
 

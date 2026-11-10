@@ -19,6 +19,8 @@
       exam: "Экзамен",
       replay: "Replay",
       journal: "Журнал",
+      quizzes: "Квизы",
+      quizzesMeta: "глав сдано на 3/3",
       declTitle: "🧾 Скоро срок налоговой декларации",
       declBody: function (year, n) {
         return "За " + year + " год в журнале " + n + " сделок. Декларацию по итогам года подают до 1 апреля " +
@@ -89,7 +91,8 @@
         progress: "Открыть прогресс",
         exam: "Открыть экзамен",
         replay: "Открыть Replay",
-        journal: "Открыть веб-журнал"
+        journal: "Открыть веб-журнал",
+        quizzes: "К главам"
       }
     },
     en: {
@@ -101,6 +104,8 @@
       exam: "Exam",
       replay: "Replay",
       journal: "Journal",
+      quizzes: "Quizzes",
+      quizzesMeta: "chapters passed 3/3",
       declTitle: "🧾 The tax return deadline is close",
       declBody: function (year, n) {
         return "Your journal holds " + n + " trades from " + year + ". The annual return is filed by 1 April " +
@@ -171,7 +176,8 @@
         progress: "Open progress",
         exam: "Open exam",
         replay: "Open Replay",
-        journal: "Open web journal"
+        journal: "Open web journal",
+        quizzes: "To the chapters"
       }
     },
     uz: {
@@ -183,6 +189,8 @@
       exam: "Imtihon",
       replay: "Replay",
       journal: "Jurnal",
+      quizzes: "Viktorinalar",
+      quizzesMeta: "ta bob 3/3 ga topshirilgan",
       declTitle: "🧾 Soliq deklaratsiyasi muddati yaqin",
       declBody: function (year, n) {
         return year + " yil uchun jurnalda " + n + " ta savdo bor. Yillik deklaratsiya " + (year + 1) +
@@ -253,14 +261,19 @@
         progress: "Progressni ochish",
         exam: "Imtihonni ochish",
         replay: "Replayni ochish",
-        journal: "Veb-jurnalni ochish"
+        journal: "Veb-jurnalni ochish",
+        quizzes: "Boblarga"
       }
     }
   }[lang];
 
   var BACKUP_VERSION = 4;
+  // Глав гайда с мини-квизами (#chapter-quiz). Синхронно держит unit-тест
+  // tests/test_chapter_quiz_bank.py — добавил главу с квизом, подними и тут.
+  var QUIZ_CHAPTERS = 6;
   var KEYS = [
     "fx-progress-v1",
+    "fx-quiz-v1",
     "forex_exam_passed",
     "forex_exam_best",
     "forex_replay_stats",
@@ -285,6 +298,7 @@
   var KEY_PREFIXES = ["ftk-flash-"];
   var JSON_KEYS = {
     "fx-progress-v1": "array",
+    "fx-quiz-v1": "object",
     "forex_replay_stats": "object",
     "forex_journal_summary": "object",
     "forex_journal_data_v2": "object",
@@ -351,6 +365,11 @@
   function collect() {
     var done = readJSON("fx-progress-v1", []);
     if (!Array.isArray(done)) done = [];
+    var quizzes = readJSON("fx-quiz-v1", {});
+    if (!quizzes || typeof quizzes !== "object" || Array.isArray(quizzes)) quizzes = {};
+    var quizPassed = Object.keys(quizzes).filter(function (key) {
+      return quizzes[key] && quizzes[key].passed;
+    }).length;
     var total = navTotal();
     var progressPct = Math.min(100, done.length / total * 100);
     var examBest = readNumber("forex_exam_best");
@@ -391,7 +410,7 @@
     }
     else if (level === T.liveCaution || level === T.riskReady) next = T.steps.risk;
 
-    return { done: done, total: total, progressPct: progressPct, examBest: examBest, examPassed: examPassed, replay: replay, journal: journal, profile: profile, readiness: readiness, level: level, next: next };
+    return { done: done, total: total, progressPct: progressPct, examBest: examBest, examPassed: examPassed, replay: replay, journal: journal, profile: profile, readiness: readiness, level: level, next: next, quizPassed: quizPassed, quizTotal: QUIZ_CHAPTERS };
   }
 
   function card(title, value, meta, href, linkText, status) {
@@ -475,6 +494,7 @@
       card(T.exam, s.examPassed ? T.passed : T.notPassed, T.best + ': ' + s.examBest + '%', page('tools/exam/'), T.links.exam, s.examPassed ? 'ok' : 'warn'),
       card(T.replay, s.replay && s.replay.trades ? s.replay.trades + ' ' + T.trades : T.noData, replayMeta, page('tools/replay-trainer/'), T.links.replay, s.replay && s.replay.trades ? 'ok' : 'warn'),
       card(T.journal, s.journal && s.journal.trades ? s.journal.trades + ' ' + T.trades : T.noData, journalMeta, page('journal/web-journal/'), T.links.journal, s.journal && s.journal.trades ? 'ok' : 'warn'),
+      card(T.quizzes, s.quizPassed + ' / ' + s.quizTotal, T.quizzesMeta, page('forex-guide/'), T.links.quizzes, s.quizPassed * 2 >= s.quizTotal ? 'ok' : 'warn'),
       '</div>',
       declarationBlock(),
       '<div class="sd-next"><strong>' + safeText(T.next) + ':</strong> <span id="sd-next-text">' + safeText(s.next) + '</span></div>',

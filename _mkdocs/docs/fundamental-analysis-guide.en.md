@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🌍 Fundamental Analysis — Reading the Market Through Economics
 
 !!! abstract "What is fundamental analysis"
@@ -284,5 +288,47 @@ Technicals say: EUR/USD at key resistance, RSI overbought
     Short-term corrections are tradeable, but the main trend is against you.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="fundamental-analysis-guide"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "US inflation is persistently above the 2% target. What is most likely for the USD, per the chapter's logic?",
+    "options": [
+      "It weakens — high inflation is always bad for a currency",
+      "It strengthens: the market expects Fed hikes, and a higher-rate currency is more attractive",
+      "Nothing — fundamentals do not move exchange rates",
+      "It falls that same week due to eroding purchasing power"
+    ],
+    "answer": 1,
+    "explain": "Short term, forex trades rate expectations: inflation above target → the central bank leans toward hikes → the currency rises. Erosion is an effect of years, not weeks."
+  },
+  {
+    "q": "When does NFP (Non-Farm Payrolls) come out?",
+    "options": [
+      "The first Friday of every month",
+      "Every Monday morning",
+      "Once a quarter",
+      "On the last trading day of the month"
+    ],
+    "answer": 0,
+    "explain": "NFP is released on the first Friday of the month at 13:30 UTC. It shows how many jobs the US economy created that month."
+  },
+  {
+    "q": "Markets are in Risk OFF mode (fear, flight from risk). What usually strengthens?",
+    "options": [
+      "AUD, NZD, CAD",
+      "High-yield currencies",
+      "Nothing — currencies ignore risk appetite",
+      "USD, JPY, CHF"
+    ],
+    "answer": 3,
+    "explain": "In fear, capital flees to safe havens — USD, JPY, CHF. Commodity and high-yield currencies weaken at those moments."
+  }
+]
+</script>
 
 *← [Sample strategy](strategy-details.en.md) · [Order types →](order-types-mechanics.en.md)*

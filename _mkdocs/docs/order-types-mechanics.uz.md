@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 📋 Order turlari va savdoga kirish mexanikasi
 
 !!! abstract "Nima uchun bu muhim"
@@ -237,5 +241,47 @@ Maslahat: TP ni eng yaqin qarshilikdan **3–5 pip pastroqqa** qo'ying (longlar 
 | «Zararni cheklashim kerak» | Stop-Loss (majburiy!) |
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="order-types-mechanics"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "EUR/USD hozir 1.08463. 1.08300 gacha tuzatishda sotib olmoqchisiz. Qaysi order?",
+    "options": [
+      "Buy Market — darhol kirish",
+      "1.08300 ga Buy Stop",
+      "1.08300 ga Buy Limit",
+      "1.08300 ga Sell Limit"
+    ],
+    "answer": 2,
+    "explain": "Limit — ko'rsatilganidan yomon bo'lmagan narxda kirish: order narx darajaga qaytishini kutadi. Buy Stop joriy narxdan yuqorida ishlar, tuzatishda emas."
+  },
+  {
+    "q": "Mexanikasi bo'yicha pozitsiyadagi Stop-Loss — qaysi order turi?",
+    "options": [
+      "Limit",
+      "Stop",
+      "Oldindan yuborilgan Market",
+      "Trailing"
+    ],
+    "answer": 1,
+    "explain": "SL stop-order kabi ishlaydi: narx tegishi bilan bozordagi yopishga aylanadi. Take-Profit esa — limit order."
+  },
+  {
+    "q": "MT5 trailing stopining asosiy tuzog'i:",
+    "options": [
+      "U faqat terminal ochiq bo'lganda ishlaydi — bu lokal funksiya",
+      "U har doim ko'rsatilgan narxda aniq bajariladi",
+      "Uni EUR/USD da ishlatib bo'lmaydi",
+      "U broker spredini kengaytiradi"
+    ],
+    "answer": 0,
+    "explain": "MT5 ni o'chirsangiz — trailing to'xtaydi. Shovqinli bozorda esa uni ko'pincha vaqtidan oldin urib tashlaydi."
+  }
+]
+</script>
 
 *← [Texnik tahlil](technical-analysis.uz.md) · [Bozor tuzilmasi →](../practice/market-structure.uz.md)*

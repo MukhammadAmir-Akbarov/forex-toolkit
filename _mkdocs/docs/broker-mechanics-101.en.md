@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # ⚙️ Real Broker Mechanics — What Happens "Behind the Scenes"
 
 !!! abstract "Why this matters"
@@ -275,5 +279,47 @@ Broker profit ≈ client losses (without going to market)
     VISA/Mastercard UZS deposits and Telegram support are listed there.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="broker-mechanics-101"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "You hold a long EUR/USD: EUR rate 4.0%, USD rate 5.5%. What is the overnight swap?",
+    "options": [
+      "Positive — you get credited",
+      "Negative — you pay",
+      "Always zero",
+      "It depends only on the broker's spread"
+    ],
+    "answer": 1,
+    "explain": "You hold the lower-rate currency (4.0%) and borrowed the higher-rate one (5.5%) — you pay the difference. A short EUR/USD would earn a positive swap."
+  },
+  {
+    "q": "Account $1000, leverage 1:100, you open 0.1 lot EUR/USD (≈ $10,800). How much margin is blocked?",
+    "options": [
+      "$10.80",
+      "$108",
+      "$1,080",
+      "The whole $1000 deposit"
+    ],
+    "answer": 1,
+    "explain": "Margin = position value / leverage = $10,800 / 100 = $108. Free margin is $892."
+  },
+  {
+    "q": "Requotes ('price changed, accept the new one?') are a hallmark of which mechanics?",
+    "options": [
+      "Market Execution on ECN",
+      "Any regulated broker without exception",
+      "Instant Execution at a market maker",
+      "Swap-free accounts"
+    ],
+    "answer": 2,
+    "explain": "Market Execution has no requotes — the order always fills at market. Requotes are classic Instant Execution at MM brokers."
+  }
+]
+</script>
 
 *← [Fundamental analysis](fundamental-analysis-guide.en.md) · [Order types →](order-types-mechanics.en.md)*

@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # EUR/USD bo'yicha haqiqiy texnik tahlil
 
 !!! info "🌐 Tarjima / Перевод"
@@ -130,3 +134,44 @@ Qizil belgili voqealar (yuqori ta'sir) — eng muhimlari. Bular:
 
 !!! tip "Yangi boshlovchilar uchun qoida"
     Qizil voqealardan 30 daqiqa oldin va 30 daqiqa keyin savdo qilmang. Volatillik keskin oshadi va stop-loss normal harakat bo'lmasdan uchirib yuborilishi mumkin.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="real-analysis"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Bitta strategiyani 8 juftlikda bektest qilish o'rtacha Profit Factor 1.07 berdi. Asosiy xulosa?",
+    "options": [
+      "Strategiya barcha juftliklarda bir xil yaxshi ishlaydi",
+      "Bitta juftlikdagi natija boshqalarida ishlashini kafolatlamaydi",
+      "Bektestlar umuman befoyda",
+      "EUR/USD — savdo qilishga arziydigan yagona juftlik"
+    ],
+    "answer": 1,
+    "explain": "PF 1.07 — deyarli zararsizlik, hech bir juftlik ≥ 1.5 bermadi. Shuning uchun yagona juftlikdagi bektestga ishonib bo'lmaydi."
+  },
+  {
+    "q": "Narx yuqori Bollinger chizig'iga tegdi. Bu…",
+    "options": [
+      "Sotish signali",
+      "Bir soat ichida o'rta chiziqqa qaytish kafolati",
+      "Squeeze belgisi va tez orada volatillik portlashi",
+      "Diapazon ekstremumi — kirish emas, tasdiq kerak"
+    ],
+    "answer": 3,
+    "explain": "Chiziqqa tegish ≠ signal. Trendda narx «chiziq bo'ylab yurishi» mumkin — bu kuch belgisi, burilish emas."
+  },
+  {
+    "q": "Qizil yangiliklar (NFP, CPI, stavka qarorlari) uchun yangi boshlovchi qoidasi:",
+    "options": [
+      "Voqeadan 30 daqiqa oldin va 30 daqiqa keyin savdo qilmaslik",
+      "Faqat yangiliklarda savdo qilish — eng katta harakatlar u yerda",
+      "Foydani qo'ldan chiqarmaslik uchun NFP oldidan lotni ikki baravar qilish",
+      "Yangiliklar texnik tahlilga ta'sir qilmaydi"
+    ],
+    "answer": 0,
+    "explain": "Qizil voqealarda volatillik keskin oshadi, stopni normal harakatsiz spayk uzib olishi mumkin."
+  }
+]
+</script>

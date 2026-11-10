@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # ⚙️ Brokerning haqiqiy mexanikasi — «sahna ortida» nima bo'ladi
 
 !!! abstract "Nima uchun bu muhim"
@@ -272,5 +276,47 @@ Broker foydasi ≈ mijozlar zararlari (bozorga chiqmasdan)
     brokerlar tanlangan.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="broker-mechanics-101"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Long EUR/USD ushlab turibsiz: EUR stavkasi 4.0%, USD stavkasi 5.5%. Tungi svop qanday bo'ladi?",
+    "options": [
+      "Ijobiy — sizga hisoblanadi",
+      "Salbiy — to'lov sizdan",
+      "Har doim nol",
+      "Faqat broker sprediga bog'liq"
+    ],
+    "answer": 1,
+    "explain": "Kichik stavkali valyutani (4.0%) ushlab, kattasini (5.5%) qarz oldingiz — farqni siz to'laysiz. Short EUR/USD svopi ijobiy bo'lardi."
+  },
+  {
+    "q": "Hisob $1000, leverej 1:100, 0.1 lot EUR/USD (≈ $10 800) ochdingiz. Marja qancha bloklanadi?",
+    "options": [
+      "$10.80",
+      "$108",
+      "$1080",
+      "Butun $1000 depozit"
+    ],
+    "answer": 1,
+    "explain": "Marja = pozitsiya qiymati / leverej = $10 800 / 100 = $108. Erkin marja — $892."
+  },
+  {
+    "q": "Rekvotalar («narx o'zgardi, yangisini qabul qilasizmi?») — qaysi mexanika belgisi?",
+    "options": [
+      "ECN dagi Market Execution",
+      "Har qanday tartibga solingan broker, istisnosiz",
+      "Market-meykerdagi Instant Execution",
+      "Swap-free hisoblar"
+    ],
+    "answer": 2,
+    "explain": "Market Execution da rekvota yo'q — order har doim bozorda bajariladi. Rekvota — MM brokerdagi Instant Execution klassikasi."
+  }
+]
+</script>
 
 *← [Fundamental tahlil](fundamental-analysis-guide.uz.md) · [Order turlari →](order-types-mechanics.uz.md)*

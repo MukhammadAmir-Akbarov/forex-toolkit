@@ -2066,6 +2066,98 @@ label[for="__drawer"].fx-menu-hint::after {
 .td-corr--hedge {
   color: #2563eb;
 }
+
+/* --- Мини-квиз в конце главы --- */
+.chapter-quiz__box {
+  margin: 1.4rem 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: var(--md-code-bg-color);
+}
+.chapter-quiz__title {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+.chapter-quiz__best {
+  margin: 0.2rem 0 0.8rem;
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+}
+.chapter-quiz__best--done {
+  color: #16a34a;
+  font-weight: 700;
+}
+.chapter-quiz__btn {
+  border: 0;
+  border-radius: 7px;
+  padding: 0.55rem 1rem;
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.chapter-quiz__counter {
+  margin: 0.6rem 0 0.2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--md-default-fg-color--light);
+}
+.chapter-quiz__question {
+  margin: 0.2rem 0 0.7rem;
+  font-weight: 700;
+}
+.chapter-quiz__options {
+  display: grid;
+  gap: 0.45rem;
+}
+.chapter-quiz__option {
+  text-align: left;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 0.55rem 0.8rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  cursor: pointer;
+}
+.chapter-quiz__option:hover:not(:disabled) {
+  border-color: var(--md-primary-fg-color);
+}
+.chapter-quiz__option--correct {
+  border-color: #16a34a;
+  background: rgba(34, 197, 94, 0.12);
+  font-weight: 700;
+}
+.chapter-quiz__option--wrong {
+  border-color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+.chapter-quiz__explain {
+  margin: 0.7rem 0;
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--md-primary-fg-color);
+  background: rgba(59, 130, 246, 0.08);
+  font-size: 0.9rem;
+}
+.chapter-quiz__verdict {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+}
+.chapter-quiz__verdict.is-pass {
+  border-left: 4px solid #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+}
+.chapter-quiz__verdict.is-fail {
+  border-left: 4px solid #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+.chapter-quiz__verdict p {
+  margin: 0.4rem 0 0.7rem;
+}
 .risk-budget__override {
   display: flex;
   gap: 0.5rem;

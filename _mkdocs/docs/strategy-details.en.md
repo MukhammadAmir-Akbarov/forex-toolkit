@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # "EMA50 Pullback with Trend" Strategy — In-Depth Breakdown
 
 !!! info "🌐 Translation / Перевод"
@@ -347,5 +351,47 @@ Sometimes the market shifts "character" — for example, a trend gives way to a 
 - You can calmly skip a trade if it is not a perfect setup
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="strategy-details"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Balance $1000, risk 0.5%, stop 25 pips, pip value $10 per lot. Position size?",
+    "options": [
+      "0.2 lots",
+      "0.02 lots",
+      "0.5 lots",
+      "2 lots"
+    ],
+    "answer": 1,
+    "explain": "$5 risk ÷ (25 × $10) = 0.02 lots. Formula: (Balance × Risk%) / (Stop Distance × pip value)."
+  },
+  {
+    "q": "Where does the strategy place the stop-loss?",
+    "options": [
+      "At a fixed 20 pips from entry",
+      "At breakeven right after entry",
+      "Beyond the last swing extreme plus 5 pips",
+      "No stop needed if the trend is strong"
+    ],
+    "answer": 2,
+    "explain": "The stop is a technical level: breaking it means your trend hypothesis is wrong. '20 pips because I feel like it' is not a stop."
+  },
+  {
+    "q": "Which sign tells you to pause the strategy in a range?",
+    "options": [
+      "RSI above 65",
+      "Any red candle on H1",
+      "Two winning trades in a row",
+      "EMA200 on H4 runs almost flat (slope < 5°) for 2–3 days"
+    ],
+    "answer": 3,
+    "explain": "Trend-following produces a streak of false signals in a range. A flat EMA200 on H4 is the range marker."
+  }
+]
+</script>
 
 [← Back to main guide](../forex-guide.md) · [← Technical Analysis](technical-analysis.md)

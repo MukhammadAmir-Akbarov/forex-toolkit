@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # «EMA50 ga orqaga qaytish trend bo'yicha» strategiyasi — batafsil tahlil
 
 !!! info "🌐 Tarjima / Перевод"
@@ -347,5 +351,47 @@ Ba'zan bozor «xarakter» ini o'zgartiradi — masalan, trend bo'lgan, shovqinli
 - Savdo «ideal emas» bo'lsa, uni tinch o'tkazib yuborishingiz mumkin
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="strategy-details"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Depozit $1000, risk 0.5%, stop 25 pip, 1 lot uchun pip narxi $10. Pozitsiya hajmi?",
+    "options": [
+      "0.2 lot",
+      "0.02 lot",
+      "0.5 lot",
+      "2 lot"
+    ],
+    "answer": 1,
+    "explain": "$5 risk ÷ (25 × $10) = 0.02 lot. Formula: (Depozit × Risk%) / (Stop masofasi × pip narxi)."
+  },
+  {
+    "q": "Strategiya stop-lossni qayerga qo'yishni buyuradi?",
+    "options": [
+      "Kirishdan qattiq 20 pip uzoqlikka",
+      "Kirishdan so'ng darhol zararsizlik nuqtasiga",
+      "Oxirgi swing ekstremum ortiga plus 5 pip",
+      "Trend kuchli bo'lsa stop kerak emas"
+    ],
+    "answer": 2,
+    "explain": "Stop — texnik daraja: buzilishi trend gipotezasi noto'g'ri degani. «Xohlaganim uchun 20 pip» — stop emas."
+  },
+  {
+    "q": "Qaysi belgi fleyt vaqtida strategiyani pauzaga qo'yishni aytadi?",
+    "options": [
+      "RSI 65 dan yuqori",
+      "H1 dagi har qanday qizil svecha",
+      "Ketma-ket ikkita foydali savdo",
+      "EMA200 H4 da 2–3 kun deyarli gorizontal (qiyalik < 5°)"
+    ],
+    "answer": 3,
+    "explain": "Fleytda trend-following yolg'on signallar seriyasini beradi. Fleyt belgisi — H4 dagi yotiq EMA200."
+  }
+]
+</script>
 
 [← Asosiy qo'llanmaga qaytish](../forex-guide.md) · [← Texnik tahlil](technical-analysis.md)

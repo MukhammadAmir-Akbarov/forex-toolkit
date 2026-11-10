@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Technical Analysis — Advanced Guide
 
 !!! info "🌐 Translation"
@@ -474,5 +478,47 @@ EVEN ONE NO → NO trade.
 Print this list and keep it by your computer for the first 6 months of trading.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="technical-analysis"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "What marks an uptrend?",
+    "options": [
+      "A sequence of higher highs and higher lows",
+      "A sequence of lower highs and lower lows",
+      "A horizontal corridor between levels",
+      "Any price rise during the day"
+    ],
+    "answer": 0,
+    "explain": "HH + HL = uptrend; LH + LL = downtrend. Until the structure breaks, trade only with the trend."
+  },
+  {
+    "q": "RSI climbs above 70 during a strong uptrend. What should you do?",
+    "options": [
+      "Sell immediately — the market is overbought",
+      "Do not short: RSI can stay above 70 for weeks in a strong trend",
+      "Buy more — overbought confirms strength",
+      "Wait for a guaranteed reversal within a day"
+    ],
+    "answer": 1,
+    "explain": "'RSI > 70 = sell' against a strong trend is a near-certain loss. RSI works best as an overheat filter and for spotting divergences."
+  },
+  {
+    "q": "Under the chapter's multi-timeframe approach, when may you open a trade?",
+    "options": [
+      "As soon as a candle pattern appears on H1",
+      "When M5 and M1 agree on direction",
+      "When D1, H4 and H1 all say the same thing",
+      "When D1 opposes H1 — enter on the lower timeframe"
+    ],
+    "answer": 2,
+    "explain": "D1 sets the main trend, H4 the working levels, H1 the entry. A 'bullish reversal' on H1 against a bearish D1 is almost always a trap."
+  }
+]
+</script>
 
 [← Back to the main guide](../forex-guide.md) · [Strategy →](strategy-details.md)

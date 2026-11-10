@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Texnik tahlil — kengaytirilgan qo'llanma
 
 !!! info "🌐 Tarjima / Перевод"
@@ -477,5 +481,47 @@ KAMIDA BITTASI YO'Q → savdo YO'Q.
 Bu ro'yxatni chop etib, savdoning birinchi 6 oyi davomida kompyuter yoniga ilib qo'ying.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="technical-analysis"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "O'suvchi trend belgisi nima?",
+    "options": [
+      "Higher highs va higher lows ketma-ketligi",
+      "Lower highs va lower lows ketma-ketligi",
+      "Darajalar orasidagi gorizontal koridor",
+      "Kun davomidagi har qanday narx o'sishi"
+    ],
+    "answer": 0,
+    "explain": "HH + HL — o'suvchi trend; LH + LL — pasayuvchi. Struktura buzilmaguncha faqat trend bo'yicha ishlaymiz."
+  },
+  {
+    "q": "Kuchli o'suvchi trendda RSI 70 dan oshdi. Nima qilamiz?",
+    "options": [
+      "Darhol sotamiz — bozor qayta sotib olingan",
+      "Short ochmaymiz: kuchli trendda RSI haftalab 70 dan yuqori turishi mumkin",
+      "Ko'proq sotib olamiz — qayta sotib olish kuchni tasdiqlaydi",
+      "Kun ichida kafolatlangan burilishni kutamiz"
+    ],
+    "answer": 1,
+    "explain": "Kuchli trendda «RSI > 70 — sotamiz» deyarli aniq mag'lubiyat. RSI qizish filtri va divergensiya qidirish uchun foydali."
+  },
+  {
+    "q": "Bobdagi MTF yondashuvi bo'yicha savdo qachon ochiladi?",
+    "options": [
+      "H1 da svecha patterni paydo bo'lishi bilanoq",
+      "M5 va M1 yo'nalishi mos kelganda",
+      "D1, H4 va H1 bir xil gapirganda",
+      "D1 H1 ga qarshi bo'lganda — kichik taymfreymda kiramiz"
+    ],
+    "answer": 2,
+    "explain": "D1 asosiy trendni, H4 ishchi darajalarni, H1 kirish nuqtasini beradi. Pasayuvchi D1 fonidagi H1 «bullish burilishi» deyarli har doim tuzoq."
+  }
+]
+</script>
 
 [← Asosiy qo'llanmaga qaytish](../forex-guide.md) · [Strategiya →](strategy-details.md)
