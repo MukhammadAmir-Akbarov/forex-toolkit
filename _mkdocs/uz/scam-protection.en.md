@@ -1,5 +1,6 @@
 ---
 verified: 2026-06-11
+widgets: [chapter-quiz]
 ---
 
 # Scam Protection: How Not to Lose Money on "Trading" in Uzbekistan
@@ -101,3 +102,44 @@ you send any money.
 
 **Sources:** [napp.uz](https://napp.uz) (registry of licensed providers),
 ESMA (retail trader loss statistics). Last verified 2026-06-11.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="scam-protection"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "The main sign of a trading scam?",
+    "options": [
+      "A promise of guaranteed returns ('10% a month, risk-free')",
+      "Having a mobile app",
+      "A slick presentation",
+      "Fast registration"
+    ],
+    "answer": 0,
+    "explain": "Guaranteed returns are impossible by definition: 74–89% of retail traders lose money. A guarantee = a scheme to take your money."
+  },
+  {
+    "q": "What should you do BEFORE depositing with a new broker?",
+    "options": [
+      "Deposit the minimum and test a withdrawal",
+      "Check the licence in regulator registers (FCA, CySEC, ASIC etc.)",
+      "Read reviews in a Telegram chat",
+      "Nothing — brokers are honest by default"
+    ],
+    "answer": 1,
+    "explain": "A licence is verified only in official regulator registers; the Broker Check page builds direct links to them."
+  },
+  {
+    "q": "'Trust management' by an individual with a guaranteed return is:",
+    "options": [
+      "A convenient way to invest",
+      "Almost always an illegal scheme",
+      "Normal practice in Uzbekistan",
+      "Acceptable if the person is famous"
+    ],
+    "answer": 1,
+    "explain": "An individual collecting money with a promised return is a classic red flag: no licence + guaranteed profit = scam."
+  }
+]
+</script>

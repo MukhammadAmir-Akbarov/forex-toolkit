@@ -26,6 +26,10 @@ CHAPTER_KEYS = [
     "news-trading-protocol",
     "scaling-in",
     "trading-sessions",
+    "scam-protection",
+    "withdrawal-guide",
+    "swap-free",
+    "law-faq",
 ]
 
 
@@ -39,9 +43,17 @@ def _answer_current(page, bank, correctly: bool):
     text = page.locator("#exam-question").text_content()
     item = next(q for q in bank if q["q"] == text)
     correct = item["options"][item["answer"]]
-    options = page.locator(".exam-option").all_text_contents()
-    target = correct if correctly else next(o for o in options if o != correct)
-    page.locator(".exam-option", has_text=target).first.click()
+    target = correct
+    if not correctly:
+        options = page.locator(".exam-option").all_text_contents()
+        target = next(o for o in options if o != correct)
+    # Точное совпадение: has_text — подстрока, после перемешивания короткий
+    # вариант может оказаться раньше длинного с тем же фрагментом.
+    buttons = page.locator(".exam-option")
+    for i in range(buttons.count()):
+        if buttons.nth(i).inner_text() == target:
+            buttons.nth(i).click()
+            break
     page.click("#exam-next")
 
 

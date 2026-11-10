@@ -15,9 +15,19 @@ def _bank(page):
     return json.loads(raw)
 
 
+def _click_option_by_text(page, text):
+    """Точное совпадение: has_text — подстрока, а после перемешивания короткий
+    вариант может оказаться раньше длинного с тем же фрагментом."""
+    options = page.locator(".chapter-quiz__option")
+    for i in range(options.count()):
+        if options.nth(i).inner_text() == text:
+            options.nth(i).click()
+            return
+    raise AssertionError(f"вариант не найден: {text}")
+
+
 def _click_correct(page, question):
-    correct = question["options"][question["answer"]]
-    page.locator(".chapter-quiz__option", has_text=correct).first.click()
+    _click_option_by_text(page, question["options"][question["answer"]])
 
 
 def _answer_all(page, bank, correctly: bool):
@@ -29,7 +39,7 @@ def _answer_all(page, bank, correctly: bool):
             wrong = next(
                 o for j, o in enumerate(question["options"]) if j != question["answer"]
             )
-            page.locator(".chapter-quiz__option", has_text=wrong).first.click()
+            _click_option_by_text(page, wrong)
         # «Дальше» после последнего вопроса тоже обязательно: вердикт
         # показывается именно этим кликом, а не выбором ответа.
         page.click("#cq-next")
@@ -123,8 +133,8 @@ def test_dashboard_counts_passed_quizzes(pw_page, site_url):
     page.goto(f"{site_url}/extras/dashboard/")
     page.wait_for_selector("#student-dashboard .sd-hero")
     values = page.locator(".sd-card__value").all_text_contents()
-    assert any(v.strip().startswith("1 / 17") for v in values), (
-        f"карточка квизов не показала 1 / 17: {values}"
+    assert any(v.strip().startswith("1 / 21") for v in values), (
+        f"карточка квизов не показала 1 / 21: {values}"
     )
 
 

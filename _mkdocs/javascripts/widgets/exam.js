@@ -182,6 +182,14 @@
       name: { ru: "Доливка (scaling-in)", en: "Scaling in", uz: "Dolivka (scaling-in)" } },
     { key: "trading-sessions", path: "practice/trading-sessions/",
       name: { ru: "Торговые сессии", en: "Trading sessions", uz: "Savdo sessiyalari" } },
+    { key: "scam-protection", path: "uz/scam-protection/",
+      name: { ru: "Защита от скама", en: "Scam protection", uz: "Scamdan himoya" } },
+    { key: "withdrawal-guide", path: "uz/withdrawal-guide/",
+      name: { ru: "Вывод денег в Узбекистан", en: "Withdrawing money in Uzbekistan", uz: "O'zbekistonda pul yechish" } },
+    { key: "swap-free", path: "uz/swap-free/",
+      name: { ru: "Своп-фри счета", en: "Swap-free accounts", uz: "Swap-free hisoblar" } },
+    { key: "law-faq", path: "uz/law-faq/",
+      name: { ru: "Закон и форекс в Узбекистане", en: "Forex law in Uzbekistan", uz: "O'zbekistonda qonun va foreks" } },
   ];
 
   // Экзамен провален — человеку нужен маршрут: какие главы закрыть квизами.

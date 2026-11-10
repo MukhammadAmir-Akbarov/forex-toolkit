@@ -1,5 +1,6 @@
 ---
 verified: 2026-11-01
+widgets: [chapter-quiz]
 ---
 
 # Swap-Free (Islamic) Accounts: How Not to Overpay on a "Halal Account"
@@ -98,3 +99,44 @@ will only cost you **more**.
 - 🏦 [Brokers for Uzbekistan](brokers-uz.md) — regulator first, account type second.
 - 🚨 [Scam Protection](scam-protection.md) — "halal" in the name does not make a scheme legitimate.
 - ⚖️ [Law and Forex in Uzbekistan](law-faq.md) — legal context.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="swap-free"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "What is a swap?",
+    "options": [
+      "A fee for opening a trade",
+      "A charge/credit for holding a position overnight (the rate difference of the pair)",
+      "A broker's tax",
+      "A withdrawal fee"
+    ],
+    "answer": 1,
+    "explain": "A swap is the interest-rate difference between the two currencies; it accrues for every night the position stays open."
+  },
+  {
+    "q": "A swap-free (Islamic) account means:",
+    "options": [
+      "Trading with no costs at all",
+      "No swap — but costs may be hidden in the spread or a commission",
+      "A ban on overnight positions",
+      "A broker bonus"
+    ],
+    "answer": 1,
+    "explain": "'Swap-free' ≠ 'free': the broker makes it up with a wider spread or a fixed commission — count the full cost."
+  },
+  {
+    "q": "How do you check whether a swap-free account is worth it?",
+    "options": [
+      "Trust the broker's advertising",
+      "Ask the broker's manager",
+      "Calculate all costs for a month/year in the trade-cost calculator",
+      "Compare spreads only"
+    ],
+    "answer": 2,
+    "explain": "You compare the full cost of holding a position, not a single line of the tariff."
+  }
+]
+</script>

@@ -1,5 +1,6 @@
 ---
 verified: 2026-11-01
+widgets: [chapter-quiz]
 ---
 
 # Guide to Withdrawing Money from a Broker to Uzbekistan
@@ -422,5 +423,47 @@ Key points:
 | soliq contact centre | 1198 |
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="withdrawal-guide"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "How can you legally convert USDT to soums in Uzbekistan?",
+    "options": [
+      "Via P2P on Binance",
+      "Via NAPP-licensed providers from the register",
+      "Via a Telegram exchanger",
+      "Via any middleman"
+    ],
+    "answer": 1,
+    "explain": "P2P is unlawful for Uzbekistan residents; only providers from the NAPP register are legal (current list at napp.uz)."
+  },
+  {
+    "q": "If you'd rather avoid crypto, which withdrawal channels are legal?",
+    "options": [
+      "SWIFT / Visa-Mastercard / Wise",
+      "Crypto only",
+      "Cash through acquaintances",
+      "There are no legal ways"
+    ],
+    "answer": 0,
+    "explain": "Banking channels (SWIFT, cards, Wise) are legal and simpler for reporting — the guide recommends them to anyone not using crypto."
+  },
+  {
+    "q": "What about tax on income withdrawn via licensed crypto providers?",
+    "options": [
+      "Always 12% personal income tax",
+      "Per NAPP clarifications such income is tax-exempt",
+      "50% tax",
+      "No tax under any circumstances"
+    ],
+    "answer": 1,
+    "explain": "Per NAPP clarifications, income via licensed providers is tax-exempt; the register changes — check napp.uz."
+  }
+]
+</script>
 
 [← Back to the main guide](../forex-guide.md)

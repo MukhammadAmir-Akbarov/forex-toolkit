@@ -1,5 +1,6 @@
 ---
 verified: 2026-06-11
+widgets: [chapter-quiz]
 ---
 
 # Firibgarlikdan himoya: O'zbekistonda «treyding»da pulni qanday yo'qotmaslik
@@ -105,3 +106,44 @@ qanday tanib olish kerakligi.
 
 **Manbalar:** [napp.uz](https://napp.uz) (litsenziyalangan provayderlar reyestri),
 ESMA (chakana treyderlar yo'qotishlari statistikasi). Tekshirilgan 2026-06-11.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="scam-protection"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "«Treyding»dagi firibgarlik sxemasining asosiy belgisi?",
+    "options": [
+      "Kafolatlangan daromad va'dasi («oyiga 10%, risksiz»)",
+      "Mobil ilovaning borligi",
+      "Chiroyli taqdimot",
+      "Tez ro'yxatdan o'tish"
+    ],
+    "answer": 0,
+    "explain": "Bozorda kafolatlangan daromad mumkin emas: chakana treyderlarning 74–89%i pul yo'qotadi. Kafolat = pulni tortib olish sxemasi."
+  },
+  {
+    "q": "Yangi brokerda hisobni to'ldirishdan OLDIN nima qilish kerak?",
+    "options": [
+      "Minimal to'lab, pul yechishni tekshirish",
+      "Litsenziyani regulyatorlar reestrida tekshirish (FCA, CySEC, ASIC va boshqalar)",
+      "Telegram chatda sharhlarni o'qish",
+      "Hech narsa — brokerlar sukut bo'yicha halol"
+    ],
+    "answer": 1,
+    "explain": "Litsenziya faqat regulyatorlarning rasmiy reestrlarida tekshiriladi; «Brokerni tekshirish» sahifasi ularga to'g'ridan-to'g'ri havolalar quradi."
+  },
+  {
+    "q": "Kafolatlangan daromad bilan «ishonchli boshqaruv» — bu:",
+    "options": [
+      "Investitsiya kiritishning qulay usuli",
+      "Deyarli har doim noqonuniy sxema",
+      "O'zbekistonda oddiy amaliyot",
+      "Odam mashhur bo'lsa, mumkin"
+    ],
+    "answer": 1,
+    "explain": "Daromad va'dasi bilan pul yig'uvchi shaxs — klassik qizil bayroq: litsenziya yo'q + kafolat = firibgarlik."
+  }
+]
+</script>

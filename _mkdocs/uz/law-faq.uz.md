@@ -1,5 +1,6 @@
 ---
 verified: 2026-11-01
+widgets: [chapter-quiz]
 ---
 
 # O'zbekistonda qonun va foreks: yangi boshlovchilar uchun FAQ
@@ -142,3 +143,44 @@ _Tekshirildi 2026-11-01 · manbalar: [napp.uz](https://napp.uz), 102 xizmati._
 - 💸 [Pul yechib olish bo'yicha qo'llanma](withdrawal-guide.md) — qonuniy kanallar va kripto qonuni.
 - 🧾 [Soliq kalkulyatori](tax-calculator.md) — JShDS 12% bir necha bosqichda.
 - 📊 [Treyding va 20% li depozit taqqoslamasi](trading-vs-deposit.md) — va'dalar o'rniga halol matematika.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="law-faq"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "O'zbekistonda jismoniy shaxslar uchun chakana foreks maqomi qanday?",
+    "options": [
+      "To'liq taqiqlangan",
+      "Chet elning tartibga solinadigan brokeri orqali to'g'ridan-to'g'ri taqiqlanmagan, lekin mahalliy litsenziyalar yo'q — kulrang zona",
+      "To'liq qonunlashtirilgan, mahalliy litsenziyalar beriladi",
+      "Faqat banklarga ruxsat"
+    ],
+    "answer": 1,
+    "explain": "Alohida o'zbek foreks-regulyatori yo'q; bu kulrang zona — birlamchi manbalar bilan solishtiring (lex.uz, cbu.uz)."
+  },
+  {
+    "q": "O'zbekistonda kriptoaktivlarni kim tartibga soladi?",
+    "options": [
+      "Markaziy bank",
+      "NAPP — faqat uning reestridagi provayderlar orqali qonuniy",
+      "Moliya vazirligi",
+      "Hech kim"
+    ],
+    "answer": 1,
+    "explain": "NAPP litsenziyali provayderlar reestrini yuritadi; P2P va undan tashqari operatsiyalar qonun tashqarisida, jinoiy javobgarlikkacha."
+  },
+  {
+    "q": "Treyding daromadiga qanday soliq va deklaratsiya muddati qo'llaniladi?",
+    "options": [
+      "JShDS 12%, 1-aprelgacha topshiriladi",
+      "QQS 20%, 1-maygacha",
+      "Soliq 0%, deklaratsiya kerak emas",
+      "30%, yilning istalgan kuni"
+    ],
+    "answer": 0,
+    "explain": "Daromad deklaratsiya qilinadi: JShDS 12%, keyingi yilning 1-apreligacha my.soliq.uz kabinetida."
+  }
+]
+</script>

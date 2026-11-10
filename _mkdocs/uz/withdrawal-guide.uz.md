@@ -1,5 +1,6 @@
 ---
 verified: 2026-11-01
+widgets: [chapter-quiz]
 ---
 
 # Brokerdan O'zbekistonga pul yechib olish qo'llanmasi
@@ -421,5 +422,47 @@ Asosiy:
 | Soliq kontakt-markazi | 1198 |
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="withdrawal-guide"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "O'zbekistonda USDTni so'mga qanday qonuniy almashtirish mumkin?",
+    "options": [
+      "Binanceda P2P orqali",
+      "NAPP reestridagi litsenziyali provayderlar orqali",
+      "Telegramdagi ayirboshlash orqali",
+      "Istalgan vositachi orqali"
+    ],
+    "answer": 1,
+    "explain": "O'zbekiston rezidentlari uchun P2P qonun tashqarisida; qonuniy — faqat NAPP reestridagi provayderlar (dolzarb ro'yxat napp.uzda)."
+  },
+  {
+    "q": "Kripto bilan ishlamoqchi bo'lmasang, qaysi yechish kanallari qonuniy?",
+    "options": [
+      "SWIFT / Visa-Mastercard / Wise",
+      "Faqat kripto",
+      "Tanishlar orqali naqd pul",
+      "Qonuniy yo'llar yo'q"
+    ],
+    "answer": 0,
+    "explain": "Bank kanallari (SWIFT, kartalar, Wise) qonuniy va hisobot bo'yicha osonroq — kripto bilan ishlamaydiganlarga gid aynan ularni tavsiya qiladi."
+  },
+  {
+    "q": "Litsenziyali kripto-provayderlar orqali yechilgan daromad solig'i qanday?",
+    "options": [
+      "Har doim 12% JShDS",
+      "NAPP tushuntirishlariga ko'ra bunday daromad soliqdan ozod",
+      "50% soliq",
+      "Hech qanday shartda soliq yo'q"
+    ],
+    "answer": 1,
+    "explain": "NAPP tushuntirishlariga ko'ra litsenziyali provayderlar orqali daromad soliqdan ozod; reestr o'zgaradi — napp.uzni tekshiring."
+  }
+]
+</script>
 
 [← Asosiy qo'llanmaga](../forex-guide.md)

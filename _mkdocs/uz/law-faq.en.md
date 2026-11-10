@@ -1,5 +1,6 @@
 ---
 verified: 2026-11-01
+widgets: [chapter-quiz]
 ---
 
 # Law and Forex in Uzbekistan: FAQ for Beginners
@@ -140,3 +141,44 @@ _Verified 2026-11-01 · sources: [napp.uz](https://napp.uz), service 102._
 - 💸 [Money Withdrawal Guide](withdrawal-guide.md) — legal channels and crypto law.
 - 🧾 [Tax Calculator](tax-calculator.md) — personal income tax 12% in a few clicks.
 - 📊 [Trading vs 20% deposit](trading-vs-deposit.md) — honest mathematics instead of promises.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="law-faq"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "What is the status of retail forex for individuals in Uzbekistan?",
+    "options": [
+      "Completely banned",
+      "Not directly banned via a foreign regulated broker, but there are no local licences — a grey zone",
+      "Fully legalised with local licences",
+      "Allowed for banks only"
+    ],
+    "answer": 1,
+    "explain": "There is no dedicated Uzbek forex regulator; it is a grey zone — verify against primary sources (lex.uz, cbu.uz)."
+  },
+  {
+    "q": "Who regulates cryptoassets in Uzbekistan?",
+    "options": [
+      "The Central Bank",
+      "NAPP — legal only via providers from its register",
+      "The Ministry of Finance",
+      "Nobody"
+    ],
+    "answer": 1,
+    "explain": "NAPP keeps the register of licensed providers; P2P and operations outside it are unlawful, up to criminal liability."
+  },
+  {
+    "q": "What tax and filing deadline apply to trading income?",
+    "options": [
+      "12% personal income tax, filed by 1 April",
+      "20% VAT, by 1 May",
+      "0% tax, no return needed",
+      "30%, any day of the year"
+    ],
+    "answer": 0,
+    "explain": "Income is declared: 12% personal income tax, filed by 1 April of the following year at my.soliq.uz."
+  }
+]
+</script>

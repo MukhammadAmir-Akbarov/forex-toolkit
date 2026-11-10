@@ -1,5 +1,6 @@
 ---
 verified: 2026-11-01
+widgets: [chapter-quiz]
 ---
 
 # Svop-siz (islomiy) hisoblar: «halal account»da ortiqcha to'lamaslik
@@ -100,3 +101,44 @@ spredli «islomiy» hisob faqat **qimmatroq** bo'ladi.
 - 🏦 [O'zbekiston uchun brokerlar](brokers-uz.md) — avval regulyator, keyin hisob turi.
 - 🚨 [Firibgarlikdan himoya](scam-protection.md) — nomidagi «halal» sxemani halol qilmaydi.
 - ⚖️ [O'zbekistonda foreks va qonun](law-faq.md) — huquqiy kontekst.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="swap-free"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Swap nima?",
+    "options": [
+      "Bitim ochish komissiyasi",
+      "Pozitsiyani tunda ushlab qolish to'lovi/yetishuvi (juftlik stavkalari farqi)",
+      "Broker solig'i",
+      "Pul yechish to'lovi"
+    ],
+    "answer": 1,
+    "explain": "Swap — ikki valyutaning foiz stavkalari farqi; ochiq pozitsiyaning har bir kechasi uchun yoziladi."
+  },
+  {
+    "q": "Swap-free (islomiy) hisob nimani anglatadi:",
+    "options": [
+      "Umuman xarajatsiz savdo",
+      "Swap yo'q — lekin xarajatlar spredda yoki komissiyada yashiringan bo'lishi mumkin",
+      "Tungi pozitsiyalarga taqiq",
+      "Broker bonusi"
+    ],
+    "answer": 1,
+    "explain": "«Swap-free» ≠ «bepul»: broker daromadni kengroq spred yoki qat'iy komissiya bilan qoplaydi — to'liq qiymatni hisoblang."
+  },
+  {
+    "q": "Swap-free hisob foydali ekanini qanday tekshirish kerak?",
+    "options": [
+      "Broker reklamasiga ishonish",
+      "Broker menejeridan so'rash",
+      "Bitim qiymati kalkulyatorida oy/yil uchun barcha xarajatlarni hisoblash",
+      "Faqat spredlarni solishtirish"
+    ],
+    "answer": 2,
+    "explain": "Tarifning bitta satri emas, pozitsiyani ushlab turishning to'liq qiymati solishtiriladi."
+  }
+]
+</script>
