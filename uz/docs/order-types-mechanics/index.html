@@ -4546,6 +4546,46 @@ bilmaydi va sizni qutqarish uchun qaytmaydi.</p>
 </tbody>
 </table>
 <hr />
+<hr />
+<div id="chapter-quiz" data-quiz-key="order-types-mechanics"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "EUR/USD hozir 1.08463. 1.08300 gacha tuzatishda sotib olmoqchisiz. Qaysi order?",
+    "options": [
+      "Buy Market — darhol kirish",
+      "1.08300 ga Buy Stop",
+      "1.08300 ga Buy Limit",
+      "1.08300 ga Sell Limit"
+    ],
+    "answer": 2,
+    "explain": "Limit — ko'rsatilganidan yomon bo'lmagan narxda kirish: order narx darajaga qaytishini kutadi. Buy Stop joriy narxdan yuqorida ishlar, tuzatishda emas."
+  },
+  {
+    "q": "Mexanikasi bo'yicha pozitsiyadagi Stop-Loss — qaysi order turi?",
+    "options": [
+      "Limit",
+      "Stop",
+      "Oldindan yuborilgan Market",
+      "Trailing"
+    ],
+    "answer": 1,
+    "explain": "SL stop-order kabi ishlaydi: narx tegishi bilan bozordagi yopishga aylanadi. Take-Profit esa — limit order."
+  },
+  {
+    "q": "MT5 trailing stopining asosiy tuzog'i:",
+    "options": [
+      "U faqat terminal ochiq bo'lganda ishlaydi — bu lokal funksiya",
+      "U har doim ko'rsatilgan narxda aniq bajariladi",
+      "Uni EUR/USD da ishlatib bo'lmaydi",
+      "U broker spredini kengaytiradi"
+    ],
+    "answer": 0,
+    "explain": "MT5 ni o'chirsangiz — trailing to'xtaydi. Shovqinli bozorda esa uni ko'pincha vaqtidan oldin urib tashlaydi."
+  }
+]
+</script>
+
 <p><em>← <a href="../technical-analysis/">Texnik tahlil</a> · <a href="../../practice/market-structure/">Bozor tuzilmasi →</a></em></p>
 <!-- UZ lug'at (podskazkalar). hooks/glossary_tooltips.py uni o'zbekcha sahifalarga
      qo'shadi. Kalit so'zlar matndagi yozilishi bilan bir xil bo'lishi shart.
@@ -4570,7 +4610,7 @@ bilmaydi va sizni qutqarish uchun qaytmaydi.</p>
     <span class="md-icon" title="Oxirgi yangilanish">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12-iyun, 2026 17:57:49 UTC">12-iyun, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10-noyabr, 2026 05:06:01 UTC">10-noyabr, 2026</span>
   </span>
 
     
@@ -4863,6 +4903,8 @@ bilmaydi va sizni qutqarish uchun qaytmaydi.</p>
         <script src="../../../javascripts/hero.js"></script>
       
     
+  
+  <script src="../../../javascripts/widgets/chapter-quiz.js"></script>
   
 
   </body>

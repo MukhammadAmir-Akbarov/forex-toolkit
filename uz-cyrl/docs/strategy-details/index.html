@@ -5218,6 +5218,46 @@
 <li>Савдо «идеал эмас» бўлса, уни тинч ўтказиб юборишингиз мумкин</li>
 </ul>
 <hr />
+<hr />
+<div id="chapter-quiz" data-quiz-key="strategy-details"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Depozit $1000, risk 0.5%, stop 25 pip, 1 lot uchun pip narxi $10. Pozitsiya hajmi?",
+    "options": [
+      "0.2 lot",
+      "0.02 lot",
+      "0.5 lot",
+      "2 lot"
+    ],
+    "answer": 1,
+    "explain": "$5 risk ÷ (25 × $10) = 0.02 lot. Formula: (Depozit × Risk%) / (Stop masofasi × pip narxi)."
+  },
+  {
+    "q": "Strategiya stop-lossni qayerga qo'yishni buyuradi?",
+    "options": [
+      "Kirishdan qattiq 20 pip uzoqlikka",
+      "Kirishdan so'ng darhol zararsizlik nuqtasiga",
+      "Oxirgi swing ekstremum ortiga plus 5 pip",
+      "Trend kuchli bo'lsa stop kerak emas"
+    ],
+    "answer": 2,
+    "explain": "Stop — texnik daraja: buzilishi trend gipotezasi noto'g'ri degani. «Xohlaganim uchun 20 pip» — stop emas."
+  },
+  {
+    "q": "Qaysi belgi fleyt vaqtida strategiyani pauzaga qo'yishni aytadi?",
+    "options": [
+      "RSI 65 dan yuqori",
+      "H1 dagi har qanday qizil svecha",
+      "Ketma-ket ikkita foydali savdo",
+      "EMA200 H4 da 2–3 kun deyarli gorizontal (qiyalik < 5°)"
+    ],
+    "answer": 3,
+    "explain": "Fleytda trend-following yolg'on signallar seriyasini beradi. Fleyt belgisi — H4 dagi yotiq EMA200."
+  }
+]
+</script>
+
 <p><a href="../../forex-guide/">← Асосий қўлланмага қайтиш</a> · <a href="../technical-analysis/">← Техник таҳлил</a></p>
 <!-- UZ lug'at (podskazkalar). hooks/glossary_tooltips.py uni o'zbekcha sahifalarga
      qo'shadi. Kalit so'zlar matndagi yozilishi bilan bir xil bo'lishi shart.
@@ -5242,7 +5282,7 @@
     <span class="md-icon" title="Oxirgi yangilanish">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10-iyun, 2026 18:06:21 UTC">10-июн, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10-noyabr, 2026 05:06:01 UTC">10-ноябр, 2026</span>
   </span>
 
     
@@ -5535,6 +5575,8 @@
         <script src="../../../javascripts/hero.js"></script>
       
     
+  
+  <script src="../../../javascripts/widgets/chapter-quiz.js"></script>
   
 
   </body>

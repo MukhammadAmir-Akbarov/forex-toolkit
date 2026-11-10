@@ -4140,6 +4140,46 @@
 <p class="admonition-title">Yangi boshlovchilar uchun qoida</p>
 <p>Qizil voqealardan 30 daqiqa oldin va 30 daqiqa keyin savdo qilmang. Volatillik keskin oshadi va stop-loss normal harakat bo'lmasdan uchirib yuborilishi mumkin.</p>
 </div>
+<hr />
+<div id="chapter-quiz" data-quiz-key="real-analysis"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Bitta strategiyani 8 juftlikda bektest qilish o'rtacha Profit Factor 1.07 berdi. Asosiy xulosa?",
+    "options": [
+      "Strategiya barcha juftliklarda bir xil yaxshi ishlaydi",
+      "Bitta juftlikdagi natija boshqalarida ishlashini kafolatlamaydi",
+      "Bektestlar umuman befoyda",
+      "EUR/USD — savdo qilishga arziydigan yagona juftlik"
+    ],
+    "answer": 1,
+    "explain": "PF 1.07 — deyarli zararsizlik, hech bir juftlik ≥ 1.5 bermadi. Shuning uchun yagona juftlikdagi bektestga ishonib bo'lmaydi."
+  },
+  {
+    "q": "Narx yuqori Bollinger chizig'iga tegdi. Bu…",
+    "options": [
+      "Sotish signali",
+      "Bir soat ichida o'rta chiziqqa qaytish kafolati",
+      "Squeeze belgisi va tez orada volatillik portlashi",
+      "Diapazon ekstremumi — kirish emas, tasdiq kerak"
+    ],
+    "answer": 3,
+    "explain": "Chiziqqa tegish ≠ signal. Trendda narx «chiziq bo'ylab yurishi» mumkin — bu kuch belgisi, burilish emas."
+  },
+  {
+    "q": "Qizil yangiliklar (NFP, CPI, stavka qarorlari) uchun yangi boshlovchi qoidasi:",
+    "options": [
+      "Voqeadan 30 daqiqa oldin va 30 daqiqa keyin savdo qilmaslik",
+      "Faqat yangiliklarda savdo qilish — eng katta harakatlar u yerda",
+      "Foydani qo'ldan chiqarmaslik uchun NFP oldidan lotni ikki baravar qilish",
+      "Yangiliklar texnik tahlilga ta'sir qilmaydi"
+    ],
+    "answer": 0,
+    "explain": "Qizil voqealarda volatillik keskin oshadi, stopni normal harakatsiz spayk uzib olishi mumkin."
+  }
+]
+</script>
+
 <!-- UZ lug'at (podskazkalar). hooks/glossary_tooltips.py uni o'zbekcha sahifalarga
      qo'shadi. Kalit so'zlar matndagi yozilishi bilan bir xil bo'lishi shart.
      Apostrof — oddiy ASCII (o', g') — kontentdagidek. -->
@@ -4163,7 +4203,7 @@
     <span class="md-icon" title="Oxirgi yangilanish">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="11-iyun, 2026 05:11:03 UTC">11-iyun, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10-noyabr, 2026 05:06:01 UTC">10-noyabr, 2026</span>
   </span>
 
     
@@ -4456,6 +4496,8 @@
         <script src="../../../javascripts/hero.js"></script>
       
     
+  
+  <script src="../../../javascripts/widgets/chapter-quiz.js"></script>
   
 
   </body>

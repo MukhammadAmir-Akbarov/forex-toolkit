@@ -4757,6 +4757,46 @@
 брокеры с удобным пополнением через VISA/Mastercard UZS и поддержкой Telegram.</p>
 </div>
 <hr />
+<hr />
+<div id="chapter-quiz" data-quiz-key="broker-mechanics-101"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Держишь long EUR/USD: ставка EUR 4.0%, ставка USD 5.5%. Какой будет своп за ночь?",
+    "options": [
+      "Положительный — начислят тебе",
+      "Отрицательный — платить будешь ты",
+      "Всегда нулевой",
+      "Зависит только от спреда брокера"
+    ],
+    "answer": 1,
+    "explain": "Держишь валюту с меньшей ставкой (4.0%), занял с большей (5.5%) — платишь разницу. У short EUR/USD своп был бы положительным."
+  },
+  {
+    "q": "Счёт $1000, плечо 1:100, открываешь 0.1 лот EUR/USD (≈ $10 800). Сколько заблокирует маржа?",
+    "options": [
+      "$10.80",
+      "$108",
+      "$1080",
+      "Весь депозит $1000"
+    ],
+    "answer": 1,
+    "explain": "Маржа = стоимость позиции / плечо = $10 800 / 100 = $108. Свободная маржа — $892."
+  },
+  {
+    "q": "Реквоты («цена изменилась, принять новую?») — признак какой механики?",
+    "options": [
+      "Market Execution на ECN",
+      "Любого регулируемого брокера без исключений",
+      "Instant Execution у маркет-мейкера",
+      "Swap-free счетов"
+    ],
+    "answer": 2,
+    "explain": "При Market Execution реквотов нет — ордер всегда исполняется по рынку. Реквота — классика Instant Execution у MM-брокеров."
+  }
+]
+</script>
+
 <p><em>← <a href="../fundamental-analysis-guide/">Фундаментальный анализ</a> · <a href="../order-types-mechanics/">Типы ордеров →</a></em></p>
 <!-- RU-словарь подсказок терминов. Подставляется хуком hooks/glossary_tooltips.py
      на русские страницы. Ключи должны совпадать с тем, как слово написано в тексте. -->
@@ -4780,7 +4820,7 @@
     <span class="md-icon" title="Последнее обновление">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12 июня 2026 г. 17:57:49 UTC">12 июня 2026 г.</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="10 ноября 2026 г. 05:06:01 UTC">10 ноября 2026 г.</span>
   </span>
 
     
@@ -5073,6 +5113,8 @@
         <script src="../../javascripts/hero.js"></script>
       
     
+  
+  <script src="../../javascripts/widgets/chapter-quiz.js"></script>
   
 
   </body>
