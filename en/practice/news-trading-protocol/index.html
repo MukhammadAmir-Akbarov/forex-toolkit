@@ -4707,6 +4707,46 @@ when the market has processed the information. Spread normalized, direction visi
 rather than the one that emptied your account."</em></p>
 </div>
 <hr />
+<hr />
+<div id="chapter-quiz" data-quiz-key="news-trading-protocol"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "A position is open and a 'red' release hits in 20 minutes. What does the protocol say?",
+    "options": [
+      "Double the lot",
+      "Do nothing",
+      "Exit the position or move it to breakeven",
+      "Reverse to the other side"
+    ],
+    "answer": 2,
+    "explain": "Red events move the market 50–300+ pips with widening spreads — close the position or move it to breakeven, and don't open new ones."
+  },
+  {
+    "q": "What happens to the spread during a major release?",
+    "options": [
+      "Tightens to zero",
+      "Widens: from fractions of a pip to 20–50 pips",
+      "Stays the same",
+      "Disappears entirely"
+    ],
+    "answer": 1,
+    "explain": "Liquidity vanishes, brokers pull orders from the book — the spread spikes and market orders fill with slippage."
+  },
+  {
+    "q": "The recommendation for beginners on major news trading:",
+    "options": [
+      "Trade the maximum lot — the move is guaranteed",
+      "SELL only on NFP",
+      "Enter the very second of the release while price is fast",
+      "Don't trade ±30 minutes around it until you have 3+ months of demo experience"
+    ],
+    "answer": 3,
+    "explain": "News means extreme volatility, gaps and slippage. First comes demo and observation, not battle."
+  }
+]
+</script>
+
 <p><em>← <a href="../trading-sessions/">Trading sessions</a> · <a href="../../docs/technical-analysis/">Technical analysis →</a></em></p>
 <!-- EN tooltip dictionary. Injected by hooks/glossary_tooltips.py on English pages.
      Only unambiguous trading terms are used as keys — common English words
@@ -4732,7 +4772,7 @@ rather than the one that emptied your account."</em></p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 12, 2026 17:57:49 UTC">June 12, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 10, 2026 13:38:51 UTC">November 10, 2026</span>
   </span>
 
     
@@ -5025,6 +5065,8 @@ rather than the one that emptied your account."</em></p>
         <script src="../../../javascripts/hero.js"></script>
       
     
+  
+  <script src="../../../javascripts/widgets/chapter-quiz.js"></script>
   
 
   </body>
