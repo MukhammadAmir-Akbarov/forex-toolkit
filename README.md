@@ -7,7 +7,7 @@
 [![License: content CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey)](LICENSE-CONTENT.md)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 
-> Самодостаточный набор материалов: **94 страницы на RU + EN + UZ**, 21 учебный график, 41 Python-инструмент, 31 браузерный инструмент, offline PWA, 6 стратегий, MT5 EA, Telegram-бот, Coach-бот, Streamlit-приложение, Word-документ и PDF-учебник на трёх языках.
+> Самодостаточный набор материалов: **95 страниц на RU + EN + UZ**, 21 учебный график, 42 Python-инструмента, 31 браузерный инструмент, offline PWA, 6 стратегий, MT5 EA, Telegram-бот, Coach-бот, Streamlit-приложение, Word-документ и PDF-учебник на трёх языках.
 >
 > **⚠️ Образовательный материал. Не финансовый совет.** Forex — высокорисковая деятельность. 74–89% розничных трейдеров теряют деньги.
 

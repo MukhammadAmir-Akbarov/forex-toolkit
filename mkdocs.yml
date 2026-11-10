@@ -44,6 +44,12 @@ extra_javascript:
   - javascripts/translit.js
   # TL;DR-блок «за 30 секунд» в начале страницы; тексты — data/tldr.json.
   - javascripts/tldr.js
+  # Тултипы глоссария в главах (docs/, practice/, growth/, uz/): термины
+  # подчёркиваются точками, определение — по наведению/фокусу. Глобальный,
+  # потому что нужен на всех главах сразу (40+ файлов × 3 локали), но сам
+  # решает по URL, есть ли на странице его раздел. Данные —
+  # data/glossary-terms.<lang>.json (tools/build_glossary_terms.py).
+  - javascripts/widgets/glossary-tooltips.js
   # Напоминания о повторении карточек: баннер + Notification без сервера.
   # Самодостаточный (своя локаль, как у tldr.js), поэтому до _i18n.js.
   - javascripts/reminders.js

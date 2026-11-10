@@ -1,0 +1,602 @@
+[
+ {
+  "term": "Ask",
+  "short": "the price at which the broker sells currency to you (the price YOU buy at). Always higher than Bid."
+ },
+ {
+  "term": "Ascending",
+  "short": "rising, upward-moving. \"Ascending triangle\" = a chart pattern with a rising lower trendline and a flat upper resistance."
+ },
+ {
+  "term": "Aussie",
+  "short": "slang for AUD/USD."
+ },
+ {
+  "term": "Base currency",
+  "short": "the first currency in a pair. In EUR/USD the base = EUR. The rate shows how many USD one EUR costs."
+ },
+ {
+  "term": "Bars",
+  "short": "an alternative price display: a vertical line with two \"whiskers\" (open on the left, close on the right). The equivalent of candlesticks."
+ },
+ {
+  "term": "Break-even",
+  "short": "closing a trade at zero (after commissions). Also: \"moving the stop to break-even\" = shifting the SL to the entry price after price has moved 1R in your favour."
+ },
+ {
+  "term": "Bid",
+  "short": "the price at which the broker buys currency from you (the price YOU sell at). Always lower than Ask."
+ },
+ {
+  "term": "Bullish",
+  "short": "rising market / sentiment. A bull thrusts its horns upward."
+ },
+ {
+  "term": "Backtest",
+  "short": "testing a strategy on historical data."
+ },
+ {
+  "term": "Currency pair",
+  "short": "two currencies quoted relative to each other: EUR/USD, GBP/JPY, etc."
+ },
+ {
+  "term": "Volatility",
+  "short": "the amplitude of price swings. High volatility = large moves in a short time."
+ },
+ {
+  "term": "Uptrend",
+  "short": "a sequence of higher highs and higher lows."
+ },
+ {
+  "term": "Win rate",
+  "short": "the percentage of profitable trades. Good benchmark: ≥ 40% with an R:R of 1:2."
+ },
+ {
+  "term": "Gap",
+  "short": "a break in price between the close of one candle and the open of the next. Often occurs at the Monday open."
+ },
+ {
+  "term": "Head & Shoulders",
+  "short": "a bearish reversal pattern: left shoulder → head (higher) → right shoulder."
+ },
+ {
+  "term": "Histogram",
+  "short": "the bar portion of the MACD indicator: the difference between the MACD line and the signal line."
+ },
+ {
+  "term": "Double top",
+  "short": "a reversal pattern: price twice fails to break a resistance level, then reverses downward."
+ },
+ {
+  "term": "Double bottom",
+  "short": "the mirror image: a reversal pattern at the bottom."
+ },
+ {
+  "term": "Demo account",
+  "short": "an account with virtual money on live market quotes. A mandatory stage of learning."
+ },
+ {
+  "term": "Deposit",
+  "short": "the amount of money in your trading account."
+ },
+ {
+  "term": "Divergence",
+  "short": "a discrepancy between price and an indicator: price makes a new extreme but the indicator does not. A signal of weakening momentum."
+ },
+ {
+  "term": "Doji",
+  "short": "a candle where open ≈ close (small body). Signals indecision."
+ },
+ {
+  "term": "Long-term",
+  "short": "a horizon from weeks to years."
+ },
+ {
+  "term": "Drawdown",
+  "short": "the decline from a balance peak; the maximum loss from a high point."
+ },
+ {
+  "term": "ECN",
+  "short": "a type of trading account that routes orders directly to the interbank market. Raw spreads plus commission, no broker mark-up."
+ },
+ {
+  "term": "Electronic Communication Network",
+  "short": "a type of trading account that routes orders directly to the interbank market. Raw spreads plus commission, no broker mark-up."
+ },
+ {
+  "term": "EMA",
+  "short": "a moving average that gives more weight to recent candles than older ones."
+ },
+ {
+  "term": "Exponential Moving Average",
+  "short": "a moving average that gives more weight to recent candles than older ones."
+ },
+ {
+  "term": "Trading Journal",
+  "short": "an essential document where you record every trade: entry, exit, reasoning, result, and mistakes."
+ },
+ {
+  "term": "Close",
+  "short": "the last price of a candle / closing a position."
+ },
+ {
+  "term": "Order",
+  "short": "an instruction to the broker to open or close a position."
+ },
+ {
+  "term": "Impulse",
+  "short": "a strong, directional price move."
+ },
+ {
+  "term": "Indicator",
+  "short": "a mathematical function of price that helps with decision-making (RSI, MACD, MA, Bollinger Bands)."
+ },
+ {
+  "term": "Execution",
+  "short": "the process of placing your order in the market. Can be Market (at market price) or Instant (at a specified price)."
+ },
+ {
+  "term": "Cable",
+  "short": "slang for GBP/USD."
+ },
+ {
+  "term": "Kiwi",
+  "short": "slang for NZD/USD."
+ },
+ {
+  "term": "Pin Bar",
+  "short": "a candle with a long wick and a small body — a reversal signal."
+ },
+ {
+  "term": "Quote",
+  "short": "the current price of a pair: Bid / Ask."
+ },
+ {
+  "term": "Leverage",
+  "short": "the ratio of position size to your own capital. 1:100 = with $100 you control $10,000."
+ },
+ {
+  "term": "Cross",
+  "short": "a pair without USD: EUR/GBP, EUR/JPY, etc."
+ },
+ {
+  "term": "Cross pair",
+  "short": "a pair without USD: EUR/GBP, EUR/JPY, etc."
+ },
+ {
+  "term": "Neckline",
+  "short": "the support line in a Head & Shoulders pattern."
+ },
+ {
+  "term": "Long",
+  "short": "buying. A bet on the price rising."
+ },
+ {
+  "term": "Lockup",
+  "short": "the margin frozen against an open position."
+ },
+ {
+  "term": "Lot",
+  "short": "the unit of volume. 1 standard lot = 100,000 units of the base currency."
+ },
+ {
+  "term": "Liquidity",
+  "short": "how easily an asset can be bought or sold without significantly moving the price."
+ },
+ {
+  "term": "MACD",
+  "short": "a trend and momentum indicator: the difference between a fast and a slow EMA, plus a signal line."
+ },
+ {
+  "term": "Market Maker",
+  "short": "a market participant that continuously quotes both Bid and Ask prices. Usually banks."
+ },
+ {
+  "term": "Margin",
+  "short": "the amount of money frozen as collateral for an open position."
+ },
+ {
+  "term": "Margin Call",
+  "short": "a broker warning: \"your free margin is running out — forced closure is approaching.\""
+ },
+ {
+  "term": "Majors",
+  "short": "the most liquid pairs involving USD: EUR/USD, GBP/USD, USD/JPY, etc."
+ },
+ {
+  "term": "Bearish",
+  "short": "falling market. A bear swipes its paw downward."
+ },
+ {
+  "term": "Micro-lot",
+  "short": "0.01 of a standard lot = 1,000 units of the base currency. The minimum for beginners."
+ },
+ {
+  "term": "Mini-lot",
+  "short": "0.1 of a standard lot = 10,000 units."
+ },
+ {
+  "term": "Hammer",
+  "short": "a bullish reversal pattern: small body at the top, long lower wick."
+ },
+ {
+  "term": "NFP",
+  "short": "US employment data excluding the agricultural sector. Released on the first Friday of each month. The most important news release of the month."
+ },
+ {
+  "term": "Non-Farm Payrolls",
+  "short": "US employment data excluding the agricultural sector. Released on the first Friday of each month. The most important news release of the month."
+ },
+ {
+  "term": "Nonfarm",
+  "short": "the informal name for NFP."
+ },
+ {
+  "term": "OHLC",
+  "short": "Open, High, Low, Close — the four prices that make up a candle."
+ },
+ {
+  "term": "Pullback",
+  "short": "a temporary move against the primary trend."
+ },
+ {
+  "term": "Retracement",
+  "short": "a temporary move against the primary trend."
+ },
+ {
+  "term": "Open",
+  "short": "the first price of a candle / opening a position."
+ },
+ {
+  "term": "Overnight",
+  "short": "carrying a position past the daily market close. Accompanied by a swap charge."
+ },
+ {
+  "term": "Shooting Star",
+  "short": "a bearish reversal pattern: small body at the bottom, long upper wick."
+ },
+ {
+  "term": "Pattern",
+  "short": "a recognisable shape in price movement that has statistical significance."
+ },
+ {
+  "term": "Overbought",
+  "short": "RSI > 70. Price has risen too fast; a pullback is possible."
+ },
+ {
+  "term": "Oversold",
+  "short": "RSI < 30. The mirror situation."
+ },
+ {
+  "term": "Pip",
+  "short": "the standard unit of price change. Usually the 4th decimal place."
+ },
+ {
+  "term": "Engulfing",
+  "short": "a candlestick pattern where the body of the second candle completely covers the body of the first."
+ },
+ {
+  "term": "Support",
+  "short": "a price level from which price has historically bounced upward."
+ },
+ {
+  "term": "Profit Factor",
+  "short": "total profits divided by total losses. Good benchmark: ≥ 1.5."
+ },
+ {
+  "term": "Breakout",
+  "short": "a price move through a resistance or support level."
+ },
+ {
+  "term": "Profit",
+  "short": "gain; the positive result of a trade."
+ },
+ {
+  "term": "Pipette",
+  "short": "1/10 of a pip (the 5th decimal place)."
+ },
+ {
+  "term": "Point",
+  "short": "1/10 of a pip (the 5th decimal place)."
+ },
+ {
+  "term": "Reversal",
+  "short": "a change in trend direction."
+ },
+ {
+  "term": "Retest",
+  "short": "price returning to a broken level to confirm it as support or resistance."
+ },
+ {
+  "term": "Risk/Reward",
+  "short": "the ratio of risk to potential profit in a trade. R:R 1:2 = you aim for $2 of profit for every $1 at risk."
+ },
+ {
+  "term": "R:R",
+  "short": "the ratio of risk to potential profit in a trade. R:R 1:2 = you aim for $2 of profit for every $1 at risk."
+ },
+ {
+  "term": "Risk management",
+  "short": "controlling risk: position sizing, stops, diversification."
+ },
+ {
+  "term": "RSI",
+  "short": "an oscillator on a scale of 0–100. Measures overbought / oversold conditions."
+ },
+ {
+  "term": "Relative Strength Index",
+  "short": "an oscillator on a scale of 0–100. Measures overbought / oversold conditions."
+ },
+ {
+  "term": "Candles",
+  "short": "a graphical representation of price: body + wicks."
+ },
+ {
+  "term": "Candlesticks",
+  "short": "a graphical representation of price: body + wicks."
+ },
+ {
+  "term": "Swing",
+  "short": "a local extreme (high or low) on a chart."
+ },
+ {
+  "term": "Swap",
+  "short": "the fee for holding a position overnight. Can be positive or negative."
+ },
+ {
+  "term": "Setup",
+  "short": "a specific market situation that meets all the rules of a strategy."
+ },
+ {
+  "term": "Signal",
+  "short": "an entry point generated by a strategy's rules."
+ },
+ {
+  "term": "Scalping",
+  "short": "trading on minute-level timeframes, capturing small profits."
+ },
+ {
+  "term": "Moving Average",
+  "short": "a smoothed price over the last N periods. Types: SMA, EMA."
+ },
+ {
+  "term": "MA",
+  "short": "a smoothed price over the last N periods. Types: SMA, EMA."
+ },
+ {
+  "term": "Blow-up",
+  "short": "the complete loss of a trading account."
+ },
+ {
+  "term": "Drain",
+  "short": "the complete loss of a trading account."
+ },
+ {
+  "term": "Resistance",
+  "short": "a price level from which price has historically reversed downward."
+ },
+ {
+  "term": "Spread",
+  "short": "the difference between Ask and Bid. The broker's built-in fee."
+ },
+ {
+  "term": "Stop Loss",
+  "short": "an order that automatically closes a trade at a predefined loss level."
+ },
+ {
+  "term": "SL",
+  "short": "an order that automatically closes a trade at a predefined loss level."
+ },
+ {
+  "term": "Stop Out",
+  "short": "the broker's forced closure of positions when the margin level reaches a critical threshold."
+ },
+ {
+  "term": "Swing trading",
+  "short": "a trading style holding positions from a few hours to several days."
+ },
+ {
+  "term": "Timeframe",
+  "short": "the scale of each candle: M1, M5, M15, H1, H4, D1, W1, MN."
+ },
+ {
+  "term": "TF",
+  "short": "the scale of each candle: M1, M5, M15, H1, H4, D1, W1, MN."
+ },
+ {
+  "term": "Take Profit",
+  "short": "an order that automatically closes a trade when a target profit level is reached."
+ },
+ {
+  "term": "TP",
+  "short": "an order that automatically closes a trade when a target profit level is reached."
+ },
+ {
+  "term": "Candle body",
+  "short": "the rectangle between Open and Close."
+ },
+ {
+  "term": "Candle wick",
+  "short": "the lines above and below the body extending to the High and Low."
+ },
+ {
+  "term": "Shadow",
+  "short": "the lines above and below the body extending to the High and Low."
+ },
+ {
+  "term": "Tilt",
+  "short": "a psychological state after a loss: anger, the urge to \"get it back,\" impulsive trades."
+ },
+ {
+  "term": "Trend",
+  "short": "a sustained direction in price: up, down, or sideways (range)."
+ },
+ {
+  "term": "Trend following",
+  "short": "a trading style that trades in the direction of the prevailing trend."
+ },
+ {
+  "term": "Level",
+  "short": "a horizontal price at which reversals have historically occurred."
+ },
+ {
+  "term": "Averaging down",
+  "short": "adding to a losing position hoping for a reversal. A dangerous practice — beginners must not do this."
+ },
+ {
+  "term": "Fibonacci",
+  "short": "retracement levels at 23.6%, 38.2%, 50%, 61.8%, 78.6%."
+ },
+ {
+  "term": "Flag",
+  "short": "a trend-continuation pattern: a strong impulse move followed by a brief consolidation."
+ },
+ {
+  "term": "Flat",
+  "short": "sideways price movement with no clear trend."
+ },
+ {
+  "term": "Range",
+  "short": "sideways price movement with no clear trend."
+ },
+ {
+  "term": "FOMO",
+  "short": "the fear of missing a move. Causes traders to enter without a valid signal."
+ },
+ {
+  "term": "Fear of Missing Out",
+  "short": "the fear of missing a move. Causes traders to enter without a valid signal."
+ },
+ {
+  "term": "Forex",
+  "short": "the foreign exchange market where currencies are traded."
+ },
+ {
+  "term": "FX",
+  "short": "the foreign exchange market where currencies are traded."
+ },
+ {
+  "term": "Fundamental Analysis",
+  "short": "analysis of macroeconomic factors: central bank rates, inflation, employment, GDP."
+ },
+ {
+  "term": "FA",
+  "short": "analysis of macroeconomic factors: central bank rates, inflation, employment, GDP."
+ },
+ {
+  "term": "Hedging",
+  "short": "opening an opposing position to protect against risk."
+ },
+ {
+  "term": "Harami",
+  "short": "a candlestick pattern: a small candle contained within the body of a larger one."
+ },
+ {
+  "term": "Hedge fund",
+  "short": "an institutional investor using complex strategies."
+ },
+ {
+  "term": "Target",
+  "short": "the take-profit level."
+ },
+ {
+  "term": "Entry price",
+  "short": "the price at which a position is opened."
+ },
+ {
+  "term": "Exit price",
+  "short": "the price at which a position is closed."
+ },
+ {
+  "term": "Checklist",
+  "short": "a list of mandatory conditions to verify before opening a trade."
+ },
+ {
+  "term": "Short",
+  "short": "selling. A bet on the price falling."
+ },
+ {
+  "term": "Noise",
+  "short": "random price fluctuations that carry no information."
+ },
+ {
+  "term": "Expiry",
+  "short": "for options and futures: the date on which the contract expires."
+ },
+ {
+  "term": "Exposure",
+  "short": "the total volume of open positions."
+ },
+ {
+  "term": "ECN account",
+  "short": "a type of trading account that routes orders directly to the interbank market. Raw spreads plus commission, no broker mark-up."
+ },
+ {
+  "term": "Equity",
+  "short": "the current account balance plus the floating profit or loss of open trades."
+ },
+ {
+  "term": "Equity curve",
+  "short": "a chart of how equity changes over time."
+ },
+ {
+  "term": "Expectancy",
+  "short": "the expected result per trade: (Win rate × Avg Win) − (Loss rate × Avg Loss)."
+ },
+ {
+  "term": "ATR",
+  "short": "Average True Range — Measures volatility (average daily range)"
+ },
+ {
+  "term": "CFD",
+  "short": "Contract for Difference — Derivative product — no ownership of the asset"
+ },
+ {
+  "term": "DD",
+  "short": "Drawdown — Decline from peak balance"
+ },
+ {
+  "term": "EA",
+  "short": "Expert Advisor — Automated trading robot in MT4/MT5"
+ },
+ {
+  "term": "FOMC",
+  "short": "Federal Open Market Committee — US Federal Reserve rate-setting committee"
+ },
+ {
+  "term": "MM",
+  "short": "Money Management — Capital and risk management"
+ },
+ {
+  "term": "MTF",
+  "short": "Multi-Timeframe — Analysis across multiple timeframes"
+ },
+ {
+  "term": "P&L",
+  "short": "Profit and Loss — Net result of trades"
+ },
+ {
+  "term": "PF",
+  "short": "Profit Factor — Total profit ÷ total loss"
+ },
+ {
+  "term": "R",
+  "short": "Risk unit — 1R = the amount risked on one trade"
+ },
+ {
+  "term": "RR",
+  "short": "Risk/Reward — Ratio of risk to potential gain"
+ },
+ {
+  "term": "SMA",
+  "short": "Simple Moving Average — Plain average of N closing prices"
+ },
+ {
+  "term": "TA",
+  "short": "Technical Analysis — Chart-based price analysis"
+ },
+ {
+  "term": "WR",
+  "short": "Win Rate — Percentage of winning trades"
+ }
+]

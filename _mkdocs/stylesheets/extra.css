@@ -2682,3 +2682,54 @@ label[for="__drawer"].fx-menu-hint::after {
   /* Не печатать URL после ссылок (поведение некоторых браузеров) */
   .md-typeset a[href^="http"]::after { content: none !important; }
 }
+
+/* ── Тултипы глоссария (.fx-term) ────────────────────────────────────────
+   Виджет javascripts/widgets/glossary-tooltips.js подчёркивает термины из
+   глоссария прямо в главах (docs/, practice/, growth/, uz/); определение
+   всплывает при наведении или фокусе с клавиатуры (span tabindex="0").
+   Тёмная и светлая темы — через CSS-переменные Material. */
+.md-typeset .fx-term {
+  position: relative;
+  border-bottom: 0.05rem dotted var(--md-accent-fg-color);
+  cursor: help;
+}
+
+.md-typeset .fx-term:focus-visible {
+  outline: 0.1rem solid var(--md-accent-fg-color);
+  outline-offset: 0.1rem;
+}
+
+/* Сама подсказка: до hover/focus скрыта, чтобы не мигала при прокрутке.
+   pointer-events: none — подсказка не перехватывает мышь и не гаснет,
+   когда курсор съезжает с термина на неё саму. */
+.md-typeset .fx-term::after {
+  content: attr(data-definition);
+  position: absolute;
+  bottom: calc(100% + 0.3rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 18rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.25rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 35%);
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.45;
+  white-space: normal;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.md-typeset .fx-term:hover::after,
+.md-typeset .fx-term:focus::after {
+  opacity: 1;
+  visibility: visible;
+}

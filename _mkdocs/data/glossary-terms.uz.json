@@ -1,0 +1,858 @@
+[
+ {
+  "term": "Ask",
+  "short": "brokerning sizga valyuta sotish narxi (siz SOTIB OLADIGAN narx). Har doim Bid dan yuqori."
+ },
+ {
+  "term": "Ascending",
+  "short": "o'suvchi, yuqoriga yo'nalgan. «Ascending triangle» = o'suvchi uchburchak."
+ },
+ {
+  "term": "Aussie",
+  "short": "AUD/USD juftligi uchun slenq so'z."
+ },
+ {
+  "term": "Bazis valyuta",
+  "short": "juftlikdagi birinchi valyuta. EUR/USD da bazis valyuta = EUR. Kurs 1 EUR necha USD ekanligini ko'rsatadi."
+ },
+ {
+  "term": "Base currency",
+  "short": "juftlikdagi birinchi valyuta. EUR/USD da bazis valyuta = EUR. Kurs 1 EUR necha USD ekanligini ko'rsatadi."
+ },
+ {
+  "term": "Bars",
+  "short": "narxning muqobil ko'rinishi: ikkita «mo'ylov» bilan vertikal chiziq (chapda ochilish, o'ngda yopilish). Shamlarning analogi."
+ },
+ {
+  "term": "Bezubyток",
+  "short": "savdoni nol natijada yopish (komissiya hisobga olingan holda). Shuningdek: «stopni zararsizdikka siljitish» = 1R o'tgandan keyin SL ni kirish narxiga ko'chirish."
+ },
+ {
+  "term": "Break-even",
+  "short": "savdoni nol natijada yopish (komissiya hisobga olingan holda). Shuningdek: «stopni zararsizdikka siljitish» = 1R o'tgandan keyin SL ni kirish narxiga ko'chirish."
+ },
+ {
+  "term": "Bid",
+  "short": "brokerning sizdan valyuta sotib olish narxi (siz SOTADIGAN narx). Har doim Ask dan past."
+ },
+ {
+  "term": "Bullish",
+  "short": "o'suvchi bozor / kayfiyat. Ho'kiz shoxlarini yuqoriga ko'taradi."
+ },
+ {
+  "term": "Backtest",
+  "short": "strategiyani tarixiy ma'lumotlarda tekshirish."
+ },
+ {
+  "term": "Valyuta jufti",
+  "short": "bir-biriga nisbatan kotirovka qilinadigan ikki valyuta: EUR/USD, GBP/JPY va boshqalar."
+ },
+ {
+  "term": "Currency pair",
+  "short": "bir-biriga nisbatan kotirovka qilinadigan ikki valyuta: EUR/USD, GBP/JPY va boshqalar."
+ },
+ {
+  "term": "Volatillik",
+  "short": "narx tebranishlarining amplitudasi. Yuqori volatillik = qisqa vaqt ichida katta harakatlar."
+ },
+ {
+  "term": "Volatility",
+  "short": "narx tebranishlarining amplitudasi. Yuqori volatillik = qisqa vaqt ichida katta harakatlar."
+ },
+ {
+  "term": "Uptrend",
+  "short": "ketma-ket higher highs va higher lows."
+ },
+ {
+  "term": "O'suvchi trend",
+  "short": "ketma-ket higher highs va higher lows."
+ },
+ {
+  "term": "Win rate",
+  "short": "daromadli savdolar foizi. Yaxshi ko'rsatkich: R:R 1:2 da ≥ 40%."
+ },
+ {
+  "term": "Winrate",
+  "short": "daromadli savdolar foizi. Yaxshi ko'rsatkich: R:R 1:2 da ≥ 40%."
+ },
+ {
+  "term": "Gap",
+  "short": "bir shamning yopilishi va keyingisining ochilishi o'rtasidagi narx bo'shlig'i. Ko'pincha dushanbaning ochilishida sodir bo'ladi."
+ },
+ {
+  "term": "Head & Shoulders",
+  "short": "tepa reversal patterni: chap elka → bosh (yuqoriroq) → o'ng elka."
+ },
+ {
+  "term": "Bosh va elkalar",
+  "short": "tepa reversal patterni: chap elka → bosh (yuqoriroq) → o'ng elka."
+ },
+ {
+  "term": "Gistogramma",
+  "short": "MACD ning ustunli qismi: MACD va signal chizig'i o'rtasidagi farq."
+ },
+ {
+  "term": "Double top",
+  "short": "reversal patterni: narx ikki marta qarshilik darajasini yorib o'ta olmaydi, so'ng pastga buriladi."
+ },
+ {
+  "term": "Ikki tepa",
+  "short": "reversal patterni: narx ikki marta qarshilik darajasini yorib o'ta olmaydi, so'ng pastga buriladi."
+ },
+ {
+  "term": "Double bottom",
+  "short": "aksincha: pastdagi reversal patterni."
+ },
+ {
+  "term": "Ikki tubi",
+  "short": "aksincha: pastdagi reversal patterni."
+ },
+ {
+  "term": "Demo-hisob",
+  "short": "real bozor kotirovkalarida virtual pul bilan hisob. O'qishning majburiy bosqichi."
+ },
+ {
+  "term": "Depozit",
+  "short": "savdo hisobingizdagi pul miqdori."
+ },
+ {
+  "term": "Divergence",
+  "short": "narx va indikator orasidagi tafovut: narx yangi ekstremal darajaga yetadi, indikator — yo'q. Zaiflashish signali."
+ },
+ {
+  "term": "Divergensiya",
+  "short": "narx va indikator orasidagi tafovut: narx yangi ekstremal darajaga yetadi, indikator — yo'q. Zaiflashish signali."
+ },
+ {
+  "term": "Doji",
+  "short": "ochilishi ≈ yopilishiga teng sham (kichik tana). Noaniqlik belgisi."
+ },
+ {
+  "term": "Long-term",
+  "short": "bir necha haftadan yillargacha bo'lgan gorizont."
+ },
+ {
+  "term": "Uzoq muddatli",
+  "short": "bir necha haftadan yillargacha bo'lgan gorizont."
+ },
+ {
+  "term": "Drawdown",
+  "short": "balans maksimumidan og'ish, qo'shilma."
+ },
+ {
+  "term": "Drawdaun",
+  "short": "balans maksimumidan og'ish, qo'shilma."
+ },
+ {
+  "term": "ECN",
+  "short": "orderlari to'g'ridan-to'g'ri bozorga chiqariladigan hisob turi. Haqiqiy spreadlar + komissiya, brokersiz marjin."
+ },
+ {
+  "term": "Electronic Communication Network",
+  "short": "orderlari to'g'ridan-to'g'ri bozorga chiqariladigan hisob turi. Haqiqiy spreadlar + komissiya, brokersiz marjin."
+ },
+ {
+  "term": "EMA",
+  "short": "eksponensial skользящая o'rtacha. So'nggi shamlar eski shamlardan ko'ra ko'proq og'irlikka ega."
+ },
+ {
+  "term": "Exponential Moving Average",
+  "short": "eksponensial skользящая o'rtacha. So'nggi shamlar eski shamlardan ko'ra ko'proq og'irlikka ega."
+ },
+ {
+  "term": "Trading Journal",
+  "short": "har bir savdoni yozib borishingiz kerak bo'lgan majburiy hujjat: kirish, chiqish, sabab, natija, xatolar."
+ },
+ {
+  "term": "Savdo jurnali",
+  "short": "har bir savdoni yozib borishingiz kerak bo'lgan majburiy hujjat: kirish, chiqish, sabab, natija, xatolar."
+ },
+ {
+  "term": "Yopilish",
+  "short": "shamning so'nggi narxi / pozitsiyani yopish."
+ },
+ {
+  "term": "Close",
+  "short": "shamning so'nggi narxi / pozitsiyani yopish."
+ },
+ {
+  "term": "Order",
+  "short": "brokerga pozitsiyani ochish yoki yopish buyrug'i."
+ },
+ {
+  "term": "Buyurtma",
+  "short": "brokerga pozitsiyani ochish yoki yopish buyrug'i."
+ },
+ {
+  "term": "Impuls",
+  "short": "narxning kuchli yo'nalishli harakati."
+ },
+ {
+  "term": "Impulse",
+  "short": "narxning kuchli yo'nalishli harakati."
+ },
+ {
+  "term": "Indikator",
+  "short": "qaror qabul qilishga yordam beradigan narxning matematik funksiyasi (RSI, MACD, MA, Bollinger Bands)."
+ },
+ {
+  "term": "Indicator",
+  "short": "qaror qabul qilishga yordam beradigan narxning matematik funksiyasi (RSI, MACD, MA, Bollinger Bands)."
+ },
+ {
+  "term": "Execution",
+  "short": "orderingizni bozorga qo'yish jarayoni. Market (bozor bo'yicha) va Instant (ko'rsatilgan narx bo'yicha) bo'ladi."
+ },
+ {
+  "term": "Ijro etish",
+  "short": "orderingizni bozorga qo'yish jarayoni. Market (bozor bo'yicha) va Instant (ko'rsatilgan narx bo'yicha) bo'ladi."
+ },
+ {
+  "term": "Cable",
+  "short": "GBP/USD uchun slenq so'z."
+ },
+ {
+  "term": "Kiwi",
+  "short": "NZD/USD uchun slenq so'z."
+ },
+ {
+  "term": "Pin Bar",
+  "short": "uzun soya va kichik tanali sham — reversal signali."
+ },
+ {
+  "term": "Kotirovka",
+  "short": "juftlikning joriy narxi: Bid / Ask."
+ },
+ {
+  "term": "Quote",
+  "short": "juftlikning joriy narxi: Bid / Ask."
+ },
+ {
+  "term": "Leverage",
+  "short": "pozitsiya hajmining o'z kapitalga nisbati. 1:100 = $100 ga $10 000 ochiladi."
+ },
+ {
+  "term": "Kreditli richag",
+  "short": "pozitsiya hajmining o'z kapitalga nisbati. 1:100 = $100 ga $10 000 ochiladi."
+ },
+ {
+  "term": "Cross",
+  "short": "USD siz jut: EUR/GBP, EUR/JPY va boshqalar."
+ },
+ {
+  "term": "Kross-jut",
+  "short": "USD siz jut: EUR/GBP, EUR/JPY va boshqalar."
+ },
+ {
+  "term": "Neckline",
+  "short": "«Bosh va elkalar» patteridagi qo'llab-quvvatlash chizig'i."
+ },
+ {
+  "term": "Long",
+  "short": "sotib olish. Narx o'sishiga tikish."
+ },
+ {
+  "term": "Lockup",
+  "short": "ochiq pozitsiya ostidagi marjinni muzlatish."
+ },
+ {
+  "term": "Lot",
+  "short": "hajm birligi. 1 standart lot = 100 000 bazis valyuta birligi."
+ },
+ {
+  "term": "Likvidlik",
+  "short": "aktivni narxni sezilarli darajada o'zgartirmasdan qanchalik oson sotib olish/sotish mumkinligi."
+ },
+ {
+  "term": "Liquidity",
+  "short": "aktivni narxni sezilarli darajada o'zgartirmasdan qanchalik oson sotib olish/sotish mumkinligi."
+ },
+ {
+  "term": "MACD",
+  "short": "trend va momentum indikatori: tez va sekin EMA orasidagi farq + signal chizig'i."
+ },
+ {
+  "term": "Market Maker",
+  "short": "doimo Bid va Ask kotirovka qiladigan bozor ishtirokchisi. Odatda banklar."
+ },
+ {
+  "term": "Margin",
+  "short": "ochiq pozitsiya ostida muzlatilgan summa."
+ },
+ {
+  "term": "Marjin",
+  "short": "ochiq pozitsiya ostida muzlatilgan summa."
+ },
+ {
+  "term": "Margin Call",
+  "short": "brokerning ogohlantirishi: «erkin marjining tugab bormoqda, tez orada majburiy yopilish»."
+ },
+ {
+  "term": "Majors",
+  "short": "USD bilan eng likvidli jutlar: EUR/USD, GBP/USD, USD/JPY va boshqalar."
+ },
+ {
+  "term": "Mejorlar",
+  "short": "USD bilan eng likvidli jutlar: EUR/USD, GBP/USD, USD/JPY va boshqalar."
+ },
+ {
+  "term": "Bearish",
+  "short": "tushuvchi bozor. Ayiq panjasini pastga uradi."
+ },
+ {
+  "term": "Mikro-lot",
+  "short": "standart lotning 0.01 = 1 000 birlik bazis valyuta. Yangi boshlovchilar uchun minimum."
+ },
+ {
+  "term": "Mini-lot",
+  "short": "standart lotning 0.1 = 10 000 birlik."
+ },
+ {
+  "term": "Hammer",
+  "short": "bullish reversal patterni: yuqorida kichik tana, uzun pastki soya."
+ },
+ {
+  "term": "Bolg'a",
+  "short": "bullish reversal patterni: yuqorida kichik tana, uzun pastki soya."
+ },
+ {
+  "term": "NFP",
+  "short": "AQSHdagi bandlik ma'lumotlari (qishloq xo'jaligi tashqari). Har oyning birinchi jumasida chiqadi. Oyning eng muhim yangiligi."
+ },
+ {
+  "term": "Non-Farm Payrolls",
+  "short": "AQSHdagi bandlik ma'lumotlari (qishloq xo'jaligi tashqari). Har oyning birinchi jumasida chiqadi. Oyning eng muhim yangiligi."
+ },
+ {
+  "term": "Nonfarm",
+  "short": "NFP ning xalq nomi."
+ },
+ {
+  "term": "OHLC",
+  "short": "Open, High, Low, Close — shamni tashkil etuvchi to'rtta narx."
+ },
+ {
+  "term": "Pullback",
+  "short": "asosiy trendga qarshi vaqtinchalik harakat."
+ },
+ {
+  "term": "Retracement",
+  "short": "asosiy trendga qarshi vaqtinchalik harakat."
+ },
+ {
+  "term": "Ochilish",
+  "short": "shamning birinchi narxi / pozitsiyani ochish."
+ },
+ {
+  "term": "Open",
+  "short": "shamning birinchi narxi / pozitsiyani ochish."
+ },
+ {
+  "term": "Overnight",
+  "short": "savdo kunining yopilishi orqali pozitsiyani ko'chirish. Swap bilan birga keladi."
+ },
+ {
+  "term": "Shooting Star",
+  "short": "bearish reversal patterni: pastda kichik tana, uzun yuqori soya."
+ },
+ {
+  "term": "Pattern",
+  "short": "statistik ahamiyatga ega bo'lgan narx harakatining xarakterli shakli."
+ },
+ {
+  "term": "Patterni",
+  "short": "statistik ahamiyatga ega bo'lgan narx harakatining xarakterli shakli."
+ },
+ {
+  "term": "Overbought",
+  "short": "RSI > 70. Narx juda tez o'sgan, pullback mumkin."
+ },
+ {
+  "term": "Ortiqcha sotib olingan",
+  "short": "RSI > 70. Narx juda tez o'sgan, pullback mumkin."
+ },
+ {
+  "term": "Oversold",
+  "short": "RSI < 30. Aksincha holat."
+ },
+ {
+  "term": "Ortiqcha sotilgan",
+  "short": "RSI < 30. Aksincha holat."
+ },
+ {
+  "term": "Pip",
+  "short": "narx o'zgarishining standart birligi. Odatda verguldan keyin 4-raqam."
+ },
+ {
+  "term": "Engulfing",
+  "short": "shamli patterni: ikkinchi shamning tanasi birinchisini to'liq qoplaydi."
+ },
+ {
+  "term": "Yutuvchi",
+  "short": "shamli patterni: ikkinchi shamning tanasi birinchisini to'liq qoplaydi."
+ },
+ {
+  "term": "Support",
+  "short": "narx yuqoriga qaytib turgan daraja."
+ },
+ {
+  "term": "Qo'llab-quvvatlash",
+  "short": "narx yuqoriga qaytib turgan daraja."
+ },
+ {
+  "term": "Profit Factor",
+  "short": "daromadlar yig'indisi / zararlar yig'indisi. Yaxshi: ≥ 1.5."
+ },
+ {
+  "term": "Breakout",
+  "short": "qarshilik yoki qo'llab-quvvatlash darajasini yorib o'tish."
+ },
+ {
+  "term": "Qo'shilma",
+  "short": "maksimumdan balansning kamayishi."
+ },
+ {
+  "term": "Profit",
+  "short": "daromad."
+ },
+ {
+  "term": "Pipette",
+  "short": "pipning 1/10 qismi (verguldan keyin 5-raqam)."
+ },
+ {
+  "term": "Point",
+  "short": "pipning 1/10 qismi (verguldan keyin 5-raqam)."
+ },
+ {
+  "term": "Reversal",
+  "short": "trend yo'nalishining o'zgarishi."
+ },
+ {
+  "term": "Retest",
+  "short": "tasdiqlash uchun yarılgan darajaga narxning qaytishi."
+ },
+ {
+  "term": "Risk/Reward",
+  "short": "savdodagi risk va daromad nisbati. R:R 1:2 = $1 risk uchun $2 daromad mo'ljallanadi."
+ },
+ {
+  "term": "R:R",
+  "short": "savdodagi risk va daromad nisbati. R:R 1:2 = $1 risk uchun $2 daromad mo'ljallanadi."
+ },
+ {
+  "term": "Risk-management",
+  "short": "risk boshqaruvi: pozitsiya hajmi, stoplar, diversifikatsiya."
+ },
+ {
+  "term": "RSI",
+  "short": "0–100 osillyator. Ortiqcha sotib olinganlik/ortiqcha sotilganlik."
+ },
+ {
+  "term": "Relative Strength Index",
+  "short": "0–100 osillyator. Ortiqcha sotib olinganlik/ortiqcha sotilganlik."
+ },
+ {
+  "term": "Candles",
+  "short": "narxning grafik ko'rinishi: tana + soyalar."
+ },
+ {
+  "term": "Shamlar",
+  "short": "narxning grafik ko'rinishi: tana + soyalar."
+ },
+ {
+  "term": "Swing",
+  "short": "grafikdagi mahalliy ekstremal."
+ },
+ {
+  "term": "Swap",
+  "short": "pozitsiyani kechaga ko'chirishning komissiyasi. Musbat va manfiy bo'lishi mumkin."
+ },
+ {
+  "term": "Setup",
+  "short": "strategiya qoidalariga javob beradigan muayyan savdo holati."
+ },
+ {
+  "term": "Signal",
+  "short": "strategiya qoidalari bo'yicha kirish nuqtasi."
+ },
+ {
+  "term": "Scalping",
+  "short": "daqiqali taymfreymlarda, kichik daromadlar bilan savdo."
+ },
+ {
+  "term": "Moving Average",
+  "short": "N so'nggi davr uchun silliqlangan narx. SMA, EMA."
+ },
+ {
+  "term": "Skol'zyashchaya o'rtacha",
+  "short": "N so'nggi davr uchun silliqlangan narx. SMA, EMA."
+ },
+ {
+  "term": "Drain",
+  "short": "depozitning to'liq yo'qolishi."
+ },
+ {
+  "term": "Blow up",
+  "short": "depozitning to'liq yo'qolishi."
+ },
+ {
+  "term": "Resistance",
+  "short": "narx pastga qaytib turgan daraja."
+ },
+ {
+  "term": "Qarshilik",
+  "short": "narx pastga qaytib turgan daraja."
+ },
+ {
+  "term": "Spread",
+  "short": "Ask va Bid orasidagi farq. Brokerga to'lov."
+ },
+ {
+  "term": "Stop Loss",
+  "short": "belgilangan zararda savdoni avtomatik yopuvchi order."
+ },
+ {
+  "term": "SL",
+  "short": "belgilangan zararda savdoni avtomatik yopuvchi order."
+ },
+ {
+  "term": "Stop Out",
+  "short": "kritik marjin darajasida broker tomonidan majburiy pozitsiyani yopish."
+ },
+ {
+  "term": "Swing trading",
+  "short": "bir necha soatdan bir necha kungacha savdo."
+ },
+ {
+  "term": "Timeframe",
+  "short": "shamning masshtabi: M1, M5, M15, H1, H4, D1, W1, MN."
+ },
+ {
+  "term": "TF",
+  "short": "shamning masshtabi: M1, M5, M15, H1, H4, D1, W1, MN."
+ },
+ {
+  "term": "Take Profit",
+  "short": "belgilangan daromadga yetganda savdoni avtomatik yopuvchi order."
+ },
+ {
+  "term": "TP",
+  "short": "belgilangan daromadga yetganda savdoni avtomatik yopuvchi order."
+ },
+ {
+  "term": "Candle body",
+  "short": "Open va Close orasidagi to'rtburchak."
+ },
+ {
+  "term": "Sham tanasi",
+  "short": "Open va Close orasidagi to'rtburchak."
+ },
+ {
+  "term": "Wick",
+  "short": "tanadan yuqoriga va pastga High va Low gacha bo'lgan chiziqlar."
+ },
+ {
+  "term": "Shadow",
+  "short": "tanadan yuqoriga va pastga High va Low gacha bo'lgan chiziqlar."
+ },
+ {
+  "term": "Sham soyasi",
+  "short": "tanadan yuqoriga va pastga High va Low gacha bo'lgan chiziqlar."
+ },
+ {
+  "term": "Tilt",
+  "short": "zarardan keyingi psixologik holat: g'azab, o'chib ketish istagi, impulsiv savdolar."
+ },
+ {
+  "term": "Trend",
+  "short": "narxning barqaror yo'nalishi: yuqoriga, pastga yoki yon tomonga."
+ },
+ {
+  "term": "Trend following",
+  "short": "trend yo'nalishi bo'yicha savdo uslubi."
+ },
+ {
+  "term": "Level",
+  "short": "tarixan reversal bo'lib kelgan gorizontal narx."
+ },
+ {
+  "term": "Daraja",
+  "short": "tarixan reversal bo'lib kelgan gorizontal narx."
+ },
+ {
+  "term": "Averaging down",
+  "short": "reversalni umid qilib zarar pozitsiyasini oshirish. Xavfli usul, yangi boshlovchilarga taqiqlanadi."
+ },
+ {
+  "term": "Fibonacci",
+  "short": "23.6%, 38.2%, 50%, 61.8%, 78.6% pullback darajalari."
+ },
+ {
+  "term": "Flag",
+  "short": "trend davom etish patterni: kuchli impuls + qisqa konsolidatsiya."
+ },
+ {
+  "term": "Bayroq",
+  "short": "trend davom etish patterni: kuchli impuls + qisqa konsolidatsiya."
+ },
+ {
+  "term": "Flat",
+  "short": "aniq trend bo'lmagan yon harakat."
+ },
+ {
+  "term": "Range",
+  "short": "aniq trend bo'lmagan yon harakat."
+ },
+ {
+  "term": "FOMO",
+  "short": "harakatni o'tkazib yuborish qo'rquvi. Signalsiz kirishga majbur qiladi."
+ },
+ {
+  "term": "Fear of Missing Out",
+  "short": "harakatni o'tkazib yuborish qo'rquvi. Signalsiz kirishga majbur qiladi."
+ },
+ {
+  "term": "Forex",
+  "short": "xorijiy valyutalarni almashtirish bozori."
+ },
+ {
+  "term": "FX",
+  "short": "xorijiy valyutalarni almashtirish bozori."
+ },
+ {
+  "term": "Fundamental Analysis",
+  "short": "makroiqtisodiy omillarni tahlil qilish: markaziy bank stavkasi, inflyatsiya, bandlik, YaIM."
+ },
+ {
+  "term": "FA",
+  "short": "makroiqtisodiy omillarni tahlil qilish: markaziy bank stavkasi, inflyatsiya, bandlik, YaIM."
+ },
+ {
+  "term": "Hedging",
+  "short": "riskdan himoya uchun qarama-qarshi pozitsiyani ochish."
+ },
+ {
+  "term": "Xedjlash",
+  "short": "riskdan himoya uchun qarama-qarshi pozitsiyani ochish."
+ },
+ {
+  "term": "Harami",
+  "short": "shamli patterni: katta sham ichida kichik sham."
+ },
+ {
+  "term": "Hedge fund",
+  "short": "murakkab strategiyalardan foydalanadigan institutsional investor."
+ },
+ {
+  "term": "Target",
+  "short": "take-profit darajasi."
+ },
+ {
+  "term": "Maqsad",
+  "short": "take-profit darajasi."
+ },
+ {
+  "term": "Entry price",
+  "short": "pozitsiya ochildan narx."
+ },
+ {
+  "term": "Kirish narxi",
+  "short": "pozitsiya ochildan narx."
+ },
+ {
+  "term": "Exit price",
+  "short": "pozitsiya yopildagi narx."
+ },
+ {
+  "term": "Chiqish narxi",
+  "short": "pozitsiya yopildagi narx."
+ },
+ {
+  "term": "Checklist",
+  "short": "savdoni ochishdan oldin majburiy shartlar ro'yxati."
+ },
+ {
+  "term": "Short",
+  "short": "sotish. Narx tushishiga tikish."
+ },
+ {
+  "term": "Noise",
+  "short": "ma'lumot tashimaydigan tasodifiy narx tebranishlari."
+ },
+ {
+  "term": "Shovqin",
+  "short": "ma'lumot tashimaydigan tasodifiy narx tebranishlari."
+ },
+ {
+  "term": "Expiry",
+  "short": "optsionlar va fyucherslar uchun: muddati tugash sanasi."
+ },
+ {
+  "term": "Ekspiratsiya",
+  "short": "optsionlar va fyucherslar uchun: muddati tugash sanasi."
+ },
+ {
+  "term": "Exposure",
+  "short": "ochiq pozitsiyalarning umumiy hajmi."
+ },
+ {
+  "term": "Ekspozitsiya",
+  "short": "ochiq pozitsiyalarning umumiy hajmi."
+ },
+ {
+  "term": "ECN-hisob",
+  "short": "orderlari to'g'ridan-to'g'ri bozorga chiqariladigan hisob turi. Haqiqiy spreadlar + komissiya, brokersiz marjin."
+ },
+ {
+  "term": "Equity",
+  "short": "hisob joriy balansi + ochiq savdolarning suzuvchi natijasi."
+ },
+ {
+  "term": "Equity curve",
+  "short": "ekvitining vaqt bo'yicha o'zgarish grafigi."
+ },
+ {
+  "term": "Expectancy",
+  "short": "bitta savdoning kutilgan natijasi: (Win rate × O'rtacha G'alaba) − (Yutqazish darajasi × O'rtacha Zarar)."
+ },
+ {
+  "term": "Hisob balansi",
+  "short": "Balance — Yopilgan savdolardan keyingi hisobdagi pul."
+ },
+ {
+  "term": "Hisob kapitali",
+  "short": "Equity — Balans va ochiq savdolarning joriy natijasi."
+ },
+ {
+  "term": "Ochiq pozitsiya",
+  "short": "Open position — Hali yopilmagan faol savdo."
+ },
+ {
+  "term": "Yopiq pozitsiya",
+  "short": "Closed position — Natijasi balansga yozilgan tugallangan savdo."
+ },
+ {
+  "term": "Xarid narxi",
+  "short": "Ask — Valyutani sotib oladigan narx."
+ },
+ {
+  "term": "Sotuv narxi",
+  "short": "Bid — Valyutani sotadigan narx."
+ },
+ {
+  "term": "Narx farqi",
+  "short": "Spread — Ask va Bid orasidagi farq."
+ },
+ {
+  "term": "Zararni cheklash",
+  "short": "Stop Loss — Rejalashtirilgan zararda savdoni yopuvchi order."
+ },
+ {
+  "term": "Foyda maqsadi",
+  "short": "Take Profit — Rejalashtirilgan foydada savdoni yopuvchi order."
+ },
+ {
+  "term": "Xavf miqdori",
+  "short": "Risk amount — Stop ishlasa yo'qotilishi mumkin bo'lgan summa."
+ },
+ {
+  "term": "Savdo hajmi",
+  "short": "Position size — Pozitsiyaning lot yoki birlikdagi kattaligi."
+ },
+ {
+  "term": "Kredit yelkasi",
+  "short": "Leverage — Kichik kapital bilan katta pozitsiyani boshqarish nisbati."
+ },
+ {
+  "term": "Marja talabi",
+  "short": "Margin requirement — Pozitsiyani ochish uchun bloklanadigan mablag'."
+ },
+ {
+  "term": "Erkin marja",
+  "short": "Free margin — Yangi pozitsiyalar uchun qolgan mablag'."
+ },
+ {
+  "term": "Marja chaqiruvi",
+  "short": "Margin Call — Marja xavfli darajaga tushgani haqidagi ogohlantirish."
+ },
+ {
+  "term": "Majburiy yopilish",
+  "short": "Stop Out — Marja yetmaganda broker pozitsiyani avtomatik yopishi."
+ },
+ {
+  "term": "Narx sirpanishi",
+  "short": "Slippage — So'ralgan va amalda bajarilgan narx orasidagi farq."
+ },
+ {
+  "term": "Qayta kotirovka",
+  "short": "Requote — Broker avvalgi narx o'rniga yangi narx taklif qilishi."
+ },
+ {
+  "term": "Bozor likvidligi",
+  "short": "Market liquidity — Aktivni narxga kuchli ta'sirsiz sotib olish yoki sotish osonligi."
+ },
+ {
+  "term": "Narx o'zgaruvchanligi",
+  "short": "Volatility — Narx tebranishlarining tezligi va kattaligi."
+ },
+ {
+  "term": "ATR",
+  "short": "Average True Range — O'rtacha haqiqiy diapazon (volatillik)"
+ },
+ {
+  "term": "CFD",
+  "short": "Contract for Difference — Farq bo'yicha shartnoma"
+ },
+ {
+  "term": "DD",
+  "short": "Drawdown — Qo'shilma"
+ },
+ {
+  "term": "EA",
+  "short": "Expert Advisor — Savdo maslahatchi (bot) MT4/MT5"
+ },
+ {
+  "term": "FOMC",
+  "short": "Federal Open Market Committee — FRS stavkalari bo'yicha qo'mita"
+ },
+ {
+  "term": "MA",
+  "short": "Moving Average — Skol'zyashchaya o'rtacha"
+ },
+ {
+  "term": "MM",
+  "short": "Money Management — Kapital boshqaruvi"
+ },
+ {
+  "term": "MTF",
+  "short": "Multi-Timeframe — Ko'p taymfreymli tahlil"
+ },
+ {
+  "term": "P&L",
+  "short": "Profit and Loss — Daromad va zarar"
+ },
+ {
+  "term": "PF",
+  "short": "Profit Factor — Profit-faktor"
+ },
+ {
+  "term": "R",
+  "short": "Risk unit — Risk birligi"
+ },
+ {
+  "term": "RR",
+  "short": "Risk/Reward — Risk/daromad nisbati"
+ },
+ {
+  "term": "SMA",
+  "short": "Simple Moving Average — Oddiy skol'zyashchaya o'rtacha"
+ },
+ {
+  "term": "TA",
+  "short": "Technical Analysis — Texnik tahlil"
+ },
+ {
+  "term": "WR",
+  "short": "Win Rate — Winrate"
+ }
+]
