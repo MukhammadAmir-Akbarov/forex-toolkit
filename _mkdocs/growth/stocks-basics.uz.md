@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Stocks Basics — diversifikatsiya va uzoq muddatli investitsiya
 
 > Agar **kapital to'plamoqchi** bo'lsangiz — bu forex'dan **ancha xavfsizroq**. Parallel yo'l.
@@ -194,5 +198,47 @@ Bu **zerikarli**, lekin **95% odamlar uchun ishlaydi**. Forex — bu **kasb**. E
 Shunday qilib siz **kafolatli** uzoq muddatda o'syapsiz. Va faol treydindan ham qoniqish olasiz.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="stocks-basics"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Dollar Cost Averaging (DCA) strategiyasining mohiyati:",
+    "options": [
+      "Bozorni bashorat qilmasdan oyiga bir marta qattiq summaga sotib olish",
+      "Faqat bozor tushganda sotib olish",
+      "Butun summani eng past nuqtada bir yo'la kiritish",
+      "Har 10% o'sishda sotish"
+    ],
+    "answer": 0,
+    "explain": "Muntazamlik hisobiga kirish narxi o'rtachalanadi; «tubni tutish» hech kimga barqaror chiqmaydi."
+  },
+  {
+    "q": "Nima uchun yangi boshlovchilarga alohida aksiyalar o'rniga ETF bilan boshlash maslahat beriladi?",
+    "options": [
+      "ETF har qanday aksiyadan tez o'sadi",
+      "ETF larda komissiya yo'q",
+      "Bir zumlik diversifikatsiya: bitta xarid — yuzlab kompaniyalar, kamroq hissiyot",
+      "ETF lar davlat tomonidan sugʻurtalangan"
+    ],
+    "answer": 2,
+    "explain": "VOO — AQSH ning 500 yirik kompaniyasi bir klikda; aktiv treyderlarning 80% S&P 500 dan yutqazadi."
+  },
+  {
+    "q": "Gid ko'pchilikka pulni qanday taqsimlashni taklif qiladi?",
+    "options": [
+      "Barchasi forexga — eng yuqori daromad u yerda",
+      "50/50 forex va ETF",
+      "Barchasi kriptoga",
+      "80% ETF, 15% yostiq, 5% — «qorxmaysiz» degan aktiv treydingga"
+    ],
+    "answer": 3,
+    "explain": "Kafolatlangan uzoq muddatli o'sish va aktiv savdo istagi uchun xavfsiz chiqish."
+  }
+]
+</script>
 
 [← Asosiy qo'llanmaga](../forex-guide.md)

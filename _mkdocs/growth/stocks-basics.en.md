@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Stocks Basics — Diversification and Long-Term Investing
 
 > If you want to **build wealth** rather than "trade" — this is **much safer** than forex. A parallel path.
@@ -194,5 +198,47 @@ Do not choose **either forex or ETF**. The best strategy for most people:
 This way you **guarantee** long-term growth. And you still get the satisfaction of active trading.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="stocks-basics"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "The essence of Dollar Cost Averaging (DCA):",
+    "options": [
+      "Buy a fixed amount once a month without trying to forecast the market",
+      "Buy only when the market falls",
+      "Invest the whole sum at the bottom",
+      "Sell on every 10% rise"
+    ],
+    "answer": 0,
+    "explain": "Entry price averaging through regularity; nobody consistently 'catches the bottom'."
+  },
+  {
+    "q": "Why does the guide tell beginners to start with ETFs rather than single stocks?",
+    "options": [
+      "ETFs grow faster than any stock",
+      "ETFs have no fees",
+      "Instant diversification: one purchase — hundreds of companies, fewer emotions",
+      "ETFs are government-insured"
+    ],
+    "answer": 2,
+    "explain": "VOO is the 500 largest US companies in one click; 80% of active traders lose to the S&P 500."
+  },
+  {
+    "q": "How does the guide suggest most people split their money?",
+    "options": [
+      "All into forex — the highest returns are there",
+      "50/50 forex and ETFs",
+      "All into crypto",
+      "80% ETFs, 15% cushion, 5% for active trading you can afford to lose"
+    ],
+    "answer": 3,
+    "explain": "Guaranteed long-term growth plus a safe outlet for the urge to trade actively."
+  }
+]
+</script>
 
 [← Back to the main guide](../forex-guide.md)

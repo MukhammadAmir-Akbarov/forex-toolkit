@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Crypto Trading Guide — parallel dunyo
 
 > Agar siz O'zbekistondansiz — kripto forex'dan ham dolzarbroq. Bu qo'llanma ko'rsatadi: forexdan nima ko'chib o'tadi, nima farq qiladi, qayerdan boshlash kerak.
@@ -202,5 +206,47 @@ Kripto — bu **pul osonlikcha ishlaniladigan va osonlikcha yo'qotiladigan bozor
 Agar **kriptoda faol savdo** qilmoqchi bo'lsangiz — avval forexni o'rganing. Intizom va xavf menejmenti xuddi shunday. Kriptoda shunchaki **volatillik ko'proq**.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="crypto-trading-guide"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Ro'yxatdan yangi boshlovchi uchun kripto savdosiga nima mos?",
+    "options": [
+      "Meme-coinlar (DOGE, SHIB) — tez o'sish",
+      "1:50 leverejli fyucherslar",
+      "Faqat BTC/USDT va ETH/USDT — likvidlik va tor spredlar",
+      "Yangi listing qilingan coinlar"
+    ],
+    "answer": 2,
+    "explain": "Maksimal likvidlik va minimal manipulyatsiya. Meme-coinlar va yangi listing — lotereya, leverej esa yangi boshlovchi uchun tez sliv yo'li."
+  },
+  {
+    "q": "Gid kripto uchun qanday risk tavsiya qiladi va nima uchun?",
+    "options": [
+      "0.5% — yuqori volatillik tufayli forexga qaraganda qat'iyroq",
+      "5% — kripto tez o'sadi",
+      "10% — komissiyalarni qoplash uchun",
+      "Risk muhim emas, faqat stop muhim"
+    ],
+    "answer": 0,
+    "explain": "Kriptoda kuniga 5–15% tebranish — norma, shuning uchun risk forexdagi 1% qoidadan qat'iyroq."
+  },
+  {
+    "q": "«Not your keys, not your coins» degani:",
+    "options": [
+      "Birja parolini yodlab olish kerak",
+      "Birjadagi coinlar o'z hamyoningizga chiqarilmaguncha rasman sizniki emas",
+      "Seed-frazani bulutda saqlash kerak",
+      "Birjalar har doim hamyonlardan xavfsizroq"
+    ],
+    "answer": 1,
+    "explain": "Birja hisobni muzlatishi, bankrot bo'lishi yoki buzilishi mumkin; katta summalar — sovuq hamyonda."
+  }
+]
+</script>
 
 [← Asosiy qo'llanmaga](../forex-guide.md)

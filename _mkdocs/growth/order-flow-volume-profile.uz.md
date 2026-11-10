@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Order Flow va Volume Profile — ilg'or texnik tahlil
 
 > Bu — **«asosdan keyin»** daraja. Avval shamlar, EMA, RSI va asosiy strategiyani o'zlashtirib oling. Bu bo'limni **6+ oylik** amaliyotdan so'ng, bozor staqanida nima bo'layotganini chuqurroq tushunmoqchi bo'lganingizda oching.
@@ -251,5 +255,47 @@ prognoz va tangaga qarshi halol hisob.
 **Shoshilmang.** Volume Profile sizda ishlayotgan narsani almashtirmasdan, **to'ldirishi** kerak.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="order-flow-volume-profile"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "POC (Point of Control) — bu…",
+    "options": [
+      "Narx ochilgan daraja",
+      "Maksimal savdo hajmli daraja",
+      "Kunlik svechaning o'rtasi",
+      "Trend proboy nuqtasi"
+    ],
+    "answer": 1,
+    "explain": "POC — hajm bo'yicha davrning eng «halol» narxi; POC Magnet kabi strategiyalar uning atrofida quriladi."
+  },
+  {
+    "q": "Nima uchun chakana forexda haqiqiy stakanni (Order Book) ko'rib bo'lmaydi?",
+    "options": [
+      "Forex — markazlashmagan OTC bozor, yagona stakan mavjud emas",
+      "Brokerlar uni mijozlardan ataylab yashiradi",
+      "Stakan faqat banklarda bor",
+      "MT5 stakanni qo'llab-quvvatlamaydi"
+    ],
+    "answer": 0,
+    "explain": "Kripto va aksiya birjalaridan farqli. O'rniga proksi ishlatiladi: tick volume yoki CME fyuchers hajmi."
+  },
+  {
+    "q": "LVN (past hajmli zona) odatda narx…",
+    "options": [
+      "Bu zonada uzoq qotib qoladi",
+      "U yerda kafolatlangan buriladi",
+      "Tasodifiy tebranadi",
+      "Bu zonani tez yugurib o'tadi"
+    ],
+    "answer": 3,
+    "explain": "Past likvidlik → narx zonani sirpanib o'tadi. HVN teskarisiga — qo'llab-quvvatlash/qarshilik kabi ishlaydi."
+  }
+]
+</script>
 
 [← Texnik tahlilga](../docs/technical-analysis.md) · [← Asosiy qo'llanmaga](../forex-guide.md)

@@ -270,7 +270,7 @@
   var BACKUP_VERSION = 4;
   // Глав гайда с мини-квизами (#chapter-quiz). Синхронно держит unit-тест
   // tests/test_chapter_quiz_bank.py — добавил главу с квизом, подними и тут.
-  var QUIZ_CHAPTERS = 6;
+  var QUIZ_CHAPTERS = 9;
   var KEYS = [
     "fx-progress-v1",
     "fx-quiz-v1",

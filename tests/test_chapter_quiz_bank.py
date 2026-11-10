@@ -21,26 +21,43 @@ from pathlib import Path
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "_mkdocs" / "docs"
-DASHBOARD = ROOT / "_mkdocs" / "javascripts" / "widgets" / "dashboard.js"
-WIDGET = ROOT / "_mkdocs" / "javascripts" / "widgets" / "chapter-quiz.js"
+DOCS = ROOT / "_mkdocs"
+DASHBOARD = DOCS / "javascripts" / "widgets" / "dashboard.js"
+WIDGET = DOCS / "javascripts" / "widgets" / "chapter-quiz.js"
 
-CHAPTERS = (
-    "technical-analysis",
-    "strategy-details",
-    "real-analysis",
-    "order-types-mechanics",
-    "fundamental-analysis-guide",
-    "broker-mechanics-101",
-)
 LOCALES = ("ru", "en", "uz")
 SUFFIX = {"ru": "", "en": ".en", "uz": ".uz"}
+
+
+def discover_chapters() -> list[str]:
+    """RU-страницы с мини-квизом, относительно _mkdocs/ и без суффикса.
+
+    Глав не хардкодим: добавил квиз на страницу (включая growth/, practice/
+    и любой будущий раздел) — тесты подхватывают её сами. Пропажа квиза
+    со страницы тоже не пройдёт незаметно: упадёт проверка счётчика
+    кабинета (QUIZ_CHAPTERS) ниже.
+    """
+    found = []
+    for path in sorted(DOCS.rglob("*.md")):
+        if path.name.endswith((".en.md", ".uz.md")):
+            continue
+        if 'id="chapter-quiz"' in path.read_text(encoding="utf-8"):
+            found.append(str(path.relative_to(DOCS))[:-3])
+    return found
+
+
+CHAPTERS = discover_chapters()
+
+
+def quiz_key(chapter: str) -> str:
+    """Ключ хранилища fx-quiz-v1 — basename страницы, без раздела."""
+    return chapter.rsplit("/", 1)[-1]
 
 
 def load_bank(chapter: str, locale: str) -> list[dict]:
     path = DOCS / f"{chapter}{SUFFIX[locale]}.md"
     text = path.read_text(encoding="utf-8")
-    assert f'data-quiz-key="{chapter}"' in text, (
+    assert f'data-quiz-key="{quiz_key(chapter)}"' in text, (
         f"{chapter}/{locale}: нет #chapter-quiz"
     )
     match = re.search(
@@ -85,6 +102,13 @@ def test_answer_positions_are_not_skewed() -> None:
     counts = collections.Counter(answers)
     best = max(counts.values()) / len(answers)
     assert best < 0.5, f"перекос позиций ответов: {dict(sorted(counts.items()))}"
+
+
+def test_quiz_keys_are_unique() -> None:
+    """Ключ — basename страницы: дубликаты дали бы общий прогресс в fx-quiz-v1."""
+    keys = [quiz_key(c) for c in CHAPTERS]
+    dupes = [k for k, n in collections.Counter(keys).items() if n > 1]
+    assert not dupes, f"ключи квизов не уникальны: {dupes}"
 
 
 def test_dashboard_chapter_count_matches_reality() -> None:

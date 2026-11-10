@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Crypto Trading Guide — A Parallel World
 
 > If you are in Uzbekistan — crypto is more relevant than forex. This guide shows: what carries over from forex, what is different, and where to start.
@@ -202,5 +206,47 @@ Crypto is a **market where money is easy to make and easy to lose**. Most beginn
 If you want to **actively trade crypto** — master forex first. Discipline and risk management are the same. Crypto simply has **more volatility**.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="crypto-trading-guide"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Which of these suits a beginner for crypto trading?",
+    "options": [
+      "Meme coins (DOGE, SHIB) — fast growth",
+      "Futures with 1:50 leverage",
+      "Only BTC/USDT and ETH/USDT — liquidity and tight spreads",
+      "Freshly listed coins"
+    ],
+    "answer": 2,
+    "explain": "Maximum liquidity and the fewest manipulations. Meme coins and fresh listings are a lottery; leverage is a fast way to blow up for a beginner."
+  },
+  {
+    "q": "What risk per trade does the guide recommend for crypto, and why?",
+    "options": [
+      "0.5% — tighter than forex because of higher volatility",
+      "5% — crypto grows fast",
+      "10% — to cover the fees",
+      "Risk does not matter, only the stop does"
+    ],
+    "answer": 0,
+    "explain": "Daily swings of 5–15% are normal in crypto, so risk is tighter than the 1% forex rule."
+  },
+  {
+    "q": "'Not your keys, not your coins' means:",
+    "options": [
+      "You must memorize your exchange password",
+      "Coins on an exchange are formally not yours until withdrawn to your own wallet",
+      "The seed phrase should be stored in the cloud",
+      "Exchanges are always safer than wallets"
+    ],
+    "answer": 1,
+    "explain": "An exchange can freeze your account, go bankrupt or get hacked; large sums belong in a cold wallet."
+  }
+]
+</script>
 
 [← Back to the main guide](../forex-guide.md)

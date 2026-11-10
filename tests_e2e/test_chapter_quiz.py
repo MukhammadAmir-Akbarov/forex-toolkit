@@ -123,6 +123,23 @@ def test_dashboard_counts_passed_quizzes(pw_page, site_url):
     page.goto(f"{site_url}/extras/dashboard/")
     page.wait_for_selector("#student-dashboard .sd-hero")
     values = page.locator(".sd-card__value").all_text_contents()
-    assert any(v.strip().startswith("1 / 6") for v in values), (
-        f"карточка квизов не показала 1 / 6: {values}"
+    assert any(v.strip().startswith("1 / 9") for v in values), (
+        f"карточка квизов не показала 1 / 9: {values}"
     )
+
+
+def test_quiz_works_on_growth_pages(pw_page, site_url):
+    """Квиз на странице growth/ — тот же виджет, тот же цикл сдачи."""
+    page = pw_page
+    page.goto(f"{site_url}/growth/crypto-trading-guide/")
+    page.wait_for_selector("#cq-start-btn")
+    bank = _bank(page)
+    assert len(bank) == 3
+
+    page.click("#cq-start-btn")
+    _answer_all(page, bank, correctly=True)
+    page.wait_for_selector(".chapter-quiz__verdict.is-pass")
+
+    quiz = page.evaluate("() => JSON.parse(localStorage.getItem('fx-quiz-v1') || '{}')")
+    record = quiz.get("crypto-trading-guide")
+    assert record and record["passed"] is True

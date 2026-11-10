@@ -234,24 +234,24 @@
     },
     "growth/crypto-trading-guide.md": {
       "locales": {
-        "en": "260072650bef27aaed5b54e03594aeaa7a05e3aec07297f7fcf8742399d4bd6b",
-        "uz": "260072650bef27aaed5b54e03594aeaa7a05e3aec07297f7fcf8742399d4bd6b"
+        "en": "b4cb78b100d51e3e66b3c3180fd0b6c5ee0550f0efda7649cd1ac54fa25e73c3",
+        "uz": "b4cb78b100d51e3e66b3c3180fd0b6c5ee0550f0efda7649cd1ac54fa25e73c3"
       },
-      "ru_sha256": "260072650bef27aaed5b54e03594aeaa7a05e3aec07297f7fcf8742399d4bd6b"
+      "ru_sha256": "b4cb78b100d51e3e66b3c3180fd0b6c5ee0550f0efda7649cd1ac54fa25e73c3"
     },
     "growth/order-flow-volume-profile.md": {
       "locales": {
-        "en": "96cd9d0e986543492dcce0463118907bb2e6389ddff0a23bba99059fbabdefb6",
-        "uz": "96cd9d0e986543492dcce0463118907bb2e6389ddff0a23bba99059fbabdefb6"
+        "en": "20ba8b0b8faff0c8286a221e9cc3b014fd3dcbacce7c60ebf09aff9d2d643049",
+        "uz": "20ba8b0b8faff0c8286a221e9cc3b014fd3dcbacce7c60ebf09aff9d2d643049"
       },
-      "ru_sha256": "96cd9d0e986543492dcce0463118907bb2e6389ddff0a23bba99059fbabdefb6"
+      "ru_sha256": "20ba8b0b8faff0c8286a221e9cc3b014fd3dcbacce7c60ebf09aff9d2d643049"
     },
     "growth/stocks-basics.md": {
       "locales": {
-        "en": "688d25e1b82c2e0a5852b6307f6bb749951950cc4eb24283b6282b1074ef8e7a",
-        "uz": "688d25e1b82c2e0a5852b6307f6bb749951950cc4eb24283b6282b1074ef8e7a"
+        "en": "775c2f12673c11ce6f67a8a85970187ff4b88317c050f2352018ff6848e9b7f2",
+        "uz": "775c2f12673c11ce6f67a8a85970187ff4b88317c050f2352018ff6848e9b7f2"
       },
-      "ru_sha256": "688d25e1b82c2e0a5852b6307f6bb749951950cc4eb24283b6282b1074ef8e7a"
+      "ru_sha256": "775c2f12673c11ce6f67a8a85970187ff4b88317c050f2352018ff6848e9b7f2"
     },
     "index.md": {
       "locales": {

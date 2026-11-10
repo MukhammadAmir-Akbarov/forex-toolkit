@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # Order Flow and Volume Profile — Advanced Technical Analysis
 
 > This is an **"after the basics"** level topic. Master candlesticks, EMA, RSI, and a core strategy first. Come back to this section after **6+ months** of practice, when you want to understand market depth more deeply.
@@ -251,5 +255,47 @@ prediction, and an honest score against a coin flip.
 **Do not rush to implement.** Volume Profile should **supplement**, not replace, what is already working for you.
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="order-flow-volume-profile"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "POC (Point of Control) is…",
+    "options": [
+      "The level where price opened",
+      "The level with the highest traded volume",
+      "The midpoint of the daily candle",
+      "The trend breakout point"
+    ],
+    "answer": 1,
+    "explain": "POC is the period's most 'honest' price by volume; strategies like POC Magnet are built around it."
+  },
+  {
+    "q": "Why can't retail forex traders see a real order book?",
+    "options": [
+      "Forex is a decentralized OTC market — no single order book exists",
+      "Brokers deliberately hide it from clients",
+      "Only banks have an order book",
+      "MT5 does not support order books"
+    ],
+    "answer": 0,
+    "explain": "Unlike crypto and stock exchanges. Proxies are used instead: tick volume or CME futures volume."
+  },
+  {
+    "q": "An LVN (low volume node) usually means price will…",
+    "options": [
+      "Get stuck in that zone for a long time",
+      "Reverse there, guaranteed",
+      "Wander randomly",
+      "Run through that zone fast"
+    ],
+    "answer": 3,
+    "explain": "Low liquidity → price slips through the zone. An HVN works the opposite way — as support/resistance."
+  }
+]
+</script>
 
 [← Back to Technical Analysis](../docs/technical-analysis.md) · [← Back to the Main Guide](../forex-guide.md)
