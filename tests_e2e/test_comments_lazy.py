@@ -57,15 +57,16 @@ def test_giscus_loads_after_scrolling_to_comments(
     pw_page, site_url, giscus_requests
 ) -> None:
     pw_page.goto(f"{site_url}{LONG_PAGE}", wait_until="load")
-    pw_page.locator("#__comments").scroll_into_view_if_needed()
-
-    pw_page.wait_for_function(
-        "() => document.querySelector('#__giscus-mount script') !== null",
-        timeout=10000,
-    )
-    assert any("giscus.app" in url for url in giscus_requests), (
-        "после прокрутки к комментариям giscus так и не запросили"
-    )
+    # Ждём сам запрос, а не появление <script> в DOM: вставка тега и событие
+    # request не атомарны, в CI между ними проходит заметное время — прежняя
+    # версия (DOM-ожидание, затем мгновенная проверка списка) из-за этого
+    # флакала, хотя механика ленивой загрузки работала исправно.
+    with pw_page.expect_event(
+        "request", lambda r: "giscus.app" in r.url, timeout=15000
+    ):
+        pw_page.locator("#__comments").scroll_into_view_if_needed()
+    assert pw_page.locator("#__giscus-mount script").count() == 1
+    assert any("giscus.app" in url for url in giscus_requests)
 
 
 def test_locale_pages_ask_giscus_for_a_language_it_knows(pw_page, site_url) -> None:
