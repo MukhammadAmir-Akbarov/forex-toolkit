@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🏛️ Forex Market Structure — who actually controls prices
 
 !!! abstract "Why this matters"
@@ -213,6 +217,47 @@ More detail: [Order Flow / Volume Profile](../growth/order-flow-volume-profile.m
 - [ ] I know that **low liquidity** = high risk (Sundays, overnight, public holidays)
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="market-structure"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "What does the chain that delivers the price to you look like?",
+    "options": [
+      "You → broker → interbank",
+      "Central banks → interbank → liquidity providers → broker → you",
+      "Broker → central bank → you",
+      "You → the central bank directly"
+    ],
+    "answer": 1,
+    "explain": "A retail trader is the last link: central banks set direction, the interbank market ($7+ trn a day) moves price, LPs pass quotes to the broker."
+  },
+  {
+    "q": "Why close positions 30 minutes before/after FOMC/ECB meetings?",
+    "options": [
+      "Brokers shut down their servers",
+      "Price can jump hundreds of pips in a second — the stop fills with slippage",
+      "Trading then is illegal",
+      "Spreads disappear"
+    ],
+    "answer": 1,
+    "explain": "On a surprise central-bank decision price jumps instantly; the stop-loss fills, but at a worse price — slippage is unavoidable."
+  },
+  {
+    "q": "What is slippage?",
+    "options": [
+      "Order execution at a worse price than requested",
+      "The broker cancelling the order",
+      "A commission refund",
+      "Opening a position twice"
+    ],
+    "answer": 0,
+    "explain": "When news hits, liquidity vanishes and a market order fills 5–30 pips worse than expected."
+  }
+]
+</script>
 
 ## 🔗 What to read next
 

@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🔁 Bozor sikllari — nega bozor «tasodifiy» emas
 
 !!! abstract "Bozorning asosiy aqliy modeli"
@@ -192,6 +196,47 @@ Pozitsiya ochishdan oldin o'zingizdan so'rang:
 Agar **3+ savolga javob yo'q** — grafikni yoping. Avval o'qing, keyin savdo qiling.
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="cycle-theory"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Bob qanday uch turdagi tsiklni ko'rib chiqadi?",
+    "options": [
+      "Trend, fundamental, psixologik",
+      "Kunlik, haftalik, oylik",
+      "Bull, bear, yonlama",
+      "Tez, o'rta, sekin"
+    ],
+    "answer": 0,
+    "explain": "Texnik tsikl (trend ↔ konsolidatsiya), makroiqtisodiy (MB stavkalari) va hissiy tsikl (eyforiya → vahima)."
+  },
+  {
+    "q": "Haqiqiy trend o'zgarishidan ko'pincha nima oldin keladi?",
+    "options": [
+      "Bir zumda vertikal burilish",
+      "Katta taymfreymda keng konsolidatsiya (H4, D1)",
+      "Broker komissiyasining oshishi",
+      "Birjaning dam olish kunlari yopilishi"
+    ],
+    "answer": 1,
+    "explain": "Teskari vertikal harakat — odatda trend ichidagi korreksiya. Faza almashinuvi H4/D1da keng yonboshdan boshlanadi."
+  },
+  {
+    "q": "Psixologik tsiklning vahima fazasida olomon nima qiladi?",
+    "options": [
+      "Hammani sotib oladi",
+      "Ommaviy sotadi",
+      "Chetga o'tib kutadi",
+      "Lotlarni oshiradi"
+    ],
+    "answer": 1,
+    "explain": "Hissiyotlar tsikli: eyforiya → ishonch → qo'rquv → vahima. Vahima — pastda ommaviy sotuvlar."
+  }
+]
+</script>
 
 ## 🔗 Keyingi nima o'qish kerak
 

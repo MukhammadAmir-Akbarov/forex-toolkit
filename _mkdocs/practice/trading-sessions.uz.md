@@ -1,5 +1,5 @@
 ---
-widgets: [sessions]
+widgets: [sessions, chapter-quiz]
 ---
 
 # 🕐 Savdo sessiyalari va bozor soatlari
@@ -89,3 +89,44 @@ juftliklar bo'yicha kunlik o'zgaruvchanlikning asosiy qismi aynan shu vaqtga to'
 !!! danger "Moliyaviy maslahat emas"
     Sessiya soatlari — yo'l-yo'riq. Haqiqiy faollik hafta kuniga, bayramlarga va yangiliklar
     foniga bog'liq. Har doim joriy bozorga qarang, faqat jadvalga emas.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="trading-sessions"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Qaysi sessiya kesishmasi hajm va volatillik bo'yicha asosiy oyna?",
+    "options": [
+      "Tokio + Sidney",
+      "London + Nyu-York (13:00–17:00 UTC)",
+      "Sidney + Tokio",
+      "Nyu-York + Sidney"
+    ],
+    "answer": 1,
+    "explain": "London/Nyu-York kesishmasi — maksimal hajm, tor spredlar va EUR/USD, GBP/USD bo'yicha eng yaxshi likvidnost."
+  },
+  {
+    "q": "Nega London va Nyu-York soatlari ±1 soatga «suzadi»?",
+    "options": [
+      "Brokerlar jadvalni o'zlari siljitadi",
+      "Oy fazalari",
+      "Yozgi/qishki vaqtga o'tish (O'zbekistonda yo'q)",
+      "Bayram kunlari"
+    ],
+    "answer": 2,
+    "explain": "DST tufayli sessiyalar Toshkentga nisbatan bir soatga siljiydi; sahifadagi vidjet real UTC bo'yicha avtomatik hisoblaydi."
+  },
+  {
+    "q": "Osiyo sessiyasi uchun nima xos?",
+    "options": [
+      "Tinch bozor, JPY va AUD juftliklari faol",
+      "EUR/USD bo'yicha maksimal volatillik",
+      "AQSHning asosiy yangiliklari",
+      "Bozor yopiq"
+    ],
+    "answer": 0,
+    "explain": "Osiyo mo'tadil: JPY va AUD juftliklari harakatlanadi; yevropa valyutali majorlar ko'pincha joyida turadi."
+  }
+]
+</script>

@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🛡️ Seyf (Move to Breakeven) — stop-lossni zararsizlik nuqtasiga ko'chirish
 
 !!! abstract "Amaliyotdan (arxivda 509 ta eslatma)"
@@ -148,6 +152,47 @@ SL ni BU ga ko'chirishdan oldin tekshiring:
 G'oya: **sessiya almashinuvi (London → NY, NY → Osiyo) = narx burilish xavfi**. Pozitsiyani himoyalash shart.
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="breakeven-protocol"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "«Seyf» (zararsizlikka o'tkazish) nima?",
+    "options": [
+      "Pozitsiyani qo'lda nolga yopish",
+      "Stop Lossni kirish narxiga ko'chirish — pozitsiya bo'yicha zarar imkonsiz bo'ladi",
+      "Pozitsiyani brokerda sug'urtalash",
+      "Foydadan keyin lotni ikki baravar qilish"
+    ],
+    "answer": 1,
+    "explain": "SL kirish nuqtasiga ko'chgach, narx qaytishi mumkin, lekin minus istisno: bitim nol yoki plyusda yopiladi."
+  },
+  {
+    "q": "Stopni zararsizlikka qachon ko'chirish to'g'ri?",
+    "options": [
+      "Bitim ochilishi bilanoq",
+      "Narx TPgacha yo'lning 10%ini o'tganda",
+      "1:1 RRga yetganda, TPgacha yo'lning 50%ida yoki kuchli daraja oldida",
+      "Faqat savdo kuni oxirida"
+    ],
+    "answer": 2,
+    "explain": "Juda erta ko'chirish pozitsiyani oddiy korreksiya bilan urib tashlaydi. Mo'ljallar: TPgacha 50% yo'l, foyda = risk (1:1), kuchli daraja yoki oldinda qizil yangilik."
+  },
+  {
+    "q": "Nega stopni zararsizlikka juda erta ko'chirmaslik kerak?",
+    "options": [
+      "Broker erta ko'chirishni taqiqlaydi",
+      "Bozor «nafas oladi»: korreksiya asosiy harakatgacha pozitsiyani urib tashlaydi",
+      "Ko'chirish komissiyasi oshadi",
+      "Take-profit bekor qilinadi"
+    ],
+    "answer": 1,
+    "explain": "Narxga erk bering: ko'chirish struktura harakatni tasdiqlagach (kirish nuqtasidan yangi HH/LL) amalga oshiriladi."
+  }
+]
+</script>
 
 ## 🔗 Keyingi nima o'qish kerak
 

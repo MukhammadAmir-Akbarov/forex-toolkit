@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🛡️ Safe (Move to Breakeven) — when to move your stop to breakeven
 
 !!! abstract "From practice (509 mentions in the archive)"
@@ -148,6 +152,47 @@ Before moving SL to BE, check:
 Idea: **session change (London → NY, NY → Asia) = reversal risk**. Protecting the position is mandatory.
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="breakeven-protocol"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "What is a 'breakeven move' (the 'safe')?",
+    "options": [
+      "Closing the position manually at zero",
+      "Moving the Stop Loss to the entry price — a loss on the position becomes impossible",
+      "Insuring the position with the broker",
+      "Doubling the lot after a profit"
+    ],
+    "answer": 1,
+    "explain": "Once the SL sits at the entry price, price can reverse but a loss is impossible: the trade closes at zero or better."
+  },
+  {
+    "q": "When is moving the stop to breakeven correct?",
+    "options": [
+      "Immediately after opening the trade",
+      "When price has covered 10% of the way to the take-profit",
+      "After reaching 1:1 RR, 50% of the way to TP, or ahead of a strong level",
+      "Only at the end of the trading day"
+    ],
+    "answer": 2,
+    "explain": "Moving too early gets the position knocked out by an ordinary pullback. Guides: 50% of the way to TP, profit equal to risk (1:1), a strong level or a red news release ahead."
+  },
+  {
+    "q": "Why mustn't you move the stop to breakeven too early?",
+    "options": [
+      "Brokers forbid early moves",
+      "The market 'breathes': a pullback will stop you out before the main move",
+      "The move fee grows",
+      "The take-profit gets cancelled"
+    ],
+    "answer": 1,
+    "explain": "Give price room: move to breakeven after structure confirms the move (a new HH/LL from the entry)."
+  }
+]
+</script>
 
 ## 🔗 What to read next
 

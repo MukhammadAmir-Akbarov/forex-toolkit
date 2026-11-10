@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🏛️ Forex bozor tuzilmasi — narxlarni kim boshqaradi
 
 !!! abstract "Nima uchun buni bilish muhim"
@@ -213,6 +217,47 @@ Batafsil: [Order Flow / Volume Profile](../growth/order-flow-volume-profile.md)
 - [ ] **Past likvidlik** = yuqori risk (yakshanbalar, kechasi, bayramlar) ekanini bilaman
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="market-structure"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Narx sizga qanday zanjir orqali yetib keladi?",
+    "options": [
+      "Siz → broker → interbank",
+      "Markaziy banklar → interbank → likvidnost yetkazuvchilar → broker → siz",
+      "Broker → markaziy bank → siz",
+      "Siz → markaziy bankga to'g'ridan-to'g'ri"
+    ],
+    "answer": 1,
+    "explain": "Chakana treyder — oxirgi bo'g'in: MB yo'nalish belgilaydi, interbank (kuniga $7+ trln) narxni harakatlantiradi, LP kotirovkalarni brokerga uzatadi."
+  },
+  {
+    "q": "Nega FOMC/ECB yig'ilishlaridan 30 daqiqa oldin/keyin pozitsiyalarni yopgan ma'qul?",
+    "options": [
+      "Brokerlar serverlarni o'chiradi",
+      "Narx bir soniyada yuzlab pips sakrashi mumkin — stop slipaj bilan bajariladi",
+      "Bu vaqtda savdo qonun bilan taqiqlangan",
+      "Spredlar yo'qoladi"
+    ],
+    "answer": 1,
+    "explain": "MBning kutilmagan qarorida narx bir zumda sakraydi; stop-loss bajariladi, lekin yomonroq narxda — slipaj muqarrar."
+  },
+  {
+    "q": "Slipaj (proskalzivaniye) nima?",
+    "options": [
+      "Orderning so'ralgandan yomonroq narxda bajarilishi",
+      "Brokerning orderni bekor qilishi",
+      "Komissiya qaytarilishi",
+      "Pozitsiyaning ikki marta ochilishi"
+    ],
+    "answer": 0,
+    "explain": "Yangilik paytida likvidnost yo'qoladi va market-order kutilganidan 5–30 pips yomonroq narxda bajariladi."
+  }
+]
+</script>
 
 ## 🔗 Keyingi nima o'qish kerak
 

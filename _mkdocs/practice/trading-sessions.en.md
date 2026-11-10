@@ -1,5 +1,5 @@
 ---
-widgets: [sessions]
+widgets: [sessions, chapter-quiz]
 ---
 
 # 🕐 Trading Sessions and Market Hours
@@ -86,3 +86,44 @@ volatility on major pairs falls within that window.
 !!! danger "Not financial advice"
     Session hours are a guide. Real activity depends on the day of the week, public holidays,
     and the news background. Always look at the current market, not just the schedule.
+
+---
+
+<div id="chapter-quiz" data-quiz-key="trading-sessions"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Which session overlap is the main window by volume and volatility?",
+    "options": [
+      "Tokyo + Sydney",
+      "London + New York (13:00–17:00 UTC)",
+      "Sydney + Tokyo",
+      "New York + Sydney"
+    ],
+    "answer": 1,
+    "explain": "The London/New York overlap means maximum volume, tight spreads and the best liquidity on EUR/USD and GBP/USD."
+  },
+  {
+    "q": "Why do London and New York hours 'drift' by ±1 hour?",
+    "options": [
+      "Brokers shift the schedule themselves",
+      "Moon phases",
+      "Daylight saving time (Uzbekistan doesn't have it)",
+      "Public holidays"
+    ],
+    "answer": 2,
+    "explain": "Because of DST the sessions shift an hour relative to Tashkent; the page widget computes against real UTC automatically."
+  },
+  {
+    "q": "What characterises the Asian session?",
+    "options": [
+      "A calm market, with JPY and AUD pairs active",
+      "Maximum volatility on EUR/USD",
+      "The main US news",
+      "The market is closed"
+    ],
+    "answer": 0,
+    "explain": "Asia is moderate: JPY and AUD pairs move; majors in European currencies mostly sit still."
+  }
+]
+</script>

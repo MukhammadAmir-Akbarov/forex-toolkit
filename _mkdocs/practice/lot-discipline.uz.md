@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🎯 LOT — seni yo'q qiladigan yoki qutqaradigan narsa
 
 !!! abstract "Real treyderning amaliyotidan (2 yil, ~8000 signal)"
@@ -120,6 +124,47 @@ Har bir savdodan oldin o'zingni tekshir:
 !!! danger "Agar kamida bitta band — YO'Q bo'lsa, savdoni ochma."
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="lot-discipline"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Bob statistikasiga ko'ra ko'pchilik treyderlar zararining asosiy sababi:",
+    "options": [
+      "Yomon kirish nuqtalari",
+      "Sekin internet",
+      "Lotning oshirib yuborilishi",
+      "Noto'g'ri broker tanlovi"
+    ],
+    "answer": 2,
+    "explain": "68% lotni oshirib yuborganligi uchun minusda: sentlar foyda haftalar davomida yig'iladi, bitta katta lotli bitim esa oyni nolga tushiradi."
+  },
+  {
+    "q": "Depozit $100, oltin 0.1 lot, stop 50 pips. Stopdagi zarar qancha?",
+    "options": [
+      "$1",
+      "$50 — depozitning yarmi",
+      "$5",
+      "$10"
+    ],
+    "answer": 1,
+    "explain": "0.1 lot oltin uchun pips ≈ $1: 50 pips = $50 = bitta bitimda depozitning 50%i. Bu savdo emas, lotereya."
+  },
+  {
+    "q": "Loyiha qoidasiga ko'ra pozitsiya hajmi nimadan hisoblanadi?",
+    "options": [
+      "Balansdan",
+      "Signalga ishonchdan",
+      "Puldagi risk va stop hajmidan",
+      "Haftadagi signallar sonidan"
+    ],
+    "answer": 2,
+    "explain": "risk ($) = lot × stop (pips) × pips narxi. «Lot vs balans» jadvali — risk hisobidan keyingi yuqori chegara."
+  }
+]
+</script>
 
 ## 🔗 Keyingi nima o'qish kerak
 

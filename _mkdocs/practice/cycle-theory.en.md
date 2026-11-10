@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🔁 Market cycles — why the market is not «random»
 
 !!! abstract "The core mental model of the market"
@@ -199,3 +203,44 @@ If **3+ questions are unanswered** — close the chart. Read first, then trade.
 - [Data sources](../extras/market-data-sources.md) — where to get macroeconomic cycle data
 - [Trading psychology](../extras/psychology.md) — how to control the emotional cycle
 - [Mind map](../extras/mind-map.md) — the overall map of trader disciplines
+
+---
+
+<div id="chapter-quiz" data-quiz-key="cycle-theory"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Which three cycle types does the chapter cover?",
+    "options": [
+      "Trend, fundamental, psychological",
+      "Daily, weekly, monthly",
+      "Bull, bear, sideways",
+      "Fast, medium, slow"
+    ],
+    "answer": 0,
+    "explain": "The technical cycle (trend ↔ consolidation), the macroeconomic one (central-bank rates) and the emotional one (euphoria → panic)."
+  },
+  {
+    "q": "What most often precedes a true trend change?",
+    "options": [
+      "An instant vertical reversal",
+      "A broad consolidation on a higher timeframe (H4, D1)",
+      "A broker fee increase",
+      "The exchange closing for the weekend"
+    ],
+    "answer": 1,
+    "explain": "A vertical move the other way is usually a correction inside the trend. A phase change starts with a wide sideways range on H4/D1."
+  },
+  {
+    "q": "What does the crowd do in the panic phase of the psychological cycle?",
+    "options": [
+      "Buys everything",
+      "Sells en masse",
+      "Waits on the sidelines",
+      "Increases lot sizes"
+    ],
+    "answer": 1,
+    "explain": "The emotion cycle: euphoria → confidence → fear → panic. Panic means mass selling at the bottom."
+  }
+]
+</script>

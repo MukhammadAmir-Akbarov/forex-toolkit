@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🥇 Trading gold (XAUUSD) — what you need to know
 
 !!! abstract "Why a dedicated chapter on gold?"
@@ -150,6 +154,47 @@ From channel practice, **typical sizes**:
 More detail: [Data and signal sources](../extras/market-data-sources.md)
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="gold-trading"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "What is 1 pip on XAUUSD?",
+    "options": [
+      "0.0001",
+      "0.01",
+      "0.10",
+      "1.00"
+    ],
+    "answer": 2,
+    "explain": "On gold a pip is ten cents of price (0.10), not 0.0001 like on EUR/USD. The spread is usually 2–4 pips."
+  },
+  {
+    "q": "Why is going 'full margin' on gold a road to blowing up?",
+    "options": [
+      "A 150–500 pip daily range: one move against the position wipes the account",
+      "Gold doesn't trade at night",
+      "Gold has a zero spread",
+      "Brokers forbid large lots"
+    ],
+    "answer": 0,
+    "explain": "No 'feel for the instrument' cancels the math: risk ≤ 1% of the deposit, position size is calculated from the stop-loss."
+  },
+  {
+    "q": "During which hours (UTC) is gold most active?",
+    "options": [
+      "00:00–06:00",
+      "13:00–22:00 — the London/New York overlap",
+      "22:00–07:00",
+      "The same around the clock"
+    ],
+    "answer": 1,
+    "explain": "Gold's main moves happen in London and especially during the New York overlap."
+  }
+]
+</script>
 
 ## 📚 What to read next
 

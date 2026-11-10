@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🎯 LOT — the one thing that will make or break you
 
 !!! abstract "From a real trader's practice (2 years, ~8,000 signals)"
@@ -120,6 +124,47 @@ Check yourself before every trade:
 !!! danger "If even one item is NO — do not open the trade."
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="lot-discipline"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "The main reason most traders lose, per the chapter's statistics:",
+    "options": [
+      "Bad entry points",
+      "Slow internet",
+      "Oversized lots",
+      "The wrong broker"
+    ],
+    "answer": 2,
+    "explain": "68% are in the red because of oversized lots: cents of profit are collected for weeks, then one big-lot trade wipes out the month."
+  },
+  {
+    "q": "Deposit $100, gold 0.1 lot, 50-pip stop. What is the loss if stopped?",
+    "options": [
+      "$1",
+      "$50 — half the deposit",
+      "$5",
+      "$10"
+    ],
+    "answer": 1,
+    "explain": "For 0.1 lot of gold a pip is ≈ $1: 50 pips = $50 = 50% of the deposit in a single trade. That's a lottery, not trading."
+  },
+  {
+    "q": "What should position size be calculated from, per the project rule?",
+    "options": [
+      "From the balance",
+      "From confidence in the signal",
+      "From the money risk and the stop size",
+      "From the number of signals per week"
+    ],
+    "answer": 2,
+    "explain": "risk ($) = lot × stop (pips) × pip value. The 'lot vs balance' table is only an upper cap after the risk-based calculation."
+  }
+]
+</script>
 
 ## 🔗 What to read next
 

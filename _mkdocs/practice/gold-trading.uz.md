@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 🥇 Oltin savdosi (XAUUSD) — bilish kerak bo'lgan narsalar
 
 !!! abstract "Nega oltin uchun alohida bob?"
@@ -150,6 +154,47 @@ Kanal amaliyotidan, **odatdagi o'lchamlar**:
 Batafsil: [Ma'lumot va signal manbalari](../extras/market-data-sources.md)
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="gold-trading"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "XAUUSDda 1 pips nechaga teng?",
+    "options": [
+      "0.0001",
+      "0.01",
+      "0.10",
+      "1.00"
+    ],
+    "answer": 2,
+    "explain": "Oltinda pips — narxda o'n sent (0.10), EUR/USDdagidek 0.0001 emas. Spred odatda 2–4 pips."
+  },
+  {
+    "q": "Nega oltinda «full margin» bilan kirish — hisobni yo'q qilish yo'li?",
+    "options": [
+      "Kunlik yurish 150–500 pips: pozitsiyaga qarshi bitta harakat hisobni nolga tushiradi",
+      "Oltin tunda savdo qilinmaydi",
+      "Oltinda spred nol",
+      "Brokerlar katta lotlarni taqiqlaydi"
+    ],
+    "answer": 0,
+    "explain": "Hech qanday «instrument xarakterini bilish» matematikani bekor qilmaydi: risk ≤ depozitning 1%, hajm stop-lossdan hisoblanadi."
+  },
+  {
+    "q": "Oltin qaysi soatlarda (UTC) eng faol?",
+    "options": [
+      "00:00–06:00",
+      "13:00–22:00 — London va Nyu-York kesishmasi",
+      "22:00–07:00",
+      "Kun bo'yi bir xil"
+    ],
+    "answer": 1,
+    "explain": "Oltinning asosiy harakatlari Londonda va ayniqsa Nyu-York kesishmasida bo'ladi."
+  }
+]
+</script>
 
 ## 📚 Keyingi nima o'qish kerak
 

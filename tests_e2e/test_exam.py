@@ -18,6 +18,14 @@ CHAPTER_KEYS = [
     "crypto-trading-guide",
     "order-flow-volume-profile",
     "stocks-basics",
+    "breakeven-protocol",
+    "cycle-theory",
+    "gold-trading",
+    "lot-discipline",
+    "market-structure",
+    "news-trading-protocol",
+    "scaling-in",
+    "trading-sessions",
 ]
 
 

@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 📡 Yangiliklar asosida savdo — xavfsiz kirish protokoli
 
 !!! abstract "Nima uchun bu muhim"
@@ -210,5 +214,47 @@ Haqiqiy harakat: narx 1.0760 ga tushdi — lekin siz allaqachon pozitsiyasiz
     hisobingizni quritgan savdoyingiz emas.»*
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="news-trading-protocol"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Pozitsiya ochiq, kalendar esa 20 daqiqadan keyin «qizil» yangilikni ko'rsatmoqda. Protokol bo'yicha harakat?",
+    "options": [
+      "Lotni ikki baravar qilish",
+      "Hech narsa qilmaslik",
+      "Pozitsiyadan chiqish yoki uni zararsizlikka o'tkazish",
+      "Boshqa tomonga burilish"
+    ],
+    "answer": 2,
+    "explain": "Qizil hodisalar bozorni kengayuvchi spred bilan 50–300+ pips siljitadi — pozitsiya yopiladi yoki zararsizlikka o'tkaziladi, yangisi ochilmaydi."
+  },
+  {
+    "q": "Kuchli reliz paytida spredga nima bo'ladi?",
+    "options": [
+      "Nolgacha torayadi",
+      "Kengayadi: pipsning uchidan 20–50 pipsgacha",
+      "O'zgarmaydi",
+      "Umuman yo'qoladi"
+    ],
+    "answer": 1,
+    "explain": "Likvidnost yo'qoladi, brokerlar orderlarni stakandan olib tashlaydi — spred sakraydi, market-orderlar slipaj bilan bajariladi."
+  },
+  {
+    "q": "Katta yangiliklarda savdo qilish bo'yicha yangi boshlovchiga tavsiya:",
+    "options": [
+      "Maksimal lot bilan savdo — harakat kafolatlangan",
+      "NFPda faqat SELL",
+      "Narx tezkor bo'lganda reliz soniyasida kirish",
+      "3+ oylik demo tajriba bo'lmaguncha ±30 daqiqa savdo qilmaslik"
+    ],
+    "answer": 3,
+    "explain": "Yangiliklar — ekstremal volatillik, geplar va slipaj. Avval demo va kuzatuv, jang emas."
+  }
+]
+</script>
 
 *← [Savdo sessiyalari](trading-sessions.uz.md) · [Texnik tahlil →](../docs/technical-analysis.uz.md)*

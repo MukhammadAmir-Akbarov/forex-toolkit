@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 📈 Scaling In — when to add to a position
 
 !!! abstract "From practice (229 mentions in the archive)"
@@ -202,6 +206,47 @@ Before every scale-in:
 The order is: **profit → safe → scale in**. Not the other way around.
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="scaling-in"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Scaling in is:",
+    "options": [
+      "Adding to a losing position to average the price",
+      "Adding to a profitable position after the stop is moved to breakeven",
+      "Opening an opposite trade",
+      "Partially closing profit"
+    ],
+    "answer": 1,
+    "explain": "You add only to a position with no risk left: the base stop is already at breakeven. Adding to a loss is averaging — it kills accounts."
+  },
+  {
+    "q": "What lot should the add-on be relative to the base position?",
+    "options": [
+      "Twice as big",
+      "The maximum available",
+      "Equal or smaller",
+      "Whatever feels right"
+    ],
+    "answer": 2,
+    "explain": "Never increase the lot on an add-on: 'I'm sure, I'll go bigger' is the classic big mistake."
+  },
+  {
+    "q": "Where is adding correct?",
+    "options": [
+      "On intuition",
+      "On a counter-trend pullback without confirmation",
+      "In the middle of the day",
+      "On a break of a structural level: HH for BUY, LL for SELL"
+    ],
+    "answer": 3,
+    "explain": "Adds follow structure, not feelings: wait for fresh confirmation (a break of the previous extreme)."
+  }
+]
+</script>
 
 ## 🔗 What to read next
 

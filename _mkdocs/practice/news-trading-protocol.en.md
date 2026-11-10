@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 📡 News Trading — Safe Entry Protocol
 
 !!! abstract "Why this matters"
@@ -238,5 +242,47 @@ Actual move: price fell to 1.0760 — but you're already out
     rather than the one that emptied your account."*
 
 ---
+
+
+---
+
+<div id="chapter-quiz" data-quiz-key="news-trading-protocol"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "A position is open and a 'red' release hits in 20 minutes. What does the protocol say?",
+    "options": [
+      "Double the lot",
+      "Do nothing",
+      "Exit the position or move it to breakeven",
+      "Reverse to the other side"
+    ],
+    "answer": 2,
+    "explain": "Red events move the market 50–300+ pips with widening spreads — close the position or move it to breakeven, and don't open new ones."
+  },
+  {
+    "q": "What happens to the spread during a major release?",
+    "options": [
+      "Tightens to zero",
+      "Widens: from fractions of a pip to 20–50 pips",
+      "Stays the same",
+      "Disappears entirely"
+    ],
+    "answer": 1,
+    "explain": "Liquidity vanishes, brokers pull orders from the book — the spread spikes and market orders fill with slippage."
+  },
+  {
+    "q": "The recommendation for beginners on major news trading:",
+    "options": [
+      "Trade the maximum lot — the move is guaranteed",
+      "SELL only on NFP",
+      "Enter the very second of the release while price is fast",
+      "Don't trade ±30 minutes around it until you have 3+ months of demo experience"
+    ],
+    "answer": 3,
+    "explain": "News means extreme volatility, gaps and slippage. First comes demo and observation, not battle."
+  }
+]
+</script>
 
 *← [Trading sessions](trading-sessions.en.md) · [Technical analysis →](../docs/technical-analysis.en.md)*

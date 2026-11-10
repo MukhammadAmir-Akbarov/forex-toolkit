@@ -166,6 +166,22 @@
       name: { ru: "Order Flow и Volume Profile", en: "Order Flow / Volume Profile", uz: "Order Flow / Volume Profile" } },
     { key: "stocks-basics", path: "growth/stocks-basics/",
       name: { ru: "Акции для начинающих", en: "Stock basics", uz: "Aksiyalar asoslari" } },
+    { key: "breakeven-protocol", path: "practice/breakeven-protocol/",
+      name: { ru: "Сейф (безубыток)", en: "Breakeven protocol", uz: "Seyf (zararsizlik)" } },
+    { key: "cycle-theory", path: "practice/cycle-theory/",
+      name: { ru: "Циклы рынка", en: "Market cycles", uz: "Bozor tsikllari" } },
+    { key: "gold-trading", path: "practice/gold-trading/",
+      name: { ru: "Торговля золотом", en: "Gold trading", uz: "Oltin savdosi" } },
+    { key: "lot-discipline", path: "practice/lot-discipline/",
+      name: { ru: "Дисциплина лота", en: "Lot discipline", uz: "Lot intizomi" } },
+    { key: "market-structure", path: "practice/market-structure/",
+      name: { ru: "Структура рынка", en: "Market structure", uz: "Bozor tuzilishi" } },
+    { key: "news-trading-protocol", path: "practice/news-trading-protocol/",
+      name: { ru: "Торговля на новостях", en: "News trading", uz: "Yangiliklar savdosi" } },
+    { key: "scaling-in", path: "practice/scaling-in/",
+      name: { ru: "Доливка (scaling-in)", en: "Scaling in", uz: "Dolivka (scaling-in)" } },
+    { key: "trading-sessions", path: "practice/trading-sessions/",
+      name: { ru: "Торговые сессии", en: "Trading sessions", uz: "Savdo sessiyalari" } },
   ];
 
   // Экзамен провален — человеку нужен маршрут: какие главы закрыть квизами.

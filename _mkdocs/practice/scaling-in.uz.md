@@ -1,3 +1,7 @@
+---
+widgets: [chapter-quiz]
+---
+
 # 📈 Qo'shimcha kirish (Scaling-in) — pozitsiyaga qachon qo'shish kerak
 
 !!! abstract "Amaliyotdan (arxivda 229 ta eslatma)"
@@ -202,6 +206,47 @@ Har bir qo'shimcha kirishdan oldin:
 Tartib: **foyda → seyf → qo'shimcha kirish**. Aksincha emas.
 
 ---
+
+---
+
+<div id="chapter-quiz" data-quiz-key="scaling-in"></div>
+<script type="application/json" id="chapter-quiz-questions">
+[
+  {
+    "q": "Dolivka (scaling-in) — bu:",
+    "options": [
+      "Narxni o'rtachalash uchun zarardagi pozitsiyaga qo'shish",
+      "Stop zararsizlikka o'tkazilgandan keyin foydali pozitsiyaga qo'shish",
+      "Qarama-qarshi bitim ochish",
+      "Foydani qisman yopish"
+    ],
+    "answer": 1,
+    "explain": "Qo'shish faqat riski qolmagan pozitsiyaga amalga oshiriladi: bazaviy stop allaqachon zararsizlikda. Minusga qo'shish — o'rtachalash, u depozitlarni yo'q qiladi."
+  },
+  {
+    "q": "Dolivka loti bazaviy pozitsiyaga nisbatan qanday bo'lishi kerak?",
+    "options": [
+      "Ikki baravar katta",
+      "Mavjud maksimal",
+      "Teng yoki kichikroq",
+      "Kayfiyatga qarab ixtiyoriy"
+    ],
+    "answer": 2,
+    "explain": "Dolivkada lotni hech qachon oshirma: «ishonchim komil, kattaroq qo'yaman» — tipik katta xato."
+  },
+  {
+    "q": "Qayerda qo'shish to'g'ri?",
+    "options": [
+      "Intuitsiya bo'yicha",
+      "Tasdiqlanmagan trendga qarshi korreksiyada",
+      "Kun o'rtasida",
+      "Strukturaviy daraja proboyida: BUY uchun HH, SELL uchun LL"
+    ],
+    "answer": 3,
+    "explain": "Qo'shish his-tuyg'u bo'yicha emas, struktura bo'yicha: yangi tasdiqni kut (oldingi ekstremum proboyi)."
+  }
+]
+</script>
 
 ## 🔗 Keyingi nima o'qish kerak
 

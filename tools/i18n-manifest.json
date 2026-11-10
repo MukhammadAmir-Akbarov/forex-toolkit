@@ -325,59 +325,59 @@
     },
     "practice/breakeven-protocol.md": {
       "locales": {
-        "en": "d5cb1301eac1febfce8821a324b02e288ff2997bb76b80703852aea4d3242ce8",
-        "uz": "d5cb1301eac1febfce8821a324b02e288ff2997bb76b80703852aea4d3242ce8"
+        "en": "5a19cdafc246bd58aee468ea0cc6a0a491f1cde6bc51b499d5f3660e65608f26",
+        "uz": "5a19cdafc246bd58aee468ea0cc6a0a491f1cde6bc51b499d5f3660e65608f26"
       },
-      "ru_sha256": "d5cb1301eac1febfce8821a324b02e288ff2997bb76b80703852aea4d3242ce8"
+      "ru_sha256": "5a19cdafc246bd58aee468ea0cc6a0a491f1cde6bc51b499d5f3660e65608f26"
     },
     "practice/cycle-theory.md": {
       "locales": {
-        "en": "9a79805cbfe8464f806087f85047f7cd79789708808b41cb7e48e7200844c09d",
-        "uz": "9a79805cbfe8464f806087f85047f7cd79789708808b41cb7e48e7200844c09d"
+        "en": "cf487066cf4417411615d5e1b78577dd358ec689d395467be91f413ae146c602",
+        "uz": "cf487066cf4417411615d5e1b78577dd358ec689d395467be91f413ae146c602"
       },
-      "ru_sha256": "9a79805cbfe8464f806087f85047f7cd79789708808b41cb7e48e7200844c09d"
+      "ru_sha256": "cf487066cf4417411615d5e1b78577dd358ec689d395467be91f413ae146c602"
     },
     "practice/gold-trading.md": {
       "locales": {
-        "en": "37074e8f246cb311a9634553986befd2ef2c934dd94ea2b7d33dfe02b0bc47d5",
-        "uz": "37074e8f246cb311a9634553986befd2ef2c934dd94ea2b7d33dfe02b0bc47d5"
+        "en": "3d141c7c9b2c86d185da8483d02d021b748ca530e40adac6cc59371899cbe8ad",
+        "uz": "3d141c7c9b2c86d185da8483d02d021b748ca530e40adac6cc59371899cbe8ad"
       },
-      "ru_sha256": "37074e8f246cb311a9634553986befd2ef2c934dd94ea2b7d33dfe02b0bc47d5"
+      "ru_sha256": "3d141c7c9b2c86d185da8483d02d021b748ca530e40adac6cc59371899cbe8ad"
     },
     "practice/lot-discipline.md": {
       "locales": {
-        "en": "00c45c204dbe8d207dfdd018e3278be63452cb1fc25a699847aeaa14b4675147",
-        "uz": "00c45c204dbe8d207dfdd018e3278be63452cb1fc25a699847aeaa14b4675147"
+        "en": "6da0184e5d600f451519dcf099440aaa478ac34531c3200cf0348e90d2ecd1ec",
+        "uz": "6da0184e5d600f451519dcf099440aaa478ac34531c3200cf0348e90d2ecd1ec"
       },
-      "ru_sha256": "00c45c204dbe8d207dfdd018e3278be63452cb1fc25a699847aeaa14b4675147"
+      "ru_sha256": "6da0184e5d600f451519dcf099440aaa478ac34531c3200cf0348e90d2ecd1ec"
     },
     "practice/market-structure.md": {
       "locales": {
-        "en": "328623d301e091dcf27bb210b06fcd36a819d2dbfc7aabb5df0961c503dd56fd",
-        "uz": "328623d301e091dcf27bb210b06fcd36a819d2dbfc7aabb5df0961c503dd56fd"
+        "en": "3d2cad8ea1dc7b9b473da21987327e211e0fc6c1f025d0d00544ac39d2adde9a",
+        "uz": "3d2cad8ea1dc7b9b473da21987327e211e0fc6c1f025d0d00544ac39d2adde9a"
       },
-      "ru_sha256": "328623d301e091dcf27bb210b06fcd36a819d2dbfc7aabb5df0961c503dd56fd"
+      "ru_sha256": "3d2cad8ea1dc7b9b473da21987327e211e0fc6c1f025d0d00544ac39d2adde9a"
     },
     "practice/news-trading-protocol.md": {
       "locales": {
-        "en": "a8e42e8c5b7b4dbb1e9713191c932fb6ab5696bad6f728c72e10ec5da3a7d6ac",
-        "uz": "a8e42e8c5b7b4dbb1e9713191c932fb6ab5696bad6f728c72e10ec5da3a7d6ac"
+        "en": "fe41580dff2514d4dfa461c9dab015fa8c89d840856cdc350284156109fde3e4",
+        "uz": "fe41580dff2514d4dfa461c9dab015fa8c89d840856cdc350284156109fde3e4"
       },
-      "ru_sha256": "a8e42e8c5b7b4dbb1e9713191c932fb6ab5696bad6f728c72e10ec5da3a7d6ac"
+      "ru_sha256": "fe41580dff2514d4dfa461c9dab015fa8c89d840856cdc350284156109fde3e4"
     },
     "practice/scaling-in.md": {
       "locales": {
-        "en": "83f33c12a36b35b7fd792a7b5b4c34e72c93fb427892464f969c33c0a468f30b",
-        "uz": "83f33c12a36b35b7fd792a7b5b4c34e72c93fb427892464f969c33c0a468f30b"
+        "en": "a81de3749a4ec8e6d98f9031de9f31fd975622eddb09ab93217da6a4f79f1843",
+        "uz": "a81de3749a4ec8e6d98f9031de9f31fd975622eddb09ab93217da6a4f79f1843"
       },
-      "ru_sha256": "83f33c12a36b35b7fd792a7b5b4c34e72c93fb427892464f969c33c0a468f30b"
+      "ru_sha256": "a81de3749a4ec8e6d98f9031de9f31fd975622eddb09ab93217da6a4f79f1843"
     },
     "practice/trading-sessions.md": {
       "locales": {
-        "en": "c8c6e9ffc993a47924eff0e6be597c97e5fce3ca9d388d01bfc8883cc96845a2",
-        "uz": "c8c6e9ffc993a47924eff0e6be597c97e5fce3ca9d388d01bfc8883cc96845a2"
+        "en": "c6a9b3c681b7f0955577cb062f9614d668a3986493426c77c678cf356c1ca608",
+        "uz": "c6a9b3c681b7f0955577cb062f9614d668a3986493426c77c678cf356c1ca608"
       },
-      "ru_sha256": "c8c6e9ffc993a47924eff0e6be597c97e5fce3ca9d388d01bfc8883cc96845a2"
+      "ru_sha256": "c6a9b3c681b7f0955577cb062f9614d668a3986493426c77c678cf356c1ca608"
     },
     "privacy.md": {
       "locales": {
@@ -437,10 +437,10 @@
     },
     "tools/flashcards.md": {
       "locales": {
-        "en": "7e340c82bf5ea17b18c064bf0e94d20bd9cbff2808b5e8a55cfccefa90d858a4",
-        "uz": "7e340c82bf5ea17b18c064bf0e94d20bd9cbff2808b5e8a55cfccefa90d858a4"
+        "en": "38e46edadd95834a1ba0ddefb4b833f9385d80693d1425f2cd0146d88e2e5b42",
+        "uz": "38e46edadd95834a1ba0ddefb4b833f9385d80693d1425f2cd0146d88e2e5b42"
       },
-      "ru_sha256": "7e340c82bf5ea17b18c064bf0e94d20bd9cbff2808b5e8a55cfccefa90d858a4"
+      "ru_sha256": "38e46edadd95834a1ba0ddefb4b833f9385d80693d1425f2cd0146d88e2e5b42"
     },
     "tools/living-capital.md": {
       "locales": {
