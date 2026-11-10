@@ -95,7 +95,9 @@ def _describe(exc: BaseException) -> str:
 
 def probe(url: str, timeout: float) -> tuple[str, int | None, str]:
     """Вернуть (url, http_код или None, короткое описание)."""
-    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
+    request = urllib.request.Request(
+        url, method="HEAD", headers={"User-Agent": USER_AGENT}
+    )
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
             return url, response.status, "ok"
