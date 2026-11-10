@@ -33,6 +33,7 @@
         return "▶ Начать экзамен (" + n + " из " + bank + " вопросов)";
       },
       reviewTitle: "Вернись к этим темам:",
+      quizTitle: "Главы с несданными мини-квизами:",
       passTitle: function (p) { return "🎉 Сдано — " + p + "%!"; },
       failTitle: function (p) { return "Пока не сдано — " + p + "%"; },
       passBody: "Отличная база! Скачай сертификат ниже. Но помни: настоящий экзамен — рынок. Переходи на реал маленьким объёмом.",
@@ -55,6 +56,7 @@
         return "▶ Start the exam (" + n + " of " + bank + " questions)";
       },
       reviewTitle: "Go back to these topics:",
+      quizTitle: "Chapters with unfinished quizzes:",
       passTitle: function (p) { return "🎉 Passed — " + p + "%!"; },
       failTitle: function (p) { return "Not passed yet — " + p + "%"; },
       passBody: "Great foundation! Download your certificate below. But remember: the real exam is the market. Go live with a small size.",
@@ -77,6 +79,7 @@
         return "▶ Imtihonni boshlash (" + bank + " ta savoldan " + n + " tasi)";
       },
       reviewTitle: "Ushbu mavzularga qayting:",
+      quizTitle: "Sinovi topshirilmagan boblar:",
       passTitle: function (p) { return "🎉 Topshirildi — " + p + "%!"; },
       failTitle: function (p) { return "Hali topshirilmadi — " + p + "%"; },
       passBody: "Ajoyib poydevor! Quyida sertifikatni yuklab oling. Lekin esda tuting: asl imtihon — bozor. Kichik hajm bilan realga o'ting.",
@@ -140,6 +143,62 @@
   }
 
   var el = function (id) { return document.getElementById(id); };
+
+  // Карта глав с мини-квизами. Ключ — data-quiz-key страницы (= запись в
+  // fx-quiz-v1), path — от корня локали. Ссылки собираются как "../../" + path:
+  // из /tools/exam/ это /docs/..., из /en/tools/exam/ — /en/docs/....
+  var CHAPTERS = [
+    { key: "technical-analysis", path: "docs/technical-analysis/",
+      name: { ru: "Технический анализ", en: "Technical analysis", uz: "Texnik tahlil" } },
+    { key: "strategy-details", path: "docs/strategy-details/",
+      name: { ru: "Стратегия EMA50", en: "EMA50 strategy", uz: "EMA50 strategiyasi" } },
+    { key: "real-analysis", path: "docs/real-analysis/",
+      name: { ru: "Разбор на реальном графике", en: "Real-chart walkthrough", uz: "Real grafik tahlili" } },
+    { key: "order-types-mechanics", path: "docs/order-types-mechanics/",
+      name: { ru: "Типы ордеров", en: "Order types", uz: "Order turlari" } },
+    { key: "fundamental-analysis-guide", path: "docs/fundamental-analysis-guide/",
+      name: { ru: "Фундаментальный анализ", en: "Fundamental analysis", uz: "Fundamental tahlil" } },
+    { key: "broker-mechanics-101", path: "docs/broker-mechanics-101/",
+      name: { ru: "Механика брокера", en: "Broker mechanics", uz: "Broker mexanikasi" } },
+    { key: "crypto-trading-guide", path: "growth/crypto-trading-guide/",
+      name: { ru: "Криптовалюты", en: "Crypto trading", uz: "Kripto savdo" } },
+    { key: "order-flow-volume-profile", path: "growth/order-flow-volume-profile/",
+      name: { ru: "Order Flow и Volume Profile", en: "Order Flow / Volume Profile", uz: "Order Flow / Volume Profile" } },
+    { key: "stocks-basics", path: "growth/stocks-basics/",
+      name: { ru: "Акции для начинающих", en: "Stock basics", uz: "Aksiyalar asoslari" } },
+  ];
+
+  // Экзамен провален — человеку нужен маршрут: какие главы закрыть квизами.
+  // Список строится по fx-quiz-v1, а не по промахам: экзамен тасует вопросы,
+  // поэтому одна попытка не покрывает все темы.
+  function unpassedChapters() {
+    var quiz = {};
+    try {
+      quiz = JSON.parse(localStorage.getItem("fx-quiz-v1") || "{}") || {};
+    } catch (e) {}
+    return CHAPTERS.filter(function (chapter) {
+      var record = quiz[chapter.key];
+      return !record || record.passed !== true;
+    });
+  }
+
+  function chapterLinksHtml() {
+    var todo = unpassedChapters();
+    if (!todo.length) return "";
+    return (
+      "<p><strong>" + S.quizTitle + '</strong></p><ul class="exam-missed exam-chapters">' +
+      todo
+        .map(function (chapter) {
+          return (
+            '<li><a href="../../' + chapter.path + '">' +
+            escapeHtml(chapter.name[lang]) +
+            "</a></li>"
+          );
+        })
+        .join("") +
+      "</ul>"
+    );
+  }
 
   function escapeHtml(value) {
     var box = document.createElement("span");
@@ -251,6 +310,7 @@
       "<p>" + (passed ? S.passBody : S.failBody) + "</p>" +
       (passed && !name ? "<p><strong>" + S.needName + "</strong></p>" : "") +
       review +
+      chapterLinksHtml() +
       '<button class="calc-button" id="exam-retake">' + S.retake + "</button>" +
       "</div>";
     var res = el("exam-result");

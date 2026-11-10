@@ -121,6 +121,22 @@ def test_dashboard_chapter_count_matches_reality() -> None:
     )
 
 
+EXAM = DOCS / "javascripts" / "widgets" / "exam.js"
+
+
+def test_exam_chapter_map_matches_quiz_pages() -> None:
+    """Вердикт экзамена ссылается на главы с несданными квизами: карта в
+    exam.js должна совпадать с реальным набором квизов, иначе ссылка ведёт
+    в никуда или глава выпадает из маршрута повторения."""
+    source = EXAM.read_text(encoding="utf-8")
+    entries = re.findall(r'\{ key: "([^"]+)", path: "([^"]+)"', source)
+    assert {key for key, _ in entries} == {quiz_key(c) for c in CHAPTERS}
+    for key, path in entries:
+        assert (DOCS / f"{path.rstrip('/')}.md").is_file(), (
+            f"exam.js: глава {key} ссылается на несуществующую {path}"
+        )
+
+
 def test_widget_shuffles_options_without_mutating_the_bank() -> None:
     """Перемешивание идёт по копии — иначе пересдача съезжает по answer."""
     source = WIDGET.read_text(encoding="utf-8")
