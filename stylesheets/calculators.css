@@ -345,6 +345,14 @@
   background: rgba(220, 38, 38, 0.12);
   border-color: #dc2626;
 }
+.exam-missed li { margin-bottom: 0.5rem; }
+.exam-missed__why {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  border-left: 3px solid rgba(45, 212, 191, 0.5);
+  padding-left: 0.6rem;
+  margin-top: 0.25rem;
+}
 .exam-explain {
   margin-top: 0.9rem;
   padding: 0.7rem 0.9rem;

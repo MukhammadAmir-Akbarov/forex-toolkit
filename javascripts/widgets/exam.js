@@ -276,7 +276,7 @@
       score++;
     } else {
       btn.classList.add("exam-wrong");
-      missed.push(q.q);
+      missed.push({ q: q.q, explain: q.explain });
     }
     el("exam-score").textContent = S.score(score);
     var ex = el("exam-explain");
@@ -313,10 +313,16 @@
     var review = "";
     if (missed.length) {
       review =
-        "<p><strong>" + S.reviewTitle + "</strong></p><ul class=\"exam-missed\">" +
+        "<p><strong>" + S.reviewTitle + '</strong></p><ul class="exam-missed">' +
         missed
-          .map(function (text) {
-            return "<li>" + escapeHtml(text) + "</li>";
+          .map(function (item) {
+            // Промах без объяснения — просто счётчик. С объяснением экзамен
+            // превращается в обучение, а не в «приходи ещё».
+            return (
+              "<li>" + escapeHtml(item.q) +
+              (item.explain ? '<div class="exam-missed__why">' + escapeHtml(item.explain) + "</div>" : "") +
+              "</li>"
+            );
           })
           .join("") +
         "</ul>";
