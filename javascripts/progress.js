@@ -9,6 +9,28 @@
   "use strict";
 
   var KEY = "fx-progress-v1";
+  var ACTIVITY_KEY = "fx-activity-v1";
+
+  /* Дневная активность для стрика обучения: массив дат YYYY-MM-DD.
+     Пишут все обучающие действия (прочитал главу, сдал квиз, экзамен,
+     Replay, карточки) через window.fxActivity — кабинет считает по нему
+     дни подряд. Храним максимум последние 400 дат. */
+  function recordActivity() {
+    try {
+      var days = JSON.parse(localStorage.getItem(ACTIVITY_KEY) || "[]");
+      if (!Array.isArray(days)) days = [];
+      var now = new Date();
+      var stamp =
+        now.getFullYear() + "-" +
+        String(now.getMonth() + 1).padStart(2, "0") + "-" +
+        String(now.getDate()).padStart(2, "0");
+      if (days.indexOf(stamp) !== -1) return;
+      days.push(stamp);
+      if (days.length > 400) days = days.slice(-400);
+      localStorage.setItem(ACTIVITY_KEY, JSON.stringify(days));
+    } catch (e) { /* приватный режим — стрик просто не растёт */ }
+  }
+  window.fxActivity = recordActivity;
 
   var LABELS = {
     ru: {
@@ -130,7 +152,7 @@
     els.btn.addEventListener("click", function () {
       var set = load();
       var p = location.pathname;
-      if (set.has(p)) { set.delete(p); } else { set.add(p); }
+      if (set.has(p)) { set.delete(p); } else { set.add(p); recordActivity(); }
       save(set);
       refresh(set, els);
     });

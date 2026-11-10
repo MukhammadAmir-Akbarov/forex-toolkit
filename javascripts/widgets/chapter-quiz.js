@@ -214,6 +214,9 @@
       var passed = score === total;
       if (passed) {
         markChapterRead();
+        // Глава могла быть отмечена прочитанной раньше — тогда клик по
+        // кнопке прогресса не происходит, а день в стрик записать надо.
+        if (window.fxActivity) window.fxActivity();
         if (window.fxTrack) window.fxTrack("chapter_quiz_passed");
       }
       var result = el("cq-result");
