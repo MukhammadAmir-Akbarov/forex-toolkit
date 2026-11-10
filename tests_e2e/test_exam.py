@@ -84,3 +84,12 @@ def test_exam_result_hides_links_when_all_quizzes_passed(pw_page, site_url):
         _answer_current(page, bank, correctly=False)
     page.wait_for_selector("#exam-result .calc-result")
     assert page.locator("#exam-result .exam-chapters").count() == 0
+
+
+def test_exam_fail_shows_explanation_for_every_missed(pw_page, site_url):
+    """Разбор промахов с объяснениями: экзамен учит, а не просто оценивает."""
+    page = pw_page
+    _run_exam(page, site_url, correctly=False)
+    whys = page.locator("#exam-result .exam-missed__why")
+    assert whys.count() == 20, "у каждого пропущенного вопроса должно быть объяснение"
+    assert whys.first.inner_text().strip()
