@@ -269,10 +269,10 @@
     },
     "journal/demo-vs-real-comparison.md": {
       "locales": {
-        "en": "fd8005eead42534de3e818a08bf50a69d3f7c4875c53a1a3fa9d33dba43c82be",
-        "uz": "fd8005eead42534de3e818a08bf50a69d3f7c4875c53a1a3fa9d33dba43c82be"
+        "en": "59423655f533393b539f9b5df2497bfea9ff0d9430b2f8fd6226143632bf3c11",
+        "uz": "59423655f533393b539f9b5df2497bfea9ff0d9430b2f8fd6226143632bf3c11"
       },
-      "ru_sha256": "fd8005eead42534de3e818a08bf50a69d3f7c4875c53a1a3fa9d33dba43c82be"
+      "ru_sha256": "59423655f533393b539f9b5df2497bfea9ff0d9430b2f8fd6226143632bf3c11"
     },
     "journal/journal-extended.md": {
       "locales": {
@@ -420,6 +420,13 @@
         "uz": "9f587599700f07c576faf5751310e527e78f098a7e68256992a626c977a6533b"
       },
       "ru_sha256": "9f587599700f07c576faf5751310e527e78f098a7e68256992a626c977a6533b"
+    },
+    "tools/demo-readiness.md": {
+      "locales": {
+        "en": "961ee565e0a6f6aecb2eeaa69b73c4ba11371e1d0ea8c0ef21d9f1f23a9a6dda",
+        "uz": "961ee565e0a6f6aecb2eeaa69b73c4ba11371e1d0ea8c0ef21d9f1f23a9a6dda"
+      },
+      "ru_sha256": "961ee565e0a6f6aecb2eeaa69b73c4ba11371e1d0ea8c0ef21d9f1f23a9a6dda"
     },
     "tools/dom-trainer.md": {
       "locales": {

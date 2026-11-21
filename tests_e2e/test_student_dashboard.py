@@ -250,7 +250,8 @@ def test_dashboard_weekly_goal_counts_days_of_current_week(pw_page, site_url):
     days = [
         (monday + timedelta(days=i)).isoformat() for i in range(today.weekday() + 1)
     ]
-    expected = len(days)
+    # Виджет упирает счётчик в цель (Math.min): в сб/вс дней 6–7, а пишет 5/5.
+    expected = min(len(days), 5)
     page.evaluate(
         """
         (days) => {
