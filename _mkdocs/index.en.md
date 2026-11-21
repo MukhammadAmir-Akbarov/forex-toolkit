@@ -1,3 +1,7 @@
+---
+widgets: [onboarding]
+---
+
 # Forex Trading Toolkit
 
 <div class="fx-hero">
@@ -19,6 +23,8 @@
   </div>
   <div id="fx-session-ticker" class="fx-session-ticker"></div>
 </div>
+
+<div id="fx-onboarding" class="fx-onboarding"></div>
 
 <div class="fx-features">
   <div class="fx-feature-card">

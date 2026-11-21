@@ -318,7 +318,12 @@
     "ftk-mc-last",
     "ftk-flash-session",
     "ftk-flash-streak",
-    "ftk-flash-lastday"
+    "ftk-flash-lastday",
+    "forex_risk_profile_v1",
+    "ftk_roadmap_diag_v1",
+    "ftk_dom_best",
+    "ftk_drill_best",
+    "forex_onboarding_v1"
   ];
   // Динамические ключи: состояние каждой из 104 карточек (ftk-flash-<idx>).
   // Захардкодить их все нельзя — колода растёт; собираем по префиксу.
@@ -336,7 +341,10 @@
     "forex_journal_risk_history_v1": "array",
     "forex_strategy_playbooks_v1": "array",
     "forex_training_queue_v1": "array",
-    "forex_data_meta_v1": "object"
+    "forex_data_meta_v1": "object",
+    "forex_risk_profile_v1": "object",
+    "ftk_roadmap_diag_v1": "object",
+    "forex_onboarding_v1": "object"
   };
   var pendingRestore = null;
 

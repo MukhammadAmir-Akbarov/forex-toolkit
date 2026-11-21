@@ -122,6 +122,8 @@ Before your first live account, verify:
 
 If **all** ☑ — you can go live. If anything is **no** — it is too soon.
 
+🚦 Check the numeric items automatically: [“Am I ready for live?”](../tools/demo-readiness.md).
+
 ---
 
 ## Psychological Training Before Going Live
