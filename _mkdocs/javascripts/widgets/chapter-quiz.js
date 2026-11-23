@@ -151,16 +151,10 @@
     return null;
   }
 
-  function esc(v) {
-    return String(v).replace(/[&<>"']/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
-    });
-  }
-
   // Ссылка на страницу из навигации; text — своя подпись вместо заголовка.
   function anchor(path, text) {
     var l = navLink(path);
-    return l ? '<a href="' + esc(l.href) + '">' + esc(text || l.title) + "</a>" : null;
+    return l ? '<a href="' + escHtml(l.href) + '">' + escHtml(text || l.title) + "</a>" : null;
   }
 
   function routePath(key) {
