@@ -746,3 +746,9 @@
   .pc-headline { font-size: 1.75rem; }
   .pc-result-row { font-size: 0.86rem; }
 }
+
+/* Onboarding wizard on the home page */
+.fx-onboarding { margin: 1.4rem 0; }
+.fx-onb__q { border: 0; padding: 0; margin: 0 0 0.9rem; }
+.fx-onb__q label { display: block; padding: 0.25rem 0; cursor: pointer; }
+.fx-onboarding ol li { margin-bottom: 0.4rem; }

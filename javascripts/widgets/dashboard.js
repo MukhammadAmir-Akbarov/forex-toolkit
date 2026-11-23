@@ -33,6 +33,15 @@
       weekGoal: "недельная цель",
       retakeTitle: "🔁 Пора повторить квизы",
       retakeMeta: "Прошло 3+ недели со сдачи — повторение закрепляет материал.",
+      chTitle: "🏁 Челлендж 30 дней",
+      chIntro: "Каждый день — одно мини-задание: глава, расчёт и карточки. 15–20 минут, 30 дней подряд — и привычка учиться готова.",
+      chStart: "Начать челлендж",
+      chDay: function (d, n) { return "День " + d + " из 30 · выполнено " + n; },
+      chTask: "Задание дня",
+      chRead: "Прочитай главу", chCalc: "Посчитай в калькуляторе", chFlash: "Повтори карточки",
+      chMark: "Задание дня выполнено", chDoneToday: "✅ Сегодня засчитано — до завтра!",
+      chFinished: function (n) { return "Челлендж завершён: " + n + " из 30 дней. " + (n >= 25 ? "Это уже привычка 🔥" : "Попробуй ещё раз — цель 25+."); },
+      chRestart: "Начать заново",
       declTitle: "🧾 Скоро срок налоговой декларации",
       declBody: function (year, n) {
         return "За " + year + " год в журнале " + n + " сделок. Декларацию по итогам года подают до 1 апреля " +
@@ -125,6 +134,15 @@
       weekGoal: "weekly goal",
       retakeTitle: "🔁 Time to retake these quizzes",
       retakeMeta: "Passed 3+ weeks ago — spaced review locks the material in.",
+      chTitle: "🏁 30-day challenge",
+      chIntro: "One mini-task a day: a chapter, a calculation and flashcards. 15–20 minutes, 30 days in a row — and the study habit is built.",
+      chStart: "Start the challenge",
+      chDay: function (d, n) { return "Day " + d + " of 30 · done " + n; },
+      chTask: "Today's task",
+      chRead: "Read a chapter", chCalc: "Run a calculator", chFlash: "Review flashcards",
+      chMark: "Today's task is done", chDoneToday: "✅ Counted for today — see you tomorrow!",
+      chFinished: function (n) { return "Challenge complete: " + n + " of 30 days. " + (n >= 25 ? "That's a habit now 🔥" : "Try again — aim for 25+."); },
+      chRestart: "Start over",
       declTitle: "🧾 The tax return deadline is close",
       declBody: function (year, n) {
         return "Your journal holds " + n + " trades from " + year + ". The annual return is filed by 1 April " +
@@ -217,6 +235,15 @@
       weekGoal: "haftalik maqsad",
       retakeTitle: "🔁 Bu viktorinalarni qayta topshiring",
       retakeMeta: "3+ hafta oldin topshirilgan — takrorlash materialni mustahkamlaydi.",
+      chTitle: "🏁 30 kunlik challenge",
+      chIntro: "Har kuni bitta mini-topshiriq: bob, hisob-kitob va kartochkalar. 15–20 daqiqa, ketma-ket 30 kun — va o'qish odati tayyor.",
+      chStart: "Challengeni boshlash",
+      chDay: function (d, n) { return "30 kundan " + d + "-kun · bajarildi " + n; },
+      chTask: "Kun topshirig'i",
+      chRead: "Bobni o'qing", chCalc: "Kalkulyatorda hisoblang", chFlash: "Kartochkalarni takrorlang",
+      chMark: "Kun topshirig'i bajarildi", chDoneToday: "✅ Bugun hisoblandi — ertagacha!",
+      chFinished: function (n) { return "Challenge tugadi: 30 kundan " + n + " kun. " + (n >= 25 ? "Bu endi odat 🔥" : "Yana urinib ko'ring — maqsad 25+."); },
+      chRestart: "Qaytadan boshlash",
       declTitle: "🧾 Soliq deklaratsiyasi muddati yaqin",
       declBody: function (year, n) {
         return year + " yil uchun jurnalda " + n + " ta savdo bor. Yillik deklaratsiya " + (year + 1) +
@@ -322,7 +349,9 @@
     "forex_risk_profile_v1",
     "ftk_roadmap_diag_v1",
     "ftk_dom_best",
-    "ftk_drill_best"
+    "ftk_drill_best",
+    "forex_onboarding_v1",
+    "forex_challenge_v1"
   ];
   // Динамические ключи: состояние каждой из 104 карточек (ftk-flash-<idx>).
   // Захардкодить их все нельзя — колода растёт; собираем по префиксу.
@@ -342,7 +371,9 @@
     "forex_training_queue_v1": "array",
     "forex_data_meta_v1": "object",
     "forex_risk_profile_v1": "object",
-    "ftk_roadmap_diag_v1": "object"
+    "ftk_roadmap_diag_v1": "object",
+    "forex_onboarding_v1": "object",
+    "forex_challenge_v1": "object"
   };
   var pendingRestore = null;
 
@@ -610,6 +641,68 @@
     ].join("");
   }
 
+  // Челлендж 30 дней: старт — дата в forex_challenge_v1, день засчитан, если в
+  // fx-activity-v1 есть эта дата (любое учебное действие или кнопка «выполнено»).
+  // ponytail: задание дня не проверяет, что сделаны именно глава+расчёт+карточки —
+  // калькуляторы активность не пишут; честность на пользователе.
+  var CHALLENGE_DAYS = 30;
+  var CHALLENGE_CALCS = [
+    "tools/position-calculator/", "tools/margin-calculator/", "tools/pip-calculator/",
+    "tools/winrate-rr-calculator/", "tools/cost-calculator/", "tools/risk-exposure-calculator/",
+    "tools/drawdown-recovery/", "tools/compound-calculator/", "tools/sizing-drill/",
+    "tools/risk-of-ruin/"
+  ];
+
+  function challengeState(start, days, today) {
+    var s = new Date(start + "T00:00:00");
+    var t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    var day = Math.round((t - s) / DAY_MS) + 1;
+    var set = {};
+    (days || []).forEach(function (d) { set[d] = true; });
+    var cells = [];
+    var done = 0;
+    for (var i = 0; i < CHALLENGE_DAYS; i++) {
+      var c = new Date(s.getFullYear(), s.getMonth(), s.getDate() + i);
+      var st = set[dayStamp(c)] ? "done" : i < day - 1 ? "missed" : i === day - 1 ? "today" : "future";
+      if (st === "done") done++;
+      cells.push(st);
+    }
+    return { day: day, done: done, cells: cells, finished: day > CHALLENGE_DAYS };
+  }
+
+  window.__fxChallenge = function (start, days, isoDate) {
+    return challengeState(start, days, new Date(isoDate + "T12:00:00"));
+  };
+
+  function challengeBlock() {
+    var saved = readJSON("forex_challenge_v1", null);
+    var head = '<section class="sd-data-health" id="sd-challenge"><h3>' + safeText(T.chTitle) + "</h3>";
+    if (!saved || !/^\d{4}-\d{2}-\d{2}$/.test(saved.start || "")) {
+      return head + "<p>" + safeText(T.chIntro) + '</p><div class="sd-actions"><button type="button" id="sd-ch-start">' +
+        safeText(T.chStart) + "</button></div></section>";
+    }
+    var st = challengeState(saved.start, readJSON("fx-activity-v1", []), new Date());
+    var icons = { done: "✅", missed: "▫️", today: "🔸", future: "⬜" };
+    var grid = '<p class="sd-ch-grid" aria-hidden="true">' + st.cells.map(function (c) { return icons[c]; }).join("") + "</p>";
+    if (st.finished) {
+      return head + grid + "<p><strong>" + safeText(T.chFinished(st.done)) + '</strong></p><div class="sd-actions">' +
+        '<button type="button" id="sd-ch-start">' + safeText(T.chRestart) + "</button></div></section>";
+    }
+    var keys = Object.keys(CHAPTER_PATHS);
+    var chapter = navLink(CHAPTER_PATHS[keys[(st.day - 1) % keys.length]]);
+    var calc = navLink(CHALLENGE_CALCS[(st.day - 1) % CHALLENGE_CALCS.length]);
+    var todayDone = st.cells[st.day - 1] === "done";
+    return head + "<p><strong>" + safeText(T.chDay(st.day, st.done)) + "</strong></p>" + grid +
+      "<p>" + safeText(T.chTask) + ":</p><ol>" +
+      "<li>" + safeText(T.chRead) + ': <a href="' + chapter.href + '">' + safeText(chapter.title) + "</a></li>" +
+      "<li>" + safeText(T.chCalc) + ': <a href="' + calc.href + '">' + safeText(calc.title) + "</a></li>" +
+      '<li><a href="' + page("tools/flashcards/") + '">' + safeText(T.chFlash) + "</a></li></ol>" +
+      (todayDone
+        ? "<p>" + safeText(T.chDoneToday) + "</p>"
+        : '<div class="sd-actions"><button type="button" id="sd-ch-mark">' + safeText(T.chMark) + "</button></div>") +
+      "</section>";
+  }
+
   function declarationBlock() {
     var data = readJSON("forex_journal_data_v2", {});
     var state = declarationDue(new Date(), (data && data.rows) || []);
@@ -643,7 +736,7 @@
 
     root.innerHTML = [
       '<style>',
-      '.student-dashboard{margin:1.4rem 0}.sd-hero{padding:1.2rem 1.4rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(45,212,191,.08));margin-bottom:1rem}.sd-hero h2{margin:.1rem 0 .3rem}.sd-hero p{margin:.2rem 0;color:var(--md-default-fg-color--light)}.sd-level{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}.sd-pill{background:var(--md-default-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:999px;padding:.45rem .8rem;font-weight:700}.sd-bar{height:12px;background:var(--md-default-fg-color--lightest);border-radius:99px;overflow:hidden;margin-top:.8rem}.sd-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#22c55e);border-radius:99px}.sd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1rem 0}@media(max-width:700px){.sd-grid{grid-template-columns:1fr}}.sd-card{background:var(--md-code-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:12px;padding:1rem}.sd-card--ok{border-left:4px solid #22c55e}.sd-card--warn{border-left:4px solid #f59e0b}.sd-card__title{font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--md-default-fg-color--light);font-weight:700}.sd-card__value{font-size:1.55rem;font-weight:800;margin:.25rem 0;color:var(--md-primary-fg-color)}.sd-card__meta{font-size:.86rem;color:var(--md-default-fg-color--light);min-height:2.1em}.sd-card__link{display:inline-block;margin-top:.65rem;font-weight:700}.sd-next{border:1px solid rgba(45,212,191,.45);background:rgba(45,212,191,.08);border-radius:12px;padding:1rem 1.2rem;margin-top:1rem}.sd-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}.sd-actions button,.sd-actions label{display:inline-flex;align-items:center;gap:.35rem;border:0;border-radius:7px;padding:.58rem .9rem;background:var(--md-primary-fg-color);color:var(--md-primary-bg-color);font-weight:700;cursor:pointer;font:inherit}.sd-actions .sd-secondary{background:var(--md-code-bg-color);color:var(--md-default-fg-color);border:1px solid var(--md-default-fg-color--lightest)}.sd-actions input{display:none}.sd-note{font-size:.82rem;color:var(--md-default-fg-color--light);margin-top:.7rem}.sd-restore,.sd-data-health{margin-top:1rem;padding:1rem 1.1rem;border:1px solid rgba(59,130,246,.45);border-radius:12px;background:rgba(59,130,246,.07)}.sd-data-health.is-warning{border-color:#f59e0b;background:rgba(245,158,11,.08)}.sd-data-health h3,.sd-restore h3{margin:0 0 .65rem}.sd-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem 1rem;margin:.6rem 0 1rem;padding:0;list-style:none}.sd-preview li{padding:.35rem 0;border-bottom:1px solid var(--md-default-fg-color--lightest)}@media(max-width:600px){.sd-preview{grid-template-columns:1fr}}',
+      '.student-dashboard{margin:1.4rem 0}.sd-hero{padding:1.2rem 1.4rem;border:1px solid var(--md-default-fg-color--lightest);border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.16),rgba(45,212,191,.08));margin-bottom:1rem}.sd-hero h2{margin:.1rem 0 .3rem}.sd-hero p{margin:.2rem 0;color:var(--md-default-fg-color--light)}.sd-level{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}.sd-pill{background:var(--md-default-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:999px;padding:.45rem .8rem;font-weight:700}.sd-bar{height:12px;background:var(--md-default-fg-color--lightest);border-radius:99px;overflow:hidden;margin-top:.8rem}.sd-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#22c55e);border-radius:99px}.sd-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1rem 0}@media(max-width:700px){.sd-grid{grid-template-columns:1fr}}.sd-card{background:var(--md-code-bg-color);border:1px solid var(--md-default-fg-color--lightest);border-radius:12px;padding:1rem}.sd-card--ok{border-left:4px solid #22c55e}.sd-card--warn{border-left:4px solid #f59e0b}.sd-card__title{font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;color:var(--md-default-fg-color--light);font-weight:700}.sd-card__value{font-size:1.55rem;font-weight:800;margin:.25rem 0;color:var(--md-primary-fg-color)}.sd-card__meta{font-size:.86rem;color:var(--md-default-fg-color--light);min-height:2.1em}.sd-card__link{display:inline-block;margin-top:.65rem;font-weight:700}.sd-next{border:1px solid rgba(45,212,191,.45);background:rgba(45,212,191,.08);border-radius:12px;padding:1rem 1.2rem;margin-top:1rem}.sd-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}.sd-actions button,.sd-actions label{display:inline-flex;align-items:center;gap:.35rem;border:0;border-radius:7px;padding:.58rem .9rem;background:var(--md-primary-fg-color);color:var(--md-primary-bg-color);font-weight:700;cursor:pointer;font:inherit}.sd-actions .sd-secondary{background:var(--md-code-bg-color);color:var(--md-default-fg-color);border:1px solid var(--md-default-fg-color--lightest)}.sd-actions input{display:none}.sd-note{font-size:.82rem;color:var(--md-default-fg-color--light);margin-top:.7rem}.sd-restore,.sd-data-health{margin-top:1rem;padding:1rem 1.1rem;border:1px solid rgba(59,130,246,.45);border-radius:12px;background:rgba(59,130,246,.07)}.sd-data-health.is-warning{border-color:#f59e0b;background:rgba(245,158,11,.08)}.sd-data-health h3,.sd-restore h3{margin:0 0 .65rem}.sd-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem 1rem;margin:.6rem 0 1rem;padding:0;list-style:none}.sd-ch-grid{font-size:1.15rem;letter-spacing:.1rem;line-height:1.6;word-break:break-all}.sd-preview li{padding:.35rem 0;border-bottom:1px solid var(--md-default-fg-color--lightest)}@media(max-width:600px){.sd-preview{grid-template-columns:1fr}}',
       '</style>',
       '<div class="sd-hero">',
       '  <h2>' + safeText(T.title) + '</h2>',
@@ -670,6 +763,7 @@
         null, null,
         s.streak > 0 ? 'ok' : 'warn'),
       '</div>',
+      challengeBlock(),
       declarationBlock(),
       retakeBlock(),
       '<div class="sd-next"><strong>' + safeText(T.next) + ':</strong> <span id="sd-next-text">' + safeText(s.next) + '</span></div>',
@@ -693,6 +787,16 @@
     document.getElementById("sd-import").addEventListener("change", importData);
     document.getElementById("sd-reset").addEventListener("click", resetData);
     document.getElementById("sd-persist").addEventListener("click", requestPersistentStorage);
+    var chStart = document.getElementById("sd-ch-start");
+    if (chStart) chStart.addEventListener("click", function () {
+      try { localStorage.setItem("forex_challenge_v1", JSON.stringify({ start: dayStamp(new Date()) })); } catch (e) {}
+      render();
+    });
+    var chMark = document.getElementById("sd-ch-mark");
+    if (chMark) chMark.addEventListener("click", function () {
+      if (window.fxActivity) window.fxActivity();
+      render();
+    });
     updateStorageStatus();
   }
 
