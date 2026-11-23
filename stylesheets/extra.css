@@ -2159,6 +2159,20 @@ label[for="__drawer"].fx-menu-hint::after {
 .chapter-quiz__verdict p {
   margin: 0.4rem 0 0.7rem;
 }
+/* «Что дальше» после сданного квиза: следующий шаг по маршруту (chapter-quiz.js). */
+.chapter-quiz__next {
+  margin-top: 0.9rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--md-accent-fg-color);
+  background: rgba(45, 212, 191, 0.08);
+}
+.chapter-quiz__next p {
+  margin: 0.35rem 0;
+}
+.chapter-quiz__next[hidden] {
+  display: none;
+}
 .risk-budget__override {
   display: flex;
   gap: 0.5rem;
