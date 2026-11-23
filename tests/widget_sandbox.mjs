@@ -29,6 +29,7 @@ function stubElement() {
     hidden: false,
     className: "",
     style: {},
+    dataset: {},
     classList: { add() {}, remove() {}, contains: () => false, toggle() {} },
     addEventListener() {},
     removeEventListener() {},
