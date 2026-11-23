@@ -152,6 +152,10 @@
   color: var(--md-default-fg-color);
   line-height: 1.2;
 }
+.ftk-card-term--long {
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
 .ftk-card-hint {
   margin-top: 0.6rem;
   font-size: 0.8rem;
@@ -408,6 +412,17 @@
     {front:"Trading Journal",back:"Журнал сделок. Запись каждой сделки. Главный инструмент роста.",tags:["psychology","discipline"]}
   ];
 
+  /* ─────────── персональные карточки из ошибок ─────────── */
+  // Промахи экзамена и мини-квизов глав (javascripts/widgets/_mistake-cards.js).
+  // Прогресс — ftk-flash-m-<id>, а не по индексу: индексы базовой колоды не сдвигаются.
+  // Инлайн-скрипт выполняется раньше глобальных скриптов, поэтому ключ читаем сами.
+  var mistakes = [];
+  try { mistakes = JSON.parse(localStorage.getItem('forex_mistake_cards_v1') || '[]'); } catch (e) {}
+  (Array.isArray(mistakes) ? mistakes : []).forEach(function (m) {
+    if (m && m.id && m.q && m.a) CARDS.push({front: m.q, back: m.a + (m.explain ? ' — ' + m.explain : ''), tags: ['mistakes'], key: 'm-' + m.id});
+  });
+  function stateKey(idx) { return 'ftk-flash-' + ((CARDS[idx] && CARDS[idx].key) || idx); }
+
   /* ─────────── константы ─────────── */
   var LEARNED_THRESHOLD = 3; // сколько раз подряд нужно ответить «Знал»
 
@@ -415,14 +430,14 @@
   function getState(idx) {
     /* returns {streak: number} — количество успешных повторов подряд */
     try {
-      var raw = localStorage.getItem('ftk-flash-' + idx);
+      var raw = localStorage.getItem(stateKey(idx));
       if (raw) return JSON.parse(raw);
     } catch(e) {}
     return {streak: 0};
   }
 
   function setState(idx, obj) {
-    try { localStorage.setItem('ftk-flash-' + idx, JSON.stringify(obj)); } catch(e) {}
+    try { localStorage.setItem(stateKey(idx), JSON.stringify(obj)); } catch(e) {}
   }
 
   function getSessionStats() {
@@ -496,6 +511,7 @@
   // Собираем уникальные теги
   var tagSet = {};
   var tagLabelMap = {
+    'mistakes':     '🔁 Мои ошибки',
     'forex':        'Форекс: основы',
     'technical':    'Технический анализ',
     'risk':         'Риск-менеджмент',
@@ -533,7 +549,9 @@
     var opt = document.createElement('option');
     opt.value = t;
     opt.textContent = (tagLabelMap[t] || t) + ' (' + count + ')';
-    tagSelect.appendChild(opt);
+    // «Мои ошибки» — сразу после «Все», их ищут первыми.
+    if (t === 'mistakes') tagSelect.insertBefore(opt, tagSelect.options[1] || null);
+    else tagSelect.appendChild(opt);
   });
 
   /* ─────────── состояние виджета ─────────── */
@@ -632,6 +650,17 @@
         : '🆕 Новая карточка';
     elCardRep.textContent = streakTxt;
 
+    // Карточки из ошибок длиннее терминов: вопрос мельче, высота — по большей стороне.
+    elCardTerm.classList.toggle('ftk-card-term--long', card.front.length > 40);
+    // scrollHeight не годится: при justify-content:center верх переполнения теряется.
+    var faceH = 0;
+    [elFront, elBack].forEach(function (f) {
+      f.style.position = 'relative'; f.style.bottom = 'auto';
+      faceH = Math.max(faceH, f.offsetHeight);
+      f.style.position = ''; f.style.bottom = '';
+    });
+    elCard.style.minHeight = faceH + 'px';
+
     // убираем флип без анимации
     elCard.style.transition = 'none';
     elCard.classList.remove('flipped');
@@ -691,7 +720,7 @@
   document.getElementById('ftk-reset-btn').addEventListener('click', function() {
     if (!confirm('Сбросить весь прогресс карточек? Это удалит все результаты из браузера.')) return;
     for (var i = 0; i < CARDS.length; i++) {
-      try { localStorage.removeItem('ftk-flash-' + i); } catch(e) {}
+      try { localStorage.removeItem(stateKey(i)); } catch(e) {}
     }
     try {
       localStorage.removeItem('ftk-flash-streak');

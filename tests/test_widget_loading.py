@@ -31,7 +31,9 @@ WIDGETS = JS / "widgets"
 # glossary-tooltips — виджет по форме, но глобальный по сути: подсвечивает
 # термины глоссария на всех главах (docs/, practice/, growth/, uz/ × 3 локали),
 # а front matter для 120+ файлов не масштабируется.
-SHARED = {"_i18n", "_training-queue", "glossary-tooltips"}
+# _mistake-cards — хранилище карточек из ошибок: пишут экзамен и квизы глав
+# (40+ страниц), читает тренажёр карточек.
+SHARED = {"_i18n", "_training-queue", "_mistake-cards", "glossary-tooltips"}
 
 # Бюджет на JS, который грузится на КАЖДОЙ странице, в килобайтах gzip.
 # Сейчас ~21.5 KB; запас оставлен небольшой намеренно — самый лёгкий виджет
@@ -46,7 +48,11 @@ SHARED = {"_i18n", "_training-queue", "glossary-tooltips"}
 # 2026-11-10: бюджет 22.0 → 26.0. Тултипы глоссария (glossary-tooltips.js,
 # ~3.1 KB gzip) нужны на всех главах всех локалей — постраничное объявление
 # через `widgets:` означало бы правку 120+ файлов ради одного скрипта.
-GLOBAL_JS_BUDGET_KB = 26.0
+#
+# 2026-11-23: бюджет 26.0 → 27.0. Карточки из ошибок (_mistake-cards.js,
+# ~1.1 KB gzip) — хранилище, в которое пишут квизы 40+ глав во всех локалях;
+# постранично это снова правка 120+ front matter.
+GLOBAL_JS_BUDGET_KB = 27.0
 
 
 def global_widgets() -> set[str]:
