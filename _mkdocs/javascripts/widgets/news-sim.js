@@ -30,13 +30,10 @@
   var bank;
   try { bank = JSON.parse(document.getElementById("ns-scenarios").textContent); } catch (e) { return; }
   if (!Array.isArray(bank) || !bank.length) return;
-  // Вердикт идёт в имя CSS-класса: приводим к известному набору, а не доверяем
-  // тексту страницы (иначе это вставка DOM-текста в HTML без экранирования).
-  bank.forEach(function (sc) {
-    (sc.options || []).forEach(function (o) {
-      o.verdict = o.verdict === "best" ? "best" : o.verdict === "ok" ? "ok" : "bad";
-    });
-  });
+  // Вердикт идёт в имя CSS-класса: в разметку попадает только литерал из кода,
+  // а не текст страницы (CodeQL js/xss-through-dom считает весь банк из
+  // JSON.parse заражённым, и переприсваивание поля его не «очищает»).
+  function kind(v) { return v === "best" ? "best" : v === "ok" ? "ok" : "bad"; }
 
   var T = F.pick({
     ru: {
@@ -179,15 +176,15 @@
     var sc = bank[idx];
     var picked = options[i];
     var best = options.filter(function (o) { return o.verdict === "best"; })[0];
-    answers.push(picked.verdict);
-    if (picked.verdict === "bad" && best) {
+    answers.push(kind(picked.verdict));
+    if (kind(picked.verdict) === "bad" && best) {
       missed.push({ q: sc.event + " — " + sc.situation, a: best.text, explain: best.why, src: "news" });
     }
     root.innerHTML = head(sc) + '<div class="ns-options">' + options.map(function (o, j) {
-      return '<button type="button" class="ns-opt ns-' + o.verdict + (j === i ? " ns-picked" : "") + '" disabled>' +
+      return '<button type="button" class="ns-opt ns-' + kind(o.verdict) + (j === i ? " ns-picked" : "") + '" disabled>' +
         F.escape(o.text) + "</button>";
     }).join("") + "</div>" +
-      '<div class="ns-box ns-v-' + picked.verdict + '" aria-live="polite"><p><strong>' + F.escape(T.verdict[picked.verdict]) +
+      '<div class="ns-box ns-v-' + kind(picked.verdict) + '" aria-live="polite"><p><strong>' + F.escape(T.verdict[kind(picked.verdict)]) +
       ".</strong> " + F.escape(picked.why) + "</p>" +
       (picked !== best && best
         ? "<p><strong>" + F.escape(T.bestWas) + ":</strong> " + F.escape(best.text) + " — " + F.escape(best.why) + "</p>"
