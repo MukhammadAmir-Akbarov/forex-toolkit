@@ -46,6 +46,10 @@
       certResult: "Результат",
       certDate: "Дата",
       certNote: "Образовательное достижение — не финансовый совет",
+      shareBtn: "📤 Поделиться",
+      shareText: function (p) { return "Экзамен Forex Toolkit сдан на " + p + "% 🔥"; },
+      shareSaved: "Сертификат скачан, текст скопирован — вставь их в Telegram.",
+      shareDone: "Готово — спасибо, что делишься!",
     },
     en: {
       counter: function (i, n) { return "Question " + i + " of " + n; },
@@ -69,6 +73,10 @@
       certResult: "Score",
       certDate: "Date",
       certNote: "An educational achievement — not financial advice",
+      shareBtn: "📤 Share",
+      shareText: function (p) { return "Passed the Forex Toolkit exam with " + p + "% 🔥"; },
+      shareSaved: "Certificate downloaded and text copied — paste them into Telegram.",
+      shareDone: "Done — thanks for sharing!",
     },
     uz: {
       counter: function (i, n) { return i + " / " + n + " savol"; },
@@ -92,6 +100,10 @@
       certResult: "Natija",
       certDate: "Sana",
       certNote: "O'quv yutug'i — moliyaviy maslahat emas",
+      shareBtn: "📤 Ulashish",
+      shareText: function (p) { return "Forex Toolkit imtihoni " + p + "% bilan topshirildi 🔥"; },
+      shareSaved: "Sertifikat yuklab olindi, matn nusxalandi — ularni Telegramga joylang.",
+      shareDone: "Tayyor — ulashganingiz uchun rahmat!",
     },
   })[lang];
 
@@ -112,6 +124,7 @@
   var score = 0;
   var answered = false;
   var passedName = "";
+  var passedPct = 0;
   var missed = [];
 
   function shuffled(list) {
@@ -351,6 +364,7 @@
 
     if (passed && name) {
       passedName = name;
+      passedPct = pct;
       drawCertificate(name, pct);
       el("exam-cert-wrap").style.display = "block";
     }
@@ -433,5 +447,25 @@
   el("exam-start-btn").addEventListener("click", start);
   el("exam-next").addEventListener("click", next);
   el("exam-download-btn").addEventListener("click", download);
+
+  // «Поделиться» — через общий FXW.shareCanvas. Виджет не обязан зависеть от
+  // _i18n.js: нет хелпера — нет и кнопки, скачивание работает как раньше.
+  if (window.FXW && window.FXW.shareCanvas) {
+    var shareBtn = document.createElement("button");
+    shareBtn.type = "button";
+    shareBtn.className = "calc-button";
+    shareBtn.id = "exam-share-btn";
+    shareBtn.textContent = S.shareBtn;
+    var shareNote = document.createElement("p");
+    shareNote.setAttribute("aria-live", "polite");
+    el("exam-download-btn").insertAdjacentElement("afterend", shareBtn);
+    shareBtn.insertAdjacentElement("afterend", shareNote);
+    shareBtn.addEventListener("click", function () {
+      var text = S.shareText(passedPct) + "\n" + window.FXW.siteUrl();
+      window.FXW.shareCanvas(el("exam-cert"), "forex-certificate.png", text).then(function (how) {
+        shareNote.textContent = how === "shared" ? S.shareDone : how === "downloaded" ? S.shareSaved : "";
+      });
+    });
+  }
   showBest();
 })();
