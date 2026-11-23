@@ -30,6 +30,13 @@
   var bank;
   try { bank = JSON.parse(document.getElementById("ns-scenarios").textContent); } catch (e) { return; }
   if (!Array.isArray(bank) || !bank.length) return;
+  // Вердикт идёт в имя CSS-класса: приводим к известному набору, а не доверяем
+  // тексту страницы (иначе это вставка DOM-текста в HTML без экранирования).
+  bank.forEach(function (sc) {
+    (sc.options || []).forEach(function (o) {
+      o.verdict = o.verdict === "best" ? "best" : o.verdict === "ok" ? "ok" : "bad";
+    });
+  });
 
   var T = F.pick({
     ru: {
@@ -207,9 +214,9 @@
       '<div class="ns-box ns-v-' + (s.tier === "ready" ? "best" : s.tier === "almost" ? "ok" : "bad") + '"><p>' +
       F.escape(T.tier[s.tier]) + "</p></div>" +
       '<p class="ns-meta">' + F.escape(T.best(best)) + "</p>" +
-      (saved ? "<p>" + F.escape(T.mistakes(saved)) + ' <a href="' + window.FXMistakes.deckUrl() + '">' +
+      (saved ? "<p>" + F.escape(T.mistakes(saved)) + ' <a href="' + F.escape(window.FXMistakes.deckUrl()) + '">' +
         F.escape(T.mistakesLink) + "</a></p>" : "") +
-      '<p><a href="' + protocol + '">' + F.escape(T.protocol) + "</a></p>" +
+      '<p><a href="' + F.escape(protocol) + '">' + F.escape(T.protocol) + "</a></p>" +
       '<button type="button" class="ns-btn" id="ns-again">' + F.escape(T.again) + "</button>";
     document.getElementById("ns-again").addEventListener("click", start);
   }
