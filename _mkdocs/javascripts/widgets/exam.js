@@ -50,6 +50,8 @@
       shareText: function (p) { return "Экзамен Forex Toolkit сдан на " + p + "% 🔥"; },
       shareSaved: "Сертификат скачан, текст скопирован — вставь их в Telegram.",
       shareDone: "Готово — спасибо, что делишься!",
+      mistakes: function (n) { return "🔁 Ошибки добавлены во флеш-карточки: " + n + "."; },
+      mistakesLink: "Повторить →",
     },
     en: {
       counter: function (i, n) { return "Question " + i + " of " + n; },
@@ -77,6 +79,8 @@
       shareText: function (p) { return "Passed the Forex Toolkit exam with " + p + "% 🔥"; },
       shareSaved: "Certificate downloaded and text copied — paste them into Telegram.",
       shareDone: "Done — thanks for sharing!",
+      mistakes: function (n) { return "🔁 Misses added to your flashcards: " + n + "."; },
+      mistakesLink: "Review them →",
     },
     uz: {
       counter: function (i, n) { return i + " / " + n + " savol"; },
@@ -104,6 +108,8 @@
       shareText: function (p) { return "Forex Toolkit imtihoni " + p + "% bilan topshirildi 🔥"; },
       shareSaved: "Sertifikat yuklab olindi, matn nusxalandi — ularni Telegramga joylang.",
       shareDone: "Tayyor — ulashganingiz uchun rahmat!",
+      mistakes: function (n) { return "🔁 Xatolar flesh-kartochkalarga qo'shildi: " + n + " ta."; },
+      mistakesLink: "Takrorlash →",
     },
   })[lang];
 
@@ -297,7 +303,7 @@
       score++;
     } else {
       btn.classList.add("exam-wrong");
-      missed.push({ q: q.q, explain: q.explain });
+      missed.push({ q: q.q, a: q.options[q.answer], explain: q.explain });
     }
     el("exam-score").textContent = S.score(score);
     var ex = el("exam-explain");
@@ -348,12 +354,23 @@
           .join("") +
         "</ul>";
     }
+    // Промахи уходят в персональные флеш-карточки (_mistake-cards.js).
+    var saved = missed.length && window.FXMistakes
+      ? window.FXMistakes.add(missed.map(function (m) {
+        return { q: m.q, a: m.a, explain: m.explain, src: "exam" };
+      }))
+      : 0;
+    var mistakesNote = saved
+      ? "<p>" + escapeHtml(S.mistakes(saved)) + ' <a href="' + window.FXMistakes.deckUrl() + '">' +
+        escapeHtml(S.mistakesLink) + "</a></p>"
+      : "";
     var html =
       '<div class="calc-result ' + (passed ? "calc-ok" : "calc-warn") + '">' +
       "<h3>" + (passed ? S.passTitle(pct) : S.failTitle(pct)) + "</h3>" +
       "<p>" + (passed ? S.passBody : S.failBody) + "</p>" +
       (passed && !name ? "<p><strong>" + S.needName + "</strong></p>" : "") +
       review +
+      mistakesNote +
       chapterLinksHtml() +
       '<button class="calc-button" id="exam-retake">' + S.retake + "</button>" +
       "</div>";

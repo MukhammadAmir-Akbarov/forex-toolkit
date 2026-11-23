@@ -60,6 +60,9 @@ extra_javascript:
   # безопасно, но 38 KB gzip на каждой странице против 2.4 KB сейчас.
   - javascripts/widgets/_i18n.js
   - javascripts/widgets/_training-queue.js
+  # Карточки из ошибок: пишут экзамен и квизы глав (40+ страниц), читает
+  # тренажёр карточек — поэтому глобально, как очередь тренировок.
+  - javascripts/widgets/_mistake-cards.js
   - javascripts/hero.js
 
 plugins:
