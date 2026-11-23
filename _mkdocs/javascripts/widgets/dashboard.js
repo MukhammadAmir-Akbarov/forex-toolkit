@@ -436,7 +436,8 @@
     "ftk_drill_best",
     "forex_onboarding_v1",
     "forex_challenge_v1",
-    "forex_mistake_cards_v1"
+    "forex_mistake_cards_v1",
+    "ftk_news_best"
   ];
   // Динамические ключи: состояние каждой из 104 карточек (ftk-flash-<idx>).
   // Захардкодить их все нельзя — колода растёт; собираем по префиксу.

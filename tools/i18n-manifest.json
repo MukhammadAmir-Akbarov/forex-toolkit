@@ -360,10 +360,10 @@
     },
     "practice/news-trading-protocol.md": {
       "locales": {
-        "en": "fe41580dff2514d4dfa461c9dab015fa8c89d840856cdc350284156109fde3e4",
-        "uz": "fe41580dff2514d4dfa461c9dab015fa8c89d840856cdc350284156109fde3e4"
+        "en": "31e6063e229f3a212ac8accb49a63fd7a73c0fb1a3a88d21f57afc1d91eae708",
+        "uz": "31e6063e229f3a212ac8accb49a63fd7a73c0fb1a3a88d21f57afc1d91eae708"
       },
-      "ru_sha256": "fe41580dff2514d4dfa461c9dab015fa8c89d840856cdc350284156109fde3e4"
+      "ru_sha256": "31e6063e229f3a212ac8accb49a63fd7a73c0fb1a3a88d21f57afc1d91eae708"
     },
     "practice/scaling-in.md": {
       "locales": {
@@ -490,6 +490,13 @@
         "uz": "6404f82e03b6d517acd15098c222553368cf51d6308873a623b705613d31a035"
       },
       "ru_sha256": "6404f82e03b6d517acd15098c222553368cf51d6308873a623b705613d31a035"
+    },
+    "tools/news-simulator.md": {
+      "locales": {
+        "en": "f81efac750498560cf07d62f64f4dbb179b6c8ccc2f737bf8901674cc6f74c9f",
+        "uz": "f81efac750498560cf07d62f64f4dbb179b6c8ccc2f737bf8901674cc6f74c9f"
+      },
+      "ru_sha256": "f81efac750498560cf07d62f64f4dbb179b6c8ccc2f737bf8901674cc6f74c9f"
     },
     "tools/overfitting.md": {
       "locales": {

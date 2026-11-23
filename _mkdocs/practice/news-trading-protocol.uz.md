@@ -213,6 +213,10 @@ Haqiqiy harakat: narx 1.0760 ga tushdi — lekin siz allaqachon pozitsiyasiz
     *«Har bir yangilikni savdo qilish shart emas. Eng yaxshi savdo — o'tkazib yuborgan savdoyingiz,
     hisobingizni quritgan savdoyingiz emas.»*
 
+!!! tip "O'zingizni sinang"
+    Protokolni oltita real vaziyatda sinab ko'ring — CPI va NFP dan 2015-yilgi
+    Shveytsariya markaziy banki qaroriga qadar: [yangiliklar simulyatori](../tools/news-simulator.md).
+
 ---
 
 

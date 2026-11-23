@@ -192,6 +192,7 @@ plugins:
             "Сообщества": "Communities"
             "🎮 Тренажёр Replay": "🎮 Replay Trainer"
             "🕯️ Тренажёр паттернов": "🕯️ Pattern trainer"
+            "📰 Симулятор новостей": "📰 News simulator"
             "🎣 Почему бэктест врёт": "🎣 Why a backtest lies"
             "🌍 Перенос на другие пары": "🌍 Carrying over to other pairs"
             "🏁 Какая стратегия лучше": "🏁 Which strategy is better"
@@ -304,6 +305,7 @@ plugins:
             "Сообщества": "Hamjamiyatlar"
             "🎮 Тренажёр Replay": "🎮 Replay Mashqi"
             "🕯️ Тренажёр паттернов": "🕯️ Figuralar trenajyori"
+            "📰 Симулятор новостей": "📰 Yangiliklar simulyatori"
             "🎣 Почему бэктест врёт": "🎣 Bektest nega yolg'on gapiradi"
             "🌍 Перенос на другие пары": "🌍 Boshqa juftliklarga ko'chirish"
             "🏁 Какая стратегия лучше": "🏁 Qaysi strategiya yaxshiroq"
@@ -468,6 +470,7 @@ nav:
       - 💼 Жить с трейдинга: tools/living-capital.md
       - 🎮 Тренажёр Replay: tools/replay-trainer.md
       - 🕯️ Тренажёр паттернов: tools/pattern-trainer.md
+      - 📰 Симулятор новостей: tools/news-simulator.md
       - 🎣 Почему бэктест врёт: tools/overfitting.md
       - 🌍 Перенос на другие пары: tools/multipair.md
       - 📊 Волатильность и корреляции: tools/market-analytics.md
