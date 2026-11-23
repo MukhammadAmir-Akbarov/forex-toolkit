@@ -569,6 +569,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/multipair/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/news-simulator/</loc>
+        <lastmod>2026-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/news-simulator/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/news-simulator/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/news-simulator/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/overfitting/</loc>
         <lastmod>2026-11-23</lastmod>
         <changefreq>daily</changefreq>
@@ -1337,6 +1345,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/multipair/"/>
     </url>
     <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/news-simulator/</loc>
+        <lastmod>2026-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/news-simulator/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/news-simulator/"/>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/news-simulator/"/>
+    </url>
+    <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/overfitting/</loc>
         <lastmod>2026-11-23</lastmod>
         <changefreq>daily</changefreq>
@@ -2103,6 +2119,14 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/multipair/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/multipair/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/multipair/"/>
+    </url>
+    <url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/news-simulator/</loc>
+        <lastmod>2026-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/news-simulator/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/news-simulator/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/news-simulator/"/>
     </url>
     <url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz/tools/overfitting/</loc>
@@ -2927,6 +2951,13 @@
         <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/multipair/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/multipair/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/multipair/"/>
+    </url><url>
+        <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/news-simulator/</loc>
+        <lastmod>2026-11-23</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="uz" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/news-simulator/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/en/tools/news-simulator/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://mukhammadamir-akbarov.github.io/forex-toolkit/tools/news-simulator/"/>
     </url><url>
         <loc>https://mukhammadamir-akbarov.github.io/forex-toolkit/uz-cyrl/tools/overfitting/</loc>
         <lastmod>2026-11-23</lastmod>

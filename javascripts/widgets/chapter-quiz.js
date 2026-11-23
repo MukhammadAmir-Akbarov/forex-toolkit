@@ -28,7 +28,9 @@
       passedBody: "Глава отмечена прочитанной. Результат виден в общем кабинете.",
       failTitle: function (s) { return "Пока " + s + " из 3 — нужно 3 из 3."; },
       failBody: "Перечитай разделы по ошибкам выше и попробуй снова — это займёт минуту.",
-      retake: "↻ Пройти заново"
+      retake: "↻ Пройти заново",
+      mistakes: function (n) { return "🔁 Ошибки добавлены во флеш-карточки: " + n + "."; },
+      mistakesLink: "Повторить →"
     },
     en: {
       title: "Check yourself: 3 questions on this chapter",
@@ -41,7 +43,9 @@
       passedBody: "The chapter is marked as read. The result shows up in your dashboard.",
       failTitle: function (s) { return s + " of 3 so far — you need 3 of 3."; },
       failBody: "Re-read the sections behind the misses above and try again — it takes a minute.",
-      retake: "↻ Retake"
+      retake: "↻ Retake",
+      mistakes: function (n) { return "🔁 Misses added to your flashcards: " + n + "."; },
+      mistakesLink: "Review them →"
     },
     uz: {
       title: "O'zingni sinash: bob bo'yicha 3 ta savol",
@@ -54,7 +58,9 @@
       passedBody: "Bob o'qilgan deb belgilandi. Natija umumiy kabinetda ko'rinadi.",
       failTitle: function (s) { return "Hozircha 3 dan " + s + " — 3 dan 3 kerak."; },
       failBody: "Yuqoridagi xatolar bo'limga qarab qayta o'qing va yana urinib ko'ring — bir daqiqa oladi.",
-      retake: "↻ Qayta topshirish"
+      retake: "↻ Qayta topshirish",
+      mistakes: function (n) { return "🔁 Xatolar flesh-kartochkalarga qo'shildi: " + n + " ta."; },
+      mistakesLink: "Takrorlash →"
     }
   };
 
@@ -99,6 +105,12 @@
     if (btn) btn.click();
   }
 
+  // Адрес колоды берётся из DOM (ссылка логотипа) — перед вставкой в HTML экранируем.
+  function escHtml(v) {
+    return String(v).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
   function shuffled(list) {
     var a = list.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -126,6 +138,7 @@
     var idx = 0;
     var score = 0;
     var answered = false;
+    var missed = [];
 
     host.innerHTML =
       '<div class="chapter-quiz__box">' +
@@ -165,6 +178,7 @@
       });
       idx = 0;
       score = 0;
+      missed = [];
       el("cq-start").hidden = true;
       el("cq-result").hidden = true;
       el("cq-play").hidden = false;
@@ -200,7 +214,10 @@
         if (j === q.answer) buttons[j].classList.add("chapter-quiz__option--correct");
       }
       if (i === q.answer) score++;
-      else btn.classList.add("chapter-quiz__option--wrong");
+      else {
+        btn.classList.add("chapter-quiz__option--wrong");
+        missed.push({ q: q.q, a: q.options[q.answer], explain: q.explain, src: "quiz" });
+      }
       var explain = el("cq-explain");
       explain.textContent = q.explain;
       explain.hidden = false;
@@ -219,11 +236,14 @@
         if (window.fxActivity) window.fxActivity();
         if (window.fxTrack) window.fxTrack("chapter_quiz_passed");
       }
+      // Промахи уходят в персональные флеш-карточки (_mistake-cards.js).
+      var saved = missed.length && window.FXMistakes ? window.FXMistakes.add(missed) : 0;
       var result = el("cq-result");
       result.innerHTML =
         '<div class="chapter-quiz__verdict ' + (passed ? "is-pass" : "is-fail") + '">' +
         "<strong>" + (passed ? S.passedTitle : S.failTitle(score)) + "</strong>" +
         "<p>" + (passed ? S.passedBody : S.failBody) + "</p>" +
+        (saved ? "<p>" + S.mistakes(saved) + ' <a href="' + escHtml(window.FXMistakes.deckUrl()) + '">' + S.mistakesLink + "</a></p>" : "") +
         '<button type="button" class="chapter-quiz__btn" id="cq-retake">' + S.retake + "</button>" +
         "</div>";
       result.hidden = false;
