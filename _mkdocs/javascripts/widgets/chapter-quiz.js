@@ -105,6 +105,12 @@
     if (btn) btn.click();
   }
 
+  // Адрес колоды берётся из DOM (ссылка логотипа) — перед вставкой в HTML экранируем.
+  function escHtml(v) {
+    return String(v).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
   function shuffled(list) {
     var a = list.slice();
     for (var i = a.length - 1; i > 0; i--) {
@@ -237,7 +243,7 @@
         '<div class="chapter-quiz__verdict ' + (passed ? "is-pass" : "is-fail") + '">' +
         "<strong>" + (passed ? S.passedTitle : S.failTitle(score)) + "</strong>" +
         "<p>" + (passed ? S.passedBody : S.failBody) + "</p>" +
-        (saved ? "<p>" + S.mistakes(saved) + ' <a href="' + window.FXMistakes.deckUrl() + '">' + S.mistakesLink + "</a></p>" : "") +
+        (saved ? "<p>" + S.mistakes(saved) + ' <a href="' + escHtml(window.FXMistakes.deckUrl()) + '">' + S.mistakesLink + "</a></p>" : "") +
         '<button type="button" class="chapter-quiz__btn" id="cq-retake">' + S.retake + "</button>" +
         "</div>";
       result.hidden = false;
