@@ -192,6 +192,7 @@
 /* ── Streak section ── */
 .ftk-streak-block {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
   background: var(--md-default-bg-color);

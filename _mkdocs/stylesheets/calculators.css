@@ -752,3 +752,18 @@
 .fx-onb__q { border: 0; padding: 0; margin: 0 0 0.9rem; }
 .fx-onb__q label { display: block; padding: 0.25rem 0; cursor: pointer; }
 .fx-onboarding ol li { margin-bottom: 0.4rem; }
+
+/* Мобильная ширина: таблицы результатов шире экрана в 375px (сложный процент —
+   5 колонок, таблицы в предупреждениях). Material прокручивает только
+   markdown-таблицы без класса, а эти — сырой HTML, поэтому прокрутка своя. */
+@media screen and (max-width: 44.9375em) {
+  .pc-compound-table,
+  .calc-table {
+    display: block;
+    overflow-x: auto;
+  }
+  .pc-compound-table th,
+  .pc-compound-table td {
+    padding: 0.45rem 0.5rem;
+  }
+}
