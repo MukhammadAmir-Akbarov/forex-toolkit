@@ -58,5 +58,42 @@ window.FXW = (function () {
         return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
       });
     },
+
+    // Адрес главной в текущей локали (ссылка логотипа) — для подписи в шеринге.
+    siteUrl: function () {
+      var logo = document.querySelector(".md-header__button.md-logo");
+      return logo ? logo.href : location.origin + "/";
+    },
+
+    // Делится картинкой с canvas: где есть Web Share с файлами (телефоны,
+    // Safari) — системное меню «Поделиться» (Telegram, WhatsApp…), иначе PNG
+    // скачивается, а текст уходит в буфер обмена. PNG собирается синхронно:
+    // navigator.share работает только в пределах клика, а toBlob асинхронный.
+    // Возвращает Promise<"shared" | "cancelled" | "downloaded">.
+    shareCanvas: function (canvas, fileName, text) {
+      var url = canvas.toDataURL("image/png");
+      function download() {
+        var a = document.createElement("a");
+        a.download = fileName;
+        a.href = url;
+        a.click();
+        if (navigator.clipboard) navigator.clipboard.writeText(text).catch(function () {});
+        return "downloaded";
+      }
+      var file = null;
+      try {
+        var bin = atob(url.split(",")[1]);
+        var buf = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+        file = new File([buf], fileName, { type: "image/png" });
+      } catch (e) {}
+      if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+        return navigator.share({ files: [file], text: text }).then(
+          function () { return "shared"; },
+          function (e) { return e && e.name === "AbortError" ? "cancelled" : download(); }
+        );
+      }
+      return Promise.resolve(download());
+    },
   };
 })();
