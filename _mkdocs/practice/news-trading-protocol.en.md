@@ -241,6 +241,10 @@ Actual move: price fell to 1.0760 — but you're already out
     *"You don't have to trade every news event. The best trade is the one you skipped,
     rather than the one that emptied your account."*
 
+!!! tip "Test yourself"
+    Run the protocol through six real situations — from CPI and NFP to the Swiss
+    central bank decision of 2015: [news simulator](../tools/news-simulator.md).
+
 ---
 
 
