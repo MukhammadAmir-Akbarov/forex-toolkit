@@ -122,6 +122,8 @@ Birinchi haqiqiy hisobdan oldin tekshiring:
 
 Agar **hammasi** ☑ bo'lsa — realga o'tishingiz mumkin. Agar biron narsa **yo'q** bo'lsa — hali erta.
 
+🚦 Raqamli bandlarni avtomatik tekshiring: [«Realga tayyormanmi?»](../tools/demo-readiness.md).
+
 ---
 
 ## Realga o'tishdan oldin psixologik trening
