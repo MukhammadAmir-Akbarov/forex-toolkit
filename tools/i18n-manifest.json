@@ -255,10 +255,10 @@
     },
     "index.md": {
       "locales": {
-        "en": "4868d0b05cbc3ef52dfb397ceffba60949951fb73432a0ee034586f56fe5fc69",
-        "uz": "4868d0b05cbc3ef52dfb397ceffba60949951fb73432a0ee034586f56fe5fc69"
+        "en": "168fbd54998a1297d214f46cf9bf8fc81c76bca9c2aa9bd951f071dc9513f9e5",
+        "uz": "168fbd54998a1297d214f46cf9bf8fc81c76bca9c2aa9bd951f071dc9513f9e5"
       },
-      "ru_sha256": "4868d0b05cbc3ef52dfb397ceffba60949951fb73432a0ee034586f56fe5fc69"
+      "ru_sha256": "168fbd54998a1297d214f46cf9bf8fc81c76bca9c2aa9bd951f071dc9513f9e5"
     },
     "journal/README.md": {
       "locales": {
