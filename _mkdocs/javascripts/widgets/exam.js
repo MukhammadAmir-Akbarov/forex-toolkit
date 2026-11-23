@@ -361,7 +361,7 @@
       }))
       : 0;
     var mistakesNote = saved
-      ? "<p>" + escapeHtml(S.mistakes(saved)) + ' <a href="' + window.FXMistakes.deckUrl() + '">' +
+      ? "<p>" + escapeHtml(S.mistakes(saved)) + ' <a href="' + escapeHtml(window.FXMistakes.deckUrl()) + '">' +
         escapeHtml(S.mistakesLink) + "</a></p>"
       : "";
     var html =
